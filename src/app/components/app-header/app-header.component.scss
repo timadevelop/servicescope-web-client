@@ -1,0 +1,28 @@
+.app-header.ant-layout-header {
+  padding: 0;
+  box-shadow: 0 2px 5px #f0f1f2;
+  position: relative;
+  z-index: 10;
+}
+
+.header-menu {
+  border: none;
+  line-height: 62px;
+  padding: 0 24px;
+}
+
+.logo-col {
+  padding-left: 24px;
+  border-right: 0.5px solid #ebedf0;
+
+  .logo {
+    width: 120px;
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    font-weight: bold;
+    color: #523943;
+    margin: auto;
+    float: left;
+  }
+}

@@ -1,0 +1,29 @@
+<nz-header class="app-header">
+  <nz-row>
+    <nz-col [nzSpan]="20" [nzPush]="4">
+      <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu">
+        <li nz-menu-item>Home</li>
+        <li nz-menu-item>Features</li>
+        <li nz-menu-item>Pricing</li>
+        <li nz-menu-item>About</li>
+        <li nz-menu-item style="float: right" *ngIf="!user">Login</li>
+        <li nz-submenu style="float: right" *ngIf="user">
+          <span title><i nz-icon type="user"></i>Hello, user</span>
+          <ul>
+            <li nz-menu-item>Profile</li>
+            <li nz-menu-item>Settings</li>
+            <li nz-menu-item>Help</li>
+            <li nz-menu-item>Logout</li>
+          </ul>
+        </li>
+      </ul>
+    </nz-col>
+
+    <nz-col [nzSpan]="4" [nzPull]="20" class="logo-col">
+      <div class="logo">
+        LOGO
+      </div>
+    </nz-col>
+
+  </nz-row>
+</nz-header>
