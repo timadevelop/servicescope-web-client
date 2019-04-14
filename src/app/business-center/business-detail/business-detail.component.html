@@ -1,0 +1,14 @@
+<div *ngIf="business$ | async as business; else loading">
+  <h2>{{business.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{business.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="business.name" placeholder="name"/>
+    </label>
+  </div>
+  <a (click)="gotoBusinesses(business)">back</a>
+</div>
+
+<ng-template #loading>
+  Loading stuff...
+</ng-template>

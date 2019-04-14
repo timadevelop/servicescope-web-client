@@ -1,0 +1,14 @@
+<div *ngIf="employee$ | async as employee; else loading">
+  <h2>{{employee.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{employee.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="employee.name" placeholder="name"/>
+    </label>
+  </div>
+  <a (click)="gotoEmployees(employee)">back</a>
+</div>
+
+<ng-template #loading>
+  Loading stuff...
+</ng-template>

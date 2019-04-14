@@ -1,50 +1,57 @@
 <nz-layout class="app-layout">
   <app-header [user]="user"></app-header>
   <nz-layout class="main-wrapper-layout">
-      <nz-col [nzSpan]="20" [nzPush]="4">
-        <nz-layout class="main-content-layout">
-          <!-- style="padding:0 24px 24px"> -->
-          <!-- <nz-breadcrumb style="margin:14px 0;">
+    <nz-col [nzSpan]="20" [nzPush]="4">
+      <nz-layout class="main-content-layout">
+        <!-- style="padding:0 24px 24px"> -->
+        <!-- <nz-breadcrumb style="margin:14px 0;">
         <nz-breadcrumb-item>Home</nz-breadcrumb-item>
         <nz-breadcrumb-item>List</nz-breadcrumb-item>
         <nz-breadcrumb-item>App</nz-breadcrumb-item>
       </nz-breadcrumb> -->
-          <nz-content style="background:#fff; padding: 24px; min-height: 280px;">Content</nz-content>
-        </nz-layout>
-      </nz-col>
-      <nz-col [nzSpan]="4" [nzPull]="20">
-        <nz-sider class="main-sider">
-          <ul nz-menu [nzMode]="'inline'" style="height:100%">
-            <li nz-submenu>
-              <span title><i nz-icon type="user"></i>Users</span>
-              <ul>
-                <li nz-menu-item>option1</li>
-                <li nz-menu-item>option2</li>
-                <li nz-menu-item>option3</li>
-                <li nz-menu-item>option4</li>
-              </ul>
-            </li>
-            <li nz-submenu>
-              <span title><i nz-icon type="laptop"></i>Businesses</span>
-              <ul>
-                <li nz-menu-item>option5</li>
-                <li nz-menu-item>option6</li>
-                <li nz-menu-item>option7</li>
-                <li nz-menu-item>option8</li>
-              </ul>
-            </li>
-            <li nz-submenu>
-              <span title><i nz-icon type="notification"></i>Something</span>
-              <ul>
-                <li nz-menu-item>option9</li>
-                <li nz-menu-item>option10</li>
-                <li nz-menu-item>option11</li>
-                <li nz-menu-item>option12</li>
-              </ul>
-            </li>
-          </ul>
-        </nz-sider>
-      </nz-col>
+        <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
+          <div [@routeAnimation]="getAnimationData(routerOutlet)">
+            <router-outlet #routerOutlet="outlet"></router-outlet>
+          </div>
+        </nz-content>
+      </nz-layout>
+    </nz-col>
+    <nz-col [nzSpan]="4" [nzPull]="20">
+      <nz-sider class="main-sider">
+        <ul nz-menu [nzMode]="'inline'" style="height:100%">
+          <li nz-menu-item routerLink="/businesses" routerLinkActive="ant-menu-item-selected">Businesses</li>
+          <li nz-menu-item routerLink="/employees" routerLinkActive="ant-menu-item-selected">Employees</li>
+
+          <li nz-submenu>
+            <span title><i nz-icon type="user"></i>Users</span>
+            <ul>
+              <li nz-menu-item>option1</li>
+              <li nz-menu-item>option2</li>
+              <li nz-menu-item>option3</li>
+              <li nz-menu-item>option4</li>
+            </ul>
+          </li>
+          <li nz-submenu>
+            <span title><i nz-icon type="laptop"></i>Businesses</span>
+            <ul>
+              <li nz-menu-item>option5</li>
+              <li nz-menu-item>option6</li>
+              <li nz-menu-item>option7</li>
+              <li nz-menu-item>option8</li>
+            </ul>
+          </li>
+          <li nz-submenu>
+            <span title><i nz-icon type="notification"></i>Something</span>
+            <ul>
+              <li nz-menu-item>option9</li>
+              <li nz-menu-item>option10</li>
+              <li nz-menu-item>option11</li>
+              <li nz-menu-item>option12</li>
+            </ul>
+          </li>
+        </ul>
+      </nz-sider>
+    </nz-col>
   </nz-layout>
 </nz-layout>
 <nz-back-top></nz-back-top>

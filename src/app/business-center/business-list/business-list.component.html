@@ -1,0 +1,8 @@
+<h2>My Businesses</h2>
+<ul class="businesses">
+  <li *ngFor="let business of businesses$ | async"
+      [routerLink]="['./', business.id]"
+      [class.selected]="business.id === selectedId">
+    <span class="badge">{{business.id}}</span> {{business.name}}
+  </li>
+</ul>

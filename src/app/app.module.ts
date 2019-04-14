@@ -10,21 +10,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EmployeesModule } from './employees/employees.module';
+import { BusinessesModule } from './business-center/businesses.module';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    EmployeesModule,
+    BusinessesModule,
+    AppRoutingModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
