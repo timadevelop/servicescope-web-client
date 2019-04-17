@@ -13,6 +13,7 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EmployeesModule } from './employees/employees.module';
 import { BusinessesModule } from './business-center/businesses.module';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 registerLocaleData(en);
 
@@ -20,7 +21,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     AppHeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ComposeMessageComponent
   ],
   imports: [
     BrowserModule,

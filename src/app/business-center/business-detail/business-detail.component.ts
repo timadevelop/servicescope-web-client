@@ -28,7 +28,7 @@ export class BusinessDetailComponent implements OnInit {
     this.business$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getBusinesse(parseInt(params.get('id')))
-        )
+      )
     );
   }
 
@@ -37,7 +37,11 @@ export class BusinessDetailComponent implements OnInit {
     // Pass along the business id if available
     // so that the List component can select that hero.
     // Include a junk 'foo' property for fun.
-    this.router.navigate(['../', { id: heroId, foo: 'foo' }]);
+    this.router.navigate([
+      '../',
+      { id: heroId, foo: 'foo' },
+      { relativeTo: this.route }
+    ]);
   }
 
 }
