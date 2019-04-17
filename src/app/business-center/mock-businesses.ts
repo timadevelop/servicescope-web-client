@@ -1,6 +1,6 @@
-import { Businesse } from './business';
+import { Business } from './business';
 
-export const EMPLOYEES: Businesse[] = [
+export const EMPLOYEES: Business[] = [
   { id: 1, name: 'B Nice' },
   { id: 2, name: 'B Narco' },
   { id: 3, name: 'B Bombasto' },

@@ -1,4 +1,4 @@
-<div *ngIf="business$ | async as business; else loading">
+<div *ngIf="business else loading">
   <h2>{{business.name | uppercase}} Details</h2>
   <div><span>id: </span>{{business.id}}</div>
   <div>

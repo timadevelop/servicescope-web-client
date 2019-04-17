@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Businesse } from '../business';
-import { BusinesseService } from '../business.service';
+import { Business } from '../business';
+import { BusinessService } from '../business.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -11,11 +11,11 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./business-list.component.scss']
 })
 export class BusinessListComponent implements OnInit {
-  businesses$: Observable<Businesse[]>;
+  businesses$: Observable<Business[]>;
   selectedId: number;
 
 
-  constructor(private businessService: BusinesseService,
+  constructor(private businessService: BusinessService,
     private route: ActivatedRoute
   ) { }
 
@@ -23,8 +23,8 @@ export class BusinessListComponent implements OnInit {
     this.getBusinesses();
   }
 
-  // onSelect(business: Businesse): void {
-  //   this.selectedBusinesse = business;
+  // onSelect(business: Business): void {
+  //   this.selectedBusiness = business;
   // }
 
   getBusinesses(): void {

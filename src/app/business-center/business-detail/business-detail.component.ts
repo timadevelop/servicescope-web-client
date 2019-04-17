@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Businesse } from '../business';
+import { Business } from '../business';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { BusinesseService } from '../business.service';
+import { BusinessService } from '../business.service';
 import { Observable } from 'rxjs';
 import { DialogService } from 'src/app/dialog.service';
 
@@ -15,26 +15,33 @@ import { DialogService } from 'src/app/dialog.service';
 })
 export class BusinessDetailComponent implements OnInit {
 
-  @Input() business: Businesse;
+  // @Input() business: Business;
 
-  business$: Observable<Businesse>;
+  business: Business;
+  editName: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public dialogService: DialogService,
-    private service: BusinesseService) { }
+    private service: BusinessService) { }
 
   ngOnInit() {
     console.log('oninit');
-    this.business$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.service.getBusinesse(parseInt(params.get('id')))
-      )
-    );
+    this.route.data
+      .subscribe((data: { business: Business }) => {
+        this.editName = data.business.name;
+        this.business = data.business;
+      });
+
+    // this.business$ = this.route.paramMap.pipe(
+    //   switchMap((params: ParamMap) =>
+    //     this.service.getBusiness(parseInt(params.get('id')))
+    //   )
+    // );
   }
 
-  gotoBusinesses(business: Businesse) {
+  gotoBusinesses(business: Business) {
     let id = business ? business.id : null;
     // Pass along the business id if available
     // so that the List component can select that hero.
