@@ -4,6 +4,7 @@ import { BusinessListComponent } from './business-list/business-list.component';
 import { BusinessDetailComponent } from './business-detail/business-detail.component';
 import { BusinessCenterComponent } from './business-center/business-center.component';
 import { BusinessCenterHomeComponent } from './business-center-home/business-center-home.component';
+import { CanDeactivateGuard } from '../guards/can-deactivate.guard';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
           {
             path: ':id',
             component: BusinessDetailComponent,
+            canDeactivate: [CanDeactivateGuard],
             data: { animation: 'item' },
           },
           {

@@ -14,6 +14,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EmployeesModule } from './employees/employees.module';
 import { BusinessesModule } from './business-center/businesses.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { AdminModule } from './admin/admin.module';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthModule } from './auth/auth.module';
 
 registerLocaleData(en);
 
@@ -32,6 +35,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     EmployeesModule,
     BusinessesModule,
+    AdminModule,
+    AuthModule,
     AppRoutingModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
