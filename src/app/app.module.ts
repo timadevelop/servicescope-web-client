@@ -35,7 +35,6 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     EmployeesModule,
     BusinessesModule,
-    AdminModule,
     AuthModule,
     AppRoutingModule
   ],

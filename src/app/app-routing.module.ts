@@ -9,8 +9,9 @@ const routes: Routes = [
     component: ComposeMessageComponent,
     outlet: 'popup'
   },
-  {path: '', redirectTo: '/businesses', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent},
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule'},
+  { path: '', redirectTo: '/businesses', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
