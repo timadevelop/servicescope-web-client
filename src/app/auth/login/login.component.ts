@@ -1,6 +1,9 @@
-import { Component }   from '@angular/core';
-import { Router }      from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginApiRequest } from 'src/app/models/api-request/login-api-request.model';
 
 @Component({
   selector: 'app-login',
@@ -10,19 +13,40 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
   message: string;
 
-  constructor(public authService: AuthService, public router: Router) {
-    this.setMessage();
+  constructor(
+    private fb: FormBuilder,
+    public authService: AuthService,
+    public router: Router) {
   }
 
-  setMessage() {
-    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+  validateForm: FormGroup;
+
+  submitForm(): void {
+    for (const i in this.validateForm.controls) {
+      this.validateForm.controls[i].markAsDirty();
+      this.validateForm.controls[i].updateValueAndValidity();
+    }
+
+    if (this.validateForm.valid) {
+      const email = this.validateForm.controls['email'].value;
+      const password = this.validateForm.controls['password'].value;
+      this.login(email, password);
+    }
   }
 
-  login() {
-    this.message = 'Trying to log in ...';
+  ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      email: [null, [Validators.email, Validators.required]],
+      password: [null, [Validators.minLength(5), Validators.required]],
+    });
+  }
 
-    this.authService.login().subscribe(() => {
-      this.setMessage();
+  private login(email: string, password: string) {
+    const lar = new LoginApiRequest();
+    lar.email = email;
+    lar.password = password;
+
+    this.authService.login(lar).subscribe(() => {
       if (this.authService.isLoggedIn) {
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
@@ -36,6 +60,5 @@ export class LoginComponent {
 
   logout() {
     this.authService.logout();
-    this.setMessage();
   }
 }

@@ -1,18 +1,12 @@
 .app-layout {
   background: #fff;
+  max-width: 1300px;
+  margin: 0 auto;
   min-height: calc(100% - 45px);
 
-  .main-wrapper-layout {
+  .main-layout {
     padding: 40px 0 0;
-    background: #fff;
-  }
-
-  .main-sider {
-    border-right: .5px solid #e8e8e8;
-  }
-
-  .main-content-layout {
-    background: #fff;
+    background: rgb(207, 205, 205);
   }
 }
 

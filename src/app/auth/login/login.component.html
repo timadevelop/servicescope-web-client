@@ -1,6 +1,43 @@
-<h2>LOGIN</h2>
-<p>{{message}}</p>
-<p>
-  <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-  <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
-</p>
+<form *ngIf="!authService.isLoggedIn" nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-control nzHasFeedback>
+      <nz-input-group [nzPrefix]="prefixEmail">
+        <input nz-input formControlName="email" placeholder="Email" type="email" />
+      </nz-input-group>
+      <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
+        <ng-container *ngIf="validateForm.get('email')?.hasError('email')">
+          The input is not valid E-mail!
+        </ng-container>
+        <ng-container *ngIf="validateForm.get('email')?.hasError('required')">
+          Please input your E-mail!
+        </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzHasFeedback>
+      <nz-input-group [nzPrefix]="prefixLock">
+        <input type="password" nz-input formControlName="password" placeholder="Password" />
+      </nz-input-group>
+      <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors">
+          <ng-container *ngIf="validateForm.get('password')?.hasError('minlength')">
+            Use at least 5 characters for password
+          </ng-container>
+          <ng-container *ngIf="validateForm.get('password')?.hasError('required')">
+            Please input your password!
+          </ng-container>
+        </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <a class="login-form-forgot" class="login-form-forgot">Forgot password</a>
+      <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid">Log in</button>
+      Or
+      <a [routerLink]="['/register']"> register now!</a>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<ng-template #prefixEmail><i nz-icon type="mail"></i></ng-template>
+<ng-template #prefixLock><i nz-icon type="lock"></i></ng-template>

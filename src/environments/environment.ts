@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:9123/saas_api',
+  apiClientId: 'Hx9itbJfPAyBchKa7EwBZZAUJELYnoFHnaEYTG4N',
+  apiClientSecret: 'lgpQuKaalO5W6ePJVDFQF8JV7ygFiuaRxEtRo76i1zoikhnRYA7pM0ZIrI9kjM7nFK3DGxgNH8Ki3Gng4eYxqZ2B5Qz4qlYY2tPG4JryXbQNDA4y7kXKTimokcR5y1uF',
 };
 
 /*

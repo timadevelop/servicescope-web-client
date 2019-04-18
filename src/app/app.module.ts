@@ -9,14 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EmployeesModule } from './employees/employees.module';
 import { BusinessesModule } from './business-center/businesses.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { AdminModule } from './admin/admin.module';
-import { LoginComponent } from './auth/login/login.component';
 import { AuthModule } from './auth/auth.module';
+
+import { httpInterceptorProviders } from './interceptors';
 
 registerLocaleData(en);
 
@@ -29,8 +30,8 @@ registerLocaleData(en);
   ],
   imports: [
     BrowserModule,
-    NgZorroAntdModule,
     FormsModule,
+    NgZorroAntdModule,
     HttpClientModule,
     BrowserAnimationsModule,
     EmployeesModule,
@@ -38,7 +39,10 @@ registerLocaleData(en);
     AuthModule,
     AppRoutingModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
