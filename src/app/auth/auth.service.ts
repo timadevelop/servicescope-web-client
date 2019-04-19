@@ -125,6 +125,7 @@ export class AuthService {
 
     // Redirect the user
     let redirect = this.redirectUrl ? this.router.parseUrl(this.redirectUrl) : '/';
+    this.redirectUrl = null;
     this.router.navigateByUrl(redirect);
   }
 
