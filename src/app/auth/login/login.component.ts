@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginApiRequest } from 'src/app/models/api-request/login-api-request.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
+    public userService: UserService,
     public router: Router) {
   }
 
@@ -42,12 +44,11 @@ export class LoginComponent {
   }
 
   private login(email: string, password: string) {
-    const lar = new LoginApiRequest();
-    lar.email = email;
-    lar.password = password;
+    const lar = new LoginApiRequest(email, password);
 
-    this.authService.login(lar).subscribe(() => {
+    this.authService.login(lar).subscribe(result => {
       if (this.authService.isLoggedIn) {
+        this.userService.reloadCurrentUser();
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
         let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/admin';
@@ -56,9 +57,5 @@ export class LoginComponent {
         this.router.navigateByUrl(redirect);
       }
     });
-  }
-
-  logout() {
-    this.authService.logout();
   }
 }

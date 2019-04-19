@@ -11,9 +11,6 @@ import { RouterOutlet } from '@angular/router';
 
 export class AppComponent {
   title = 'saasWebClient';
-
-  user: any;
-
   getAnimationData(outlet: RouterOutlet) {
     return outlet &&
       outlet.activatedRouteData &&

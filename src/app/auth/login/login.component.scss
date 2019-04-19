@@ -1,11 +1,51 @@
-.login-form {
+$login-text-color: rgba(#000, .5);
+$login-link-color: $login-text-color;
+.login-container {
+  margin-top: 5%;
   max-width: 300px;
-}
 
-.login-form-forgot {
-  float: right;
-}
+  .login-form {
+    width: 100%;
+  }
 
-.login-form-button {
-  width: 100%;
+  > * {
+    text-align: center;
+  }
+  a, p {
+    color: $login-link-color;
+  }
+  a {
+    opacity: .9;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .login-header {
+    margin-bottom: 2em;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .login-form-forgot-section {
+    text-align: center;
+  }
+
+  .login-form-social-links {
+    a {
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .login-form-info {
+    font-size: .9em;
+  }
+
+  .login-form-button {
+    width: 100%;
+    height: 40px;
+  }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { tap, delay, mapTo, catchError } from 'rxjs/operators';
+import { tap, delay, mapTo, catchError, retry } from 'rxjs/operators';
 import { TokenInfo } from './models';
 import { User } from '../models/User.model';
 import { LoginApiRequest } from '../models/api-request/login-api-request.model';
@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RegisterApiRequest } from '../models/api-request/register-api-request.model';
 import { NzMessageService } from 'ng-zorro-antd';
+import { LogoutApiRequest } from '../models/api-request/logout-api-request.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,7 @@ export class AuthService {
   }
 
   public get authorizationToken(): string {
-    return `${this._tokenInfo.token_type} ${this._tokenInfo.access_token}`;
+    return this._tokenInfo ? `${this._tokenInfo.token_type} ${this._tokenInfo.access_token}` : null;
   }
 
   // Error handler
@@ -69,10 +70,8 @@ export class AuthService {
   public register(credentials: RegisterApiRequest): Observable<boolean> {
     return this.http.post<any>(`${environment.apiUrl}/registration/`, credentials)
       .pipe(
-        tap((_any: any) => this.login({
-          email: credentials.email,
-          password: credentials.password1
-        } as LoginApiRequest)),
+        tap((_any: any) =>
+          this.login(new LoginApiRequest(credentials.email, credentials.password1))),
         catchError(error => {
           this.handleError(error);
           return of(false);
@@ -81,7 +80,9 @@ export class AuthService {
   }
 
   public logout(): Observable<boolean> {
-    return this.http.post<any>(`${environment.apiUrl}/logout/`, {})
+    const logoutApiRequest: LogoutApiRequest = new LogoutApiRequest(this.authorizationToken);
+
+    return this.http.post<LogoutApiRequest>(`${environment.apiUrl}/auth/revoke-token/`, logoutApiRequest)
       .pipe(
         tap((_any: any) => this.clearUserInfo()),
         mapTo(true),
@@ -92,6 +93,7 @@ export class AuthService {
       );
   }
 
+  // TODO
   public refreshToken(): Observable<boolean> {
 
     const tokenInfo = this.getTokenInfo();
