@@ -1,0 +1,51 @@
+$register-text-color: rgba(#000, .5);
+$register-link-color: $register-text-color;
+.register-container {
+  margin-top: 5%;
+  max-width: 300px;
+
+  .register-form {
+    width: 100%;
+  }
+
+  > * {
+    text-align: center;
+  }
+  a, p {
+    color: $register-link-color;
+  }
+  a {
+    opacity: .9;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .register-header {
+    margin-bottom: 2em;
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .register-form-forgot-section {
+    text-align: center;
+  }
+
+  .register-form-social-links {
+    a {
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .register-form-info {
+    font-size: .9em;
+  }
+
+  .register-form-button {
+    width: 100%;
+    height: 40px;
+  }
+}

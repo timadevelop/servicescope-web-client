@@ -12,7 +12,6 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  message: string;
 
   constructor(
     private fb: FormBuilder,
@@ -46,16 +45,7 @@ export class LoginComponent {
   private login(email: string, password: string) {
     const lar = new LoginApiRequest(email, password);
 
-    this.authService.login(lar).subscribe(result => {
-      if (this.authService.isLoggedIn) {
-        this.userService.reloadCurrentUser();
-        // Get the redirect URL from our auth service
-        // If no redirect has been set, use the default
-        let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/admin';
-
-        // Redirect the user
-        this.router.navigateByUrl(redirect);
-      }
-    });
+    this.authService.login(lar)
+      .subscribe(_ => this.userService.reloadCurrentUser());
   }
 }

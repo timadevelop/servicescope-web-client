@@ -1,12 +1,8 @@
-import { UserRole } from "../UserRole.model";
-
 export class RegisterApiRequest {
-  email: string;
-  password1: string;
-  password2: string;
-  uid: string;
-  role: UserRole;
-  phone?: string;
-  first_name: string;
-  last_name: string;
+  constructor(public email: string,
+    public password1: string,
+    public password2: string,
+    public first_name: string,
+    public last_name: string,
+    public phone: string = '') {}
 }

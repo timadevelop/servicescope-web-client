@@ -9,18 +9,19 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RegisterApiRequest } from '../models/api-request/register-api-request.model';
 import { NzMessageService } from 'ng-zorro-antd';
 import { LogoutApiRequest } from '../models/api-request/logout-api-request.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private LOCALSTORAGE_TOKEN_INFO_KEY: string = 'TOKEN_INFO';
-  public kui = "HJAHAH";
-  public redirectUrl: string;
   private _tokenInfo: TokenInfo;
+  public redirectUrl: string;
 
   constructor(private http: HttpClient,
-    private messageService: NzMessageService) {
+    private messageService: NzMessageService,
+    private router: Router) {
     this.init();
   }
 
@@ -67,14 +68,14 @@ export class AuthService {
       );
   }
 
-  public register(credentials: RegisterApiRequest): Observable<boolean> {
-    return this.http.post<any>(`${environment.apiUrl}/registration/`, credentials)
+  public register(credentials: RegisterApiRequest): Observable<boolean | HttpErrorResponse> {
+    return this.http.post<any>(`${environment.apiUrl}/auth/registration/`, credentials)
       .pipe(
-        tap((_any: any) =>
-          this.login(new LoginApiRequest(credentials.email, credentials.password1))),
+        tap((_any: any) => true),
+        mapTo(true),
         catchError(error => {
           this.handleError(error);
-          return of(false);
+          return throwError(error);
         })
       );
   }
@@ -121,6 +122,10 @@ export class AuthService {
   private processSucceedLogin(tokenInfo: TokenInfo): void {
     this.storeTokenInfo(tokenInfo);
     this._tokenInfo = tokenInfo;
+
+    // Redirect the user
+    let redirect = this.redirectUrl ? this.router.parseUrl(this.redirectUrl) : '/';
+    this.router.navigateByUrl(redirect);
   }
 
   // Localstorage management
