@@ -10,14 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
-import { AppHeaderComponent } from './components/app-header/app-header.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { EmployeesModule } from './employees/employees.module';
-import { BusinessesModule } from './business-center/businesses.module';
-import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { AuthModule } from './auth/auth.module';
+import { AppHeaderComponent } from './app-components/app-header/app-header.component';
+import { PageNotFoundComponent } from './app-components/page-not-found/page-not-found.component';
+import { EmployeesModule } from './modules/employees/employees.module';
+import { BusinessesModule } from './modules/business-center/businesses.module';
+import { ComposeMessageComponent } from './app-components/compose-message/compose-message.component';
+import { AuthModule } from './modules/auth/auth.module';
 
-import { httpInterceptorProviders } from './interceptors';
+import { httpInterceptorProviders } from './shared/interceptors';
 
 registerLocaleData(en);
 

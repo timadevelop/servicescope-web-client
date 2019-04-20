@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { AuthGuard } from './auth/auth.guard';
+import { PageNotFoundComponent } from './app-components/page-not-found/page-not-found.component';
+import { ComposeMessageComponent } from './app-components/compose-message/compose-message.component';
+import { AuthGuard } from './modules/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,12 +12,12 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: './admin/admin.module#AdminModule',
+    loadChildren: './modules/admin/admin.module#AdminModule',
     canLoad: [AuthGuard]
   },
   {
     path: 'profiles',
-    loadChildren: './profile/profile.module#ProfileModule',
+    loadChildren: './modules/profile/profile.module#ProfileModule',
     canLoad: [AuthGuard]
   },
   { path: '', redirectTo: '/businesses', pathMatch: 'full' },
