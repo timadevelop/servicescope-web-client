@@ -26,6 +26,10 @@ export class UserService {
     return this._currentUser;
   }
 
+  public getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${environment.apiUrl}/users/${id}/`);
+  }
+
   public reloadCurrentUser(): void {
     if (!this.authService.isLoggedIn) {
       console.warn('Trying to get current user while client is not logged in.');

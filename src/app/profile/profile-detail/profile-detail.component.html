@@ -1,0 +1,41 @@
+<nz-page-header *ngIf="user" [nzTitle]="getUsername()">
+  <nz-breadcrumb nz-page-header-breadcrumb>
+    <nz-breadcrumb-item [routerLink]="['../']">Profiles</nz-breadcrumb-item>
+    <nz-breadcrumb-item>{{getUsername()}} Profile</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <nz-page-header-content>
+    <div class="wrap">
+      <div class="content">
+        <div class="content">
+          <labeled-text label="User bio" [text]="user.bio || 'no bio'"></labeled-text>
+          <labeled-text label="Description"
+            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste doloremque voluptatum beatae error minima ipsum neque nobis magnam accusantium adipisci quibusdam, eaque, ullam saepe officiis fugit aperiam quasi quas quam.">
+          </labeled-text>
+          <p class="content-link">
+            <a [href]="getUserEmailLink()">
+              <img src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg" alt="start">Send Email</a>
+            <a>
+              <img src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" alt="info">Report</a>
+            <a>
+              <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc">Write a review</a>
+          </p>
+        </div>
+      </div>
+      <div class="extra-content">
+        <img src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+          alt="content">
+      </div>
+    </div>
+  </nz-page-header-content>
+  <nz-page-header-footer>
+    <nz-tabset [nzSelectedIndex]="selectedTabsIndex">
+      <nz-tab (nzClick)="navigateTo('services')" nzTitle="Services"></nz-tab>
+      <nz-tab (nzClick)="navigateTo('posts')" nzTitle="Posts"></nz-tab>
+      <nz-tab (nzClick)="navigateTo('offers')" nzTitle="Offers"></nz-tab>
+      <nz-tab (nzClick)="navigateTo('reviews')" nzTitle="Reviews"></nz-tab>
+    </nz-tabset>
+  </nz-page-header-footer>
+</nz-page-header>
+<nz-card class="profile-tabs-card">
+  <router-outlet></router-outlet>
+</nz-card>

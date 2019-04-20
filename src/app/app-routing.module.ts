@@ -15,6 +15,11 @@ const routes: Routes = [
     loadChildren: './admin/admin.module#AdminModule',
     canLoad: [AuthGuard]
   },
+  {
+    path: 'profiles',
+    loadChildren: './profile/profile.module#ProfileModule',
+    canLoad: [AuthGuard]
+  },
   { path: '', redirectTo: '/businesses', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

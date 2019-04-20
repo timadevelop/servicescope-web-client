@@ -26,7 +26,7 @@ registerLocaleData(en);
     AppComponent,
     AppHeaderComponent,
     PageNotFoundComponent,
-    ComposeMessageComponent
+    ComposeMessageComponent,
   ],
   imports: [
     BrowserModule,

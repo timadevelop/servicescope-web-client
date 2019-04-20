@@ -23,11 +23,9 @@ export class BusinessDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public dialogService: DialogService,
-    private service: BusinessService) { }
+    public dialogService: DialogService) { }
 
   ngOnInit() {
-    console.log('oninit');
     this.route.data
       .subscribe((data: { business: Business }) => {
         this.editName = data.business.name;

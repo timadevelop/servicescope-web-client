@@ -1,0 +1,17 @@
+.labeled-text {
+  margin-bottom: 1em;
+
+  > * {
+    margin: 0;
+    line-height: 100%;
+  }
+
+  .labeled-text-label {
+    font-size: small;
+    opacity: .8;
+  }
+
+  .labeled-text-text {
+    font-weight: 400;
+  }
+}
