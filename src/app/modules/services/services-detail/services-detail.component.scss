@@ -1,0 +1,90 @@
+.service-card {
+  border: 2px solid rgb(235, 237, 240);
+
+  [nz-carousel-content] {
+    text-align: center;
+    height: 360px;
+    line-height: 360px;
+    background: #364d79;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  h3 {
+    color: #fff;
+  }
+
+  .service-top-buttons {
+    padding: 0 12px;
+    position: absolute;
+    top: 360px - 32px / 2;
+    width: calc(100% - 12px);
+  }
+
+  .service-author-info {
+    text-align: center;
+  }
+
+  .service-info {
+    padding: 12px;
+
+    .service-title {
+      display: inline-block;
+      font-weight: bold;
+      margin-bottom: 0px;
+    }
+    .service-description {
+      margin-bottom: 10px;
+    }
+    .service-buttons {
+      > * {
+        float: right;
+      }
+    }
+    .service-info-location-date {
+      span {
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+
+// .wrap {
+//   display: flex;
+// }
+
+// .content {
+//   flex: 1;
+// }
+
+// .content p {
+//   margin-bottom: 8px;
+// }
+
+// .content-links {
+//   padding-top: 16px;
+//   a {
+//     $margin-between: 32px;
+
+//     display: inline-block;
+//     vertical-align: text-top;
+//     margin-right: $margin-between / 2;
+//     line-height: 20px;
+//     &:not(:first-child) {
+//       padding-left: $margin-between / 2;
+//       border-left: 1px solid #ebedf0;
+//     }
+//     .anticon {
+//       margin-right: $margin-between / 4;
+//       font-size: 16px;
+//     }
+//   }
+// }
+// .extra-content {
+//   min-width: 240px;
+//   text-align: right;
+// }
+
+// .services-tabs-card {
+//   margin-top: 1em;
+// }
