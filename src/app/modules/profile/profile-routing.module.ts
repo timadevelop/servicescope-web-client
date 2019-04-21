@@ -10,6 +10,7 @@ import { ProfilePostsListComponent } from './profile-detail/profile-posts-list/p
 import { ProfileOffersListComponent } from './profile-detail/profile-offers-list/profile-offers-list.component';
 import { ProfileReviewsListComponent } from './profile-detail/profile-reviews-list/profile-reviews-list.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { UsersListResolverService } from './users-list-resolver.service';
 
 const profileRoutes: Routes = [
   {
@@ -28,7 +29,7 @@ const profileRoutes: Routes = [
             resolve: {
               user: ProfileResolverService
             },
-            data: { animation: 'item' },
+            // data: { animation: 'item' },
             children: [
               {
                 path: '',
@@ -56,7 +57,11 @@ const profileRoutes: Routes = [
           {
             path: '',
             component: ProfileListComponent,
-            data: { animation: 'items' },
+            resolve: {
+              users: UsersListResolverService
+            },
+            runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+            // data: { animation: 'items' },
           }
         ]
       }

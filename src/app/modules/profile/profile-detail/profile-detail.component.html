@@ -1,7 +1,7 @@
 <nz-page-header *ngIf="user" [nzTitle]="getUsername()">
   <nz-breadcrumb nz-page-header-breadcrumb>
-    <nz-breadcrumb-item [routerLink]="['../']">Profiles</nz-breadcrumb-item>
-    <nz-breadcrumb-item>{{getUsername()}} Profile</nz-breadcrumb-item>
+    <nz-breadcrumb-item [routerLink]="['../']"><a>Profiles</a></nz-breadcrumb-item>
+    <nz-breadcrumb-item>{{getUsername()}}</nz-breadcrumb-item>
   </nz-breadcrumb>
   <nz-page-header-content>
     <div class="wrap">
@@ -17,13 +17,13 @@
             <a>
               <img src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" alt="info">Report</a>
             <a>
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc">Write a review</a>
+              <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc">Write a
+              review</a>
           </p>
         </div>
       </div>
       <div class="extra-content">
-        <img src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
-          alt="content">
+        <app-profile-avatar-uploader [user]="user"></app-profile-avatar-uploader>
       </div>
     </div>
   </nz-page-header-content>

@@ -65,5 +65,4 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
   navigateTo(subRoute: string): void {
     this.router.navigate([`./${subRoute}`], { relativeTo: this.route });
   }
-
 }

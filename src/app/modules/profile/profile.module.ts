@@ -13,6 +13,7 @@ import { ProfilePostsListComponent } from './profile-detail/profile-posts-list/p
 import { ProfileOffersListComponent } from './profile-detail/profile-offers-list/profile-offers-list.component';
 import { ProfileReviewsListComponent } from './profile-detail/profile-reviews-list/profile-reviews-list.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ProfileAvatarUploaderComponent } from './profile-detail/profile-avatar-uploader/profile-avatar-uploader.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SharedModule } from '../../shared/shared.module';
     ProfileServicesListComponent,
     ProfilePostsListComponent,
     ProfileOffersListComponent,
-    ProfileReviewsListComponent
+    ProfileReviewsListComponent,
+    ProfileAvatarUploaderComponent
   ],
   imports: [
     CommonModule,

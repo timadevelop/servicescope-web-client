@@ -1,11 +1,14 @@
 import { Base } from './Base.model';
+import { Url } from 'url';
 
 export class User extends Base {
   email: string;
   phone: string;
   bio: string;
-  new_appeals_count: number;
   first_name: string;
   last_name: string;
-  income_appeals?: Array<any>;
+  image: Url;
+
+  services_count: number;
+  posts_count: number;
 }

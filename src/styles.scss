@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+.ant-menu-submenu-title .ant-avatar {
+  margin-right: 5px;
+  .anticon {
+    margin-right: 0 !important;
+  }
+}
+
+.avatar-uploader {
+  &.no-hover .ant-upload:hover {
+    border-color: grey;
+  }
+  .ant-upload {
+    margin: auto;
+    padding: 0px !important;
+    border-radius: 50%;
+    border-width: 2px;
+
+  }
+}

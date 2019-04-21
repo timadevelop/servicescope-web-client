@@ -1,3 +1,6 @@
+import { Url } from 'url';
+
 export class Base {
-  url: string; // TODO
+  url: Url;
+  id: number;
 }

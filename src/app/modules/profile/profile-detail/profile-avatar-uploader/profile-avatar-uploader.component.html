@@ -1,0 +1,12 @@
+<div [nzTitle]="userService.currentUser && userService.currentUser.id === user.id ? 'Change Avatar' : ''"
+  nzPlacement="topCenter" nz-tooltip>
+  <nz-upload class="avatar-uploader" [nzCustomRequest]="uploadAvatar" nzName="avatar" nzListType="picture-card"
+    [nzShowUploadList]="false" [nzBeforeUpload]="beforeUpload" (nzChange)="handleChange($event)"
+    [nzDisabled]="!userService.currentUser || userService.currentUser.id !== user.id"
+    [class.no-hover]="!userService.currentUser || userService.currentUser.id !== user.id">
+    <!-- <div class="avatar"> -->
+      <img class="avatar" [ngStyle]="getAvatarStyles()" />
+    <!-- </div> -->
+  </nz-upload>
+  <i class="upload-icon" *ngIf="loading" nz-icon nzType="loading"></i>
+</div>

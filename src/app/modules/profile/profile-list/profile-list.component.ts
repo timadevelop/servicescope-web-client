@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/shared/models/User.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
 
 @Component({
   selector: 'app-profile-list',
@@ -6,24 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-list.component.scss']
 })
 export class ProfileListComponent implements OnInit {
-  data: any[] = [];
+  paginatedUsers: PaginatedApiResponse<User>;
+  pageSize: number = 10;
+  page: number = 1;
 
-  constructor() { }
+  constructor(
+    public route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.loadData(1);
+    // this.loadData(1);
+    this.route.queryParamMap.subscribe(params => {
+      this.pageSize = +params.get('pageSize') || this.pageSize;
+      this.page = +params.get('page') || this.page;
+    })
+
+    this.route.data
+      .subscribe((data: { users: PaginatedApiResponse<User> }) => {
+        this.paginatedUsers = data.users;
+        console.log(this.paginatedUsers);
+      });
   }
 
   loadData(pi: number): void {
-    this.data = new Array(5).fill({}).map((_, index) => {
-      return {
-        href: `./${index}`,
-        title: `ant design part ${index} (page: ${pi})`,
-        avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-        description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-        content:
-          'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.'
-      };
-    });
+    this.router.navigate(['./profiles'], { queryParams: {page: pi, pageSize: this.pageSize} });
   }
 }
