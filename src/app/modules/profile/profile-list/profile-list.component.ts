@@ -27,7 +27,6 @@ export class ProfileListComponent implements OnInit {
     this.route.data
       .subscribe((data: { users: PaginatedApiResponse<User> }) => {
         this.paginatedUsers = data.users;
-        console.log(this.paginatedUsers);
       });
   }
 

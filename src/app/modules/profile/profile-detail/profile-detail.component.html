@@ -11,15 +11,12 @@
           <labeled-text label="Description"
             text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste doloremque voluptatum beatae error minima ipsum neque nobis magnam accusantium adipisci quibusdam, eaque, ullam saepe officiis fugit aperiam quasi quas quam.">
           </labeled-text>
-          <p class="content-link">
+          <div class="content-links">
             <a [href]="getUserEmailLink()">
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg" alt="start">Send Email</a>
-            <a>
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" alt="info">Report</a>
-            <a>
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc">Write a
-              review</a>
-          </p>
+              <i nz-icon nzType="mail"></i>Send Email</a>
+            <a *ngIf="user.phone" (click)="showPhoneNumber($event)" [href]="showPhone ? 'tel:' + phoneText: ''">
+              <i nz-icon nzType="phone"></i>{{phoneText}}</a>
+          </div>
         </div>
       </div>
       <div class="extra-content">

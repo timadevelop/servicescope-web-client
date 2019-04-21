@@ -14,20 +14,25 @@ nz-page-header {
   margin-bottom: 8px;
 }
 
-.content-link {
+.content-links {
   padding-top: 16px;
-}
+  a {
+    $margin-between: 32px;
 
-.content-link a {
-  display: inline-block;
-  vertical-align: text-top;
-  margin-right: 32px;
+    display: inline-block;
+    vertical-align: text-top;
+    margin-right: $margin-between / 2;
+    line-height: 20px;
+    &:not(:first-child) {
+      padding-left: $margin-between / 2;
+      border-left: 1px solid #ebedf0;
+    }
+    .anticon {
+      margin-right: $margin-between / 4;
+      font-size: 16px;
+    }
+  }
 }
-
-.content-link a img {
-  margin-right: 8px;
-}
-
 .extra-content {
   min-width: 240px;
   text-align: right;
