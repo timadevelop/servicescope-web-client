@@ -1,6 +1,7 @@
 import { Base } from './Base.model';
 import { User } from './User.model';
 import { Url } from 'url';
+import { Tag } from './Tag.models';
 
 export class ServiceImage extends Base {
   service: Url
@@ -22,4 +23,5 @@ export class Service extends Base {
   is_promoted: boolean;
   created_at: Date; // TODO
   updated_at: Date;
+  tags: Array<Tag>;
 }

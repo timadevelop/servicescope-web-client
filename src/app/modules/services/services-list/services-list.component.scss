@@ -1,3 +1,17 @@
+@import "~src/variables";
+
 nz-page-header {
   border: 1px solid rgb(235, 237, 240);
+}
+.service-list-item {
+  align-items: flex-start;
+
+  .service-list-item-price {
+    color: $primary-color;
+    font-weight: bold;
+    opacity: 0.8;
+    &:hover {
+      cursor: default;
+    }
+  }
 }

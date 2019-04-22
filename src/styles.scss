@@ -2,7 +2,7 @@
 
 @import "~src/variables";
 * {
-  color:$main-text-color;
+  // color:$main-text-color;
   // antd-done this work for us
   // font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
   //   "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -27,8 +27,12 @@
   }
 }
 
+.ant-tag {
+  background: #fff;
+}
+
 .title {
-  font-size: 15px;
+  // font-size: 15px;
   color: $dark-grey-color;
   font-weight: bold;
   margin-bottom: 7px;

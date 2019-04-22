@@ -6,32 +6,6 @@
   <nz-page-header-content>
     <nz-list [nzDataSource]="paginatedServices ? paginatedServices?.results : []" [nzItemLayout]="'horizontal'"
       [nzRenderItem]="service" [nzPagination]="pagination" [nzFooter]="footer">
-      <ng-template #service let-service>
-        <nz-list-item [nzContent]="service.description || 'Super doper bio'" [nzActions]="[starAction, likeAction, msgAction]">
-          <ng-template #starAction>
-            <!-- <span nz-tooltip nzTitle="Services" [routerLink]="['/services', service.id, 'comments']">
-              <i nz-icon type="tool" style="margin-right: 8px;"></i>11
-            </span> -->
-          </ng-template>
-          <ng-template #likeAction>
-            <!-- <span nz-tooltip nzTitle="Posts" [routerLink]="['/services', service.id, 'posts']">
-              <i nz-icon type="align-left" style="margin-right: 8px;"></i>{{service.posts_count}}
-            </span> -->
-          </ng-template>
-          <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template>
-          <nz-list-item-meta
-            [nzAvatar]="service?.images[0] ? service.images[0].image : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'"
-            [nzTitle]="nzTitle" [nzDescription]="service.description || 'Super desc'">
-            <ng-template #nzTitle>
-              <a [routerLink]="['/services', service.id]">{{ service.title }}</a>
-            </ng-template>
-          </nz-list-item-meta>
-          <ng-template #extra>
-            <!-- haha -->
-            <!-- <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" /> -->
-          </ng-template>
-        </nz-list-item>
-      </ng-template>
       <ng-template #footer>
         <!-- <div><b>ant design</b> footer part</div> -->
       </ng-template>
@@ -42,3 +16,59 @@
     </nz-list>
   </nz-page-header-content>
 </nz-page-header>
+
+<ng-template #service let-service>
+  <nz-list-item class="service-list-item" [nzContent]="null" [nzActions]="[postedAction, priceAction]">
+    <!-- Actions -->
+    <ng-template #postedAction>
+      <div nz-tooltip nzTitle="Добавена">
+        <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
+      </div>
+    </ng-template>
+    <ng-template #priceAction>
+      <div class="service-list-item-price" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
+          style="margin-right: 8px;"></i>{{service.price + ' ' + service.price_currency}}</div>
+    </ng-template>
+
+    <!-- List item meta -->
+    <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="nzTitle" [nzDescription]="description" style="align-content: stretch;">
+      <!-- Templates for list item -->
+      <ng-template #avatar>
+        <nz-avatar [nzSize]="128" nzShape="square"
+          [nzSrc]="service?.images[0] ? service.images[0].image : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'">
+        </nz-avatar>
+      </ng-template>
+      <ng-template #description>
+        <div nz-col class="list-item-description" nzType="flex" nzAlign="space-between">
+          <ng-container *ngTemplateOutlet="tags"></ng-container>
+          <div class="service-list-item-general-info">
+            <p>{{service.description | slice:0:100 }}{{service.description.length > 100 ? '...' : ''}}</p>
+          </div>
+          <div>
+            <span style="margin-left: 3px;"><i style="margin-right: 3px;" nz-icon nzType="global"></i>гр. София, обл.
+              София</span>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #tags>
+        <div class="service-tags">
+          <nz-tag [routerLink]="['/tags', tag.id]" *ngFor="let tag of service.tags">
+            {{tag.name}}
+          </nz-tag>
+        </div>
+      </ng-template>
+      <ng-template #nzTitle>
+        <h2>
+          <a class="title" [routerLink]="['/services', service.id]">{{ service.title }}</a>
+        </h2>
+      </ng-template>
+      <!--  -->
+    </nz-list-item-meta>
+
+    <!-- Extra -->
+    <ng-template #extra>
+      <p>Some</p>
+    </ng-template>
+  </nz-list-item>
+</ng-template>

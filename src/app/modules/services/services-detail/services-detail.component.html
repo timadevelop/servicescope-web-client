@@ -35,10 +35,8 @@
         </div>
         <small>Номер на обявата: {{service.id}}</small>
         <div class="service-tags">
-          <nz-tag [nzColor]="'green'">ит</nz-tag>
-          <nz-tag [nzColor]="'green'">програмиране</nz-tag>
-          <nz-tag [nzColor]="'green'">typescript</nz-tag>
-          <nz-tag [nzColor]="'green'">c++</nz-tag>
+          <nz-tag [routerLink]="['/tags', tag.id]" [nzColor]="tag.color" *ngFor="let tag of service.tags">{{tag.name}}
+          </nz-tag>
         </div>
         <nz-divider></nz-divider>
         <div class="service-description">
