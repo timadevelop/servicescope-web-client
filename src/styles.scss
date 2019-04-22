@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "~src/variables";
+* {
+  color:$main-text-color;
+  // antd-done this work for us
+  // font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+  //   "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  //   "Segoe UI Symbol";
+}
 .ant-menu-submenu-title .ant-avatar {
   margin-right: 5px;
   .anticon {
@@ -16,8 +24,18 @@
     padding: 0px !important;
     border-radius: 50%;
     border-width: 2px;
-
   }
+}
+
+.title {
+  font-size: 15px;
+  color: $dark-grey-color;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.ant-divider-inner-text .title {
+  margin: 0;
 }
 
 :focus {

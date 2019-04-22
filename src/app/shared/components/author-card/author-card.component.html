@@ -1,0 +1,63 @@
+<div class="author-card">
+  <a [routerLink]="['/profiles', author.id]">
+    <div nz-row nzType="flex" nzJustify="center">
+      <nz-avatar [nzSize]="100" nzIcon="user" [nzSrc]="author.image"></nz-avatar>
+    </div>
+    <div nz-row nzType="flex" nzJustify="center" class="author-name">
+      <h2>
+        {{author.first_name + ' ' + author.last_name}}
+      </h2>
+    </div>
+  </a>
+  <div nz-row class="author-role">
+    <p>Service provider</p>
+  </div>
+  <div nz-row class="author-statistics">
+    <nz-divider nzOrientation="left" [nzText]="statHeader"></nz-divider>
+    <ng-template #statHeader>
+      <h2 class="title">Author statistics</h2>
+    </ng-template>
+
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+      <a nz-col class="label" [routerLink]="['/profiles', author.id, 'services']">Services</a>
+      <p nz-col class="value">{{author.services_count}}</p>
+    </div>
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+      <a nz-col class="label" [routerLink]="['/profiles', author.id, 'posts']">Posts</a>
+      <p nz-col class="value">{{author.posts_count}}</p>
+    </div>
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+      <a nz-col class="label" [routerLink]="['/profiles', author.id, 'reviews']">Reviews</a>
+      <p nz-col class="value">{{author.income_reviews_count}}</p>
+    </div>
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+      <a nz-col class="label" [routerLink]="['/profiles', author.id, 'offers']">Offers</a>
+      <p nz-col class="value">{{author.offers_count}}</p>
+    </div>
+    <br />
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+      <p nz-col class="label">Joined</p>
+      <p nz-col class="value">{{author.date_joined | date}}</p>
+    </div>
+  </div>
+  <div nz-row class="author-contacts">
+    <nz-divider nzOrientation="left" [nzText]="contactsHeader"></nz-divider>
+    <ng-template #contactsHeader>
+      <h2 class="title">Contacts</h2>
+    </ng-template>
+
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+      <p nz-col class="label">Phone</p>
+      <div nz-col class="value">
+        <app-phone-wrapper [phone]="author.phone"></app-phone-wrapper>
+      </div>
+    </div>
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+      <p nz-col class="label">Email</p>
+      <div nz-col class="value">
+        <app-email-wrapper [email]="author.email"></app-email-wrapper>
+      </div>
+    </div>
+
+  </div>
+</div>

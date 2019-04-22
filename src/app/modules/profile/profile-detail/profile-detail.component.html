@@ -11,11 +11,9 @@
           <labeled-text label="Description"
             text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste doloremque voluptatum beatae error minima ipsum neque nobis magnam accusantium adipisci quibusdam, eaque, ullam saepe officiis fugit aperiam quasi quas quam.">
           </labeled-text>
-          <div class="content-links">
-            <a [href]="getUserEmailLink()">
-              <i nz-icon nzType="mail"></i>Send Email</a>
-            <a *ngIf="user.phone" (click)="showPhoneNumber($event)" [href]="showPhone ? 'tel:' + phoneText: ''">
-              <i nz-icon nzType="phone"></i>{{phoneText}}</a>
+          <div class="profile-links">
+            <app-email-wrapper [email]="user.email"></app-email-wrapper>
+            <app-phone-wrapper [phone]="user.phone"></app-phone-wrapper>
           </div>
         </div>
       </div>

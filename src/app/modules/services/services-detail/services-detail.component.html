@@ -5,7 +5,7 @@
   </nz-breadcrumb>
   <nz-page-header-content> -->
 <div nz-row nzGutter="16">
-  <div nz-col class="gutter-row" nzSpan="20">
+  <div nz-col class="gutter-row" nzSpan="18">
     <div class="service-card">
       <nz-carousel nzAutoPlay>
         <div nz-carousel-content *ngFor="let index of array">
@@ -55,18 +55,8 @@
       </div>
     </div>
   </div>
-  <div nz-col class="gutter-row" nzSpan="4">
-    <div class="service-card">
-      <div nz-row nzJustify="center" class="service-author-info">
-        <div nz-col>
-          <h2 nz-row>Author</h2>
-          <nz-avatar nz-row [nzSize]="64" nzIcon="user" [nzSrc]="service.author.image"></nz-avatar>
-          <a nz-row
-            [routerLink]="['/users', service.author.id]">{{service.author.first_name + ' ' + service.author.last_name}}</a>
-        </div>
-
-      </div>
-    </div>
+  <div nz-col class="gutter-row" nzSpan="6">
+    <app-author-card [author]="service.author"></app-author-card>
   </div>
 </div>
 <!-- <div class="wrap">

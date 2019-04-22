@@ -1,0 +1,43 @@
+@import "~src/variables";
+
+.author-card {
+  padding: 32px 16px;
+  border: 2px solid $light-border-color;
+
+  text-align: center;
+
+  .author-name {
+    margin-top: 1em;
+    h2:hover {
+      border-bottom: 1px solid $light-border-color;
+    }
+  }
+  .author-role {
+    font-weight: 700;
+    color: $grey-color;
+  }
+
+  .author-statistics {
+    text-align: start;
+  }
+
+  .author-row {
+    p,
+    a {
+      color: $main-text-color;
+      margin-bottom: 0.5em;
+    }
+    a:hover {
+      color: $primary-color;
+    }
+    .label {
+    }
+    .value {
+      font-weight: bold;
+    }
+  }
+
+  .author-contacts {
+    text-align: start;
+  }
+}

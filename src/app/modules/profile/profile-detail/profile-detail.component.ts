@@ -14,9 +14,6 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
   user: User;
   selectedTabsIndex: number = 0;
   private subscription: Subscription;
-  showPhone: boolean = false;
-  phoneText: string = "Show number";
-
   static TAB_INDEXES = {
     services: 0,
     posts: 1,
@@ -37,9 +34,6 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
     this.route.data
       .subscribe((data: { user: User }) => {
         this.user = data.user;
-        if (this.user.phone) {
-          this.phoneText = `${this.user.phone.substring(0, 4)} Show number`;
-        }
       });
 
     this.updateSelectedTabIndex(this.router.url);
@@ -60,23 +54,8 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  showPhoneNumber(e) {
-    if (!this.user.phone) {
-      e.preventDefault();
-    }
-    else if (this.user.phone != this.phoneText) {
-      e.preventDefault();
-      this.phoneText = `${this.user.phone}`;
-      this.showPhone = true;
-    }
-  }
-
   getUsername(): string {
     return this.user.first_name + ' ' + this.user.last_name;
-  }
-
-  getUserEmailLink(): string {
-    return `mailto:${this.user.email}`;
   }
 
   navigateTo(subRoute: string): void {
