@@ -8,8 +8,17 @@
 
   .author-name {
     margin-top: 1em;
-    h2:hover {
-      border-bottom: 1px solid $light-border-color;
+    h2::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: $grey-color;
+      transition: width 0.3s;
+    }
+
+    h2:hover::after {
+      width: 100%;
     }
   }
   .author-role {

@@ -27,10 +27,6 @@
   }
 }
 
-.ant-tag {
-  background: #fff;
-}
-
 .title {
   // font-size: 15px;
   color: $dark-grey-color;
@@ -44,4 +40,8 @@
 
 :focus {
   outline: none;
+}
+
+.ant-input:focus {
+  box-shadow: none;
 }

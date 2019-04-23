@@ -1,4 +1,4 @@
-<div class="author-card">
+<div class="author-card" *ngIf="author">
   <a [routerLink]="['/profiles', author.id]">
     <div nz-row nzType="flex" nzJustify="center">
       <nz-avatar [nzSize]="100" nzIcon="user" [nzSrc]="author.image"></nz-avatar>

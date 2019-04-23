@@ -1,26 +1,59 @@
-@import '~src/variables';
+@import "~src/variables";
+
+$service-card-border-width: 2px;
+$service-cards-gutter: 16px;
 
 .service-card {
-  border: 2px solid $light-border-color;
+  border: $service-card-border-width solid $light-border-color;
+  $carousel-height: 360px;
+  // > .ant-card-body {
+  //   padding: 0;
+  // }
 
   [nz-carousel-content] {
     text-align: center;
-    height: 360px;
-    line-height: 360px;
-    background: #364d79;
-    color: #fff;
+    height: $carousel-height;
+    line-height: $carousel-height;
+    background: $grey-color;
+    color: $white-color;
     overflow: hidden;
+    .image-wrapper-row {
+      // background: $light-grey-color;
+      height: 100%;
+    }
+  }
+
+  .carousel-buttons {
+    height: $carousel-height;
+    // padding: 0 12px;
+    position: absolute;
+    top: $service-card-border-width;
+    width: calc(100% - #{$service-cards-gutter} - 2 * #{$service-card-border-width});
+    > .arrow-col {
+      padding: 0 10px;
+      width: 10%;
+      cursor: pointer;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+
+      i {
+        line-height: $carousel-height;
+        font-size: 30px;
+        color: $white-color;
+      }
+    }
   }
 
   h3 {
-    color: #fff;
+    color: $white-color;
   }
 
   .service-top-buttons {
-    padding: 0 12px;
     position: absolute;
-    top: 360px - 32px / 2;
-    width: calc(100% - 12px);
+    top: $carousel-height - 32px / 2;
+    width: calc(100% - #{$service-cards-gutter} - 2 * #{$service-card-border-width});
   }
 
   .service-author-info {
@@ -35,8 +68,10 @@
       font-weight: bold;
       margin-bottom: 0px;
     }
+    .service-tags {
+      margin: 1em 0;
+    }
     .service-description {
-      margin-bottom: 10px;
     }
     .service-buttons {
       > * {
@@ -50,43 +85,3 @@
     }
   }
 }
-
-// .wrap {
-//   display: flex;
-// }
-
-// .content {
-//   flex: 1;
-// }
-
-// .content p {
-//   margin-bottom: 8px;
-// }
-
-// .content-links {
-//   padding-top: 16px;
-//   a {
-//     $margin-between: 32px;
-
-//     display: inline-block;
-//     vertical-align: text-top;
-//     margin-right: $margin-between / 2;
-//     line-height: 20px;
-//     &:not(:first-child) {
-//       padding-left: $margin-between / 2;
-//       border-left: 1px solid #ebedf0;
-//     }
-//     .anticon {
-//       margin-right: $margin-between / 4;
-//       font-size: 16px;
-//     }
-//   }
-// }
-// .extra-content {
-//   min-width: 240px;
-//   text-align: right;
-// }
-
-// .services-tabs-card {
-//   margin-top: 1em;
-// }

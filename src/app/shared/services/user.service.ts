@@ -7,6 +7,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Observable, of, throwError } from 'rxjs';
 import { NzMessageService, UploadXHRArgs } from 'ng-zorro-antd';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
+import { CustomEncoder } from './custom.encoder';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,7 @@ export class UserService {
 
   public getUsers(page: string, pageSize: string): Observable<PaginatedApiResponse<User>> {
     const options =
-      { params: new HttpParams().set('page', page).set('page_size', pageSize) };
+      { params: new HttpParams({ encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize) };
 
     return this.http.get<PaginatedApiResponse<User>>(`${environment.apiUrl}/users/`, options);
   }

@@ -17,10 +17,16 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     Observable<PaginatedApiResponse<Service>> | Observable<never> {
 
-    let page = route.queryParamMap.get('page') || '1';
-    let pageSize = route.queryParamMap.get('pageSize') || '10';
+    const page = route.queryParamMap.get('page') || '1';
+    const pageSize = route.queryParamMap.get('pageSize') || '10';
+    const query = route.queryParamMap.get('q');
+    const tags = route.queryParamMap.getAll('tags');
 
-    return this.servicesService.getServices(page, pageSize).pipe(
+    const filters = tags.map(tag => {
+      return { param: 'tags', value: tag }
+    });
+
+    return this.servicesService.getServices(page, pageSize, query, filters).pipe(
       take(1),
       mergeMap((services: PaginatedApiResponse<Service>) => {
         if (services) {
@@ -33,10 +39,10 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
       catchError(e => {
         if (e instanceof HttpErrorResponse) {
           if (e.status == 404) {
-            return EMPTY;
+            return of(new PaginatedApiResponse<Service>());
           }
         }
-        return throwError(e);
+        return EMPTY;
       })
     );
   }

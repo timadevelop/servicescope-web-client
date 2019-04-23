@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/shared/models/Service.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
 
 @Component({
@@ -12,6 +12,7 @@ export class ServicesListComponent implements OnInit {
   paginatedServices: PaginatedApiResponse<Service>;
   pageSize: number = 10;
   page: number = 1;
+  query: string;
 
   constructor(
     public route: ActivatedRoute,
@@ -22,16 +23,32 @@ export class ServicesListComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.pageSize = +params.get('pageSize') || this.pageSize;
       this.page = +params.get('page') || this.page;
+      this.query = params.get('q');
     })
 
     this.route.data
       .subscribe((data: { services: PaginatedApiResponse<Service> }) => {
         this.paginatedServices = data.services;
-        console.log(this.paginatedServices);
       });
   }
 
   loadData(pi: number): void {
-    this.router.navigate(['./services'], { queryParams: {page: pi, pageSize: this.pageSize} });
+    const queryParams: Params = { page: pi, pageSize: this.pageSize };
+    this.updateQueryParams(queryParams);
+  }
+
+  search(query: string) {
+    const queryParams: Params = { q: query, page: 1, pageSize: this.pageSize };
+    this.updateQueryParams(queryParams)
+  }
+
+  private updateQueryParams(queryParams: Params) {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: queryParams,
+        queryParamsHandling: "merge", // remove to replace all query params by provided
+      });
   }
 }

@@ -4,6 +4,7 @@ import { Service } from 'src/app/shared/models/Service.model';
 import { ServicesService } from 'src/app/shared/services/services.service';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { NzCarouselComponent } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-services-detail',
@@ -83,5 +84,14 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
 
   navigateTo(subRoute: string): void {
     this.router.navigate([`./${subRoute}`], { relativeTo: this.route });
+  }
+
+  // slides
+  prevSlide(carousel: NzCarouselComponent) {
+    carousel.pre();
+  }
+
+  nextSlide(carousel: NzCarouselComponent) {
+    carousel.next();
   }
 }

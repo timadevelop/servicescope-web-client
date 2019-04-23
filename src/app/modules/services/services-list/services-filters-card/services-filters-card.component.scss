@@ -1,0 +1,28 @@
+@import "~src/variables";
+
+.category-filters {
+  > *:not(:first-child) {
+    margin-top: 0.7em;
+  }
+}
+
+.tag-filters {
+  .tags {
+    > * {
+      margin-bottom: 8px;
+    }
+
+    .tags-search-input {
+      margin: 10px 0;
+    }
+    .ant-tag-checkable {
+      opacity: .7;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .ant-tag-checkable-checked {
+      opacity: 1;
+    }
+  }
+}

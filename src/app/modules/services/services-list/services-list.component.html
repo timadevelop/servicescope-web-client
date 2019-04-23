@@ -1,21 +1,43 @@
-<nz-page-header>
-  <nz-breadcrumb nz-page-header-breadcrumb>
-    <nz-breadcrumb-item>Services</nz-breadcrumb-item>
-    <nz-breadcrumb-item></nz-breadcrumb-item>
-  </nz-breadcrumb>
-  <nz-page-header-content>
-    <nz-list [nzDataSource]="paginatedServices ? paginatedServices?.results : []" [nzItemLayout]="'horizontal'"
-      [nzRenderItem]="service" [nzPagination]="pagination" [nzFooter]="footer">
-      <ng-template #footer>
-        <!-- <div><b>ant design</b> footer part</div> -->
+<div nz-row nzGutter="16">
+  <div nz-col class="gutter-row" nzSpan="18">
+    <nz-card [nzTitle]="cardtitle">
+      <ng-template #cardtitle>
+
+        <nz-breadcrumb nz-page-header-breadcrumb>
+          <nz-breadcrumb-item>Services</nz-breadcrumb-item>
+          <nz-breadcrumb-item></nz-breadcrumb-item>
+        </nz-breadcrumb>
+
       </ng-template>
-      <ng-template #pagination>
-        <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count"
-          (nzPageIndexChange)="loadData($event)"></nz-pagination>
-      </ng-template>
-    </nz-list>
-  </nz-page-header-content>
-</nz-page-header>
+
+      <!-- <nz-divider></nz-divider> -->
+      <div class="services-search-wrapper">
+        <form nz-form (ngSubmit)="search(searchInput.value)">
+          <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+            <input type="text" [ngModel]="query" name="query" nz-input #searchInput placeholder="Services search" />
+          </nz-input-group>
+          <ng-template #suffixIconButton>
+            <button nz-button nzType="primary" nzSearch><i nz-icon type="search"></i></button>
+          </ng-template>
+        </form>
+      </div>
+      <nz-divider></nz-divider>
+      <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
+        [nzItemLayout]="'horizontal'" [nzRenderItem]="service" [nzPagination]="pagination" [nzFooter]="footer">
+        <ng-template #footer>
+          <!-- <div><b>ant design</b> footer part</div> -->
+        </ng-template>
+        <ng-template #pagination>
+          <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count"
+            (nzPageIndexChange)="loadData($event)"></nz-pagination>
+        </ng-template>
+      </nz-list>
+    </nz-card>
+  </div>
+  <div nz-col class="gutter-row" nzSpan="6">
+    <app-services-filters-card></app-services-filters-card>
+  </div>
+</div>
 
 <ng-template #service let-service>
   <nz-list-item class="service-list-item" [nzContent]="null" [nzActions]="[postedAction, priceAction]">
@@ -31,7 +53,8 @@
     </ng-template>
 
     <!-- List item meta -->
-    <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="nzTitle" [nzDescription]="description" style="align-content: stretch;">
+    <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="nzTitle" [nzDescription]="description"
+      style="align-content: stretch;">
       <!-- Templates for list item -->
       <ng-template #avatar>
         <nz-avatar [nzSize]="128" nzShape="square"
@@ -53,7 +76,7 @@
 
       <ng-template #tags>
         <div class="service-tags">
-          <nz-tag [routerLink]="['/tags', tag.id]" *ngFor="let tag of service.tags">
+          <nz-tag [routerLink]="[]" [queryParams]="{tags: tag.name}" queryParamsHandling="merge" *ngFor="let tag of service.tags">
             {{tag.name}}
           </nz-tag>
         </div>

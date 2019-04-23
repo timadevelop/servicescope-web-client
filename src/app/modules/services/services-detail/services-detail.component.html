@@ -1,17 +1,22 @@
-<!-- <nz-page-header *ngIf="service" [nzTitle]="getServicename()">
-  <nz-breadcrumb nz-page-header-breadcrumb>
-    <nz-breadcrumb-item [routerLink]="['../']"><a>Services</a></nz-breadcrumb-item>
-    <nz-breadcrumb-item>{{getServicename()}}</nz-breadcrumb-item>
-  </nz-breadcrumb>
-  <nz-page-header-content> -->
 <div nz-row nzGutter="16">
   <div nz-col class="gutter-row" nzSpan="18">
     <div class="service-card">
-      <nz-carousel nzAutoPlay>
-        <div nz-carousel-content *ngFor="let index of array">
-          <h3>{{ index }}</h3>
+      <nz-carousel nzAutoPlay #carousel>
+        <div nz-carousel-content *ngFor="let image of service.images">
+          <div class="image-wrapper-row" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+            <img nz-col [src]="image.image" class="carousel-image">
+          </div>
         </div>
       </nz-carousel>
+      <div class="carousel-buttons" nz-row nzType="flex" nzJustify="space-between" nzAlign="stretch">
+        <div nz-col class="arrow-col" (click)="prevSlide(carousel)">
+          <i nz-icon nzType="left"></i>
+        </div>
+        <div nz-col class="arrow-col" style="text-align: end;" (click)="nextSlide(carousel)">
+          <i nz-icon nzType="right"></i>
+        </div>
+      </div>
+
       <div nz-row nzGutter="8" nzType="flex" nzJustify="end" nzAlign="middle" class="service-top-buttons">
         <div nz-col>
           <button nz-button nzType="primary"><i nz-icon nzType="rise"></i>Промотиране</button>
@@ -31,17 +36,21 @@
         <div nz-row class="service-info-location-date">
           <span>гр. София, област София</span>
           <nz-divider nzType="vertical"></nz-divider>
-          <span>Добавена {{service.created_at | date}}</span>
+          <span nz-tooltip nzTitle="Добавена">
+            <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
+          </span>
+
         </div>
         <small>Номер на обявата: {{service.id}}</small>
         <div class="service-tags">
           <nz-tag [routerLink]="['/tags', tag.id]" [nzColor]="tag.color" *ngFor="let tag of service.tags">{{tag.name}}
           </nz-tag>
         </div>
-        <nz-divider></nz-divider>
+        <!-- <nz-divider></nz-divider> -->
         <div class="service-description">
           {{service.description}}
         </div>
+        <nz-divider></nz-divider>
         <div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
           <div nz-col class="service-buttons">
             <button nz-button [routerLink]="['../']"><i nz-icon nzType="arrow-left"></i>Обратно</button>
@@ -57,29 +66,3 @@
     <app-author-card [author]="service.author"></app-author-card>
   </div>
 </div>
-<!-- <div class="wrap">
-      <div class="content">
-        <div class="content">
-          <labeled-text label="Service bio" [text]="service.description || 'no bio'"></labeled-text>
-          <labeled-text label="Description"
-            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste doloremque voluptatum beatae error minima ipsum neque nobis magnam accusantium adipisci quibusdam, eaque, ullam saepe officiis fugit aperiam quasi quas quam.">
-          </labeled-text>
-          <div class="content-links">
-            <a [href]="getServiceEmailLink()">
-              <i nz-icon nzType="mail"></i>Send Email</a>
-            <a *ngIf="service.contact_phone" (click)="showPhoneNumber($event)" [href]="showPhone ? 'tel:' + contact_phoneText: ''">
-              <i nz-icon nzType="contact_phone"></i>{{contact_phoneText}}</a>
-          </div>
-        </div>
-      </div>
-      <div class="extra-content">
-        extra
-      </div>
-    </div> -->
-<!-- </nz-page-header-content>
-  <nz-page-header-footer>
-  </nz-page-header-footer>
-</nz-page-header> -->
-<!-- <nz-card class="profile-tabs-card">
-  <router-outlet></router-outlet>
-</nz-card> -->
