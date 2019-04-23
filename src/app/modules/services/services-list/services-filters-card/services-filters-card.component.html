@@ -10,7 +10,7 @@
     <nz-divider nzText="Tags" nzOrientation="left"></nz-divider>
     <div class="tags">
 
-      <nz-tag [nzColor]="tag.color" *ngFor="let tag of selectedTags"
+      <nz-tag [nzColor]="tag.color" *ngFor="let tag of selectedTags; trackBy:trackIdentifyTag"
         (nzCheckedChange)="clickedTag(tag.name)" [nzChecked]="true" nzMode="checkable">
         {{tag.name}}</nz-tag>
 

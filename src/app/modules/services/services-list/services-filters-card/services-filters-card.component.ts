@@ -44,6 +44,9 @@ export class ServicesFiltersCardComponent implements OnInit, OnDestroy {
       .subscribe(v => this.appendTags(v));
   }
 
+  public trackIdentifyTag(index, item) {
+    return item.id;
+  }
 
   ngOnDestroy() {
     this.sub$.unsubscribe();
