@@ -15,6 +15,10 @@ export class ServicesResolverService implements Resolve<Service>{
     Observable<Service> | Observable<never> {
 
     let id = route.paramMap.get('id');
+    if (isNaN(+id)) {
+      console.warn('service id is NaN');
+      return EMPTY;
+    }
 
     return this.servicesService.getServiceById(+id).pipe(
       take(1),

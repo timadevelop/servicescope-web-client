@@ -4,14 +4,15 @@
       <ng-template #cardtitle>
 
         <nz-breadcrumb nz-page-header-breadcrumb>
-          <nz-breadcrumb-item>Services</nz-breadcrumb-item>
-          <nz-breadcrumb-item></nz-breadcrumb-item>
+          <nz-breadcrumb-item [routerLink]="['/services']">Services</nz-breadcrumb-item>
+          <nz-breadcrumb-item>{{selectedCategoryString}}</nz-breadcrumb-item>
         </nz-breadcrumb>
 
       </ng-template>
 
       <!-- <nz-divider></nz-divider> -->
       <div class="services-search-wrapper">
+        <app-location-search></app-location-search>
         <form nz-form (ngSubmit)="search(searchInput.value)">
           <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
             <input type="text" [ngModel]="query" name="query" nz-input #searchInput placeholder="Services search" />

@@ -21,10 +21,15 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
     const pageSize = route.queryParamMap.get('pageSize') || '10';
     const query = route.queryParamMap.get('q');
     const tags = route.queryParamMap.getAll('tags');
+    const category = route.paramMap.get('category');
 
     const filters = tags.map(tag => {
       return { param: 'tags', value: tag }
     });
+
+    if (category){
+      filters.push({ param: 'category', value: category});
+    }
 
     return this.servicesService.getServices(page, pageSize, query, filters).pipe(
       take(1),

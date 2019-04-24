@@ -4,11 +4,18 @@
   > *:not(:first-child) {
     margin-top: 0.7em;
   }
+
+  .categories-list {
+    > * {
+      display: block;
+      margin: 1em 0;
+    }
+  }
 }
 
 .tag-filters {
   .tags {
-    > * {
+    .ant-tag {
       margin-bottom: 8px;
     }
 

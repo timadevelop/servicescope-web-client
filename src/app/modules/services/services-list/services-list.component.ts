@@ -13,6 +13,7 @@ export class ServicesListComponent implements OnInit {
   pageSize: number = 10;
   page: number = 1;
   query: string;
+  selectedCategoryString: string;
 
   constructor(
     public route: ActivatedRoute,
@@ -24,7 +25,11 @@ export class ServicesListComponent implements OnInit {
       this.pageSize = +params.get('pageSize') || this.pageSize;
       this.page = +params.get('page') || this.page;
       this.query = params.get('q');
-    })
+    });
+    this.route.paramMap.subscribe(params => {
+      this.selectedCategoryString = params.get('category');
+    });
+
 
     this.route.data
       .subscribe((data: { services: PaginatedApiResponse<Service> }) => {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
-import { Tag } from '../models/Tag.models';
+import { Category } from '../models/Category.models';
 import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
@@ -10,22 +10,22 @@ import { CustomEncoder } from './custom.encoder';
 @Injectable({
   providedIn: 'root'
 })
-export class TagsService {
+export class CategoriesService {
 
   constructor(
     private http: HttpClient,
     private messageService: NzMessageService) {
   }
 
-  public getTagById(id: number): Observable<Tag> {
-    return this.http.get<Tag>(`${environment.apiUrl}/tags/${id}/`);
+  public getCategoryById(id: number): Observable<Category> {
+    return this.http.get<Category>(`${environment.apiUrl}/categories/${id}/`);
   }
 
-  public getTagByName(name: string): Observable<Tag> {
-    return this.http.get<Tag>(`${environment.apiUrl}/tags/name/${name}/`);
+  public getCategoryByName(name: string): Observable<Category> {
+    return this.http.get<Category>(`${environment.apiUrl}/categories/name/${name}/`);
   }
 
-  public getTags(page: string, pageSize: string, query: string = null): Observable<PaginatedApiResponse<Tag>> {
+  public getCategories(page: string, pageSize: string, query: string = null): Observable<PaginatedApiResponse<Category>> {
     let params = new HttpParams({encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize);
 
     if (query) {
@@ -35,18 +35,18 @@ export class TagsService {
     const options =
       { params: params };
 
-    return this.http.get<PaginatedApiResponse<Tag>>(`${environment.apiUrl}/tags/`, options);
+    return this.http.get<PaginatedApiResponse<Category>>(`${environment.apiUrl}/categories/`, options);
   }
 
-  public getNextTags(next: string): Observable<PaginatedApiResponse<Tag>> {
-    return this.http.get<PaginatedApiResponse<Tag>>(next);
+  public getNextCategories(next: string): Observable<PaginatedApiResponse<Category>> {
+    return this.http.get<PaginatedApiResponse<Category>>(next);
   }
 
-  public createTag(name: string, color: string = null): Observable<Tag> {
-    const tag = new Tag();
-    tag.name = name;
-    tag.color = color;
-    return this.http.post<Tag>(`${environment.apiUrl}/tags/`, tag);
+  public createCategory(name: string, color: string = null): Observable<Category> {
+    const category = new Category();
+    category.name = name;
+    category.color = color;
+    return this.http.post<Category>(`${environment.apiUrl}/categories/`, category);
   }
 
   // Error handler

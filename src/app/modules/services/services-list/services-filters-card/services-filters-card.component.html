@@ -1,27 +1,38 @@
 <nz-card [nzTitle]="title" [nzExtra]="extra">
   <div class="category-filters">
     <nz-divider nzText="Category" nzOrientation="left"></nz-divider>
-    <p nz-checkbox [(ngModel)]="checked">IT</p><br />
-    <p nz-checkbox [(ngModel)]="checked">Law</p><br />
-    <p nz-checkbox [(ngModel)]="checked">Programming</p><br />
-    <p nz-checkbox [(ngModel)]="checked">Cleaning</p>
+    <div class="categories-list">
+      <nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedCategoryString" nzPlaceHolder="Select users"
+        nzAllowClear nzShowSearch (ngModelChange)="onCategotyChange($event)" [nzServerSearch]="true"
+        (nzOnSearch)="onSearchCategories($event)" (nzScrollToBottom)="loadMoreCategories()">
+        <ng-container *ngFor="let category of categories?.results; trackBy:trackIdentifyByItemId">
+          <nz-option *ngIf="!isLoading" [nzValue]="category.name" [nzLabel]="category.name"></nz-option>
+        </ng-container>
+        <nz-option *ngIf="isLoadingCategories" nzDisabled nzCustomContent>
+          <i nz-icon type="loading" class="loading-icon"></i> Loading Data...
+        </nz-option>
+      </nz-select>
+    </div>
   </div>
   <div class="tag-filters">
     <nz-divider nzText="Tags" nzOrientation="left"></nz-divider>
     <div class="tags">
-
-      <nz-tag [nzColor]="tag.color" *ngFor="let tag of selectedTags; trackBy:trackIdentifyTag"
-        (nzCheckedChange)="clickedTag(tag.name)" [nzChecked]="true" nzMode="checkable">
-        {{tag.name}}</nz-tag>
+      <div class="selected-tags">
+        <nz-tag [nzColor]="tag.color" *ngFor="let tag of selectedTags; trackBy:trackIdentifyByItemId"
+          (nzCheckedChange)="clickedTag(tag.name)" [nzChecked]="true" nzMode="checkable">
+          {{tag.name}}</nz-tag>
+        <nz-tag *ngIf="!selectedTags || selectedTags.length === 0">no selected tags</nz-tag>
+      </div>
 
       <input class="tags-search-input" (input)="searchTags($event.target.value)" nz-input placeholder="Search tags"
         nzSize="small" />
-
-      <nz-tag [nzColor]="selectedTagStrings?.includes(tag.name) ? tag.color : 'geekblue'"
-        *ngFor="let tag of tags?.results;" (nzCheckedChange)="clickedTag(tag.name)"
-        [nzChecked]="selectedTagStrings?.includes(tag.name)" nzMode="checkable">
-        {{tag.name}}</nz-tag>
-      <nz-tag *ngIf="tags?.next" (click)="loadMoreFilters()" nzColor="purple">load more</nz-tag>
+      <div class="loaded-tags">
+        <nz-tag [nzColor]="selectedTagStrings?.includes(tag.name) ? tag.color : 'geekblue'"
+          *ngFor="let tag of tags?.results;" (nzCheckedChange)="clickedTag(tag.name)"
+          [nzChecked]="selectedTagStrings?.includes(tag.name)" nzMode="checkable">
+          {{tag.name}}</nz-tag>
+        <nz-tag *ngIf="tags?.next" (click)="loadMoreTags()" nzColor="purple">load more</nz-tag>
+      </div>
     </div>
 
   </div>

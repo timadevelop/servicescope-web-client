@@ -11,13 +11,13 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
 import { AppHeaderComponent } from './app-components/app-header/app-header.component';
-import { PageNotFoundComponent } from './app-components/page-not-found/page-not-found.component';
 import { EmployeesModule } from './modules/employees/employees.module';
 import { BusinessesModule } from './modules/business-center/businesses.module';
 import { ComposeMessageComponent } from './app-components/compose-message/compose-message.component';
 import { AuthModule } from './modules/auth/auth.module';
 
 import { httpInterceptorProviders } from './shared/interceptors';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(en);
 
@@ -25,7 +25,6 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     AppHeaderComponent,
-    PageNotFoundComponent,
     ComposeMessageComponent,
   ],
   imports: [
@@ -37,7 +36,8 @@ registerLocaleData(en);
     EmployeesModule,
     BusinessesModule,
     AuthModule,
-    AppRoutingModule
+    SharedModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

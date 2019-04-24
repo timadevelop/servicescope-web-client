@@ -39,6 +39,12 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.data
       .subscribe((data: { service: Service }) => {
+        if (!data.service) {
+          console.warn('Not found service');
+          // this.router.navigate(['/404'])
+          return;
+
+        }
         this.service = data.service;
         if (this.service.contact_phone) {
           this.contact_phoneText = `${this.service.contact_phone.substring(0, 4)} Show number`;

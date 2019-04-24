@@ -1,0 +1,10 @@
+<nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedLocationString" nzPlaceHolder="Select Location"
+  nzAllowClear nzShowSearch (ngModelChange)="null" [nzServerSearch]="true"
+  (nzOnSearch)="search($event)" (nzScrollToBottom)="loadMoreLocations()">
+  <ng-container *ngFor="let location of locations; trackBy:trackIdentifyByItemId">
+    <nz-option *ngIf="!isLoading" [nzValue]="location.address" [nzLabel]="location.address"></nz-option>
+  </ng-container>
+  <nz-option *ngIf="isLoadingCategories" nzDisabled nzCustomContent>
+    <i nz-icon type="loading" class="loading-icon"></i> Loading Data...
+  </nz-option>
+</nz-select>

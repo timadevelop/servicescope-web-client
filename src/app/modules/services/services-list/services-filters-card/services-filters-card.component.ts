@@ -7,6 +7,8 @@ import { mapTo, map } from 'rxjs/operators';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Url } from 'url';
 import { NzMessageService } from 'ng-zorro-antd';
+import { Category } from 'src/app/shared/models/Category.models';
+import { CategoriesService } from 'src/app/shared/services/categories.service';
 
 @Component({
   selector: 'app-services-filters-card',
@@ -19,12 +21,13 @@ export class ServicesFiltersCardComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private tagsService: TagsService,
+    private categoriesService: CategoriesService,
     private msgService: NzMessageService) { }
 
   private page = '1';
   private pageSize = '20';
-  private sub$: Subscription;
-
+  private tagsSub$: Subscription;
+  private categoriesSub$: Subscription;
 
   tags: PaginatedApiResponse<Tag>;
   selectedTagStrings: Array<string> = [];
@@ -32,24 +35,40 @@ export class ServicesFiltersCardComponent implements OnInit, OnDestroy {
   checked: boolean; // TODO
   visibleFilterDetails = false;
 
+  categories: PaginatedApiResponse<Category>;
+  selectedCategoryString: string;
+  optionList: string[] = [];
+  isLoadingCategories = false;
+
+
+
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
       this.selectedTagStrings = params.getAll('tags');
       if (this.tags) {
         this.updateSelectedTags();
       }
+
+    });
+    this.route.paramMap.subscribe(params => {
+      this.selectedCategoryString = params.get('category');
     });
 
-    this.sub$ = this.tagsService.getTags(this.page, this.pageSize)
+    this.tagsSub$ = this.tagsService.getTags(this.page, this.pageSize)
       .subscribe(v => this.appendTags(v));
+
+
+    this.categoriesSub$ = this.categoriesService.getCategories(this.page, this.pageSize)
+      .subscribe(v => this.appendCategories(v));
   }
 
-  public trackIdentifyTag(index, item) {
+  public trackIdentifyByItemId(index, item) {
     return item.id;
   }
 
   ngOnDestroy() {
-    this.sub$.unsubscribe();
+    this.tagsSub$.unsubscribe();
+    this.categoriesSub$.unsubscribe();
   }
 
   openDetailedFilters(): void {
@@ -60,17 +79,72 @@ export class ServicesFiltersCardComponent implements OnInit, OnDestroy {
     this.visibleFilterDetails = false;
   }
 
-  loadMoreFilters(): void {
-    if (this.tags.next) {
-      this.sub$.unsubscribe();
 
-      this.sub$ = this.tagsService.getNextTags(this.tags.next)
+  /*
+  *  Categories
+  */
+
+  onSearchCategories(value: string): void {
+    this.isLoadingCategories = true;
+    this.searchCategories(value);
+  }
+
+  loadMoreCategories(): void {
+    if (this.categories.next) {
+      this.isLoadingCategories = true;
+      this.categoriesSub$.unsubscribe();
+
+      this.categoriesSub$ = this.categoriesService.getNextCategories(this.categories.next)
+        .subscribe(v => {
+          this.appendCategories(v);
+          this.isLoadingCategories = false;
+        });
+    }
+  }
+
+  searchCategories(query: string): void {
+    this.categoriesSub$.unsubscribe;
+    this.categoriesSub$ = this.categoriesSub$ = this.categoriesService.getCategories(this.page, this.pageSize, query)
+      .subscribe(v => {
+        this.categories = v;
+        this.isLoadingCategories = false;
+      });
+  }
+
+
+  onCategotyChange(categoryName: string) {
+    if (!categoryName) {
+      this.navigateToSavingQueryParams(['../../']);
+    } else if (!this.selectedCategoryString) {
+      this.navigateToSavingQueryParams(['./category', categoryName]);
+    } else {
+      // change selected category
+      this.navigateToSavingQueryParams(['../', categoryName]);
+    }
+  }
+
+  private appendCategories(response: PaginatedApiResponse<Category>) {
+    if (this.categories) {
+      const set = new Set([...this.categories.results, ...response.results]);
+      response.results = Array.from(set.values());
+    }
+    this.categories = response;
+  }
+
+  /*
+  *  Tags
+  */
+  loadMoreTags(): void {
+    if (this.tags.next) {
+      this.tagsSub$.unsubscribe();
+
+      this.tagsSub$ = this.tagsService.getNextTags(this.tags.next)
         .subscribe(v => this.appendTags(v));
     }
   }
 
   searchTags(query: string): void {
-    this.sub$ = this.tagsService.getTags(this.page, this.pageSize, query)
+    this.tagsSub$ = this.tagsService.getTags(this.page, this.pageSize, query)
       .subscribe(v => {
         this.tags = v;
       });
@@ -124,12 +198,24 @@ export class ServicesFiltersCardComponent implements OnInit, OnDestroy {
 
   }
 
+  /*
+  * Route helper
+  */
   private updateQueryParams(queryParams: Params) {
     this.router.navigate(
       [],
       {
         relativeTo: this.route,
         queryParams: queryParams,
+        queryParamsHandling: "merge", // remove to replace all query params by provided
+      });
+  }
+
+  private navigateToSavingQueryParams(route: Array<string>) {
+    this.router.navigate(
+      route,
+      {
+        relativeTo: this.route,
         queryParamsHandling: "merge", // remove to replace all query params by provided
       });
   }

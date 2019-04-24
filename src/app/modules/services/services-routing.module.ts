@@ -7,6 +7,17 @@ import { ServicesResolverService } from './services-resolver.service';
 import { ServicesListComponent } from './services-list/services-list.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { ServicesListResolverService } from './services-list-resolver.service';
+import { Route } from '@angular/compiler/src/core';
+import { PageNotFoundComponent } from 'src/app/shared/components/page-not-found/page-not-found.component';
+
+
+const servicesListRouteTemplate = {
+  component: ServicesListComponent,
+  resolve: {
+    services: ServicesListResolverService
+  },
+  runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+};
 
 const servicesRoutes: Routes = [
   {
@@ -19,23 +30,33 @@ const servicesRoutes: Routes = [
         component: ServicesHomeComponent,
         children: [
           {
+            path: '',
+            pathMatch: 'full',
+            ...servicesListRouteTemplate,
+          } as Route,
+          {
+            path: 'category',
+            children: [
+              {
+                path: '',
+                component: PageNotFoundComponent,
+                pathMatch: 'full'
+              },
+              {
+                path: ':category',
+                ...servicesListRouteTemplate
+              } as Route,
+            ]
+          },
+          {
+
             path: ':id',
             component: ServicesDetailComponent,
             // canDeactivate: [CanDeactivateGuard],
             resolve: {
               service: ServicesResolverService
             },
-            // data: { animation: 'item' },
           },
-          {
-            path: '',
-            component: ServicesListComponent,
-            resolve: {
-              services: ServicesListResolverService
-            },
-            runGuardsAndResolvers: 'paramsOrQueryParamsChange',
-            // data: { animation: 'items' },
-          }
         ]
       }
     ]
