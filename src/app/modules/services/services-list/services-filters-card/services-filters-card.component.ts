@@ -109,7 +109,7 @@ export class ServicesFiltersCardComponent implements OnInit, OnDestroy {
 
     if (!this.selectedTagStrings.includes(name)) {
       // add tag
-      if (this.selectedTagStrings.length > 5) {
+      if (this.selectedTagStrings.length >= 5) {
         this.msgService.warning('You can select 5 tags max');
         return;
       }
