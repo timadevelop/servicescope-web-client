@@ -11,16 +11,20 @@
       </ng-template>
 
       <!-- <nz-divider></nz-divider> -->
-      <div class="services-search-wrapper">
-        <app-location-search></app-location-search>
-        <form nz-form (ngSubmit)="search(searchInput.value)">
-          <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-            <input type="text" [ngModel]="query" name="query" nz-input #searchInput placeholder="Services search" />
-          </nz-input-group>
-          <ng-template #suffixIconButton>
-            <button nz-button nzType="primary" nzSearch><i nz-icon type="search"></i></button>
-          </ng-template>
-        </form>
+      <div class="services-search-wrapper" nz-row nzJustify="space-between" nzType="flex">
+        <div nz-col [nzSpan]="15">
+          <form nz-form (ngSubmit)="search(searchInput.value)">
+            <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+              <input type="text" [ngModel]="query" name="query" nz-input #searchInput placeholder="Services search" />
+            </nz-input-group>
+            <ng-template #suffixIconButton>
+              <button nz-button nzType="primary" nzSearch><i nz-icon type="search"></i></button>
+            </ng-template>
+          </form>
+        </div>
+        <div nz-col nzSpan="7">
+          <app-location-search></app-location-search>
+        </div>
       </div>
       <nz-divider></nz-divider>
       <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
@@ -77,7 +81,8 @@
 
       <ng-template #tags>
         <div class="service-tags">
-          <nz-tag [routerLink]="[]" [queryParams]="{tags: tag.name}" queryParamsHandling="merge" *ngFor="let tag of service.tags">
+          <nz-tag [routerLink]="[]" [queryParams]="{tags: tag.name}" queryParamsHandling="merge"
+            *ngFor="let tag of service.tags">
             {{tag.name}}
           </nz-tag>
         </div>
