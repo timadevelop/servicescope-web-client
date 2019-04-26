@@ -1,13 +1,7 @@
 <nz-layout class="app-layout">
   <app-header></app-header>
   <nz-layout class="main-wrapper-layout">
-    <!-- style="padding:0 24px 24px"> -->
-    <!-- <nz-breadcrumb style="margin:14px 0;">
-        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-        <nz-breadcrumb-item>List</nz-breadcrumb-item>
-        <nz-breadcrumb-item>App</nz-breadcrumb-item>
-      </nz-breadcrumb> -->
-    <nz-content style="background:#fff; padding: 24px 0; min-height: 280px;">
+    <nz-content class="main-content">
       <div [@routeAnimation]="getAnimationData(routerOutlet)">
         <router-outlet #routerOutlet="outlet"></router-outlet>
       </div>

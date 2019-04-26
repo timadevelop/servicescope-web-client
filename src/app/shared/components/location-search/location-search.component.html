@@ -1,12 +1,21 @@
-<nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedLocationString" nzPlaceHolder="Select Location"
-  nzAllowClear nzShowSearch (ngModelChange)="null" [nzServerSearch]="true" (nzOnSearch)="search($event)"
-  (nzScrollToBottom)="loadMoreLocations()">
-  <ng-container *ngFor="let location of locations; trackBy:trackIdentifyByItemId">
-    <nz-option [nzLabel]="location.address + (location.code !== 'ADM1' ? ' (' + location.state + ')' : '')" [nzValue]="location.geonames_id" nzCustomContent>
-      <span>{{location.address}}<span style="opacity: .5; margin-left: 5px;" *ngIf="location.code !== 'ADM1'">{{location.state}}</span></span>
+<nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedLocationString" nzPlaceHolder="Избери населено място"
+  nzAllowClear nzShowSearch [nzServerSearch]="true" (nzOnSearch)="search($event)"
+  (nzScrollToBottom)="loadMoreLocations()" [nzMenuItemSelectedIcon]="icon" [nzSuffixIcon]="icon"
+  [nzSize]="size"
+  (ngModelChange)="locationChanged($event)">
+  <nz-option nzLabel="Цялата страна" [nzValue]="'null'" *ngIf="locations?.results.length !== 0" nzCustomContent>
+    <span>Цялата страна</span>
+  </nz-option>
+
+  <ng-container *ngFor="let location of locations?.results; trackBy:trackIdentifyByItemId">
+    <nz-option [nzLabel]="getLabel(location)" [nzValue]="location" nzCustomContent>
+      <span>{{getLabel(location)}}</span>
     </nz-option>
   </ng-container>
   <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
-    <i nz-icon type="loading" class="loading-icon"></i> Loading Data...
+    <i nz-icon type="loading" class="loading-icon"></i> Зареждане на резултати...
   </nz-option>
 </nz-select>
+<ng-template #icon>
+  <i nz-icon nzType="home"></i>
+</ng-template>

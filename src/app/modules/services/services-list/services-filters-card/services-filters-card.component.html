@@ -2,7 +2,7 @@
   <div class="category-filters">
     <nz-divider nzText="Category" nzOrientation="left"></nz-divider>
     <div class="categories-list">
-      <nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedCategoryString" nzPlaceHolder="Select users"
+      <nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedCategoryString" nzPlaceHolder="Избери категория"
         nzAllowClear nzShowSearch (ngModelChange)="onCategotyChange($event)" [nzServerSearch]="true"
         (nzOnSearch)="onSearchCategories($event)" (nzScrollToBottom)="loadMoreCategories()">
         <ng-container *ngFor="let category of categories?.results; trackBy:trackIdentifyByItemId">

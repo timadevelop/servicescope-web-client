@@ -1,87 +1,27 @@
 @import "~src/variables";
 
-$service-card-border-width: 2px;
-$service-cards-gutter: 16px;
+.service-container {
 
-.service-card {
-  border: $service-card-border-width solid $light-border-color;
-  $carousel-height: 360px;
-  // > .ant-card-body {
-  //   padding: 0;
-  // }
+  .service-stats {
+    padding: 0 3px;
+    margin-bottom: $vertical-margin;
+  }
+}
 
-  [nz-carousel-content] {
-    text-align: center;
-    height: $carousel-height;
-    line-height: $carousel-height;
-    background: $grey-color;
+
+.large-card-button {
+  background: $contrast-color;
+  opacity: .8;
+  margin: 0;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  i {
+    margin-right: .5em;
+  }
+  * {
+    font-weight: bold;
     color: $white-color;
-    overflow: hidden;
-    .image-wrapper-row {
-      // background: $light-grey-color;
-      height: 100%;
-    }
-  }
-
-  .carousel-buttons {
-    height: $carousel-height;
-    // padding: 0 12px;
-    position: absolute;
-    top: $service-card-border-width;
-    width: calc(100% - #{$service-cards-gutter} - 2 * #{$service-card-border-width});
-    > .arrow-col {
-      padding: 0 10px;
-      width: 10%;
-      cursor: pointer;
-      opacity: 0.5;
-      &:hover {
-        opacity: 1;
-      }
-
-      i {
-        line-height: $carousel-height;
-        font-size: 30px;
-        color: $white-color;
-      }
-    }
-  }
-
-  h3 {
-    color: $white-color;
-  }
-
-  .service-top-buttons {
-    position: absolute;
-    top: $carousel-height - 32px / 2;
-    width: calc(100% - #{$service-cards-gutter} - 2 * #{$service-card-border-width});
-  }
-
-  .service-author-info {
-    text-align: center;
-  }
-
-  .service-info {
-    padding: 12px;
-
-    .service-title {
-      display: inline-block;
-      font-weight: bold;
-      margin-bottom: 0px;
-    }
-    .service-tags {
-      margin: 1em 0;
-    }
-    .service-description {
-    }
-    .service-buttons {
-      > * {
-        float: right;
-      }
-    }
-    .service-info-location-date {
-      span {
-        font-size: 0.9em;
-      }
-    }
   }
 }

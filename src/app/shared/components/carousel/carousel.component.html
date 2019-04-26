@@ -1,0 +1,29 @@
+<div *ngIf="images && images.length > 0 else warning" class="carousel-container">
+  <nz-carousel nzAutoPlay #carousel class="carousel">
+    <div nz-carousel-content *ngFor="let image of images">
+      <div class="image-wrapper-row" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+        <img nz-col [src]="image.image" class="carousel-image">
+      </div>
+    </div>
+  </nz-carousel>
+  <div class="carousel-buttons" nz-row nzType="flex" nzJustify="space-between" nzAlign="stretch">
+    <div nz-col class="arrow-col" (click)="carousel.pre()">
+      <i nz-icon nzType="left"></i>
+    </div>
+    <div nz-col class="arrow-col" style="text-align: end;" (click)="carousel.next()">
+      <i nz-icon nzType="right"></i>
+    </div>
+  </div>
+  <div class="carousel-images-list">
+    <div nz-row nzType="flex" nzGutter="16">
+      <div class="image-list-item" nz-col *ngFor="let image of images; let index=index;" (click)="carousel.goTo(index)"
+      nz-tooltip nzTitle="Премини към изображение">
+        <nz-avatar [nzSize]="50" nzShape="square" [nzSrc]="image.image">
+        </nz-avatar>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #warning>
+  <nz-alert nzType="warning" nzMessage="No images to show"></nz-alert>
+</ng-template>

@@ -1,68 +1,55 @@
-<div nz-row nzGutter="16" *ngIf="service">
+<div nz-row nzGutter="16" *ngIf="service" class="service-container">
   <div nz-col class="gutter-row" nzSpan="18">
-    <div class="service-card">
-      <nz-carousel nzAutoPlay #carousel>
-        <div nz-carousel-content *ngFor="let image of service.images">
-          <div class="image-wrapper-row" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
-            <img nz-col [src]="image.image" class="carousel-image">
-          </div>
-        </div>
-      </nz-carousel>
-      <div class="carousel-buttons" nz-row nzType="flex" nzJustify="space-between" nzAlign="stretch">
-        <div nz-col class="arrow-col" (click)="prevSlide(carousel)">
-          <i nz-icon nzType="left"></i>
-        </div>
-        <div nz-col class="arrow-col" style="text-align: end;" (click)="nextSlide(carousel)">
-          <i nz-icon nzType="right"></i>
-        </div>
+    <nz-card class="padding-0">
+      <app-carousel [images]="service?.images"></app-carousel>
+    </nz-card>
+    <div class="service-stats" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+      <div nz-col>
+        <nz-tag nz-tooltip nzTitle="Търси обяви по таг" [routerLink]="['/tags', tag.id]" [nzColor]="tag.color" *ngFor="let tag of service.tags">{{tag.name}}
+        </nz-tag>
+        <nz-tag *ngIf="!service.tags || service.tags.length === 0">Няма тагове</nz-tag>
       </div>
-
-      <div nz-row nzGutter="8" nzType="flex" nzJustify="end" nzAlign="middle" class="service-top-buttons">
-        <div nz-col>
-          <button nz-button nzType="primary"><i nz-icon nzType="rise"></i>Промотиране</button>
-        </div>
-        <div nz-col>
-          <button nz-button nzType="public"><i nz-icon nzType="euro"></i>Цена: {{service.price}}
-            {{service.price_currency}}</button>
-        </div>
-      </div>
-      <div class="service-info">
-        <div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
-          <h1 nz-col nzSpan="16" class="service-title">{{service.title}}</h1>
-          <div nz-col nzSpan="8" class="service-buttons">
-            <button nz-button nzType="primary"><i nz-icon nzType="rise"></i>Промотиране</button>
-          </div>
-        </div>
-        <div nz-row class="service-info-location-date">
-          <span>гр. София, област София</span>
-          <nz-divider nzType="vertical"></nz-divider>
-          <span nz-tooltip nzTitle="Добавена">
-            <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
-          </span>
-
-        </div>
-        <small>Номер на обявата: {{service.id}}</small>
-        <div class="service-tags">
-          <nz-tag [routerLink]="['/tags', tag.id]" [nzColor]="tag.color" *ngFor="let tag of service.tags">{{tag.name}}
-          </nz-tag>
-        </div>
-        <!-- <nz-divider></nz-divider> -->
-        <div class="service-description">
-          {{service.description}}
-        </div>
-        <nz-divider></nz-divider>
-        <div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
-          <div nz-col class="service-buttons">
-            <button nz-button [routerLink]="['../']"><i nz-icon nzType="arrow-left"></i>Обратно</button>
-          </div>
-          <div nz-col class="service-buttons">
-            <button nz-button nzType="default"><i nz-icon nzType="share-alt"></i>Share</button>
-          </div>
-        </div>
+      <div nz-col>
+        <span nz-tooltip nzTitle="Населено място">
+          <i nz-icon style="margin-right: 8px;" nzType="home"></i>{{service?.location?.name}} -
+          {{service?.location?.district?.name}}</span>
+        <nz-divider nzType="vertical"></nz-divider>
+        <span nz-tooltip nzTitle="Добавена">
+          <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
+        </span>
+        <nz-divider nzType="vertical"></nz-divider>
+        <span nz-tooltip nzTitle="Номер на обява">
+          <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{service.id}}
+        </span>
       </div>
     </div>
+    <nz-card>
+      <div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+        <h1 nz-col class="title">{{service.title}}</h1>
+      </div>
+      <!-- <nz-divider></nz-divider> -->
+      <div class="service-description">
+        {{service.description}}
+      </div>
+    </nz-card>
+    <nz-card>
+      <div nz-row>
+        <div>
+          <button nz-button><i nz-icon nzType="facebook"></i>Споделяне</button>
+        </div>
+      </div>
+    </nz-card>
   </div>
   <div nz-col class="gutter-row" nzSpan="6">
+    <!-- <nz-divider style="margin-top: 0;"></nz-divider> -->
+    <nz-card class="padding-12" style="text-align: center;">
+      <h1 style="margin: 0;">{{service.price}} {{service.price_currency}}</h1>
+    </nz-card>
+    <!-- <nz-divider class="margin-20"></nz-divider> -->
+    <nz-card class="large-card-button padding-12" style="text-align: center;">
+      <h2 style="margin: 0;"><i nz-icon nzType="rise"></i>Промотирай</h2>
+    </nz-card>
+    <nz-divider class="margin-20"></nz-divider>
     <app-author-card [author]="service.author"></app-author-card>
   </div>
 </div>

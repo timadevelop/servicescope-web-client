@@ -1,32 +1,7 @@
 <div nz-row nzGutter="16">
   <div nz-col class="gutter-row" nzSpan="18">
-    <nz-card [nzTitle]="cardtitle">
-      <ng-template #cardtitle>
-
-        <nz-breadcrumb nz-page-header-breadcrumb>
-          <nz-breadcrumb-item [routerLink]="['/services']">Services</nz-breadcrumb-item>
-          <nz-breadcrumb-item>{{selectedCategoryString}}</nz-breadcrumb-item>
-        </nz-breadcrumb>
-
-      </ng-template>
-
-      <!-- <nz-divider></nz-divider> -->
-      <div class="services-search-wrapper" nz-row nzJustify="space-between" nzType="flex">
-        <div nz-col [nzSpan]="15">
-          <form nz-form (ngSubmit)="search(searchInput.value)">
-            <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-              <input type="text" [ngModel]="query" name="query" nz-input #searchInput placeholder="Services search" />
-            </nz-input-group>
-            <ng-template #suffixIconButton>
-              <button nz-button nzType="primary" nzSearch><i nz-icon type="search"></i></button>
-            </ng-template>
-          </form>
-        </div>
-        <div nz-col nzSpan="7">
-          <app-location-search></app-location-search>
-        </div>
-      </div>
-      <nz-divider></nz-divider>
+    <app-search-card (onChange)="search($event)"></app-search-card>
+    <nz-card class="services-list-card" style="padding: 0;">
       <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
         [nzItemLayout]="'horizontal'" [nzRenderItem]="service" [nzPagination]="pagination" [nzFooter]="footer">
         <ng-template #footer>
@@ -45,20 +20,15 @@
 </div>
 
 <ng-template #service let-service>
-  <nz-list-item class="service-list-item" [nzContent]="null" [nzActions]="[postedAction, priceAction]">
+  <nz-list-item class="service-list-item" [nzContent]="null" [nzActions]="[priceAction]">
     <!-- Actions -->
-    <ng-template #postedAction>
-      <div nz-tooltip nzTitle="Добавена">
-        <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
-      </div>
-    </ng-template>
     <ng-template #priceAction>
       <div class="service-list-item-price" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
           style="margin-right: 8px;"></i>{{service.price + ' ' + service.price_currency}}</div>
     </ng-template>
 
     <!-- List item meta -->
-    <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="nzTitle" [nzDescription]="description"
+    <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="serviceTitle" [nzDescription]="description"
       style="align-content: stretch;">
       <!-- Templates for list item -->
       <ng-template #avatar>
@@ -68,13 +38,18 @@
       </ng-template>
       <ng-template #description>
         <div nz-col class="list-item-description" nzType="flex" nzAlign="space-between">
-          <ng-container *ngTemplateOutlet="tags"></ng-container>
-          <div class="service-list-item-general-info">
-            <p>{{service.description | slice:0:100 }}{{service.description.length > 100 ? '...' : ''}}</p>
+          <div class="service-list-item-description-text">
+            <p>{{service.description | slice:0:80 }}{{service.description.length > 80 ? '...' : ''}}</p>
           </div>
-          <div>
-            <span style="margin-left: 3px;"><i style="margin-right: 3px;" nz-icon nzType="global"></i>гр. София, обл.
-              София</span>
+          <ng-container *ngTemplateOutlet="tags"></ng-container>
+
+          <div class="service-list-item-bottom-info">
+            <span nz-tooltip nzTitle="Локация">
+              <i nz-icon type="home" style="margin-right: 8px;"></i>гр. София - обл. София</span>
+            <nz-divider nzType="vertical"></nz-divider>
+            <span nz-tooltip nzTitle="Добавена">
+              <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
+            </span>
           </div>
         </div>
       </ng-template>
@@ -87,8 +62,8 @@
           </nz-tag>
         </div>
       </ng-template>
-      <ng-template #nzTitle>
-        <h2>
+      <ng-template #serviceTitle>
+        <h2 class="service-title">
           <a class="title" [routerLink]="['/services', service.id]">{{ service.title }}</a>
         </h2>
       </ng-template>

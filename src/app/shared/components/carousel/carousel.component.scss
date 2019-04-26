@@ -1,0 +1,54 @@
+@import "~src/variables";
+
+// TODO
+$service-card-border-width: 2px;
+$service-cards-gutter: 16px;
+
+.carousel-container {
+  $carousel-height: 360px;
+
+  [nz-carousel-content] {
+    text-align: center;
+    height: $carousel-height;
+    // line-height: $carousel-height;
+    background: $grey-color;
+    color: $white-color;
+    // overflow: hidden;
+    .image-wrapper-row {
+      height: 100%;
+      img.carousel-image {
+        object-fit: contain;
+      }
+    }
+  }
+  .carousel-images-list {
+    padding: 16px;
+    .image-list-item {
+      cursor: pointer;
+    }
+  }
+
+  .carousel-buttons {
+    display: none;
+    height: $carousel-height;
+    // padding: 0 12px;
+    position: absolute;
+    top: $service-card-border-width;
+    width: calc(100% - #{$service-cards-gutter} - 2 * #{$service-card-border-width});
+    > .arrow-col {
+      padding: 0 10px;
+      width: 10%;
+      cursor: pointer;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+
+      i {
+        line-height: $carousel-height;
+        font-size: 30px;
+        color: $white-color;
+      }
+    }
+  }
+}

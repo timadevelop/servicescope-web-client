@@ -8,6 +8,9 @@
   //   "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   //   "Segoe UI Symbol";
 }
+body {
+  background: #F3F3F3;
+}
 .ant-menu-submenu-title .ant-avatar {
   margin-right: 5px;
   .anticon {
@@ -25,6 +28,31 @@
     border-radius: 50%;
     border-width: 2px;
   }
+}
+
+
+.ant-avatar img {
+  object-fit: cover; // contain
+}
+
+.ant-card {
+  border-radius: $radius !important;
+  margin-bottom: $vertical-margin;
+  background: $white-color;
+  &.padding-0 {
+    .ant-card-body {
+      padding: 0;
+    }
+  }
+  &.padding-12 {
+    .ant-card-body {
+      padding: 12px;
+    }
+  }
+}
+
+.ant-divider.margin-20 {
+  margin: 20px 0;
 }
 
 .title {

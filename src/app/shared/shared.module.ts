@@ -9,6 +9,8 @@ import { EmailWrapperComponent } from './components/email-wrapper/email-wrapper.
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LocationSearchComponent } from './components/location-search/location-search.component';
 import { FormsModule } from '@angular/forms';
+import { SearchCardComponent } from './components/search-card/search-card.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     PhoneWrapperComponent,
     EmailWrapperComponent,
     PageNotFoundComponent,
-    LocationSearchComponent
+    LocationSearchComponent,
+    SearchCardComponent,
+    CarouselComponent
   ],
   exports: [
     LabeledTextComponent,
@@ -31,7 +35,9 @@ import { FormsModule } from '@angular/forms';
     PhoneWrapperComponent,
     EmailWrapperComponent,
     PageNotFoundComponent,
-    LocationSearchComponent
+    LocationSearchComponent,
+    SearchCardComponent,
+    CarouselComponent
   ]
 })
 export class SharedModule { }

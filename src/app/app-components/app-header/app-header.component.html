@@ -1,21 +1,22 @@
 <nz-header class="app-header">
-  <nz-row>
-    <nz-col [nzSpan]="20" [nzPush]="4">
-      <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu">
-        <li class="search-box">
-          <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-            <input type="text" nz-input placeholder="input search text" />
-          </nz-input-group>
-          <ng-template #suffixIconButton>
-            <i nz-icon nzSearch type="search"></i>
-          </ng-template>
+  <div nz-row nzGutter="16">
+    <div nz-col class="gutter-row" nzSpan="18">
+      <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-left">
+        <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+          <a routerLink="/services">Търся</a>
         </li>
-        <li nz-menu-item style="float: right;" *ngIf="!authService.isLoggedIn else userMenuItem"
-          routerLinkActive="ant-menu-item-selected">
+        <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+          <a routerLink="/else">Предлагам</a>
+        </li>
+      </div>
+    </div>
+    <div nz-col class="gutter-row" nzSpan="6">
+      <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-right">
+        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" routerLinkActive="ant-menu-item-selected">
           <a routerLink="/login">Login</a>
         </li>
         <ng-template #userMenuItem>
-          <li nz-submenu style="float: right;" *ngIf="userService.currentUser">
+          <li nz-submenu *ngIf="userService.currentUser">
             <span title>
               <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
               Hello, {{userService.currentUser.first_name}}
@@ -28,30 +29,11 @@
             </ul>
           </li>
         </ng-template>
+        <li nz-menu-item routerLinkActive="ant-menu-item-selected" class="add-menu-item">
+          <a routerLink="/add"><i nz-icon nzType="plus"></i>Добави</a>
+        </li>
 
-        <li nz-menu-item style="float: right;" routerLinkActive="ant-menu-item-selected">
-          <a routerLink="/services">Services</a>
-        </li>
-        <li nz-menu-item style="float: right;" routerLinkActive="ant-menu-item-selected">
-          <a routerLink="/businesses">Businessses</a>
-        </li>
-        <li nz-menu-item style="float: right;" routerLinkActive="ant-menu-item-selected">
-          <a routerLink="/profiles">Profiles</a>
-        </li>
-        <li nz-menu-item style="float: right;" routerLinkActive="ant-menu-item-selected">
-          <a routerLink="/employees">Employees</a>
-        </li>
-        <li nz-menu-item style="float: right;" routerLinkActive="ant-menu-item-selected">
-          <a routerLink="/admin">Admin</a>
-        </li>
-      </ul>
-    </nz-col>
-
-    <nz-col [nzSpan]="4" [nzPull]="20" class="logo-col">
-      <a routerLink="/" class="logo">
-        LOGO
-      </a>
-    </nz-col>
-
-  </nz-row>
+      </div>
+    </div>
+  </div>
 </nz-header>

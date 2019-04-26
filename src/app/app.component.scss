@@ -1,12 +1,18 @@
+@import '~src/variables';
+
 .app-layout {
-  background: #fff;
+  background: $back-color;
   max-width: 1300px;
   margin: 0 auto;
   min-height: calc(100% - 45px);
 
-  .main-layout {
-    padding: 40px 0 0;
-    background: rgb(207, 205, 205);
+  .main-wrapper-layout {
+    padding: $vertical-margin 0 0;
+    background: $back-color;
+
+    .main-content {
+      min-height: 280px;
+    }
   }
 }
 
