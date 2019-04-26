@@ -5,7 +5,8 @@
     </nz-card>
     <div class="service-stats" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
       <div nz-col>
-        <nz-tag nz-tooltip nzTitle="Търси обяви по таг" [routerLink]="['/tags', tag.id]" [nzColor]="tag.color" *ngFor="let tag of service.tags">{{tag.name}}
+        <nz-tag nz-tooltip nzTitle="Търси обяви по таг" [routerLink]="['/tags', tag.id]" [nzColor]="tag.color"
+          *ngFor="let tag of service.tags">{{tag.name}}
         </nz-tag>
         <nz-tag *ngIf="!service.tags || service.tags.length === 0">Няма тагове</nz-tag>
       </div>
@@ -34,10 +35,13 @@
     </nz-card>
     <nz-card>
       <div nz-row>
-        <div>
-          <button nz-button><i nz-icon nzType="facebook"></i>Споделяне</button>
-        </div>
+        <button nz-button><i nz-icon nzType="ng-vlicon:facebook"></i>Споделяне</button>
+        <button nz-button><i nz-icon nzType="twitter" style="color: #1da1f2;"></i>Туит</button>
       </div>
+    </nz-card>
+
+    <nz-card>
+      Повече обяви (TODO)
     </nz-card>
   </div>
   <div nz-col class="gutter-row" nzSpan="6">
