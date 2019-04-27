@@ -76,6 +76,10 @@ body {
   }
 }
 
+.ant-carousel .slick-slider {
+  max-height: 100%;
+}
+
 .title {
   // font-size: 15px;
   color: $dark-grey-color;

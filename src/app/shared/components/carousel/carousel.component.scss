@@ -37,20 +37,17 @@ $service-cards-gutter: 16px;
     z-index: 10;
 
     background: rgba(0, 0, 0, 0.7);
-    padding: 10%;
+    padding: 5%;
+    // padding-top: 20%;
 
     [nz-carousel-content] {
-      height: 55vh;
+      height: 80vh;
       background: transparent;
-      .image {
-        // height: 50%;
-        background-size: auto;
-      }
     }
     .close-btn {
       position: fixed;
-      top: 5vw;
-      left: 5vw;
+      top: 3vh;
+      left: 3vh;
       width: 5vh;
       height: 5vh;
       font-size: large;

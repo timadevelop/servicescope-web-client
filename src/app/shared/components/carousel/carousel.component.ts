@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Renderer } from '@angular/core';
 import { ServiceImage } from '../../models/Service.model';
-import { NzCarouselComponent } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-carousel',
@@ -13,16 +12,14 @@ export class CarouselComponent implements OnInit {
 
   zoomView: boolean = false;
 
-  constructor() { }
+  constructor(
+    private renderer: Renderer
+  ) { }
 
   ngOnInit() {
   }
 
-  zoom(v: boolean, el: any = null) {
+  zoom(v: boolean) {
     this.zoomView = v;
-    if (el) {
-      // TODO: Fix
-      el.focus();
-    }
   }
 }
