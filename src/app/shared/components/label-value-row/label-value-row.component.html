@@ -1,0 +1,9 @@
+<div nz-row nzType="flex" nzJustify="space-between" class="label-value-row">
+  <a *ngIf="routerlink else plabel" nz-col class="label" [routerLink]="routerlink">{{label}}</a>
+  <p nz-col class="value">{{value}}</p>
+</div>
+
+
+<ng-template #plabel>
+  <p nz-col class="label">{{label}}</p>
+</ng-template>

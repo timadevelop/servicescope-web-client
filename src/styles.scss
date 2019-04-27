@@ -31,6 +31,21 @@ body {
 }
 
 
+.ant-collapse .no-paddings {
+  border-bottom: none;
+  margin-bottom: 0;
+  .ant-collapse-header {
+    // padding: 0;
+    .ant-collapse-arrow {
+      // margin-left: 20%;
+    }
+  }
+  .ant-collapse-content-box {
+    padding-bottom: 0;
+  }
+
+}
+
 .ant-avatar img {
   object-fit: cover; // contain
 }

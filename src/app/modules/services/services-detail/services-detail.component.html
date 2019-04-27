@@ -27,6 +27,11 @@
     <nz-card>
       <div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
         <h1 nz-col class="title">{{service.title}}</h1>
+
+        <div class="votes">
+          <app-votes [score]="service.score" [currentUserVote]="service.current_user_vote" [model]="'services'"
+            [modelId]="service.id"></app-votes>
+        </div>
       </div>
       <!-- <nz-divider></nz-divider> -->
       <div class="service-description">
@@ -46,8 +51,16 @@
   </div>
   <div nz-col class="gutter-row" nzSpan="6">
     <!-- <nz-divider style="margin-top: 0;"></nz-divider> -->
-    <nz-card class="padding-12" style="text-align: center;">
-      <h1 style="margin: 0;">{{service.price}} {{service.price_currency}}</h1>
+    <nz-card class="padding-12" style="">
+      <h1 style="text-align: center; margin: 0;">{{service.price}} {{service.price_currency}}</h1>
+
+      <nz-collapse [nzBordered]="false">
+        <nz-collapse-panel class="no-paddings" nzHeader="Повече информация">
+          <app-label-value-row [label]="'Осмотр'" [value]="'1234 USD'"></app-label-value-row>
+
+        </nz-collapse-panel>
+      </nz-collapse>
+
     </nz-card>
     <!-- <nz-divider class="margin-20"></nz-divider> -->
     <nz-card class="large-card-button padding-12" style="text-align: center;">

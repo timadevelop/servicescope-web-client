@@ -1,0 +1,31 @@
+@import "~src/variables";
+
+.votes {
+  cursor: default;
+  font-size: large;
+  i.vote-btn {
+    opacity: 0.7;
+
+    &.active:hover {
+      opacity: 1;
+      cursor: pointer;
+      color: $contrast-color;
+    }
+
+    &.voted {
+      opacity: 1;
+      color: $contrast-color;
+    }
+
+    &.active.voted:hover {
+      opacity: .5;
+    }
+  }
+
+  .score {
+    margin: 0 5px;
+    &.voted {
+      color: $contrast-color;
+    }
+  }
+}

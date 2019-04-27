@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../models/User.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-author-card',
@@ -10,9 +11,12 @@ export class AuthorCardComponent implements OnInit {
 
   @Input() author: User;
 
-  constructor() { }
+  constructor(private datePipe: DatePipe) { }
 
   ngOnInit() {
   }
 
+  transformDateString(date: string): string {
+    return this.datePipe.transform(date, 'yyyy-MM-dd');
+  }
 }

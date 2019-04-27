@@ -6,8 +6,9 @@ import { Service } from '../models/Service.model';
 import { Observable, throwError, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap, mapTo } from 'rxjs/operators';
 import { CustomEncoder } from './custom.encoder';
+import { Vote } from '../models/Vote.model';
 
 @Injectable({
   providedIn: 'root'

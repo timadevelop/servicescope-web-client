@@ -11,6 +11,8 @@ import { LocationSearchComponent } from './components/location-search/location-s
 import { FormsModule } from '@angular/forms';
 import { SearchCardComponent } from './components/search-card/search-card.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { LabelValueRowComponent } from './components/label-value-row/label-value-row.component';
+import { VotesComponent } from './components/votes/votes.component';
 
 @NgModule({
   imports: [
@@ -27,7 +29,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     PageNotFoundComponent,
     LocationSearchComponent,
     SearchCardComponent,
-    CarouselComponent
+    CarouselComponent,
+    LabelValueRowComponent,
+    VotesComponent
   ],
   exports: [
     LabeledTextComponent,
@@ -37,7 +41,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     PageNotFoundComponent,
     LocationSearchComponent,
     SearchCardComponent,
-    CarouselComponent
+    CarouselComponent,
+    LabelValueRowComponent,
+    VotesComponent
   ]
 })
 export class SharedModule { }

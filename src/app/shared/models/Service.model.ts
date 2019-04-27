@@ -25,4 +25,8 @@ export class Service extends Base {
   created_at: Date; // TODO
   updated_at: Date;
   tags: Array<Tag>;
+
+  // voting
+  score: number;
+  current_user_vote: boolean;
 }

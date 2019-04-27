@@ -30,22 +30,6 @@
     text-align: start;
   }
 
-  .author-row {
-    p,
-    a {
-      color: $main-text-color;
-      margin-bottom: 0.5em;
-    }
-    a:hover {
-      color: $primary-color;
-    }
-    .label {
-    }
-    .value {
-      font-weight: bold;
-    }
-  }
-
   .author-contacts {
     text-align: start;
   }

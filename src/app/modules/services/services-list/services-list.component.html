@@ -25,6 +25,9 @@
     <ng-template #priceAction>
       <div class="service-list-item-price" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
           style="margin-right: 8px;"></i>{{service.price + ' ' + service.price_currency}}</div>
+      <div style="margin-top: 50%;">
+        <app-votes [score]="service.score" [currentUserVote]="service.current_user_vote" [model]="'services'" [modelId]="service.id"></app-votes>
+      </div>
     </ng-template>
 
     <!-- List item meta -->

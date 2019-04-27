@@ -17,28 +17,11 @@
     <ng-template #statHeader>
       <h2 class="title">Author statistics</h2>
     </ng-template>
-
-    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
-      <a nz-col class="label" [routerLink]="['/profiles', author.id, 'services']">Services</a>
-      <p nz-col class="value">{{author.services_count}}</p>
-    </div>
-    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
-      <a nz-col class="label" [routerLink]="['/profiles', author.id, 'posts']">Posts</a>
-      <p nz-col class="value">{{author.posts_count}}</p>
-    </div>
-    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
-      <a nz-col class="label" [routerLink]="['/profiles', author.id, 'reviews']">Reviews</a>
-      <p nz-col class="value">{{author.income_reviews_count}}</p>
-    </div>
-    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
-      <a nz-col class="label" [routerLink]="['/profiles', author.id, 'offers']">Offers</a>
-      <p nz-col class="value">{{author.offers_count}}</p>
-    </div>
-    <br />
-    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
-      <p nz-col class="label">Joined</p>
-      <p nz-col class="value">{{author.date_joined | date}}</p>
-    </div>
+    <app-label-value-row label="Services" [value]="author.services_count" [routerlink]="['/profiles', author.id, 'services']"></app-label-value-row>
+    <app-label-value-row label="Posts" [value]="author.posts_count" [routerlink]="['/profiles', author.id, 'posts']"></app-label-value-row>
+    <app-label-value-row label="Reviews" [value]="author.income_reviews_count" [routerlink]="['/profiles', author.id, 'reviews']"></app-label-value-row>
+    <app-label-value-row label="Offers" [value]="author.offers_count" [routerlink]="['/profiles', author.id, 'offers']"></app-label-value-row>
+    <app-label-value-row label="Joined" [value]="transformDateString(author.date_joined)"></app-label-value-row>
   </div>
   <div nz-row class="author-contacts">
     <nz-divider nzOrientation="left" [nzText]="contactsHeader"></nz-divider>
