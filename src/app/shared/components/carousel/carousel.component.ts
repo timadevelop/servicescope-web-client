@@ -11,9 +11,18 @@ export class CarouselComponent implements OnInit {
 
   @Input() images: Array<ServiceImage>;
 
+  zoomView: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  zoom(v: boolean, el: any = null) {
+    this.zoomView = v;
+    if (el) {
+      // TODO: Fix
+      el.focus();
+    }
+  }
 }

@@ -1,8 +1,24 @@
-<div *ngIf="images && images.length > 0 else warning" class="carousel-container">
+<div *ngIf="images && images.length > 0 else warning">
+  <div class="carousel-container">
+    <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
+  </div>
+
+  <div class="carousel-container zoomView" #zoomViewContainer (keydown.esc)="zoom(false)" *ngIf="zoomView">
+    <button *ngIf="zoomView" (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon
+        type="close"></i></button>
+    <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
+  </div>
+</div>
+
+<ng-template #warning>
+  <nz-alert nzType="warning" nzMessage="No images to show"></nz-alert>
+</ng-template>
+
+<ng-template #carouselContent>
   <nz-carousel nzAutoPlay #carousel class="carousel">
     <div nz-carousel-content *ngFor="let image of images">
-      <div class="image" [ngStyle]="{'background-image': 'url(' + image.image + ')'}" nz-row nzType="flex" nzJustify="center"
-        nzAlign="middle">
+      <div class="image" (click)="zoom(true, zoomViewContainer)" [ngStyle]="{'background-image': 'url(' + image.image + ')'}" nz-row
+        nzType="flex" nzJustify="center" nzAlign="middle">
       </div>
     </div>
   </nz-carousel>
@@ -15,7 +31,5 @@
       </div>
     </div>
   </div>
-</div>
-<ng-template #warning>
-  <nz-alert nzType="warning" nzMessage="No images to show"></nz-alert>
+
 </ng-template>

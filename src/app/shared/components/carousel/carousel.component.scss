@@ -27,4 +27,33 @@ $service-cards-gutter: 16px;
       cursor: pointer;
     }
   }
+
+  &.zoomView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10%;
+
+    [nz-carousel-content] {
+      height: 55vh;
+      background: transparent;
+      .image {
+        // height: 50%;
+        background-size: auto;
+      }
+    }
+    .close-btn {
+      position: fixed;
+      top: 5vw;
+      left: 5vw;
+      width: 5vh;
+      height: 5vh;
+      font-size: large;
+    }
+  }
 }
