@@ -9,6 +9,11 @@ export class ServiceImage extends Base {
   image: Url
 }
 
+export class PriceDetailsRow {
+  label: string;
+  value: string | number;
+}
+
 export class Service extends Base {
   author: User;
   title: string;
@@ -25,7 +30,7 @@ export class Service extends Base {
   created_at: Date; // TODO
   updated_at: Date;
   tags: Array<Tag>;
-
+  price_details: Array<PriceDetailsRow>;
   // voting
   score: number;
   current_user_vote: boolean;

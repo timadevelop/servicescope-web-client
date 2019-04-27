@@ -27,7 +27,6 @@
     <nz-card>
       <div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
         <h1 nz-col class="title">{{service.title}}</h1>
-
         <div class="votes">
           <app-votes [score]="service.score" [currentUserVote]="service.current_user_vote" [model]="'services'"
             [modelId]="service.id"></app-votes>
@@ -38,13 +37,17 @@
         {{service.description}}
       </div>
     </nz-card>
-    <nz-card>
-      <div nz-row>
+    <div class="service-stats" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+      <div class="share-btns">
         <button nz-button><i nz-icon nzType="ng-vlicon:facebook"></i>Споделяне</button>
         <button nz-button><i nz-icon nzType="twitter" style="color: #1da1f2;"></i>Туит</button>
+        <button nz-button><i nz-icon nzType="star"></i>Запази</button>
       </div>
-    </nz-card>
-
+      <div>
+        <app-votes [score]="service.score" [currentUserVote]="service.current_user_vote" [model]="'services'"
+          [modelId]="service.id"></app-votes>
+      </div>
+    </div>
     <nz-card>
       Повече обяви (TODO)
     </nz-card>
@@ -53,10 +56,10 @@
     <!-- <nz-divider style="margin-top: 0;"></nz-divider> -->
     <nz-card class="padding-12" style="">
       <h1 style="text-align: center; margin: 0;">{{service.price}} {{service.price_currency}}</h1>
-
+      <nz-divider class="margin-5"></nz-divider>
       <nz-collapse [nzBordered]="false">
         <nz-collapse-panel class="no-paddings" nzHeader="Повече информация">
-          <app-label-value-row [label]="'Осмотр'" [value]="'1234 USD'"></app-label-value-row>
+          <app-label-value-row *ngFor="let row of service.price_details" [label]="row.label" [value]="row.value"></app-label-value-row>
 
         </nz-collapse-panel>
       </nz-collapse>

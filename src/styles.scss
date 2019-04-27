@@ -9,7 +9,7 @@
   //   "Segoe UI Symbol";
 }
 body {
-  background: #F3F3F3;
+  background: #f3f3f3;
 }
 .ant-menu-submenu-title .ant-avatar {
   margin-right: 5px;
@@ -30,7 +30,6 @@ body {
   }
 }
 
-
 .ant-collapse .no-paddings {
   border-bottom: none;
   margin-bottom: 0;
@@ -43,7 +42,6 @@ body {
   .ant-collapse-content-box {
     padding-bottom: 0;
   }
-
 }
 
 .ant-avatar img {
@@ -66,8 +64,16 @@ body {
   }
 }
 
-.ant-divider.margin-20 {
-  margin: 20px 0;
+.ant-divider {
+  &.margin-20 {
+    margin: 20px 0;
+  }
+  &.margin-10 {
+    margin: 10px 0;
+  }
+  &.margin-5 {
+    margin: 5px 0;
+  }
 }
 
 .title {

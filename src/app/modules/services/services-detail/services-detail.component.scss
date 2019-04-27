@@ -1,7 +1,6 @@
 @import "~src/variables";
 
 .service-container {
-
   .service-stats {
     padding: 0 3px;
     margin-bottom: $vertical-margin;
@@ -12,19 +11,33 @@
     top: 5px;
     right: 5px;
   }
-}
+  .share-btns {
+    button {
+      background: rgba(255, 255, 255, .5);
+      opacity: 0.7;
+      &:hover {
+        overflow: 1;
+        background: rgba(255, 255, 255, 1);
+        color: $main-text-color;
 
+      }
+    }
+    button + button {
+      margin-left: 1em;
+    }
+  }
+}
 
 .large-card-button {
   background: $contrast-color;
-  opacity: .8;
+  opacity: 0.8;
   margin: 0;
   cursor: pointer;
   &:hover {
     opacity: 1;
   }
   i {
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
   * {
     font-weight: bold;
