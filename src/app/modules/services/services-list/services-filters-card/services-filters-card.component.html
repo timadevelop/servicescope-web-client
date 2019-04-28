@@ -1,11 +1,14 @@
-<nz-card [nzTitle]="title" [nzExtra]="extra">
-  <app-price-filter></app-price-filter>
+<nz-card [nzTitle]="title" class="padding-top-0" [nzExtra]="extra">
+  <div class="price-filters">
+    <nz-divider nzText="Цена" nzOrientation="left"></nz-divider>
+    <app-price-filter></app-price-filter>
+  </div>
   <div class="category-filters">
-    <nz-divider nzText="Category" nzOrientation="left"></nz-divider>
+    <nz-divider nzText="Категория" nzOrientation="left"></nz-divider>
     <div class="categories-list">
-      <nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedCategoryString" nzPlaceHolder="Избери категория"
-        nzAllowClear nzShowSearch (ngModelChange)="onCategotyChange($event)" [nzServerSearch]="true"
-        (nzOnSearch)="onSearchCategories($event)" (nzScrollToBottom)="loadMoreCategories()">
+      <nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedCategoryString"
+        nzPlaceHolder="Избери категория" nzAllowClear nzShowSearch (ngModelChange)="onCategotyChange($event)"
+        [nzServerSearch]="true" (nzOnSearch)="onSearchCategories($event)" (nzScrollToBottom)="loadMoreCategories()">
         <ng-container *ngFor="let category of categories?.results; trackBy:trackIdentifyByItemId">
           <nz-option *ngIf="!isLoading" [nzValue]="category.name" [nzLabel]="category.name"></nz-option>
         </ng-container>
@@ -16,7 +19,7 @@
     </div>
   </div>
   <div class="tag-filters">
-    <nz-divider nzText="Tags" nzOrientation="left"></nz-divider>
+    <nz-divider nzText="Тагове" nzOrientation="left"></nz-divider>
     <div class="tags">
       <div class="selected-tags">
         <nz-tag [nzColor]="tag.color" *ngFor="let tag of selectedTags; trackBy:trackIdentifyByItemId"

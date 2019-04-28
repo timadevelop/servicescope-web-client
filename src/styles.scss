@@ -52,6 +52,11 @@ body {
   border-radius: $radius !important;
   margin-bottom: $vertical-margin;
   background: $white-color;
+  &.padding-top-0 {
+    .ant-card-body {
+      padding-top: 0;
+    }
+  }
   &.padding-0 {
     .ant-card-body {
       padding: 0;
