@@ -1,12 +1,12 @@
 <nz-card>
   <div class="services-search-wrapper" nz-row nzJustify="space-between" nzType="flex">
     <div nz-col [nzSpan]="24">
-      <form nz-form [nzLayout]="'inline'" (ngSubmit)="search(searchInput.value, selectedLocation)">
+      <form nz-form [nzLayout]="'inline'" (ngSubmit)="search()">
         <div nz-row nzType="flex" nzGutter="8" nzJustify="space-between">
           <div nz-col [nzSpan]="12">
             <nz-form-control style="width: 100%">
               <nz-input-group [nzSize]="'large'" [nzPrefix]="searchIcon">
-                <input type="text" name="query" nz-input #searchInput placeholder="Services search" />
+                <input type="text" name="query" nz-input [(ngModel)]="query" placeholder="Services search" />
               </nz-input-group>
               <ng-template #searchIcon>
                 <!-- todo search -->

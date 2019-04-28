@@ -193,7 +193,8 @@ export class ServicesFiltersCardComponent implements OnInit, OnDestroy {
       // delete tag
       this.selectedTagStrings = this.selectedTagStrings.filter(v => v != name);
     }
-    const queryParams: Params = { tags: this.selectedTagStrings };
+    this.page = '1';
+    const queryParams: Params = { tags: this.selectedTagStrings, page: 1, pageSize: this.pageSize };
     this.updateQueryParams(queryParams);
 
   }

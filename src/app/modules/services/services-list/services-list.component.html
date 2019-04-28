@@ -47,8 +47,8 @@
           <ng-container *ngTemplateOutlet="tags"></ng-container>
 
           <div class="service-list-item-bottom-info">
-            <span nz-tooltip nzTitle="Локация">
-              <i nz-icon type="home" style="margin-right: 8px;"></i>гр. София - обл. София</span>
+            <span nz-tooltip nzTitle="Населено място">
+              <i nz-icon type="home" style="margin-right: 8px;"></i>{{service.location && service.location.name ? service.location?.name + ' - ' + service.location?.district?.name : 'Цялата страна'}}</span>
             <nz-divider nzType="vertical"></nz-divider>
             <span nz-tooltip nzTitle="Добавена">
               <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}

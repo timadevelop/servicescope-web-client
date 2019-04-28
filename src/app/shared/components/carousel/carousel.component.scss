@@ -1,19 +1,27 @@
 @import "~src/variables";
 
 // TODO
-$service-card-border-width: 2px;
-$service-cards-gutter: 16px;
+// $service-card-border-width: 2px;
+// $service-cards-gutter: 16px;
 
 .carousel-container {
-  $carousel-height: 360px;
+
+  .zoom-btn {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    opacity: .7;
+    background: transparent;
+    &:hover {
+      opacity: 1;
+    }
+  }
 
   [nz-carousel-content] {
     text-align: center;
-    height: $carousel-height;
-    // line-height: $carousel-height;
-    background: $grey-color;
+    height: 360px;
+    background: rgba(0, 0, 0, .1);
     color: $white-color;
-    // overflow: hidden;
     .image {
       height: 100%;
       background-size: contain; // TODO: use cover?

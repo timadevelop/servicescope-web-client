@@ -12,8 +12,9 @@
       </div>
       <div nz-col>
         <span nz-tooltip nzTitle="Населено място">
-          <i nz-icon style="margin-right: 8px;" nzType="home"></i>{{service?.location?.name}} -
-          {{service?.location?.district?.name}}</span>
+          <i nz-icon type="home"
+            style="margin-right: 8px;"></i>{{service.location && service.location.name ? service.location?.name + ' - ' + service.location?.district?.name : 'Цялата страна'}}
+        </span>
         <nz-divider nzType="vertical"></nz-divider>
         <span nz-tooltip nzTitle="Добавена">
           <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
@@ -59,7 +60,8 @@
       <nz-divider class="margin-5"></nz-divider>
       <nz-collapse [nzBordered]="false">
         <nz-collapse-panel class="no-paddings" nzHeader="Повече информация">
-          <app-label-value-row *ngFor="let row of service.price_details" [label]="row.label" [value]="row.value"></app-label-value-row>
+          <app-label-value-row *ngFor="let row of service.price_details" [label]="row.label" [value]="row.value">
+          </app-label-value-row>
 
         </nz-collapse-panel>
       </nz-collapse>

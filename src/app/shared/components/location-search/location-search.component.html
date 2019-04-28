@@ -1,14 +1,19 @@
-<nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedLocationString" nzPlaceHolder="Избери населено място"
+<nz-select style="width: 100%;" nzMode="default" nzPlaceHolder="Цялата страна"
   nzAllowClear nzShowSearch [nzServerSearch]="true" (nzOnSearch)="search($event)"
   (nzScrollToBottom)="loadMoreLocations()" [nzMenuItemSelectedIcon]="icon" [nzSuffixIcon]="icon"
   [nzSize]="size"
+  [ngModel]="selectedLocation || 'null'"
   (ngModelChange)="locationChanged($event)">
-  <nz-option nzLabel="Цялата страна" [nzValue]="'null'" *ngIf="locations?.results.length !== 0" nzCustomContent>
+  <nz-option nzLabel="Цялата страна" [nzValue]="'null'" *ngIf="locations && locations.results.length !== 0" nzCustomContent>
     <span>Цялата страна</span>
   </nz-option>
+  <nz-option [nzLabel]="getLabel(selectedLocation)" [nzValue]="selectedLocation" *ngIf="selectedLocation" nzCustomContent>
+    <span>{{getLabel(selectedLocation)}}</span>
+  </nz-option>
+
 
   <ng-container *ngFor="let location of locations?.results; trackBy:trackIdentifyByItemId">
-    <nz-option [nzLabel]="getLabel(location)" [nzValue]="location" nzCustomContent>
+    <nz-option [nzLabel]="getLabel(location)" [nzValue]="location" nzCustomContent *ngIf="!selectedLocation || location.id != selectedLocation.id">
       <span>{{getLabel(location)}}</span>
     </nz-option>
   </ng-container>

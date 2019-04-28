@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ɵConsole } from '@angular/core';
 import { Location } from '../../models/Location.model';
+import { Params, Router, ActivatedRoute } from '@angular/router';
+import { LocationService } from '../../services/location.service';
 
 @Component({
   selector: 'app-search-card',
@@ -10,13 +12,19 @@ export class SearchCardComponent implements OnInit {
 
   @Output() onChange = new EventEmitter<{ query: string, location: Location }>();
   selectedLocation: Location = null;
+  query: string;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+  ) { }
 
-  search(query: string) {
-    this.onChange.emit({ query: query, location: this.selectedLocation });
+  search() {
+    this.onChange.emit({ query: this.query, location: this.selectedLocation });
   }
   ngOnInit() {
+    this.route.queryParamMap.subscribe(params => {
+      this.query = params.get('q');
+    });
   }
 
   onLocationChange(location: Location) {
