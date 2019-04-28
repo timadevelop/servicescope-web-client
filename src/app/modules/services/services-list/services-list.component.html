@@ -1,6 +1,6 @@
 <div nz-row nzGutter="16">
   <div nz-col class="gutter-row" nzSpan="18">
-    <app-search-card (onChange)="search($event)"></app-search-card>
+    <app-search-card></app-search-card>
     <nz-card class="services-list-card" style="padding: 0;">
       <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
         [nzItemLayout]="'horizontal'" [nzRenderItem]="service" [nzPagination]="pagination" [nzFooter]="footer">
@@ -26,7 +26,8 @@
       <div class="service-list-item-price" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
           style="margin-right: 8px;"></i>{{service.price + ' ' + service.price_currency}}</div>
       <div style="margin-top: 50%;">
-        <app-votes [score]="service.score" [currentUserVote]="service.current_user_vote" [model]="'services'" [modelId]="service.id"></app-votes>
+        <app-votes [score]="service.score" [currentUserVote]="service.current_user_vote" [model]="'services'"
+          [modelId]="service.id"></app-votes>
       </div>
     </ng-template>
 
@@ -48,10 +49,15 @@
 
           <div class="service-list-item-bottom-info">
             <span nz-tooltip nzTitle="Населено място">
-              <i nz-icon type="home" style="margin-right: 8px;"></i>{{service.location && service.location.name ? service.location?.name + ' - ' + service.location?.district?.name : 'Цялата страна'}}</span>
+              <i nz-icon type="home"
+                style="margin-right: 8px;"></i>{{service.location && service.location.name ? service.location?.name + ' - ' + service.location?.district?.name : 'Цялата страна'}}</span>
             <nz-divider nzType="vertical"></nz-divider>
             <span nz-tooltip nzTitle="Добавена">
               <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
+            </span>
+            <nz-divider nzType="vertical"></nz-divider>
+            <span nz-tooltip nzTitle="Номер на обява">
+              <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{service.id}}
             </span>
           </div>
         </div>

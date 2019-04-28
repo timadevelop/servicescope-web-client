@@ -10,24 +10,34 @@ import { LocationService } from '../../services/location.service';
 })
 export class SearchCardComponent implements OnInit {
 
-  @Output() onChange = new EventEmitter<{ query: string, location: Location }>();
-  selectedLocation: Location = null;
+  @Output() onChange = new EventEmitter<string>();
   query: string;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   search() {
-    this.onChange.emit({ query: this.query, location: this.selectedLocation });
+    this.onChange.emit(this.query);
+    // TODO filter location
+    const queryParams: Params = { q: this.query, page: 1 };
+    this.updateQueryParams(queryParams);
   }
+
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
       this.query = params.get('q');
     });
   }
 
-  onLocationChange(location: Location) {
-    this.selectedLocation = location;
+  private updateQueryParams(queryParams: Params) {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: queryParams,
+        queryParamsHandling: "merge", // remove to replace all query params by provided
+      });
   }
 }

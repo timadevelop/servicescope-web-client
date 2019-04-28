@@ -42,13 +42,6 @@ export class ServicesListComponent implements OnInit {
     this.updateQueryParams(queryParams);
   }
 
-  search(event: {query: string, location: Location}) {
-    console.log(event.query, event.location);
-    // TODO filter location
-    const queryParams: Params = { q: event.query, page: 1, pageSize: this.pageSize };
-    this.updateQueryParams(queryParams)
-  }
-
   private updateQueryParams(queryParams: Params) {
     this.router.navigate(
       [],
