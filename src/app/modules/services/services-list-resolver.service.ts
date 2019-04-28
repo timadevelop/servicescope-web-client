@@ -22,6 +22,8 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
     const query = route.queryParamMap.get('q');
     const tags = route.queryParamMap.getAll('tags');
     const locationId = route.queryParamMap.get('locationId');
+    const priceMin = route.queryParamMap.get('price_min');
+    const priceMax = route.queryParamMap.get('price_max');
 
     const category = route.paramMap.get('category');
 
@@ -36,6 +38,13 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
 
     if (category) {
       filters.push({ param: 'category', value: category });
+    }
+
+    if (priceMin) {
+      filters.push({ param: 'price_min', value: priceMin });
+    }
+    if (priceMax) {
+      filters.push({ param: 'price_max', value: priceMax });
     }
 
 

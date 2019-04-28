@@ -13,6 +13,7 @@ import { SearchCardComponent } from './components/search-card/search-card.compon
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { LabelValueRowComponent } from './components/label-value-row/label-value-row.component';
 import { VotesComponent } from './components/votes/votes.component';
+import { PriceFilterComponent } from './components/price-filter/price-filter.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { VotesComponent } from './components/votes/votes.component';
     SearchCardComponent,
     CarouselComponent,
     LabelValueRowComponent,
-    VotesComponent
+    VotesComponent,
+    PriceFilterComponent
   ],
   exports: [
     LabeledTextComponent,
@@ -43,7 +45,8 @@ import { VotesComponent } from './components/votes/votes.component';
     SearchCardComponent,
     CarouselComponent,
     LabelValueRowComponent,
-    VotesComponent
+    VotesComponent,
+    PriceFilterComponent
   ]
 })
 export class SharedModule { }
