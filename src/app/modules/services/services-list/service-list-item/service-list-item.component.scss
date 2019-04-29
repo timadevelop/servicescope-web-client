@@ -2,6 +2,10 @@
 
 .service-list-item {
   align-items: flex-start;
+  border-bottom: 1px solid $light-border-color !important;
+  // &:hover {
+  //   background: $dark-back-color;
+  // }
 
   .service-title {
     margin-bottom: 0.3em;

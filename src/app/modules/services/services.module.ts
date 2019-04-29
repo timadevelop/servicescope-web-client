@@ -6,7 +6,6 @@ import { ServicesRoutingModule } from './services-routing.module';
 import { ServicesComponent } from './services/services.component';
 import { ServicesListComponent } from './services-list/services-list.component';
 import { ServicesDetailComponent } from './services-detail/services-detail.component';
-import { ServicesHomeComponent } from './services-home/services-home.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { SharedModule } from '../../shared/shared.module';
@@ -18,7 +17,6 @@ import { ServiceListItemComponent } from './services-list/service-list-item/serv
     ServicesComponent,
     ServicesListComponent,
     ServicesDetailComponent,
-    ServicesHomeComponent,
     ServiceListItemComponent
   ],
   imports: [
