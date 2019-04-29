@@ -27,38 +27,33 @@ const servicesRoutes: Routes = [
     children: [
       {
         path: '',
+        pathMatch: 'full',
+        ...servicesListRouteTemplate,
+      } as Route,
+      {
+        path: 'category',
         children: [
           {
             path: '',
-            pathMatch: 'full',
-            ...servicesListRouteTemplate,
+            component: PageNotFoundComponent,
+            pathMatch: 'full'
+          },
+          {
+            path: ':category',
+            ...servicesListRouteTemplate
           } as Route,
-          {
-            path: 'category',
-            children: [
-              {
-                path: '',
-                component: PageNotFoundComponent,
-                pathMatch: 'full'
-              },
-              {
-                path: ':category',
-                ...servicesListRouteTemplate
-              } as Route,
-            ]
-          },
-          {
-
-            path: ':id',
-            component: ServicesDetailComponent,
-            // canDeactivate: [CanDeactivateGuard],
-            resolve: {
-              service: ServiceResolverService
-            },
-          },
         ]
-      }
-    ]
+      },
+      {
+
+        path: ':id',
+        component: ServicesDetailComponent,
+        // canDeactivate: [CanDeactivateGuard],
+        resolve: {
+          service: ServiceResolverService
+        },
+      },
+    ],
   }
 ];
 
