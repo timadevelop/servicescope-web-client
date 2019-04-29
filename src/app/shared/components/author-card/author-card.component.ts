@@ -10,6 +10,8 @@ import { DatePipe } from '@angular/common';
 export class AuthorCardComponent implements OnInit {
 
   @Input() author: User;
+  @Input() override_phone: string = null;
+  @Input() override_email: string = null;
 
   constructor(private datePipe: DatePipe) { }
 

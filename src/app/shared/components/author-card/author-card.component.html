@@ -32,13 +32,13 @@
     <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
       <p nz-col class="label">Phone</p>
       <div nz-col class="value">
-        <app-phone-wrapper [phone]="author.phone"></app-phone-wrapper>
+        <app-phone-wrapper [phone]="override_phone || author.phone"></app-phone-wrapper>
       </div>
     </div>
     <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
       <p nz-col class="label">Email</p>
       <div nz-col class="value">
-        <app-email-wrapper [email]="author.email"></app-email-wrapper>
+        <app-email-wrapper [email]="override_email || author.email"></app-email-wrapper>
       </div>
     </div>
 
