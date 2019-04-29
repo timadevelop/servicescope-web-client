@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
-import { LocationService } from '../../services/location.service';
+import { LocationService } from '../../../../services/location.service';
 
-import { Location } from '../../models/Location.model';
-import { PaginatedApiResponse } from '../../models/api-response/paginated-api-response';
+import { Location } from '../../../../models/Location.model';
+import { PaginatedApiResponse } from '../../../../models/api-response/paginated-api-response';
 import { Params, Router, ActivatedRoute } from '@angular/router';
 
 @Component({

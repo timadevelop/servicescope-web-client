@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ɵConsole } from '@angular/core';
-import { Location } from '../../models/Location.model';
+import { Location } from '../../../../models/Location.model';
 import { Params, Router, ActivatedRoute } from '@angular/router';
-import { LocationService } from '../../services/location.service';
+import { LocationService } from '../../../../services/location.service';
 
 @Component({
   selector: 'app-search-card',

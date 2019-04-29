@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LabeledTextComponent } from './components/labeled-text/labeled-text.component';
-import { AuthorCardComponent } from './components/author-card/author-card.component';
+import { LabeledTextComponent } from './components/common/labeled-text/labeled-text.component';
+import { AuthorCardComponent } from './components/common/author-card/author-card.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RouterModule } from '@angular/router';
-import { PhoneWrapperComponent } from './components/phone-wrapper/phone-wrapper.component';
-import { EmailWrapperComponent } from './components/email-wrapper/email-wrapper.component';
+import { PhoneWrapperComponent } from './components/common/phone-wrapper/phone-wrapper.component';
+import { EmailWrapperComponent } from './components/common/email-wrapper/email-wrapper.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { LocationSearchComponent } from './components/location-search/location-search.component';
+import { LocationSearchComponent } from './components/list-view-only/filter-components/location-search/location-search.component';
 import { FormsModule } from '@angular/forms';
-import { SearchCardComponent } from './components/search-card/search-card.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { LabelValueRowComponent } from './components/label-value-row/label-value-row.component';
-import { VotesComponent } from './components/votes/votes.component';
-import { PriceFilterComponent } from './components/price-filter/price-filter.component';
+import { SearchCardComponent } from './components/list-view-only/filter-components/search-card/search-card.component';
+import { CarouselComponent } from './components/detail-view-only/carousel/carousel.component';
+import { LabelValueRowComponent } from './components/common/label-value-row/label-value-row.component';
+import { VotesComponent } from './components/common/votes/votes.component';
+import { PriceFilterComponent } from './components/list-view-only/filter-components/price-filter/price-filter.component';
+import { GeneralInfoCardComponent } from './components/detail-view-only/general-info-card/general-info-card.component';
+import { PriceCardComponent } from './components/detail-view-only/price-card/price-card.component';
 
 @NgModule({
   imports: [
@@ -33,7 +35,9 @@ import { PriceFilterComponent } from './components/price-filter/price-filter.com
     CarouselComponent,
     LabelValueRowComponent,
     VotesComponent,
-    PriceFilterComponent
+    PriceFilterComponent,
+    GeneralInfoCardComponent,
+    PriceCardComponent
   ],
   exports: [
     LabeledTextComponent,
@@ -46,7 +50,9 @@ import { PriceFilterComponent } from './components/price-filter/price-filter.com
     CarouselComponent,
     LabelValueRowComponent,
     VotesComponent,
-    PriceFilterComponent
+    PriceFilterComponent,
+    GeneralInfoCardComponent,
+    PriceCardComponent
   ]
 })
 export class SharedModule { }

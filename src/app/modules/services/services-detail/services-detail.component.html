@@ -1,30 +1,14 @@
 <div nz-row nzGutter="16" *ngIf="service" class="service-container">
+  <!-- left column -->
   <div nz-col class="gutter-row" nzSpan="18">
     <nz-card class="padding-0">
       <app-carousel [images]="service?.images"></app-carousel>
     </nz-card>
-    <div class="service-stats" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
-      <div nz-col>
-        <nz-tag nz-tooltip nzTitle="Търси обяви по таг" [routerLink]="['/tags', tag.id]" [nzColor]="tag.color"
-          *ngFor="let tag of service.tags">{{tag.name}}
-        </nz-tag>
-        <nz-tag *ngIf="!service.tags || service.tags.length === 0">Няма тагове</nz-tag>
-      </div>
-      <div nz-col>
-        <span nz-tooltip nzTitle="Населено място">
-          <i nz-icon type="home"
-            style="margin-right: 8px;"></i>{{service.location && service.location.name ? service.location?.name + ' - ' + service.location?.district?.name : 'Цялата страна'}}
-        </span>
-        <nz-divider nzType="vertical"></nz-divider>
-        <span nz-tooltip nzTitle="Добавена">
-          <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
-        </span>
-        <nz-divider nzType="vertical"></nz-divider>
-        <span nz-tooltip nzTitle="Номер на обява">
-          <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{service.id}}
-        </span>
-      </div>
+    <div class="mb-vertical-align">
+      <app-general-info-card [id]="service.id" [location]="service.location" [created_at]="service.created_at"
+        [tags]="service.tags"></app-general-info-card>
     </div>
+    <!-- description card -->
     <nz-card>
       <div nz-row nzType="flex" nzGutter="16" nzJustify="space-between" nzAlign="top">
         <div nz-col nzSpan="23">
@@ -34,13 +18,13 @@
           </div>
         </div>
         <div nz-col nzSpan="1">
-          <app-votes [score]="service.score" type="vertical" [currentUserVote]="service.current_user_vote" [model]="'services'"
-            [modelId]="service.id"></app-votes>
+          <app-votes [score]="service.score" type="vertical" [currentUserVote]="service.current_user_vote"
+            [model]="'services'" [modelId]="service.id"></app-votes>
         </div>
       </div>
-
     </nz-card>
-    <div class="service-stats" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+    <!-- share card -->
+    <div class="mb-vertical-align" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
       <div class="share-btns">
         <button nz-button><i nz-icon nzType="ng-vlicon:facebook"></i>Споделяне</button>
         <button nz-button><i nz-icon nzType="twitter" style="color: #1da1f2;"></i>Туит</button>
@@ -50,25 +34,15 @@
         some
       </div>
     </div>
+    <!-- more posts / services card -->
     <nz-card>
       Повече обяви (TODO)
     </nz-card>
   </div>
+  <!-- right column -->
   <div nz-col class="gutter-row" nzSpan="6">
-    <!-- <nz-divider style="margin-top: 0;"></nz-divider> -->
-    <nz-card class="padding-12" style="">
-      <h1 style="text-align: center; margin: 0;">{{service.price}} {{service.price_currency}}</h1>
-      <nz-divider class="margin-5" *ngIf="showPriceDetails"></nz-divider>
-      <nz-collapse [nzBordered]="false" *ngIf="showPriceDetails">
-        <nz-collapse-panel class="no-paddings" nzHeader="Повече информация">
-          <app-label-value-row *ngFor="let row of service.price_details" [label]="row.label" [value]="row.value">
-          </app-label-value-row>
-        </nz-collapse-panel>
-
-      </nz-collapse>
-
-    </nz-card>
-    <!-- <nz-divider class="margin-20"></nz-divider> -->
+    <app-price-card [price]="service.price" [currency]="service.price_currency" [price_details]="service.price_details">
+    </app-price-card>
     <nz-card class="large-card-button padding-12" style="text-align: center;">
       <h2 style="margin: 0;"><i nz-icon nzType="rise"></i>Промотирай</h2>
     </nz-card>

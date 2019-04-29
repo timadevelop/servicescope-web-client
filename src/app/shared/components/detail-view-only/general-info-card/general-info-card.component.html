@@ -1,0 +1,22 @@
+<div class="general-info" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+  <div nz-col>
+    <nz-tag nz-tooltip nzTitle="Търси обяви по таг" [routerLink]="['/tags', tag.id]" [nzColor]="tag.color"
+      *ngFor="let tag of tags">{{tag.name}}
+    </nz-tag>
+    <nz-tag *ngIf="!tags || tags.length === 0">Няма тагове</nz-tag>
+  </div>
+  <div nz-col>
+    <span nz-tooltip nzTitle="Населено място">
+      <i nz-icon type="home"
+        style="margin-right: 8px;"></i>{{location && location.name ? location?.name + ' - ' + location?.district?.name : 'Цялата страна'}}
+    </span>
+    <nz-divider nzType="vertical"></nz-divider>
+    <span nz-tooltip nzTitle="Добавена">
+      <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{created_at | date}}
+    </span>
+    <nz-divider nzType="vertical"></nz-divider>
+    <span nz-tooltip nzTitle="Номер на обява">
+      <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{id}}
+    </span>
+  </div>
+</div>

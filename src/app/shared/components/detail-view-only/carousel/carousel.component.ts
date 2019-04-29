@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Renderer } from '@angular/core';
-import { ServiceImage } from '../../models/Service.model';
+import { ServiceImage } from '../../../models/Service.model';
 
 @Component({
   selector: 'app-carousel',

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../models/User.model';
+import { User } from '../../../models/User.model';
 import { DatePipe } from '@angular/common';
 
 @Component({

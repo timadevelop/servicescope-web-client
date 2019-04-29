@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { UserService } from '../../services/user.service';
-import { User } from '../../models/User.model';
-import { Vote, VoteTypes } from '../../models/Vote.model';
-import { VoteService } from '../../services/vote.service';
+import { UserService } from '../../../services/user.service';
+import { Vote, VoteTypes } from '../../../models/Vote.model';
+import { VoteService } from '../../../services/vote.service';
 
 @Component({
   selector: 'app-votes',

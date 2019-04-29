@@ -14,7 +14,6 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
   service: Service;
   selectedTabsIndex: number = 0;
   private subscription: Subscription;
-  showPriceDetails: boolean = false;
   showPhone: boolean = false;
   contact_phoneText: string = "Show number";
 
@@ -47,9 +46,6 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
         this.service = data.service;
         if (this.service.contact_phone) {
           this.contact_phoneText = `${this.service.contact_phone.substring(0, 4)} Show number`;
-        }
-        if (this.service.price_details instanceof Array) {
-          this.showPriceDetails = true;
         }
       });
 

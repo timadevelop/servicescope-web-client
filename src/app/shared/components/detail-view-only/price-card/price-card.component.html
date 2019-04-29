@@ -1,0 +1,10 @@
+<nz-card class="padding-12">
+  <h1 style="text-align: center; margin: 0;">{{price}} {{currency}}</h1>
+  <nz-divider class="margin-5" *ngIf="showPriceDetails"></nz-divider>
+  <nz-collapse [nzBordered]="false" *ngIf="showPriceDetails">
+    <nz-collapse-panel class="no-paddings" nzHeader="Повече информация">
+      <app-label-value-row *ngFor="let row of price_details" [label]="row.label" [value]="row.value">
+      </app-label-value-row>
+    </nz-collapse-panel>
+  </nz-collapse>
+</nz-card>
