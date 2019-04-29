@@ -53,10 +53,10 @@ export class PriceFilterComponent implements OnInit {
     if (v > this.max) {
       // increase if overflow
       this.max = v * 1.5;
-    } else if (this.max - v < this.max * 0.1) {
+    } else if (this.max - v < this.max * 0.15) {
       // auto increase max value if priceMax is in last 10% of allowed range
       this.max = this.max * 1.5;
-    } else if (this.max - v > this.max * 0.9 && v > 10) {
+    } else if (this.max - v > this.max * 0.85 && v > 10) {
       // auto decrease max value if priceMax is in first 10% of allowed range
       this.max = this.priceMax * 1.5;
     } else {
@@ -64,14 +64,25 @@ export class PriceFilterComponent implements OnInit {
       return;
     }
     // changed max value
-    this.generateMarks();
+    // this.generateMarks();
   }
 
   generateMarks() {
-    this.marks = {
+
+    let marks: any = {
       [this.min]: `${this.min.toFixed(0)}`,
-      [this.max]: `${this.max.toFixed(1)}`
+      [this.max]: `${this.max.toFixed(1)}`,
     }
+
+    if (this.priceMax) {
+      marks[this.priceMax] = {
+        style: {
+          color: '#f50'
+        },
+        label: `${this.priceMax.toFixed(1)}`
+      };
+    }
+    return marks;
   }
 
   filter() {
