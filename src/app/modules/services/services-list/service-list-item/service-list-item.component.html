@@ -1,0 +1,64 @@
+<nz-list-item class="service-list-item" [nzContent]="null" [nzActions]="[priceAction]">
+  <!-- Actions -->
+  <ng-template #priceAction>
+    <div class="service-list-item-price" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
+        style="margin-right: 8px;"></i>{{service.price + ' ' + service.price_currency}}</div>
+    <div style="margin-top: 50%;">
+      <app-votes [score]="service.score" [currentUserVote]="service.current_user_vote" [model]="'services'"
+        [modelId]="service.id"></app-votes>
+    </div>
+  </ng-template>
+
+  <!-- List item meta -->
+  <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="serviceTitle" [nzDescription]="description"
+    style="align-content: stretch;">
+    <!-- Templates for list item -->
+    <ng-template #avatar>
+      <nz-avatar [nzSize]="128" nzShape="square"
+        [nzSrc]="service?.images[0] ? service.images[0].image : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'">
+      </nz-avatar>
+    </ng-template>
+    <ng-template #description>
+      <div nz-col class="list-item-description" nzType="flex" nzAlign="space-between">
+        <div class="service-list-item-description-text">
+          <p>{{service.description | slice:0:80 }}{{service.description.length > 80 ? '...' : ''}}</p>
+        </div>
+        <ng-container *ngTemplateOutlet="tags"></ng-container>
+
+        <div class="service-list-item-bottom-info">
+          <span nz-tooltip nzTitle="Населено място">
+            <i nz-icon type="home"
+              style="margin-right: 8px;"></i>{{service.location && service.location.name ? service.location?.name + ' - ' + service.location?.district?.name : 'Цялата страна'}}</span>
+          <nz-divider nzType="vertical"></nz-divider>
+          <span nz-tooltip nzTitle="Добавена">
+            <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{service.created_at | date}}
+          </span>
+          <nz-divider nzType="vertical"></nz-divider>
+          <span nz-tooltip nzTitle="Номер на обява">
+            <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{service.id}}
+          </span>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #tags>
+      <div class="service-tags">
+        <nz-tag [routerLink]="[]" [queryParams]="{tags: tag.name}" queryParamsHandling="merge"
+          *ngFor="let tag of service.tags">
+          {{tag.name}}
+        </nz-tag>
+      </div>
+    </ng-template>
+    <ng-template #serviceTitle>
+      <h2 class="service-title">
+        <a class="title" [routerLink]="['/services', service.id]">{{ service.title }}</a>
+      </h2>
+    </ng-template>
+    <!--  -->
+  </nz-list-item-meta>
+
+  <!-- Extra -->
+  <ng-template #extra>
+    <p>Some</p>
+  </ng-template>
+</nz-list-item>

@@ -19,33 +19,4 @@ nz-page-header {
 }
 
 .services-list-card {
-  .service-list-item {
-    align-items: flex-start;
-
-    .service-title {
-      margin-bottom: 0.3em;
-    }
-
-    .service-tags {
-      margin-bottom: 1em;
-    }
-    .service-list-item-description-text {
-      font-size: 14px;
-    }
-
-    .service-list-item-price {
-      color: $primary-color;
-      font-weight: bold;
-      font-size: large;
-      opacity: 0.8;
-      &:hover {
-        cursor: default;
-      }
-    }
-    .service-list-item-bottom-info {
-      // > * {
-      //   margin-right:
-      // }
-    }
-  }
 }

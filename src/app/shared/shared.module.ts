@@ -16,6 +16,7 @@ import { VotesComponent } from './components/common/votes/votes.component';
 import { PriceFilterComponent } from './components/list-view-only/filter-components/price-filter/price-filter.component';
 import { GeneralInfoCardComponent } from './components/detail-view-only/general-info-card/general-info-card.component';
 import { PriceCardComponent } from './components/detail-view-only/price-card/price-card.component';
+import { FiltersCardComponent } from './components/list-view-only/filters-card/filters-card.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { PriceCardComponent } from './components/detail-view-only/price-card/pri
     VotesComponent,
     PriceFilterComponent,
     GeneralInfoCardComponent,
-    PriceCardComponent
+    PriceCardComponent,
+    FiltersCardComponent
   ],
   exports: [
     LabeledTextComponent,
@@ -52,7 +54,8 @@ import { PriceCardComponent } from './components/detail-view-only/price-card/pri
     VotesComponent,
     PriceFilterComponent,
     GeneralInfoCardComponent,
-    PriceCardComponent
+    PriceCardComponent,
+    FiltersCardComponent
   ]
 })
 export class SharedModule { }

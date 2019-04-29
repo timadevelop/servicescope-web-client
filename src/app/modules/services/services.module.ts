@@ -10,15 +10,16 @@ import { ServicesHomeComponent } from './services-home/services-home.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { SharedModule } from '../../shared/shared.module';
-import { ServicesFiltersCardComponent } from './services-list/services-filters-card/services-filters-card.component';
 import { FormsModule } from '@angular/forms';
+import { ServiceListItemComponent } from './services-list/service-list-item/service-list-item.component';
+
 @NgModule({
   declarations: [
     ServicesComponent,
     ServicesListComponent,
     ServicesDetailComponent,
     ServicesHomeComponent,
-    ServicesFiltersCardComponent
+    ServiceListItemComponent
   ],
   imports: [
     CommonModule,

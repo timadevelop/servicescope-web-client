@@ -11,11 +11,11 @@ import { Category } from 'src/app/shared/models/Category.models';
 import { CategoriesService } from 'src/app/shared/services/categories.service';
 
 @Component({
-  selector: 'app-services-filters-card',
-  templateUrl: './services-filters-card.component.html',
-  styleUrls: ['./services-filters-card.component.scss']
+  selector: 'app-filters-card',
+  templateUrl: './filters-card.component.html',
+  styleUrls: ['./filters-card.component.scss']
 })
-export class ServicesFiltersCardComponent implements OnInit, OnDestroy {
+export class FiltersCardComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
