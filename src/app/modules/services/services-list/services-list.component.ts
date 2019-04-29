@@ -18,7 +18,6 @@ export class ServicesListComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    // this.loadData(1);
     this.route.queryParamMap.subscribe(params => {
       this.pageSize = +params.get('pageSize') || this.pageSize;
       this.page = +params.get('page') || this.page;

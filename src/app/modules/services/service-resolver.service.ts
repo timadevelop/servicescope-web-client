@@ -8,7 +8,7 @@ import { ServicesService } from 'src/app/shared/services/services.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ServicesResolverService implements Resolve<Service>{
+export class ServiceResolverService implements Resolve<Service>{
   constructor(private servicesService: ServicesService, private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):

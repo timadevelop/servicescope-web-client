@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ServicesComponent } from './services/services.component';
 
 import { ServicesDetailComponent } from './services-detail/services-detail.component';
-import { ServicesResolverService } from './services-resolver.service';
+import { ServiceResolverService } from './service-resolver.service';
 import { ServicesListComponent } from './services-list/services-list.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { ServicesListResolverService } from './services-list-resolver.service';
@@ -53,7 +53,7 @@ const servicesRoutes: Routes = [
             component: ServicesDetailComponent,
             // canDeactivate: [CanDeactivateGuard],
             resolve: {
-              service: ServicesResolverService
+              service: ServiceResolverService
             },
           },
         ]
