@@ -1,0 +1,35 @@
+@import "~src/variables";
+
+.list-item {
+  align-items: flex-start;
+  border-bottom: 1px solid $light-border-color !important;
+  // &:hover {
+  //   background: $dark-back-color;
+  // }
+
+  .title {
+    margin-bottom: 0.3em;
+  }
+
+  .tags {
+    margin-bottom: 1em;
+  }
+  .description-text {
+    font-size: 14px;
+  }
+
+  .price {
+    color: $primary-color;
+    font-weight: bold;
+    font-size: large;
+    opacity: 0.8;
+    &:hover {
+      cursor: default;
+    }
+  }
+  .bottom-info {
+    // > * {
+    //   margin-right:
+    // }
+  }
+}

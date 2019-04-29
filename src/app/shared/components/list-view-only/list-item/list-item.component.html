@@ -1,0 +1,60 @@
+<nz-list-item class="list-item" [nzContent]="null" [nzActions]="[priceAction]">
+  <!-- Actions -->
+  <ng-template #priceAction>
+    <div class="price" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
+        style="margin-right: 8px;"></i>{{item.price + ' ' + item.price_currency}}</div>
+    <div style="margin-top: 50%;">
+      <app-votes [score]="item.score" [currentUserVote]="item.current_user_vote" [model]="'items'" [modelId]="item.id">
+      </app-votes>
+    </div>
+  </ng-template>
+
+  <!-- List item meta -->
+  <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="itemTitle" [nzDescription]="description"
+    style="align-content: stretch;">
+    <!-- Templates for list item -->
+    <ng-template #avatar>
+      <nz-avatar [nzSize]="128" nzShape="square"
+        [nzSrc]="item?.images[0] ? item.images[0].image : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'">
+      </nz-avatar>
+    </ng-template>
+
+    <ng-template #itemTitle>
+      <h2 class="title">
+        <a class="title" [routerLink]="['./', item.id]">{{ item.title }}</a>
+      </h2>
+    </ng-template>
+
+    <ng-template #tags>
+      <div class="tags">
+        <nz-tag [routerLink]="[]" [queryParams]="{tags: tag.name}" queryParamsHandling="merge"
+          *ngFor="let tag of item.tags">
+          {{tag.name}}
+        </nz-tag>
+      </div>
+    </ng-template>
+
+    <ng-template #description>
+      <div nz-col class="description" nzType="flex" nzAlign="space-between">
+        <div class="description-text">
+          <p>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}</p>
+        </div>
+        <ng-container *ngTemplateOutlet="tags"></ng-container>
+
+        <div class="bottom-info">
+          <span nz-tooltip nzTitle="Населено място">
+            <i nz-icon type="home"
+              style="margin-right: 8px;"></i>{{item.location && item.location.name ? item.location?.name + ' - ' + item.location?.district?.name : 'Цялата страна'}}</span>
+          <nz-divider nzType="vertical"></nz-divider>
+          <span nz-tooltip nzTitle="Добавена">
+            <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{item.created_at | date}}
+          </span>
+          <nz-divider nzType="vertical"></nz-divider>
+          <span nz-tooltip nzTitle="Номер на обява">
+            <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{item.id}}
+          </span>
+        </div>
+      </div>
+    </ng-template>
+  </nz-list-item-meta>
+</nz-list-item>

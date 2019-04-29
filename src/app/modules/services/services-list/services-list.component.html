@@ -1,12 +1,9 @@
 <div nz-row nzGutter="16">
-  <div nz-col class="gutter-row" nzSpan="18">
+  <div nz-col nzSpan="18">
     <app-search-card></app-search-card>
-    <nz-card class="services-list-card" style="padding: 0;">
+    <nz-card>
       <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
-        [nzItemLayout]="'horizontal'" [nzRenderItem]="service" [nzPagination]="pagination" [nzFooter]="footer">
-        <ng-template #footer>
-          <!-- <div><b>ant design</b> footer part</div> -->
-        </ng-template>
+        [nzItemLayout]="'horizontal'" [nzRenderItem]="service" [nzPagination]="pagination">
         <ng-template #pagination>
           <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count"
             (nzPageIndexChange)="loadData($event)"></nz-pagination>
@@ -14,7 +11,7 @@
       </nz-list>
     </nz-card>
   </div>
-  <div nz-col class="gutter-row" nzSpan="6">
+  <div nz-col nzSpan="6">
     <app-filters-card></app-filters-card>
   </div>
 </div>

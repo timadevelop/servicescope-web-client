@@ -18,6 +18,7 @@ import { GeneralInfoCardComponent } from './components/detail-view-only/general-
 import { PriceCardComponent } from './components/detail-view-only/price-card/price-card.component';
 import { FiltersCardComponent } from './components/list-view-only/filters-card/filters-card.component';
 import { OrderingFilterComponent } from './components/list-view-only/filter-components/ordering-filter/ordering-filter.component';
+import { ListItemComponent } from './components/list-view-only/list-item/list-item.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { OrderingFilterComponent } from './components/list-view-only/filter-comp
     GeneralInfoCardComponent,
     PriceCardComponent,
     FiltersCardComponent,
-    OrderingFilterComponent
+    OrderingFilterComponent,
+    ListItemComponent,
   ],
   exports: [
     LabeledTextComponent,
@@ -58,7 +60,8 @@ import { OrderingFilterComponent } from './components/list-view-only/filter-comp
     GeneralInfoCardComponent,
     PriceCardComponent,
     FiltersCardComponent,
-    OrderingFilterComponent
+    OrderingFilterComponent,
+    ListItemComponent
   ]
 })
 export class SharedModule { }
