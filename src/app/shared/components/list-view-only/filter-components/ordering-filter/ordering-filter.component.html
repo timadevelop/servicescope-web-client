@@ -1,0 +1,8 @@
+<div nz-row nzType="flex" nzGutter="16">
+  <a nz-col (click)="changeOrdering('-created_at')" [class.activated]="ordering == '-created_at'">Най-нови</a>
+  <!-- <a nz-col (click)="changeOrdering('created_at')" [class.activated]="ordering == 'created_at'">Най-стари</a> -->
+  <a nz-col (click)="changeOrdering('price')" [class.activated]="ordering == 'price'">Най-евтини</a>
+  <a nz-col (click)="changeOrdering('-price')" [class.activated]="ordering == '-price'">Най-скъпи</a>
+  <a nz-col (click)="changeOrdering('-score')" [class.activated]="ordering == '-score'">Баш майстор</a>
+  <!-- <a nz-col (click)="changeOrdering('score')" [class.activated]="ordering == 'score'">Най-лоши</a> -->
+</div>

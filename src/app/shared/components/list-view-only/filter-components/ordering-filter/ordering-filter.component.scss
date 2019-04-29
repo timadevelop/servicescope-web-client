@@ -1,0 +1,7 @@
+@import '~src/variables';
+
+a {
+  &.activated {
+    border-bottom: 3px solid $contrast-color;
+  }
+}

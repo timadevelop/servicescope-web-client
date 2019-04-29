@@ -1,4 +1,8 @@
 <nz-card [nzTitle]="title" class="padding-top-0" [nzExtra]="extra">
+  <div class="ordering-filters">
+    <nz-divider nzText="Сотриране" nzOrientation="left"></nz-divider>
+    <app-ordering-filter></app-ordering-filter>
+  </div>
   <div class="price-filters">
     <nz-divider nzText="Цена" nzOrientation="left"></nz-divider>
     <app-price-filter></app-price-filter>
