@@ -1,4 +1,4 @@
-<div nz-row class="votes">
+<div nz-row class="votes" [class.vertical]="type == 'vertical'">
   <i (click)="upvote()" class="vote-btn upvote" [class.voted]="isUpvoted" [class.active]="!isDownvoted || isUpvoted" nz-icon
     type="arrow-up"></i>
   <span class="score" [class.voted]="isUpvoted || isDownvoted">{{score | number}}</span>

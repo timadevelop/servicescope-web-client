@@ -30,7 +30,7 @@ export class Service extends Base {
   created_at: Date; // TODO
   updated_at: Date;
   tags: Array<Tag>;
-  price_details: Array<PriceDetailsRow>;
+  price_details: Array<PriceDetailsRow> | string;
   // voting
   score: number;
   current_user_vote: boolean;

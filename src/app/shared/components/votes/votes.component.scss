@@ -18,7 +18,7 @@
     }
 
     &.active.voted:hover {
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 
@@ -26,6 +26,21 @@
     margin: 0 5px;
     &.voted {
       color: $contrast-color;
+    }
+  }
+
+  &.vertical {
+    text-align: center;
+    > * {
+      display: block;
+      margin: auto;
+    }
+    .score {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    i {
+      font-size: 1.5em;
     }
   }
 }

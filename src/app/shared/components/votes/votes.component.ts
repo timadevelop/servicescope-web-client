@@ -16,6 +16,8 @@ export class VotesComponent implements OnInit {
   @Input() model: 'service' | 'post';
   @Input() modelId: number;
 
+  @Input() type: 'horizontal' | 'vertical' = 'horizontal';
+
   // @Output() onUpvote = new EventEmitter<null>();
   // @Output() onDownvote = new EventEmitter<null>();
   // @Output() cancelVote = new EventEmitter<null>();
