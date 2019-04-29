@@ -12,8 +12,6 @@ export class PriceFilterComponent implements OnInit {
   @Input() max: number = 300;
   @Input() currency: string = 'BGN';
 
-  marks: any;
-
   priceMin: number;
   priceMax: number;
 
