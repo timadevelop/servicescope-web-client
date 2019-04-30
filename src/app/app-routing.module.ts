@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'profiles',
     loadChildren: './modules/profile/profile.module#ProfileModule',
-    canLoad: [AuthGuard]
+    // canLoad: [AuthGuard]
   },
   {
     path: 'services',

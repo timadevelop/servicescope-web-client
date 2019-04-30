@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Vote, VoteTypes } from '../../../models/Vote.model';
 import { VoteService } from '../../../services/vote.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-votes',
@@ -17,17 +18,14 @@ export class VotesComponent implements OnInit {
 
   @Input() type: 'horizontal' | 'vertical' = 'horizontal';
 
-  // @Output() onUpvote = new EventEmitter<null>();
-  // @Output() onDownvote = new EventEmitter<null>();
-  // @Output() cancelVote = new EventEmitter<null>();
-
-
+  loginToContinueStr = 'Login to continue';
   isUpvoted: boolean = false;
   isDownvoted: boolean = false;
 
   constructor(
     private userService: UserService,
-    private voteService: VoteService
+    private voteService: VoteService,
+    private msgService: NzMessageService
   ) { }
 
   ngOnInit() {
@@ -83,6 +81,10 @@ export class VotesComponent implements OnInit {
   }
 
   upvote() {
+    if (!this.userService.currentUser) {
+      this.msgService.error(this.loginToContinueStr);
+      return;
+    }
     if (this.isUpvoted) {
       this.cancelVote();
       return;
@@ -97,6 +99,10 @@ export class VotesComponent implements OnInit {
   }
 
   downvote() {
+    if (!this.userService.currentUser) {
+      this.msgService.error(this.loginToContinueStr);
+      return;
+    }
     if (this.isDownvoted) {
       this.cancelVote();
       return;
