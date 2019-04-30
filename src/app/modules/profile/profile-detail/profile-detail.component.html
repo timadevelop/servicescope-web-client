@@ -24,13 +24,13 @@
   </nz-page-header-content>
   <nz-page-header-footer>
     <nz-tabset [nzSelectedIndex]="selectedTabsIndex">
-      <nz-tab (nzClick)="navigateTo('services')" nzTitle="Services"></nz-tab>
-      <nz-tab (nzClick)="navigateTo('posts')" nzTitle="Posts"></nz-tab>
-      <nz-tab (nzClick)="navigateTo('offers')" nzTitle="Offers"></nz-tab>
-      <nz-tab (nzClick)="navigateTo('reviews')" nzTitle="Reviews"></nz-tab>
+      <nz-tab (nzClick)="changeTab('services')" nzTitle="Services"></nz-tab>
+      <nz-tab (nzClick)="changeTab('posts')" nzTitle="Posts"></nz-tab>
+      <nz-tab (nzClick)="changeTab('offers')" nzTitle="Offers"></nz-tab>
+      <nz-tab (nzClick)="changeTab('reviews')" nzTitle="Reviews"></nz-tab>
     </nz-tabset>
   </nz-page-header-footer>
 </nz-page-header>
-<nz-card class="profile-tabs-card">
-  <router-outlet></router-outlet>
+<nz-card class="profile-tabs-card" [nzLoading]="loading">
+  <app-services-list [listOnly]="true" [paginatedServices]="userServices" *ngIf="tab == 'services'"></app-services-list>
 </nz-card>

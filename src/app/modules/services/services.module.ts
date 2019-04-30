@@ -25,6 +25,9 @@ import { SimilarServicesListComponent } from './similar-services-list/similar-se
     FormsModule,
     NgZorroAntdModule,
     ServicesRoutingModule,
+  ],
+  exports: [
+    ServicesListComponent
   ]
 })
 export class ServicesModule { }

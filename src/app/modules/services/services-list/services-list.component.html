@@ -1,14 +1,9 @@
-<div nz-row nzGutter="16">
+<div nz-row nzGutter="16" *ngIf="!listOnly">
   <div nz-col nzSpan="18">
     <app-search-card></app-search-card>
     <nz-card>
-      <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
-        [nzItemLayout]="'horizontal'" [nzRenderItem]="serviceItemTemplate" [nzPagination]="pagination">
-        <ng-template #pagination>
-          <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count"
-            (nzPageIndexChange)="loadData($event)"></nz-pagination>
-        </ng-template>
-      </nz-list>
+      <ng-container *ngTemplateOutlet="list"></ng-container>
+
     </nz-card>
   </div>
   <div nz-col nzSpan="6">
@@ -16,6 +11,21 @@
   </div>
 </div>
 
+<div *ngIf="listOnly">
+  <ng-container *ngTemplateOutlet="list"></ng-container>
+</div>
+
+<ng-template #list>
+  <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
+    [nzItemLayout]="'horizontal'" [nzRenderItem]="serviceItemTemplate" [nzPagination]="pagination">
+    <ng-template #pagination>
+      <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count"
+        (nzPageIndexChange)="loadData($event)"></nz-pagination>
+    </ng-template>
+  </nz-list>
+</ng-template>
+
+
 <ng-template #serviceItemTemplate let-service>
-  <app-list-item [item]="service"></app-list-item>
+  <app-list-item [item]="service" modelName="services"></app-list-item>
 </ng-template>

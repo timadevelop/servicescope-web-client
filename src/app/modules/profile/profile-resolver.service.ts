@@ -10,16 +10,21 @@ import { take, mergeMap } from 'rxjs/operators';
 })
 export class ProfileResolverService implements Resolve<User>{
   constructor(private userService: UserService, private router: Router) { }
-
+  lastUser: User = null;
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     Observable<User> | Observable<never> {
 
-    let id = route.paramMap.get('id');
+    let id = +route.paramMap.get('id');
+    if (this.lastUser && this.lastUser.id == id) {
+      console.log('cached value');
+      return of(this.lastUser);
+    }
 
     return this.userService.getUserById(+id).pipe(
       take(1),
       mergeMap((user: User) => {
         if (user) {
+          this.lastUser = user;
           return of(user);
         } else { // id not found
           this.router.navigate(['/profiles']);

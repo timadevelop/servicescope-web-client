@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Service } from 'src/app/shared/models/Service.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
@@ -9,9 +9,10 @@ import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginat
   styleUrls: ['./services-list.component.scss']
 })
 export class ServicesListComponent implements OnInit {
-  paginatedServices: PaginatedApiResponse<Service>;
-  pageSize: number = 10;
-  page: number = 1;
+  @Input() listOnly: boolean = false;
+  @Input() paginatedServices: PaginatedApiResponse<Service>;
+  @Input() pageSize: number = 10;
+  @Input() page: number = 1;
 
   constructor(
     public route: ActivatedRoute,
@@ -25,7 +26,10 @@ export class ServicesListComponent implements OnInit {
 
     this.route.data
       .subscribe((data: { services: PaginatedApiResponse<Service> }) => {
-        this.paginatedServices = data.services;
+        if (data.services) {
+          this.paginatedServices = data.services;
+        }
+        // this.loading = false;
       });
   }
 
