@@ -14,6 +14,7 @@ export class SimilarServicesListComponent implements OnInit {
   paginatedServices: PaginatedApiResponse<Service>;
   pageSize: number = 10;
   page: number = 1;
+  loading: boolean = true;
 
   @Input() service: Service;
 
@@ -30,13 +31,17 @@ export class SimilarServicesListComponent implements OnInit {
   }
 
   loadSimilarServices() {
+    this.loading = true;
     const filters = this.service.tags.map(tag => {
       return { param: 'tags', value: tag.name };
     });
 
     const query = null;
     return this.servicesService.getServices(this.page + '', '' + this.pageSize, query, filters)
-      .subscribe(r => this.paginatedServices = r);
+      .subscribe(r => {
+        this.paginatedServices = r;
+        this.loading = false;
+      });
   }
 
   navigateToAllSimilarServices() {

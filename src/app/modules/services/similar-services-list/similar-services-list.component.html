@@ -1,5 +1,5 @@
 <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
-  [nzItemLayout]="'horizontal'" [nzRenderItem]="serviceItemTemplate" [nzFooter]="footer">
+  [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="serviceItemTemplate" [nzFooter]="footer">
 </nz-list>
 
 <ng-template #footer>
