@@ -10,12 +10,14 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { SharedModule } from '../../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { SimilarServicesListComponent } from './similar-services-list/similar-services-list.component';
 
 @NgModule({
   declarations: [
     ServicesComponent,
     ServicesListComponent,
-    ServicesDetailComponent
+    ServicesDetailComponent,
+    SimilarServicesListComponent
   ],
   imports: [
     CommonModule,

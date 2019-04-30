@@ -3,7 +3,7 @@
     <app-search-card></app-search-card>
     <nz-card>
       <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
-        [nzItemLayout]="'horizontal'" [nzRenderItem]="service" [nzPagination]="pagination">
+        [nzItemLayout]="'horizontal'" [nzRenderItem]="serviceItemTemplate" [nzPagination]="pagination">
         <ng-template #pagination>
           <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count"
             (nzPageIndexChange)="loadData($event)"></nz-pagination>
@@ -16,6 +16,6 @@
   </div>
 </div>
 
-<ng-template #service let-service>
+<ng-template #serviceItemTemplate let-service>
   <app-list-item [item]="service"></app-list-item>
 </ng-template>

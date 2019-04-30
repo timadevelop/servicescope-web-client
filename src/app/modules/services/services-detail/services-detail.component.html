@@ -34,9 +34,9 @@
         some
       </div>
     </div>
-    <!-- more posts / services card -->
-    <nz-card>
-      Повече обяви (TODO)
+    <!-- more services card -->
+    <nz-card nzTitle="Подобно">
+      <app-similar-services-list [service]="service"></app-similar-services-list>
     </nz-card>
   </div>
   <!-- right column -->
@@ -47,6 +47,6 @@
       <h2 style="margin: 0;"><i nz-icon nzType="rise"></i>Промотирай</h2>
     </nz-card>
     <nz-divider class="margin-20"></nz-divider>
-    <app-author-card [author]="service.author"></app-author-card>
+    <app-author-card [author]="service.author" [override_phone]="service.contact_phone"></app-author-card>
   </div>
 </div>

@@ -1,0 +1,14 @@
+<nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
+  [nzItemLayout]="'horizontal'" [nzRenderItem]="serviceItemTemplate" [nzFooter]="footer">
+</nz-list>
+
+<ng-template #footer>
+  <nz-row style="text-align: center;">
+    <a (click)="navigateToAllSimilarServices()">Виж всички подобни обяви</a>
+  </nz-row>
+</ng-template>
+
+
+<ng-template #serviceItemTemplate let-service>
+  <app-list-item [item]="service"></app-list-item>
+</ng-template>
