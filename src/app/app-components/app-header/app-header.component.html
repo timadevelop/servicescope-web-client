@@ -2,18 +2,18 @@
   <div nz-row nzGutter="16">
     <div nz-col class="gutter-row" nzSpan="18">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-left">
-        <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-          <a routerLink="/services">Търся</a>
+        <li nz-menu-item routerLink="/services" routerLinkActive="ant-menu-item-selected">
+          <a>Търся</a>
         </li>
-        <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-          <a routerLink="/else">Предлагам</a>
+        <li nz-menu-item routerLink="/else" routerLinkActive="ant-menu-item-selected">
+          <a>Предлагам</a>
         </li>
       </div>
     </div>
     <div nz-col class="gutter-row" nzSpan="6">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-right">
-        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" routerLinkActive="ant-menu-item-selected">
-          <a routerLink="/login">Login</a>
+        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" routerLink="/login" routerLinkActive="ant-menu-item-selected">
+          <a>Login</a>
         </li>
         <ng-template #userMenuItem>
           <li nz-submenu *ngIf="userService.currentUser">
@@ -22,7 +22,7 @@
               Hello, {{userService.currentUser.first_name}}
             </span>
             <ul>
-              <li nz-menu-item [routerLink]="['/profiles', userService.currentUser.id]">Profile</li>
+              <li nz-menu-item [routerLink]="['/profiles', userService.currentUser.id]" routerLinkActive="ant-menu-item-selected">Profile</li>
               <li nz-menu-item>Settings</li>
               <li nz-menu-item>Help</li>
               <li nz-menu-item (click)="logout()">Logout</li>
