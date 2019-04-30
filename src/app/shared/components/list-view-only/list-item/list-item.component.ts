@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Service } from 'src/app/shared/models/Service.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-item',
@@ -9,8 +10,10 @@ import { Service } from 'src/app/shared/models/Service.model';
 export class ListItemComponent implements OnInit {
 
   @Input() item: Service | any;
+  @Input() modelName: string = null;
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
     if (!this.item) {

@@ -35,9 +35,13 @@
       </div>
     </div>
     <!-- more services card -->
-    <nz-card nzTitle="Подобно">
+    <nz-card [nzTitle]="similarCardTitleTemplate">
       <app-similar-services-list [service]="service"></app-similar-services-list>
     </nz-card>
+    <ng-template #similarCardTitleTemplate>
+      <h2 class="title">Подобно</h2>
+    </ng-template>
+
   </div>
   <!-- right column -->
   <div nz-col class="gutter-row" nzSpan="6">

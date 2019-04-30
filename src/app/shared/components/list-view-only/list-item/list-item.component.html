@@ -21,7 +21,7 @@
 
     <ng-template #itemTitle>
       <h2 class="title">
-        <a class="title" [routerLink]="['./', item.id]">{{ item.title }}</a>
+        <a class="title" [routerLink]="[modelName ? '/' + modelName : './', item.id]">{{ item.title }}</a>
       </h2>
     </ng-template>
 

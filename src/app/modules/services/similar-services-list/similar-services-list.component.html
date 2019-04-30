@@ -9,6 +9,6 @@
 </ng-template>
 
 
-<ng-template #serviceItemTemplate let-service>
-  <app-list-item [item]="service"></app-list-item>
+<ng-template #serviceItemTemplate let-serviceitem>
+  <app-list-item modelName="services" [item]="serviceitem" *ngIf="service.id != serviceitem.id"></app-list-item>
 </ng-template>
