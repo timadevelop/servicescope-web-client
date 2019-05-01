@@ -87,6 +87,24 @@ body {
   left: auto;
   width: initial;
 }
+
+.large-card-button {
+  background: $contrast-color;
+  opacity: 0.8;
+  // margin: 0;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  i {
+    margin-right: 0.5em;
+  }
+  * {
+    font-weight: bold;
+    color: $white-color;
+  }
+}
+
 .ant-carousel .slick-slider {
   max-height: 100%;
 }

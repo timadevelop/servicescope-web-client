@@ -12,11 +12,11 @@
     </div>
     <div nz-col class="gutter-row" nzSpan="6">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-right">
-        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" routerLink="/login" routerLinkActive="ant-menu-item-selected">
+        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" style="float: right;" routerLink="/login" routerLinkActive="ant-menu-item-selected">
           <a>Login</a>
         </li>
         <ng-template #userMenuItem>
-          <li nz-submenu *ngIf="userService.currentUser">
+          <li nz-submenu *ngIf="userService.currentUser" style="float: right;">
             <span title>
               <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
               Hello, {{userService.currentUser.first_name}}
@@ -29,9 +29,6 @@
             </ul>
           </li>
         </ng-template>
-        <li nz-menu-item routerLinkActive="ant-menu-item-selected" class="add-menu-item">
-          <a routerLink="/add"><i nz-icon nzType="plus"></i>Добави</a>
-        </li>
 
       </div>
     </div>
