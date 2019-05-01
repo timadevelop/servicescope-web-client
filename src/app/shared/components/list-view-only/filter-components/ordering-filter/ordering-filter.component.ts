@@ -22,9 +22,14 @@ export class OrderingFilterComponent implements OnInit {
   }
 
   changeOrdering(newOrdering: string) {
-    // this.ordering = newOrdering;
+    if (this.ordering == newOrdering) {
+      this.ordering = null;
+    } else {
+      this.ordering = newOrdering;
+    }
+
     // update query params
-    const queryParams: Params = { ordering: newOrdering || null, page: 1 };
+    const queryParams: Params = { ordering: this.ordering, page: 1 };
     this.updateQueryParams(queryParams);
   }
 
