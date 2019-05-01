@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ServicesService } from '../../shared/services/services.service';
+import { ServicesService } from '../services/services.service';
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable, of, EMPTY, throwError } from 'rxjs';
-import { Service } from '../../shared/models/Service.model';
+import { Service } from '../models/Service.model';
 import { take, mergeMap, catchError } from 'rxjs/operators';
 import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
 import { HttpErrorResponse } from '@angular/common/http';

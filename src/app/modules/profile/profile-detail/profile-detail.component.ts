@@ -1,19 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Route, ActivatedRoute, Router, NavigationStart, NavigationEnd, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { User } from 'src/app/shared/models/User.model';
 import { UserService } from 'src/app/shared/services/user.service';
-import { filter } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
-import { Service } from 'src/app/shared/models/Service.model';
-import { ServicesService } from 'src/app/shared/services/services.service';
 
 @Component({
   selector: 'app-profile-detail',
   templateUrl: './profile-detail.component.html',
   styleUrls: ['./profile-detail.component.scss']
 })
-export class ProfileDetailComponent implements OnInit, OnDestroy {
+export class ProfileDetailComponent implements OnInit {
+  static DEFAULT_TAB = 'services';
   static TAB_INDEXES = {
     services: 0,
     posts: 1,
@@ -27,19 +23,14 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
   // user
   user: User;
   selectedTabsIndex: number = 0;
-  loading: boolean = false;
-
-  private subscription: Subscription;
 
   // tabs
-  tab: string = 'services';
-  userServices: PaginatedApiResponse<Service>;
+  tab: string = ProfileDetailComponent.DEFAULT_TAB;
 
   constructor(
     public route: ActivatedRoute,
     private router: Router,
     public userService: UserService,
-    private servicesService: ServicesService
   ) { }
 
   ngOnInit() {
@@ -47,40 +38,15 @@ export class ProfileDetailComponent implements OnInit, OnDestroy {
       .subscribe((data: { user: User }) => {
         if (data.user) {
           this.user = data.user;
+          this.updateQueryParams({ authorId: this.user.id });
         }
+        // services, posts, offers, etc. are propagated to child components
       });
 
     this.route.queryParamMap.subscribe(qparams => {
-      this.page = +qparams.get('page') || this.page;
-      this.pageSize = +qparams.get('pageSize');
-
-      this.tab = qparams.get('tab') || 'services';
+      this.tab = qparams.get('tab') || ProfileDetailComponent.DEFAULT_TAB;
       this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES[this.tab];
-      this.loadCurrentTabData();
     });
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
-  loadCurrentTabData() {
-    if (this.tab == 'services') {
-      if (this.userServices && this.userServices.page == this.page) {
-        return;
-      }
-      this.loading = true;
-      const filters = [{ param: 'author__id', value: this.user.id.toString() }];
-      this.subscription = this.servicesService.getServices(this.page.toString(), this.pageSize.toString(), null, filters)
-        .subscribe(r => {
-          console.log('loaded user services');
-          this.userServices = r;
-          this.loading = false;
-        });
-
-    }
   }
 
   getUsername(): string {

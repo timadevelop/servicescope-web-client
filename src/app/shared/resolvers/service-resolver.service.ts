@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable, of, EMPTY } from 'rxjs';
-import { Service } from '../../shared/models/Service.model';
+import { Service } from '../models/Service.model';
 import { take, mergeMap } from 'rxjs/operators';
 import { ServicesService } from 'src/app/shared/services/services.service';
 

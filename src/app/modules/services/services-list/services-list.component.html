@@ -1,4 +1,4 @@
-<div nz-row nzGutter="16" *ngIf="!listOnly">
+<div nz-row nzGutter="16">
   <div nz-col nzSpan="18">
     <app-search-card></app-search-card>
     <nz-card>
@@ -11,9 +11,9 @@
   </div>
 </div>
 
-<div *ngIf="listOnly">
+<!-- <div *ngIf="listOnly">
   <ng-container *ngTemplateOutlet="list"></ng-container>
-</div>
+</div> -->
 
 <ng-template #list>
   <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"

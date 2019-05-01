@@ -31,6 +31,7 @@
     </nz-tabset>
   </nz-page-header-footer>
 </nz-page-header>
-<nz-card class="profile-tabs-card" [nzLoading]="loading">
-  <app-services-list [listOnly]="true" [paginatedServices]="userServices" *ngIf="tab == 'services'"></app-services-list>
-</nz-card>
+
+<div class="profile-tabs-card">
+  <app-services-list *ngIf="tab == 'services'"></app-services-list>
+</div>
