@@ -3,6 +3,7 @@ import { TagsService } from 'src/app/shared/services/tags.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Tag } from 'src/app/shared/models/Tag.models';
 import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-tags-selector',
@@ -19,10 +20,13 @@ export class TagsSelectorComponent implements OnInit {
   page = '1';
   pageSize = '10';
 
+  createTagMode: boolean = true;
+
   @Input() maxTagCount: number = 5;
   @Output() onChange = new EventEmitter<Array<string>>();
 
-  constructor(private tagsService: TagsService) { }
+  constructor(private tagsService: TagsService,
+    private msgService: NzMessageService) { }
 
   ngOnInit(): void {
     this.tagsSub$ = this.tagsService.getTags('1', '10')
@@ -45,7 +49,6 @@ export class TagsSelectorComponent implements OnInit {
 
   }
 
-
   loadMoreTags(): void {
     if (this.tags.next) {
       this.tagsSub$.unsubscribe();
@@ -65,5 +68,26 @@ export class TagsSelectorComponent implements OnInit {
       response.results = Array.from(set.values());
     }
     this.tags = response;
+  }
+
+  toggleCreateTagMode(b: boolean = null) {
+    if (b !== null) {
+      this.createTagMode = b;
+    } else {
+      this.createTagMode = !this.createTagMode;
+    }
+  }
+
+
+  createNewTag(tagName: string) {
+    console.log('creating tag: ', tagName);
+    this.tagsService.createTag(tagName)
+      .subscribe((t: Tag) => {
+        this.tags.results.push(t);
+        this.selectedTags.push(t.name);
+        this.toggleCreateTagMode(false);
+        this.msgService.success("Created tag " + tagName);
+      },
+      err => console.log(err))
   }
 }

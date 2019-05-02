@@ -1,9 +1,6 @@
-<nz-select style="width: 100%;" nzMode="tags" nzPlaceHolder="Избери тагове" nzAllowClear
-  nzShowSearch (nzOnSearch)="onSearch($event)" [nzServerSearch]="true" (nzScrollToBottom)="loadMoreTags()"
-  [(ngModel)]="selectedTags"
-  (ngModelChange)="onTagsChange()"
-  [nzMaxMultipleCount]="maxTagCount"
-  >
+<nz-select style="width: 100%;" nzMode="tags" nzPlaceHolder="Избери тагове" nzAllowClear nzShowSearch
+  (nzOnSearch)="onSearch($event)" [nzServerSearch]="true" (nzScrollToBottom)="loadMoreTags()" [(ngModel)]="selectedTags"
+  (ngModelChange)="onTagsChange()" [nzMaxMultipleCount]="maxTagCount" [nzDropdownRender]="render">
   <ng-container *ngFor="let tag of tags?.results">
     <nz-option *ngIf="!isLoading" [nzValue]="tag.name" [nzLabel]="tag.name"></nz-option>
   </ng-container>
@@ -12,3 +9,19 @@
     <i nz-icon type="loading" class="loading-icon"></i> Loading Data...
   </nz-option>
 </nz-select>
+
+
+<ng-template #render>
+  <nz-divider style="margin: 2px 0;"></nz-divider>
+  <div style="padding: 8px; cursor: pointer">
+    <div *ngIf="!createTagMode" (click)="toggleCreateTagMode()"><i nz-icon type="plus"></i> Създай таг</div>
+    <form *ngIf="createTagMode" (submit)="createNewTag(newTagInput.value)" nz-form [nzLayout]="'inline'">
+      <nz-form-item>
+        <input nz-input placeholder="Име на нов таг" #newTagInput />
+      </nz-form-item>
+      <nz-form-item>
+        <button nz-button nzType="primary"><i nz-icon type="plus"></i>Създай нов таг</button>
+      </nz-form-item>
+    </form>
+  </div>
+</ng-template>

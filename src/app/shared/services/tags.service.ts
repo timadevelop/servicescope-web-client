@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
 import { CustomEncoder } from './custom.encoder';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class TagsService {
   }
 
   public getTags(page: string, pageSize: string, query: string = null): Observable<PaginatedApiResponse<Tag>> {
-    let params = new HttpParams({encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize);
+    let params = new HttpParams({ encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize);
 
     if (query) {
       params = params.set('search', query);
@@ -45,8 +46,13 @@ export class TagsService {
   public createTag(name: string, color: string = null): Observable<Tag> {
     const tag = new Tag();
     tag.name = name;
-    tag.color = color;
-    return this.http.post<Tag>(`${environment.apiUrl}/tags/`, tag);
+    if (color) {
+      tag.color = color;
+    }
+    return this.http.post<Tag>(`${environment.apiUrl}/tags/`, tag)
+      .pipe(
+        catchError(e => this.handleError(e))
+      );
   }
 
   // Error handler

@@ -37,14 +37,14 @@ export class JsonLabelValueEditorComponent implements OnInit {
     if (e) {
       e.preventDefault();
     }
-    if (!this.items.valid) {
-      this.msgService.warning('Before adding new item');
-      console.log(this.items.errors);
-      return;
-    } else {
+    // if (!this.items.valid) {
+    //   this.msgService.warning('Before adding new item');
+    //   console.log(this.items.errors);
+    //   return;
+    // } else {
       // this.items = this.group.get('items') as FormArray;
       this.items.push(this.createItem());
-    }
+    // }
   }
 
 

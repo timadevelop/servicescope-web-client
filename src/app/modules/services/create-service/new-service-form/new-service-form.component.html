@@ -1,5 +1,5 @@
 <form nz-form [formGroup]="serviceForm" (ngSubmit)="null" onkeypress="return event.keyCode != 13;">
-  <div nz-row nzType="flex" nzJustify="space-between" nzGutter="32">
+  <div nz-row nzType="flex" nzJustify="space-between" nzAlign="stretch" nzGutter="32">
     <div nz-col nzSpan="16">
       <div nz-row nzType="flex" nzJustify="space-between" nzGutter="8">
         <div nz-col nzSpan="16">
@@ -170,47 +170,57 @@
 
     </div>
     <div nz-col nzSpan="8" class="optional-form-segment">
-      <nz-form-item>
-        <nz-form-label nzFor="contact_phone">Телефон</nz-form-label>
-        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
-          <nz-input-group [nzPrefix]="prefixTitle">
-            <input type="text" nz-input formControlName="contact_phone" placeholder="Телефон за контакт" />
-          </nz-input-group>
-          <nz-form-explain *ngIf="dirtyOrHasErrors('contact_phone')">
-            <ng-container *ngIf="serviceForm.get('contact_phone')?.hasError('minlength')">
-              short
-            </ng-container>
-            <ng-container *ngIf="serviceForm.get('contact_phone')?.hasError('maxlength')">
-              too long
-            </ng-container>
-            <ng-container *ngIf="serviceForm.get('contact_phone')?.hasError('required')">
-              Please input valid phone
-            </ng-container>
-          </nz-form-explain>
+      <div>
+        <nz-form-item>
+          <nz-form-label nzFor="contact_phone">Телефон</nz-form-label>
+          <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
+            <nz-input-group [nzPrefix]="prefixTitle">
+              <input type="text" nz-input formControlName="contact_phone" placeholder="Телефон за контакт" />
+            </nz-input-group>
+            <nz-form-explain *ngIf="dirtyOrHasErrors('contact_phone')">
+              <ng-container *ngIf="serviceForm.get('contact_phone')?.hasError('minlength')">
+                short
+              </ng-container>
+              <ng-container *ngIf="serviceForm.get('contact_phone')?.hasError('maxlength')">
+                too long
+              </ng-container>
+              <ng-container *ngIf="serviceForm.get('contact_phone')?.hasError('required')">
+                Please input valid phone
+              </ng-container>
+            </nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzFor="contact_email">Email</nz-form-label>
+          <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
+            <nz-input-group [nzPrefix]="prefixTitle">
+              <input type="text" nz-input formControlName="contact_email" placeholder="Email за контакт" />
+            </nz-input-group>
+            <nz-form-explain *ngIf="dirtyOrHasErrors('contact_email')">
+              <ng-container *ngIf="serviceForm.get('contact_email')?.hasError('minlength')">
+                Title is too short
+              </ng-container>
+              <ng-container *ngIf="serviceForm.get('contact_email')?.hasError('maxlength')">
+                Title is too long
+              </ng-container>
+              <ng-container *ngIf="serviceForm.get('contact_email')?.hasError('required')">
+                Please input valid title
+              </ng-container>
+            </nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzFor="price_details">Фиксирани цени</nz-form-label>
+          <app-json-label-value-editor (onChange)="onPriceDetailChange($event)"></app-json-label-value-editor>
+        </nz-form-item>
+      </div>
+
+      <!-- submit -->
+
+      <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control>
+          <button (click)="onFormSubmit()" style="float: right;" nz-button nzType="primary">Добави</button>
         </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label nzFor="contact_email">Email</nz-form-label>
-        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
-          <nz-input-group [nzPrefix]="prefixTitle">
-            <input type="text" nz-input formControlName="contact_email" placeholder="Email за контакт" />
-          </nz-input-group>
-          <nz-form-explain *ngIf="dirtyOrHasErrors('contact_email')">
-            <ng-container *ngIf="serviceForm.get('contact_email')?.hasError('minlength')">
-              Title is too short
-            </ng-container>
-            <ng-container *ngIf="serviceForm.get('contact_email')?.hasError('maxlength')">
-              Title is too long
-            </ng-container>
-            <ng-container *ngIf="serviceForm.get('contact_email')?.hasError('required')">
-              Please input valid title
-            </ng-container>
-          </nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-label nzFor="price_details">Фиксирани цени</nz-form-label>
-        <app-json-label-value-editor (onChange)="onPriceDetailChange($event)"></app-json-label-value-editor>
       </nz-form-item>
     </div>
   </div>
