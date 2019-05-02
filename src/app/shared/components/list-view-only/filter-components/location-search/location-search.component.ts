@@ -16,18 +16,25 @@ export class LocationSearchComponent implements OnInit {
   locations: PaginatedApiResponse<Location>;
   isLoading = false;
 
+  nullLocation = new Location();
+
   @Output() onChange = new EventEmitter<Location>();
   @Input() size: 'large' | 'default' | 'small' = 'default';
+  @Input() isFormItem: boolean = false;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private locationService: LocationService,
     private msgService: NzMessageService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.search("а"); // TODO get main locations
+
+    this.nullLocation.name = this.isFormItem ? "Изберете локация" : "Цялата страна";
+    this.selectedLocation = this.nullLocation;
 
     this.route.queryParamMap.subscribe(params => {
       const lidstring = params.get('locationId');
@@ -42,6 +49,7 @@ export class LocationSearchComponent implements OnInit {
   }
 
   getLabel(location: Location): string {
+    if (!location || location == this.nullLocation) return this.nullLocation.name;
     return `${location.t_v_m} ${location.name} - област ${location.district.name}`
   }
 
@@ -83,11 +91,13 @@ export class LocationSearchComponent implements OnInit {
 
   locationChanged(l: Location) {
     this.selectedLocation = l;
-    this.onChange.emit(this.selectedLocation);
+    this.onChange.emit(this.selectedLocation == this.nullLocation ? null : this.selectedLocation);
 
-    // update query params
-    const queryParams: Params = { locationId: this.selectedLocation === null ? null : this.selectedLocation.id, page: 1 };
-    this.updateQueryParams(queryParams);
+    if (!this.isFormItem) {
+      // update query params
+      const queryParams: Params = { locationId: this.selectedLocation === null ? null : this.selectedLocation.id, page: 1 };
+      this.updateQueryParams(queryParams);
+    }
   }
 
 

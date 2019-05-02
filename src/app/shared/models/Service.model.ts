@@ -3,6 +3,7 @@ import { User } from './User.model';
 import { Url } from 'url';
 import { Tag } from './Tag.models';
 import { Location } from './Location.model';
+import { Category } from './Category.models';
 
 export class ServiceImage extends Base {
   service: Url
@@ -30,6 +31,7 @@ export class Service extends Base {
   created_at: Date; // TODO
   updated_at: Date;
   tags: Array<Tag>;
+  category: Category;
   price_details: Array<PriceDetailsRow> | string;
   // voting
   score: number;

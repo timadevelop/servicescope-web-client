@@ -27,20 +27,12 @@ export class FiltersCardComponent implements OnInit, OnDestroy {
   private page = '1';
   private pageSize = '20';
   private tagsSub$: Subscription;
-  private categoriesSub$: Subscription;
 
   tags: PaginatedApiResponse<Tag>;
   selectedTagStrings: Array<string> = [];
   selectedTags: Array<Tag> = [];
   checked: boolean; // TODO
   visibleFilterDetails = false;
-
-  categories: PaginatedApiResponse<Category>;
-  selectedCategoryString: string;
-  optionList: string[] = [];
-  isLoadingCategories = false;
-
-
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
@@ -50,16 +42,9 @@ export class FiltersCardComponent implements OnInit, OnDestroy {
       }
 
     });
-    this.route.paramMap.subscribe(params => {
-      this.selectedCategoryString = params.get('category');
-    });
 
     this.tagsSub$ = this.tagsService.getTags(this.page, this.pageSize)
       .subscribe(v => this.appendTags(v));
-
-
-    this.categoriesSub$ = this.categoriesService.getCategories(this.page, this.pageSize)
-      .subscribe(v => this.appendCategories(v));
   }
 
   public trackIdentifyByItemId(index, item) {
@@ -68,7 +53,6 @@ export class FiltersCardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.tagsSub$.unsubscribe();
-    this.categoriesSub$.unsubscribe();
   }
 
   openDetailedFilters(): void {
@@ -79,57 +63,6 @@ export class FiltersCardComponent implements OnInit, OnDestroy {
     this.visibleFilterDetails = false;
   }
 
-
-  /*
-  *  Categories
-  */
-
-  onSearchCategories(value: string): void {
-    this.isLoadingCategories = true;
-    this.searchCategories(value);
-  }
-
-  loadMoreCategories(): void {
-    if (this.categories.next) {
-      this.isLoadingCategories = true;
-      this.categoriesSub$.unsubscribe();
-
-      this.categoriesSub$ = this.categoriesService.getNextCategories(this.categories.next)
-        .subscribe(v => {
-          this.appendCategories(v);
-          this.isLoadingCategories = false;
-        });
-    }
-  }
-
-  searchCategories(query: string): void {
-    this.categoriesSub$.unsubscribe;
-    this.categoriesSub$ = this.categoriesSub$ = this.categoriesService.getCategories(this.page, this.pageSize, query)
-      .subscribe(v => {
-        this.categories = v;
-        this.isLoadingCategories = false;
-      });
-  }
-
-
-  onCategotyChange(categoryName: string) {
-    if (!categoryName) {
-      this.navigateToSavingQueryParams(['../../']);
-    } else if (!this.selectedCategoryString) {
-      this.navigateToSavingQueryParams(['./category', categoryName]);
-    } else {
-      // change selected category
-      this.navigateToSavingQueryParams(['../', categoryName]);
-    }
-  }
-
-  private appendCategories(response: PaginatedApiResponse<Category>) {
-    if (this.categories) {
-      const set = new Set([...this.categories.results, ...response.results]);
-      response.results = Array.from(set.values());
-    }
-    this.categories = response;
-  }
 
   /*
   *  Tags
@@ -208,15 +141,6 @@ export class FiltersCardComponent implements OnInit, OnDestroy {
       {
         relativeTo: this.route,
         queryParams: queryParams,
-        queryParamsHandling: "merge", // remove to replace all query params by provided
-      });
-  }
-
-  private navigateToSavingQueryParams(route: Array<string>) {
-    this.router.navigate(
-      route,
-      {
-        relativeTo: this.route,
         queryParamsHandling: "merge", // remove to replace all query params by provided
       });
   }

@@ -1,0 +1,10 @@
+<nz-select style="width: 100%;" nzMode="default" [ngModel]="selectedCategoryString" nzPlaceHolder="Избери категория"
+  nzAllowClear nzShowSearch (ngModelChange)="onCategoryChange($event)" [nzServerSearch]="true"
+  (nzOnSearch)="onSearchCategories($event)" (nzScrollToBottom)="loadMoreCategories()">
+  <ng-container *ngFor="let category of categories?.results; trackBy:trackIdentifyByItemId">
+    <nz-option *ngIf="!isLoading" [nzValue]="category.name" [nzLabel]="category.name"></nz-option>
+  </ng-container>
+  <nz-option *ngIf="isLoadingCategories" nzDisabled nzCustomContent>
+    <i nz-icon type="loading" class="loading-icon"></i> Loading Data...
+  </nz-option>
+</nz-select>

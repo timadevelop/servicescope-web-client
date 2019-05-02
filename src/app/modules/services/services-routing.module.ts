@@ -9,6 +9,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { ServicesListResolverService } from '../../shared/resolvers/services-list-resolver.service';
 import { Route } from '@angular/compiler/src/core';
 import { PageNotFoundComponent } from 'src/app/shared/components/page-not-found/page-not-found.component';
+import { CreateServiceComponent } from './create-service/create-service.component';
 
 
 const servicesListRouteTemplate = {
@@ -30,6 +31,11 @@ const servicesRoutes: Routes = [
         pathMatch: 'full',
         ...servicesListRouteTemplate,
       } as Route,
+      {
+        path: 'create',
+        component: CreateServiceComponent,
+        canActivate: [AuthGuard],
+      },
       {
         path: 'category',
         children: [

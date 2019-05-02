@@ -1,0 +1,13 @@
+<nz-card [nzTitle]="title">
+  <nz-row nzType="flex" nzJustify="center">
+    <div nz-col [nzXs]="24" [nzSm]="24">
+      <app-new-service-form (onSubmit)="createNewService($event)"></app-new-service-form>
+    </div>
+
+  </nz-row>
+
+</nz-card>
+
+<ng-template #title>
+  <h2 class="title">Добави сървис</h2>
+</ng-template>

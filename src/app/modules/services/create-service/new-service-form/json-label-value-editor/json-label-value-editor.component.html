@@ -1,0 +1,37 @@
+<div formArray="items" *ngFor="let item of items.controls; let i = index;">
+  <nz-input-group [formGroup]="item" nzCompact style="margin-bottom: 1em;">
+    <input autocomplete="off" formControlName="label" type="text" nz-input style="width: 50%;" />
+    <nz-input-number autocomplete="off" formControlName="value" nzMax="1000000" nzMin="0" style="width: 35%;"></nz-input-number>
+    <input disabled nz-input style="width: 15%" value=" лв.">
+  </nz-input-group>
+
+  <nz-form-explain *ngIf="dirtyOrHasErrors(item, 'label')">
+    <ng-container *ngIf="item.get('label')?.hasError('minlength')">
+      Label short
+    </ng-container>
+    <ng-container *ngIf="item.get('label')?.hasError('maxlength')">
+      Label is too long
+    </ng-container>
+    <ng-container *ngIf="item.get('label')?.hasError('required')">
+      Please input valid title
+    </ng-container>
+  </nz-form-explain>
+
+  <nz-form-explain *ngIf="dirtyOrHasErrors(item, 'value')">
+      <ng-container *ngIf="item.get('value')?.hasError('min')">
+        Value short
+      </ng-container>
+      <ng-container *ngIf="item.get('value')?.hasError('max')">
+        value is too long
+      </ng-container>
+      <ng-container *ngIf="item.get('value')?.hasError('required')">
+        Please input valid Value
+      </ng-container>
+    </nz-form-explain>
+</div>
+
+<nz-form-control>
+  <button nz-button nzType="dashed" style="width:60%; float: right;" (click)="addField($event)">
+    <i nz-icon type="plus"></i> Add field
+  </button>
+</nz-form-control>

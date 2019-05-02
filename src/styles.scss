@@ -88,6 +88,26 @@ body {
   width: initial;
 }
 
+.ant-form-item-label {
+  line-height: initial;
+  text-transform: uppercase;
+  label {
+    color: $grey-color;
+    font-weight: bolder;
+    font-size: 10px;
+  }
+}
+
+// fix prefix icon on nz-select
+.ant-input-affix-wrapper {
+  // .ant-select-selection {
+  //   padding-left: 25px;
+  // }
+  .ant-select-selection__rendered {
+    margin-left: 32px;
+  }
+}
+
 .large-card-button {
   background: $contrast-color;
   opacity: 0.8;

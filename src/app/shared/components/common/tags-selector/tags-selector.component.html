@@ -1,0 +1,14 @@
+<nz-select style="width: 100%;" nzMode="tags" nzPlaceHolder="Избери тагове" nzAllowClear
+  nzShowSearch (nzOnSearch)="onSearch($event)" [nzServerSearch]="true" (nzScrollToBottom)="loadMoreTags()"
+  [(ngModel)]="selectedTags"
+  (ngModelChange)="onTagsChange()"
+  [nzMaxMultipleCount]="maxTagCount"
+  >
+  <ng-container *ngFor="let tag of tags?.results">
+    <nz-option *ngIf="!isLoading" [nzValue]="tag.name" [nzLabel]="tag.name"></nz-option>
+  </ng-container>
+
+  <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
+    <i nz-icon type="loading" class="loading-icon"></i> Loading Data...
+  </nz-option>
+</nz-select>
