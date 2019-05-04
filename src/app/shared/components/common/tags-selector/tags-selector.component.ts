@@ -25,7 +25,8 @@ export class TagsSelectorComponent implements OnInit {
   @Input() maxTagCount: number = 5;
   @Output() onChange = new EventEmitter<Array<string>>();
 
-  constructor(private tagsService: TagsService,
+  constructor(
+    private tagsService: TagsService,
     private msgService: NzMessageService) { }
 
   ngOnInit(): void {
@@ -88,6 +89,6 @@ export class TagsSelectorComponent implements OnInit {
         this.toggleCreateTagMode(false);
         this.msgService.success("Created tag " + tagName);
       },
-      err => console.log(err))
+        err => console.log(err))
   }
 }
