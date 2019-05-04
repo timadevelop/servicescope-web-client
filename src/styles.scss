@@ -98,6 +98,11 @@ body {
   }
 }
 
+.ant-upload-list {
+  :first-child.ant-upload-list-item {
+    border: 3px solid $primary-color;
+  }
+}
 // fix prefix icon on nz-select
 .ant-input-affix-wrapper {
   // .ant-select-selection {

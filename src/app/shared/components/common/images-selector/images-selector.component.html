@@ -1,9 +1,15 @@
 <div class="clearfix">
-  <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/" nzListType="picture-card" [(nzFileList)]="fileList"
-    [nzShowButton]="fileList.length < 3" [nzShowUploadList]="showUploadList" [nzPreview]="handlePreview"
-    [nzBeforeUpload]="beforeUpload" (nzChange)="handleChange($event)">
+  <nz-upload
+    nzListType="picture-card"
+    [(nzFileList)]="fileList"
+    [nzShowButton]="fileList.length < maxItemsLength"
+    [nzShowUploadList]="showUploadList"
+    [nzPreview]="handlePreview"
+    [nzBeforeUpload]="beforeUpload"
+    [nzCustomRequest]="upload"
+    (nzChange)="handleChange($event)">
     <i nz-icon nzType="plus"></i>
-    <div class="ant-upload-text">Upload</div>
+    <div class="ant-upload-text">Добави</div>
   </nz-upload>
   <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
     (nzOnCancel)="previewVisible = false">

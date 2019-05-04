@@ -140,9 +140,9 @@
 
       <!-- Images -->
       <nz-form-item>
-        <nz-form-label nzFor="images">Тагове</nz-form-label>
+        <nz-form-label nzFor="images">Снимки</nz-form-label>
         <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('images')" nzHasFeedback="false">
-          <app-images-selector (onChange)="onImagesChange($event)"></app-images-selector>
+          <app-images-selector [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)"></app-images-selector>
           <nz-form-explain *ngIf="dirtyOrHasErrors('images')">
             <ng-container *ngIf="serviceForm.get('images')?.hasError('minlength')">
               too short

@@ -14,11 +14,6 @@ export class LabelValueRow {
 })
 export class JsonLabelValueEditorComponent implements OnInit {
   @Output() onChange = new EventEmitter<Array<LabelValueRow>>();
-
-  // group = this.fb.group({
-  //   items: this.fb.array([this.createItem()])
-  // });
-
   items: FormArray = this.fb.array([]);
 
   constructor(
@@ -27,7 +22,6 @@ export class JsonLabelValueEditorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.addField();
   }
 
   addField(e?: MouseEvent): void {
@@ -58,8 +52,8 @@ export class JsonLabelValueEditorComponent implements OnInit {
 
   createItem(): FormGroup {
     return this.fb.group({
-      label: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      value: ['', [Validators.required, Validators.min(0)]]
+      label: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      value: [null, [Validators.required, Validators.min(0)]]
     });
   }
 
@@ -67,7 +61,7 @@ export class JsonLabelValueEditorComponent implements OnInit {
     e.preventDefault();
   }
 
-  validate(): boolean {
+  validate(): boolean {;
     for (const i in this.items.controls) {
       this.items.controls[i].markAsDirty();
       this.items.controls[i].updateValueAndValidity();
@@ -76,9 +70,9 @@ export class JsonLabelValueEditorComponent implements OnInit {
     const isValid = this.items.valid || this.items.untouched;
 
     if (isValid) {
-      this.onChange.emit(this.items.value);
+      this.onChange.emit(this.items.value.filter(i => i.value && i.label));
     } else {
-      this.msgService.warning('invalid json')
+      this.msgService.warning('Невалидна информация за фиксирани цени')
     }
 
     return isValid;

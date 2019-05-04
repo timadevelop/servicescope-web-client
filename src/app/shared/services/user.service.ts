@@ -61,7 +61,7 @@ export class UserService {
     }
     const formData = new FormData();
 
-    formData.append('image', item.file as any);
+    formData.append('image', item.file as any); // item.file type is UploadFile
     // formData.append('id', '1000');
 
     const uploadUrl: string = `${environment.apiUrl}/users/${this.currentUser.id}/`;

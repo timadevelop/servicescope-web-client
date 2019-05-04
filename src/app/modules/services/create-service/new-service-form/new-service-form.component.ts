@@ -1,9 +1,18 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Service } from 'src/app/shared/models/Service.model';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Location } from 'src/app/shared/models/Location.model';
 import { JsonLabelValueEditorComponent } from './json-label-value-editor/json-label-value-editor.component';
+import { UploadFile } from 'ng-zorro-antd';
+import { of } from 'rxjs';
+
+
+
+function validateImages(images: Array<UploadFile>) {
+  return of(true);
+}
+
 
 @Component({
   selector: 'app-new-service-form',
@@ -12,6 +21,7 @@ import { JsonLabelValueEditorComponent } from './json-label-value-editor/json-la
 })
 export class NewServiceFormComponent implements OnInit {
 
+  maxImagesLength = 10;
 
   @Output() onSubmit = new EventEmitter<Service>();
 
@@ -29,7 +39,7 @@ export class NewServiceFormComponent implements OnInit {
     // location url
     location: [null, Validators.required],
     // image_1: File, image_2: File, ...
-    images: [[], Validators.required, Validators.minLength(1), Validators.maxLength(10)],
+    images: [[], [Validators.required, Validators.minLength(1), Validators.maxLength(this.maxImagesLength)]],
     // [string]
     tags: [[], [Validators.required, Validators.minLength(3), Validators.maxLength(5)]],
     // string
@@ -75,7 +85,7 @@ export class NewServiceFormComponent implements OnInit {
     })
   }
 
-  onImagesChange(images: Array<any>) {
+  onImagesChange(images: Array<UploadFile>) {
     console.log(images);
     this.serviceForm.patchValue({
       images: images
@@ -89,6 +99,8 @@ export class NewServiceFormComponent implements OnInit {
     }
 
     const isJsonValid = jsonEditor ? jsonEditor.validate() : true;
+
+    console.log(this.serviceForm.value);
 
     if (this.serviceForm.valid && isJsonValid) {
       // create new service
