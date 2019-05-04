@@ -70,7 +70,7 @@ export class JsonLabelValueEditorComponent implements OnInit {
     const isValid = this.items.valid || this.items.untouched;
 
     if (isValid) {
-      this.onChange.emit(this.items.value.filter(i => i.value && i.label));
+      this.onChange.emit(this.items.value.filter(i => i.value !== null && i.label !== null));
     } else {
       this.msgService.warning('Невалидна информация за фиксирани цени')
     }
