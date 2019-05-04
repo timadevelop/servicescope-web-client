@@ -28,28 +28,31 @@ export class JsonLabelValueEditorComponent implements OnInit {
 
   ngOnInit(): void {
     this.addField();
-    this.items.valueChanges.subscribe(val => {
-      this.onChange.emit(val);
-    })
   }
 
   addField(e?: MouseEvent): void {
     if (e) {
       e.preventDefault();
     }
-    // if (!this.items.valid) {
-    //   this.msgService.warning('Before adding new item');
-    //   console.log(this.items.errors);
-    //   return;
-    // } else {
-      // this.items = this.group.get('items') as FormArray;
+    if (!this.items.valid) {
+      this.msgService.warning('Before adding new item');
+      // console.log(this.items.errors);
+      return;
+    } else if (this.items.length >= 5) {
+      this.msgService.warning("Only 5 allowed");
+      return;
+    } else {
       this.items.push(this.createItem());
-    // }
+    }
+  }
+
+  deleteItem(i: number) {
+    this.items.removeAt(i);
   }
 
 
   dirtyOrHasErrors(f: AbstractControl, label: string) {
-    const r = f.get(label).dirty && f.get(label).errors
+    const r = f.get(label).dirty && f.get(label).errors;
     return r;
   }
 
@@ -62,11 +65,22 @@ export class JsonLabelValueEditorComponent implements OnInit {
 
   removeField(i: { id: number; controlInstance: string }, e: MouseEvent): void {
     e.preventDefault();
-
   }
 
-  submitForm(): void {
+  validate(): boolean {
+    for (const i in this.items.controls) {
+      this.items.controls[i].markAsDirty();
+      this.items.controls[i].updateValueAndValidity();
+    }
 
-    console.log(this.items.value);
+    const isValid = this.items.valid;
+
+    if (isValid) {
+      this.onChange.emit(this.items.value);
+    } else {
+      this.msgService.warning('invalid json')
+    }
+
+    return isValid;
   }
 }

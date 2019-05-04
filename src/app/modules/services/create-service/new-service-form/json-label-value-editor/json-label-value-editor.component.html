@@ -1,36 +1,55 @@
-<div formArray="items" *ngFor="let item of items.controls; let i = index;">
-  <nz-input-group [formGroup]="item" nzCompact style="margin-bottom: 1em;">
-    <input autocomplete="off" formControlName="label" type="text" nz-input style="width: 50%;" />
-    <nz-input-number autocomplete="off" formControlName="value" nzMax="1000000" nzMin="0" style="width: 35%;">
-    </nz-input-number>
-    <input disabled nz-input style="width: 15%" value=" лв.">
-  </nz-input-group>
+<form nz-form>
+  <nz-form-item formArray="items" *ngFor="let item of items.controls; let i = index;" style="margin-bottom: 3px;">
+    <nz-form-control>
+      <nz-input-group [formGroup]="item" nzCompact>
+        <input autocomplete="off" formControlName="label" type="text" placeholder="Услуга" nz-input
+          style="width: 45%;" />
+        <nz-input-number autocomplete="off" formControlName="value" nzMax="1000000" nzMin="0" nzPlaceHolder="Цена"
+          style="width: 30%;">
+        </nz-input-number>
+        <input disabled nz-input style="width: 15%" value=" лв.">
+        <button
+        nz-popconfirm
+        nzTitle="Are you sure?"
+        nzOkText="Yes"
+        nzCancelText="No"
+        (nzOnConfirm)="deleteItem(i)"
+        nz-button style="width: 10%;"><i nz-icon type="close"></i></button>
 
-  <nz-form-explain *ngIf="dirtyOrHasErrors(item, 'label')">
-    <ng-container *ngIf="item.get('label')?.hasError('minlength')">
-      Label short
-    </ng-container>
-    <ng-container *ngIf="item.get('label')?.hasError('maxlength')">
-      Label is too long
-    </ng-container>
-    <ng-container *ngIf="item.get('label')?.hasError('required')">
-      Please input valid title
-    </ng-container>
+      </nz-input-group>
+      <nz-form-explain *ngIf="dirtyOrHasErrors(item, 'label')">
+        <ng-container *ngIf="item.get('label')?.hasError('minlength')">
+          Label short
+        </ng-container>
+        <ng-container *ngIf="item.get('label')?.hasError('maxlength')">
+          Label is too long
+        </ng-container>
+        <ng-container *ngIf="item.get('label')?.hasError('required')">
+          Please input valid title
+        </ng-container>
+      </nz-form-explain>
+
+      <nz-form-explain *ngIf="dirtyOrHasErrors(item, 'value')">
+        <ng-container *ngIf="item.get('value')?.hasError('min')">
+          Value short
+        </ng-container>
+        <ng-container *ngIf="item.get('value')?.hasError('max')">
+          value is too long
+        </ng-container>
+        <ng-container *ngIf="item.get('value')?.hasError('required')">
+          Please input valid Value
+        </ng-container>
+      </nz-form-explain>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-explain *ngIf="items.invalid && items.length <= 1">
+    Информация за фиксирани цени ще е празна
   </nz-form-explain>
-
-  <nz-form-explain *ngIf="dirtyOrHasErrors(item, 'value')">
-    <ng-container *ngIf="item.get('value')?.hasError('min')">
-      Value short
-    </ng-container>
-    <ng-container *ngIf="item.get('value')?.hasError('max')">
-      value is too long
-    </ng-container>
-    <ng-container *ngIf="item.get('value')?.hasError('required')">
-      Please input valid Value
-    </ng-container>
+  <nz-form-explain *ngIf="items.invalid && items.length > 1">
+    Невалилдни фиксирани цени
   </nz-form-explain>
-</div>
-
+</form>
 <nz-form-control>
   <button nz-button nzType="dashed" style="width:100%;" (click)="addField($event)">
     <i nz-icon type="plus"></i> Добави фиксирана цена

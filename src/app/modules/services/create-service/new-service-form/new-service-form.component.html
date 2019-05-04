@@ -141,7 +141,7 @@
       <!-- Images -->
       <nz-form-item>
         <nz-form-label nzFor="images">Тагове</nz-form-label>
-        <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('images')" nzHasFeedback>
+        <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('images')" nzHasFeedback="false">
           <app-images-selector (onChange)="onImagesChange($event)"></app-images-selector>
           <nz-form-explain *ngIf="dirtyOrHasErrors('images')">
             <ng-container *ngIf="serviceForm.get('images')?.hasError('minlength')">
@@ -160,13 +160,13 @@
 
 
 
-      <!-- submit -->
+      <!-- submit (moved to right column.) -->
 
-      <nz-form-item nz-row style="margin-bottom:8px;">
+      <!-- <nz-form-item nz-row style="margin-bottom:8px;">
         <nz-form-control>
           <button (click)="onFormSubmit()" nz-button nzType="primary">Добави</button>
         </nz-form-control>
-      </nz-form-item>
+      </nz-form-item> -->
 
     </div>
     <div nz-col nzSpan="8" class="optional-form-segment">
@@ -211,16 +211,17 @@
         </nz-form-item>
         <nz-form-item>
           <nz-form-label nzFor="price_details">Фиксирани цени</nz-form-label>
-          <app-json-label-value-editor (onChange)="onPriceDetailChange($event)"></app-json-label-value-editor>
+          <app-json-label-value-editor (onChange)="onPriceDetailChange($event)" #jsonEditor></app-json-label-value-editor>
         </nz-form-item>
       </div>
 
       <!-- submit -->
 
-      <nz-form-item nz-row style="margin-bottom:8px;">
+      <nz-form-item nz-row>
         <nz-form-control>
-          <button (click)="onFormSubmit()" style="float: right;" nz-button nzType="primary">Добави</button>
+          <button (click)="onFormSubmit(jsonEditor)" style="width: 100%;" nz-button nzType="primary">Добави</button>
         </nz-form-control>
+        <small style="opacity: .7;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat esse voluptatem iusto. Nisi doloremque!</small>
       </nz-form-item>
     </div>
   </div>

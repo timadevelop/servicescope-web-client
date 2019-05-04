@@ -3,6 +3,7 @@ import { Service } from 'src/app/shared/models/Service.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Location } from 'src/app/shared/models/Location.model';
+import { JsonLabelValueEditorComponent } from './json-label-value-editor/json-label-value-editor.component';
 
 @Component({
   selector: 'app-new-service-form',
@@ -81,14 +82,19 @@ export class NewServiceFormComponent implements OnInit {
     })
   }
 
-  onFormSubmit() {
+  onFormSubmit(jsonEditor: JsonLabelValueEditorComponent = null) {
     for (const i in this.serviceForm.controls) {
       this.serviceForm.controls[i].markAsDirty();
       this.serviceForm.controls[i].updateValueAndValidity();
     }
 
-    console.log('sub', this.serviceForm.value);
-    // this.onSubmit.emit(new Service());
+    const isJsonValid = jsonEditor ? jsonEditor.validate() : true;
+
+    if (this.serviceForm.valid && isJsonValid) {
+      // create new service
+      this.onSubmit.emit(new Service());
+    }
+
   }
 
   onPriceDetailChange(r) {
