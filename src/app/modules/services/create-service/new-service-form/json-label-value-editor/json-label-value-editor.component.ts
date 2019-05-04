@@ -73,7 +73,7 @@ export class JsonLabelValueEditorComponent implements OnInit {
       this.items.controls[i].updateValueAndValidity();
     }
 
-    const isValid = this.items.valid;
+    const isValid = this.items.valid || this.items.untouched;
 
     if (isValid) {
       this.onChange.emit(this.items.value);
