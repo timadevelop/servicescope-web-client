@@ -1,17 +1,16 @@
-<nz-list-item class="list-item" [nzContent]="null" [nzActions]="[priceAction]">
+<nz-list-item class="list-item stretch-list-item" [nzContent]="null" [nzActions]="[priceAction]">
   <!-- Actions -->
   <ng-template #priceAction>
     <div class="price" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
         style="margin-right: 8px;"></i>{{item.price + ' ' + item.price_currency}}</div>
-    <div style="margin-top: 50%;">
+    <div style="float: right;">
       <app-votes [score]="item.score" [currentUserVote]="item.current_user_vote" [model]="'items'" [modelId]="item.id">
       </app-votes>
     </div>
   </ng-template>
 
   <!-- List item meta -->
-  <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="itemTitle" [nzDescription]="description"
-    style="align-content: stretch;">
+  <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="itemTitle" [nzDescription]="description">
     <!-- Templates for list item -->
     <ng-template #avatar>
       <nz-avatar [nzSize]="128" nzShape="square"
@@ -35,7 +34,7 @@
     </ng-template>
 
     <ng-template #description>
-      <div nz-col class="description" nzType="flex" nzAlign="space-between">
+      <div nz-col class="description" nzType="flex" nzAlign="space-between" nzJustify="space-between">
         <div class="description-text">
           <p>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}</p>
         </div>

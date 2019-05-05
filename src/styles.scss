@@ -8,9 +8,53 @@
   //   "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   //   "Segoe UI Symbol";
 }
+
+//
+// GEN
+//
+
+.title {
+  // font-size: 15px;
+  line-height: 100%;
+  color: $dark-grey-color;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+:focus {
+  outline: none;
+}
+
 body {
   background: #f3f3f3;
 }
+
+.large-card-button {
+  background: $contrast-color;
+  opacity: 0.8;
+  // margin: 0;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  i {
+    margin-right: 0.5em;
+  }
+  * {
+    font-weight: bold;
+    color: $white-color;
+  }
+}
+
+// todo: rename this class
+.mb-vertical-align {
+  margin-bottom: $vertical-margin;
+}
+
+//
+// ANT DESIGN OVERRIDE
+//
+
 .ant-menu-submenu-title .ant-avatar {
   margin-right: 5px;
   .anticon {
@@ -33,12 +77,6 @@ body {
 .ant-collapse .no-paddings {
   border-bottom: none;
   margin-bottom: 0;
-  .ant-collapse-header {
-    // padding: 0;
-    .ant-collapse-arrow {
-      // margin-left: 20%;
-    }
-  }
   .ant-collapse-content-box {
     padding-bottom: 0;
   }
@@ -98,6 +136,36 @@ body {
   }
 }
 
+.stretch-list-item.ant-list-item,
+.stretch-list-item {
+  align-items: stretch;
+
+  .ant-list-item-meta {
+    align-content: stretch;
+    align-items: stretch;
+    .ant-list-item-meta-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+  }
+
+  .ant-list-item-action {
+    &,
+    & > li {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    & > li {
+      height: 100%;
+    }
+  }
+}
 .ant-upload-list {
   :first-child.ant-upload-list-item {
     border: 3px solid $primary-color;
@@ -105,28 +173,8 @@ body {
 }
 // fix prefix icon on nz-select
 .ant-input-affix-wrapper {
-  // .ant-select-selection {
-  //   padding-left: 25px;
-  // }
   .ant-select-selection__rendered {
     margin-left: 32px;
-  }
-}
-
-.large-card-button {
-  background: $contrast-color;
-  opacity: 0.8;
-  // margin: 0;
-  cursor: pointer;
-  &:hover {
-    opacity: 1;
-  }
-  i {
-    margin-right: 0.5em;
-  }
-  * {
-    font-weight: bold;
-    color: $white-color;
   }
 }
 
@@ -134,26 +182,11 @@ body {
   max-height: 100%;
 }
 
-.mb-vertical-align {
-  margin-bottom: $vertical-margin;
-}
-
-.title {
-  // font-size: 15px;
-  line-height: 100%;
-  color: $dark-grey-color;
-  font-weight: bold;
-  margin-bottom: 7px;
-}
-
 .ant-divider-inner-text .title {
   margin: 0;
 }
 
-:focus {
-  outline: none;
-}
-
 .ant-input:focus {
+  outline: none;
   box-shadow: none;
 }
