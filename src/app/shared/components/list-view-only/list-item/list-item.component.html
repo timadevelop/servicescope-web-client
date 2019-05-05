@@ -4,7 +4,7 @@
     <div class="price" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
         style="margin-right: 8px;"></i>{{item.price + ' ' + item.price_currency}}</div>
     <div style="float: right;">
-      <app-votes [score]="item.score" [currentUserVote]="item.current_user_vote" [model]="'items'" [modelId]="item.id">
+      <app-votes [score]="item.score" [currentUserVote]="item.current_user_vote" [model]="modelName" [modelId]="item.id">
       </app-votes>
     </div>
   </ng-template>
