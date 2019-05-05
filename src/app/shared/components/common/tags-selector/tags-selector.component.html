@@ -17,10 +17,11 @@
     <div *ngIf="!createTagMode" (click)="toggleCreateTagMode()"><i nz-icon type="plus"></i> Създай таг</div>
     <form *ngIf="createTagMode" (submit)="createNewTag(newTagInput.value)" nz-form [nzLayout]="'inline'">
       <nz-form-item>
-        <input nz-input placeholder="Име на нов таг" #newTagInput />
+        <input nz-input [maxLength]="maxTagNameLength" placeholder="Име на нов таг" #newTagInput />
       </nz-form-item>
       <nz-form-item>
         <button nz-button nzType="primary"><i nz-icon type="plus"></i>Създай нов таг</button>
+        <a (click)="toggleCreateTagMode(false)" style="margin-left: 1em;">Отказ</a>
       </nz-form-item>
     </form>
   </div>

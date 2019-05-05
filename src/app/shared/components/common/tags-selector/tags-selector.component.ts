@@ -20,6 +20,8 @@ export class TagsSelectorComponent implements OnInit {
   page = '1';
   pageSize = '10';
 
+  maxTagNameLength = 35;
+
   createTagMode: boolean = false;
 
   @Input() maxTagCount: number = 5;
@@ -81,6 +83,10 @@ export class TagsSelectorComponent implements OnInit {
 
 
   createNewTag(tagName: string) {
+    if (tagName.length < 1 || tagName.length > this.maxTagNameLength) {
+      this.msgService.warning('Невалидно име за таг');
+      return;
+    }
     this.tagsService.createTag(tagName)
       .subscribe((t: Tag) => {
         this.tags.results.push(t);
