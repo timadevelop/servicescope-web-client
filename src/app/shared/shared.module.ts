@@ -16,7 +16,7 @@ import { VotesComponent } from './components/common/votes/votes.component';
 import { PriceFilterComponent } from './components/list-view-only/filter-components/price-filter/price-filter.component';
 import { GeneralInfoCardComponent } from './components/detail-view-only/general-info-card/general-info-card.component';
 import { PriceCardComponent } from './components/detail-view-only/price-card/price-card.component';
-import { FiltersCardComponent } from './components/list-view-only/filters-card/filters-card.component';
+import { ListFiltersComponent } from './components/list-view-only/list-filters/list-filters.component';
 import { OrderingFilterComponent } from './components/list-view-only/filter-components/ordering-filter/ordering-filter.component';
 import { ListItemComponent } from './components/list-view-only/list-item/list-item.component';
 import { CategorySelectorComponent } from './components/common/category-selector/category-selector.component';
@@ -44,7 +44,7 @@ import { ImagesSelectorComponent } from './components/common/images-selector/ima
     PriceFilterComponent,
     GeneralInfoCardComponent,
     PriceCardComponent,
-    FiltersCardComponent,
+    ListFiltersComponent,
     OrderingFilterComponent,
     ListItemComponent,
     CategorySelectorComponent,
@@ -65,7 +65,7 @@ import { ImagesSelectorComponent } from './components/common/images-selector/ima
     PriceFilterComponent,
     GeneralInfoCardComponent,
     PriceCardComponent,
-    FiltersCardComponent,
+    ListFiltersComponent,
     OrderingFilterComponent,
     ListItemComponent,
     CategorySelectorComponent,

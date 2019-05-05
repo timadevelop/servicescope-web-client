@@ -2,7 +2,7 @@
 
 .app-layout {
   background: $back-color;
-  max-width: 1300px;
+  max-width: 95%;
   margin: 0 auto;
   min-height: calc(100% - 45px);
 
@@ -13,6 +13,18 @@
     .main-content {
       min-height: 280px;
     }
+  }
+}
+
+@include respond-below(xs) {
+  .app-layout {
+    max-width: 100%;
+  }
+}
+
+@include respond-above(x1300) {
+  .app-layout {
+    max-width: 1300px;
   }
 }
 
@@ -52,7 +64,7 @@
 .loader-line {
   height: 2px;
   background: linear-gradient(90deg, $primary-color, $contrast-color);
-  opacity: .5;
+  opacity: 0.5;
   animation: 1.7s infinite loop cubic-bezier(0.42, 0, 0.58, 1);
 }
 

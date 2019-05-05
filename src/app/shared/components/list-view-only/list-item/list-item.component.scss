@@ -33,3 +33,18 @@
     // }
   }
 }
+
+@include respond-below(mobile) {
+  .list-item {
+    * {
+      font-weight: normal;
+    }
+    .price {
+      font-size: inherit;
+      text-align: right;
+    }
+  }
+}
+
+@include respond-below(xs) {
+}

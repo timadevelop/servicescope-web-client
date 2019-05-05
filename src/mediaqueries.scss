@@ -1,0 +1,24 @@
+@import "~src/variables";
+
+@include respond-below(mobile) {
+  .hide-below-mobile {
+    display: none;
+  }
+  .col-below-mobile {
+    flex-direction: column;
+  }
+
+  .ant-card-body {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: medium;
+  }
+}
+
+@include respond-above(mobile) {
+  .hide-above-mobile {
+    display: none;
+  }
+}

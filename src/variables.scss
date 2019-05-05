@@ -1,10 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
+$breakpoints: (
+  xs: 576px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  x1300: 1300px,
+  x1400: 1400px,
+  xxl: 1600px,
+  mobile: 1200px
+);
+
 $main-text-color: #5d6577;
 
 $primary-color: #639bd3;
 
-$contrast-color: #EA532A; // TODO
+$contrast-color: #ea532a; // TODO
 
 $grey-color: rgb(166, 173, 184);
 $light-grey-color: rgb(235, 237, 240);
@@ -14,10 +26,46 @@ $light-border-color: $light-grey-color;
 
 $white-color: #fff;
 
-$back-color: #F3F3F3;
+$back-color: #f3f3f3;
 $dark-back-color: #f9f9f9;
 
 $vertical-margin: 24px;
 
 $radius: 5px;
 // $horizontal-margin: 24px; // Use nzGutter
+
+@mixin respond-above($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}

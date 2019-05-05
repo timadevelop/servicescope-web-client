@@ -14,6 +14,8 @@ export class ServicesListComponent implements OnInit {
   @Input() pageSize: number = 10;
   @Input() page: number = 1;
 
+  isFiltersDrawerVisible: boolean = false;
+
   constructor(
     public route: ActivatedRoute,
     private router: Router) { }
@@ -46,5 +48,9 @@ export class ServicesListComponent implements OnInit {
         queryParams: queryParams,
         queryParamsHandling: "merge", // remove to replace all query params by provided
       });
+  }
+
+  setIsFiltersDrawerVisible(v: boolean) {
+    this.isFiltersDrawerVisible = v;
   }
 }

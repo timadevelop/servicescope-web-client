@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~src/variables";
+@import "~src/mediaqueries";
 
 //
 // ANT DESIGN OVERRIDE
@@ -117,6 +118,7 @@
     }
   }
 }
+
 .ant-upload-list {
   :first-child.ant-upload-list-item {
     border: 3px solid $primary-color;

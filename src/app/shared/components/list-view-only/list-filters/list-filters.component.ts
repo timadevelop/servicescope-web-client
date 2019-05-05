@@ -1,21 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TagsService } from 'src/app/shared/services/tags.service';
 import { Tag } from 'src/app/shared/models/Tag.models';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
-import { mapTo, map } from 'rxjs/operators';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Url } from 'url';
 import { NzMessageService } from 'ng-zorro-antd';
-import { Category } from 'src/app/shared/models/Category.models';
 import { CategoriesService } from 'src/app/shared/services/categories.service';
 
 @Component({
-  selector: 'app-filters-card',
-  templateUrl: './filters-card.component.html',
-  styleUrls: ['./filters-card.component.scss']
+  selector: 'app-list-filters',
+  templateUrl: './list-filters.component.html',
+  styleUrls: ['./list-filters.component.scss']
 })
-export class FiltersCardComponent implements OnInit, OnDestroy {
+export class ListFiltersComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
