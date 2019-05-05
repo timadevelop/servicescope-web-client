@@ -1,11 +1,11 @@
 <div class="general-info" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
-  <div nz-col>
+  <div nz-col class="mb-vertical-align">
     <nz-tag nz-tooltip nzTitle="Търси обяви по таг" [routerLink]="['/tags', tag.id]" [nzColor]="tag.color"
       *ngFor="let tag of tags">{{tag.name}}
     </nz-tag>
     <nz-tag *ngIf="!tags || tags.length === 0">Няма тагове</nz-tag>
   </div>
-  <div nz-col>
+  <div nz-col class="mb-vertical-align">
     <span nz-tooltip nzTitle="Населено място">
       <i nz-icon type="home"
         style="margin-right: 8px;"></i>{{location && location.name ? location?.name + ' - ' + location?.district?.name : 'Цялата страна'}}

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Service } from 'src/app/shared/models/Service.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
+import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
 
 @Component({
   selector: 'app-services-list',
@@ -18,6 +19,7 @@ export class ServicesListComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
+    public tds: TargetDeviceService,
     private router: Router) { }
 
   ngOnInit(): void {

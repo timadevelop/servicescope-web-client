@@ -21,7 +21,7 @@
           </div>
           <div nz-col [nzSpan]="4">
             <nz-form-control style="width: 100%">
-              <button [nzSize]="'large'" style="width: 100%;" nz-button nzType="primary"><i nz-icon type="search"></i><span class="hide-below-mobile">Search</span></button>
+              <button [nzSize]="'large'" style="width: 100%;" nz-button nzType="primary"><i nz-icon type="search"></i><span *ngIf="!tds.isMobile">Search</span></button>
             </nz-form-control>
           </div>
         </div>

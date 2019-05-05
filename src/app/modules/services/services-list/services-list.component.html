@@ -1,7 +1,8 @@
 <div nz-row class="services-row" nzGutter="16">
   <div nz-col nzXs="24" nzXl="18">
     <app-search-card></app-search-card>
-    <div class="hide-above-mobile" nz-row nzGutter="16">
+    <!-- mobile -->
+    <div *ngIf="tds.isMobile" nz-row nzGutter="16">
       <div nz-col nzSpan="12">
         <ng-container *ngTemplateOutlet="addBtn"></ng-container>
       </div>
@@ -12,11 +13,13 @@
         </nz-card>
       </div>
     </div>
+    <!-- // mobile -->
     <nz-card>
       <ng-container *ngTemplateOutlet="list"></ng-container>
     </nz-card>
   </div>
-  <div class="hide-below-mobile" nz-col nzXs="24" nzXl="6">
+  <!-- desktop only -->
+  <div *ngIf="!tds.isMobile" nz-col nzXs="24" nzXl="6">
     <ng-container *ngTemplateOutlet="addBtn"></ng-container>
     <nz-card nzTitle="Филтри" class="padding-top-0">
       <app-list-filters></app-list-filters>

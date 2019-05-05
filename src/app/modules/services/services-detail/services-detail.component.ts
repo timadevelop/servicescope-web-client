@@ -4,6 +4,7 @@ import { Service } from 'src/app/shared/models/Service.model';
 import { ServicesService } from 'src/app/shared/services/services.service';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
 
 @Component({
   selector: 'app-services-detail',
@@ -29,6 +30,7 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
   constructor(
     public route: ActivatedRoute,
     public servicesService: ServicesService,
+    public tds: TargetDeviceService,
     private router: Router) { }
 
   private getTabNameFromUrl(url: string) {

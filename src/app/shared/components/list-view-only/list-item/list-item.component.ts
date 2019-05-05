@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Service } from 'src/app/shared/models/Service.model';
-import { ActivatedRoute } from '@angular/router';
+import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
 
 @Component({
   selector: 'app-list-item',
@@ -13,6 +13,7 @@ export class ListItemComponent implements OnInit {
   @Input() modelName: string = null;
 
   constructor(
+    public tds: TargetDeviceService
   ) { }
 
   ngOnInit() {

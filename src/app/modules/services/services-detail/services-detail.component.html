@@ -1,13 +1,15 @@
 <div nz-row nzGutter="16" *ngIf="service" class="service-container">
   <!-- left column -->
-  <div nz-col class="gutter-row" nzSpan="18">
+  <div nz-col class="gutter-row" nzXs="24" nzXl="18">
     <nz-card class="padding-0">
       <app-carousel [images]="service?.images"></app-carousel>
     </nz-card>
-    <div class="mb-vertical-align">
-      <app-general-info-card [id]="service.id" [location]="service.location" [created_at]="service.created_at"
-        [tags]="service.tags"></app-general-info-card>
-    </div>
+    <app-general-info-card [id]="service.id" [location]="service.location" [created_at]="service.created_at"
+      [tags]="service.tags"></app-general-info-card>
+    <app-price-card nz-col *ngIf="tds.isMobile" [price]="service.price" [currency]="service.price_currency"
+      [price_details]="service.price_details">
+    </app-price-card>
+
     <!-- description card -->
     <nz-card>
       <div nz-row nzType="flex" nzGutter="16" nzJustify="space-between" nzAlign="top">
@@ -44,7 +46,7 @@
 
   </div>
   <!-- right column -->
-  <div nz-col class="gutter-row" nzSpan="6">
+  <div nz-col class="gutter-row" *ngIf="!tds.isMobile" nzSpan="6">
     <app-price-card [price]="service.price" [currency]="service.price_currency" [price_details]="service.price_details">
     </app-price-card>
     <nz-card class="large-card-button padding-12" style="text-align: center;">

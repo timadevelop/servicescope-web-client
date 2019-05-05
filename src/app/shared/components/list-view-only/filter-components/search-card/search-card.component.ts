@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ɵConsole } from '@angular/core';
 import { Params, Router, ActivatedRoute } from '@angular/router';
+import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
 
 @Component({
   selector: 'app-search-card',
@@ -13,6 +14,7 @@ export class SearchCardComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    public tds: TargetDeviceService,
     private router: Router,
   ) { }
 

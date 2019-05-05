@@ -18,7 +18,7 @@
         <h2 nz-col class="title">
           <a class="title" [routerLink]="[modelName ? '/' + modelName : './', item.id]">{{ item.title }}</a>
         </h2>
-        <div nz-col class="price hide-below-mobile" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
+        <div nz-col class="price " *ngIf="!tds.isMobile" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
             style="margin-right: 8px;"></i>{{item.price + ' ' + item.price_currency}}</div>
       </div>
     </ng-template>
@@ -35,12 +35,12 @@
     <ng-template #description>
       <div nz-row nzType="flex" nzJustify="space-between" nzAlign="bottom">
         <div nz-col class="description" nzType="flex" nzAlign="space-between" nzJustify="space-between">
-          <div class="description-text hide-below-mobile">
+          <div class="description-text " *ngIf="!tds.isMobile">
             <p>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}</p>
           </div>
           <ng-container *ngTemplateOutlet="tags"></ng-container>
 
-          <div nz-row nzType="flex" class="bottom-info hide-below-mobile">
+          <div nz-row nzType="flex" class="bottom-info " *ngIf="!tds.isMobile">
             <span nz-col nz-tooltip nzTitle="Населено място">
               <i nz-icon type="home"
                 style="margin-right: 8px;"></i>{{item.location && item.location.name ? item.location?.name + ' - ' + item.location?.district?.name : 'Цялата страна'}}</span>
@@ -59,7 +59,7 @@
             <app-votes nz-col nzXs="12" nzSm="24" [score]="item.score" [currentUserVote]="item.current_user_vote"
               [model]="modelName" [modelId]="item.id">
             </app-votes>
-            <div nz-col nzXs="12" nzSm="0" class="price" nz-tooltip nzTitle="Цена">
+            <div nz-col *ngIf="tds.isMobile" nzXs="12" nzSm="0" class="price" nz-tooltip nzTitle="Цена">
               {{item.price + ' ' + item.price_currency}}</div>
           </div>
         <!-- </div> -->

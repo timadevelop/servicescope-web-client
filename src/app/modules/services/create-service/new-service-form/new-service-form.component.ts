@@ -7,6 +7,7 @@ import { JsonLabelValueEditorComponent } from './json-label-value-editor/json-la
 import { UploadFile } from 'ng-zorro-antd';
 import { of } from 'rxjs';
 import { ServiceApiRequest } from 'src/app/shared/models/api-request/service-api-request.model';
+import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
 
 
 
@@ -56,6 +57,7 @@ export class NewServiceFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    public tds: TargetDeviceService,
     private userService: UserService) {
 
   }
