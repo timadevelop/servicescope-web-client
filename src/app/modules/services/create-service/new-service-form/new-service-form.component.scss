@@ -6,3 +6,9 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+@include respond-below(mobile) {
+  .optional-form-segment {
+    border-left: none;
+  }
+}

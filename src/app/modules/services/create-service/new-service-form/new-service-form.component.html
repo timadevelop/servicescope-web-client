@@ -1,6 +1,6 @@
 <form nz-form [formGroup]="serviceForm" (ngSubmit)="null" onkeypress="return event.keyCode != 13;">
   <div nz-row nzType="flex" nzJustify="space-between" nzAlign="stretch" nzGutter="32">
-    <div nz-col nzSpan="16">
+    <div nz-col nzXs="24" nzXl="16">
       <div nz-row nzType="flex" nzJustify="space-between" nzGutter="8">
         <div nz-col nzSpan="16">
           <nz-form-item>
@@ -141,8 +141,10 @@
       <!-- Images -->
       <nz-form-item>
         <nz-form-label nzFor="images">Снимки</nz-form-label>
-        <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('images')" nzHasFeedback="false">
-          <app-images-selector [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)"></app-images-selector>
+        <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('images')"
+          nzHasFeedback="false">
+          <app-images-selector [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)">
+          </app-images-selector>
           <nz-form-explain *ngIf="dirtyOrHasErrors('images')">
             <ng-container *ngIf="serviceForm.get('images')?.hasError('minlength')">
               too short
@@ -169,7 +171,8 @@
       </nz-form-item> -->
 
     </div>
-    <div nz-col nzSpan="8" class="optional-form-segment">
+    <nz-divider class="hide-above-mobile margin-5"></nz-divider>
+    <div nz-col nzXs="24" nzXl="8" class="optional-form-segment">
       <div>
         <nz-form-item>
           <nz-form-label nzFor="contact_phone">Телефон</nz-form-label>
@@ -211,7 +214,8 @@
         </nz-form-item>
         <nz-form-item>
           <nz-form-label nzFor="price_details">Фиксирани цени</nz-form-label>
-          <app-json-label-value-editor (onChange)="onPriceDetailChange($event)" #jsonEditor></app-json-label-value-editor>
+          <app-json-label-value-editor (onChange)="onPriceDetailChange($event)" #jsonEditor>
+          </app-json-label-value-editor>
         </nz-form-item>
       </div>
 
@@ -221,7 +225,8 @@
         <nz-form-control>
           <button (click)="onFormSubmit(jsonEditor)" style="width: 100%;" nz-button nzType="primary">Добави</button>
         </nz-form-control>
-        <small style="opacity: .7;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat esse voluptatem iusto. Nisi doloremque!</small>
+        <small style="opacity: .7;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat esse voluptatem
+          iusto. Nisi doloremque!</small>
       </nz-form-item>
     </div>
   </div>

@@ -61,10 +61,14 @@ export class NewServiceFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.serviceForm.patchValue({
-      contact_phone: this.userService.currentUser.phone,
-      contact_email: this.userService.currentUser.email
-    })
+    this.userService.getCurrentUser().subscribe(u => {
+      if (u) {
+        this.serviceForm.patchValue({
+          contact_phone: u.phone,
+          contact_email: u.email
+        });
+      }
+    });
   }
 
   onLocationChange(location: Location) {

@@ -81,7 +81,7 @@ export class UserService {
     );
   }
 
-  private getCurrentUser(): Observable<User> {
+  public getCurrentUser(): Observable<User> {
     return this.http.get<User>(`${environment.apiUrl}/users/me/`)
       .pipe(
         catchError(error => {
