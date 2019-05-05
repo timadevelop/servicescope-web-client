@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { slideInAnimation } from './animations';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, Event, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { NzIconService } from 'ng-zorro-antd';
 
 
@@ -16,8 +16,30 @@ const ngZorroIconLiteral =
 export class AppComponent {
   title = 'saasWebClient';
 
-  constructor(private _iconService: NzIconService) {
-    this._iconService.addIconLiteral('ng-vlicon:facebook', ngZorroIconLiteral);
+  loading: boolean = false;
+
+  constructor(
+    private router: Router,
+    private _iconService: NzIconService) {
+      this.router.events.subscribe((event: Event) => {
+        switch (true) {
+          case event instanceof NavigationStart: {
+            this.loading = true;
+            break;
+          }
+
+          case event instanceof NavigationEnd:
+          case event instanceof NavigationCancel:
+          case event instanceof NavigationError: {
+            this.loading = false;
+            break;
+          }
+          default: {
+            break;
+          }
+        }
+      });
+      this._iconService.addIconLiteral('ng-vlicon:facebook', ngZorroIconLiteral);
   }
 
 

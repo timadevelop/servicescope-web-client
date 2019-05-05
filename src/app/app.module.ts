@@ -18,6 +18,7 @@ import { AuthModule } from './modules/auth/auth.module';
 
 import { httpInterceptorProviders } from './shared/interceptors';
 import { SharedModule } from './shared/shared.module';
+import { ServicesModule } from './modules/services/services.module';
 
 registerLocaleData(en);
 
@@ -37,6 +38,7 @@ registerLocaleData(en);
     BusinessesModule,
     AuthModule,
     SharedModule,
+    ServicesModule,
     AppRoutingModule,
   ],
   providers: [

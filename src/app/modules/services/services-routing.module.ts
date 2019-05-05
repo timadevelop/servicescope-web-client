@@ -22,7 +22,7 @@ const servicesListRouteTemplate = {
 
 const servicesRoutes: Routes = [
   {
-    path: '',
+    path: 'services',
     component: ServicesComponent,
     canActivate: [],
     children: [

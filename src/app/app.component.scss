@@ -1,4 +1,4 @@
-@import '~src/variables';
+@import "~src/variables";
 
 .app-layout {
   background: $back-color;
@@ -14,6 +14,46 @@
       min-height: 280px;
     }
   }
+}
+
+@keyframes loop {
+  0% {
+    width: 0%;
+    transform: translateX(0%);
+  }
+  7% {
+    width: 10%;
+    transform: translateX(0%);
+  }
+  40% {
+    width: 60%;
+  }
+  50% {
+    transform: translateX(85%);
+  }
+
+  75% {
+    width: 100%;
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.global-loading-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+.loader-line {
+  height: 2px;
+  background: linear-gradient(90deg, $primary-color, $contrast-color);
+  opacity: .5;
+  animation: 1.7s infinite loop cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 * {
