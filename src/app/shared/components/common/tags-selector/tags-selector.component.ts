@@ -20,7 +20,7 @@ export class TagsSelectorComponent implements OnInit {
   page = '1';
   pageSize = '10';
 
-  createTagMode: boolean = true;
+  createTagMode: boolean = false;
 
   @Input() maxTagCount: number = 5;
   @Output() onChange = new EventEmitter<Array<string>>();
@@ -81,14 +81,12 @@ export class TagsSelectorComponent implements OnInit {
 
 
   createNewTag(tagName: string) {
-    console.log('creating tag: ', tagName);
     this.tagsService.createTag(tagName)
       .subscribe((t: Tag) => {
         this.tags.results.push(t);
         this.selectedTags.push(t.name);
         this.toggleCreateTagMode(false);
         this.msgService.success("Created tag " + tagName);
-      },
-        err => console.log(err))
+      });
   }
 }

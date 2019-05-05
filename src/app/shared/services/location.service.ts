@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { NzMessageService } from 'ng-zorro-antd';
 import { Observable } from 'rxjs';
 import { GeoSearchResult } from '../models/GeoSearchResult';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Location } from '../models/Location.model';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
-import { CustomEncoder } from './custom.encoder';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +14,7 @@ export class LocationService {
 
 
   constructor(
-    private http: HttpClient,
-    private messageService: NzMessageService) {
+    private http: HttpClient) {
   }
 
   public getById(id: number | string): Observable<Location> {
