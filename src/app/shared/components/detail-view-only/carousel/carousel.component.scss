@@ -33,6 +33,10 @@
     padding: 16px;
     .image-list-item {
       cursor: pointer;
+      opacity: .4;
+      &.active, &:hover {
+        opacity: 1;
+      }
     }
   }
 

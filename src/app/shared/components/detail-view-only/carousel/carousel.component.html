@@ -1,11 +1,11 @@
 <div (keydown.esc)="zoom(false)" (keydown.f)="zoom(true)" *ngIf="images && images.length > 0 else warning">
 
-  <div class="carousel-container zoomView" *ngIf="zoomView">
+  <div class="carousel-container zoomView" #zoomViewContainer *ngIf="zoomView">
     <button (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon type="close"></i></button>
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
   </div>
 
-  <div class="carousel-container">
+  <div class="carousel-container" #defaultViewContainer>
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
     <button (click)="zoom(true)" class="zoom-btn" nz-button nzShape="circle"><i nz-icon type="fullscreen"></i></button>
   </div>
@@ -26,7 +26,7 @@
   </nz-carousel>
   <div class="carousel-images-list">
     <div nz-row nzType="flex" nzGutter="16">
-      <div class="image-list-item" nz-col *ngFor="let image of images; let index=index;" (click)="carousel.goTo(index)"
+      <div class="image-list-item" [class.active]="carousel.activeIndex == index" nz-col *ngFor="let image of images; let index=index;" (click)="carousel.goTo(index)"
         nz-tooltip nzTitle="Премини към изображение">
         <nz-avatar [nzSize]="50" nzShape="square" [nzSrc]="image.image">
         </nz-avatar>
