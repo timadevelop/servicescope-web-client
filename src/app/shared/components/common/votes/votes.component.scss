@@ -30,17 +30,8 @@
   }
 
   &.vertical {
-    text-align: center;
-    > * {
-      display: block;
-      margin: auto;
-    }
-    .score {
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-    i {
-      font-size: 1.3em;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

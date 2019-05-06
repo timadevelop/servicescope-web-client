@@ -13,13 +13,13 @@
     <!-- description card -->
     <nz-card>
       <div nz-row nzType="flex" nzGutter="16" nzJustify="space-between" nzAlign="top">
-        <div nz-col nzSpan="23">
+        <div nz-col nzSm="23" nzXs="22">
           <h1 class="title">{{service.title}}</h1>
           <div class="service-description">
             {{service.description}}
           </div>
         </div>
-        <div nz-col nzSpan="1">
+        <div nz-col nzSm="1" nzXs="2">
           <app-votes [score]="service.score" type="vertical" [currentUserVote]="service.current_user_vote"
             [model]="'services'" [modelId]="service.id"></app-votes>
         </div>
