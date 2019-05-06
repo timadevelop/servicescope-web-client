@@ -47,3 +47,23 @@
     width: 60%;
   }
 }
+
+.login-menu-item,
+.user-menu-item {
+  float: right;
+}
+
+@include respond-below(mobile) {
+  .login-menu-item,
+  .user-menu-item {
+    // width: 100%;
+    float: initial;
+  }
+  .user-logo {
+    margin-left: -10px;
+  }
+
+  .hello-text {
+    display: none;
+  }
+}

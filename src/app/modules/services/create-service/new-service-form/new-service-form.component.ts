@@ -107,8 +107,17 @@ export class NewServiceFormComponent implements OnInit {
     if (this.serviceForm.valid && isJsonValid) {
       // create new service
       this.onSubmit.emit(this.serviceForm.value);
+    } else {
+      this.scrollToError();
     }
 
+  }
+
+  private scrollToError() {
+    const firstElementWithError = document.querySelector('.ng-invalid');
+    if (firstElementWithError) {
+      firstElementWithError.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   onPriceDetailChange(r) {

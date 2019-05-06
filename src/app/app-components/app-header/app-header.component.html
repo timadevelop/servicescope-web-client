@@ -12,15 +12,15 @@
     </div>
     <div nz-col class="gutter-row" nzSpan="6">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-right">
-        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" style="float: right;" routerLink="/login" routerLinkActive="ant-menu-item-selected">
+        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" class="login-menu-item" routerLink="/login" routerLinkActive="ant-menu-item-selected">
           <a>Login</a>
         </li>
         <ng-template #userMenuItem>
-          <li nz-submenu *ngIf="userService.currentUser" style="float: right;">
-            <span title>
+          <li nz-submenu *ngIf="userService.currentUser" class="user-menu-item">
+            <div title>
               <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
-              Hello, {{userService.currentUser.first_name}}
-            </span>
+              <span class="hello-text">Hello, {{userService.currentUser.first_name}}</span>
+            </div>
             <ul>
               <li nz-menu-item [routerLink]="['/profiles', userService.currentUser.id]" routerLinkActive="ant-menu-item-selected">Profile</li>
               <li nz-menu-item>Settings</li>
