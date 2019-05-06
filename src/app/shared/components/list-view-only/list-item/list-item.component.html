@@ -8,7 +8,7 @@
   <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="itemTitle" [nzDescription]="description">
     <!-- Templates for list item -->
     <ng-template #avatar>
-      <nz-avatar [nzSize]="128" nzShape="square"
+      <nz-avatar [routerLink]="[modelName ? '/' + modelName : './', item.id]" style="cursor: pointer;" [nzSize]="128" nzShape="square"
         [nzSrc]="item?.images[0] ? item.images[0].image : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'">
       </nz-avatar>
     </ng-template>
@@ -55,13 +55,13 @@
           </div>
         </div>
         <!-- <div nz-col> -->
-          <div nz-row nzType="flex" style="float: right;" class="votes-price-block" nzJustify="space-between">
-            <app-votes nz-col nzXs="12" nzSm="24" [score]="item.score" [currentUserVote]="item.current_user_vote"
-              [model]="modelName" [modelId]="item.id">
-            </app-votes>
-            <div nz-col *ngIf="tds.isMobile" nzXs="12" nzSm="0" class="price" nz-tooltip nzTitle="Цена">
-              {{item.price + ' ' + item.price_currency}}</div>
-          </div>
+        <div nz-row nzType="flex" style="float: right;" class="votes-price-block" nzJustify="space-between">
+          <app-votes nz-col nzXs="12" nzSm="24" [score]="item.score" [currentUserVote]="item.current_user_vote"
+            [model]="modelName" [modelId]="item.id">
+          </app-votes>
+          <div nz-col *ngIf="tds.isMobile" nzXs="12" nzSm="0" class="price" nz-tooltip nzTitle="Цена">
+            {{item.price + ' ' + item.price_currency}}</div>
+        </div>
         <!-- </div> -->
       </div>
     </ng-template>

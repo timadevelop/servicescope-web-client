@@ -1,6 +1,6 @@
 <nz-card class="padding-12">
   <h2 style="text-align: center; margin: 0;">
-    {{price}} {{currency}}
+    {{price | number}} лв.
     <!-- small-view-only more-btn -->
     <i nz-icon type="down-circle" [class.rotated]="exposePriceDetails" (click)="toggleExposePriceDetails()"
       *ngIf="showPriceDetails && small" class="more-info-btn"></i>
