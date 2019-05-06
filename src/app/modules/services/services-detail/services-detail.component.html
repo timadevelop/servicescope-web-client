@@ -63,9 +63,18 @@
   </div>
 </div>
 
-
 <ng-template #promoButton>
   <nz-card class="large-card-button padding-12" style="text-align: center;">
     <h2 style="margin: 0;"><i nz-icon nzType="rise"></i>Промотирай</h2>
   </nz-card>
 </ng-template>
+
+<!-- mobile contact -->
+<div nz-row nzType="flex" nzJustify="stretch" nzAlign="stretch" class="mobile-contact" *ngIf="tds.isMobile">
+  <div nz-col nzSpan="12" class="msg-col">
+    <a [href]="'tel:' + service.contact_phone"><i nz-icon nzType="phone"></i>Обади се</a>
+  </div>
+  <div nz-col nzSpan="12" class="phone-col">
+    <a [routerLink]="['/messages', service.author.id]"><i nz-icon nzType="message"></i>Съобщение</a>
+  </div>
+</div>

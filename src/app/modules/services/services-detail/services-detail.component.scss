@@ -1,16 +1,14 @@
 @import "~src/variables";
 
 .service-container {
-
   .share-btns {
     button {
-      background: rgba(255, 255, 255, .5);
+      background: rgba(255, 255, 255, 0.5);
       opacity: 0.7;
       &:hover {
         overflow: 1;
         background: rgba(255, 255, 255, 1);
         color: $main-text-color;
-
       }
     }
     button + button {
@@ -19,8 +17,29 @@
   }
 }
 
-
-@include respond-below(mobile) {
-
+.mobile-contact {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 5%;
+  text-align: center;
+  a {
+    color: white;
+  }
+  > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &.msg-col {
+      background: $contrast-color;
+    }
+    &.phone-col {
+      background: $primary-color;
+    }
+  }
 }
 
+@include respond-below(mobile) {
+}

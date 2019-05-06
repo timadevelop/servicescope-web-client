@@ -1,16 +1,19 @@
 @import "~src/variables";
 
 .app-layout {
+  // overflow-x: hidden;
   background: $back-color;
   max-width: 95%;
   margin: 0 auto;
   min-height: calc(100% - 45px);
 
   .main-wrapper-layout {
+    overflow-x: hidden;
     padding: $vertical-margin 0 0;
     background: $back-color;
 
     .main-content {
+      // overflow-x: hidden;
       min-height: 280px;
     }
   }
