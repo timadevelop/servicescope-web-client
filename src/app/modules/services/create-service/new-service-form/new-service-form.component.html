@@ -38,8 +38,8 @@
               </ng-template> -->
 
               <nz-input-group nzCompact>
-                <nz-input-number style="width: 80%" formControlName="price" [nzMin]="0" [nzStep]="10"></nz-input-number>
-                <input type="text" style="width: 20%" nz-input disabled value="лв." />
+                <nz-input-number style="width: 60%" formControlName="price" [nzMin]="0" [nzStep]="10"></nz-input-number>
+                <input type="text" style="width: 30%; padding: 0;padding-left: 10px;" nz-input disabled value="лв." />
               </nz-input-group>
               <nz-form-explain *ngIf="dirtyOrHasErrors('price')">
                 <ng-container *ngIf="serviceForm.get('price')?.hasError('min')">
