@@ -1,0 +1,21 @@
+.more-info-btn {
+  margin-left: 1em;
+  cursor: pointer;
+  opacity: .5;
+  &:hover {
+    opacity: 1;
+  }
+
+  &.rotated {
+    transform: rotate(180deg);
+    transition: transform .5s ease;
+  }
+}
+
+.small-view {
+  overflow: hidden;
+  transition: all 1s ease;
+  &.hidden {
+    height: 0;
+  }
+}

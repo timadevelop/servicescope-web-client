@@ -4,17 +4,17 @@
     <nz-card class="padding-0">
       <app-carousel [images]="service?.images"></app-carousel>
     </nz-card>
-    <app-general-info-card [id]="service.id" [location]="service.location" [created_at]="service.created_at"
-      [tags]="service.tags"></app-general-info-card>
-    <app-price-card nz-col *ngIf="tds.isMobile" [price]="service.price" [currency]="service.price_currency"
-      [price_details]="service.price_details">
-    </app-price-card>
+    <div nz-row style="text-align: center;" *ngIf="tds.isMobile">
+      <h1 class="mb-vertical-align title">{{service.title}}</h1>
+    </div>
+    <app-general-info-card [vertical]="tds.isMobile" [id]="service.id" [location]="service.location"
+      [created_at]="service.created_at" [tags]="service.tags"></app-general-info-card>
 
     <!-- description card -->
     <nz-card>
       <div nz-row nzType="flex" nzGutter="16" nzJustify="space-between" nzAlign="top">
         <div nz-col nzSm="23" nzXs="22">
-          <h1 class="title">{{service.title}}</h1>
+          <h1 *ngIf="!tds.isMobile" class="title">{{service.title}}</h1>
           <div class="service-description">
             {{service.description}}
           </div>
@@ -25,6 +25,14 @@
         </div>
       </div>
     </nz-card>
+    <div nz-row nzGutter="16" *ngIf="tds.isMobile">
+      <app-price-card nz-col nzSpan="12" [small]="true" [price]="service.price" [currency]="service.price_currency"
+        [price_details]="service.price_details">
+      </app-price-card>
+      <div nz-col nzSpan="12">
+        <ng-container *ngTemplateOutlet="promoButton"></ng-container>
+      </div>
+    </div>
     <!-- share card -->
     <div class="mb-vertical-align" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
       <div class="share-btns">
@@ -41,7 +49,7 @@
       <app-similar-services-list [service]="service"></app-similar-services-list>
     </nz-card>
     <ng-template #similarCardTitleTemplate>
-      <h2 class="title">Подобно</h2>
+      <h2 class="title small">Подобно</h2>
     </ng-template>
 
   </div>
@@ -49,10 +57,15 @@
   <div nz-col class="gutter-row" *ngIf="!tds.isMobile" nzSpan="6">
     <app-price-card [price]="service.price" [currency]="service.price_currency" [price_details]="service.price_details">
     </app-price-card>
-    <nz-card class="large-card-button padding-12" style="text-align: center;">
-      <h2 style="margin: 0;"><i nz-icon nzType="rise"></i>Промотирай</h2>
-    </nz-card>
+    <ng-container *ngTemplateOutlet="promoButton"></ng-container>
     <nz-divider class="margin-20"></nz-divider>
     <app-author-card [author]="service.author" [override_phone]="service.contact_phone"></app-author-card>
   </div>
 </div>
+
+
+<ng-template #promoButton>
+  <nz-card class="large-card-button padding-12" style="text-align: center;">
+    <h2 style="margin: 0;"><i nz-icon nzType="rise"></i>Промотирай</h2>
+  </nz-card>
+</ng-template>

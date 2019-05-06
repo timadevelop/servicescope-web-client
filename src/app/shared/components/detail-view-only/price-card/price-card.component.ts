@@ -10,8 +10,10 @@ export class PriceCardComponent implements OnInit {
   @Input() price_details: any = null;
   @Input() price: number | string;
   @Input() currency: string;
+  @Input() small: boolean = false;
 
   showPriceDetails: boolean = false;
+  exposePriceDetails: boolean = false;
   constructor() { }
 
   ngOnInit() {
@@ -20,4 +22,7 @@ export class PriceCardComponent implements OnInit {
     }
   }
 
+  toggleExposePriceDetails() {
+    this.exposePriceDetails = !this.exposePriceDetails;
+  }
 }

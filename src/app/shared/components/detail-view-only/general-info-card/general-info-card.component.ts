@@ -12,6 +12,7 @@ export class GeneralInfoCardComponent implements OnInit {
   @Input() created_at: string;
   @Input() location: Location;
   @Input() tags: Array<Tag>;
+  @Input() vertical: boolean = false;
 
   constructor() { }
 
