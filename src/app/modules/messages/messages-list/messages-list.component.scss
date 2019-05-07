@@ -1,0 +1,49 @@
+@import "~src/variables";
+
+.messages-list-wrapper {
+  padding: 0 8px;
+  overflow: hidden;
+  &:hover {
+    overflow-y: scroll;
+  }
+  max-height: 90%;
+
+  &::-webkit-scrollbar-track {
+    border-radius: $radius;
+    background-color: $light-grey-color;
+  }
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius;
+    background-color: $grey-color;
+  }
+
+  .messages-list {
+    border: none;
+
+    .messages-list-item {
+      padding: 8px;
+      border-radius: $radius;
+      cursor: pointer;
+      border: none;
+
+      &:hover,
+      &.active {
+        background: $light-grey-color;
+      }
+    }
+  }
+
+  .search {
+    padding: 8px;
+    opacity: 0.5;
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}

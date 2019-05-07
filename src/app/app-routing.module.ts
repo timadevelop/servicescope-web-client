@@ -20,11 +20,11 @@ const routes: Routes = [
     loadChildren: './modules/profile/profile.module#ProfileModule',
     // canLoad: [AuthGuard]
   },
-  // {
-  //   path: 'services',
-  //   loadChildren: './modules/services/services.module#ServicesModule',
-  //   // canLoad: [AuthGuard]
-  // },
+  {
+    path: 'messages',
+    loadChildren: './modules/messages/messages.module#MessagesModule',
+    canLoad: [AuthGuard]
+  },
   { path: '', redirectTo: '/businesses', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

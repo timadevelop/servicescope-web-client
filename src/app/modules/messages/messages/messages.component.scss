@@ -1,0 +1,21 @@
+@import "~src/variables";
+
+.messages-wrapper {
+  height: 80vh;
+  .messages-list-container,
+  .messages-detail-container {
+    height: 100%;
+    overflow: hidden;
+  }
+  .messages-list-container {
+    border-right: 1px solid $light-border-color;
+  }
+}
+
+.current-user-info {
+  padding: 8px 16px;
+
+  .user-logo {
+    margin-right: 0.5em;
+  }
+}
