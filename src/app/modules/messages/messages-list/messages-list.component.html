@@ -9,7 +9,8 @@
   </div>
 
   <nz-list [nzLoadMore]="loadMore" class="messages-list">
-    <nz-list-item [routerLink]="['/', 'messages', 'user', i]" routerLinkActive="active" class="messages-list-item" *ngFor="let i of [1,2,3,4,5,5, 3,4,5,5, 4,5,5, 4,5,5, 4,5,5, 4,5,5]">
+    <nz-list-item [routerLink]="['/', 'messages', 'user', i]" routerLinkActive="active" class="messages-list-item"
+      *ngFor="let i of [1,2,3,4,5,5, 3,4,5,5, 4,5,5, 4,5,5, 4,5,5, 4,5,5]">
       <nz-skeleton *ngIf="false" [nzAvatar]="true" [nzParagraph]="{ rows: 1 }"></nz-skeleton>
       <nz-list-item-meta *ngIf="true" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate"
         [nzDescription]="descriptionTemplate">
@@ -25,10 +26,9 @@
       </nz-list-item-meta>
     </nz-list-item>
 
-
     <ng-template #loadMore>
       <div class="loadmore">
-        <button nz-button *ngIf="!loadingMore" >loading more</button>
+        <button nz-button *ngIf="!loadingMore">loading more</button>
       </div>
     </ng-template>
   </nz-list>
