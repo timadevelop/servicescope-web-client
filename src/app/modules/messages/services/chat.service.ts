@@ -2,11 +2,13 @@ import { Injectable } from "@angular/core";
 import { Subject } from 'rxjs';
 import { SocketService } from './socket.service';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
-const CHAT_URL = "ws://echo.websocket.org/";
+
+const CHAT_URL = environment.socketUrl + '/chat/' + 'roomos' + '/';
 
 export interface Message {
-  author: string;
+  // author: string;
   message: string;
 }
 
@@ -21,7 +23,7 @@ export class ChatService {
       map((response: MessageEvent): Message => {
         let data = JSON.parse(response.data);
         return {
-          author: data.author,
+          // author: data.author,
           message: data.message
         };
       })

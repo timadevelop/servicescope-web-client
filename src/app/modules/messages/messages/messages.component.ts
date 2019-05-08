@@ -13,25 +13,17 @@ export class MessagesComponent implements OnInit {
   constructor(
     private chatService: ChatService,
     public userService: UserService,
-    ) {
+  ) {
   }
 
   ngOnInit() {
     this.chatService.messages.subscribe(msg => {
-      console.log("Response from websocket: " + msg);
+      console.log("Response from websocket: ", msg);
     });
-
   }
 
-  private message = {
-    author: "tutorialedge",
-    message: "this is a test message"
-  };
-
-  sendMsg() {
+  sendMsg(msg: string) {
     console.log("new message from client to websocket: ")
-    console.log(this.message);
-    this.chatService.messages.next(this.message);
-    this.message.message = "";
+    this.chatService.messages.next({message: msg});
   }
 }
