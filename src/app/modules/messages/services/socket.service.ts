@@ -1,12 +1,15 @@
 import { Injectable } from "@angular/core";
 import { Observable, Observer, Subject } from 'rxjs';
+import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocketService {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   private subject: Subject<MessageEvent>;
 
@@ -19,7 +22,14 @@ export class SocketService {
   }
 
   private create(url): Subject<MessageEvent> {
-    let ws = new WebSocket(url);
+    const token = this.authService.getTokenInfo();
+    if (!token || !this.authService.isLoggedIn) {
+      console.warn("Cannot create secured socket for anonymous user.");
+      return;
+    }
+
+    const protocol = token.access_token;
+    let ws = new WebSocket(url, protocol);
 
     let observable = Observable.create((obs: Observer<MessageEvent>) => {
       ws.onmessage = obs.next.bind(obs);
