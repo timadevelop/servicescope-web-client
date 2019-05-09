@@ -1,9 +1,15 @@
 import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
 import { ChatService } from '../services/chat.service';
-import { MessagesService } from 'src/app/shared/services/messages.service';
+import { MessagesService } from 'src/app/modules/messages/services/messages.service';
 import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
 import { Message } from 'src/app/shared/models/Message.model';
 import { UserService } from 'src/app/shared/services/user.service';
+import { ActivatedRoute } from '@angular/router';
+import { Conversation } from 'src/app/shared/models/Conversation.model';
+import { User } from 'src/app/shared/models/User.model';
+import { MessageApiRequest } from 'src/app/shared/models/api-request/message-api-request.model';
+import { UploadFile } from 'ng-zorro-antd';
+import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-messages-detail',
@@ -13,9 +19,11 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class MessagesDetailComponent implements OnInit, OnDestroy {
 
   messages: PaginatedApiResponse<Message>;
+  conversation: Conversation;
+  partner: User;
 
   constructor(
-
+    public route: ActivatedRoute,
     public userService: UserService,
     private chatService: ChatService,
     private messagesService: MessagesService
@@ -26,22 +34,55 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   @ViewChild('conversationMessages') private messagesContainer: ElementRef;
 
   ngOnInit() {
-    this.chatService.messages.subscribe(msg => {
-      // this.messages.push(msg.message);
+    this.route.data.subscribe((data: { conversation: Conversation }) => {
+      this.conversation = data.conversation;
+      this.partner = this.conversation.users[0];
+      console.log(this.conversation)
+      this.messagesService.getConversationMessages(this.conversation.id, '1', '10').subscribe(
+        r => {
+          this.messages = r;
+          this.messages.results = this.messages.results.reverse();
+          setTimeout(() => this.scrollToBottom(), 100);
+        }
+      );
+      this.chatService.connect(this.conversation.id.toString())
+        .subscribe(m => {
+          console.log('got', m);
+        })
     });
-
-    this.messagesService.getMessages('1', '10', null).subscribe(
-      r => {
-        this.messages = r;
-        this.messages.results = this.messages.results.reverse();
-        // console.log(r.results);
-        setTimeout(() => this.scrollToBottom(), 100);
-      }
-    )
   }
 
-  sendMsg(msg: string) {
-    this.chatService.messages.next({ message: msg });
+  sendMsg(msg: string, images: Array<UploadFile> = []) {
+    // this.chatService.messages.next({ message: msg });
+
+    const message = new MessageApiRequest(
+      this.conversation.url,
+      msg,
+      images
+    );
+
+    this.messagesService.create(message)
+      .subscribe(
+        (event: HttpEvent<{}>) => {
+          if (event.type === HttpEventType.UploadProgress) {
+            if (event.total! > 0) {
+              // this.percent = (event.loaded / event.total!) * 100;
+            }
+          } else if (event instanceof HttpResponse) {
+            // uploaded
+            // this.loading = false;
+            const newMessage = event.body;
+            console.log('sent', newMessage);
+            // const id = newService['id'];
+            // this.msgService.success(`Успешно направена обява #${id}`)
+            // this.router.navigate(['/services', id]);
+          }
+        },
+        err => {
+          // fail
+          console.log(err);
+        });
+
   }
 
   scrollToBottom(): void {
@@ -82,7 +123,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   private appendOldMessages(response: PaginatedApiResponse<Message>) {
     if (this.messages) {
       response.results = response.results.reverse();
-      const set = new Set([ ...response.results, ...this.messages.results]);
+      const set = new Set([...response.results, ...this.messages.results]);
       response.results = Array.from(set.values());
     }
     this.messages = response;

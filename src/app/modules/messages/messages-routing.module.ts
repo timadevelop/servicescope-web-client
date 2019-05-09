@@ -5,6 +5,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessagesDetailComponent } from './messages-detail/messages-detail.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { PageNotFoundComponent } from 'src/app/shared/components/page-not-found/page-not-found.component';
+import { ConversationResolverService } from './resolvers/conversation-resolver.service';
 
 const messagesRoutes: Routes = [
   {
@@ -13,7 +14,7 @@ const messagesRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'user',
+        path: 'c',
         children: [
           {
             path: '',
@@ -25,7 +26,7 @@ const messagesRoutes: Routes = [
             component: MessagesDetailComponent,
             // canDeactivate: [CanDeactivateGuard],
             resolve: {
-              // message: MessageResolverMessage
+              conversation: ConversationResolverService
             },
           }
         ]

@@ -1,15 +1,15 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="conversation else notfoundtemplate">
   <div nz-row class="header">
     <nz-list-item>
       <nz-list-item-meta [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate" [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
-          <a>First name</a>
+          <a class="title">{{conversation.title}}</a>
         </ng-template>
         <ng-template #avatarTemplate>
-          <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="null"></nz-avatar>
+          <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="partner?.image"></nz-avatar>
         </ng-template>
         <ng-template #descriptionTemplate>
-          <span>Some desc</span>
+          <span>with {{partner?.first_name || "noname"}}</span>
         </ng-template>
       </nz-list-item-meta>
     </nz-list-item>
@@ -27,8 +27,9 @@
           <div *ngIf="messages && messages.next" (click)="loadMore()" nz-row style="text-align: center;">
             <small><a>Зареди повече</a></small>
           </div>
-          <div *ngFor="let msg of messages?.results; trackBy: trackIdentifyByItemId; let i = index" [class.right]="msg.is_my_message" class="message"
-            [class.same-author]="isLastAuthorMessage(i)" nz-row nzType="flex" nzJustify="start" nzAlign="bottom">
+          <div *ngFor="let msg of messages?.results; trackBy: trackIdentifyByItemId; let i = index"
+            [class.right]="msg.is_my_message" class="message" [class.same-author]="isLastAuthorMessage(i)" nz-row
+            nzType="flex" nzJustify="start" nzAlign="bottom">
             <div nz-col class="message-author">
               <!-- TODO: routerlink -->
               <nz-avatar *ngIf="isLastAuthorMessage(i)" [nzSize]="32" nzIcon="user"
@@ -65,3 +66,10 @@
     </div>
   </div>
 </div>
+
+<ng-template #notfoundtemplate>
+  <div nz-row nzJustify="center" nzType="flex">
+    <h2>Conversation not found</h2>
+    <app-page-not-found></app-page-not-found>
+  </div>
+</ng-template>

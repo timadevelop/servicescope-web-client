@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ErrorHandlerService } from './error-handler.service';
-import { Message } from '../models/Message.model';
+import { ErrorHandlerService } from '../../../shared/services/error-handler.service';
+import { Message } from '../../../shared/models/Message.model';
 import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpEvent, HttpRequest, HttpParams } from '@angular/common/http';
-import { MessageApiRequest } from '../models/api-request/message-api-request.model';
+import { MessageApiRequest } from '../../../shared/models/api-request/message-api-request.model';
 import { UploadFile } from 'ng-zorro-antd';
 import { catchError } from 'rxjs/operators';
-import { CustomEncoder } from './custom.encoder';
-import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
+import { CustomEncoder } from '../../../shared/services/custom.encoder';
+import { PaginatedApiResponse } from '../../../shared/models/api-response/paginated-api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -90,6 +90,14 @@ export class MessagesService {
           return throwError(error);
         })
       );
+  }
+
+  public getConversationMessages(conversationId: number, page: string, pageSize: string): Observable<PaginatedApiResponse<Message>> {
+    let filters = [{
+      param: "conversation__id",
+      value: conversationId.toString()
+    }];
+    return this.getMessages(page, pageSize, null, filters);
   }
 
   public getNext(nextUrl: string): Observable<PaginatedApiResponse<Message>> {

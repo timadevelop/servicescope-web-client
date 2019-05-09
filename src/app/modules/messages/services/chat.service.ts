@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject } from 'rxjs';
 import { SocketService } from './socket.service';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 export interface Message {
@@ -14,9 +14,11 @@ export interface Message {
 export class ChatService {
   public messages: Subject<Message>;
 
-  constructor(wsService: SocketService) {
+  constructor(private wsService: SocketService) {
+  }
 
-    this.messages = <Subject<Message>>wsService.connect(this.getChatUrl()).pipe(
+  public connect(room: string) {
+    this.messages = <Subject<Message>>this.wsService.connect(this.getChatUrl(room)).pipe(
       map((response: MessageEvent): Message => {
         let data = JSON.parse(response.data);
         return {
@@ -24,9 +26,16 @@ export class ChatService {
         };
       })
     );
+    return this.messages;
   }
 
+  // public connects(room: string) {
+  //   return this.wsService.connect(this.getChatUrl(room)).pipe(
+  //     tap(e => console.log(e))
+  //   );
+  // }
+
   private getChatUrl(room: string = 'room'): string {
-    return `${environment.WEBSOCKET_PROTOCOL}://${environment.WEBSOCKET_URL}/chat/${room}/`
+    return `${environment.WEBSOCKET_PROTOCOL}://${environment.WEBSOCKET_URL}/c/${room}/`
   }
 }

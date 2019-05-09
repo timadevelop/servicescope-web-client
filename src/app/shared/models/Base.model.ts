@@ -1,6 +1,6 @@
 import { Url } from 'url';
 
 export class Base {
-  url: Url;
+  url: string; // Url
   id: number;
 }
