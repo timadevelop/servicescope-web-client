@@ -3,13 +3,13 @@
     <nz-list-item>
       <nz-list-item-meta [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate" [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
-          <a class="title">{{conversation.title}}</a>
+          <a class="title">{{partner?.first_name || "noname"}}</a>
         </ng-template>
         <ng-template #avatarTemplate>
           <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="partner?.image"></nz-avatar>
         </ng-template>
         <ng-template #descriptionTemplate>
-          <span>with {{partner?.first_name || "noname"}}</span>
+          <span>{{conversation.title}}</span>
         </ng-template>
       </nz-list-item-meta>
     </nz-list-item>
@@ -40,8 +40,7 @@
               <!-- images TODO -->
               <div class="message-images-list">
                 <div nz-row nzType="flex" nzGutter="16">
-                  <div class="image-list-item" nz-col *ngFor="let image of msg.images; let index=index;" nz-tooltip
-                    nzTitle="Премини към изображение">
+                  <div class="image-list-item" nz-col *ngFor="let image of msg.images; let index=index;" (click)="setZoomImages(msg.images, index)">
                     <nz-avatar [nzSize]="50" nzShape="square" [nzSrc]="image.image">
                     </nz-avatar>
                   </div>
@@ -66,6 +65,8 @@
     </div>
   </div>
 </div>
+
+<app-carousel *ngIf="zoomImages?.length > 0" (onZoomClose)="setZoomImages(null)" [imageIndex]="zoomImagesIdx" [images]="zoomImages" [zoomOnly]="true"></app-carousel>
 
 <ng-template #notfoundtemplate>
   <div nz-row nzJustify="center" nzType="flex">

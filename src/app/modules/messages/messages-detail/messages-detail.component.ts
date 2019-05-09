@@ -22,6 +22,9 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   conversation: Conversation;
   partner: User;
 
+  zoomImages = [];
+  zoomImagesIdx = 1;
+
   constructor(
     public route: ActivatedRoute,
     public userService: UserService,
@@ -33,12 +36,16 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild('conversationMessages') private messagesContainer: ElementRef;
 
+  setZoomImages(images: Array<any>, startIndex:number = 1) {
+    this.zoomImages = images;
+    this.zoomImagesIdx = startIndex;
+  }
   ngOnInit() {
     this.route.data.subscribe((data: { conversation: Conversation }) => {
       this.conversation = data.conversation;
       this.partner = this.conversation.users[0];
       console.log(this.conversation)
-      this.messagesService.getConversationMessages(this.conversation.id, '1', '10').subscribe(
+      this.messagesService.getConversationMessages(this.conversation.id, '1', '30').subscribe(
         r => {
           this.messages = r;
           this.messages.results = this.messages.results.reverse();

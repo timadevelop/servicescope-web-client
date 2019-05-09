@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ServiceImage } from '../../../models/Service.model';
 
 @Component({
@@ -9,7 +9,11 @@ import { ServiceImage } from '../../../models/Service.model';
 export class CarouselComponent implements OnInit, AfterViewInit {
 
   @Input() images: Array<ServiceImage>;
+  @Input() zoomOnly: boolean = false;
+  @Input() imageIndex: number = null;
+  @Output() onZoomClose = new EventEmitter<null>()
   zoomView: boolean = false;
+
 
   @ViewChild('zoomViewContainer') zoomViewContainer;
   @ViewChild('defaultViewContainer') defaultViewContainer;
@@ -17,6 +21,11 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.images);
+    if (this.zoomOnly) {
+      this.zoomView = true;
+    }
+
   }
 
   ngAfterViewInit(): void {
@@ -26,6 +35,9 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   zoom(v: boolean) {
     this.zoomView = v;
     this.focusOnView();
+    if (!this.zoomView) {
+      this.onZoomClose.emit();
+    }
   }
 
   // focus on zoom or default carousel view for arrow buttons control

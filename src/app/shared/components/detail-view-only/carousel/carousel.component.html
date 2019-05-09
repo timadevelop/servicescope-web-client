@@ -5,7 +5,7 @@
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
   </div>
 
-  <div class="carousel-container" #defaultViewContainer>
+  <div class="carousel-container" #defaultViewContainer *ngIf="!zoomOnly">
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
     <button (click)="zoom(true)" class="zoom-btn" nz-button [nzSize]="'large'" nzShape="circle"><i nz-icon type="fullscreen"></i></button>
   </div>
