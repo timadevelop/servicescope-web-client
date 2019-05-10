@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Conversation } from 'src/app/shared/models/Conversation.model';
 import { User } from 'src/app/shared/models/User.model';
 import { MessageApiRequest } from 'src/app/shared/models/api-request/message-api-request.model';
-import { UploadFile } from 'ng-zorro-antd';
+import { UploadFile, NzMessageService } from 'ng-zorro-antd';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 
 @Component({
@@ -29,7 +29,8 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     public route: ActivatedRoute,
     public userService: UserService,
     private chatService: ChatService,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private nzMsgService: NzMessageService
   ) { }
 
   ngOnDestroy() { }
@@ -43,6 +44,10 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.data.subscribe((data: { conversation: Conversation }) => {
       this.conversation = data.conversation;
+      if (!this.conversation) {
+        this.nzMsgService.error(`Conversation not found`);
+        return;
+      }
       this.partner = this.conversation.users[0];
       console.log(this.conversation)
       this.messagesService.getConversationMessages(this.conversation.id, '1', '30').subscribe(

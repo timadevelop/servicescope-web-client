@@ -17,7 +17,7 @@ export class ConversationsService {
 
   constructor(
     private http: HttpClient,
-    private errorHandlerMessage: ErrorHandlerService) {
+    private errorHandlerService: ErrorHandlerService) {
   }
 
   public getById(id: number): Observable<Conversation> {
@@ -28,7 +28,7 @@ export class ConversationsService {
     return this.http.post<Conversation>(`${environment.apiUrl}/conversations/`, conversationRequest)
       .pipe(
         catchError(error => {
-          this.errorHandlerMessage.handleError(error);
+          this.errorHandlerService.handleError(error);
           return throwError(error);
         })
       );
@@ -56,10 +56,10 @@ export class ConversationsService {
     const options =
       { params: params };
 
-    return this.http.get<PaginatedApiResponse<Conversation>>(`${environment.apiUrl}/messages/`, options)
+    return this.http.get<PaginatedApiResponse<Conversation>>(`${environment.apiUrl}/conversations/`, options)
       .pipe(
         catchError(error => {
-          this.errorHandlerMessage.handleError(error);
+          this.errorHandlerService.handleError(error);
           return throwError(error);
         })
       );

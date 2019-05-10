@@ -1,35 +1,46 @@
 <div nz-col class="messages-list-wrapper">
   <div class="search mb-vertical-align">
     <nz-input-group [nzSuffix]="suffixIconSearch">
-      <input type="text" nz-input placeholder="input search text" />
+      <input type="text" nz-input placeholder="input search text" (change)="search($event.target.value)" />
     </nz-input-group>
     <ng-template #suffixIconSearch>
       <i nz-icon type="search"></i>
     </ng-template>
   </div>
 
-  <nz-list [nzLoadMore]="loadMore" class="messages-list">
-    <nz-list-item [routerLink]="['/', 'messages', 'user', i]" routerLinkActive="active" class="messages-list-item"
-      *ngFor="let i of [1,2,3,4,5,5, 3,4,5,5, 4,5,5, 4,5,5, 4,5,5, 4,5,5]">
+  <nz-list [nzLoadMore]="loadMore" class="messages-list" [nzLoading]="loading">
+    <ng-container *ngTemplateOutlet="emptyTemplate"></ng-container>
+
+    <nz-list-item [routerLink]="['/', 'messages', 'c', conversation.id]" routerLinkActive="active"
+      class="messages-list-item" *ngFor="let conversation of conversations?.results">
       <nz-skeleton *ngIf="false" [nzAvatar]="true" [nzParagraph]="{ rows: 1 }"></nz-skeleton>
       <nz-list-item-meta *ngIf="true" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate"
         [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
-          <a>{{userService.currentUser.first_name}}</a>
+          <a>{{conversation.users[0]?.first_name || "noname"}}</a>
         </ng-template>
         <ng-template #avatarTemplate>
-          <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
+          <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="conversation.users[0]?.image"></nz-avatar>
         </ng-template>
         <ng-template #descriptionTemplate>
-          <span>Some desc</span>
+          <span>{{conversation.title}}</span>
         </ng-template>
       </nz-list-item-meta>
     </nz-list-item>
 
     <ng-template #loadMore>
-      <div class="loadmore">
-        <button nz-button *ngIf="!loadingMore">loading more</button>
+      <div class="loadmore" *ngIf="conversations?.next">
+        <a (click)="loadMoreConversations()">Зареди повече</a>
       </div>
     </ng-template>
   </nz-list>
 </div>
+
+<ng-template #emptyTemplate>
+  <nz-empty *ngIf="!conversations || !conversations.results || conversations.results.length == 0"
+    [nzNotFoundContent]="contentTpl">
+    <ng-template #contentTpl>
+      <span> Няма съобщения </span>
+    </ng-template>
+  </nz-empty>
+</ng-template>
