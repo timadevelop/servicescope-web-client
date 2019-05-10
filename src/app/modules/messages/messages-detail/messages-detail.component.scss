@@ -84,6 +84,14 @@
     background: $light-grey-color;
     max-width: 60%;
   }
+  .image-list-item {
+    opacity: .9;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   &.right {
     flex-direction: row-reverse;
   }

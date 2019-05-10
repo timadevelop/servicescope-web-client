@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ServiceImage } from '../../../models/Service.model';
+import { NzCarouselComponent } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-carousel',
@@ -11,21 +12,21 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   @Input() images: Array<ServiceImage>;
   @Input() zoomOnly: boolean = false;
   @Input() imageIndex: number = null;
-  @Output() onZoomClose = new EventEmitter<null>()
-  zoomView: boolean = false;
 
+  @Output() onZoomClose = new EventEmitter<null>()
+
+  zoomView: boolean = false;
 
   @ViewChild('zoomViewContainer') zoomViewContainer;
   @ViewChild('defaultViewContainer') defaultViewContainer;
+  @ViewChild('carousel') carousel: NzCarouselComponent;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.images);
     if (this.zoomOnly) {
       this.zoomView = true;
     }
-
   }
 
   ngAfterViewInit(): void {
@@ -41,7 +42,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   // focus on zoom or default carousel view for arrow buttons control
-  focusOnView() {
+  private focusOnView() {
     const that = this;
     setTimeout(() => {
       const container = that.zoomView ? that.zoomViewContainer : that.defaultViewContainer;
@@ -52,9 +53,15 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
       const el = container.nativeElement.getElementsByClassName("slick-list")[0];
       if (el) {
+        this.setDefaultIndex();
         el.focus();
       }
     }, 10);
   }
 
+  private setDefaultIndex() {
+    if (this.imageIndex) {
+      this.carousel.goTo(this.imageIndex);
+    }
+  }
 }
