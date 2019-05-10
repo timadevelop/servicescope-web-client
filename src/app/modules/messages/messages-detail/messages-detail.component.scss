@@ -1,6 +1,5 @@
 @import "~src/variables";
 
-
 .wrapper {
   padding: 0 8px;
   height: 100%;
@@ -41,29 +40,6 @@
       .conversation-input {
         height: 7%;
         border-top: 1px solid $light-border-color;
-
-        .message-input {
-          border: none;
-          outline: none;
-          box-shadow: none;
-        }
-        .actions {
-          float: right;
-          padding-right: 8px;
-          > * {
-            margin-left: 0.5em;
-            color: $grey-color;
-            opacity: 0.5;
-            font-size: large;
-            cursor: pointer;
-            &:hover {
-              opacity: 1;
-            }
-          }
-          .send-message-button {
-            color: $primary-color;
-          }
-        }
       }
     }
   }
@@ -85,7 +61,7 @@
     max-width: 60%;
   }
   .image-list-item {
-    opacity: .9;
+    opacity: 0.9;
     cursor: pointer;
     &:hover {
       opacity: 1;

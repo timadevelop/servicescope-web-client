@@ -7,9 +7,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { Conversation } from 'src/app/shared/models/Conversation.model';
 import { User } from 'src/app/shared/models/User.model';
-import { MessageApiRequest } from 'src/app/shared/models/api-request/message-api-request.model';
-import { UploadFile, NzMessageService } from 'ng-zorro-antd';
-import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-messages-detail',
@@ -33,14 +31,16 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     private nzMsgService: NzMessageService
   ) { }
 
-  ngOnDestroy() { }
+  ngOnDestroy() {
+  }
 
   @ViewChild('conversationMessages') private messagesContainer: ElementRef;
 
-  setZoomImages(images: Array<any>, startIndex:number = 1) {
+  setZoomImages(images: Array<any>, startIndex: number = 1) {
     this.zoomImages = images;
     this.zoomImagesIdx = startIndex;
   }
+
   ngOnInit() {
     this.route.data.subscribe((data: { conversation: Conversation }) => {
       this.conversation = data.conversation;
@@ -48,8 +48,9 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
         this.nzMsgService.error(`Conversation not found`);
         return;
       }
+
       this.partner = this.conversation.users[0];
-      console.log(this.conversation)
+
       this.messagesService.getConversationMessages(this.conversation.id, '1', '30').subscribe(
         r => {
           this.messages = r;
@@ -57,44 +58,15 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
           setTimeout(() => this.scrollToBottom(), 100);
         }
       );
+
       this.chatService.connect(this.conversation.id.toString())
         .subscribe(m => {
-          console.log('got', m);
-        })
-    });
-  }
-
-  sendMsg(msg: string, images: Array<UploadFile> = []) {
-    // this.chatService.messages.next({ message: msg });
-
-    const message = new MessageApiRequest(
-      this.conversation.url,
-      msg,
-      images
-    );
-
-    this.messagesService.create(message)
-      .subscribe(
-        (event: HttpEvent<{}>) => {
-          if (event.type === HttpEventType.UploadProgress) {
-            if (event.total! > 0) {
-              // this.percent = (event.loaded / event.total!) * 100;
-            }
-          } else if (event instanceof HttpResponse) {
-            // uploaded
-            // this.loading = false;
-            const newMessage = event.body;
-            console.log('sent', newMessage);
-            // const id = newService['id'];
-            // this.msgService.success(`Успешно направена обява #${id}`)
-            // this.router.navigate(['/services', id]);
+          if (m.author.id !== this.userService.currentUser.id) {
+            this.appendNewMessage(m);
+            this.nzMsgService.info(`New message from ${m.author.first_name}`);
           }
-        },
-        err => {
-          // fail
-          console.log(err);
         });
-
+    });
   }
 
   scrollToBottom(): void {
@@ -109,7 +81,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     if (this.messages.results.length > i + 1) {
       const currentMsg = this.messages.results[i];
       const nextMsg = this.messages.results[i + 1];
-      if (currentMsg.is_my_message === nextMsg.is_my_message) {
+      if (currentMsg.author.id === nextMsg.author.id) {
         return false;
       } else {
         return true;
@@ -139,5 +111,18 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
       response.results = Array.from(set.values());
     }
     this.messages = response;
+  }
+
+  public appendNewMessage(msg: Message) {
+    console.log(msg.author)
+    if (this.messages) {
+      this.messages.results.push(msg);
+      // const set = new Set([, ...this.messages.results]);
+      // response.results = Array.from(set.values());
+    } else {
+      this.messages = new PaginatedApiResponse<Message>();
+      this.messages.results.push(msg);
+    }
+    setTimeout(() => this.scrollToBottom(), 10);
   }
 }

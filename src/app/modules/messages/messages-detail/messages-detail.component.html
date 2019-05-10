@@ -28,12 +28,12 @@
             <small><a>Зареди повече</a></small>
           </div>
           <div *ngFor="let msg of messages?.results; trackBy: trackIdentifyByItemId; let i = index"
-            [class.right]="msg.is_my_message" class="message" [class.same-author]="isLastAuthorMessage(i)" nz-row
+            [class.right]="msg.author.id == this.userService.currentUser.id" class="message" [class.same-author]="isLastAuthorMessage(i)" nz-row
             nzType="flex" nzJustify="start" nzAlign="bottom">
             <div nz-col class="message-author">
               <!-- TODO: routerlink -->
               <nz-avatar *ngIf="isLastAuthorMessage(i)" [nzSize]="32" nzIcon="user"
-                [nzSrc]="msg.is_my_message ? userService.currentUser.image : msg.author.image"></nz-avatar>
+                [nzSrc]="msg.author.image"></nz-avatar>
             </div>
             <div nz-col class="message-content">
               <span class="message-text">{{msg.text}}</span>
@@ -50,18 +50,7 @@
           </div>
         </div>
       </div>
-      <div nz-row class="conversation-input" nzType="flex" nzJustify="space-between" nzAlign="middle">
-        <div nz-col nzSpan="20">
-          <input class="message-input" #messageInput nz-input placeholder="Type new message" type="text">
-        </div>
-        <div nz-col nzSpan="4">
-          <div class="actions">
-            <i nz-icon type="paper-clip"></i>
-            <i nz-icon type="picture"></i>
-            <i nz-icon type="message" class="send-message-button" (click)="sendMsg(messageInput.value)"></i>
-          </div>
-        </div>
-      </div>
+      <app-new-message-form class="conversation-input" (onNewMessage)="appendNewMessage($event)" [conversation]="conversation"></app-new-message-form>
     </div>
   </div>
 </div>

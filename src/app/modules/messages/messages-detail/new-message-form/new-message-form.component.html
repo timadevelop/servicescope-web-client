@@ -1,0 +1,13 @@
+<form nz-row [formGroup]="messageForm" (submit)="onFormSubmit()" class="conversation-form" nzType="flex" nzJustify="space-between"
+  nzAlign="middle">
+  <div nz-col nzSpan="20">
+    <input class="message-input" formControlName="text" nz-input placeholder="Type new message" type="text">
+  </div>
+  <div nz-col nzSpan="4">
+    <div class="actions">
+      <i nz-icon type="paper-clip"></i>
+      <i nz-icon type="picture"></i>
+      <i nz-icon type="message" class="send-message-button" (click)="onFormSubmit()"></i>
+    </div>
+  </div>
+</form>

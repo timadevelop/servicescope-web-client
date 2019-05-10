@@ -11,7 +11,7 @@ export class Message extends Base {
   author: User;
   conversation: string | Conversation;
   text: string;
-  is_my_message: boolean;
+  // is_my_message: boolean;
   images: Array<MessageImage>;
   created_at: Date;
   updated_at: Date;
