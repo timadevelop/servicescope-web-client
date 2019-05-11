@@ -23,7 +23,7 @@ export class NewMessageFormComponent implements OnInit {
 
   messageForm = this.fb.group({
     // string
-    text: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(400)]],
+    text: [null, [Validators.minLength(1), Validators.maxLength(400)]],
     images: [[], [Validators.minLength(0), Validators.maxLength(this.maxImagesLength + 1)]],
   });
 
@@ -46,8 +46,12 @@ export class NewMessageFormComponent implements OnInit {
 
     if (this.messageForm.valid) {
       // create new service
-    console.log('submit');
-      this.sendMsg(this.messageForm.get('text').value, this.messageForm.get('images').value);
+      console.log('submit');
+      const text = this.messageForm.get('text').value;
+      const images = this.messageForm.get('images').value;
+      if ((text && text.length > 0) || (images && images.length > 0)) {
+        this.sendMsg(text, images);
+      }
     } else {
       let errors = this.messageForm.get('text').errors;
       let pre = 'text';
