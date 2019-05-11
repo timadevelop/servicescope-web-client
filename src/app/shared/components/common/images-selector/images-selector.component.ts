@@ -20,10 +20,20 @@ export class ImagesSelectorComponent implements OnInit {
 
   @Output() onChange = new EventEmitter<Array<UploadFile>>();
   @Input() maxItemsLength: number = 10;
+  @Input() size: 'small' | 'default' = 'default';
+  @Input() clearEvent: Observable<void>;
 
   constructor(private msg: NzMessageService) { }
 
+  clearSubscription: Subscription = null;
   ngOnInit() {
+    this.clearSubscription = this.clearEvent.subscribe(() => {
+      this.fileList = [];
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.clearSubscription.unsubscribe();
   }
 
   handlePreview = (file: UploadFile) => {

@@ -14,8 +14,11 @@
     height: 90%;
     > .conversation {
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      justify-items: stretch;
       .conversation-messages {
-        height: 93%;
         overflow-x: hidden;
         overflow: hidden;
         // &:hover {
@@ -38,7 +41,8 @@
         }
       }
       .conversation-input {
-        height: 7%;
+        // height: 7%;
+        // height: auto;
         border-top: 1px solid $light-border-color;
       }
     }
@@ -68,6 +72,9 @@
     }
   }
 
+  .message-text {
+    word-wrap: break-word;
+  }
   &.right {
     flex-direction: row-reverse;
   }

@@ -17,6 +17,7 @@ export class ErrorHandlerService {
       // A client-side or network error occurred. Handle it accordingly.
       this.messageService.error(`An error occurred: ${error.error.message}`);
     } else {
+      console.log(error.error);
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
       // this.messageService.error(

@@ -1,10 +1,11 @@
-@import '~src/variables';
+@import "~src/variables";
 
 .conversation-form {
   .message-input {
     border: none;
     outline: none;
     box-shadow: none;
+    min-height: 50px;
   }
   .actions {
     float: right;
@@ -18,6 +19,10 @@
       &:hover {
         opacity: 1;
       }
+      &.active {
+        color: $contrast-color;
+      }
+
     }
     .send-message-button {
       color: $primary-color;

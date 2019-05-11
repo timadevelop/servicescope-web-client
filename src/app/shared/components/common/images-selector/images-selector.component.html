@@ -1,5 +1,6 @@
 <div class="clearfix">
   <nz-upload
+    [class.small]="size == 'small'"
     nzListType="picture-card"
     [(nzFileList)]="fileList"
     [nzShowButton]="fileList.length < maxItemsLength"
@@ -10,7 +11,7 @@
     nzMultiple="true"
     (nzChange)="handleChange($event)">
     <i nz-icon nzType="plus"></i>
-    <div class="ant-upload-text">Добави</div>
+    <div class="ant-upload-text" *ngIf="size != 'small'">Добави</div>
   </nz-upload>
   <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
     (nzOnCancel)="previewVisible = false">
