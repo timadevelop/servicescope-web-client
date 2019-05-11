@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
-import { ChatService } from '../services/chat.service';
+import { ChatService, SocketMessage } from '../services/chat.service';
 import { MessagesService } from 'src/app/modules/messages/services/messages.service';
 import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
 import { Message } from 'src/app/shared/models/Message.model';
@@ -60,13 +60,30 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
       );
 
       this.chatService.connect(this.conversation.id.toString())
-        .subscribe(m => {
-          if (m.author.id !== this.userService.currentUser.id) {
-            this.appendNewMessage(m);
-            this.nzMsgService.info(`New message from ${m.author.first_name}`);
-          }
+        .subscribe((m: SocketMessage)=> {
+          this.processSocketMessage(m);
         });
     });
+  }
+
+  private processSocketMessage(m: SocketMessage) {
+    if (m.type == 'new_message') {
+      const msg = m.payload as Message;
+      if (msg.author.id !== this.userService.currentUser.id) {
+        this.appendNewMessage(msg);
+        this.nzMsgService.info(`New message from ${msg.author.first_name}`);
+      }
+    } else if (m.type == 'deleted_message') {
+      const msgId = m.payload;
+      console.log('deleted: ', msgId);
+      this.messages.results = this.messages.results.filter(m => m.id != msgId);
+    }
+  }
+
+  removeMessage(msg: Message) {
+    this.messagesService.delete(msg.id).subscribe(_any => {
+      this.messages.results = this.messages.results.filter(m => m.id != msg.id);
+    })
   }
 
   scrollToBottom(): void {

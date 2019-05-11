@@ -103,4 +103,8 @@ export class MessagesService {
   public getNext(nextUrl: string): Observable<PaginatedApiResponse<Message>> {
     return this.http.get<PaginatedApiResponse<Message>>(nextUrl);
   }
+
+  public delete(messageId: number): Observable<{}> {
+    return this.http.delete<{}>(`${environment.apiUrl}/messages/${messageId}/`);
+  }
 }

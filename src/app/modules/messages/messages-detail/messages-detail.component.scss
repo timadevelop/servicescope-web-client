@@ -52,6 +52,18 @@
 // message
 .message {
   margin: 3px 0;
+  &:hover {
+    & > .deleteButton {
+      display: block;
+    }
+  }
+
+  .deleteButton {
+    display: none;
+    align-self: center;
+    margin-right: 8px;
+    cursor: pointer;
+  }
   .message-author {
     margin: 0 5px;
     min-width: 32px;

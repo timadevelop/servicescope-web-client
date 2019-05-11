@@ -47,6 +47,7 @@
                 </div>
               </div>
             </div>
+            <div nz-tooltip nzTitle="Remove Message" (click)="removeMessage(msg)" *ngIf="msg.author.id == userService.currentUser.id" nz-col class="deleteButton"><i nz-icon type="delete"></i></div>
           </div>
         </div>
       </div>
