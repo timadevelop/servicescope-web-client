@@ -17,10 +17,14 @@
     <ng-template #statHeader>
       <h2 class="title">Author statistics</h2>
     </ng-template>
-    <app-label-value-row label="Services" [value]="author.services_count" [routerlink]="['/profiles', author.id, 'services']"></app-label-value-row>
-    <app-label-value-row label="Posts" [value]="author.posts_count" [routerlink]="['/profiles', author.id, 'posts']"></app-label-value-row>
-    <app-label-value-row label="Reviews" [value]="author.income_reviews_count" [routerlink]="['/profiles', author.id, 'reviews']"></app-label-value-row>
-    <app-label-value-row label="Offers" [value]="author.offers_count" [routerlink]="['/profiles', author.id, 'offers']"></app-label-value-row>
+    <app-label-value-row label="Services" [value]="author.services_count"
+      [routerlink]="['/profiles', author.id, 'services']"></app-label-value-row>
+    <app-label-value-row label="Posts" [value]="author.posts_count" [routerlink]="['/profiles', author.id, 'posts']">
+    </app-label-value-row>
+    <app-label-value-row label="Reviews" [value]="author.income_reviews_count"
+      [routerlink]="['/profiles', author.id, 'reviews']"></app-label-value-row>
+    <app-label-value-row label="Offers" [value]="author.offers_count" [routerlink]="['/profiles', author.id, 'offers']">
+    </app-label-value-row>
     <app-label-value-row label="Joined" [value]="transformDateString(author.date_joined)"></app-label-value-row>
   </div>
   <div nz-row class="author-contacts">
@@ -43,11 +47,13 @@
     </div>
 
     <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
-        <p nz-col class="label">Message</p>
-        <div nz-col class="value">
-            <a *ngIf="author.id != userService?.currentUser.id" [routerLink]="['/', 'messages', 'user', author.id]"><i nz-icon type="message"></i>Message</a>
-        </div>
+      <p nz-col class="label">Message</p>
+      <div nz-col class="value">
+        <a *ngIf="author.id != userService?.currentUser.id" [routerLink]="['/', 'messages', 'user', author.id]"><i
+            style="margin-right: 5px;" nz-icon type="message"></i>Message</a>
+            <!-- TODO: margin for all icons -->
       </div>
+    </div>
 
   </div>
 </nz-card>
