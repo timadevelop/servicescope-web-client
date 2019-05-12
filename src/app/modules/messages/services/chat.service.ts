@@ -22,7 +22,6 @@ export class ChatService {
   public connect(room: string) {
     this.messages = <Subject<SocketMessage>>this.wsService.connect(this.getChatUrl(room)).pipe(
       map((response: MessageEvent): SocketMessage => {
-        console.log(response)
         let data = JSON.parse(response.data)["message"];
         return data;
       })

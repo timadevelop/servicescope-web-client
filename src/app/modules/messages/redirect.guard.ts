@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, CanLoad, Route } from '@angular/router';
 import { ConversationsService } from './services/conversations.service';
-import { Observable, of, Subscription } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Conversation } from 'src/app/shared/models/Conversation.model';
-import { mapTo, map, catchError } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import { UserService } from 'src/app/shared/services/user.service';
 import { ConversationApiRequest } from 'src/app/shared/models/api-request/conversation-api-request.model';
-import { environment } from 'src/environments/environment';
+import { Location } from '@angular/common';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class RedirectGuard implements CanActivate, CanActivateChild, CanLoad {
     private userService: UserService,
     private conversationsService: ConversationsService,
     private router: Router,
+    private nzMessageService: NzMessageService
   ) { }
 
   canActivate(
@@ -38,25 +40,39 @@ export class RedirectGuard implements CanActivate, CanActivateChild, CanLoad {
   checkConversation(userId: number): Observable<boolean> {
     return this.conversationsService.getByUserId(userId)
       .pipe(
-        map((conversation: Conversation) => {
+        switchMap((conversation: Conversation) => {
           this.router.navigate(['/', 'messages', 'c', conversation.id]);
-          return true;
+          return of(true);
         }),
-        catchError(_ => {
-          console.log('here');
-          this.userService.getUserById(userId).subscribe(user => {
-            console.log('user');
-            const cr = new ConversationApiRequest(
-              "New Conversation",
-              [this.userService.currentUser.url, user.url]
-            );
-
-            return this.conversationsService.create(cr).subscribe(newConversation => {
-              this.router.navigate(['/', 'messages', 'c', newConversation.id]);
-            });
-          });
-          return of(false);
-        })
+        catchError(_ =>
+          this.userService.getUserById(userId).pipe(
+            switchMap(user => {
+              return this.createNewService(user);
+            }),
+            catchError(err => {
+              this.nzMessageService.error(`Not found user with id ${userId}`)
+              this.router.navigate(['/', 'messages']);
+              return of(false);
+            }))
+        )
       );
+  }
+
+
+  private createNewService(user): Observable<boolean> {
+    const cr = new ConversationApiRequest(
+      "New Conversation",
+      [this.userService.currentUser.url, user.url]
+    );
+
+    return this.conversationsService.create(cr).pipe(
+      switchMap(newConversation => {
+        this.router.navigate(['/', 'messages', 'c', newConversation.id]);
+        return of(true);
+      }),
+      catchError(e => {
+        return of(false);
+      })
+    );
   }
 }

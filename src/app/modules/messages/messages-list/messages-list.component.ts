@@ -29,7 +29,6 @@ export class MessagesListComponent implements OnInit {
     this.loading = true;
     this.conversationsService.getConversations(String(this.page), String(this.pageSize))
       .subscribe(r => {
-        console.log(r);
         this.loading = false;
         this.conversations = r;
       });
@@ -53,7 +52,6 @@ export class MessagesListComponent implements OnInit {
     this.loading = true;
     this.conversationsService.getConversations(String(this.page), String(this.pageSize), q)
       .subscribe(r => {
-        console.log(r);
         this.loading = false;
         this.conversations = r;
       });

@@ -49,6 +49,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
         this.nzMsgService.error(`Conversation not found`);
         return;
       }
+      this.loading = true;
 
       this.partner = this.conversation.users[0];
 
@@ -77,7 +78,6 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
       }
     } else if (m.type == 'deleted_message') {
       const msgId = m.payload;
-      console.log('deleted: ', msgId);
       this.messages.results = this.messages.results.filter(m => m.id != msgId);
     }
   }
@@ -136,7 +136,6 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   }
 
   public appendNewMessage(msg: Message) {
-    console.log(msg.author)
     if (this.messages) {
       this.messages.results.push(msg);
       // const set = new Set([, ...this.messages.results]);

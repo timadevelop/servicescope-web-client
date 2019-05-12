@@ -46,7 +46,6 @@ export class NewMessageFormComponent implements OnInit {
 
     if (this.messageForm.valid) {
       // create new service
-      console.log('submit');
       const text = this.messageForm.get('text').value;
       const images = this.messageForm.get('images').value;
       if ((text && text.length > 0) || (images && images.length > 0)) {
@@ -68,9 +67,6 @@ export class NewMessageFormComponent implements OnInit {
   }
 
   sendMsg(msg: string, images: Array<UploadFile> = []) {
-    // this.chatService.messages.next({ message: msg });
-    console.log('send msg')
-
     const message = new MessageApiRequest(
       this.conversation.url,
       msg,
@@ -88,7 +84,6 @@ export class NewMessageFormComponent implements OnInit {
             // uploaded
             // this.loading = false;
             const newMessage = event.body as Message;
-            console.log('sent', newMessage);
             this.onNewMessage.emit(newMessage);
             // todo: reset.
             this.resetForm()
@@ -99,6 +94,7 @@ export class NewMessageFormComponent implements OnInit {
         },
         err => {
           // fail
+          // TODO: handle errors
           console.log(err);
         });
   }
