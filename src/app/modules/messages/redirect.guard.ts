@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, CanLoad, Route } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, CanLoad, Route, ParamMap } from '@angular/router';
 import { ConversationsService } from './services/conversations.service';
 import { Observable, of } from 'rxjs';
 import { Conversation } from 'src/app/shared/models/Conversation.model';
@@ -8,6 +8,11 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { ConversationApiRequest } from 'src/app/shared/models/api-request/conversation-api-request.model';
 import { Location } from '@angular/common';
 import { NzMessageService } from 'ng-zorro-antd';
+
+
+export class AdditionalConversationRouteData {
+  itemUrl: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +29,7 @@ export class RedirectGuard implements CanActivate, CanActivateChild, CanLoad {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> {
     let userId = next.paramMap.get('id');
-    return this.checkConversation(+userId);
+    return this.checkConversation(+userId, next.queryParamMap);
   }
 
   canActivateChild(
@@ -37,11 +42,14 @@ export class RedirectGuard implements CanActivate, CanActivateChild, CanLoad {
     return true;
   }
 
-  checkConversation(userId: number): Observable<boolean> {
+  additionalData: AdditionalConversationRouteData = null;
+
+  checkConversation(userId: number, queryParamMap: ParamMap): Observable<boolean> {
+    this.additionalData = { itemUrl: queryParamMap.get('itemUrl') };
     return this.conversationsService.getByUserId(userId)
       .pipe(
         switchMap((conversation: Conversation) => {
-          this.router.navigate(['/', 'messages', 'c', conversation.id]);
+          this.router.navigate(['/', 'messages', 'c', conversation.id], {queryParams: this.additionalData});
           return of(true);
         }),
         catchError(_ =>
@@ -67,7 +75,7 @@ export class RedirectGuard implements CanActivate, CanActivateChild, CanLoad {
 
     return this.conversationsService.create(cr).pipe(
       switchMap(newConversation => {
-        this.router.navigate(['/', 'messages', 'c', newConversation.id]);
+        this.router.navigate(['/', 'messages', 'c', newConversation.id], { queryParams: this.additionalData});
         return of(true);
       }),
       catchError(e => {

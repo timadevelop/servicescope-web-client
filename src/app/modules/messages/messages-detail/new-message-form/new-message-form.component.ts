@@ -7,6 +7,7 @@ import { MessageApiRequest } from 'src/app/shared/models/api-request/message-api
 import { HttpEventType, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Message } from 'src/app/shared/models/Message.model';
 import { Subject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-message-form',
@@ -19,7 +20,7 @@ export class NewMessageFormComponent implements OnInit {
   @Input() conversation: Conversation;
   showUploadImagesForm: boolean = false;
   maxImagesLength = 10;
-
+  showSendTooltip = false;
 
   messageForm = this.fb.group({
     // string
@@ -28,14 +29,45 @@ export class NewMessageFormComponent implements OnInit {
   });
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private fb: FormBuilder,
     private messagesService: MessagesService,
     private nzMessageService: NzMessageService,
   ) { }
 
   ngOnInit() {
+    // item
+    this.route.queryParamMap.subscribe(params => {
+      const url = params.get('itemUrl');
+      if (url) {
+        this.messageForm.patchValue({
+          text: `Hey, i'm writing about ${url}`
+        });
+        setTimeout(() => this.showSendTooltip = true, 50);
+      }
+    });
   }
 
+  setShowSendTooltip(v: boolean) {
+    this.showSendTooltip = v;
+    if (!v) {
+      this.router.navigate(
+        [],
+        {
+          relativeTo: this.route,
+          queryParams: {
+            itemUrl: null
+          },
+          queryParamsHandling: "merge"
+        });
+    }
+  }
+
+  sendDefaultMsg() {
+    this.onFormSubmit();
+    this.setShowSendTooltip(false);
+  }
 
   onFormSubmit() {
     for (const i in this.messageForm.controls) {

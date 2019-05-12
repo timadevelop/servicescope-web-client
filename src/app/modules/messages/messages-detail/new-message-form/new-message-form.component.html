@@ -1,16 +1,33 @@
-<form nz-row [formGroup]="messageForm" (submit)="onFormSubmit()" class="conversation-form" nzType="flex" nzJustify="space-between"
-  nzAlign="middle">
+<div *ngIf="showSendTooltip" nz-popover nzTrigger="click" [nzTitle]="titleTemplate" nzPlacement="topLeft"
+  [nzContent]="contentTemplate" [nzVisible]="showSendTooltip" nzOverlayClassName="happy-popover">
+</div>
+<form nz-row [formGroup]="messageForm" (submit)="onFormSubmit()" class="conversation-form" nzType="flex"
+  nzJustify="space-between" nzAlign="middle">
   <div nz-col nzSpan="20">
     <input autofocus class="message-input" formControlName="text" nz-input placeholder="Type new message" type="text">
   </div>
   <div nz-col nzSpan="4">
     <div class="actions">
-      <i nz-icon type="picture" (click)="setShowUploadImagesForm(!showUploadImagesForm)" [class.active]="showUploadImagesForm"></i>
+      <i nz-icon type="picture" (click)="setShowUploadImagesForm(!showUploadImagesForm)"
+        [class.active]="showUploadImagesForm"></i>
       <i nz-icon type="message" class="send-message-button" (click)="onFormSubmit()"></i>
     </div>
   </div>
   <div nz-col nzSpan="24" class="images-upload" *ngIf="showUploadImagesForm">
-    <app-images-selector [clearEvent]="clearEvent.asObservable()" [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)" size="small">
+    <app-images-selector [clearEvent]="clearEvent.asObservable()" [maxItemsLength]="maxImagesLength"
+      (onChange)="onImagesChange($event)" size="small">
     </app-images-selector>
   </div>
 </form>
+
+
+<ng-template #titleTemplate>
+  <span>Hey, would you tell author about this?</span>
+</ng-template>
+
+<ng-template #contentTemplate>
+  <div nz-row nzType="flex" nzJustify="space-between">
+    <button nz-button (click)="setShowSendTooltip(false)">No, thanks</button>
+    <button nz-button nzType="primary" (click)="sendDefaultMsg()">Yes, send it</button>
+  </div>
+</ng-template>
