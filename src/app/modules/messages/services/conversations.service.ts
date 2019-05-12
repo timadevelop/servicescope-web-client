@@ -24,6 +24,10 @@ export class ConversationsService {
     return this.http.get<Conversation>(`${environment.apiUrl}/conversations/${id}/`);
   }
 
+  public getByUserId(uid: string | number): Observable<Conversation> {
+    return this.http.get<Conversation>(`${environment.apiUrl}/conversations/get_by_user_id/${uid}/`);
+  }
+
   public create(conversationRequest: ConversationApiRequest): Observable<Conversation> {
     return this.http.post<Conversation>(`${environment.apiUrl}/conversations/`, conversationRequest)
       .pipe(

@@ -6,6 +6,7 @@ import { MessagesDetailComponent } from './messages-detail/messages-detail.compo
 import { AuthGuard } from '../auth/auth.guard';
 import { PageNotFoundComponent } from 'src/app/shared/components/page-not-found/page-not-found.component';
 import { ConversationResolverService } from './resolvers/conversation-resolver.service';
+import { RedirectGuard } from './redirect.guard';
 
 const messagesRoutes: Routes = [
   {
@@ -25,6 +26,24 @@ const messagesRoutes: Routes = [
             path: ':id',
             component: MessagesDetailComponent,
             // canDeactivate: [CanDeactivateGuard],
+            resolve: {
+              conversation: ConversationResolverService
+            },
+          }
+        ]
+      },
+      {
+        path: 'user',
+        children: [
+          {
+            path: '',
+            component: PageNotFoundComponent,
+            pathMatch: 'full'
+          },
+          {
+            path: ':id',
+            canActivate: [RedirectGuard],
+            component: PageNotFoundComponent,
             resolve: {
               conversation: ConversationResolverService
             },

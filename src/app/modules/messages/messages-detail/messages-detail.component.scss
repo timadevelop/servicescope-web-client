@@ -21,6 +21,7 @@
       .conversation-messages {
         overflow-x: hidden;
         overflow: hidden;
+        flex: 1;
         // &:hover {
         overflow-y: scroll;
         // }

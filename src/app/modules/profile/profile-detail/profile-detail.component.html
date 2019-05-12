@@ -14,6 +14,7 @@
           <div class="profile-links">
             <app-email-wrapper [email]="user.email"></app-email-wrapper>
             <app-phone-wrapper [phone]="user.phone"></app-phone-wrapper>
+            <a [routerLink]="['/', 'messages', 'user', user.id]">send msg</a>
           </div>
         </div>
       </div>

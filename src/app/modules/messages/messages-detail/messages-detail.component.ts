@@ -22,6 +22,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
 
   zoomImages = [];
   zoomImagesIdx = 1;
+  loading = true;
 
   constructor(
     public route: ActivatedRoute,
@@ -55,12 +56,13 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
         r => {
           this.messages = r;
           this.messages.results = this.messages.results.reverse();
+          this.loading = false;
           setTimeout(() => this.scrollToBottom(), 100);
         }
       );
 
       this.chatService.connect(this.conversation.id.toString())
-        .subscribe((m: SocketMessage)=> {
+        .subscribe((m: SocketMessage) => {
           this.processSocketMessage(m);
         });
     });
@@ -108,10 +110,13 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   }
 
   loadMore() {
+    this.loading = true;
+
     if (this.messages && this.messages.next) {
       this.messagesService.getNext(this.messages.next)
         .subscribe(r => {
           this.appendOldMessages(r);
+          this.loading = false;
         })
     }
   }
