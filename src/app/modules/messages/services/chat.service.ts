@@ -20,6 +20,8 @@ export class ChatService {
   }
 
   public connect(room: string) {
+    if (this.messages) this.disconnect();
+
     this.messages = <Subject<SocketMessage>>this.wsService.connect(this.getChatUrl(room)).pipe(
       map((response: MessageEvent): SocketMessage => {
         let data = JSON.parse(response.data)["message"];
@@ -29,11 +31,9 @@ export class ChatService {
     return this.messages;
   }
 
-  // public connects(room: string) {
-  //   return this.wsService.connect(this.getChatUrl(room)).pipe(
-  //     tap(e => console.log(e))
-  //   );
-  // }
+  public disconnect() {
+    if (this.messages) this.messages.complete();
+  }
 
   private getChatUrl(room: string = 'room'): string {
     return `${environment.WEBSOCKET_PROTOCOL}://${environment.WEBSOCKET_URL}/c/${room}/`

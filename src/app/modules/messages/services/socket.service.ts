@@ -11,9 +11,14 @@ export class SocketService {
     private authService: AuthService
   ) { }
 
+  // TODO : Adopt to multiple subjects
   private subject: Subject<MessageEvent>;
 
   public connect(url): Subject<MessageEvent> {
+    if (this.subject) {
+      this.subject.complete();
+    }
+
     if (!this.subject) {
       this.subject = this.create(url);
       console.log("Successfully connected: " + url);
@@ -31,20 +36,18 @@ export class SocketService {
     const protocol = token.access_token;
     let ws = new WebSocket(url, protocol);
 
-
     const that = this;
     ws.onclose = (e) => {
       console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
       setTimeout(() => {
         that.create(url);
-
       }, 1000);
-    };
+    }
 
     let observable = Observable.create((obs: Observer<MessageEvent>) => {
       ws.onmessage = obs.next.bind(obs);
       ws.onerror = obs.error.bind(obs);
-      // ws.onclose = obs.complete.bind(obs);
+      ws.onclose = obs.complete.bind(obs);
       return ws.close.bind(ws);
     });
 
@@ -53,6 +56,10 @@ export class SocketService {
         if (ws.readyState === WebSocket.OPEN) {
           ws.send(JSON.stringify(data));
         }
+      },
+      complete: () => {
+        ws.close();
+        this.subject = null;
       }
     };
     return Subject.create(observer, observable);

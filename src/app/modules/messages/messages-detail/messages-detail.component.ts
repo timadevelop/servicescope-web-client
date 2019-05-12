@@ -33,6 +33,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnDestroy() {
+    this.chatService.disconnect();
   }
 
   @ViewChild('conversationMessages') private messagesContainer: ElementRef;
