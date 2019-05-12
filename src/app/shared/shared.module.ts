@@ -22,6 +22,7 @@ import { ListItemComponent } from './components/list-view-only/list-item/list-it
 import { CategorySelectorComponent } from './components/common/category-selector/category-selector.component';
 import { TagsSelectorComponent } from './components/common/tags-selector/tags-selector.component';
 import { ImagesSelectorComponent } from './components/common/images-selector/images-selector.component';
+import { LinkifyPipe } from './pipes/linkify.pipe';
 
 @NgModule({
   imports: [
@@ -49,7 +50,9 @@ import { ImagesSelectorComponent } from './components/common/images-selector/ima
     ListItemComponent,
     CategorySelectorComponent,
     TagsSelectorComponent,
-    ImagesSelectorComponent
+    ImagesSelectorComponent,
+    // pipes
+    LinkifyPipe
   ],
   exports: [
     LabeledTextComponent,
@@ -70,7 +73,9 @@ import { ImagesSelectorComponent } from './components/common/images-selector/ima
     ListItemComponent,
     CategorySelectorComponent,
     TagsSelectorComponent,
-    ImagesSelectorComponent
+    ImagesSelectorComponent,
+    // pipes
+    LinkifyPipe
   ]
 })
 export class SharedModule { }

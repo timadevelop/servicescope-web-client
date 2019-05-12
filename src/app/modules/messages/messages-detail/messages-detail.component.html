@@ -37,7 +37,7 @@
                 </nz-avatar>
               </div>
               <div nz-col class="message-content">
-                <span class="message-text" *ngIf="msg.text && msg.text != 'null'">{{msg.text}}</span>
+                <span class="message-text" *ngIf="msg.text && msg.text != 'null'" [innerHTML]="msg.text | linkify"></span>
                 <!-- images TODO -->
                 <div class="message-images-list">
                   <div nz-row nzType="flex" nzGutter="16">
