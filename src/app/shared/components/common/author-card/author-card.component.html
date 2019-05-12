@@ -42,5 +42,12 @@
       </div>
     </div>
 
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+        <p nz-col class="label">Message</p>
+        <div nz-col class="value">
+            <a *ngIf="author.id != userService?.currentUser.id" [routerLink]="['/', 'messages', 'user', author.id]"><i nz-icon type="message"></i>Message</a>
+        </div>
+      </div>
+
   </div>
 </nz-card>

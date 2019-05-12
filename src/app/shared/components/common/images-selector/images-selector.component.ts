@@ -33,7 +33,7 @@ export class ImagesSelectorComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.clearSubscription.unsubscribe();
+    if (this.clearSubscription) this.clearSubscription.unsubscribe();
   }
 
   handlePreview = (file: UploadFile) => {

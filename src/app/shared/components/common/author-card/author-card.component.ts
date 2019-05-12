@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../../models/User.model';
 import { DatePipe } from '@angular/common';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-author-card',
@@ -13,7 +14,9 @@ export class AuthorCardComponent implements OnInit {
   @Input() override_phone: string = null;
   @Input() override_email: string = null;
 
-  constructor(private datePipe: DatePipe) { }
+  constructor(
+    public userService: UserService,
+    private datePipe: DatePipe) { }
 
   ngOnInit() {
   }
