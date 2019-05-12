@@ -3,7 +3,7 @@
     <nz-list-item>
       <nz-list-item-meta [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate" [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
-          <a class="title">{{partner?.first_name || "noname"}}</a>
+          <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]" class="title">{{partner?.first_name || "noname"}}</a>
         </ng-template>
         <ng-template #avatarTemplate>
           <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="partner?.image"></nz-avatar>
