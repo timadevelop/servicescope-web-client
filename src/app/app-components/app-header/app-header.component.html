@@ -12,7 +12,8 @@
     </div>
     <div nz-col class="gutter-row" nzSpan="6">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-right">
-        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" class="login-menu-item" routerLink="/login" routerLinkActive="ant-menu-item-selected">
+        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" class="login-menu-item" routerLink="/login"
+          routerLinkActive="ant-menu-item-selected">
           <a>Login</a>
         </li>
         <ng-template #userMenuItem>
@@ -22,9 +23,10 @@
               <span class="hello-text">Hello, {{userService.currentUser.first_name}}</span>
             </div>
             <ul>
-              <li nz-menu-item [routerLink]="['/profiles', userService.currentUser.id]" routerLinkActive="ant-menu-item-selected">Profile</li>
-              <li nz-menu-item>Settings</li>
-              <li nz-menu-item>Help</li>
+              <li nz-menu-item [routerLink]="['/profiles', userService.currentUser.id]"
+                routerLinkActive="ant-menu-item-selected">Profile</li>
+              <li nz-menu-item [routerLink]="['/messages']"
+                routerLinkActive="ant-menu-item-selected">Messages</li>
               <li nz-menu-item (click)="logout()">Logout</li>
             </ul>
           </li>

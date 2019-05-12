@@ -20,6 +20,15 @@ const profileRoutes: Routes = [
         component: ProfileHomeComponent,
         children: [
           {
+            path: '',
+            component: ProfileListComponent,
+            resolve: {
+              users: UsersListResolverService
+            },
+            pathMatch: 'full',
+            runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+          },
+          {
             path: ':id',
             component: ProfileDetailComponent,
             resolve: {
@@ -30,15 +39,6 @@ const profileRoutes: Routes = [
 
           },
         ]
-      },
-      {
-        path: '',
-        component: ProfileListComponent,
-        resolve: {
-          users: UsersListResolverService
-        },
-        runGuardsAndResolvers: 'paramsOrQueryParamsChange',
-        // data: { animation: 'items' },
       }
     ]
   }
