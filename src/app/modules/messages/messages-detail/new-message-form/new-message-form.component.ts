@@ -50,6 +50,7 @@ export class NewMessageFormComponent implements OnInit {
         this.messageForm.patchValue({
           text: this.generateDefaultMessageFor(url, title)
         });
+        // TODO: Ask
         setTimeout(() => this.showSendTooltip = true, 50);
       }
     });

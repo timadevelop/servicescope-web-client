@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { UploadFile, NzMessageService, UploadXHRArgs, NzUploadComponent } from 'ng-zorro-antd';
 import { Observer, Observable, Subscription } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Observer, Observable, Subscription } from 'rxjs';
   templateUrl: './images-selector.component.html',
   styleUrls: ['./images-selector.component.scss']
 })
-export class ImagesSelectorComponent implements OnInit {
+export class ImagesSelectorComponent implements OnInit, AfterViewInit {
   loading: boolean = false;
   showUploadList = {
     showPreviewIcon: true,
@@ -37,11 +37,11 @@ export class ImagesSelectorComponent implements OnInit {
         this.fileList = [];
       });
     }
+  }
+
+  ngAfterViewInit() {
     if (this.showFileDialog) {
-      // TODO: ask about this bad thing
-      setTimeout(() => {
-        if (this.nzUpload) this.nzUpload.uploadComp.onClick();
-      }, 10);
+      if (this.nzUpload) this.nzUpload.uploadComp.onClick();
     }
   }
 

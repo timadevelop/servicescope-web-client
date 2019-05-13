@@ -59,6 +59,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
           this.messages = r;
           this.messages.results = this.messages.results.reverse();
           this.loading = false;
+          // TODO: Ask about this
           setTimeout(() => this.scrollToBottom(), 100);
         }
       );
@@ -145,6 +146,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
       this.messages = new PaginatedApiResponse<Message>();
       this.messages.results.push(msg);
     }
+    // TODO: Ask
     setTimeout(() => this.scrollToBottom(), 10);
   }
 }
