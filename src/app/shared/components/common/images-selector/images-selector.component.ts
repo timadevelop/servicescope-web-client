@@ -16,7 +16,7 @@ export class ImagesSelectorComponent implements OnInit {
   };
 
   fileList: Array<UploadFile> = [];
-  previewImage: string | undefined = '';
+  previewImages: Array<{ image: string }> = [];
   previewVisible = false;
 
   @Output() onChange = new EventEmitter<Array<UploadFile>>();
@@ -32,9 +32,11 @@ export class ImagesSelectorComponent implements OnInit {
   @ViewChild('uploadCont') nzUpload: NzUploadComponent;
 
   ngOnInit() {
-    this.clearSubscription = this.clearEvent.subscribe(() => {
-      this.fileList = [];
-    });
+    if (this.clearEvent) {
+      this.clearSubscription = this.clearEvent.subscribe(() => {
+        this.fileList = [];
+      });
+    }
     if (this.showFileDialog) {
       // TODO: ask about this bad thing
       setTimeout(() => {
@@ -48,7 +50,7 @@ export class ImagesSelectorComponent implements OnInit {
   }
 
   handlePreview = (file: UploadFile) => {
-    this.previewImage = file.url || file.thumbUrl;
+    this.previewImages = [{ image: file.url || file.thumbUrl }];
     this.previewVisible = true;
   };
 

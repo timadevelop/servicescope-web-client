@@ -14,10 +14,6 @@
     <i nz-icon nzType="plus"></i>
     <div class="ant-upload-text" *ngIf="size != 'small'">Добави</div>
   </nz-upload>
-  <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
-    (nzOnCancel)="previewVisible = false">
-    <ng-template #modalContent>
-      <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
-    </ng-template>
-  </nz-modal>
+  <app-carousel *ngIf="previewVisible" (onZoomClose)="previewVisible = false" [imageIndex]="1"
+    [images]="previewImages" [zoomOnly]="true"></app-carousel>
 </div>
