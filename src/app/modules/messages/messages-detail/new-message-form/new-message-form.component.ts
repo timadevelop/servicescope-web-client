@@ -36,13 +36,19 @@ export class NewMessageFormComponent implements OnInit {
     private nzMessageService: NzMessageService,
   ) { }
 
+
+  private generateDefaultMessageFor(url: string, title: string): string {
+    return `Hey, i'm writing about - ${title} - ${url}`
+  }
+
   ngOnInit() {
     // item
     this.route.queryParamMap.subscribe(params => {
+      const title = params.get('itemTitle');
       const url = params.get('itemUrl');
       if (url) {
         this.messageForm.patchValue({
-          text: `Hey, i'm writing about ${url}`
+          text: this.generateDefaultMessageFor(url, title)
         });
         setTimeout(() => this.showSendTooltip = true, 50);
       }
@@ -57,7 +63,8 @@ export class NewMessageFormComponent implements OnInit {
         {
           relativeTo: this.route,
           queryParams: {
-            itemUrl: null
+            itemUrl: null,
+            itemTitle: null
           },
           queryParamsHandling: "merge"
         });

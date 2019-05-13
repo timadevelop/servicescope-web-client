@@ -12,6 +12,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 
 export class AdditionalConversationRouteData {
   itemUrl: string;
+  itemTitle: string;
 }
 
 @Injectable({
@@ -45,7 +46,7 @@ export class RedirectGuard implements CanActivate, CanActivateChild, CanLoad {
   additionalData: AdditionalConversationRouteData = null;
 
   checkConversation(userId: number, queryParamMap: ParamMap): Observable<boolean> {
-    this.additionalData = { itemUrl: queryParamMap.get('itemUrl') };
+    this.additionalData = { itemUrl: queryParamMap.get('itemUrl'), itemTitle: queryParamMap.get('itemTitle') };
     return this.conversationsService.getByUserId(userId)
       .pipe(
         switchMap((conversation: Conversation) => {
