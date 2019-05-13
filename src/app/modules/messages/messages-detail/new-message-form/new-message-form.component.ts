@@ -24,7 +24,7 @@ export class NewMessageFormComponent implements OnInit {
 
   messageForm = this.fb.group({
     // string
-    text: [null, [Validators.minLength(1), Validators.maxLength(400)]],
+    text: [null, [Validators.minLength(1), Validators.maxLength(1000)]],
     images: [[], [Validators.minLength(0), Validators.maxLength(this.maxImagesLength + 1)]],
   });
 
