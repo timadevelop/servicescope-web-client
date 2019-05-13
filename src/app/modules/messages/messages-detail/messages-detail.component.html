@@ -3,10 +3,13 @@
     <nz-list-item>
       <nz-list-item-meta [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate" [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
-          <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]" class="title">{{partner?.first_name || "noname"}}</a>
+          <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]"
+            class="title">{{partner?.first_name || "noname"}}</a>
         </ng-template>
         <ng-template #avatarTemplate>
-          <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="partner?.image"></nz-avatar>
+          <a [routerLink]="['/', 'profiles', partner.id]">
+            <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="partner?.image"></nz-avatar>
+          </a>
         </ng-template>
         <ng-template #descriptionTemplate>
           <span>{{conversation.title}}</span>
@@ -31,14 +34,13 @@
             <div *ngFor="let msg of messages?.results; trackBy: trackIdentifyByItemId; let i = index"
               [class.right]="msg.author.id == this.userService.currentUser.id" class="message"
               [class.same-author]="isLastAuthorMessage(i)" nz-row nzType="flex" nzJustify="start" nzAlign="bottom">
-              <div nz-col class="message-author">
-                <!-- TODO: routerlink -->
+              <a nz-col class="message-author" [routerLink]="['/', 'profiles', msg.author.id]">
                 <nz-avatar *ngIf="isLastAuthorMessage(i)" [nzSize]="32" nzIcon="user" [nzSrc]="msg.author.image">
                 </nz-avatar>
-              </div>
+              </a>
               <div nz-col class="message-content">
-                <span class="message-text" *ngIf="msg.text && msg.text != 'null'" [innerHTML]="msg.text | linkify"></span>
-                <!-- images TODO -->
+                <span class="message-text" *ngIf="msg.text && msg.text != 'null'"
+                  [innerHTML]="msg.text | linkify"></span>
                 <div class="message-images-list">
                   <div nz-row nzType="flex" nzGutter="16">
                     <div class="image-list-item" nz-col *ngFor="let image of msg.images; let index=index;"

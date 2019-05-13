@@ -10,14 +10,14 @@
 
   <nz-list [nzLoadMore]="loadMore" class="messages-list" [nzLoading]="loading">
     <ng-container *ngTemplateOutlet="emptyTemplate"></ng-container>
-
     <nz-list-item [routerLink]="['/', 'messages', 'c', conversation.id]" routerLinkActive="active"
       class="messages-list-item" *ngFor="let conversation of conversations?.results">
       <nz-skeleton *ngIf="false" [nzAvatar]="true" [nzParagraph]="{ rows: 1 }"></nz-skeleton>
       <nz-list-item-meta *ngIf="true" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate"
         [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
-          <a>{{conversation.users[0]?.first_name || "noname"}}</a>
+          <a
+            [routerLink]="['/', 'messages', 'c', conversation.id]">{{conversation.users[0]?.first_name || "noname"}}</a>
         </ng-template>
         <ng-template #avatarTemplate>
           <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="conversation.users[0]?.image"></nz-avatar>
