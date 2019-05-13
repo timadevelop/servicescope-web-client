@@ -8,13 +8,13 @@
   </div>
   <div nz-col nzSpan="4">
     <div class="actions">
-      <i nz-icon type="picture" (click)="setShowUploadImagesForm(!showUploadImagesForm)"
+      <i nz-tooltip [nzTitle]="showUploadImagesForm ? 'Remove images' : 'Add images'" nz-icon type="picture" (click)="setShowUploadImagesForm(!showUploadImagesForm)"
         [class.active]="showUploadImagesForm"></i>
       <i nz-icon type="message" class="send-message-button" (click)="onFormSubmit()"></i>
     </div>
   </div>
   <div nz-col nzSpan="24" class="images-upload" *ngIf="showUploadImagesForm">
-    <app-images-selector [clearEvent]="clearEvent.asObservable()" [maxItemsLength]="maxImagesLength"
+    <app-images-selector [showFileDialog]="true" [clearEvent]="clearEvent.asObservable()" [maxItemsLength]="maxImagesLength"
       (onChange)="onImagesChange($event)" size="small">
     </app-images-selector>
   </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { UploadFile, NzMessageService, UploadXHRArgs } from 'ng-zorro-antd';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
+import { UploadFile, NzMessageService, UploadXHRArgs, NzUploadComponent } from 'ng-zorro-antd';
 import { Observer, Observable, Subscription } from 'rxjs';
 
 @Component({
@@ -14,6 +14,7 @@ export class ImagesSelectorComponent implements OnInit {
     showRemoveIcon: true,
     hidePreviewIconInNonImage: true
   };
+
   fileList: Array<UploadFile> = [];
   previewImage: string | undefined = '';
   previewVisible = false;
@@ -22,14 +23,24 @@ export class ImagesSelectorComponent implements OnInit {
   @Input() maxItemsLength: number = 10;
   @Input() size: 'small' | 'default' = 'default';
   @Input() clearEvent: Observable<void>;
+  @Input() showFileDialog: boolean = false
 
   constructor(private msg: NzMessageService) { }
 
   clearSubscription: Subscription = null;
+
+  @ViewChild('uploadCont') nzUpload: NzUploadComponent;
+
   ngOnInit() {
     this.clearSubscription = this.clearEvent.subscribe(() => {
       this.fileList = [];
-    })
+    });
+    if (this.showFileDialog) {
+      // TODO: ask about this bad thing
+      setTimeout(() => {
+        if (this.nzUpload) this.nzUpload.uploadComp.onClick();
+      }, 10);
+    }
   }
 
   ngOnDestroy(): void {

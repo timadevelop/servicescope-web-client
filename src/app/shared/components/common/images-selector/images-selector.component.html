@@ -9,7 +9,8 @@
     [nzBeforeUpload]="beforeUpload"
     [nzCustomRequest]="upload"
     nzMultiple="true"
-    (nzChange)="handleChange($event)">
+    (nzChange)="handleChange($event)"
+    #uploadCont>
     <i nz-icon nzType="plus"></i>
     <div class="ant-upload-text" *ngIf="size != 'small'">Добави</div>
   </nz-upload>

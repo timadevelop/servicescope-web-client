@@ -142,6 +142,11 @@ export class NewMessageFormComponent implements OnInit {
 
   setShowUploadImagesForm(v: boolean) {
     this.showUploadImagesForm = v;
+    if (!this.showUploadImagesForm) {
+      this.messageForm.patchValue({
+        images: []
+      })
+    }
   }
 
   clearEvent: Subject<void> = new Subject<void>();
