@@ -1,15 +1,19 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnDestroy } from "@angular/core";
 import { Observable, Observer, Subject } from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SocketService {
+export class SocketService implements OnDestroy {
 
   constructor(
     private authService: AuthService
   ) { }
+
+  ngOnDestroy() {
+    if (this.subject) this.subject.complete();
+  }
 
   // TODO : Adopt to multiple subjects
   private subject: Subject<MessageEvent>;

@@ -33,7 +33,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnDestroy() {
-    this.chatService.disconnect();
+    this.chatService.leaveRoom();
   }
 
   @ViewChild('conversationMessages') private messagesContainer: ElementRef;
@@ -45,11 +45,16 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.data.subscribe((data: { conversation: Conversation }) => {
+      // conversation changed
       this.conversation = data.conversation;
+
+      this.chatService.leaveRoom();
+
       if (!this.conversation) {
         this.nzMsgService.error(`Conversation not found`);
         return;
       }
+
       this.loading = true;
 
       this.partner = this.conversation.users[0];
@@ -64,11 +69,17 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
         }
       );
 
-      this.chatService.connect(this.conversation.id.toString())
-        .subscribe((m: SocketMessage) => {
-          this.processSocketMessage(m);
-        });
+      this.chatService.connect().subscribe((m: SocketMessage) => {
+        this.processSocketMessage(m);
+      });
+      if (+this.chatService.room != this.conversation.id) {
+        this.joinRoom();
+      }
     });
+  }
+
+  private joinRoom() {
+    this.chatService.joinRoom(String(this.conversation.id));
   }
 
   private processSocketMessage(m: SocketMessage) {
@@ -81,6 +92,15 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     } else if (m.type == 'deleted_message') {
       const msgId = m.payload;
       this.messages.results = this.messages.results.filter(m => m.id != msgId);
+    } else if (m.type == 'joined_room') {
+      const room: string = m.payload["room_name"];
+      if (+room == this.conversation.id) {
+        this.nzMsgService.success(`Success socket joined room ${room}`)
+      } else {
+        this.nzMsgService.error(`Error joining room ${this.conversation.id}, connected to room ${room} instead :/`);
+      }
+    } else if (m.type == 'connected') {
+      this.joinRoom();
     }
   }
 
