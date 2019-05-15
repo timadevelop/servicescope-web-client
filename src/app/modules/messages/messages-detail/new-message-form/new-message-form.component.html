@@ -1,25 +1,27 @@
 <div *ngIf="showSendTooltip" nz-popover nzTrigger="click" [nzTitle]="titleTemplate" nzPlacement="topLeft"
   [nzContent]="contentTemplate" [nzVisible]="showSendTooltip" nzOverlayClassName="happy-popover">
 </div>
-<form nz-row [formGroup]="messageForm" (submit)="onFormSubmit()" class="conversation-form" nzType="flex"
-  nzJustify="space-between" nzAlign="middle">
-  <div nz-col nzSpan="20">
-    <input autofocus class="message-input" formControlName="text" nz-input placeholder="Type new message" type="text">
-  </div>
-  <div nz-col nzSpan="4">
-    <div class="actions">
-      <i nz-tooltip [nzTitle]="showUploadImagesForm ? 'Remove images' : 'Add images'" nz-icon type="picture" (click)="setShowUploadImagesForm(!showUploadImagesForm)"
-        [class.active]="showUploadImagesForm"></i>
-      <i nz-icon type="message" class="send-message-button" (click)="onFormSubmit()"></i>
-    </div>
-  </div>
-  <div nz-col nzSpan="24" class="images-upload" *ngIf="showUploadImagesForm">
-    <app-images-selector [showFileDialog]="true" [clearEvent]="clearImagesEvent.asObservable()" [maxItemsLength]="maxImagesLength"
-      (onChange)="onImagesChange($event)" size="small">
-    </app-images-selector>
-  </div>
-</form>
 
+<nz-spin [nzSpinning]="loading">
+  <form nz-row [formGroup]="messageForm" (submit)="onFormSubmit()" class="conversation-form" nzType="flex"
+    nzJustify="space-between" nzAlign="middle">
+    <div nz-col nzSpan="20">
+      <input autofocus class="message-input" formControlName="text" nz-input placeholder="Type new message" type="text">
+    </div>
+    <div nz-col nzSpan="4">
+      <div class="actions">
+        <i nz-tooltip [nzTitle]="showUploadImagesForm ? 'Remove images' : 'Add images'" nz-icon type="picture"
+          (click)="setShowUploadImagesForm(!showUploadImagesForm)" [class.active]="showUploadImagesForm"></i>
+        <i nz-icon type="message" class="send-message-button" (click)="onFormSubmit()"></i>
+      </div>
+    </div>
+    <div nz-col nzSpan="24" class="images-upload" *ngIf="showUploadImagesForm">
+      <app-images-selector [showFileDialog]="true" [clearEvent]="clearImagesEvent.asObservable()"
+        [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)" size="small">
+      </app-images-selector>
+    </div>
+  </form>
+</nz-spin>
 
 <ng-template #titleTemplate>
   <span>Hey, would you tell author about this?</span>

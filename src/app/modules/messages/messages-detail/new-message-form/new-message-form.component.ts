@@ -20,6 +20,8 @@ export class NewMessageFormComponent implements OnInit {
   maxImagesLength = 10;
   showSendTooltip = false;
 
+  loading: boolean = false;
+
   messageForm = this.fb.group({
     // string
     text: [null, [Validators.minLength(1), Validators.maxLength(1000)]],
@@ -111,6 +113,7 @@ export class NewMessageFormComponent implements OnInit {
       images
     );
 
+    this.loading = true;
     this.messagesService.create(message)
       .subscribe(
         (event: HttpEvent<{}>) => {
@@ -120,12 +123,8 @@ export class NewMessageFormComponent implements OnInit {
             }
           } else if (event instanceof HttpResponse) {
             // uploaded
-            // this.loading = false;
-            // todo: reset.
+            this.loading = false;
             this.resetForm()
-            // const id = newService['id'];
-            // this.msgService.success(`Успешно направена обява #${id}`)
-            // this.router.navigate(['/services', id]);
           }
         },
         err => {
