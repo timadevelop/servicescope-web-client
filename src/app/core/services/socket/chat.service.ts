@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { Subject } from 'rxjs';
 import { SocketService } from './socket.service';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, share } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/modules/auth/auth.service';
 
@@ -33,7 +33,8 @@ export class ChatService implements OnDestroy {
       map((response: MessageEvent): SocketMessage => {
         let data = JSON.parse(response.data);
         return data;
-      })
+      }),
+      share()
     );
 
     return this.messages;
@@ -46,12 +47,16 @@ export class ChatService implements OnDestroy {
 
   public joinRoom(room: string) {
     this.room = room;
-    this.messages.next({
-      type: "join_room_request",
-      payload: {
-        room_name: room
-      }
-    });
+    if (this.messages) {
+      this.messages.next({
+        type: "join_room_request",
+        payload: {
+          room_name: room
+        }
+      });
+    } else {
+      console.warn("Cannot connect to room, Subject is null")
+    }
   }
 
 

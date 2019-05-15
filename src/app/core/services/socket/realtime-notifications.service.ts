@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { ChatService, SocketMessage } from './chat.service';
 import { NzMessageService } from 'ng-zorro-antd';
 import { AuthService } from 'src/app/modules/auth/auth.service';
+import { Subscription } from 'rxjs';
 
 
 export class RealtimeNotificationPayload {
@@ -13,18 +14,24 @@ export class RealtimeNotificationPayload {
 @Injectable({
   providedIn: 'root'
 })
-export class RealtimeNotificationsService {
+export class RealtimeNotificationsService implements OnDestroy {
+  sub$: Subscription;
+
+  ngOnDestroy() {
+    console.log('destroy notification servfice');
+
+    if (this.sub$) this.sub$.unsubscribe();
+  }
 
   constructor(
     private authService: AuthService,
     private chatService: ChatService,
     private nzMessageService: NzMessageService
-  ) {
-  }
+  ) {}
 
   public run() {
     if (this.authService.isLoggedIn) {
-      this.chatService.connect().subscribe((m: SocketMessage) => {
+      this.sub$ = this.chatService.connect().subscribe((m: SocketMessage) => {
         this.processMessage(m);
       });
     }
