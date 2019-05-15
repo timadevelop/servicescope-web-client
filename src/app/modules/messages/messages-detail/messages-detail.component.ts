@@ -86,8 +86,8 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   private processSocketMessage(m: SocketMessage) {
     if (m.type == 'new_message') {
       const msg = m.payload as Message;
+      this.appendNewMessage(msg);
       if (msg.author.id !== this.userService.currentUser.id) {
-        this.appendNewMessage(msg);
         this.nzMsgService.info(`New message from ${msg.author.first_name}`);
       }
     } else if (m.type == 'deleted_message') {

@@ -5,7 +5,6 @@ import { Conversation } from 'src/app/core/models/Conversation.model';
 import { MessagesService } from '../../../../core/services/messages.service';
 import { MessageApiRequest } from 'src/app/core/models/api-request/message-api-request.model';
 import { HttpEventType, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Message } from 'src/app/core/models/Message.model';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -16,7 +15,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NewMessageFormComponent implements OnInit {
 
-  @Output() onNewMessage = new EventEmitter<Message>();
   @Input() conversation: Conversation;
   showUploadImagesForm: boolean = false;
   maxImagesLength = 10;
@@ -123,8 +121,6 @@ export class NewMessageFormComponent implements OnInit {
           } else if (event instanceof HttpResponse) {
             // uploaded
             // this.loading = false;
-            const newMessage = event.body as Message;
-            this.onNewMessage.emit(newMessage);
             // todo: reset.
             this.resetForm()
             // const id = newService['id'];

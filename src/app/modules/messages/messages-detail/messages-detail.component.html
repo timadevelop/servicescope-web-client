@@ -1,7 +1,8 @@
 <div class="wrapper" *ngIf="conversation else notfoundtemplate">
   <div nz-row class="header">
     <nz-list-item>
-      <nz-list-item-meta *ngIf="partner" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate" [nzDescription]="descriptionTemplate">
+      <nz-list-item-meta *ngIf="partner" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate"
+        [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
           <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]"
             class="title">{{partner?.first_name || "noname"}}</a>
@@ -58,8 +59,7 @@
           </div>
         </nz-spin>
       </div>
-      <app-new-message-form class="conversation-input" (onNewMessage)="appendNewMessage($event)"
-        [conversation]="conversation"></app-new-message-form>
+      <app-new-message-form class="conversation-input" [conversation]="conversation"></app-new-message-form>
     </div>
   </div>
 </div>
