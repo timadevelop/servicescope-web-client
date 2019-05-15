@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NZ_I18N, en_US, NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,7 +43,26 @@ registerLocaleData(en);
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    {
+      provide: NZ_MESSAGE_CONFIG, useValue: {
+        nzDuration: 5000,
+        nzMaxStack: 10,
+        nzPauseOnHover: true,
+        nzAnimate: true
+      }
+    },
+    {
+      provide: NZ_NOTIFICATION_CONFIG, useValue: {
+        nzTop: '24px',
+        nzBottom: '24px',
+        nzPlacement: 'topRight',
+        nzDuration: 4500,
+        nzMaxStack: 7,
+        nzPauseOnHover: true,
+        nzAnimate: true
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })

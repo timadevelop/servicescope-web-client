@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LabeledTextComponent } from './components/common/labeled-text/labeled-text.component';
 import { AuthorCardComponent } from './components/common/author-card/author-card.component';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NzMessageService } from 'ng-zorro-antd';
 import { RouterModule } from '@angular/router';
 import { PhoneWrapperComponent } from './components/common/phone-wrapper/phone-wrapper.component';
 import { EmailWrapperComponent } from './components/common/email-wrapper/email-wrapper.component';

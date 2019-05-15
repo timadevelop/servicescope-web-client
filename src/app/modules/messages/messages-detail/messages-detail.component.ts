@@ -88,7 +88,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
       const msg = m.payload as Message;
       this.appendNewMessage(msg);
       if (msg.author.id !== this.userService.currentUser.id) {
-        this.nzMsgService.info(`New message from ${msg.author.first_name}`);
+        // this.nzMsgService.info(`New message from ${msg.author.first_name}`);
       }
     } else if (m.type == 'deleted_message') {
       const msgId = m.payload;
