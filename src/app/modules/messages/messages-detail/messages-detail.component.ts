@@ -9,6 +9,7 @@ import { Conversation } from 'src/app/core/models/Conversation.model';
 import { User } from 'src/app/core/models/User.model';
 import { NzMessageService } from 'ng-zorro-antd';
 import { ChatService, SocketMessage } from 'src/app/core/services/socket/chat.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-messages-detail',
@@ -25,6 +26,8 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   zoomImagesIdx = 1;
   loading = true;
 
+  private sub$: Subscription;
+
   constructor(
     public route: ActivatedRoute,
     public userService: UserService,
@@ -34,6 +37,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnDestroy() {
+    if (this.sub$) this.sub$.unsubscribe();
     this.chatService.leaveRoom();
   }
 
@@ -45,6 +49,12 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    if (!this.sub$) {
+      this.sub$ = this.chatService.connect().subscribe((m: SocketMessage) => {
+        this.processSocketMessage(m);
+      });
+    }
+
     this.route.data.subscribe((data: { conversation: Conversation }) => {
       // conversation changed
       this.conversation = data.conversation;
@@ -70,9 +80,6 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
         }
       );
 
-      this.chatService.connect().subscribe((m: SocketMessage) => {
-        this.processSocketMessage(m);
-      });
       if (+this.chatService.room != this.conversation.id) {
         this.joinRoom();
       }

@@ -46,7 +46,7 @@ registerLocaleData(en);
     httpInterceptorProviders,
     {
       provide: NZ_MESSAGE_CONFIG, useValue: {
-        nzDuration: 5000,
+        nzDuration: 3000,
         nzMaxStack: 10,
         nzPauseOnHover: true,
         nzAnimate: true

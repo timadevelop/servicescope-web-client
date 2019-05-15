@@ -19,14 +19,15 @@
         <ng-template #userMenuItem>
           <li nz-submenu *ngIf="userService.currentUser" class="user-menu-item">
             <div title>
-              <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
+              <nz-badge [nzCount]="rns.count">
+                <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
+              </nz-badge>
               <span class="hello-text">Hello, {{userService.currentUser.first_name}}</span>
             </div>
             <ul>
               <li nz-menu-item [routerLink]="['/profiles', userService.currentUser.id]"
                 routerLinkActive="ant-menu-item-selected">Profile</li>
-              <li nz-menu-item [routerLink]="['/messages']"
-                routerLinkActive="ant-menu-item-selected">Messages</li>
+              <li nz-menu-item [routerLink]="['/messages']" routerLinkActive="ant-menu-item-selected">Messages</li>
               <li nz-menu-item (click)="logout()">Logout</li>
             </ul>
           </li>

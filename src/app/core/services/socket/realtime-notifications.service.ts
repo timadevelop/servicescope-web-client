@@ -10,7 +10,8 @@ import { UserService } from '../user.service';
   providedIn: 'root'
 })
 export class RealtimeNotificationsService implements OnDestroy {
-  sub$: Subscription;
+  private sub$: Subscription;
+  private notificationHistory: Array<Notification> = []
 
   ngOnDestroy() {
     if (this.sub$) this.sub$.unsubscribe();
@@ -31,6 +32,10 @@ export class RealtimeNotificationsService implements OnDestroy {
     }
   }
 
+  public get count() {
+    return this.notificationHistory.length;
+  }
+
 
   private processMessage(m: SocketMessage) {
     if (m.type == "notification") {
@@ -48,7 +53,8 @@ export class RealtimeNotificationsService implements OnDestroy {
       return;
     }
 
-    this.notify(notification)
+    this.notify(notification);
+    this.notificationHistory.push(notification);
   }
 
   notify(notification: Notification) {
