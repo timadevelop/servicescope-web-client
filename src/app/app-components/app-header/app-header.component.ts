@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/modules/auth/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
-import { Router } from '@angular/router';
 import { RealtimeNotificationsService } from 'src/app/core/services/socket/realtime-notifications.service';
 
 @Component({
@@ -13,16 +12,15 @@ export class AppHeaderComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public userService: UserService,
-    public rns: RealtimeNotificationsService,
-    private router: Router) { }
+    public rns: RealtimeNotificationsService) { }
 
   ngOnInit() {
   }
 
-  logout() {
-    this.authService.logout()
-      .subscribe(_ =>
-        this.router.navigate(['/']));
+  toggleNotificationManager() {
+    if (this.userService.currentUser) {
+      this.rns.showNotificationsManager = !this.rns.showNotificationsManager;
+    }
   }
 
 }

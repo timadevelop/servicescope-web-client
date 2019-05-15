@@ -19,6 +19,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { httpInterceptorProviders } from './core/interceptors';
 import { CoreModule } from './core/core.module';
 import { ServicesModule } from './modules/services/services.module';
+import { NotificationsManagerComponent } from './app-components/notifications-manager/notifications-manager.component';
 
 registerLocaleData(en);
 
@@ -27,6 +28,7 @@ registerLocaleData(en);
     AppComponent,
     AppHeaderComponent,
     ComposeMessageComponent,
+    NotificationsManagerComponent
   ],
   imports: [
     BrowserModule,

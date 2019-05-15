@@ -13,6 +13,7 @@ export class User extends Base {
   posts_count: number;
   income_reviews_count: number;
   offers_count: number;
+  notifications_count: number;
 
   date_joined: string;
 }

@@ -11,7 +11,8 @@ import { UserService } from '../user.service';
 })
 export class RealtimeNotificationsService implements OnDestroy {
   private sub$: Subscription;
-  private notificationHistory: Array<Notification> = []
+  public notificationHistory: Array<Notification> = [];
+  public showNotificationsManager = true;
 
   ngOnDestroy() {
     if (this.sub$) this.sub$.unsubscribe();
@@ -27,7 +28,6 @@ export class RealtimeNotificationsService implements OnDestroy {
   public run() {
     if (this.authService.isLoggedIn) {
       this.sub$ = this.chatService.connect().subscribe((m: SocketMessage) => {
-        console.log('in ns: ', m);
         this.processMessage(m);
       });
     }
@@ -56,7 +56,8 @@ export class RealtimeNotificationsService implements OnDestroy {
 
     this.notify(notification);
     this.notificationHistory.push(notification);
-    this.markNotificationAsRead(notification);
+    console.log(this.notificationHistory);
+    // this.markNotificationAsRead(notification);
   }
 
   notify(notification: Notification) {
@@ -68,7 +69,7 @@ export class RealtimeNotificationsService implements OnDestroy {
     );
   }
 
-  private markNotificationAsRead(notification: Notification) {
+  public markNotificationAsRead(notification: Notification) {
     if (notification.id) {
       this.chatService.messages.next({
         type: "notification_ack",

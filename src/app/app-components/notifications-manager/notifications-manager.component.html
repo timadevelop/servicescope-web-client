@@ -1,0 +1,63 @@
+<nz-drawer nzWidth="40%" [nzClosable]="false" [nzVisible]="rns?.showNotificationsManager" nzPlacement="right"
+  nzTitle="Basic Drawer" (nzOnClose)="onClose()">
+
+  <div *ngIf="userService.currentUser">
+    <ul>
+      <a [routerLink]="['/profiles', userService.currentUser.id]" routerLinkActive="ant-menu-item-selected">Profile
+      </a>
+      <a [routerLink]="['/messages']" routerLinkActive="ant-menu-item-selected">Messages</a>
+      <a (click)="logout()">Logout</a>
+    </ul>
+  </div>
+  <nz-divider></nz-divider>
+  <nz-list *ngIf="paginatedNotifications" [nzDataSource]="paginatedNotifications ? paginatedNotifications?.results : []" [nzItemLayout]="'horizontal'"
+    [nzRenderItem]="notificationTemplate" [nzPagination]="pagination" [nzFooter]="footer">
+    <ng-template #notificationTemplate let-notification>
+      <nz-list-item [nzContent]="null" [nzActions]="[]">
+        <ng-template #starAction>
+          <span nz-tooltip nzTitle="Services">
+            <i nz-icon type="clock" style="margin-right: 8px;"></i>{{notification.notification_datetime | date}}
+          </span>
+        </ng-template>
+        <!-- <ng-template #likeAction>
+          <span nz-tooltip nzTitle="Posts" [routerLink]="['/profiles', user.id, 'posts']">
+            <i nz-icon type="align-left" style="margin-right: 8px;"></i>{{user.posts_count}}
+          </span>
+        </ng-template>
+        <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template> -->
+        <nz-list-item-meta [nzAvatar]="'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'"
+          [nzTitle]="nzTitle" [nzDescription]="descriptionTemplate">
+          <ng-template #nzTitle>
+            <b><a [routerLink]="[notification.redirect_url]">{{notification.title }}</a></b> {{notification.text}}
+          </ng-template>
+          <ng-template #descriptionTemplate>
+            {{notification.notification_datetime | date}}
+          </ng-template>
+        </nz-list-item-meta>
+        <ng-template #extra>
+          <!-- haha -->
+          <!-- <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" /> -->
+        </ng-template>
+      </nz-list-item>
+    </ng-template>
+    <ng-template #footer>
+      <!-- <div><b>ant design</b> footer part</div> -->
+    </ng-template>
+    <ng-template #pagination>
+      <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedNotifications?.count"
+        (nzPageIndexChange)="loadData($event)"></nz-pagination>
+    </ng-template>
+  </nz-list>
+</nz-drawer>
+<!--
+id: 1
+notification_datetime: "2019-05-15T18:43:38+0300"
+notified: false
+recipient: "/saas_api/users/3/"
+recipient_id: 3
+redirect_url: "/requests/1"
+text: "I wanna be in your business"
+title: "New request"
+type: "info"
+url: "/saas_api/notifications/1/"
+-->
