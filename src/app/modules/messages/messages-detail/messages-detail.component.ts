@@ -172,7 +172,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
       // response.results = Array.from(set.values());
     } else {
       this.messages = new PaginatedApiResponse<Message>();
-      this.messages.results.push(msg);
+      this.messages.results = [msg];
     }
     // TODO: Ask
     setTimeout(() => this.scrollToBottom(), 10);

@@ -27,6 +27,7 @@ export class RealtimeNotificationsService implements OnDestroy {
   public run() {
     if (this.authService.isLoggedIn) {
       this.sub$ = this.chatService.connect().subscribe((m: SocketMessage) => {
+        console.log('in ns: ', m);
         this.processMessage(m);
       });
     }
@@ -55,6 +56,7 @@ export class RealtimeNotificationsService implements OnDestroy {
 
     this.notify(notification);
     this.notificationHistory.push(notification);
+    this.markNotificationAsRead(notification);
   }
 
   notify(notification: Notification) {
@@ -64,5 +66,16 @@ export class RealtimeNotificationsService implements OnDestroy {
       notification.text,
       {}
     );
+  }
+
+  private markNotificationAsRead(notification: Notification) {
+    if (notification.id) {
+      this.chatService.messages.next({
+        type: "notification_ack",
+        payload: {
+          notification_id: notification.id
+        }
+      })
+    }
   }
 }
