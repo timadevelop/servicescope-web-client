@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { Router } from '@angular/router';
-import { RegisterApiRequest } from 'src/app/shared/models/api-request/register-api-request.model';
+import { RegisterApiRequest } from 'src/app/core/models/api-request/register-api-request.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { LoginApiRequest } from 'src/app/shared/models/api-request/login-api-request.model';
+import { LoginApiRequest } from 'src/app/core/models/api-request/login-api-request.model';
 
 @Component({
   selector: 'app-register',

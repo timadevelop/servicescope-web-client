@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Service } from 'src/app/shared/models/Service.model';
+import { Service } from 'src/app/core/models/Service.model';
 import { NzMessageService } from 'ng-zorro-antd';
-import { ServiceApiRequest } from 'src/app/shared/models/api-request/service-api-request.model';
-import { ServicesService } from 'src/app/shared/services/services.service';
+import { ServiceApiRequest } from 'src/app/core/models/api-request/service-api-request.model';
+import { ServicesService } from 'src/app/core/services/services.service';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Service } from 'src/app/shared/models/Service.model';
+import { Service } from 'src/app/core/models/Service.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
-import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 @Component({
   selector: 'app-services-list',

@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Route, ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
-import { Service } from 'src/app/shared/models/Service.model';
-import { ServicesService } from 'src/app/shared/services/services.service';
+import { Service } from 'src/app/core/models/Service.model';
+import { ServicesService } from 'src/app/core/services/services.service';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
-import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 @Component({
   selector: 'app-services-detail',

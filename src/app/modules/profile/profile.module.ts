@@ -8,7 +8,7 @@ import { ProfileDetailComponent } from './profile-detail/profile-detail.componen
 import { ProfileHomeComponent } from './profile-home/profile-home.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
-import { SharedModule } from '../../shared/shared.module';
+import { CoreModule } from '../../core/core.module';
 import { ProfileAvatarUploaderComponent } from './profile-detail/profile-avatar-uploader/profile-avatar-uploader.component';
 import { ServicesModule } from '../services/services.module';
 
@@ -22,7 +22,7 @@ import { ServicesModule } from '../services/services.module';
   ],
   imports: [
     CommonModule,
-    SharedModule,
+    CoreModule,
     NgZorroAntdModule,
     ProfileRoutingModule,
     ServicesModule

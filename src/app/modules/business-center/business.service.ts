@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 
 import { EMPLOYEES } from './mock-businesses';
 import { Business } from './business';
-import { MessageService } from '../../shared/services/message.service';
+import { MessageService } from '../../core/services/message.service';
 
 
 @Injectable({

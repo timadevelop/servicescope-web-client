@@ -23,6 +23,10 @@ import { CategorySelectorComponent } from './components/common/category-selector
 import { TagsSelectorComponent } from './components/common/tags-selector/tags-selector.component';
 import { ImagesSelectorComponent } from './components/common/images-selector/images-selector.component';
 import { LinkifyPipe } from './pipes/linkify.pipe';
+import { ChatService } from './services/socket/chat.service';
+import { SocketService } from './services/socket/socket.service';
+import { RealtimeNotificationsService } from './services/socket/realtime-notifications.service';
+import { ModuleWithProviders } from '@angular/compiler/src/core';
 
 @NgModule({
   imports: [
@@ -78,4 +82,11 @@ import { LinkifyPipe } from './pipes/linkify.pipe';
     LinkifyPipe
   ]
 })
-export class SharedModule { }
+export class CoreModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: CoreModule,
+      providers: [ SocketService, ChatService, RealtimeNotificationsService ]
+    }
+  }
+}

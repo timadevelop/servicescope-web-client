@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { slideInAnimation } from './animations';
 import { RouterOutlet, Router, Event, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { NzIconService } from 'ng-zorro-antd';
+import { RealtimeNotificationsService } from './core/services/socket/realtime-notifications.service';
 
 
 const ngZorroIconLiteral =
@@ -20,7 +21,9 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private _iconService: NzIconService) {
+    private _iconService: NzIconService,
+    private rns: RealtimeNotificationsService) {
+      // init loading
       this.router.events.subscribe((event: Event) => {
         switch (true) {
           case event instanceof NavigationStart: {
@@ -39,7 +42,10 @@ export class AppComponent {
           }
         }
       });
+      // icons
       this._iconService.addIconLiteral('ng-vlicon:facebook', ngZorroIconLiteral);
+      // notifications service
+      this.rns.run();
   }
 
 

@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
-import { UserService } from 'src/app/shared/services/user.service';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
-import { Conversation } from 'src/app/shared/models/Conversation.model';
-import { ConversationsService } from '../services/conversations.service';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
+import { Conversation } from 'src/app/core/models/Conversation.model';
+import { ConversationsService } from '../../../core/services/conversations.service';
 
 @Component({
   selector: 'app-messages-list',

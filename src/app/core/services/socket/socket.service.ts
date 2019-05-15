@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { Observable, Observer, Subject } from 'rxjs';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../../../modules/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'

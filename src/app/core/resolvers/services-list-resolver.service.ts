@@ -4,7 +4,7 @@ import { Router, RouterStateSnapshot, ActivatedRouteSnapshot, Resolve } from '@a
 import { Observable, of, EMPTY, throwError } from 'rxjs';
 import { Service } from '../models/Service.model';
 import { take, mergeMap, catchError } from 'rxjs/operators';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { HttpErrorResponse } from '@angular/common/http';
 
 

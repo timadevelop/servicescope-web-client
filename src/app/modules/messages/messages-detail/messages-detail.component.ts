@@ -1,13 +1,14 @@
 import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
-import { ChatService, SocketMessage } from '../services/chat.service';
-import { MessagesService } from 'src/app/modules/messages/services/messages.service';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
-import { Message } from 'src/app/shared/models/Message.model';
-import { UserService } from 'src/app/shared/services/user.service';
+
+import { MessagesService } from 'src/app/core/services/messages.service';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
+import { Message } from 'src/app/core/models/Message.model';
+import { UserService } from 'src/app/core/services/user.service';
 import { ActivatedRoute } from '@angular/router';
-import { Conversation } from 'src/app/shared/models/Conversation.model';
-import { User } from 'src/app/shared/models/User.model';
+import { Conversation } from 'src/app/core/models/Conversation.model';
+import { User } from 'src/app/core/models/User.model';
 import { NzMessageService } from 'ng-zorro-antd';
+import { ChatService, SocketMessage } from 'src/app/core/services/socket/chat.service';
 
 @Component({
   selector: 'app-messages-detail',

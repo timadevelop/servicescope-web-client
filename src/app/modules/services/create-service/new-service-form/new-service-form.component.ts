@@ -1,13 +1,13 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Service } from 'src/app/shared/models/Service.model';
+import { Service } from 'src/app/core/models/Service.model';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { UserService } from 'src/app/shared/services/user.service';
-import { Location } from 'src/app/shared/models/Location.model';
+import { UserService } from 'src/app/core/services/user.service';
+import { Location } from 'src/app/core/models/Location.model';
 import { JsonLabelValueEditorComponent } from './json-label-value-editor/json-label-value-editor.component';
 import { UploadFile } from 'ng-zorro-antd';
 import { of } from 'rxjs';
-import { ServiceApiRequest } from 'src/app/shared/models/api-request/service-api-request.model';
-import { TargetDeviceService } from 'src/app/shared/services/target-device.service';
+import { ServiceApiRequest } from 'src/app/core/models/api-request/service-api-request.model';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 
 

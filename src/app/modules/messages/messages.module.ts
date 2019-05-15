@@ -8,7 +8,7 @@ import { MessagesListComponent } from './messages-list/messages-list.component';
 import { MessagesDetailComponent } from './messages-detail/messages-detail.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
-import { SharedModule } from '../../shared/shared.module';
+import { CoreModule } from '../../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewMessageFormComponent } from './messages-detail/new-message-form/new-message-form.component';
 
@@ -21,7 +21,7 @@ import { NewMessageFormComponent } from './messages-detail/new-message-form/new-
   ],
   imports: [
     CommonModule,
-    SharedModule,
+    CoreModule,
     FormsModule,
     ReactiveFormsModule,
     NgZorroAntdModule,

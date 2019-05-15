@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../../models/User.model';
 import { DatePipe } from '@angular/common';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { AdditionalConversationRouteData } from 'src/app/modules/messages/redirect.guard';
 
 @Component({

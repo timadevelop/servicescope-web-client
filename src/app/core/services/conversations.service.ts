@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
-import { Conversation } from 'src/app/shared/models/Conversation.model';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
+import { Conversation } from 'src/app/core/models/Conversation.model';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
 import { HttpParams, HttpClient } from '@angular/common/http';
-import { CustomEncoder } from 'src/app/shared/services/custom.encoder';
-import { ConversationApiRequest } from 'src/app/shared/models/api-request/conversation-api-request.model';
-import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
+import { CustomEncoder } from 'src/app/core/services/custom.encoder';
+import { ConversationApiRequest } from 'src/app/core/models/api-request/conversation-api-request.model';
+import { ErrorHandlerService } from 'src/app/core/services/error-handler.service';
 
 @Injectable({
   providedIn: 'root'

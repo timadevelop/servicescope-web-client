@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UploadFile, NzMessageService } from 'ng-zorro-antd';
-import { Conversation } from 'src/app/shared/models/Conversation.model';
-import { MessagesService } from '../../services/messages.service';
-import { MessageApiRequest } from 'src/app/shared/models/api-request/message-api-request.model';
+import { Conversation } from 'src/app/core/models/Conversation.model';
+import { MessagesService } from '../../../../core/services/messages.service';
+import { MessageApiRequest } from 'src/app/core/models/api-request/message-api-request.model';
 import { HttpEventType, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Message } from 'src/app/shared/models/Message.model';
+import { Message } from 'src/app/core/models/Message.model';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 

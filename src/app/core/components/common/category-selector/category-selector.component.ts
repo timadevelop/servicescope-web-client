@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
-import { Category } from 'src/app/shared/models/Category.models';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
+import { Category } from 'src/app/core/models/Category.models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CategoriesService } from 'src/app/shared/services/categories.service';
+import { CategoriesService } from 'src/app/core/services/categories.service';
 
 @Component({
   selector: 'app-category-selector',

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../services/chat.service';
-import { SocketService } from '../services/socket.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { SocketService } from '../../../core/services/socket/socket.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { ChatService } from 'src/app/core/services/socket/chat.service';
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.scss'],
-  providers: [SocketService, ChatService]
+  styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit {
   constructor(

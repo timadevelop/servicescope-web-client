@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { TagsService } from 'src/app/shared/services/tags.service';
+import { TagsService } from 'src/app/core/services/tags.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { Tag } from 'src/app/shared/models/Tag.models';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
+import { Tag } from 'src/app/core/models/Tag.models';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({

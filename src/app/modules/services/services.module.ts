@@ -8,7 +8,7 @@ import { ServicesListComponent } from './services-list/services-list.component';
 import { ServicesDetailComponent } from './services-detail/services-detail.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
-import { SharedModule } from '../../shared/shared.module';
+import { CoreModule } from '../../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimilarServicesListComponent } from './similar-services-list/similar-services-list.component';
 import { NewServiceFormComponent } from './create-service/new-service-form/new-service-form.component';
@@ -27,7 +27,7 @@ import { JsonLabelValueEditorComponent } from './create-service/new-service-form
   ],
   imports: [
     CommonModule,
-    SharedModule,
+    CoreModule,
     FormsModule,
     ReactiveFormsModule,
     NgZorroAntdModule,

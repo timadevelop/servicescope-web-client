@@ -5,7 +5,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { BusinessService } from '../business.service';
 import { Observable } from 'rxjs';
-import { DialogService } from 'src/app/shared/services/dialog.service';
+import { DialogService } from 'src/app/core/services/dialog.service';
 
 
 @Component({

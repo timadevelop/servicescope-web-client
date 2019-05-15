@@ -3,7 +3,7 @@ import { Router, RouterStateSnapshot, ActivatedRouteSnapshot, Resolve } from '@a
 import { Observable, of, EMPTY } from 'rxjs';
 import { Service } from '../models/Service.model';
 import { take, mergeMap } from 'rxjs/operators';
-import { ServicesService } from 'src/app/shared/services/services.service';
+import { ServicesService } from 'src/app/core/services/services.service';
 
 @Injectable({
   providedIn: 'root'

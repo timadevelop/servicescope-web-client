@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { tap, delay, mapTo, catchError, retry } from 'rxjs/operators';
 import { TokenInfo } from './models';
-import { User } from '../../shared/models/User.model';
-import { LoginApiRequest } from '../../shared/models/api-request/login-api-request.model';
+import { User } from '../../core/models/User.model';
+import { LoginApiRequest } from '../../core/models/api-request/login-api-request.model';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { RegisterApiRequest } from '../../shared/models/api-request/register-api-request.model';
+import { RegisterApiRequest } from '../../core/models/api-request/register-api-request.model';
 import { NzMessageService } from 'ng-zorro-antd';
-import { LogoutApiRequest } from '../../shared/models/api-request/logout-api-request.model';
+import { LogoutApiRequest } from '../../core/models/api-request/logout-api-request.model';
 import { Router } from '@angular/router';
 
 @Injectable({

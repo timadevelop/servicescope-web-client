@@ -4,7 +4,7 @@ import { BusinessListComponent } from './business-list/business-list.component';
 import { BusinessDetailComponent } from './business-detail/business-detail.component';
 import { BusinessCenterComponent } from './business-center/business-center.component';
 import { BusinessCenterHomeComponent } from './business-center-home/business-center-home.component';
-import { CanDeactivateGuard } from '../../shared/guards/can-deactivate.guard';
+import { CanDeactivateGuard } from '../../core/guards/can-deactivate.guard';
 import { BusinessDetailResolverService } from './business-center-detail-resolver.service';
 
 const routes: Routes = [

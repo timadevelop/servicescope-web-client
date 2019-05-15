@@ -16,8 +16,8 @@ import { BusinessesModule } from './modules/business-center/businesses.module';
 import { ComposeMessageComponent } from './app-components/compose-message/compose-message.component';
 import { AuthModule } from './modules/auth/auth.module';
 
-import { httpInterceptorProviders } from './shared/interceptors';
-import { SharedModule } from './shared/shared.module';
+import { httpInterceptorProviders } from './core/interceptors';
+import { CoreModule } from './core/core.module';
 import { ServicesModule } from './modules/services/services.module';
 
 registerLocaleData(en);
@@ -37,7 +37,7 @@ registerLocaleData(en);
     EmployeesModule,
     BusinessesModule,
     AuthModule,
-    SharedModule,
+    CoreModule.forRoot(),
     ServicesModule,
     AppRoutingModule,
   ],

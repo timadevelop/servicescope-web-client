@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/shared/models/User.model';
+import { User } from 'src/app/core/models/User.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 
 @Component({
   selector: 'app-profile-list',

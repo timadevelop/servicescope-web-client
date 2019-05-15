@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { SocketService } from './socket.service';
 import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from 'src/app/modules/auth/auth.service';
 
 export class SocketMessage {
   type: string;
@@ -16,6 +16,7 @@ export class SocketMessage {
 export class ChatService implements OnDestroy {
   public messages: Subject<SocketMessage>;
   public room: string;
+  public id = Math.random();
 
   ngOnDestroy() {
     if (this.messages) this.messages.complete();
@@ -24,15 +25,20 @@ export class ChatService implements OnDestroy {
   constructor(
     private authService: AuthService,
     private wsService: SocketService) {
-    if (this.authService.isLoggedIn) {
-      this.connect();
-    }
+    // if (this.authService.isLoggedIn) {
+    //   this.connect();
+    // }
   }
 
   public connect() {
+    console.log('connect called;', this.id);
+    console.log(this);
     if (this.messages) {
+      console.log('return old v')
       return this.messages;
     }
+
+    console.log('create new');
 
     this.messages = <Subject<SocketMessage>>this.wsService.connect(this.getSocketUrl()).pipe(
       map((response: MessageEvent): SocketMessage => {
@@ -61,11 +67,13 @@ export class ChatService implements OnDestroy {
 
 
   public leaveRoom() {
-    this.messages.next({
-      type: "leave_room",
-      payload: null
-    });
-    this.room = null;
+    if (this.messages && this.room) {
+      this.messages.next({
+        type: "leave_room",
+        payload: null
+      });
+      this.room = null;
+    }
   }
 
 

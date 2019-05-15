@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TagsService } from 'src/app/shared/services/tags.service';
-import { Tag } from 'src/app/shared/models/Tag.models';
+import { TagsService } from 'src/app/core/services/tags.service';
+import { Tag } from 'src/app/core/models/Tag.models';
 import { Subscription } from 'rxjs';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
-import { CategoriesService } from 'src/app/shared/services/categories.service';
+import { CategoriesService } from 'src/app/core/services/categories.service';
 
 @Component({
   selector: 'app-list-filters',

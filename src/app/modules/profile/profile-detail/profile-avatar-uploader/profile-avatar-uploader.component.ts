@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UploadFile, NzMessageService, UploadXHRArgs } from 'ng-zorro-antd';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { Observable, Observer } from 'rxjs';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
-import { User } from 'src/app/shared/models/User.model';
+import { User } from 'src/app/core/models/User.model';
 
 @Component({
   selector: 'app-profile-avatar-uploader',

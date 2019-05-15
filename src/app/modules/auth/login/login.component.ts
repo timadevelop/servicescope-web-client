@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginApiRequest } from 'src/app/shared/models/api-request/login-api-request.model';
-import { UserService } from 'src/app/shared/services/user.service';
+import { LoginApiRequest } from 'src/app/core/models/api-request/login-api-request.model';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-login',

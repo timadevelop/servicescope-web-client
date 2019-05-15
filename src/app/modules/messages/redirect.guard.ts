@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, CanLoad, Route, ParamMap } from '@angular/router';
-import { ConversationsService } from './services/conversations.service';
+import { ConversationsService } from '../../core/services/conversations.service';
 import { Observable, of } from 'rxjs';
-import { Conversation } from 'src/app/shared/models/Conversation.model';
+import { Conversation } from 'src/app/core/models/Conversation.model';
 import { catchError, switchMap } from 'rxjs/operators';
-import { UserService } from 'src/app/shared/services/user.service';
-import { ConversationApiRequest } from 'src/app/shared/models/api-request/conversation-api-request.model';
+import { UserService } from 'src/app/core/services/user.service';
+import { ConversationApiRequest } from 'src/app/core/models/api-request/conversation-api-request.model';
 import { Location } from '@angular/common';
 import { NzMessageService } from 'ng-zorro-antd';
 

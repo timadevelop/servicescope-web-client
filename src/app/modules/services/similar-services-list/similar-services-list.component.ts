@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PaginatedApiResponse } from 'src/app/shared/models/api-response/paginated-api-response';
-import { Service } from 'src/app/shared/models/Service.model';
-import { ServicesService } from 'src/app/shared/services/services.service';
+import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
+import { Service } from 'src/app/core/models/Service.model';
+import { ServicesService } from 'src/app/core/services/services.service';
 import { Router, Params } from '@angular/router';
-import { Tag } from 'src/app/shared/models/Tag.models';
+import { Tag } from 'src/app/core/models/Tag.models';
 
 @Component({
   selector: 'app-similar-services-list',

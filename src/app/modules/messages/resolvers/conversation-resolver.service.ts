@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Conversation } from '../../../shared/models/Conversation.model';
-import { ConversationsService } from 'src/app/modules/messages/services/conversations.service';
+import { Conversation } from '../../../core/models/Conversation.model';
+import { ConversationsService } from 'src/app/core/services/conversations.service';
 import { Observable, EMPTY, of } from 'rxjs';
 import { take, mergeMap, catchError } from 'rxjs/operators';
-import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
+import { ErrorHandlerService } from 'src/app/core/services/error-handler.service';
 
 @Injectable({
   providedIn: 'root'
