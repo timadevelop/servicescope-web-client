@@ -8,7 +8,8 @@
   <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="itemTitle" [nzDescription]="description">
     <!-- Templates for list item -->
     <ng-template #avatar>
-      <nz-avatar [routerLink]="[modelName ? '/' + modelName : './', item.id]" style="cursor: pointer;" [nzSize]="128" nzShape="square"
+      <nz-avatar [routerLink]="[modelName ? '/' + modelName : './', item.id]" style="cursor: pointer;" [nzSize]="128"
+        nzShape="square"
         [nzSrc]="item?.images[0] ? item.images[0].image : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'">
       </nz-avatar>
     </ng-template>
@@ -25,10 +26,12 @@
 
     <ng-template #tags>
       <div class="tags">
-        <nz-tag [routerLink]="[]" [queryParams]="{tags: tag.name}" queryParamsHandling="merge"
+        <a [routerLink]="[]" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge"
           *ngFor="let tag of item.tags">
-          {{tag.name}}
-        </nz-tag>
+          <nz-tag>
+            {{tag.name}}
+          </nz-tag>
+        </a>
       </div>
     </ng-template>
 

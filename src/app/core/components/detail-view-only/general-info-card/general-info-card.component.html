@@ -1,8 +1,10 @@
-<div class="general-info" nz-row nzType="flex" [class.col]="vertical" [nzJustify]="vertical ? 'center' : 'space-between'" nzAlign="middle">
+<div class="general-info" nz-row nzType="flex" [class.col]="vertical"
+  [nzJustify]="vertical ? 'center' : 'space-between'" nzAlign="middle">
   <div nz-col class="mb-vertical-align">
-    <nz-tag nz-tooltip nzTitle="Търси обяви по таг" [routerLink]="['/tags', tag.id]" [nzColor]="tag.color"
-      *ngFor="let tag of tags">{{tag.name}}
-    </nz-tag>
+    <a [routerLink]="['../']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge" *ngFor="let tag of tags">
+      <nz-tag nz-tooltip nzTitle="Търси обяви по таг" [nzColor]="tag.color">{{tag.name}}
+      </nz-tag>
+    </a>
     <nz-tag *ngIf="!tags || tags.length === 0">Няма тагове</nz-tag>
   </div>
   <div nz-col class="mb-vertical-align">
