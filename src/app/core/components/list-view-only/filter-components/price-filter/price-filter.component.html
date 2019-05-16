@@ -1,10 +1,10 @@
 <nz-input-group nzCompact>
-  <nz-input-number nzPlaceHolder="Цена от" [nzMin]="min" [nzMax]="max" [ngModel]="priceMin"
+  <nz-input-number style="width: 30%" nzPlaceHolder="Цена от" [nzMin]="min" [nzMax]="max" [ngModel]="priceMin"
     (ngModelChange)="onMinChange($event)">
   </nz-input-number>
-  <nz-input-number nzPlaceHolder="Цена до" [nzMin]="min" [ngModel]="priceMax" (ngModelChange)="onMaxChange($event)">
+  <nz-input-number style="width: 30%" nzPlaceHolder="Цена до" [nzMin]="min" [ngModel]="priceMax" (ngModelChange)="onMaxChange($event)">
   </nz-input-number>
-  <nz-button-group style="float: right;">
+  <nz-button-group style="width: 40%; float: right;">
     <button nz-button (click)="filter()">Ok</button>
     <button nz-button (click)="clear()"><i nz-icon type="close"></i></button>
   </nz-button-group>
