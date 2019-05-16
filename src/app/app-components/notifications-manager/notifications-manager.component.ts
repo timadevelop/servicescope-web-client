@@ -41,6 +41,7 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
   }
 
   private reload() {
+    this.page = '1';
     this.notificationsService.getNotifications(this.page, this.pageSize, null)
       .subscribe(r => {
         // for (const notification of r.results) {
@@ -70,6 +71,7 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
   }
 
   loadData(pi: number): void {
+    this.page = String(pi);
     this.notificationsService.getNotifications(String(pi), this.pageSize)
       .subscribe(r => {
         this.paginatedNotifications = r;
