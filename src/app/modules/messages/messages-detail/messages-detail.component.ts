@@ -10,6 +10,7 @@ import { User } from 'src/app/core/models/User.model';
 import { NzMessageService } from 'ng-zorro-antd';
 import { ChatService, SocketMessage } from 'src/app/core/services/socket/chat.service';
 import { Subscription } from 'rxjs';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 @Component({
   selector: 'app-messages-detail',
@@ -33,7 +34,8 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     public userService: UserService,
     private chatService: ChatService,
     private messagesService: MessagesService,
-    private nzMsgService: NzMessageService
+    private nzMsgService: NzMessageService,
+    public tds: TargetDeviceService
   ) { }
 
   ngOnDestroy() {

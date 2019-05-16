@@ -2,7 +2,7 @@
   <div class="messages-wrapper" nz-row nzType="flex" nzJustify="start"
     style="align-content: stretch;align-items: stretch;">
     <!-- list -->
-    <div nz-col nzSpan="6" class="messages-list-container">
+    <div nz-col nzXs="24" nzXl="6" class="messages-list-container" *ngIf="!conversation || !tds.isMobile">
       <div nz-row nzType="flex" nzAlign="middle" class="current-user-info">
         <div nz-col>
           <nz-avatar class="user-logo" [nzSize]="50" nzIcon="user" [nzSrc]="userService.currentUser.image">
@@ -15,7 +15,7 @@
       <app-messages-list></app-messages-list>
     </div>
     <!--detail -->
-    <div nz-col nzSpan="18" class="messages-detail-container">
+    <div nz-col nzXs="24" nzXl="18" class="messages-detail-container">
       <router-outlet></router-outlet>
     </div>
   </div>

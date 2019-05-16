@@ -1,5 +1,8 @@
 <div class="wrapper" *ngIf="conversation else notfoundtemplate">
-  <div nz-row class="header">
+  <div nz-row nzType="flex" nzAlign="middle" class="header">
+    <div nz-col style="margin-right: 15px;" *ngIf="tds.isMobile">
+      <a [routerLink]="['../../']" style="font-size: 30px;" nz-icon nzType="arrow-left" nzTheme="outline"></a>
+    </div>
     <nz-list-item>
       <nz-list-item-meta *ngIf="partner" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate"
         [nzDescription]="descriptionTemplate">
