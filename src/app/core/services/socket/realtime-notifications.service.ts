@@ -50,7 +50,6 @@ export class RealtimeNotificationsService implements OnDestroy {
   }
 
   processNotification(notification: Notification) {
-    console.log(notification);
     if (
       notification.recipient_id &&
       (!this.userService.currentUser ||

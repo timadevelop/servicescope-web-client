@@ -53,7 +53,8 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
   logout() {
     this.authService.logout()
       .subscribe(_ => {
-        this.router.navigate(['/'])
+        this.onClose();
+        this.router.navigate(['/']);
       });
   }
 

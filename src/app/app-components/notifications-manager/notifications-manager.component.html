@@ -11,10 +11,10 @@
   </div>
   <div *ngIf="userService.currentUser" nz-row nzType="flex" nzJustify="center" class="main-buttons"
     style="width: 100%;">
-    <a nz-col nz-button [routerLink]="['/profiles', userService.currentUser.id]"
+    <a nz-col nz-button (click)="onClose()" [routerLink]="['/profiles', userService.currentUser.id]"
       routerLinkActive="ant-menu-item-selected">Profile
     </a>
-    <a nz-col nz-button [routerLink]="['/messages']" routerLinkActive="ant-menu-item-selected">Messages</a>
+    <a nz-col nz-button (click)="onClose()" [routerLink]="['/messages']" routerLinkActive="ant-menu-item-selected">Messages</a>
     <a nz-col nz-button (click)="logout()">Logout</a>
   </div>
   <nz-divider class="margin-5" nzOrientation="left" [nzText]="'Notifications'"></nz-divider>

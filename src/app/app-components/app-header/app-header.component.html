@@ -17,7 +17,7 @@
           <a>Login</a>
         </li>
         <ng-template #userMenuItem>
-          <li nz-menu-item *ngIf="userService.currentUser" (click)="toggleNotificationManager()" class="user-menu-item">
+          <li nz-menu-item *ngIf="userService.currentUser" (click)="toggleNotificationManager()" class="user-menu-item" [class.ant-menu-item-selected]="rns.showNotificationsManager">
             <div title>
               <nz-badge [nzCount]="rns.count + userService.currentUser.notifications_count">
                 <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>

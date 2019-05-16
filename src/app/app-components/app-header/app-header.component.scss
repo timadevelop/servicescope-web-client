@@ -53,6 +53,10 @@
   float: right;
 }
 
+.user-logo {
+  margin-right: 5px;
+}
+
 @include respond-below(mobile) {
   .login-menu-item,
   .user-menu-item {
