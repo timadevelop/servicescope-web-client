@@ -29,7 +29,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    &.msg-col {
+    &.msg-col, &.promo-col {
       background: $contrast-color;
     }
     &.phone-col {

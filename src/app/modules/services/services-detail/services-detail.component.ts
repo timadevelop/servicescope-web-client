@@ -5,6 +5,7 @@ import { ServicesService } from 'src/app/core/services/services.service';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-services-detail',
@@ -31,7 +32,8 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
     public route: ActivatedRoute,
     public servicesService: ServicesService,
     public tds: TargetDeviceService,
-    private router: Router) { }
+    private router: Router,
+    public userService: UserService) { }
 
   private getTabNameFromUrl(url: string) {
     return url.replace(/(\?.*|\(.*)/, '').split('/').pop();

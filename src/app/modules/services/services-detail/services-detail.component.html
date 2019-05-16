@@ -59,7 +59,8 @@
     </app-price-card>
     <ng-container *ngTemplateOutlet="promoButton"></ng-container>
     <nz-divider class="margin-20"></nz-divider>
-    <app-author-card [itemTitle]="service.title" [author]="service.author" [override_phone]="service.contact_phone"></app-author-card>
+    <app-author-card [itemTitle]="service.title" [author]="service.author" [override_phone]="service.contact_phone">
+    </app-author-card>
   </div>
 </div>
 
@@ -71,10 +72,13 @@
 
 <!-- mobile contact -->
 <div nz-row nzType="flex" nzJustify="stretch" nzAlign="stretch" class="mobile-contact" *ngIf="tds.isMobile">
-  <div nz-col nzSpan="12" class="msg-col">
+  <div *ngIf="userService.currentUser.id != service.author.id" nz-col nzSpan="12" class="msg-col">
     <a [href]="'tel:' + service.contact_phone"><i nz-icon nzType="phone"></i>Обади се</a>
   </div>
-  <div nz-col nzSpan="12" class="phone-col">
+  <div *ngIf="userService.currentUser.id != service.author.id" nz-col nzSpan="12" class="phone-col">
     <a [routerLink]="['/', 'messages', 'user', service.author.id]"><i nz-icon nzType="message"></i>Съобщение</a>
+  </div>
+  <div *ngIf="userService.currentUser.id == service.author.id" nz-col nzSpan="24" class="promo-col">
+    <a><i nz-icon nzType="rocket"></i>Промотирай твоята обява</a>
   </div>
 </div>

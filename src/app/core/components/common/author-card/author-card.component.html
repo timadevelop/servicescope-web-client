@@ -46,12 +46,13 @@
       </div>
     </div>
 
-    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row"
+      *ngIf="author.id != userService?.currentUser.id">
       <p nz-col class="label">Message</p>
       <div nz-col class="value">
-        <a *ngIf="author.id != userService?.currentUser.id" [routerLink]="['/', 'messages', 'user', author.id]" [queryParams]="additionalRouteData"><i
+        <a [routerLink]="['/', 'messages', 'user', author.id]" [queryParams]="additionalRouteData"><i
             style="margin-right: 5px;" nz-icon type="message"></i>Message</a>
-            <!-- TODO: margin for all icons -->
+        <!-- TODO: margin for all icons -->
       </div>
     </div>
 
