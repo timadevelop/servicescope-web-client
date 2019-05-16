@@ -1,4 +1,4 @@
-<nz-drawer *ngIf="userService.currentUser" nzWidth="33%" [nzClosable]="true" [nzVisible]="visible" nzPlacement="right"
+<nz-drawer *ngIf="userService.currentUser" [nzWidth]="tds.isMobile ? '85%' : '33%'" [nzClosable]="true" [nzVisible]="visible" nzPlacement="right"
   nzTitle="Basic Drawer" (nzOnClose)="onClose()">
   <div nz-row nzJustify="center">
     <app-profile-avatar-uploader [user]="userService.currentUser"></app-profile-avatar-uploader>

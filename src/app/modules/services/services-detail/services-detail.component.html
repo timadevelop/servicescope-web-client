@@ -75,6 +75,6 @@
     <a [href]="'tel:' + service.contact_phone"><i nz-icon nzType="phone"></i>Обади се</a>
   </div>
   <div nz-col nzSpan="12" class="phone-col">
-    <a [routerLink]="['/messages', service.author.id]"><i nz-icon nzType="message"></i>Съобщение</a>
+    <a [routerLink]="['/', 'messages', 'user', service.author.id]"><i nz-icon nzType="message"></i>Съобщение</a>
   </div>
 </div>

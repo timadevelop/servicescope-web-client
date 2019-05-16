@@ -6,6 +6,7 @@ import { Notification } from 'src/app/core/models/Notification.model';
 import { UserService } from 'src/app/core/services/user.service';
 import { AuthService } from 'src/app/modules/auth/auth.service';
 import { Router } from '@angular/router';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 @Component({
   selector: 'app-notifications-manager',
@@ -23,6 +24,7 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
   constructor(
     private notificationsService: NotificationsService,
     public rns: RealtimeNotificationsService,
+    public tds: TargetDeviceService,
     public userService: UserService,
     public authService: AuthService,
     private router: Router
