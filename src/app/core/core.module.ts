@@ -27,6 +27,7 @@ import { ChatService } from './services/socket/chat.service';
 import { SocketService } from './services/socket/socket.service';
 import { RealtimeNotificationsService } from './services/socket/realtime-notifications.service';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
+import { ProfileAvatarUploaderComponent } from './components/common/profile-avatar-uploader/profile-avatar-uploader.component';
 
 @NgModule({
   imports: [
@@ -55,6 +56,7 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
     CategorySelectorComponent,
     TagsSelectorComponent,
     ImagesSelectorComponent,
+    ProfileAvatarUploaderComponent,
     // pipes
     LinkifyPipe
   ],
@@ -78,6 +80,7 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
     CategorySelectorComponent,
     TagsSelectorComponent,
     ImagesSelectorComponent,
+    ProfileAvatarUploaderComponent,
     // pipes
     LinkifyPipe
   ]

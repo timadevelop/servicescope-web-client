@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { RealtimeNotificationsService } from 'src/app/core/services/socket/realtime-notifications.service';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { NotificationsService } from 'src/app/core/services/notifications.service';
@@ -12,11 +12,13 @@ import { Router } from '@angular/router';
   templateUrl: './notifications-manager.component.html',
   styleUrls: ['./notifications-manager.component.scss']
 })
-export class NotificationsManagerComponent implements OnInit {
+export class NotificationsManagerComponent implements OnInit, OnChanges {
 
   paginatedNotifications: PaginatedApiResponse<Notification>;
   page: string = '1';
   pageSize: string = '20';
+
+  @Input() visible = false;
 
   constructor(
     private notificationsService: NotificationsService,
@@ -26,20 +28,40 @@ export class NotificationsManagerComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['visible'] && changes['visible'].currentValue) {
+      this.reload();
+      if (this.userService.currentUser) {
+        this.userService.currentUser.notifications_count = 0;
+        this.rns.clear();
+      }
+    }
+  }
+
+  private reload() {
     this.notificationsService.getNotifications(this.page, this.pageSize, null)
       .subscribe(r => {
-        console.log(r);
+        // for (const notification of r.results) {
+        //      this.notiy(notification);
+        // }
         this.paginatedNotifications = r;
-      })
-
+      });
   }
 
   logout() {
     this.authService.logout()
       .subscribe(_ => {
-        // this.router.navigate(['/'])
+        this.router.navigate(['/'])
       });
+  }
+
+  notify(notification: Notification) {
+    if (!notification.notified) {
+      this.rns.markNotificationAsRead(notification);
+      notification.notified = true;
+    }
   }
 
   onClose() {
@@ -50,6 +72,6 @@ export class NotificationsManagerComponent implements OnInit {
     this.notificationsService.getNotifications(String(pi), this.pageSize)
       .subscribe(r => {
         this.paginatedNotifications = r;
-      })
+      });
   }
 }

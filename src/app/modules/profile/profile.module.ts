@@ -9,7 +9,6 @@ import { ProfileHomeComponent } from './profile-home/profile-home.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { CoreModule } from '../../core/core.module';
-import { ProfileAvatarUploaderComponent } from './profile-detail/profile-avatar-uploader/profile-avatar-uploader.component';
 import { ServicesModule } from '../services/services.module';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { ServicesModule } from '../services/services.module';
     ProfileListComponent,
     ProfileDetailComponent,
     ProfileHomeComponent,
-    ProfileAvatarUploaderComponent
   ],
   imports: [
     CommonModule,

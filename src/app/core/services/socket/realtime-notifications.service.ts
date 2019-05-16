@@ -33,6 +33,10 @@ export class RealtimeNotificationsService implements OnDestroy {
     }
   }
 
+  public clear() {
+    this.notificationHistory = [];
+  }
+
   public get count() {
     return this.notificationHistory.length;
   }
@@ -76,7 +80,7 @@ export class RealtimeNotificationsService implements OnDestroy {
         payload: {
           notification_id: notification.id
         }
-      })
+      });
     }
   }
 }

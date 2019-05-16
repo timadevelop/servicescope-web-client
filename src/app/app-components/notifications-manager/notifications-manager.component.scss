@@ -1,0 +1,15 @@
+@import '~src/variables';
+
+.main-buttons {
+  > * {
+    margin: 10px 10px;
+  }
+}
+
+nz-list-item {
+  padding: 5px;
+}
+
+.new {
+  background: $light-grey-color;
+}

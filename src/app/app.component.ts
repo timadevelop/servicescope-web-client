@@ -22,7 +22,7 @@ export class AppComponent {
   constructor(
     private router: Router,
     private _iconService: NzIconService,
-    private rns: RealtimeNotificationsService) {
+    public rns: RealtimeNotificationsService) {
       // init loading
       this.router.events.subscribe((event: Event) => {
         switch (true) {

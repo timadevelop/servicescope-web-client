@@ -1,23 +1,28 @@
-<nz-drawer nzWidth="40%" [nzClosable]="false" [nzVisible]="rns?.showNotificationsManager" nzPlacement="right"
+<nz-drawer *ngIf="userService.currentUser" nzWidth="33%" [nzClosable]="true" [nzVisible]="visible" nzPlacement="right"
   nzTitle="Basic Drawer" (nzOnClose)="onClose()">
-
-  <div *ngIf="userService.currentUser">
-    <ul>
-      <a [routerLink]="['/profiles', userService.currentUser.id]" routerLinkActive="ant-menu-item-selected">Profile
-      </a>
-      <a [routerLink]="['/messages']" routerLinkActive="ant-menu-item-selected">Messages</a>
-      <a (click)="logout()">Logout</a>
-    </ul>
+  <div nz-row nzJustify="center">
+    <app-profile-avatar-uploader [user]="userService.currentUser"></app-profile-avatar-uploader>
   </div>
-  <nz-divider></nz-divider>
-  <nz-list *ngIf="paginatedNotifications" [nzDataSource]="paginatedNotifications ? paginatedNotifications?.results : []" [nzItemLayout]="'horizontal'"
-    [nzRenderItem]="notificationTemplate" [nzPagination]="pagination" [nzFooter]="footer">
+  <div nz-row style="text-align: center;">
+    <h2 class="title">{{userService.currentUser.first_name}} {{userService.currentUser.last_name}}</h2>
+  </div>
+  <div nz-row style="text-align: center; opacity: .7;" *ngIf="userService.currentUser.bio">
+    <span>{{userService.currentUser.bio}}</span>
+  </div>
+  <div *ngIf="userService.currentUser" nz-row nzType="flex" nzJustify="center" class="main-buttons"
+    style="width: 100%;">
+    <a nz-col nz-button [routerLink]="['/profiles', userService.currentUser.id]"
+      routerLinkActive="ant-menu-item-selected">Profile
+    </a>
+    <a nz-col nz-button [routerLink]="['/messages']" routerLinkActive="ant-menu-item-selected">Messages</a>
+    <a nz-col nz-button (click)="logout()">Logout</a>
+  </div>
+  <nz-divider class="margin-5" nzOrientation="left" [nzText]="'Notifications'"></nz-divider>
+  <nz-list *ngIf="paginatedNotifications" [nzDataSource]="paginatedNotifications ? paginatedNotifications?.results : []"
+    [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate" [nzPagination]="pagination" [nzFooter]="footer">
     <ng-template #notificationTemplate let-notification>
-      <nz-list-item [nzContent]="null" [nzActions]="[]">
-        <ng-template #starAction>
-          <span nz-tooltip nzTitle="Services">
-            <i nz-icon type="clock" style="margin-right: 8px;"></i>{{notification.notification_datetime | date}}
-          </span>
+      <nz-list-item [nzContent]="null" [nzActions]="[]" [class.new]="!notification.notified" (mouseenter)="notify(notification)">
+        <ng-template #typeActionTemplate>
         </ng-template>
         <!-- <ng-template #likeAction>
           <span nz-tooltip nzTitle="Posts" [routerLink]="['/profiles', user.id, 'posts']">
