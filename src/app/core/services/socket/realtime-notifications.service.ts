@@ -11,9 +11,8 @@ import { UserService } from '../user.service';
 })
 export class RealtimeNotificationsService implements OnDestroy {
   private sub$: Subscription;
-  // public notificationHistory: Array<Notification> = [];
   _count = 0;
-  public showNotificationsManager = true;
+  public showNotificationsManager = false;
 
   ngOnDestroy() {
     if (this.sub$) this.sub$.unsubscribe();
@@ -35,7 +34,6 @@ export class RealtimeNotificationsService implements OnDestroy {
   }
 
   public clear() {
-    // this.notificationHistory = [];
     this._count = 0;
   }
 
@@ -60,19 +58,23 @@ export class RealtimeNotificationsService implements OnDestroy {
     }
 
     this.notify(notification);
-    // this.notificationHistory.push(notification);
-    // console.log(this.notificationHistory);
-    this._count += 1;
     // this.markNotificationAsRead(notification);
   }
 
   notify(notification: Notification) {
+    // console.log(this.chatService.room, notification);
+
+    if (notification.conversation_id !== null && this.chatService.room && notification.conversation_id === +this.chatService.room) {
+      return;
+    }
+
     this.nzNotificationService.create(
       notification.type,
       notification.title,
       notification.text,
       {}
     );
+    this._count += 1;
   }
 
   public markNotificationAsRead(notification: Notification) {
