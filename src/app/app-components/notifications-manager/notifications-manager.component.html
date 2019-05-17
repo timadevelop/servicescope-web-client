@@ -1,5 +1,5 @@
-<nz-drawer *ngIf="userService.currentUser" [nzWidth]="tds.isMobile ? '85%' : '33%'" [nzClosable]="true" [nzVisible]="visible" nzPlacement="right"
-  nzTitle="Basic Drawer" (nzOnClose)="onClose()">
+<nz-drawer *ngIf="userService.currentUser" [nzWidth]="tds.isMobile ? '85%' : '33%'" [nzClosable]="true"
+  [nzVisible]="visible" nzPlacement="right" nzTitle="Basic Drawer" (nzOnClose)="onClose()">
   <div nz-row nzJustify="center">
     <app-profile-avatar-uploader [user]="userService.currentUser"></app-profile-avatar-uploader>
   </div>
@@ -14,37 +14,16 @@
     <a nz-col nz-button (click)="onClose()" [routerLink]="['/profiles', userService.currentUser.id]"
       routerLinkActive="ant-menu-item-selected">Profile
     </a>
-    <a nz-col nz-button (click)="onClose()" [routerLink]="['/messages']" routerLinkActive="ant-menu-item-selected">Messages</a>
+    <a nz-col nz-button (click)="onClose()" [routerLink]="['/messages']"
+      routerLinkActive="ant-menu-item-selected">Messages</a>
     <a nz-col nz-button (click)="logout()">Logout</a>
   </div>
-  <nz-divider class="margin-5" nzOrientation="left" [nzText]="'Notifications'"></nz-divider>
+  <nz-divider class="margin-5" nzOrientation="left" [nzText]="'New Notifications'"></nz-divider>
+  <nz-list [nzDataSource]="rns.notificationHistory" [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate"></nz-list>
+  <nz-divider class="margin-5" nzOrientation="left" [nzText]="'Prev Notifications'"></nz-divider>
   <nz-list *ngIf="paginatedNotifications" [nzDataSource]="paginatedNotifications ? paginatedNotifications?.results : []"
     [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate" [nzPagination]="pagination" [nzFooter]="footer">
-    <ng-template #notificationTemplate let-notification>
-      <nz-list-item [nzContent]="null" [nzActions]="[]" [class.new]="!notification.notified" (mouseenter)="notify(notification)">
-        <ng-template #typeActionTemplate>
-        </ng-template>
-        <!-- <ng-template #likeAction>
-          <span nz-tooltip nzTitle="Posts" [routerLink]="['/profiles', user.id, 'posts']">
-            <i nz-icon type="align-left" style="margin-right: 8px;"></i>{{user.posts_count}}
-          </span>
-        </ng-template>
-        <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template> -->
-        <nz-list-item-meta [nzAvatar]="'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'"
-          [nzTitle]="nzTitle" [nzDescription]="descriptionTemplate">
-          <ng-template #nzTitle>
-            <b><a [routerLink]="[notification.redirect_url]">{{notification.title }}</a></b> {{notification.text}}
-          </ng-template>
-          <ng-template #descriptionTemplate>
-            {{notification.notification_datetime | date}}
-          </ng-template>
-        </nz-list-item-meta>
-        <ng-template #extra>
-          <!-- haha -->
-          <!-- <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" /> -->
-        </ng-template>
-      </nz-list-item>
-    </ng-template>
+
     <ng-template #footer>
       <!-- <div><b>ant design</b> footer part</div> -->
     </ng-template>
@@ -66,3 +45,31 @@ title: "New request"
 type: "info"
 url: "/saas_api/notifications/1/"
 -->
+
+<ng-template #notificationTemplate let-notification>
+  <nz-list-item [nzContent]="null" [nzActions]="[]" [class.new]="!notification.notified"
+    (mouseenter)="notify(notification)">
+    <ng-template #typeActionTemplate>
+    </ng-template>
+    <!-- <ng-template #likeAction>
+      <span nz-tooltip nzTitle="Posts" [routerLink]="['/profiles', user.id, 'posts']">
+        <i nz-icon type="align-left" style="margin-right: 8px;"></i>{{user.posts_count}}
+      </span>
+    </ng-template>
+    <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template> -->
+    <nz-list-item-meta [nzAvatar]="'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'"
+      [nzTitle]="nzTitle" [nzDescription]="descriptionTemplate">
+      <ng-template #nzTitle>
+        <b><a [routerLink]="[notification.redirect_url]">{{notification.title}} {{notification.id}}</a></b>
+        {{notification.text}}
+      </ng-template>
+      <ng-template #descriptionTemplate>
+        {{notification.notification_datetime | date}}
+      </ng-template>
+    </nz-list-item-meta>
+    <ng-template #extra>
+      <!-- haha -->
+      <!-- <img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" /> -->
+    </ng-template>
+  </nz-list-item>
+</ng-template>

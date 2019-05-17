@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
 })
 export class RealtimeNotificationsService implements OnDestroy {
   private sub$: Subscription;
+  public notificationHistory: Array<Notification> = [];
   _count = 0;
   public showNotificationsManager = false;
 
@@ -65,6 +66,7 @@ export class RealtimeNotificationsService implements OnDestroy {
     // console.log(this.chatService.room, notification);
 
     if (notification.conversation_id !== null && this.chatService.room && notification.conversation_id === +this.chatService.room) {
+      this.markNotificationAsRead(notification);
       return;
     }
 
@@ -74,6 +76,7 @@ export class RealtimeNotificationsService implements OnDestroy {
       notification.text,
       {}
     );
+    this.notificationHistory = [...this.notificationHistory, notification];
     this._count += 1;
   }
 
