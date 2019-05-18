@@ -7,30 +7,24 @@ import { ServiceResolverService } from '../../core/resolvers/service-resolver.se
 import { ServicesListComponent } from './services-list/services-list.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { ServicesListResolverService } from '../../core/resolvers/services-list-resolver.service';
-import { Route } from '@angular/compiler/src/core';
 import { PageNotFoundComponent } from 'src/app/core/components/page-not-found/page-not-found.component';
 import { CreateServiceComponent } from './create-service/create-service.component';
 
-
-const servicesListRouteTemplate = {
-  component: ServicesListComponent,
-  resolve: {
-    services: ServicesListResolverService
-  },
-  runGuardsAndResolvers: 'paramsOrQueryParamsChange'
-};
-
 const servicesRoutes: Routes = [
   {
-    path: '',
+    path: 'services',
     component: ServicesComponent,
     canActivate: [],
     children: [
       {
         path: '',
         pathMatch: 'full',
-        ...servicesListRouteTemplate,
-      } as Route,
+        component: ServicesListComponent,
+        resolve: {
+          services: ServicesListResolverService
+        },
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+      },
       {
         path: 'create',
         component: CreateServiceComponent,
@@ -46,8 +40,12 @@ const servicesRoutes: Routes = [
           },
           {
             path: ':category',
-            ...servicesListRouteTemplate
-          } as Route,
+            component: ServicesListComponent,
+            resolve: {
+              services: ServicesListResolverService
+            },
+            runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+          }
         ]
       },
       {

@@ -45,12 +45,10 @@ registerLocaleData(en);
     BusinessesModule,
     AuthModule,
     CoreModule.forRoot(),
-    // ServicesModule,
+    ServicesModule,
     AppRoutingModule,
   ],
   providers: [
-    // { provide: NZ_I18N, useValue: en_US },
-    // {provide: TRANSLATIONS, useValue: translations},
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {
