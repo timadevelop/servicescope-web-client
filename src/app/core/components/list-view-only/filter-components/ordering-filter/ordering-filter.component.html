@@ -1,8 +1,8 @@
 <div nz-row nzType="flex" nzGutter="16">
-  <a nz-col (click)="changeOrdering('-created_at')" [class.activated]="ordering == '-created_at'">Най-нови</a>
-  <!-- <a nz-col (click)="changeOrdering('created_at')" [class.activated]="ordering == 'created_at'">Най-стари</a> -->
-  <a nz-col (click)="changeOrdering('price')" [class.activated]="ordering == 'price'">Най-евтини</a>
-  <a nz-col (click)="changeOrdering('-price')" [class.activated]="ordering == '-price'">Най-скъпи</a>
-  <a nz-col (click)="changeOrdering('-score')" [class.activated]="ordering == '-score'">Баш майстор</a>
-  <!-- <a nz-col (click)="changeOrdering('score')" [class.activated]="ordering == 'score'">Най-лоши</a> -->
+  <a nz-col (click)="changeOrdering('-created_at')" [class.activated]="ordering == '-created_at'" i18n="In sorting feature a button text for sorting items by date (newest first)@@sortNewestFirstText">Newest</a>
+  <!-- <a nz-col (click)="changeOrdering('created_at')" [class.activated]="ordering == 'created_at'">Oldest</a> -->
+  <a nz-col (click)="changeOrdering('price')" [class.activated]="ordering == 'price'" i18n="In sorting feature a button text for sorting items by price (Cheapest first)@@sortCheapestFirstText">Cheapest</a>
+  <a nz-col (click)="changeOrdering('-price')" [class.activated]="ordering == '-price'" i18n="In sorting feature a button text for sorting items by price (Most Expensive first)@@sortMostExpensiveFirstText">Most Expensive</a>
+  <a nz-col (click)="changeOrdering('-score')" [class.activated]="ordering == '-score'" i18n="In sorting feature a button text for sorting items by ponts (Most points first)@@sortMostPointsFirstText">Superhero</a>
+  <!-- <a nz-col (click)="changeOrdering('score')" [class.activated]="ordering == 'score'">Worst</a> -->
 </div>

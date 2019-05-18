@@ -1,19 +1,19 @@
 <div class="ordering-filters">
-  <nz-divider nzText="Сотриране" nzOrientation="left"></nz-divider>
+  <nz-divider i18n-nzText="Literaly Sorting word for describing a section with sorting functionality@@sortingSectionText" nzText="Sorting" nzOrientation="left"></nz-divider>
   <app-ordering-filter></app-ordering-filter>
 </div>
 <div class="price-filters">
-  <nz-divider nzText="Цена" nzOrientation="left"></nz-divider>
+  <nz-divider i18n-nzText="Literaly Price word for describing a section with price filter functionality@@priceSectionText" nzText="Price" nzOrientation="left"></nz-divider>
   <app-price-filter></app-price-filter>
 </div>
 <div class="category-filters">
-  <nz-divider nzText="Категория" nzOrientation="left"></nz-divider>
+  <nz-divider i18n-nzText="Literaly Category word for describing a section with category filter functionality@@categorySectionText" nzText="Category" nzOrientation="left"></nz-divider>
   <div class="categories-list">
     <app-category-selector></app-category-selector>
   </div>
 </div>
 <div class="tag-filters">
-  <nz-divider nzText="Тагове" nzOrientation="left"></nz-divider>
+  <nz-divider i18n-nzText="Literaly Tags word for describing a section with tags filtering functionality@@tagsSectionText" nzText="Tags" nzOrientation="left"></nz-divider>
   <div class="tags">
     <div class="selected-tags">
       <nz-tag [nzColor]="tag.color" *ngFor="let tag of selectedTags; trackBy:trackIdentifyByItemId"
@@ -22,20 +22,20 @@
       <nz-tag *ngIf="!selectedTags || selectedTags.length === 0">no selected tags</nz-tag>
     </div>
 
-    <input class="tags-search-input" (input)="searchTags($event.target.value)" nz-input placeholder="Search tags"
+    <input class="tags-search-input" (input)="searchTags($event.target.value)" nz-input i18n-placeholder="search tags placeholder@@searchTagsText" placeholder="Search tags"
       nzSize="small" />
     <div class="loaded-tags">
       <nz-tag [nzColor]="selectedTagStrings?.includes(tag.name) ? tag.color : 'geekblue'"
         *ngFor="let tag of tags?.results;" (nzCheckedChange)="clickedTag(tag.name)"
         [nzChecked]="selectedTagStrings?.includes(tag.name)" nzMode="checkable">
         {{tag.name}}</nz-tag>
-      <nz-tag *ngIf="tags?.next" (click)="loadMoreTags()" nzColor="purple">load more</nz-tag>
+      <nz-tag *ngIf="tags?.next" (click)="loadMoreTags()" nzColor="purple" i18n="@@loadMoreText">Load More</nz-tag>
     </div>
   </div>
 </div>
 
 <ng-template #title>
-  <h3 style="margin: 0;" class="title">Filters</h3>
+  <h3 style="margin: 0;" class="title" i18n="Filters card title@@filtersCardTitle">Filters</h3>
 </ng-template>
 <ng-template #extra>
   <!-- <a (click)="openDetailedFilters()">More filters</a> -->

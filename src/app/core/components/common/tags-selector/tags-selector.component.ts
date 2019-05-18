@@ -4,6 +4,8 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { Tag } from 'src/app/core/models/Tag.models';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { NzMessageService } from 'ng-zorro-antd';
+import { I18n } from '@ngx-translate/i18n-polyfill';
+import { i18n } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-tags-selector',
@@ -28,6 +30,7 @@ export class TagsSelectorComponent implements OnInit {
   @Output() onChange = new EventEmitter<Array<string>>();
 
   constructor(
+    private i18n: I18n,
     private tagsService: TagsService,
     private msgService: NzMessageService) { }
 
@@ -84,7 +87,7 @@ export class TagsSelectorComponent implements OnInit {
 
   createNewTag(tagName: string) {
     if (tagName.length < 1 || tagName.length > this.maxTagNameLength) {
-      this.msgService.warning('Невалидно име за таг');
+      this.msgService.warning(this.i18n({value: 'Invalid tag name', id: 'invalidTagNameText'}));
       return;
     }
     this.tagsService.createTag(tagName)
@@ -92,7 +95,7 @@ export class TagsSelectorComponent implements OnInit {
         this.tags.results.push(t);
         this.selectedTags.push(t.name);
         this.toggleCreateTagMode(false);
-        this.msgService.success("Created tag " + tagName);
+        this.msgService.success(this.i18n({value: "Created tag", id: "successCreatingTagText"}) + ' ' + tagName);
       });
   }
 }

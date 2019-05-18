@@ -18,7 +18,7 @@
     </nz-option>
   </ng-container>
   <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
-    <i nz-icon type="loading" class="loading-icon"></i> Зареждане на резултати...
+    <i nz-icon type="loading" class="loading-icon"></i> <span i18n="@@loadingText">Loading...</span>
   </nz-option>
 </nz-select>
 <ng-template #icon>

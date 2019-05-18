@@ -1,6 +1,7 @@
 <nz-card class="padding-12">
   <h2 style="text-align: center; margin: 0;">
-    {{price | number}} лв.
+    <!-- TODO: Currencies and angular price pipe -->
+    {{price | number}} <span i18n="@@currency">BGN</span>
     <!-- small-view-only more-btn -->
     <i nz-icon type="down-circle" [class.rotated]="exposePriceDetails" (click)="toggleExposePriceDetails()"
       *ngIf="showPriceDetails && small" class="more-info-btn"></i>
@@ -13,7 +14,7 @@
   <!-- default-view -->
   <nz-divider class="margin-5" *ngIf="showPriceDetails && !small"></nz-divider>
   <nz-collapse [nzBordered]="false" *ngIf="showPriceDetails && !small">
-    <nz-collapse-panel class="no-paddings" nzHeader="Повече информация">
+    <nz-collapse-panel class="no-paddings" i18n-nzHeader="Collapse container header in price card if price details are provided@@priceDetailsText" nzHeader="Price details">
       <app-label-value-row *ngFor="let row of price_details" [label]="row.label" [value]="row.value">
       </app-label-value-row>
     </nz-collapse-panel>

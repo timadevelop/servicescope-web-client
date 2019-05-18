@@ -3,7 +3,11 @@
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="loadingText" datatype="html">
-        <source>Loading Data...</source>
+        <source>Loading...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/location-search/location-search.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/core/components/common/category-selector/category-selector.component.html</context>
           <context context-type="linenumber">8</context>
@@ -12,6 +16,175 @@
           <context context-type="sourcefile">app/core/components/common/tags-selector/tags-selector.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="gotoCarouselImageText" datatype="html">
+        <source>Goto image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/detail-view-only/carousel/carousel.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Text is diaplayed on tooltip then user hovers image in carousel images list</note>
+        <note priority="1" from="meaning">Go to carousel image text</note>
+      </trans-unit>
+      <trans-unit id="minPriceText" datatype="html">
+        <source>Min price</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/price-filter/price-filter.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Literaly min price text</note>
+      </trans-unit>
+      <trans-unit id="maxPriceText" datatype="html">
+        <source>Max price</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/price-filter/price-filter.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Literaly max price text</note>
+      </trans-unit>
+      <trans-unit id="searchByTagText" datatype="html">
+        <source>Search by tag</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Text user sees on tag hover</note>
+      </trans-unit>
+      <trans-unit id="noTags" datatype="html">
+        <source>No tags
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Tag text when there are no tags in a list of tags</note>
+      </trans-unit>
+      <trans-unit id="wholeCountryText" datatype="html">
+        <source>Whole country</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Text is shown to user if location is not pointed at item or form</note>
+        <note priority="1" from="meaning">Whole country text</note>
+      </trans-unit>
+      <trans-unit id="locationText" datatype="html">
+        <source>Location</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Tooltip text when user hovers item location element</note>
+      </trans-unit>
+      <trans-unit id="createdTooltipText" datatype="html">
+        <source>Created</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">Tooltip text on created_at date hover</note>
+      </trans-unit>
+      <trans-unit id="currency" datatype="html">
+        <source>BGN</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/detail-view-only/price-card/price-card.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priceDetailsText" datatype="html">
+        <source>Price details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/detail-view-only/price-card/price-card.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Collapse container header in price card if price details are provided</note>
+      </trans-unit>
+      <trans-unit id="sortingSectionText" datatype="html">
+        <source>Sorting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Literaly Sorting word for describing a section with sorting functionality</note>
+      </trans-unit>
+      <trans-unit id="priceSectionText" datatype="html">
+        <source>Price</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Literaly Price word for describing a section with price filter functionality</note>
+      </trans-unit>
+      <trans-unit id="categorySectionText" datatype="html">
+        <source>Category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Literaly Category word for describing a section with category filter functionality</note>
+      </trans-unit>
+      <trans-unit id="tagsSectionText" datatype="html">
+        <source>Tags</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Literaly Tags word for describing a section with tags filtering functionality</note>
+      </trans-unit>
+      <trans-unit id="searchTagsText" datatype="html">
+        <source>Search tags</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">search tags placeholder</note>
+      </trans-unit>
+      <trans-unit id="loadMoreText" datatype="html">
+        <source>Load More</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="filtersCardTitle" datatype="html">
+        <source>Filters</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <note priority="1" from="description">Filters card title</note>
+      </trans-unit>
+      <trans-unit id="sortNewestFirstText" datatype="html">
+        <source>Newest</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/ordering-filter/ordering-filter.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">In sorting feature a button text for sorting items by date (newest first)</note>
+      </trans-unit>
+      <trans-unit id="sortCheapestFirstText" datatype="html">
+        <source>Cheapest</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/ordering-filter/ordering-filter.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">In sorting feature a button text for sorting items by price (Cheapest first)</note>
+      </trans-unit>
+      <trans-unit id="sortMostExpensiveFirstText" datatype="html">
+        <source>Most Expensive</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/ordering-filter/ordering-filter.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">In sorting feature a button text for sorting items by price (Most Expensive first)</note>
+      </trans-unit>
+      <trans-unit id="sortMostPointsFirstText" datatype="html">
+        <source>Superhero</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/ordering-filter/ordering-filter.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">In sorting feature a button text for sorting items by ponts (Most points first)</note>
       </trans-unit>
       <trans-unit id="selectCategoryText" datatype="html">
         <source>Select category</source>

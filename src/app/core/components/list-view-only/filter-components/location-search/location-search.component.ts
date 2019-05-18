@@ -5,6 +5,7 @@ import { LocationService } from '../../../../services/location.service';
 import { Location } from '../../../../models/Location.model';
 import { PaginatedApiResponse } from '../../../../models/api-response/paginated-api-response';
 import { Params, Router, ActivatedRoute } from '@angular/router';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-location-search',
@@ -23,6 +24,7 @@ export class LocationSearchComponent implements OnInit {
   @Input() isFormItem: boolean = false;
 
   constructor(
+    private i18n: I18n,
     private router: Router,
     private route: ActivatedRoute,
     private locationService: LocationService,
@@ -31,9 +33,9 @@ export class LocationSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.search("а"); // TODO get main locations
+    this.search(this.i18n({value: "a", id: "defaultLocationSearchQuery", description: "Default search query for location selector (later will be deprecated, we`ll use most popular locations)"})); // TODO get main locations
 
-    this.nullLocation.name = this.isFormItem ? "Изберете локация" : "Цялата страна";
+    this.nullLocation.name = this.isFormItem ? this.i18n({ value: "Select Location", id: 'selectLocationText' }) : this.i18n({ value: "Whole country", id: 'wholeCountryText' });
     this.selectedLocation = this.nullLocation;
 
     this.route.queryParamMap.subscribe(params => {
@@ -50,7 +52,7 @@ export class LocationSearchComponent implements OnInit {
 
   getLabel(location: Location): string {
     if (!location || location == this.nullLocation) return this.nullLocation.name;
-    return `${location.t_v_m} ${location.name} - област ${location.district.name}`
+    return `${location.t_v_m} ${location.name} - ${this.i18n({ value: "District", id: "districtText", description: "Simple district word" })} ${location.district.name}`
   }
 
   search(query: string) {
@@ -83,7 +85,12 @@ export class LocationSearchComponent implements OnInit {
       const set = new Set([...this.locations.results, ...response.results]);
       response.results = Array.from(set.values());
       if (response.results.length > 300) {
-        this.msgService.info("Възможно е да търсите локация по име");
+        this.msgService.info(this.i18n(
+          {
+            value: "You can search location by name",
+            id: "warnUserAboutAbilityToSearchLocationInSearchSelector",
+            description: "Notify user that he/she can search location by name instead of scrolling down a lot of time"
+          }));
       }
     }
     this.locations = response;
