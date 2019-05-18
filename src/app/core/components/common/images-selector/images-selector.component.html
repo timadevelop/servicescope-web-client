@@ -12,7 +12,7 @@
     (nzChange)="handleChange($event)"
     #uploadCont>
     <i nz-icon nzType="plus"></i>
-    <div class="ant-upload-text" *ngIf="size != 'small'">Добави</div>
+    <div class="ant-upload-text" *ngIf="size != 'small'" i18n="Add new file to uploader text|Text for add button@@addToUploadText">Add</div>
   </nz-upload>
   <app-carousel *ngIf="previewVisible" (onZoomClose)="previewVisible = false" [imageIndex]="1"
     [images]="previewImages" [zoomOnly]="true"></app-carousel>

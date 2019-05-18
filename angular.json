@@ -62,6 +62,13 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "bg": {
+              "aot": true,
+              "outputPath": "dist/saasWebClient-bg/",
+              "i18nFile": "src/locale/messages.bg.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "bg"
             }
           }
         },
@@ -73,6 +80,9 @@
           "configurations": {
             "production": {
               "browserTarget": "saasWebClient:build:production"
+            },
+            "bg": {
+              "browserTarget": "saasWebClient:build:bg"
             }
           }
         },

@@ -37,7 +37,7 @@ export class TagsSelectorComponent implements OnInit {
   }
 
 
-  onTagsChange(e) {
+  onTagsChange() {
     this.onChange.emit(this.selectedTags);
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tag } from '../../../models/Tag.models';
+import { Location } from 'src/app/core/models/Location.model';
 
 @Component({
   selector: 'app-general-info-card',

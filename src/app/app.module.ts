@@ -40,7 +40,7 @@ registerLocaleData(en);
     BusinessesModule,
     AuthModule,
     CoreModule.forRoot(),
-    ServicesModule,
+    // ServicesModule,
     AppRoutingModule,
   ],
   providers: [

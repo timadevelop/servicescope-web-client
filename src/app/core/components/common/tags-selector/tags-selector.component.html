@@ -1,4 +1,4 @@
-<nz-select style="width: 100%;" nzMode="tags" nzPlaceHolder="Избери тагове" nzAllowClear nzShowSearch
+<nz-select style="width: 100%;" nzMode="tags" i18n-nzPlaceHolder="Select tags text|Asking user to select tags@@selectTagsText" nzPlaceHolder="Select tags" nzAllowClear nzShowSearch
   (nzOnSearch)="onSearch($event)" [nzServerSearch]="true" (nzScrollToBottom)="loadMoreTags()" [(ngModel)]="selectedTags"
   (ngModelChange)="onTagsChange()" [nzMaxMultipleCount]="maxTagCount" [nzDropdownRender]="render">
   <ng-container *ngFor="let tag of tags?.results">
@@ -6,7 +6,7 @@
   </ng-container>
 
   <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
-    <i nz-icon type="loading" class="loading-icon"></i> Loading Data...
+    <i nz-icon type="loading" class="loading-icon"></i> <span i18n="@@loadingText">Loading Data...</span>
   </nz-option>
 </nz-select>
 
@@ -14,14 +14,14 @@
 <ng-template #render>
   <nz-divider style="margin: 2px 0;"></nz-divider>
   <div style="padding: 8px; cursor: pointer">
-    <div *ngIf="!createTagMode" (click)="toggleCreateTagMode()"><i nz-icon type="plus"></i> Създай таг</div>
+    <div *ngIf="!createTagMode" (click)="toggleCreateTagMode()"><i nz-icon type="plus"></i> <span i18n="Create new tag text|Create new tag text on button in tag-selector@@createTagText">Create tag</span></div>
     <form *ngIf="createTagMode" (submit)="createNewTag(newTagInput.value)" nz-form [nzLayout]="'inline'">
       <nz-form-item>
-        <input nz-input [maxLength]="maxTagNameLength" placeholder="Име на нов таг" #newTagInput />
+        <input nz-input [maxLength]="maxTagNameLength" i18n-placeholder="Placeholder for input on new tag creation@@createNewTagInputPlaceholder" placeholder="New tag name" #newTagInput />
       </nz-form-item>
       <nz-form-item>
-        <button nz-button nzType="primary"><i nz-icon type="plus"></i>Създай нов таг</button>
-        <a (click)="toggleCreateTagMode(false)" style="margin-left: 1em;">Отказ</a>
+        <button nz-button nzType="primary"><i nz-icon type="plus"></i> <span i18n="Create new tag text|Create new tag text on button in tag-selector@@createTagText">Create tag</span></button>
+        <a (click)="toggleCreateTagMode(false)" style="margin-left: 1em;" i18n="Cancel creating new tag text|Cancel creating new tag text on button in tag-selector@@cancelText">Cancel</a>
       </nz-form-item>
     </form>
   </div>
