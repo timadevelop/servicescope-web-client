@@ -3,6 +3,7 @@ import { slideInAnimation } from './animations';
 import { RouterOutlet, Router, Event, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { NzIconService } from 'ng-zorro-antd';
 import { RealtimeNotificationsService } from './core/services/socket/realtime-notifications.service';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 
 const ngZorroIconLiteral =
@@ -20,9 +21,11 @@ export class AppComponent {
   loading: boolean = false;
 
   constructor(
+    i18n: I18n,
     private router: Router,
     private _iconService: NzIconService,
     public rns: RealtimeNotificationsService) {
+      console.log(i18n({value: "Select tags", id: "selectTagsText"}));
       // init loading
       this.router.events.subscribe((event: Event) => {
         switch (true) {

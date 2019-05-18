@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, TRANSLATIONS, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,11 @@ import { httpInterceptorProviders } from './core/interceptors';
 import { CoreModule } from './core/core.module';
 import { ServicesModule } from './modules/services/services.module';
 import { NotificationsManagerComponent } from './app-components/notifications-manager/notifications-manager.component';
+
+import { I18n } from '@ngx-translate/i18n-polyfill';
+
+declare const require; // Use the require method provided by webpack
+// const translations = require(`raw-loader!../locale/messages.bg.xlf`);
 
 registerLocaleData(en);
 
@@ -44,7 +49,17 @@ registerLocaleData(en);
     AppRoutingModule,
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US },
+    // { provide: NZ_I18N, useValue: en_US },
+    // {provide: TRANSLATIONS, useValue: translations},
+    {
+      provide: TRANSLATIONS,
+      useFactory: (locale) => {
+        locale = locale || 'en'; // default to english if no locale provided
+        return require(`raw-loader!../locale/messages.${locale}.xlf`);
+      },
+      deps: [LOCALE_ID]
+    },
+    I18n,
     httpInterceptorProviders,
     {
       provide: NZ_MESSAGE_CONFIG, useValue: {
