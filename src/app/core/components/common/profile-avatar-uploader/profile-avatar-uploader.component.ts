@@ -4,6 +4,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { Observable, Observer } from 'rxjs';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { User } from 'src/app/core/models/User.model';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-profile-avatar-uploader',
@@ -17,6 +18,7 @@ export class ProfileAvatarUploaderComponent implements OnInit {
   lastImageUrl: string = null;
 
   constructor(
+    private i18n: I18n,
     public userService: UserService,
     private msg: NzMessageService) { }
 
@@ -27,21 +29,21 @@ export class ProfileAvatarUploaderComponent implements OnInit {
     return new Observable((observer: Observer<boolean>) => {
       if (!this.userService.currentUser ||
         this.user.id !== this.userService.currentUser.id) {
-        this.msg.error('You can not change avatar of this user!');
+        this.msg.error(this.i18n({value: 'You can not change avatar of this user!', id: 'permissionDeniedOnUserAvatarChangeText'}));
         observer.complete();
         return;
       }
 
       const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
       if (!isJpgOrPng) {
-        this.msg.error('You can only upload JPG / PNG file!');
+        this.msg.error(this.i18n({value: 'You can only upload JPG / PNG file!', id: 'uploadImageErrorBecauseFileType'}));
         observer.complete();
         return;
       }
 
       const isLt3M = file.size / 1024 / 1024 < 3;
       if (!isLt3M) {
-        this.msg.error('Image must smaller than 3MB!');
+        this.msg.error(this.i18n({value: 'Image must smaller than 3MB!', id: 'uploadImageErrorBecauseSize'}));
         observer.complete();
         return;
       }
@@ -91,13 +93,13 @@ export class ProfileAvatarUploaderComponent implements OnInit {
           } else if (event instanceof HttpResponse) {
             // uploaded
             this.lastImageUrl = event.body['image'];
-            this.msg.success('Successfully updated avatar')
+            this.msg.success(this.i18n({value: 'Successfully updated avatar', id: 'successUpdatedAvatar'}))
             item.onSuccess!(event.body, item.file!, event);
           }
         },
         err => {
           // fail
-          this.msg.error("Error uploading new avatar");
+          this.msg.error(this.i18n({value: "Error uploading new avatar", id: 'errorUpdatingAvatar'}));
           item.onError!(err, item.file!);
         });
   };
@@ -114,7 +116,7 @@ export class ProfileAvatarUploaderComponent implements OnInit {
         });
         break;
       case 'error':
-        this.msg.error('Network error');
+        this.msg.error(this.i18n({value: 'Network error', id: 'networkErrorText'}));
         this.loading = false;
         break;
     }
