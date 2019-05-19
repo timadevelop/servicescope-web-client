@@ -1,5 +1,0 @@
-- [ ] preview post list item
-- [ ] list item component
-- [ ] split service to components
-- [ ] service / post : phone (or use my profile number)
-- [x] json prices
