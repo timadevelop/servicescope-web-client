@@ -13,6 +13,7 @@ export class FeedbackWidgetComponent implements OnInit {
 
   showFeedbackForm: boolean = false;
   alreadySentFeedback: Feedback = null;
+  loading: boolean = false;
 
   feedbackForm = this.fb.group({
     // number
@@ -57,6 +58,7 @@ export class FeedbackWidgetComponent implements OnInit {
   }
 
   onFormSubmit() {
+    this.loading = true;
     for (const i in this.feedbackForm.controls) {
       this.feedbackForm.controls[i].markAsDirty();
       this.feedbackForm.controls[i].updateValueAndValidity();
@@ -64,13 +66,14 @@ export class FeedbackWidgetComponent implements OnInit {
 
     if (this.feedbackForm.valid) {
       // send feedback
-      console.log(this.feedbackForm.value);
       this.feedbackService.create(this.feedbackForm.value)
         .subscribe((feedback: Feedback) => {
-          console.log('created ', feedback);
           this.feedbackService.storeInLocalStorage(feedback);
           this.loadLastFeedback();
+          this.loading = false;
         })
+    } else {
+      this.loading = false;
     }
 
   }
