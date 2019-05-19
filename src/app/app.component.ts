@@ -33,7 +33,7 @@ export class AppComponent {
           case event instanceof NavigationEnd:
           case event instanceof NavigationCancel:
           case event instanceof NavigationError: {
-            this.loading = false;
+            setTimeout(() => this.loading = false);
             break;
           }
           default: {
