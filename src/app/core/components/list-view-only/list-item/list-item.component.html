@@ -49,7 +49,7 @@
               nzTitle="Location">
               <i nz-icon type="environment" style="margin-right: 8px;"></i>
               <span *ngIf="item.location && item.location.name else defaultLocationTemplate">
-                {{location?.name + ' - ' + location?.district?.name}}
+                {{item.location.name + ' - ' + item.location?.district?.name}}
               </span>
               <ng-template #defaultLocationTemplate>
                 <span
