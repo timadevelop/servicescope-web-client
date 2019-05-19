@@ -5,6 +5,7 @@ import { ServiceApiRequest } from 'src/app/core/models/api-request/service-api-r
 import { ServicesService } from 'src/app/core/services/services.service';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-create-service',
@@ -18,7 +19,8 @@ export class CreateServiceComponent implements OnInit {
   constructor(
     private servicesService: ServicesService,
     private msgService: NzMessageService,
-    private router: Router
+    private router: Router,
+    public i18n: I18n
   ) { }
 
   ngOnInit() {
@@ -38,14 +40,25 @@ export class CreateServiceComponent implements OnInit {
             this.loading = false;
             const newService = event.body;
             const id = newService['id'];
-            this.msgService.success(`Успешно направена обява #${id}`)
+            this.msgService.success(
+              this.i18n(
+                {
+                  value: "Successfully created service #{{id}}",
+                  id: 'newServiceCreatedMessageText'
+                }, { id: id }));
             this.router.navigate(['/services', id]);
           }
         },
         err => {
           // fail
-          console.log(err);
-          this.msgService.error("Error creating service");
+          // console.log(err);
+          this.msgService.error(
+            this.i18n(
+              {
+                value: "Error creating service",
+                id: "newServiceCreatingErrorText",
+                description: "Message notifies user about an error while creating new service"
+              }));
         });
 
   }

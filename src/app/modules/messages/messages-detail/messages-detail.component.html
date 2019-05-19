@@ -33,7 +33,7 @@
             </div>
 
             <div *ngIf="messages && messages.next" (click)="loadMore()" nz-row style="text-align: center;">
-              <small><a>Зареди повече</a></small>
+              <small><a i18n="@@loadMoreText">Load more</a></small>
             </div>
             <div *ngFor="let msg of messages?.results; trackBy: trackIdentifyByItemId; let i = index"
               [class.right]="msg.author.id == this.userService.currentUser.id" class="message"

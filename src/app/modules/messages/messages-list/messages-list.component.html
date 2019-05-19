@@ -30,7 +30,7 @@
 
     <ng-template #loadMore>
       <div class="loadmore" *ngIf="conversations?.next">
-        <a (click)="loadMoreConversations()">Зареди повече</a>
+        <a (click)="loadMoreConversations()" i18n="@@loadMoreText">Load more</a>
       </div>
     </ng-template>
   </nz-list>
@@ -40,7 +40,7 @@
   <nz-empty *ngIf="!conversations || !conversations.results || conversations.results.length == 0"
     [nzNotFoundContent]="contentTpl">
     <ng-template #contentTpl>
-      <span> Няма съобщения </span>
+      <span i18n="Text to tell user that there are no msgs in selected conversation@@noMessagesInConversationText"> No messages </span>
     </ng-template>
   </nz-empty>
 </ng-template>

@@ -4,10 +4,9 @@
 
 <ng-template #footer>
   <nz-row style="text-align: center;">
-    <a (click)="navigateToAllSimilarServices()">Виж всички подобни сървиси</a>
+    <a (click)="navigateToAllSimilarServices()"  i18n-nzTitle="@@seeAllSimilarServicesButtonText">See all similar services</a>
   </nz-row>
 </ng-template>
-
 
 <ng-template #serviceItemTemplate let-serviceitem>
   <app-list-item modelName="services" [item]="serviceitem" *ngIf="service.id != serviceitem.id"></app-list-item>

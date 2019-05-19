@@ -19,7 +19,8 @@
         <h2 nz-col class="title">
           <a class="title" [routerLink]="[modelName ? '/' + modelName : './', item.id]">{{ item.title }}</a>
         </h2>
-        <div nz-col class="price " *ngIf="!tds.isMobile" nz-tooltip nzTitle="Цена"><i nz-icon type="euro"
+        <div nz-col class="price " *ngIf="!tds.isMobile" nz-tooltip
+          i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price"><i nz-icon type="euro"
             style="margin-right: 8px;"></i>{{item.price + ' ' + item.price_currency}}</div>
       </div>
     </ng-template>
@@ -44,15 +45,27 @@
           <ng-container *ngTemplateOutlet="tags"></ng-container>
 
           <div nz-row nzType="flex" class="bottom-info " *ngIf="!tds.isMobile">
-            <span nz-col nz-tooltip nzTitle="Населено място">
-              <i nz-icon type="environment"
-                style="margin-right: 8px;"></i>{{item.location && item.location.name ? item.location?.name + ' - ' + item.location?.district?.name : 'Цялата страна'}}</span>
+            <span nz-col nz-tooltip i18n-nzTitle="Tooltip text when user hovers item location element@@locationText"
+              nzTitle="Location">
+              <i nz-icon type="environment" style="margin-right: 8px;"></i>
+              <span *ngIf="item.location && item.location.name else defaultLocationTemplate">
+                location?.name + ' - ' + location?.district?.name
+              </span>
+              <ng-template #defaultLocationTemplate>
+                <span
+                  i18n="Whole country text|Text is shown to user if location is not pointed at item or form@@wholeCountryText">Whole
+                  country</span>
+              </ng-template>
+            </span>
             <nz-divider nzType="vertical"></nz-divider>
-            <span nz-col nz-tooltip nzTitle="Добавена">
+            <span nz-col nz-tooltip i18n-nzTitle="Tooltip text on created_at date hover@@createdTooltipText"
+              nzTitle="Created">
               <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{item.created_at | date}}
             </span>
             <nz-divider nzType="vertical"></nz-divider>
-            <span nz-col nz-tooltip nzTitle="Номер на обява">
+            <span nz-col nz-tooltip
+              nzTitle="Tooltip text on item id element hover| For example for service list item user hovers id number and gets tooltip that this number is id@@itemNumberText"
+              nzTitle="Item id">
               <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{item.id}}
             </span>
           </div>
@@ -62,7 +75,8 @@
           <app-votes nz-col nzXs="12" nzSm="24" [score]="item.score" [currentUserVote]="item.current_user_vote"
             [model]="modelName" [modelId]="item.id">
           </app-votes>
-          <div nz-col *ngIf="tds.isMobile" nzXs="12" nzSm="0" class="price" nz-tooltip nzTitle="Цена">
+          <div nz-col *ngIf="tds.isMobile" nzXs="12" nzSm="0" class="price" nz-tooltip
+            i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price">
             {{item.price + ' ' + item.price_currency}}</div>
         </div>
         <!-- </div> -->

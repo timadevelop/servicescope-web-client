@@ -9,7 +9,7 @@
       <div nz-col nzSpan="12">
         <nz-card class="large-card-button padding-12" style="background: grey; text-align: center;"
           (click)="setIsFiltersDrawerVisible(true)">
-          <h2 style="margin: 0;"><i nz-icon nzType="filter"></i>Филтри</h2>
+          <h2 style="margin: 0;"><i nz-icon nzType="filter"></i><span i18n="@@filtersButtonText">Filters</span></h2>
         </nz-card>
       </div>
     </div>
@@ -21,7 +21,7 @@
   <!-- desktop only -->
   <div *ngIf="!tds.isMobile" nz-col nzXs="24" nzXl="6">
     <ng-container *ngTemplateOutlet="addBtn"></ng-container>
-    <nz-card nzTitle="Филтри" class="padding-top-0">
+    <nz-card i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" class="padding-top-0">
       <app-list-filters></app-list-filters>
     </nz-card>
   </div>
@@ -29,7 +29,7 @@
 
 <ng-template #addBtn>
   <nz-card [routerLink]="['/services', 'create']" class="large-card-button padding-12" style="text-align: center;">
-    <h2 style="margin: 0;"><i nz-icon nzType="plus"></i>Добави</h2>
+    <h2 style="margin: 0;"><i nz-icon nzType="plus"></i><span i18n="@@createNewServiceButtonTexst">Create</span></h2>
   </nz-card>
 </ng-template>
 
@@ -49,7 +49,7 @@
   <app-list-item [item]="service" modelName="services"></app-list-item>
 </ng-template>
 
-<nz-drawer [nzClosable]="true" [nzVisible]="isFiltersDrawerVisible" nzPlacement="right" nzTitle="Филтри"
-  (nzOnClose)="setIsFiltersDrawerVisible(false)" nzWidth="85%">
+<nz-drawer [nzClosable]="true" [nzVisible]="isFiltersDrawerVisible" nzPlacement="right"
+  i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" (nzOnClose)="setIsFiltersDrawerVisible(false)" nzWidth="85%">
   <app-list-filters></app-list-filters>
 </nz-drawer>

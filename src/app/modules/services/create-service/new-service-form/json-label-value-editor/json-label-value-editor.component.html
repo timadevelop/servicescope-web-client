@@ -2,51 +2,52 @@
   <nz-form-item formArray="items" *ngFor="let item of items.controls; let i = index;" style="margin-bottom: 3px;">
     <nz-form-control>
       <nz-input-group [formGroup]="item" nzCompact>
-        <input autocomplete="off" formControlName="label" type="text" placeholder="Услуга" nz-input
+        <input autocomplete="off" formControlName="label" type="text" i18n-placeholder="Placeholder for label in fixed prices@@fixedPricesInputLabelPlaceholder" placeholder="Service" nz-input
           style="width: 45%;" />
-        <nz-input-number autocomplete="off" formControlName="value" nzMax="1000000" nzMin="0" nzPlaceHolder="Цена"
+        <nz-input-number autocomplete="off" formControlName="value" nzMax="1000000" nzMin="0" i18n-nzPlaceHolder="@@fixedPricesInputPricePlaceholder" nzPlaceHolder="Price"
           style="width: 30%;">
         </nz-input-number>
-        <input disabled nz-input style="width: 15%" value=" лв.">
-        <button nz-popconfirm nzTitle="Are you sure?" nzOkText="Yes" nzCancelText="No" (nzOnConfirm)="deleteItem(i)"
+        <input disabled nz-input style="width: 15%" i18n-value="@@currency" value="BGN">
+        <button nz-popconfirm i18n-nzTitle="@@confirmTitle" nzTitle="Are you sure?" i18n-nzOkText="@@confirmOkBtnText" nzOkText="Yes" i18n-nzOkText="@@confirmCancelBtnText" nzCancelText="No" (nzOnConfirm)="deleteItem(i)"
           nz-button style="width: 10%; border-top-right-radius: 4px; border-bottom-right-radius: 4px;">
           <i nz-icon type="close"></i></button>
       </nz-input-group>
       <nz-form-explain *ngIf="dirtyOrHasErrors(item, 'label')">
-        <ng-container *ngIf="item.get('label')?.hasError('minlength')">
-          Label short
+        <ng-container *ngIf="item.get('label')?.hasError('minlength')" i18n="Error message|Provided label length is too short@@shortLabelFormError">
+          Label is too Short
         </ng-container>
-        <ng-container *ngIf="item.get('label')?.hasError('maxlength')">
+        <ng-container *ngIf="item.get('label')?.hasError('maxlength')" i18n="Error message|Provided label length is too long@@longLabelFormError">
           Label is too long
         </ng-container>
-        <ng-container *ngIf="item.get('label')?.hasError('required')">
-          Please input valid title
+        <ng-container *ngIf="item.get('label')?.hasError('required')" i18n="Error message|Provided label length is invalid@@invalidLabelFormError">
+          Invalid label
         </ng-container>
       </nz-form-explain>
 
       <nz-form-explain *ngIf="dirtyOrHasErrors(item, 'value')">
-        <ng-container *ngIf="item.get('value')?.hasError('min')">
-          Value short
+        <ng-container *ngIf="item.get('value')?.hasError('min')" i18n="Error message|Provided value is too small@@smallValueFormError">
+          Value is too small
         </ng-container>
-        <ng-container *ngIf="item.get('value')?.hasError('max')">
-          value is too long
+        <ng-container *ngIf="item.get('value')?.hasError('max')" i18n="Error message|Provided value is too big@@bigValueFormError">
+          Value is too big
         </ng-container>
-        <ng-container *ngIf="item.get('value')?.hasError('required')">
-          Please input valid Value
+        <ng-container *ngIf="item.get('value')?.hasError('required')" i18n="Error message|Provided value is invalid@@invalidValueFormError">
+          Value is invalid
         </ng-container>
       </nz-form-explain>
     </nz-form-control>
   </nz-form-item>
 
-  <nz-form-explain *ngIf="items.invalid && items.length <= 1 && items.untouched">
-    Информация за фиксирани цени ще е празна
+  <nz-form-explain *ngIf="items.invalid && items.length <= 1 && items.untouched" i18n="Warning message|Information about fixed prices is empty@@emptyFixedPricesWarning">
+    Information about fixed prices is empty
   </nz-form-explain>
-  <nz-form-explain *ngIf="items.invalid && items.touched">
-    Невалилдни фиксирани цени
+  <nz-form-explain *ngIf="items.invalid && items.touched" i18n="Error message|Invalid fixed prices form explain@@invalidFixedPricesFormError">
+    Invalid fixed prices information
   </nz-form-explain>
 </form>
 <nz-form-control>
   <button nz-button nzType="dashed" style="width:100%;" (click)="addField($event)">
-    <i nz-icon type="plus"></i> Добави фиксирана цена
+    <i nz-icon type="plus"></i>
+    <span i18n="Add fixed price button text@@addFixedPriceBtnText">Add fixed price</span>
   </button>
 </nz-form-control>

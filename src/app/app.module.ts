@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, TRANSLATIONS, LOCALE_ID } from '@angular/core';
+import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslationStrategy } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,11 +21,13 @@ import { CoreModule } from './core/core.module';
 import { ServicesModule } from './modules/services/services.module';
 import { NotificationsManagerComponent } from './app-components/notifications-manager/notifications-manager.component';
 
-import { I18n } from '@ngx-translate/i18n-polyfill';
+import { I18n, MISSING_TRANSLATION_STRATEGY } from '@ngx-translate/i18n-polyfill';
+import { Xliff } from '@angular/compiler';
 
 declare const require; // Use the require method provided by webpack
 // const translations = require(`raw-loader!../locale/messages.bg.xlf`);
 
+const DEFAULT_LOCALE = "en-US";
 registerLocaleData(en);
 
 @NgModule({
@@ -49,10 +51,20 @@ registerLocaleData(en);
     AppRoutingModule,
   ],
   providers: [
+    // format of translations that you use
+    { provide: TRANSLATIONS_FORMAT, useValue: "xlf" },
+    // the translations that you need to load on your own
+    { provide: TRANSLATIONS, useValue: Xliff },
+    // locale id that you're using (default en-US)
+    { provide: LOCALE_ID, useValue: DEFAULT_LOCALE },
+    // optional, defines how error will be handled
+    { provide: MISSING_TRANSLATION_STRATEGY, useValue: MissingTranslationStrategy.Error },
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {
-        locale = locale || 'en'; // default to english if no locale provided
+        locale = locale || DEFAULT_LOCALE;
+        if (locale == DEFAULT_LOCALE) return '';
+
         return require(`raw-loader!../locale/messages.${locale}.xlf`);
       },
       deps: [LOCALE_ID]

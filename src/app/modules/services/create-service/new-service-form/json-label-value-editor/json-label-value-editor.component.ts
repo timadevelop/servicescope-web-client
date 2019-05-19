@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, AbstractControl, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 export class LabelValueRow {
   label: string;
@@ -18,7 +19,8 @@ export class JsonLabelValueEditorComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private msgService: NzMessageService
+    private msgService: NzMessageService,
+    private i18n: I18n
   ) { }
 
   ngOnInit(): void {
@@ -72,7 +74,7 @@ export class JsonLabelValueEditorComponent implements OnInit {
     if (isValid) {
       this.onChange.emit(this.items.value.filter(i => i.value !== null && i.label !== null));
     } else {
-      this.msgService.warning('Невалидна информация за фиксирани цени')
+      this.msgService.warning(this.i18n({value: 'Invalid fixed prices information', id: 'invalidFixedPricesFormError'}));;
     }
 
     return isValid;
