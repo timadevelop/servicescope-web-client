@@ -31,11 +31,11 @@ export class JsonLabelValueEditorComponent implements OnInit {
       e.preventDefault();
     }
     if (!this.items.valid) {
-      this.msgService.warning('Before adding new item');
+      this.msgService.warning(this.i18n("First enter valid fixed prices"));
       // console.log(this.items.errors);
       return;
     } else if (this.items.length >= 5) {
-      this.msgService.warning("Only 5 allowed");
+      this.msgService.warning(this.i18n("Only {{number}} allowed", {number: 5}));
       return;
     } else {
       this.items.push(this.createItem());

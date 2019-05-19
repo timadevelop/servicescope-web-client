@@ -6,6 +6,7 @@ import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
 import { CategoriesService } from 'src/app/core/services/categories.service';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-list-filters',
@@ -18,7 +19,7 @@ export class ListFiltersComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private tagsService: TagsService,
-    private categoriesService: CategoriesService,
+    private i18n: I18n,
     private msgService: NzMessageService) { }
 
   private page = '1';
@@ -114,7 +115,7 @@ export class ListFiltersComponent implements OnInit, OnDestroy {
     if (!this.selectedTagStrings.includes(name)) {
       // add tag
       if (this.selectedTagStrings.length >= 5) {
-        this.msgService.warning('You can select 5 tags max');
+        this.msgService.warning(this.i18n('You can select 5 tags max'));
         return;
       }
       this.selectedTagStrings = [...this.selectedTagStrings, name];
