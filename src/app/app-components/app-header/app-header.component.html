@@ -3,10 +3,10 @@
     <div nz-col class="gutter-row" nzSpan="18">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-left">
         <li nz-menu-item routerLink="/services" routerLinkActive="ant-menu-item-selected">
-          <a>Posts</a>
+          <a i18n="@@headerServicesButtonText">Services</a>
         </li>
         <li nz-menu-item routerLink="/else" routerLinkActive="ant-menu-item-selected">
-          <a>Services</a>
+          <a i18n="@@headerPostsButtonText">Posts</a>
         </li>
       </div>
     </div>
@@ -14,7 +14,7 @@
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-right">
         <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" class="login-menu-item" routerLink="/login"
           routerLinkActive="ant-menu-item-selected">
-          <a>Login</a>
+          <a i18n="headerLoginButtonText">Login</a>
         </li>
         <ng-template #userMenuItem>
           <li nz-menu-item *ngIf="userService.currentUser" (click)="toggleNotificationManager()" class="user-menu-item" [class.ant-menu-item-selected]="rns.showNotificationsManager">
@@ -22,7 +22,7 @@
               <nz-badge [nzCount]="rns.count + userService.currentUser.notifications_count">
                 <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
               </nz-badge>
-              <span class="hello-text">Hello, {{userService.currentUser.first_name}}</span>
+              <span class="hello-text"><span i18n="@@welcomeText">Hi</span>, {{userService.currentUser.first_name}}</span>
             </div>
           </li>
         </ng-template>
