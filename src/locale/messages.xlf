@@ -724,66 +724,65 @@
           <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">Text to tell user that there are no msgs in selected conversation</note>
-      </trans-unit>
-      <trans-unit id="invalidTagNameText" datatype="html">
+      </trans-unit><trans-unit id="invalidTagNameText" datatype="html">
         <source>Invalid tag name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/common/tags-selector/tags-selector.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="successCreatingTagText" datatype="html">
+      </trans-unit><trans-unit id="successCreatingTagText" datatype="html">
         <source>Created tag</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/common/tags-selector/tags-selector.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="defaultLocationSearchQuery" datatype="html">
+      </trans-unit><trans-unit id="defaultLocationSearchQuery" datatype="html">
         <source>a</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/list-view-only/filter-components/location-search/location-search.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
         <note priority="1" from="description">Default search query for location selector (later will be deprecated, we`ll use most popular locations)</note>
-      </trans-unit>
-      <trans-unit id="selectLocationText" datatype="html">
+      </trans-unit><trans-unit id="selectLocationText" datatype="html">
         <source>Select Location</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/list-view-only/filter-components/location-search/location-search.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="districtText" datatype="html">
+      </trans-unit><trans-unit id="districtText" datatype="html">
         <source>District</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/list-view-only/filter-components/location-search/location-search.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
         <note priority="1" from="description">Simple district word</note>
-      </trans-unit>
-      <trans-unit id="warnUserAboutAbilityToSearchLocationInSearchSelector" datatype="html">
+      </trans-unit><trans-unit id="warnUserAboutAbilityToSearchLocationInSearchSelector" datatype="html">
         <source>You can search location by name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/components/list-view-only/filter-components/location-search/location-search.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
         <note priority="1" from="description">Notify user that he/she can search location by name instead of scrolling down a lot of time</note>
-      </trans-unit>
-      <trans-unit id="newServiceCreatedMessageText" datatype="html">
+      </trans-unit><trans-unit id="newServiceCreatedMessageText" datatype="html">
         <source>Successfully created service #<x id="INTERPOLATION" equiv-text="{{id}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/services/create-service/create-service.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="newServiceCreatingErrorText" datatype="html">
+      </trans-unit><trans-unit id="newServiceCreatingErrorText" datatype="html">
         <source>Error creating service</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/services/create-service/create-service.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
         <note priority="1" from="description">Message notifies user about an error while creating new service</note>
+      </trans-unit>
+      <trans-unit id="creatingItemProgressText" datatype="html">
+        <source>Creating</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/create-service/create-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

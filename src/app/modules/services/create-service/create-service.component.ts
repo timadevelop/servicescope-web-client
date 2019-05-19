@@ -16,12 +16,15 @@ export class CreateServiceComponent implements OnInit {
   loading = false;
   percent: number = null;
 
+  creatingItemProgressText: string;
   constructor(
     private servicesService: ServicesService,
     private msgService: NzMessageService,
     private router: Router,
     public i18n: I18n
-  ) { }
+  ) {
+    this.creatingItemProgressText = this.i18n({value: 'Creating', id: 'creatingItemProgressText'});
+  }
 
   ngOnInit() {
   }
@@ -62,5 +65,4 @@ export class CreateServiceComponent implements OnInit {
         });
 
   }
-
 }

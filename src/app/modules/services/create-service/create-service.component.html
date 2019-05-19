@@ -1,7 +1,7 @@
 <nz-card [nzTitle]="title">
   <nz-row nzType="flex" nzJustify="center">
     <div nz-col [nzXs]="24" [nzSm]="24">
-      <nz-spin [nzSpinning]="loading" [nzTip]="i18n({value: 'Creating', id: 'creatingItemProgressText'}) + (this.percent !== null ? ' (' + this.percent.toString() + '%)' : null)">
+      <nz-spin [nzSpinning]="loading" [nzTip]="creatingItemProgressText + (this.percent !== null ? ' (' + this.percent.toString() + '%)' : null)">
         <app-new-service-form (onSubmit)="createNewService($event)"></app-new-service-form>
       </nz-spin>
     </div>
