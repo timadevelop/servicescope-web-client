@@ -1,0 +1,109 @@
+@import "~src/variables";
+
+$right: 30px;
+$bottom: 30px;
+
+.feedback-widget-button-container {
+  position: fixed;
+  bottom: $bottom;
+  right: $right;
+  button {
+    background-color: #21d4fd;
+    background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+
+    border: none;
+    outline: none;
+    color: white;
+    opacity: 0.5;
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+.feedback-widget-container {
+  position: fixed;
+  right: $right;
+  bottom: $bottom + 40px;
+  width: 350px;
+  border-radius: $radius;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 5px 40px;
+  background: $white-color;
+
+  animation: fade-in-bottom 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+
+  .smile-icon {
+    // -webkit-animation: jello-horizontal .8s 3s infinite both;
+    animation: jello-horizontal 1.2s 2s infinite both;
+  }
+
+  form.sent {
+    opacity: 0.5;
+  }
+  .user-logo {
+    margin-bottom: 10px;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  section {
+    margin-bottom: $vertical-margin;
+  }
+
+  .submit-button {
+    float: right;
+  }
+}
+
+
+@keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.large ::ng-deep .ant-rate-star {
+  font-size: 36px;
+}
+
+@keyframes jello-horizontal {
+  0%, 25% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}

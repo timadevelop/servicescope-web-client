@@ -4,7 +4,7 @@ import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslat
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, en_US, NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -22,7 +22,7 @@ import { ServicesModule } from './modules/services/services.module';
 import { NotificationsManagerComponent } from './app-components/notifications-manager/notifications-manager.component';
 
 import { I18n, MISSING_TRANSLATION_STRATEGY } from '@ngx-translate/i18n-polyfill';
-import { Xliff } from '@angular/compiler';
+import { FeedbackWidgetComponent } from './app-components/feedback-widget/feedback-widget.component';
 
 declare const require; // Use the require method provided by webpack
 // const translations = require(`raw-loader!../locale/messages.bg.xlf`);
@@ -35,11 +35,13 @@ registerLocaleData(en);
     AppComponent,
     AppHeaderComponent,
     ComposeMessageComponent,
-    NotificationsManagerComponent
+    NotificationsManagerComponent,
+    FeedbackWidgetComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     NgZorroAntdModule,
     HttpClientModule,
     BrowserAnimationsModule,

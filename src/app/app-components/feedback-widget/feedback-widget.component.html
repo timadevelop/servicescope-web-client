@@ -1,0 +1,57 @@
+<div class="feedback-widget-button-container" *ngIf="userService.currentUser">
+  <button nz-button nzSize="large" nzShape="circle" (click)="showFeedbackForm = !showFeedbackForm"><i nz-icon
+      [nzType]="showFeedbackForm ? 'close' : 'heart'"></i></button>
+</div>
+
+<nz-card class="feedback-widget-container" *ngIf="userService.currentUser && showFeedbackForm"
+  [nzTitle]="titleTemplate">
+  <h1 class="thanks" *ngIf="alreadySentFeedback">
+    <i class="smile-icon" nz-icon [nzType]="'smile'" [nzTheme]="'twotone'"></i>
+    <p>Thanks for Feedback!</p>
+  </h1>
+  <form nz-form [formGroup]="feedbackForm" (submit)="onFormSubmit()" [class.sent]="alreadySentFeedback">
+    <nz-form-item>
+      <h3 i18n="@@feedbackFormLabelRate">How would you rate your experience?</h3>
+      <nz-form-control nzSpan="24">
+        <nz-input-group>
+          <nz-rate class="large" formControlName="rate" nzAllowHalf [nzDisabled]="alreadySentFeedback"></nz-rate>
+        </nz-input-group>
+        <nz-form-explain *ngIf="dirtyOrHasErrors('rate')"
+          i18n="Error message|Service title is not provided, ask user to provide valid one@@feedbackFormErrorTitleNotProvided">
+          Please input valid rating
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- Text -->
+    <nz-form-item>
+      <h3 i18n="@@feedbackFormLabelText">Tell us about your experience</h3>
+      <nz-form-control nzSpan="24">
+        <textarea formControlName="text" nz-input rows="10" i18n-placeholder="@@feedbackFormLabelText"
+          placeholder="Tell us about your experience" [attr.disabled]="alreadySentFeedback"></textarea>
+        <nz-form-explain *ngIf="dirtyOrHasErrors('text')">
+          <ng-container *ngIf="feedbackForm.get('text')?.hasError('minlength')"
+            i18n="Error message|Service text is too short@@feedbackFormErrorTextIsTooShort">
+            Text is too short
+          </ng-container>
+          <ng-container *ngIf="feedbackForm.get('text')?.hasError('maxlength')"
+            i18n="Error message|Service text is too long@@feedbackFormErrorTextIsTooLong">
+            Text is too long
+          </ng-container>
+          <ng-container *ngIf="feedbackForm.get('text')?.hasError('required')"
+            i18n="Error message|Service text is empty or invalid, ask user for valid one@@feedbackFormErrorTextNotProvided">
+            Please input valid text
+          </ng-container>
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <button class="submit-button" type="submit" nz-button nzType="default" [attr.disabled]="alreadySentFeedback">
+      <i nz-icon type="rocket"></i>
+      <span i18n="@@sendFeedbackButtonText">Send</span>
+    </button>
+  </form>
+</nz-card>
+
+<ng-template #titleTemplate>
+  <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
+  <h2><span i18n="@@helloText">Hi</span>, {{userService.currentUser.first_name}} 👋</h2>
+</ng-template>
