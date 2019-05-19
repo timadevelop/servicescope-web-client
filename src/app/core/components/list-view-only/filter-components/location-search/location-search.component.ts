@@ -17,6 +17,8 @@ export class LocationSearchComponent implements OnInit {
   locations: PaginatedApiResponse<Location>;
   isLoading = false;
 
+  private districtWordText = this.i18n({ value: "District", id: "districtText", description: "Simple district word" });
+
   nullLocation = new Location();
 
   @Output() onChange = new EventEmitter<Location>();
@@ -52,7 +54,7 @@ export class LocationSearchComponent implements OnInit {
 
   getLabel(location: Location): string {
     if (!location || location == this.nullLocation) return this.nullLocation.name;
-    return `${location.t_v_m} ${location.name} - ${this.i18n({ value: "District", id: "districtText", description: "Simple district word" })} ${location.district.name}`
+    return `${location.t_v_m} ${location.name} - ${this.districtWordText} ${location.district.name}`
   }
 
   search(query: string) {
