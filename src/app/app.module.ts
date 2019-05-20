@@ -8,7 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
+
 import en from '@angular/common/locales/en';
+import bg from '@angular/common/locales/bg';
 
 import { AppHeaderComponent } from './app-components/app-header/app-header.component';
 import { EmployeesModule } from './modules/employees/employees.module';
@@ -28,7 +30,7 @@ declare const require; // Use the require method provided by webpack
 // const translations = require(`raw-loader!../locale/messages.bg.xlf`);
 
 const DEFAULT_LOCALE = "en-US";
-registerLocaleData(en);
+registerLocaleData(en); // bg
 
 @NgModule({
   declarations: [
