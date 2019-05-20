@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/core/models/User.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
+import { Title } from '@angular/platform-browser';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-profile-list',
@@ -15,7 +17,11 @@ export class ProfileListComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private titleService: Title,
+    private i18n: I18n) {
+    this.titleService.setTitle(this.i18n({ value: "Profiles", id: "profilesHtmlTitle" }));
+  }
 
   ngOnInit(): void {
     // this.loadData(1);
@@ -31,6 +37,6 @@ export class ProfileListComponent implements OnInit {
   }
 
   loadData(pi: number): void {
-    this.router.navigate(['./profiles'], { queryParams: {page: pi, pageSize: this.pageSize} });
+    this.router.navigate(['./profiles'], { queryParams: { page: pi, pageSize: this.pageSize } });
   }
 }

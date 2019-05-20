@@ -6,6 +6,8 @@ import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { UserService } from 'src/app/core/services/user.service';
+import { I18n } from '@ngx-translate/i18n-polyfill';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-services-detail',
@@ -33,7 +35,9 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
     public servicesService: ServicesService,
     public tds: TargetDeviceService,
     private router: Router,
-    public userService: UserService) { }
+    public userService: UserService,
+    private i18n: I18n,
+    private titleService: Title) { }
 
   private getTabNameFromUrl(url: string) {
     return url.replace(/(\?.*|\(.*)/, '').split('/').pop();
@@ -51,6 +55,7 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
         if (this.service.contact_phone) {
           this.contact_phoneText = `${this.service.contact_phone.substring(0, 4)} Show number`;
         }
+        this.titleService.setTitle(this.service.title);
       });
 
     this.updateSelectedTabIndex(this.router.url);

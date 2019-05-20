@@ -11,6 +11,8 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { ChatService, SocketMessage } from 'src/app/core/services/socket/chat.service';
 import { Subscription } from 'rxjs';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
+import { I18n } from '@ngx-translate/i18n-polyfill';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-messages-detail',
@@ -35,7 +37,9 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     private chatService: ChatService,
     private messagesService: MessagesService,
     private nzMsgService: NzMessageService,
-    public tds: TargetDeviceService
+    public tds: TargetDeviceService,
+    private titleService: Title,
+    private i18n: I18n
   ) { }
 
   ngOnDestroy() {
@@ -72,6 +76,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
 
       this.partner = this.conversation.users[0];
 
+      this.titleService.setTitle(this.i18n({ value: "Conversation", id: "conversationHtmlTitle" }) + ' - ' + this.partner.first_name + ' ' + this.partner.last_name);
       this.messagesService.getConversationMessages(this.conversation.id, '1', '30').subscribe(
         r => {
           this.messages = r;

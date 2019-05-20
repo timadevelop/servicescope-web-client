@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { User } from 'src/app/core/models/User.model';
 import { UserService } from 'src/app/core/services/user.service';
+import { I18n } from '@ngx-translate/i18n-polyfill';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile-detail',
@@ -31,7 +33,11 @@ export class ProfileDetailComponent implements OnInit {
     public route: ActivatedRoute,
     private router: Router,
     public userService: UserService,
-  ) { }
+    private i18n: I18n,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle(this.i18n({ value: "User Profile", id: "profileDetailHtmlTitle" }));
+  }
 
   ngOnInit() {
     this.route.data
@@ -40,6 +46,7 @@ export class ProfileDetailComponent implements OnInit {
           this.user = data.user;
           this.updateQueryParams({ authorId: this.user.id });
         }
+        this.titleService.setTitle(this.user.first_name + ' ' + this.user.last_name + ' ' + this.i18n({ value: "Profile", id: "profileHtmlTitle" }));
         // services, posts, offers, etc. are propagated to child components
       });
 

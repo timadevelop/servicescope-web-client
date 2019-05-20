@@ -3,6 +3,8 @@ import { UserService } from 'src/app/core/services/user.service';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-messages',
@@ -15,8 +17,11 @@ export class MessagesComponent implements OnInit {
   constructor(
     public userService: UserService,
     public tds: TargetDeviceService,
-    private router: Router
+    private router: Router,
+    private titleService: Title,
+    private i18n: I18n
   ) {
+    this.titleService.setTitle(this.i18n({ value: "Messages", id: "messagesHtmlTitle" }));
   }
 
   ngOnInit() {

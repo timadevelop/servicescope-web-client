@@ -3,6 +3,8 @@ import { Service } from 'src/app/core/models/Service.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
+import { Title } from '@angular/platform-browser';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-services-list',
@@ -20,7 +22,11 @@ export class ServicesListComponent implements OnInit {
   constructor(
     public route: ActivatedRoute,
     public tds: TargetDeviceService,
-    private router: Router) { }
+    private router: Router,
+    private titleService: Title,
+    private i18n: I18n) {
+      this.titleService.setTitle(this.i18n({ value: "Services", id: "servicesListHtmlTitle" }));
+    }
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(params => {

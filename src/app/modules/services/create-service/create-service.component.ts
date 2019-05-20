@@ -6,6 +6,7 @@ import { ServicesService } from 'src/app/core/services/services.service';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { I18n } from '@ngx-translate/i18n-polyfill';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-service',
@@ -21,9 +22,11 @@ export class CreateServiceComponent implements OnInit {
     private servicesService: ServicesService,
     private msgService: NzMessageService,
     private router: Router,
-    public i18n: I18n
+    public i18n: I18n,
+    private titleService: Title
   ) {
-    this.creatingItemProgressText = this.i18n({value: 'Creating', id: 'creatingItemProgressText'});
+    this.creatingItemProgressText = this.i18n({ value: 'Creating', id: 'creatingItemProgressText' });
+    this.titleService.setTitle(this.i18n({ value: 'Create Service', id: "createServiceHtmlTitle" }));
   }
 
   ngOnInit() {
