@@ -1,0 +1,7 @@
+<nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
+  [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="serviceItemTemplate">
+</nz-list>
+
+<ng-template #serviceItemTemplate let-servicePromotion>
+  <app-list-item promoted="true" modelName="services" [item]="servicePromotion.service"></app-list-item>
+</ng-template>

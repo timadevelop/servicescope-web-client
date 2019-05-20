@@ -14,6 +14,7 @@ import { SimilarServicesListComponent } from './similar-services-list/similar-se
 import { NewServiceFormComponent } from './create-service/new-service-form/new-service-form.component';
 import { CreateServiceComponent } from './create-service/create-service.component';
 import { JsonLabelValueEditorComponent } from './create-service/new-service-form/json-label-value-editor/json-label-value-editor.component';
+import { PromotedServicesListComponent } from './promoted-services-list/promoted-services-list.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { JsonLabelValueEditorComponent } from './create-service/new-service-form
     ServicesListComponent,
     ServicesDetailComponent,
     SimilarServicesListComponent,
+    PromotedServicesListComponent,
     CreateServiceComponent,
     NewServiceFormComponent,
     JsonLabelValueEditorComponent

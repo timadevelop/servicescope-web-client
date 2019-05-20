@@ -9,6 +9,7 @@ import { TargetDeviceService } from 'src/app/core/services/target-device.service
 })
 export class ListItemComponent implements OnInit {
 
+  @Input() promoted: boolean = false;
   @Input() item: Service | any;
   @Input() modelName: string = null;
 

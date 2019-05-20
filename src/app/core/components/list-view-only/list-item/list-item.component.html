@@ -1,4 +1,4 @@
-<nz-list-item class="list-item stretch-list-item" [nzContent]="null" [nzActions]="">
+<nz-list-item class="list-item stretch-list-item" [class.promoted]="promoted" [nzContent]="null" [nzActions]="">
   <!-- Actions -->
   <ng-template #priceAction>
 
@@ -16,8 +16,12 @@
 
     <ng-template #itemTitle>
       <div nz-row class="col-below-mobile" nzType="flex" nzJustify="space-between" nzAlign="start">
+        <i *ngIf="promoted" class="promoted-sign" style="font-size: 30px;" nz-icon [nzType]="'dollar'"
+          [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedServiceIconTooltipText"
+          nzTitle="Promoted service"></i>
         <h2 nz-col class="title">
-          <a class="title" [routerLink]="[modelName ? '/' + modelName : './', item.id]">{{ item.title }}</a>
+          <a class="title"
+            [routerLink]="[modelName ? '/' + modelName : './', item.id]">{{ item.title | slice:0:55 }}{{ item.title.length > 55 ? '...' : ''}}</a>
         </h2>
         <div nz-col class="price " *ngIf="!tds.isMobile" nz-tooltip
           i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price"><i nz-icon type="euro"
