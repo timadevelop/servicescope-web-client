@@ -57,7 +57,7 @@ registerLocaleData(en); // bg
   providers: [
     { provide: TRANSLATIONS_FORMAT, useValue: "xlf" },
     { provide: LOCALE_ID, useValue: DEFAULT_LOCALE },
-    { provide: MISSING_TRANSLATION_STRATEGY, useValue: MissingTranslationStrategy.Warning },
+    { provide: MISSING_TRANSLATION_STRATEGY, useValue: MissingTranslationStrategy.Ignore },
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {

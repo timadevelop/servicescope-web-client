@@ -52,7 +52,6 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // set custom empty data template
-    console.log(this.customEmptyTpl);
     this.nzEmptyService.setDefaultContent(this.customEmptyTpl); // tslint:disable-line:no-any
   }
 
