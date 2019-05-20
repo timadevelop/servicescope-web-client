@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
 import { slideInAnimation } from './animations';
 import { RouterOutlet, Router, Event, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
-import { NzIconService } from 'ng-zorro-antd';
+import { NzIconService, NzEmptyService } from 'ng-zorro-antd';
 import { RealtimeNotificationsService } from './core/services/socket/realtime-notifications.service';
 
 import icons from './icons';
@@ -12,14 +12,16 @@ import icons from './icons';
   styleUrls: ['./app.component.scss'],
   animations: [slideInAnimation]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'saasWebClient';
+  @ViewChild('customEmptyTpl') customEmptyTpl: TemplateRef<any>;
 
   loading: boolean = false;
 
   constructor(
     private router: Router,
     private _iconService: NzIconService,
+    private nzEmptyService: NzEmptyService,
     public rns: RealtimeNotificationsService) {
       // init loading
       this.router.events.subscribe((event: Event) => {
@@ -48,6 +50,11 @@ export class AppComponent {
       this.rns.run();
   }
 
+  ngAfterViewInit() {
+    // set custom empty data template
+    console.log(this.customEmptyTpl);
+    this.nzEmptyService.setDefaultContent(this.customEmptyTpl); // tslint:disable-line:no-any
+  }
 
   getAnimationData(
     outlet: RouterOutlet) {
