@@ -46,7 +46,6 @@ export class FeedbackWidgetComponent implements OnInit {
       const dt = Date.parse(lastFeedback.created_at);
       const diff = this.differenceInDays(dt, Date.now());
       if (diff < 5) {
-        console.log('here');
         this.alreadySentFeedback = lastFeedback;
         this.feedbackForm.patchValue({
           rate: this.alreadySentFeedback.rate,

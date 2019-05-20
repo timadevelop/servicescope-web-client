@@ -91,10 +91,6 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
     return this.service.title;
   }
 
-  getServiceEmailLink(): string {
-    return `mailto:${this.service.contact_email}`;
-  }
-
   navigateTo(subRoute: string): void {
     this.router.navigate([`./${subRoute}`], { relativeTo: this.route });
   }

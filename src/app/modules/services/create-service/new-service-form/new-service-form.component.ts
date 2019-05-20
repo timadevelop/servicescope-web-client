@@ -50,8 +50,6 @@ export class NewServiceFormComponent implements OnInit {
     price_details: [null],
     // string
     contact_phone: [null, [Validators.required, Validators.min(7), Validators.maxLength(30)]],
-    // string
-    contact_email: [null, [Validators.email]],
   });
 
 
@@ -66,8 +64,7 @@ export class NewServiceFormComponent implements OnInit {
     this.userService.getCurrentUser().subscribe(u => {
       if (u) {
         this.serviceForm.patchValue({
-          contact_phone: u.phone,
-          contact_email: u.email
+          contact_phone: u.phone
         });
       }
     });

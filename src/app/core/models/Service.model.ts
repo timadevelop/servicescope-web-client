@@ -22,7 +22,7 @@ export class Service extends Base {
   price: Number;
   price_currency: string;
   contact_phone: string;
-  contact_email: string;
+  // contact_email: string;
   color: string;
   location: Location;
   images: Array<ServiceImage>;

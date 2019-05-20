@@ -12,7 +12,7 @@
             text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste doloremque voluptatum beatae error minima ipsum neque nobis magnam accusantium adipisci quibusdam, eaque, ullam saepe officiis fugit aperiam quasi quas quam.">
           </labeled-text>
           <div class="profile-links">
-            <app-email-wrapper *ngIf="user.email" [email]="user.email"></app-email-wrapper>
+            <app-email-wrapper *ngIf="user.email && user.id == userService.currentUser.id" [email]="user.email"></app-email-wrapper>
             <app-phone-wrapper *ngIf="user.phone" [phone]="user.phone"></app-phone-wrapper>
             <a *ngIf="user.id != userService.currentUser.id" [routerLink]="['/', 'messages', 'user', user.id]"><i nz-icon type="message"></i>Message</a>
           </div>

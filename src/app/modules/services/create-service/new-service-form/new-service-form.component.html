@@ -191,23 +191,6 @@
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
-          <nz-form-label nzFor="contact_email" i18n="@@serviceFormLabelEmail">Email</nz-form-label>
-          <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
-            <nz-input-group [nzPrefix]="prefixTitle">
-              <input type="text" nz-input formControlName="contact_email"
-                i18n-placeholder="@@serviceFormLabelEmailPlaceholder" placeholder="Email for contact" />
-            </nz-input-group>
-            <nz-form-explain *ngIf="dirtyOrHasErrors('contact_email')">
-              <ng-container
-                *ngIf="serviceForm.get('contact_email')?.hasError('minlength') || serviceForm.get('contact_email')?.hasError('maxlength') || serviceForm.get('contact_email')?.hasError('required')"
-                i18n="Error message|Service contact email is invalid, ask user to provide valid one@@serviceFormErrorEmailIsInvalid">
-                >
-                Please input valid Email
-              </ng-container>
-            </nz-form-explain>
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
           <nz-form-label nzFor="price_details" i18n="@@serviceFormLabelFixedPrices">Fixed Prices</nz-form-label>
           <app-json-label-value-editor (onChange)="onPriceDetailChange($event)" #jsonEditor>
           </app-json-label-value-editor>
