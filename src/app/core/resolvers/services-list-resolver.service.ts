@@ -18,7 +18,7 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
     Observable<PaginatedApiResponse<Service>> | Observable<never> {
 
     const page = route.queryParamMap.get('page') || '1';
-    const pageSize = route.queryParamMap.get('pageSize') || '10';
+    const pageSize = route.queryParamMap.get('pageSize') || '20';
     const query = route.queryParamMap.get('q');
     const tags = route.queryParamMap.getAll('tags');
     const locationId = route.queryParamMap.get('locationId');

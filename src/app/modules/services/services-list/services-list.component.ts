@@ -14,7 +14,7 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 export class ServicesListComponent implements OnInit {
   @Input() listOnly: boolean = false;
   @Input() paginatedServices: PaginatedApiResponse<Service>;
-  @Input() pageSize: number = 10;
+  @Input() pageSize: number = 20;
   @Input() page: number = 1;
 
   isFiltersDrawerVisible: boolean = false;
