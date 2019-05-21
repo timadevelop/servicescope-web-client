@@ -9,6 +9,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { ServicesListResolverService } from '../../core/resolvers/services-list-resolver.service';
 import { PageNotFoundComponent } from 'src/app/core/components/page-not-found/page-not-found.component';
 import { CreateServiceComponent } from './create-service/create-service.component';
+import { PromoteServiceComponent } from './promote-service/promote-service.component';
 
 const servicesRoutes: Routes = [
   {
@@ -47,6 +48,14 @@ const servicesRoutes: Routes = [
             runGuardsAndResolvers: 'paramsOrQueryParamsChange'
           }
         ]
+      },
+      {
+        path: ':id/promote',
+        component: PromoteServiceComponent,
+        canActivate: [AuthGuard],
+        resolve: {
+          service: ServiceResolverService
+        },
       },
       {
 

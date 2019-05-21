@@ -4,6 +4,7 @@ import { Url } from 'url';
 import { Tag } from './Tag.models';
 import { Location } from './Location.model';
 import { Category } from './Category.models';
+import { ServicePromotion } from './ServicePromotion.model';
 
 export class ServiceImage extends Base {
   service: Url
@@ -26,7 +27,7 @@ export class Service extends Base {
   color: string;
   location: Location;
   images: Array<ServiceImage>;
-  promotions: Array<any>; // TODO
+  promotions: Array<ServicePromotion>;
   is_promoted: boolean;
   created_at: Date; // TODO
   updated_at: Date;

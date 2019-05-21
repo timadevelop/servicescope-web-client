@@ -57,22 +57,6 @@ $bottom: 50px;
 }
 
 
-@keyframes fade-in-bottom {
-  0% {
-    -webkit-transform: translateY(50px);
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  70% {
-    opacity: 0.5;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 .large ::ng-deep .ant-rate-star {
   font-size: 36px;
 }

@@ -15,6 +15,7 @@ import { NewServiceFormComponent } from './create-service/new-service-form/new-s
 import { CreateServiceComponent } from './create-service/create-service.component';
 import { JsonLabelValueEditorComponent } from './create-service/new-service-form/json-label-value-editor/json-label-value-editor.component';
 import { PromotedServicesListComponent } from './promoted-services-list/promoted-services-list.component';
+import { PromoteServiceComponent } from './promote-service/promote-service.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PromotedServicesListComponent } from './promoted-services-list/promoted
     PromotedServicesListComponent,
     CreateServiceComponent,
     NewServiceFormComponent,
+    PromoteServiceComponent,
     JsonLabelValueEditorComponent
   ],
   imports: [
