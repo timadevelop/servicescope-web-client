@@ -97,7 +97,7 @@
 <nz-modal [(nzVisible)]="selectedPlan && !paymentIntent" [nzFooter]="null" (nzOnCancel)="setSelectedPlan(null)"
   [nzTitle]="modalPayTitle">
   <app-pay-form (onSucceededPayment)="onSucceededPayment($event)" [amount]="getPlan(selectedPlan)?.price"
-    [currency]="getPlan(selectedPlan)?.currency"></app-pay-form>
+    [currency]="getPlan(selectedPlan)?.currency" [metadata]="getPaymentMetadata()"></app-pay-form>
 </nz-modal>
 
 

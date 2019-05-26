@@ -18,6 +18,7 @@ export class PayFormComponent implements OnInit {
 
   @Input() amount: number;
   @Input() currency: string;
+  @Input() metadata: object;
   @Output() onSucceededPayment = new EventEmitter<paymentIntents.IPaymentIntent>();
   @ViewChild('cardElement') cardElement: ElementRef;
 
@@ -45,13 +46,13 @@ export class PayFormComponent implements OnInit {
   createOrUpdatePaymentIntent() {
     this.loading = true;
     if (this.paymentIntent) {
-      this.paymentsService.updatePaymentIntent(this.paymentIntent.id, this._amount, this._currency)
+      this.paymentsService.updatePaymentIntent(this.paymentIntent.id, this._amount, this._currency, this.metadata)
         .subscribe((pi: paymentIntents.IPaymentIntent) => {
           this.paymentIntent = pi;
           this.loading = false;
         });
     } else {
-      this.paymentsService.createPaymentIntent(this._amount, this._currency)
+      this.paymentsService.createPaymentIntent(this._amount, this._currency, this.metadata)
         .subscribe((pi: paymentIntents.IPaymentIntent) => {
           this.paymentIntent = pi;
           this.createStripeElementsForm();
@@ -64,7 +65,7 @@ export class PayFormComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     const amount: SimpleChange = changes.amount;
     const currency: SimpleChange = changes.currency;
-    if (amount.currentValue != null &&
+    if (amount && currency && amount.currentValue != null &&
       (this._amount != amount.currentValue || this._currency != currency.currentValue)) {
       this._amount = amount.currentValue;
       this._currency = currency.currentValue;

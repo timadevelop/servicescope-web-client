@@ -22,12 +22,11 @@ export class ConfigService {
     private http: HttpClient,
     private errorHandlerService: ErrorHandlerService) {
       this.getConfig().subscribe(r => this._config = r);
-      console.log('init config service');
+      console.log('init config service'); // TODO
   }
 
   public currentConfig(): Observable<ApiClientConfig> {
     if (this._config) {
-      console.log(this._config);
       return of(this._config);
     } else {
       return this.getConfig();

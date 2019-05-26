@@ -6,6 +6,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { paymentIntents } from 'stripe';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { NzMessageService } from 'ng-zorro-antd';
+import { UserService } from 'src/app/core/services/user.service';
 
 
 // price: 2.00 = 200 (200 / 100)
@@ -41,6 +42,7 @@ export class PromoteServiceComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private userService: UserService,
     private i18n: I18n,
     private nzMsgService: NzMessageService,
     private route: ActivatedRoute,
@@ -98,14 +100,27 @@ export class PromoteServiceComponent implements OnInit {
       this.servicesService.getServiceById(this.service.id)
         .subscribe((r: Service) => {
           // if (r.is_promoted) {
-            this.nzMsgService.remove(processMsgId);
-            this.nzMsgService.remove(successMsgId);
-            this.isBoosted = true;
+          this.nzMsgService.remove(processMsgId);
+          this.nzMsgService.remove(successMsgId);
+          this.isBoosted = true;
           // } else {
-            // this.fetchService(processMsgId, successMsgId);
+          // this.fetchService(processMsgId, successMsgId);
           // }
         })
     }, 3000);
+  }
+
+  getPaymentMetadata(): object {
+    if (this.selectedPlan) {
+      return {
+        user_id: this.userService.currentUser ? this.userService.currentUser.id : null,
+        reason: 'promote_service',
+        plan: this.selectedPlan,
+        model: 'service',
+        model_id: this.service.id,
+        days: PLANS[this.selectedPlan].days
+      }
+    }
   }
 
 }
