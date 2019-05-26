@@ -37,7 +37,8 @@
     <div class="mb-vertical-align" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
       <div class="share-btns">
         <button nz-button><i nz-icon nzType="ng-vlicon:facebook"></i><span i18n="@@shareBtnText">Share</span></button>
-        <button nz-button><i nz-icon nzType="twitter" style="color: #1da1f2;"></i><span i18n="@@tweetBtnText">Tweet</span></button>
+        <button nz-button><i nz-icon nzType="twitter" style="color: #1da1f2;"></i><span
+            i18n="@@tweetBtnText">Tweet</span></button>
         <button nz-button><i nz-icon nzType="star"></i><span i18n="@@saveBtnText">Save</span></button>
       </div>
       <div>
@@ -65,9 +66,11 @@
 </div>
 
 <ng-template #promoButton>
-  <nz-card class="large-card-button padding-12" style="text-align: center;">
-    <h2 style="margin: 0;"><i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span></h2>
-  </nz-card>
+  <a [routerLink]="['./', 'promote']">
+    <nz-card class="large-card-button padding-12" style="text-align: center;">
+      <h2 style="margin: 0;"><i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span></h2>
+    </nz-card>
+  </a>
 </ng-template>
 
 <!-- mobile contact -->
@@ -76,7 +79,8 @@
     <a [href]="'tel:' + service.contact_phone"><i nz-icon nzType="phone"></i><span i18n="@@callText">Call</span></a>
   </div>
   <div *ngIf="userService.currentUser.id != service.author.id" nz-col nzSpan="12" class="phone-col">
-    <a [routerLink]="['/', 'messages', 'user', service.author.id]"><i nz-icon nzType="message"></i><span i18n="@@messageUserText">Message</span></a>
+    <a [routerLink]="['/', 'messages', 'user', service.author.id]"><i nz-icon nzType="message"></i><span
+        i18n="@@messageUserText">Message</span></a>
   </div>
   <div *ngIf="userService.currentUser.id == service.author.id" nz-col nzSpan="24" class="promo-col">
     <a><i nz-icon nzType="rocket"></i><span i18n="@@promoteYourServiceText">Promote your service</span></a>

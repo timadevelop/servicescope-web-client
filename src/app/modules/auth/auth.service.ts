@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { tap, delay, mapTo, catchError, retry } from 'rxjs/operators';
+import { tap, delay, mapTo, catchError, retry, map, switchMap } from 'rxjs/operators';
 import { TokenInfo } from './models';
-import { User } from '../../core/models/User.model';
 import { LoginApiRequest } from '../../core/models/api-request/login-api-request.model';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -10,6 +9,7 @@ import { RegisterApiRequest } from '../../core/models/api-request/register-api-r
 import { NzMessageService } from 'ng-zorro-antd';
 import { LogoutApiRequest } from '../../core/models/api-request/logout-api-request.model';
 import { Router } from '@angular/router';
+import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,9 @@ export class AuthService {
   private _tokenInfo: TokenInfo;
   public redirectUrl: string;
 
-  constructor(private http: HttpClient,
+  constructor(
+    private configService: ConfigService,
+    private http: HttpClient,
     private messageService: NzMessageService,
     private router: Router) {
     this.init();
@@ -57,15 +59,20 @@ export class AuthService {
 
   // Auth methods
   public login(credentials: LoginApiRequest): Observable<boolean> {
-    return this.http.post<TokenInfo>(`${environment.apiUrl}/auth/token/`, credentials)
-      .pipe(
-        tap((tokenInfo: TokenInfo) => this.processSucceedLogin(tokenInfo)),
-        mapTo(true),
-        catchError(error => {
-          this.handleError(error);
-          return of(false);
-        })
-      );
+    return this.configService.currentConfig().pipe(
+      switchMap((c: ApiClientConfig) => {
+        credentials.client_id = c.API_CLIENT_ID;
+        credentials.client_secret = c.API_CLIENT_SECRET;
+        return this.http.post<TokenInfo>(`${environment.apiUrl}/auth/token/`, credentials)
+          .pipe(
+            tap((tokenInfo: TokenInfo) => this.processSucceedLogin(tokenInfo)),
+            mapTo(true),
+            catchError(error => {
+              this.handleError(error);
+              return of(false);
+            })
+          );
+      }));
   }
 
   public register(credentials: RegisterApiRequest): Observable<boolean | HttpErrorResponse> {
@@ -82,16 +89,20 @@ export class AuthService {
 
   public logout(): Observable<boolean> {
     const logoutApiRequest: LogoutApiRequest = new LogoutApiRequest(this.authorizationToken);
-
-    return this.http.post<LogoutApiRequest>(`${environment.apiUrl}/auth/revoke-token/`, logoutApiRequest)
-      .pipe(
-        tap((_any: any) => this.clearUserInfo()),
-        mapTo(true),
-        catchError(error => {
-          this.handleError(error);
-          return of(false);
-        })
-      );
+    return this.configService.currentConfig().pipe(
+      switchMap((c: ApiClientConfig) => {
+        logoutApiRequest.client_id = c.API_CLIENT_ID;
+        logoutApiRequest.client_secret = c.API_CLIENT_SECRET;
+        return this.http.post<LogoutApiRequest>(`${environment.apiUrl}/auth/revoke-token/`, logoutApiRequest)
+          .pipe(
+            tap((_any: any) => this.clearUserInfo()),
+            mapTo(true),
+            catchError(error => {
+              this.handleError(error);
+              return of(false);
+            })
+          )
+      }));
   }
 
   // TODO

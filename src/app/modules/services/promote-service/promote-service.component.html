@@ -11,66 +11,99 @@
     <nz-row nzType="flex" nzJustify="center">
       <div nz-col [nzXs]="24" [nzSm]="24">
         <nz-spin [nzSpinning]="loading">
-          <app-list-item [item]="service" [modelName]="service"></app-list-item>
-
+          <app-list-item [promoted]="isBoosted" [item]="service" modelName="services">
+          </app-list-item>
         </nz-spin>
       </div>
 
     </nz-row>
   </nz-card>
 
-  <h2 style="text-align: center;" class="title mb-vertical-align"
-    i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Select Plan</h2>
-  <nz-row nzGutter="16" class="promote-plans">
-    <nz-col nzSpan="12" nz-tooltip i18n-nzTitle="clickToSelectText" nzTitle="Click to select">
-      <nz-card class="promote-plan-card" [class.selected]="selectedPlan == 'basic'" (click)="selectedPlan = 'basic'">
-        <h2 class="title blue-color plan-title">Basic</h2>
-        <nz-divider></nz-divider>
-        <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-          <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="rocket"></i>
-          <span>3 Days <b class="blue-color">Boosted</b> service status</span>
-        </div>
-        <nz-divider></nz-divider>
-        <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-          <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="align-left"></i>
-          <span nz-col nzSpan="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque velit beatae id
-            quod,
-            nulla ipsa qui est nisi minus accusamus sequi explicabo, vero mollitia sit quo, ipsam ex. Nam,
-            tenetur!</span>
-        </div>
-        <nz-divider></nz-divider>
-        <h2 class="price title">2.00 лв.</h2>
-      </nz-card>
-    </nz-col>
-    <nz-col nzSpan="12" nz-tooltip i18n-nzTitle="clickToSelectText" nzTitle="Click to select">
-      <nz-card class="promote-plan-card" [class.selected]="selectedPlan == 'pro'" (click)="selectedPlan = 'pro'">
-        <h2 class="title green-color plan-title">Pro</h2>
-        <nz-divider></nz-divider>
-        <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-          <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="rocket"></i>
-          <span>7 Days <b class="green-color">Boosted</b> service status</span>
-        </div>
-        <nz-divider></nz-divider>
-        <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-          <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="align-left"></i>
-          <span nz-col nzSpan="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque velit beatae id
-            quod,
-            nulla ipsa qui est nisi minus accusamus sequi explicabo, vero mollitia sit quo, ipsam ex. Nam,
-            tenetur!</span>
-        </div>
-        <nz-divider></nz-divider>
-        <h2 class="price title">4.00 лв.</h2>
-      </nz-card>
-    </nz-col>
-  </nz-row>
+  <div>
+    <h2 style="text-align: center;" class="title mb-vertical-align">
+      <span *ngIf="paymentIntent?.status != 'succeeded' else boostingProcessTitleTemplate"
+        i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Select Plan</span>
 
-  <div *ngIf="selectedPlan" class="pay-container">
-    <h2 style="text-align: center;" class="title mb-vertical-align"
-      i18n="Pay for service promotion@@promoteServicePayText">Pay</h2>
+      <ng-template #boostingProcessTitleTemplate>
+        <i *ngIf="!isBoosted" nz-icon type="loading" style="font-size: 24px;margin-right: 5px;"></i>
+        <span *ngIf="!isBoosted else successBoostedTitleTemplate"
+          i18n="Card title for service boosting process@@promoteServiceBoostingProcessText">
+          Boosting Your Service...</span>
+      </ng-template>
+
+      <ng-template #successBoostedTitleTemplate>
+        <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"
+          style="font-size: 24px; margin-right: 5px;"></i>
+        <span i18n="Card title for successfully boosted service@@promoteServiceSelectedPlanSuccessText">
+          Successfully Boosted Service</span>
+      </ng-template>
+
+    </h2>
+
+    <nz-row nzGutter="16" nzType="flex" nzJustify="center" class="promote-plans">
+      <nz-col *ngIf="paymentIntent?.status != 'succeeded' || selectedPlan == 'basic'" nzSpan="12" nz-tooltip
+        i18n-nzTitle="clickToSelectText" nzTitle="Click to select">
+        <nz-card class="promote-plan-card" [class.selected]="selectedPlan == 'basic'"
+          (click)="setSelectedPlan('basic')">
+          <h2 class="title blue-color plan-title">Basic</h2>
+          <nz-divider></nz-divider>
+          <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+            <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="rocket"></i>
+            <span>{{getPlan('basic').days}} Days <b class="blue-color">Boosted</b> service status</span>
+          </div>
+          <nz-divider></nz-divider>
+          <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+            <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="align-left"></i>
+            <span nz-col nzSpan="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque velit beatae id
+              quod,
+              nulla ipsa qui est nisi minus accusamus sequi explicabo, vero mollitia sit quo, ipsam ex. Nam,
+              tenetur!</span>
+          </div>
+          <nz-divider></nz-divider>
+          <h2 class="price title">{{getPlan('basic').price / 100}} {{getPlan('basic').currency}}</h2>
+        </nz-card>
+      </nz-col>
+
+      <nz-col *ngIf="paymentIntent?.status != 'succeeded' || selectedPlan == 'pro'" nzSpan="12" nz-tooltip
+        i18n-nzTitle="clickToSelectText" nzTitle="Click to select">
+        <nz-card class="promote-plan-card" [class.selected]="selectedPlan == 'pro'" (click)="setSelectedPlan('pro')">
+          <h2 class="title green-color plan-title">Pro</h2>
+          <nz-divider></nz-divider>
+          <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+            <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="rocket"></i>
+            <span>{{getPlan('pro').days}} Days <b class="green-color">Boosted</b> service status</span>
+          </div>
+          <nz-divider></nz-divider>
+          <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+            <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="align-left"></i>
+            <span nz-col nzSpan="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque velit beatae id
+              quod,
+              nulla ipsa qui est nisi minus accusamus sequi explicabo, vero mollitia sit quo, ipsam ex. Nam,
+              tenetur!</span>
+          </div>
+          <nz-divider></nz-divider>
+          <h2 class="price title">{{getPlan('pro').price / 100}} {{getPlan('pro').currency}}</h2>
+        </nz-card>
+      </nz-col>
+    </nz-row>
   </div>
 </div>
 
 <ng-template #title>
   <h2 style="text-align: center;" class="title" i18n="Card title for promote service form@@promoteServiceText">Promote
     service</h2>
+</ng-template>
+
+<nz-modal [(nzVisible)]="selectedPlan && !paymentIntent" [nzFooter]="null" (nzOnCancel)="setSelectedPlan(null)"
+  [nzTitle]="modalPayTitle">
+  <app-pay-form (onSucceededPayment)="onSucceededPayment($event)" [amount]="getPlan(selectedPlan)?.price"
+    [currency]="getPlan(selectedPlan)?.currency"></app-pay-form>
+</nz-modal>
+
+
+<ng-template #modalPayTitle>
+  <h2 style="text-align: left;" class="title" i18n="Pay for service promotion@@promoteServicePayText">
+    Pay for service boost
+  </h2>
+
 </ng-template>

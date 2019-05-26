@@ -1,0 +1,26 @@
+<form (submit)="handleForm($event)" nz-form *ngIf="paymentIntent?.status != 'succeeded' else succeededTemplate">
+  <nz-form-item>
+    <nz-form-label i18n="@@payFormCreditOrDebitCardText">Credit or debit card</nz-form-label>
+    <div #cardElement class="card-element">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+    <nz-form-explain *ngIf="errorString">
+      <p class="error-color">{{errorString}}</p>
+    </nz-form-explain>
+  </nz-form-item>
+  <nz-form-item>
+    <button class="pay-button" nz-button nzType="primary" [nzLoading]="loading">
+      <span i18n="Pay text for pay button@@payButtonText">Pay</span>
+      {{(loading ? amount : paymentIntent?.amount) / 100 | number}} {{_currency}}</button>
+  </nz-form-item>
+</form>
+
+<ng-template #succeededTemplate>
+  <nz-alert nzType="success" i18n-nzMessage="@@payFormPaidText" nzMessage="Paid" [nzDescription]="descriptionTemplate"
+    nzShowIcon>
+  </nz-alert>
+  <ng-template #descriptionTemplate>
+    <span i18n="@@payFormPaidDescriptionText">Successfully paid</span>
+    {{(loading ? amount : paymentIntent?.amount) / 100 | number}} {{_currency}}
+  </ng-template>
+</ng-template>

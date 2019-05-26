@@ -5,6 +5,7 @@ import { NzIconService, NzEmptyService } from 'ng-zorro-antd';
 import { RealtimeNotificationsService } from './core/services/socket/realtime-notifications.service';
 
 import icons from './icons';
+import { ConfigService } from './core/services/config.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent implements AfterViewInit {
   loading: boolean = false;
 
   constructor(
+    private configService: ConfigService,
     private router: Router,
     private _iconService: NzIconService,
     private nzEmptyService: NzEmptyService,

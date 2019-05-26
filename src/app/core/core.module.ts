@@ -28,6 +28,8 @@ import { SocketService } from './services/socket/socket.service';
 import { RealtimeNotificationsService } from './services/socket/realtime-notifications.service';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { ProfileAvatarUploaderComponent } from './components/common/profile-avatar-uploader/profile-avatar-uploader.component';
+import { PayFormComponent } from './components/common/pay-form/pay-form.component';
+import { ConfigService } from './services/config.service';
 
 @NgModule({
   imports: [
@@ -57,6 +59,7 @@ import { ProfileAvatarUploaderComponent } from './components/common/profile-avat
     TagsSelectorComponent,
     ImagesSelectorComponent,
     ProfileAvatarUploaderComponent,
+    PayFormComponent,
     // pipes
     LinkifyPipe
   ],
@@ -81,6 +84,7 @@ import { ProfileAvatarUploaderComponent } from './components/common/profile-avat
     TagsSelectorComponent,
     ImagesSelectorComponent,
     ProfileAvatarUploaderComponent,
+    PayFormComponent,
     // pipes
     LinkifyPipe
   ]
@@ -89,7 +93,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [ SocketService, ChatService, RealtimeNotificationsService ]
+      providers: [ SocketService, ChatService, RealtimeNotificationsService, ConfigService ]
     }
   }
 }
