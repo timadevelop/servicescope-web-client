@@ -7,18 +7,10 @@ import { paymentIntents } from 'stripe';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { NzMessageService } from 'ng-zorro-antd';
 import { UserService } from 'src/app/core/services/user.service';
+import { ServicePromotionsService } from 'src/app/core/services/service-promotions.service';
+import { ServicePromotion } from 'src/app/core/models/ServicePromotion.model';
 
 
-// price: 2.00 = 200 (200 / 100)
-// (22.03 = 2203 (2203 / 100))
-const PLANS = {
-  basic: {
-    price: 274, currency: 'BGN', days: 3,
-  },
-  pro: {
-    price: 403, currency: 'BGN', days: 7,
-  }
-}
 
 @Component({
   selector: 'app-promote-service',
@@ -26,8 +18,37 @@ const PLANS = {
   styleUrls: ['./promote-service.component.scss']
 })
 export class PromoteServiceComponent implements OnInit {
+
+  dateStartingPoint: Date = new Date();
+  // price: 2.00 = 200 (200 / 100)
+  // (22.03 = 2203 (2203 / 100))
+  PLANS = {
+    basic: {
+      price: 274, currency: 'BGN', days: 3, target_date: this.nDaysFromStartingDate(3)
+    },
+    pro: {
+      price: 403, currency: 'BGN', days: 7, target_date: this.nDaysFromStartingDate(7)
+    }
+  }
+
+  private nDaysFromStartingDate(days: number) {
+    // console.log('old: ', this.dateStartingPoint)
+    const d = new Date(this.dateStartingPoint);
+    // this.dateStartingPoint.valueOf() + 24*60*60*this.getPlan(plan).days
+    d.setDate(d.getDate() + days);
+    // console.log(d);
+    return d;
+  }
+
+  private updatePlansDates() {
+    this.PLANS.basic.target_date = this.nDaysFromStartingDate(this.PLANS.basic.days);
+    this.PLANS.pro.target_date = this.nDaysFromStartingDate(this.PLANS.pro.days);
+  }
+
   loading: boolean = false;
   service: Service;
+  previousPromotion: ServicePromotion;
+
   selectedPlan: 'basic' | 'pro' = null;
 
   paymentIntent: paymentIntents.IPaymentIntent;
@@ -46,7 +67,9 @@ export class PromoteServiceComponent implements OnInit {
     private i18n: I18n,
     private nzMsgService: NzMessageService,
     private route: ActivatedRoute,
-    private servicesService: ServicesService) { }
+    private servicesService: ServicesService,
+    private servicePromotionsService: ServicePromotionsService
+  ) { }
 
   ngOnInit() {
     this.route.data
@@ -57,6 +80,16 @@ export class PromoteServiceComponent implements OnInit {
           return;
         }
         this.service = data.service;
+        if (this.service.promotions && this.service.promotions.length > 0) {
+          const url = this.service.promotions[0];
+          this.servicePromotionsService.getByUrl(url)
+            .subscribe(r => {
+              this.previousPromotion = r;
+              this.dateStartingPoint = new Date(r.end_datetime);
+              this.updatePlansDates();
+            });
+
+        }
       });
   }
 
@@ -73,7 +106,7 @@ export class PromoteServiceComponent implements OnInit {
   }
 
   getPlan(id: string) {
-    return PLANS[id];
+    return this.PLANS[id];
   }
 
   onSucceededPayment(paymentIntent: paymentIntents.IPaymentIntent) {
@@ -91,23 +124,46 @@ export class PromoteServiceComponent implements OnInit {
     const processMsgId = this.nzMsgService.loading(
       this.i18n({ value: "Boosting your service...", id: "boostingServiceLoadingText" }),
       { nzDuration: 0 }).messageId;
-    // fetch service.
-    this.fetchService(processMsgId, successMsgId);
+
+    if (this.previousPromotion) {
+      this.fetchPromotion(processMsgId, successMsgId);
+    } else {
+      this.fetchService(processMsgId, successMsgId);
+    }
+  }
+
+  private fetchPromotion(processMsgId, successMsgId) {
+    setTimeout(() => {
+      this.servicePromotionsService.getByUrl(this.previousPromotion.url)
+        .subscribe(r => {
+          // wait til previous promotion stripe payment intents length changes
+          if (this.previousPromotion.stripe_payment_intents.length != r.stripe_payment_intents.length) {
+            this.endBoosting(processMsgId, successMsgId);
+          } else {
+            this.fetchPromotion(processMsgId, successMsgId);
+          }
+        });
+    }, 2000)
   }
 
   private fetchService(processMsgId, successMsgId) {
     setTimeout(() => {
       this.servicesService.getServiceById(this.service.id)
         .subscribe((r: Service) => {
-          // if (r.is_promoted) {
-          this.nzMsgService.remove(processMsgId);
-          this.nzMsgService.remove(successMsgId);
-          this.isBoosted = true;
-          // } else {
-          // this.fetchService(processMsgId, successMsgId);
-          // }
+          // wait til service promotions length changes
+          if (r.is_promoted && r.promotions.length != this.service.promotions.length) {
+            this.endBoosting(processMsgId, successMsgId);
+          } else {
+            this.fetchService(processMsgId, successMsgId);
+          }
         })
-    }, 3000);
+    }, 2000);
+  }
+
+  private endBoosting(processMsgId, successMsgId) {
+    this.nzMsgService.remove(processMsgId);
+    this.nzMsgService.remove(successMsgId);
+    this.isBoosted = true;
   }
 
   getPaymentMetadata(): object {
@@ -118,7 +174,7 @@ export class PromoteServiceComponent implements OnInit {
         plan: this.selectedPlan,
         model: 'service',
         model_id: this.service.id,
-        days: PLANS[this.selectedPlan].days
+        days: this.PLANS[this.selectedPlan].days
       }
     }
   }

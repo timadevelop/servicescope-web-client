@@ -27,7 +27,7 @@ export class Service extends Base {
   color: string;
   location: Location;
   images: Array<ServiceImage>;
-  promotions: Array<ServicePromotion>;
+  promotions: Array<string>;
   is_promoted: boolean;
   created_at: Date; // TODO
   updated_at: Date;

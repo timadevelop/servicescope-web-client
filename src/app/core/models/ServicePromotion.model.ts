@@ -8,4 +8,5 @@ export class ServicePromotion extends Base {
   end_datetime: string;
   created_at: string;
   transaction_id: string;
+  stripe_payment_intents: Array<String>;
 }

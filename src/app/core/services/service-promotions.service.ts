@@ -18,6 +18,10 @@ export class ServicePromotionsService {
     private errorHandlerService: ErrorHandlerService) {
   }
 
+  public getByUrl(url: string): Observable<ServicePromotion> {
+    return this.http.get<ServicePromotion>(`${url}`);
+  }
+
   public getById(id: number): Observable<ServicePromotion> {
     return this.http.get<ServicePromotion>(`${environment.apiUrl}/service-promotions/${id}/`);
   }
