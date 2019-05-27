@@ -1,8 +1,11 @@
 <div nz-row nzGutter="16" *ngIf="service" class="service-container">
   <!-- left column -->
   <div nz-col class="gutter-row" nzXs="24" nzXl="18">
-    <nz-card class="padding-0">
+    <nz-card class="padding-0" [class.promoted]="service.is_promoted">
       <app-carousel [images]="service?.images"></app-carousel>
+      <i *ngIf="service.is_promoted" class="promoted-sign" style="font-size: 30px;" nz-icon [nzType]="'dollar'"
+        [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedServiceIconTooltipText"
+        nzTitle="Promoted service"></i>
     </nz-card>
     <div nz-row style="text-align: center;" *ngIf="tds.isMobile">
       <h1 class="mb-vertical-align title">{{service.title}}</h1>
