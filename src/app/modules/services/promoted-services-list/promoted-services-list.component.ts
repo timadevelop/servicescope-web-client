@@ -6,6 +6,7 @@ import { Tag } from 'src/app/core/models/Tag.models';
 import { ServicePromotionsService } from 'src/app/core/services/service-promotions.service';
 import { ServicePromotion } from 'src/app/core/models/ServicePromotion.model';
 import { filter } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-promoted-services-list',
@@ -19,56 +20,43 @@ export class PromotedServicesListComponent implements OnInit {
   loading: boolean = true;
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private servicePromotionsService: ServicePromotionsService) {
-    this.loadPromotedServices();
   }
 
   ngOnInit() {
-    // this.route.queryParamMap.subscribe(queryParamMap => {
-    this.router.events.pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe(event => {
-        let paramMap = this.route.snapshot.paramMap;
-        let queryParamMap = this.route.snapshot.queryParamMap;
+    var obsComb = combineLatest(this.route.paramMap, this.route.queryParamMap,
+      (paramMap, queryParamMap) => ({ paramMap, queryParamMap }));
 
-        const page = queryParamMap.get('page') || String(this.page);
-        const query = queryParamMap.get('q');
-        const category = paramMap.get('category');
-        const tags = queryParamMap.getAll('tags');
+    obsComb.subscribe(ap => {
+      let paramMap = ap.paramMap;
+      let queryParamMap = ap.queryParamMap;
 
-        const filters = tags.map(tag => {
-          return { param: 'tags', value: tag }
+      const page = queryParamMap.get('page') || String(this.page);
+      const query = queryParamMap.get('q');
+      const category = paramMap.get('category');
+      const tags = queryParamMap.getAll('tags');
+      const authorId = queryParamMap.get('authorId');
+
+      const filters = tags.map(tag => {
+        return { param: 'tags', value: tag }
+      });
+
+      if (category) {
+        filters.push({ param: 'category', value: category });
+      }
+
+
+      if (authorId) {
+        filters.push({ param: 'author_id', value: authorId });
+      }
+
+      return this.servicePromotionsService.get(String(page), String(this.pageSize), query, filters)
+        .subscribe(r => {
+          this.paginatedServices = r;
+          this.loading = false;
         });
-
-        if (category) {
-          filters.push({ param: 'category', value: category });
-        }
-
-        return this.servicePromotionsService.get(String(page), String(this.pageSize), query, filters)
-          .subscribe(r => {
-            console.log(r);
-            this.paginatedServices = r;
-            this.loading = false;
-          });
-      });
-  }
-
-  loadPromotedServices() {
-
-    this.loading = true;
-    const filters = [];
-    // this.service.tags.map(tag => {
-    //   return { param: 'tags', value: tag.name };
-    // });
-
-    const query = null;
-    return this.servicePromotionsService.get(String(this.page), String(this.pageSize), query, filters)
-      .subscribe(r => {
-        console.log(r);
-        this.paginatedServices = r;
-        this.loading = false;
-      });
+    });
   }
 
 }
