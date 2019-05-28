@@ -1,6 +1,9 @@
-<nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
-  [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="serviceItemTemplate">
-</nz-list>
+<h3 *ngIf="show" i18n="@@promotedServicesCardTitle">Promoted</h3>
+<nz-card *ngIf="show">
+  <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
+    [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="serviceItemTemplate">
+  </nz-list>
+</nz-card>
 
 <ng-template #serviceItemTemplate let-servicePromotion>
   <app-list-item promoted="true" modelName="services" [item]="servicePromotion.service"></app-list-item>
