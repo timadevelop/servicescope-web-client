@@ -12,11 +12,14 @@ import { HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServicesListResolverService implements Resolve<PaginatedApiResponse<Service>>{
-  constructor(private servicesService: ServicesService, private router: Router) { }
+  constructor(private servicesService: ServicesService, private router: Router) {
+    console.log('RESOLVER: constructor');
+  }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     Observable<PaginatedApiResponse<Service>> | Observable<never> {
 
+    console.log('RESOLVER: start');
     const page = route.queryParamMap.get('page') || '1';
     const pageSize = route.queryParamMap.get('pageSize') || '20';
     const query = route.queryParamMap.get('q');
@@ -56,9 +59,13 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
       filters.push({ param: 'author__id', value: authorId });
     }
 
+
+    console.log('RESOLVER: ask http service');
     return this.servicesService.getServices(page, pageSize, query, filters).pipe(
       take(1),
       mergeMap((services: PaginatedApiResponse<Service>) => {
+
+        console.log('RESOLVER: loaded!');
         if (services) {
           return of(services);
         } else {

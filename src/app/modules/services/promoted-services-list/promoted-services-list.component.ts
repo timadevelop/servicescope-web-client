@@ -33,7 +33,8 @@ export class PromotedServicesListComponent implements OnInit {
       let paramMap = ap.paramMap;
       let queryParamMap = ap.queryParamMap;
 
-      const page = queryParamMap.get('page') || String(this.page);
+      // const page = queryParamMap.get('page') || String(this.page);
+      const page = String(this.page); // random order, vlad!
       const query = queryParamMap.get('q');
       const category = paramMap.get('category');
       const tags = queryParamMap.getAll('tags');

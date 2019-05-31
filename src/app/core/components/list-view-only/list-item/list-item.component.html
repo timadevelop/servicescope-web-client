@@ -31,12 +31,17 @@
 
     <ng-template #tags>
       <div class="tags">
-        <a [routerLink]="[]" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge"
-          *ngFor="let tag of item.tags">
+          <a [routerLink]="['.']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge" *ngFor="let tag of item.tags">
+            <nz-tag nz-tooltip i18n-nzTitle="Text user sees on tag hover@@searchByTagText" nzTitle="Search by tag"
+              [nzColor]="tag.color">{{tag.name}}
+            </nz-tag>
+          </a>
+        <!-- <a [routerLink]="[]" [queryParams]="{tags: [tagName]}" queryParamsHandling="merge"
+          *ngFor="let tagName of item.tags">
           <nz-tag>
-            {{tag.name}}
+            {{tagName}}
           </nz-tag>
-        </a>
+        </a> -->
       </div>
     </ng-template>
 
