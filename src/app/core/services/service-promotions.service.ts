@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ErrorHandlerService } from './error-handler.service';
 import { ServicePromotion } from '../models/ServicePromotion.model';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of, Subject, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
 import { CustomEncoder } from './custom.encoder';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap, share } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicePromotionsService {
+  lastPromotionsList: BehaviorSubject<PaginatedApiResponse<ServicePromotion>> = new BehaviorSubject(null);
+  //  = <Subject<PaginatedApiResponse<ServicePromotion>>>new Subject().pipe(share());
 
   constructor(
     private http: HttpClient,
@@ -47,6 +49,7 @@ export class ServicePromotionsService {
 
     return this.http.get<PaginatedApiResponse<ServicePromotion>>(`${environment.apiUrl}/service-promotions/`, options)
       .pipe(
+        tap(r => this.lastPromotionsList.next(r)),
         catchError(error => {
           this.errorHandlerService.handleError(error);
           return throwError(error);

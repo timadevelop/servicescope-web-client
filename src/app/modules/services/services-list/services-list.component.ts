@@ -5,6 +5,8 @@ import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { Title } from '@angular/platform-browser';
 import { I18n } from '@ngx-translate/i18n-polyfill';
+import { ServicePromotionsService } from 'src/app/core/services/service-promotions.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-services-list',
@@ -22,12 +24,20 @@ export class ServicesListComponent implements OnInit {
   constructor(
     public route: ActivatedRoute,
     public tds: TargetDeviceService,
+    private servicePromotionsService: ServicePromotionsService,
     private router: Router,
     private titleService: Title,
     private i18n: I18n) {
-      this.titleService.setTitle(this.i18n({ value: "Services", id: "servicesListHtmlTitle" }));
-    }
+    this.titleService.setTitle(this.i18n({ value: "Services", id: "servicesListHtmlTitle" }));
+  }
 
+  sub$: Subscription;
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.sub$.unsubscribe();
+  }
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(params => {
       this.pageSize = +params.get('pageSize') || this.pageSize;
@@ -38,9 +48,27 @@ export class ServicesListComponent implements OnInit {
       .subscribe((data: { services: PaginatedApiResponse<Service> }) => {
         if (data.services) {
           this.paginatedServices = data.services;
+          if (!this.sub$) {
+            this.subscribeForPromotedServicesList()
+          }
         }
-        // this.loading = false;
       });
+  }
+
+  private subscribeForPromotedServicesList() {
+    if (this.sub$) this.sub$.unsubscribe();
+
+    this.sub$ = this.servicePromotionsService.lastPromotionsList.subscribe(promotions => {
+      if (this.paginatedServices && this.paginatedServices.results.length > 0 &&
+        promotions && promotions.results && promotions.results.length > 3) {
+        let service = promotions.results[promotions.results.length - 1].service;
+        service.is_promoted = true;
+
+        const n = [...this.paginatedServices.results];
+        n.splice(n.length / 2, 0, service);
+        this.paginatedServices.results = n;
+      }
+    });
   }
 
   loadData(pi: number): void {

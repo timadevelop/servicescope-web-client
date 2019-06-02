@@ -30,6 +30,8 @@ export class PromotedServicesListComponent implements OnInit {
       (paramMap, queryParamMap) => ({ paramMap, queryParamMap }));
 
     obsComb.subscribe(ap => {
+      this.loading = true;
+
       let paramMap = ap.paramMap;
       let queryParamMap = ap.queryParamMap;
 
@@ -55,6 +57,9 @@ export class PromotedServicesListComponent implements OnInit {
 
       return this.servicePromotionsService.get(String(page), String(this.pageSize), query, filters)
         .subscribe(r => {
+          if (r.results.length > 3) {
+            r.results.pop();
+          }
           this.paginatedServices = r;
           if (this.paginatedServices.count > 0) {
             this.show = true;
