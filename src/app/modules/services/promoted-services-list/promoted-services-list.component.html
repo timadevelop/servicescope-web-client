@@ -1,5 +1,5 @@
-<h3 *ngIf="show" i18n="@@promotedServicesCardTitle">Promoted</h3>
-<nz-card *ngIf="show">
+<h3 i18n="@@promotedServicesCardTitle">Promoted</h3>
+<nz-card [nzLoading]="loading">
   <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
     [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="serviceItemTemplate">
   </nz-list>

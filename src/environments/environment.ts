@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:9123/saas_api',
   WEBSOCKET_PROTOCOL: "ws",
-  WEBSOCKET_URL: 'localhost:9123/ws'
+  WEBSOCKET_URL: 'localhost:9123/ws',
+  LOCALSTORAGE_TOKEN_INFO_KEY: 'TOKEN_INFO',
 };
 
 /*

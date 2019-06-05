@@ -151,7 +151,8 @@ export class PromoteServiceComponent implements OnInit {
       this.servicesService.getServiceById(this.service.id)
         .subscribe((r: Service) => {
           // wait til service promotions length changes
-          if (r.is_promoted && r.promotions.length != this.service.promotions.length) {
+          if (r.is_promoted) {
+            // && r.promotions.length != this.service.promotions.length) {
             this.endBoosting(processMsgId, successMsgId);
           } else {
             this.fetchService(processMsgId, successMsgId);

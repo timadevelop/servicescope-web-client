@@ -56,9 +56,9 @@ export class ImagesSelectorComponent implements OnInit, AfterViewInit {
 
   beforeUpload = (file: File) => {
     return new Observable((observer: Observer<boolean>) => {
-      const isJPG = file.type === 'image/jpeg';
-      if (!isJPG) {
-        this.msg.error('You can only upload JPG file!');
+      const isValidFileType = file.type === 'image/jpeg' || file.type === 'image/png';
+      if (!isValidFileType) {
+        this.msg.error('You can only upload JPG or PNG file!');
         observer.complete();
         return;
       }
@@ -69,7 +69,7 @@ export class ImagesSelectorComponent implements OnInit, AfterViewInit {
         return;
       }
 
-      observer.next(isJPG && isLt5M);
+      observer.next(isValidFileType && isLt5M);
       observer.complete();
     });
   };

@@ -8,7 +8,8 @@ export class MessageImage extends Base {
 }
 
 export class Message extends Base {
-  author: User;
+  author: string; // url
+  author_id: number;
   conversation: string | Conversation;
   text: string;
   // is_my_message: boolean;

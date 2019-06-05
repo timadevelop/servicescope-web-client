@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd';
 import { throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorHandlerService {
-
   constructor(
     private messageService: NzMessageService
   ) { }
@@ -25,6 +25,10 @@ export class ErrorHandlerService {
       //   `body was: ${JSON.stringify(error.error)}`);
 
       if (error.error instanceof Object) {
+        if (error.status === 401) {
+          // Unauthorized
+          localStorage.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
+        }
         for (let key in error.error) {
           this.messageService.error(`${key}: ${error.error[key]}`);
         }

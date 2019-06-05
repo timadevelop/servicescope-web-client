@@ -15,7 +15,6 @@ import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.ser
   providedIn: 'root'
 })
 export class AuthService {
-  private LOCALSTORAGE_TOKEN_INFO_KEY: string = 'TOKEN_INFO';
   private _tokenInfo: TokenInfo;
   public redirectUrl: string;
 
@@ -125,7 +124,7 @@ export class AuthService {
   }
 
   // helpers
-  private clearUserInfo(): void {
+  public clearUserInfo(): void {
     this.removeTokenInfo();
     this._tokenInfo = null;
   }
@@ -143,14 +142,14 @@ export class AuthService {
   // Localstorage management
 
   private storeTokenInfo(tokens: TokenInfo) {
-    localStorage.setItem(this.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens));
+    localStorage.setItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens));
   }
 
   public getTokenInfo(): TokenInfo {
-    return JSON.parse(localStorage.getItem(this.LOCALSTORAGE_TOKEN_INFO_KEY)) as TokenInfo;
+    return JSON.parse(localStorage.getItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY)) as TokenInfo;
   }
 
   private removeTokenInfo() {
-    localStorage.removeItem(this.LOCALSTORAGE_TOKEN_INFO_KEY);
+    localStorage.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
   }
 }

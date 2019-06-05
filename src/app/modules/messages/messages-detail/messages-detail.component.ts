@@ -101,7 +101,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     if (m.type == 'new_message') {
       const msg = m.payload as Message;
       this.appendNewMessage(msg);
-      if (msg.author.id !== this.userService.currentUser.id) {
+      if (msg.author_id !== this.userService.currentUser.id) {
         // this.nzMsgService.info(`New message from ${msg.author.first_name}`);
       }
     } else if (m.type == 'deleted_message') {
@@ -137,7 +137,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     if (this.messages.results.length > i + 1) {
       const currentMsg = this.messages.results[i];
       const nextMsg = this.messages.results[i + 1];
-      if (currentMsg.author.id === nextMsg.author.id) {
+      if (currentMsg.author_id === nextMsg.author_id) {
         return false;
       } else {
         return true;
