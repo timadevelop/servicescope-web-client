@@ -6,11 +6,13 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RegisterComponent } from './register/register.component';
+import { SocialAuthButtonsComponent } from './social-auth-buttons/social-auth-buttons.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SocialAuthButtonsComponent
   ],
   imports: [
     CommonModule,

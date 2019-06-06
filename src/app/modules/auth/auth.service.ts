@@ -10,6 +10,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { LogoutApiRequest } from '../../core/models/api-request/logout-api-request.model';
 import { Router } from '@angular/router';
 import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.service';
+import { GoogleAuthenticationService } from './social/google-authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,8 @@ export class AuthService {
     private configService: ConfigService,
     private http: HttpClient,
     private messageService: NzMessageService,
-    private router: Router) {
+    private router: Router,
+    public googleAuthenticationService: GoogleAuthenticationService) {
     this.init();
   }
 
@@ -129,7 +131,7 @@ export class AuthService {
     this._tokenInfo = null;
   }
 
-  private processSucceedLogin(tokenInfo: TokenInfo): void {
+  public processSucceedLogin(tokenInfo: TokenInfo): void {
     this.storeTokenInfo(tokenInfo);
     this._tokenInfo = tokenInfo;
 

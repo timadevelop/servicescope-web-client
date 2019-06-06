@@ -32,14 +32,6 @@ $login-link-color: $login-text-color;
     text-align: center;
   }
 
-  .login-form-social-links {
-    a {
-      opacity: .8;
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
   .login-form-info {
     font-size: .9em;
   }
