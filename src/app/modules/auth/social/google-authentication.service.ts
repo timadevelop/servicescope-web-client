@@ -1,40 +1,50 @@
 import { Injectable, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User } from 'src/app/core/models/User.model';
+import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.service';
+import { switchMap } from 'rxjs/operators';
+import { TokenInfo } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GoogleAuthenticationService {
   public auth2: any;
-  public user$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  public tokenInfo$: BehaviorSubject<TokenInfo> = new BehaviorSubject<TokenInfo>(null);
   public isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private zone: NgZone, private http: HttpClient) { }
+  constructor(
+    private configService: ConfigService, private zone: NgZone, private http: HttpClient) { }
 
-  convertToken(token: string): Observable<User> {
-    // curl -X POST -d
-    // "grant_type=convert_token&client_id=<client_id>&client_secret=<client_secret>&backend=facebook&token=<facebook_token>"
-    //  http://localhost:8000/auth/convert-token
-    return this.http.post<User>(`${environment.apiUrl}/auth/convert_token/`, {
+  convertToken(token: string): Observable<TokenInfo> {
+    if (!token) {
+      return of(null);
+    }
+    let req = {
       grant_type: 'convert_token',
-      backend: 'google',
-      token: token
-    });
+      backend: 'google-oauth2',
+      token: token,
+      client_id: null,
+      client_secret: null
+    };
+    return this.configService.currentConfig().pipe(
+      switchMap((c: ApiClientConfig) => {
+        req.client_id = c.API_CLIENT_ID;
+        req.client_secret = c.API_CLIENT_SECRET;
+        return this.http.post<TokenInfo>(`${environment.apiUrl}/auth/convert-token/`, req);
+      }));
   }
 
   signIn(): void {
     this.auth2.signIn().then((user: gapi.auth2.GoogleUser) => {
-      console.log('gapi: ', user);
-      this.convertToken(user.getAuthResponse().id_token).subscribe(user => {
-        console.log(user);
-        // this.zone.run(() => {
-        //   this.user$.next(user);
-        //   this.isLoggedIn$.next(true);
-        // });
+      // TODO: access_token
+      this.convertToken(user['Zi'].access_token).subscribe((tokenInfo: TokenInfo) => {
+        this.zone.run(() => {
+          this.tokenInfo$.next(tokenInfo);
+          this.isLoggedIn$.next(true);
+        });
       },
         (err) => {
           console.error(err);
@@ -46,7 +56,7 @@ export class GoogleAuthenticationService {
     this.auth2.signOut().then(() => {
       this.zone.run(() => {
         this.isLoggedIn$.next(false);
-        this.user$.next(null);
+        this.tokenInfo$.next(null);
       });
     },
       (err) => {
@@ -55,17 +65,20 @@ export class GoogleAuthenticationService {
   }
 
   loadAuth2(): void {
-    gapi.load('auth2', () => {
-      gapi.auth2.init({
-        client_id: 'yourClientId',
-        fetch_basic_profile: true
-      }).then((auth) => {
-        this.zone.run(() => {
-          this.auth2 = auth;
-          this.isLoaded$.next(true);
-        });
-      },
-      );
+    this.configService.currentConfig().subscribe(c => {
+      const client_id = c.GOOGLE_CLIENT_ID;
+      gapi.load('auth2', () => {
+        gapi.auth2.init({
+          client_id: client_id,
+          fetch_basic_profile: true
+        }).then((auth) => {
+          this.zone.run(() => {
+            this.auth2 = auth;
+            this.isLoaded$.next(true);
+          });
+        },
+        );
+      });
     });
   }
 }

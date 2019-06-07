@@ -20,9 +20,13 @@ export class UserService {
     private http: HttpClient,
     private errorHandlerService: ErrorHandlerService,
     private authService: AuthService) {
-    if (authService.isLoggedIn) {
-      this.reloadCurrentUser();
-    }
+    authService.tokenInfo$.subscribe(tokenInfo => {
+      if (tokenInfo === null) {
+        this._currentUser = null;
+      } else {
+        this.reloadCurrentUser();
+      }
+    })
   }
 
   public get currentUser(): User {

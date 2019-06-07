@@ -9,6 +9,7 @@ export class ApiClientConfig {
   API_CLIENT_ID: string;
   API_CLIENT_SECRET: string;
   STRIPE_PUBLIC_KEY: string;
+  GOOGLE_CLIENT_ID: string;
 }
 
 @Injectable({

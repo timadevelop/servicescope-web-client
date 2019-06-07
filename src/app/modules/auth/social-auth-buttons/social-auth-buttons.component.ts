@@ -10,7 +10,6 @@ import { User } from 'src/app/core/models/User.model';
 export class SocialAuthButtonsComponent implements OnInit {
   authIsLoaded: boolean;
   isLoggedInGoogle: boolean;
-  user: User;
 
   constructor(private authService: AuthService) { }
 
@@ -21,10 +20,6 @@ export class SocialAuthButtonsComponent implements OnInit {
 
     this.authService.googleAuthenticationService.isLoggedIn$.subscribe(value => {
       this.isLoggedInGoogle = value;
-    });
-
-    this.authService.googleAuthenticationService.user$.subscribe(value => {
-      this.user = value;
     });
 
     this.authService.googleAuthenticationService.loadAuth2();

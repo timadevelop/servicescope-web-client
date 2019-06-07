@@ -8,11 +8,13 @@ import { TargetDeviceService } from 'src/app/core/services/target-device.service
 import { UserService } from 'src/app/core/services/user.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-services-detail',
   templateUrl: './services-detail.component.html',
-  styleUrls: ['./services-detail.component.scss']
+  styleUrls: ['./services-detail.component.scss'],
+  providers: [DatePipe]
 })
 export class ServicesDetailComponent implements OnInit, OnDestroy {
   service: Service;

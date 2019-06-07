@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { tap, delay, mapTo, catchError, retry, map, switchMap } from 'rxjs/operators';
 import { TokenInfo } from './models';
 import { LoginApiRequest } from '../../core/models/api-request/login-api-request.model';
@@ -11,12 +11,14 @@ import { LogoutApiRequest } from '../../core/models/api-request/logout-api-reque
 import { Router } from '@angular/router';
 import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.service';
 import { GoogleAuthenticationService } from './social/google-authentication.service';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private _tokenInfo: TokenInfo;
+  public tokenInfo$: BehaviorSubject<TokenInfo> = new BehaviorSubject<TokenInfo>(null);
   public redirectUrl: string;
 
   constructor(
@@ -24,12 +26,17 @@ export class AuthService {
     private http: HttpClient,
     private messageService: NzMessageService,
     private router: Router,
+    public i18n: I18n,
+    private nzMessageService: NzMessageService,
     public googleAuthenticationService: GoogleAuthenticationService) {
     this.init();
   }
 
   private init() {
-    this._tokenInfo = this.getTokenInfo();
+    this.getTokenInfo();
+    this.googleAuthenticationService.tokenInfo$.subscribe((tokenInfo: TokenInfo) => {
+      if (tokenInfo) this.processSucceedLogin(tokenInfo);
+    });
   }
 
   // get/set
@@ -128,16 +135,15 @@ export class AuthService {
   // helpers
   public clearUserInfo(): void {
     this.removeTokenInfo();
-    this._tokenInfo = null;
   }
 
   public processSucceedLogin(tokenInfo: TokenInfo): void {
     this.storeTokenInfo(tokenInfo);
-    this._tokenInfo = tokenInfo;
 
     // Redirect the user
     let redirect = this.redirectUrl ? this.router.parseUrl(this.redirectUrl) : '/';
     this.redirectUrl = null;
+    this.nzMessageService.success(this.i18n({value: "Successfully logged in", id: "successfulLoginMessage"}));
     this.router.navigateByUrl(redirect);
   }
 
@@ -145,13 +151,20 @@ export class AuthService {
 
   private storeTokenInfo(tokens: TokenInfo) {
     localStorage.setItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens));
+    this._tokenInfo = tokens;
+    this.tokenInfo$.next(tokens);
   }
 
   public getTokenInfo(): TokenInfo {
-    return JSON.parse(localStorage.getItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY)) as TokenInfo;
+    const token = JSON.parse(localStorage.getItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY)) as TokenInfo;
+    this._tokenInfo = token;
+    this.tokenInfo$.next(token);
+    return token;
   }
 
   private removeTokenInfo() {
     localStorage.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
+    this._tokenInfo = null;
+    this.tokenInfo$.next(null);
   }
 }
