@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.service';
 import { GoogleAuthenticationService } from './social/google-authentication.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
+import { FacebookAuthenticationService } from './social/facebook-authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +29,17 @@ export class AuthService {
     private router: Router,
     public i18n: I18n,
     private nzMessageService: NzMessageService,
-    public googleAuthenticationService: GoogleAuthenticationService) {
+    public googleAuthenticationService: GoogleAuthenticationService,
+    public facebookAuthenticationService: FacebookAuthenticationService) {
     this.init();
   }
 
   private init() {
     this.getTokenInfo();
     this.googleAuthenticationService.tokenInfo$.subscribe((tokenInfo: TokenInfo) => {
+      if (tokenInfo) this.processSucceedLogin(tokenInfo);
+    });
+    this.facebookAuthenticationService.tokenInfo$.subscribe((tokenInfo: TokenInfo) => {
       if (tokenInfo) this.processSucceedLogin(tokenInfo);
     });
   }

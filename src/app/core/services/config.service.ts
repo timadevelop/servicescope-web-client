@@ -10,6 +10,7 @@ export class ApiClientConfig {
   API_CLIENT_SECRET: string;
   STRIPE_PUBLIC_KEY: string;
   GOOGLE_CLIENT_ID: string;
+  FACEBOOK_APP_ID: string;
 }
 
 @Injectable({
