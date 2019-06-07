@@ -28,7 +28,7 @@ export class FacebookAuthenticationService {
     }
     let req = {
       grant_type: 'convert_token',
-      backend: 'google-oauth2',
+      backend: 'facebook',
       token: token,
       client_id: null,
       client_secret: null
