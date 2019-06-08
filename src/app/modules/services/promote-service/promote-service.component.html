@@ -19,7 +19,7 @@
     </nz-row>
   </nz-card>
 
-  <div>
+  <div *ngIf="userService.currentUser && userService.currentUser.email else noEmailOrNotLoggedInUserTemplate">
     <h2 style="text-align: center;" class="title mb-vertical-align">
       <span *ngIf="paymentIntent?.status != 'succeeded' else boostingProcessTitleTemplate"
         i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Select Plan</span>
@@ -39,8 +39,10 @@
       </ng-template>
 
     </h2>
-    <p *ngIf="paymentIntent?.status != 'succeeded' && service.is_promoted && dateStartingPoint" style="margin-bottom: 10px;" class="description">
-      <span i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Your service is currently promoted til</span>
+    <p *ngIf="paymentIntent?.status != 'succeeded' && service.is_promoted && dateStartingPoint"
+      style="margin-bottom: 10px;" class="description">
+      <span i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Your service is currently
+        promoted til</span>
       {{dateStartingPoint | date}}
     </p>
     <nz-row nzGutter="16" nzType="flex" nzJustify="center" class="promote-plans">
@@ -125,4 +127,50 @@
     Pay for service boost
   </h2>
 
+</ng-template>
+
+
+<ng-template #noEmailOrNotLoggedInUserTemplate>
+  <div *ngIf="!userService.currentUser else noEmailUserTemplate">
+    Log In first
+  </div>
+  <ng-template #noEmailUserTemplate>
+    <nz-modal nzVisible="true" (nzOnCancel)="onClosedUserEmailForm()" [nzFooter]="null">
+      <h2 style="text-align: center;" class="title mb-vertical-align">
+        <span i18n="@@oopsText">Ooops..</span>
+      </h2>
+      <div class="description">
+
+        <p i18n="User has no email@@promoteServiceUserHasNoEmail" style="text-align: center;">In order to promote a service we need to know your
+          email. Please, update your profile or provide your email in a following form:</p>
+      </div>
+      <div nz-row nzType="flex" nzJustify="center">
+        <form nz-col nz-form [formGroup]="validateUserEmail" [nzLayout]="'inline'" (ngSubmit)="submitNewUserEmailForm()">
+          <nz-form-item>
+            <nz-form-control nzHasFeedback>
+              <nz-input-group [nzPrefix]="prefixEmail">
+                <input nz-input formControlName="email" placeholder="Email" type="email" />
+              </nz-input-group>
+              <ng-template #prefixEmail><i nz-icon type="mail"></i></ng-template>
+
+              <nz-form-explain *ngIf="validateUserEmail.get('email')?.dirty && validateUserEmail.get('email')?.errors">
+                <ng-container *ngIf="validateUserEmail.get('email')?.hasError('email')">
+                  The input is not valid E-mail!
+                </ng-container>
+                <ng-container *ngIf="validateUserEmail.get('email')?.hasError('required')">
+                  Please input your E-mail!
+                </ng-container>
+              </nz-form-explain>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control>
+              <button nz-button nzType="primary" i18n="@@provideEmailText">Provide email</button>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </div>
+    </nz-modal>
+  </ng-template>
 </ng-template>

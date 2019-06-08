@@ -58,6 +58,18 @@ export class UserService {
       });
   }
 
+  public patchCurrentUser(p: any): Observable<User> {
+    if (!this.currentUser) {
+      return of(null);
+    }
+    return this.http.patch<User>(this.currentUser.url, p)
+      .pipe(
+        catchError(error => {
+          this.errorHandlerService.handleError(error);
+          throw error;
+        })
+      );
+  }
 
   public updateCurrentUserAvatar(item: UploadXHRArgs): Observable<HttpEvent<{}>> {
     if (!this.currentUser) {
@@ -95,7 +107,7 @@ export class UserService {
       )
   }
 
-  private processNewUser(user: User) {
+  public processNewUser(user: User) {
     this._currentUser = user;
   }
 

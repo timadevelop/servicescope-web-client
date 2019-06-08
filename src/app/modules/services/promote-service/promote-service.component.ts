@@ -9,6 +9,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { UserService } from 'src/app/core/services/user.service';
 import { ServicePromotionsService } from 'src/app/core/services/service-promotions.service';
 import { ServicePromotion } from 'src/app/core/models/ServicePromotion.model';
+import { Location } from '@angular/common';
 
 
 
@@ -61,10 +62,15 @@ export class PromoteServiceComponent implements OnInit {
     price: [0, [Validators.required, Validators.min(0)]],
   });
 
+  validateUserEmail = this.fb.group({
+    email: [null, [Validators.email, Validators.required]],
+  });
+
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
+    public userService: UserService,
     private i18n: I18n,
+    private _location: Location,
     private nzMsgService: NzMessageService,
     private route: ActivatedRoute,
     private servicesService: ServicesService,
@@ -177,6 +183,25 @@ export class PromoteServiceComponent implements OnInit {
         model_id: this.service.id,
         days: this.PLANS[this.selectedPlan].days
       }
+    }
+  }
+
+  onClosedUserEmailForm() {
+    this._location.back();
+  }
+
+  submitNewUserEmailForm(): void {
+    for (const i in this.validateUserEmail.controls) {
+      this.validateUserEmail.controls[i].markAsDirty();
+      this.validateUserEmail.controls[i].updateValueAndValidity();
+    }
+
+    if (this.validateUserEmail.valid) {
+      const email = this.validateUserEmail.controls['email'].value;
+      this.userService.patchCurrentUser({email: email})
+        .subscribe(user => {
+          this.userService.processNewUser(user);
+        });
     }
   }
 
