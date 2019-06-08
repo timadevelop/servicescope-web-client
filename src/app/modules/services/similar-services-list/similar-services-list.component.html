@@ -3,7 +3,7 @@
 </nz-list>
 
 <ng-template #footer>
-  <nz-row style="text-align: center;">
+  <nz-row style="text-align: center;" *ngIf="paginatedServices && paginatedServices.results.length > 0">
     <a (click)="navigateToAllSimilarServices()"  i18n-nzTitle="@@seeAllSimilarServicesButtonText">See all similar services</a>
   </nz-row>
 </ng-template>
