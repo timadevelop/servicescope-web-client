@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, CanActivateChild, CanLoad, Route } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService, private router: Router,
+    private userService: UserService) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -20,7 +23,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   canActivateChild(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      return this.canActivate(route, state);
+    return this.canActivate(route, state);
   }
 
   canLoad(route: Route): boolean {
@@ -30,14 +33,21 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   checkLogin(url: string): boolean {
-    if (this.authService.isLoggedIn) {
-      return true;
+    if (!this.authService.isLoggedIn) {
+      // store the attempted url for redirecting
+      this.authService.redirectUrl = url;
+      this.router.navigate(['/login']);
+      return false;
     }
 
-    // store the attempted url for redirecting
-    this.authService.redirectUrl = url;
+    if (!this.userService.currentUser.is_verified_email) {
+      // store the attempted url for redirecting
+      this.authService.redirectUrl = url;
+      this.router.navigate(['/verify-email']);
+      return false;
+    }
 
-    this.router.navigate(['/login']);
-    return false;
+    return true;
+
   }
 }

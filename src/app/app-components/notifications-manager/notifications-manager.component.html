@@ -6,6 +6,11 @@
   <div nz-row style="text-align: center;">
     <h2 class="title">{{userService.currentUser.first_name}} {{userService.currentUser.last_name}}</h2>
   </div>
+
+  <div nz-row style="text-align: center;">
+      <p *ngIf="userService.currentUser.is_verified_email">Verified</p>
+      <p *ngIf="!userService.currentUser.is_verified_email">Not Verified</p>
+    </div>
   <div nz-row style="text-align: center; opacity: .7;" *ngIf="userService.currentUser.bio">
     <span>{{userService.currentUser.bio}}</span>
   </div>

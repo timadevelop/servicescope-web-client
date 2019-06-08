@@ -3,6 +3,7 @@ import { Url } from 'url';
 
 export class User extends Base {
   email: string;
+  is_verified_email: boolean;
   phone: string;
   bio: string;
   first_name: string;

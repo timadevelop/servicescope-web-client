@@ -1,0 +1,28 @@
+<nz-card style="text-align: center;">
+  <h2 class="title mb-vertical-align">Verify email status</h2>
+
+  <h2 *ngIf="userService.currentUser?.is_verified_email else notVerifiedTemplate">
+    <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"
+      style="font-size: 24px; margin-right: 5px;"></i>
+    <span i18n="Verified email@@VerifiedText">
+      Successfully Verified</span>
+
+  </h2>
+
+  <ng-template #notVerifiedTemplate>
+    <h2>
+      <i nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#eb2f96'"
+        style="font-size: 24px; margin-right: 5px;"></i>
+      <span i18n="Not Verified email@@notVerifiedText">
+        Not Verified</span>
+    </h2>
+    <div class="grey-color">
+      <p style="text-align: center;">Your email is not verified</p>
+      <p style="text-align: center;">We sent you confirmation email, check your inbox to verify it.</p>
+    </div>
+
+  </ng-template>
+
+  <img style="max-height: 400px;" src="assets/images/undraw_mail_box.svg">
+
+</nz-card>
