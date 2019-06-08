@@ -32,14 +32,6 @@ $register-link-color: $register-text-color;
     text-align: center;
   }
 
-  .register-form-social-links {
-    a {
-      opacity: .8;
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
   .register-form-info {
     font-size: .9em;
   }
