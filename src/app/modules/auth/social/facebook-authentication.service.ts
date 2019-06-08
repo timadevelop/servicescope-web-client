@@ -61,7 +61,7 @@ export class FacebookAuthenticationService {
       else {
         console.log('User login failed');
       }
-    });
+    }, {scope: 'public_profile,email'});
 
     // this.auth2.signIn().then((user: gapi.auth2.GoogleUser) => {
     //   // TODO: access_token
