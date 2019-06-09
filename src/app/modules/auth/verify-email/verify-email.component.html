@@ -16,10 +16,15 @@
       <span i18n="Not Verified email@@notVerifiedText">
         Not Verified</span>
     </h2>
-    <div class="grey-color">
-      <p style="text-align: center;">Your email is not verified</p>
+    <div class="grey-color" *ngIf="userService.currentUser.email">
+      <p style="text-align: center;">Your email ({{userService.currentUser.email}}) is not verified</p>
       <p style="text-align: center;">We sent you confirmation email, check your inbox to verify it.</p>
     </div>
+    <div style="max-width: 500px;margin: auto;" class="grey-color" *ngIf="!userService.currentUser.email">
+      <p style="text-align: center;">Your profile has no email, provide one please:</p>
+      <labeled-text [editable]="true" [edit]="true" #emailLabeledText (onChange)="onUserChange(emailLabeledText, {email: $event})"
+        label="Email" [text]="userService.currentUser.email"></labeled-text>
+      </div>
 
   </ng-template>
 

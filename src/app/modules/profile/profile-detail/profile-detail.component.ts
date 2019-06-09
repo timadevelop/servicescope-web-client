@@ -4,6 +4,7 @@ import { User } from 'src/app/core/models/User.model';
 import { UserService } from 'src/app/core/services/user.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
+import { LabeledTextComponent } from 'src/app/core/components/common/labeled-text/labeled-text.component';
 
 @Component({
   selector: 'app-profile-detail',
@@ -73,5 +74,22 @@ export class ProfileDetailComponent implements OnInit {
         queryParams: queryParams,
         queryParamsHandling: "merge", // remove to replace all query params by provided
       });
+  }
+
+  onUserChange(labeledText: LabeledTextComponent, t: any): void {
+    if (this.userService.currentUser && this.user.id === this.userService.currentUser.id) {
+      labeledText.setLoading(true);
+      this.userService.patchCurrentUser(t)
+        .subscribe(
+          user => {
+            this.userService.processNewUser(user);
+            this.user = user;
+            labeledText.setEdit(false);
+            labeledText.setLoading(false);
+          },
+          error => {
+            labeledText.setLoading(false);
+          });
+    }
   }
 }

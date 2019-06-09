@@ -7,9 +7,8 @@
     <div class="wrap">
       <div class="content">
         <div class="content">
-          <labeled-text label="User bio" [text]="user.bio || 'no bio'"></labeled-text>
-          <labeled-text label="Description"
-            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste doloremque voluptatum beatae error minima ipsum neque nobis magnam accusantium adipisci quibusdam, eaque, ullam saepe officiis fugit aperiam quasi quas quam.">
+          <labeled-text [editable]="this.user.id === this.userService?.currentUser?.id" #bioLabeledText (onChange)="onUserChange(bioLabeledText, {bio: $event})" label="User bio" [text]="user.bio || 'Empty'"></labeled-text>
+          <labeled-text *ngIf="this.user.id === this.userService?.currentUser?.id" [editable]="true" #emailLabeledText (onChange)="onUserChange(emailLabeledText, {email: $event})" label="Email" [text]="this.user.email || 'No email'">
           </labeled-text>
           <div class="profile-links">
             <app-email-wrapper *ngIf="user.email && user.id == userService.currentUser.id" [email]="user.email"></app-email-wrapper>

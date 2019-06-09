@@ -8,6 +8,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RegisterComponent } from './register/register.component';
 import { SocialAuthButtonsComponent } from './social-auth-buttons/social-auth-buttons.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,

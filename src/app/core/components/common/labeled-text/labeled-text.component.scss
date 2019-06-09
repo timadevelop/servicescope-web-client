@@ -1,3 +1,5 @@
+@import '~src/variables';
+
 .labeled-text {
   margin-bottom: 1em;
 
@@ -7,6 +9,7 @@
   }
 
   .labeled-text-label {
+    margin-bottom: 7px;
     font-size: small;
     opacity: .8;
   }
@@ -14,4 +17,14 @@
   .labeled-text-text {
     font-weight: 400;
   }
+}
+
+.edit-btn {
+  margin-left: .5em;
+  color: $primary-color;
+  cursor: pointer;
+}
+
+.save-btn {
+  cursor: pointer;
 }
