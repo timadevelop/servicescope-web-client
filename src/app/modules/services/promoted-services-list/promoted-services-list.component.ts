@@ -41,6 +41,7 @@ export class PromotedServicesListComponent implements OnInit {
       const category = paramMap.get('category');
       const tags = queryParamMap.getAll('tags');
       const authorId = queryParamMap.get('authorId');
+      const locationId = queryParamMap.get('locationId');
 
       const filters = tags.map(tag => {
         return { param: 'tags', value: tag }
@@ -53,6 +54,10 @@ export class PromotedServicesListComponent implements OnInit {
 
       if (authorId) {
         filters.push({ param: 'author_id', value: authorId });
+      }
+
+      if (locationId) {
+        filters.push({ param: 'location_id', value: locationId });
       }
 
       return this.servicePromotionsService.get(String(page), String(this.pageSize), query, filters)
