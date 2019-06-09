@@ -52,6 +52,6 @@
 </nz-card>
 
 <ng-template #titleTemplate>
-  <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image"></nz-avatar>
+  <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="userService.currentUser.image || 'assets/images/undraw_user.svg'"></nz-avatar>
   <h2><span i18n="@@helloText">Hi</span>, {{userService.currentUser.first_name}} 👋</h2>
 </ng-template>

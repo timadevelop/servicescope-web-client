@@ -20,7 +20,7 @@
           </ng-template>
           <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template>
           <nz-list-item-meta
-            [nzAvatar]="user?.image ? user.image : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'"
+            [nzAvatar]="user?.image ? user.image : 'assets/images/undraw_user.svg'"
             [nzTitle]="nzTitle" [nzDescription]="user.bio || 'Super desc'">
             <ng-template #nzTitle>
               <a [routerLink]="['/profiles', user.id]">{{ user.first_name + ' ' + user.last_name }}</a>

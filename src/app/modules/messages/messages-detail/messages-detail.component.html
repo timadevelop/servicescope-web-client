@@ -12,7 +12,7 @@
         </ng-template>
         <ng-template #avatarTemplate>
           <a [routerLink]="['/', 'profiles', partner.id]">
-            <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="partner?.image"></nz-avatar>
+            <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="partner?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
           </a>
         </ng-template>
         <ng-template #descriptionTemplate>
@@ -40,7 +40,7 @@
               [class.same-author]="isLastAuthorMessage(i)" nz-row nzType="flex" nzJustify="start" nzAlign="bottom">
               <a nz-col class="message-author" [routerLink]="['/', 'profiles', msg.author_id]">
                 <nz-avatar *ngIf="isLastAuthorMessage(i)" [nzSize]="32" nzIcon="user"
-                  [nzSrc]="msg.author_id == userService.currentUser.id ? userService.currentUser.image : partner.image">
+                  [nzSrc]="msg.author_id == userService.currentUser.id ? (userService.currentUser.image || 'assets/images/undraw_user.svg') : (partner.image || 'assets/images/undraw_user.svg')">
                 </nz-avatar>
               </a>
               <div nz-col class="message-content">

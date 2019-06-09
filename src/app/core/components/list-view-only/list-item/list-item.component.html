@@ -10,7 +10,7 @@
     <ng-template #avatar>
       <nz-avatar [routerLink]="[modelName ? '/' + modelName : './', item.id]" style="cursor: pointer;" [nzSize]="128"
         nzShape="square"
-        [nzSrc]="item?.images[0] ? item.images[0].image : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'">
+        [nzSrc]="item?.images[0] ? item.images[0].image : null">
       </nz-avatar>
     </ng-template>
 

@@ -20,7 +20,7 @@
             [routerLink]="['/', 'messages', 'c', conversation.id]">{{conversation.users[0]?.first_name || "noname"}}</a>
         </ng-template>
         <ng-template #avatarTemplate>
-          <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="conversation.users[0]?.image"></nz-avatar>
+          <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="conversation.users[0]?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
         </ng-template>
         <ng-template #descriptionTemplate>
           <span>{{conversation.title}}</span>

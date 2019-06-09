@@ -125,7 +125,7 @@ export class ProfileAvatarUploaderComponent implements OnInit {
   getImageUrl() {
     if (this.lastImageUrl) return this.lastImageUrl;
     else if (this.user && this.user.image) return this.user.image;
-    else return 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png';
+    else return 'assets/images/undraw_user.svg';
   }
 
   getAvatarStyles() {
