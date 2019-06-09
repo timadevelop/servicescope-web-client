@@ -58,6 +58,9 @@ export class ProfileDetailComponent implements OnInit {
   }
 
   getUsername(): string {
+    if (!this.user.first_name && !this.user.last_name) {
+      return 'Noname'
+    }
     return this.user.first_name + ' ' + this.user.last_name;
   }
 

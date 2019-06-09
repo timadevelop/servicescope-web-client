@@ -1,4 +1,4 @@
-<nz-page-header *ngIf="user" [nzTitle]="usernameTemplate">
+<nz-page-header *ngIf="user">
   <nz-breadcrumb nz-page-header-breadcrumb>
     <nz-breadcrumb-item [routerLink]="['../']"><a>Profiles</a></nz-breadcrumb-item>
     <nz-breadcrumb-item>{{getUsername()}}</nz-breadcrumb-item>
@@ -7,6 +7,11 @@
     <div class="wrap">
       <div class="content">
         <div class="content">
+
+          <labeled-text class="username-labeled-text" [editable]="this.user.id === this.userService?.currentUser?.id"
+            #userNameLabeledText
+            (onChange)="onUserChange(userNameLabeledText, {first_name: $event.substr(0, $event.indexOf(' ')), last_name: $event.substr($event.indexOf(' ')+1)})"
+            label="Username" [text]="getUsername()"></labeled-text>
           <labeled-text [editable]="this.user.id === this.userService?.currentUser?.id" #bioLabeledText
             (onChange)="onUserChange(bioLabeledText, {bio: $event})" label="User bio" [text]="user.bio || 'Empty'">
           </labeled-text>
@@ -41,9 +46,3 @@
 <div class="profile-tabs-card">
   <app-services-list *ngIf="tab == 'services'"></app-services-list>
 </div>
-
-<ng-template #usernameTemplate>
-  <labeled-text class="username-labeled-text" [editable]="this.user.id === this.userService?.currentUser?.id" #userNameLabeledText
-    (onChange)="onUserChange(userNameLabeledText, {first_name: $event.substr(0, $event.indexOf(' ')), last_name: $event.substr($event.indexOf(' ')+1)})"
-    label="Username" [text]="getUsername()"></labeled-text>
-</ng-template>
