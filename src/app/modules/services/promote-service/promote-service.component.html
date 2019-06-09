@@ -19,7 +19,7 @@
     </nz-row>
   </nz-card>
 
-  <div *ngIf="userService.currentUser && userService.currentUser.email else noEmailOrNotLoggedInUserTemplate">
+  <div *ngIf="userService.currentUser && (userService.currentUserObs | async)?.email else noEmailOrNotLoggedInUserTemplate">
     <h2 style="text-align: center;" class="title mb-vertical-align">
       <span *ngIf="paymentIntent?.status != 'succeeded' else boostingProcessTitleTemplate"
         i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Select Plan</span>

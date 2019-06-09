@@ -78,14 +78,14 @@
 
 <!-- mobile contact -->
 <div nz-row nzType="flex" nzJustify="stretch" nzAlign="stretch" class="mobile-contact" *ngIf="tds.isMobile">
-  <div *ngIf="userService.currentUser.id != service.author.id" nz-col nzSpan="12" class="msg-col">
+  <div *ngIf="(userService.currentUserObs | async)?.id != service.author.id" nz-col nzSpan="12" class="msg-col">
     <a [href]="'tel:' + service.contact_phone"><i nz-icon nzType="phone"></i><span i18n="@@callText">Call</span></a>
   </div>
-  <div *ngIf="userService.currentUser.id != service.author.id" nz-col nzSpan="12" class="phone-col">
+  <div *ngIf="(userService.currentUserObs | async)?.id != service.author.id" nz-col nzSpan="12" class="phone-col">
     <a [routerLink]="['/', 'messages', 'user', service.author.id]"><i nz-icon nzType="message"></i><span
         i18n="@@messageUserText">Message</span></a>
   </div>
-  <div *ngIf="userService.currentUser.id == service.author.id" nz-col nzSpan="24" class="promo-col">
+  <div *ngIf="(userService.currentUserObs | async)?.id == service.author.id" nz-col nzSpan="24" class="promo-col">
     <a><i nz-icon nzType="rocket"></i><span i18n="@@promoteYourServiceText">Promote your service</span></a>
   </div>
 </div>

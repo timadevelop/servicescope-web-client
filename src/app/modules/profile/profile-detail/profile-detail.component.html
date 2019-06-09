@@ -20,10 +20,10 @@
             [text]="this.user.email || 'No email'">
           </labeled-text>
           <div class="profile-links">
-            <app-email-wrapper *ngIf="user.email && user.id == userService.currentUser.id" [email]="user.email">
+            <app-email-wrapper *ngIf="user.email && user.id == (userService.currentUserObs | async)?.id" [email]="user.email">
             </app-email-wrapper>
             <app-phone-wrapper *ngIf="user.phone" [phone]="user.phone"></app-phone-wrapper>
-            <a *ngIf="user.id != userService.currentUser.id" [routerLink]="['/', 'messages', 'user', user.id]"><i
+            <a *ngIf="user.id != (userService.currentUserObs | async)?.id" [routerLink]="['/', 'messages', 'user', user.id]"><i
                 nz-icon type="message"></i>Message</a>
           </div>
         </div>

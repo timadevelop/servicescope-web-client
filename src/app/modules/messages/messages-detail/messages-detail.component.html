@@ -36,11 +36,11 @@
               <small><a i18n="@@loadMoreText">Load more</a></small>
             </div>
             <div *ngFor="let msg of messages?.results; trackBy: trackIdentifyByItemId; let i = index"
-              [class.right]="msg.author_id == this.userService.currentUser.id" class="message"
+              [class.right]="msg.author_id == this.(userService.currentUserObs | async)?.id" class="message"
               [class.same-author]="isLastAuthorMessage(i)" nz-row nzType="flex" nzJustify="start" nzAlign="bottom">
               <a nz-col class="message-author" [routerLink]="['/', 'profiles', msg.author_id]">
                 <nz-avatar *ngIf="isLastAuthorMessage(i)" [nzSize]="32" nzIcon="user"
-                  [nzSrc]="msg.author_id == userService.currentUser.id ? (userService.currentUser.image || 'assets/images/undraw_user.svg') : (partner.image || 'assets/images/undraw_user.svg')">
+                  [nzSrc]="msg.author_id == (userService.currentUserObs | async)?.id ? ((userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg') : (partner.image || 'assets/images/undraw_user.svg')">
                 </nz-avatar>
               </a>
               <div nz-col class="message-content">
@@ -57,7 +57,7 @@
                 </div>
               </div>
               <div nz-tooltip nzTitle="Remove Message" (click)="removeMessage(msg)"
-                *ngIf="msg.author_id == userService.currentUser.id" nz-col class="deleteButton"><i nz-icon
+                *ngIf="msg.author_id == (userService.currentUserObs | async)?.id" nz-col class="deleteButton"><i nz-icon
                   type="delete"></i></div>
             </div>
           </div>

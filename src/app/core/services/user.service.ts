@@ -14,7 +14,7 @@ import { ErrorHandlerService } from './error-handler.service';
   providedIn: 'root'
 })
 export class UserService {
-  private _currentUser: User;
+  public currentUser: User;
   private currentUser$: ReplaySubject<User> = new ReplaySubject<User>(1);
 
   constructor(
@@ -30,9 +30,9 @@ export class UserService {
     })
   }
 
-  public get currentUser(): User {
-    return this._currentUser;
-  }
+  // public get currentUser(): User {
+  //   return this._currentUser;
+  // }
 
   public get currentUserObs(): Observable<User> {
     return this.currentUser$.asObservable().pipe(share());
@@ -113,7 +113,7 @@ export class UserService {
   }
 
   public processNewUser(user: User) {
-    this._currentUser = user;
+    this.currentUser = user;
     this.currentUser$.next(user);
   }
 

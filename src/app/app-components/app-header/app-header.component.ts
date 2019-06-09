@@ -19,6 +19,7 @@ export class AppHeaderComponent implements OnInit {
 
   toggleNotificationManager() {
     if (this.userService.currentUser) {
+      console.log(this.userService.currentUser.image);
       this.rns.showNotificationsManager = !this.rns.showNotificationsManager;
     }
   }
