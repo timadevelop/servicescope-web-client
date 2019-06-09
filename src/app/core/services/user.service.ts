@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpRequest, HttpEvent, HttpEventType, HttpResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpEvent, HttpResponse, HttpParams } from '@angular/common/http';
 import { AuthService } from '../../modules/auth/auth.service';
 import { User } from '../models/User.model';
 import { environment } from 'src/environments/environment';
-import { catchError, tap } from 'rxjs/operators';
-import { Observable, of, throwError } from 'rxjs';
+import { catchError, tap, share } from 'rxjs/operators';
+import { Observable, of, throwError, ReplaySubject } from 'rxjs';
 import { NzMessageService, UploadXHRArgs } from 'ng-zorro-antd';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
 import { CustomEncoder } from './custom.encoder';
@@ -15,6 +15,7 @@ import { ErrorHandlerService } from './error-handler.service';
 })
 export class UserService {
   private _currentUser: User;
+  private currentUser$: ReplaySubject<User> = new ReplaySubject<User>(1);
 
   constructor(
     private http: HttpClient,
@@ -22,7 +23,7 @@ export class UserService {
     private authService: AuthService) {
     authService.tokenInfo$.subscribe(tokenInfo => {
       if (tokenInfo === null) {
-        this._currentUser = null;
+        this.processNewUser(null);
       } else {
         this.reloadCurrentUser();
       }
@@ -31,6 +32,10 @@ export class UserService {
 
   public get currentUser(): User {
     return this._currentUser;
+  }
+
+  public get currentUserObs(): Observable<User> {
+    return this.currentUser$.asObservable().pipe(share());
   }
 
   public getUserById(id: number): Observable<User> {
@@ -109,6 +114,7 @@ export class UserService {
 
   public processNewUser(user: User) {
     this._currentUser = user;
+    this.currentUser$.next(user);
   }
 
 }

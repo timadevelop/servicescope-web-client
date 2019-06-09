@@ -1,4 +1,4 @@
-<nz-card style="text-align: center;">
+<nz-card style="text-align: center;" *ngIf="userService.currentUser">
   <h2 class="title mb-vertical-align">Verify email status</h2>
 
   <h2 *ngIf="userService.currentUser?.is_verified_email else notVerifiedTemplate">

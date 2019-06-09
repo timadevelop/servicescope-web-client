@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
+import { Observable, of, throwError, ReplaySubject } from 'rxjs';
 import { tap, delay, mapTo, catchError, retry, map, switchMap } from 'rxjs/operators';
 import { TokenInfo } from './models';
 import { LoginApiRequest } from '../../core/models/api-request/login-api-request.model';
@@ -19,7 +19,7 @@ import { FacebookAuthenticationService } from './social/facebook-authentication.
 })
 export class AuthService {
   private _tokenInfo: TokenInfo;
-  public tokenInfo$: BehaviorSubject<TokenInfo> = new BehaviorSubject<TokenInfo>(null);
+  public tokenInfo$: ReplaySubject<TokenInfo> = new ReplaySubject<TokenInfo>(1);
   public redirectUrl: string;
 
   constructor(
