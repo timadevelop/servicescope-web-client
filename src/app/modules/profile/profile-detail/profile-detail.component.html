@@ -1,5 +1,5 @@
-<nz-page-header *ngIf="user">
-  <nz-breadcrumb nz-page-header-breadcrumb>
+<nz-page-header *ngIf="user" [nzTitle]="null">
+  <nz-breadcrumb nz-page-header-breadcrumb class="mb-0">
     <nz-breadcrumb-item [routerLink]="['../']"><a>Profiles</a></nz-breadcrumb-item>
     <nz-breadcrumb-item>{{getUsername()}}</nz-breadcrumb-item>
   </nz-breadcrumb>

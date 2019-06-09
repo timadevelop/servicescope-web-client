@@ -45,3 +45,14 @@ nz-page-header {
     }
   }
 }
+
+::ng-deep {
+  .ant-page-header-content-view {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
