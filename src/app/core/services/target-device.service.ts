@@ -7,7 +7,7 @@ export class TargetDeviceService {
   private isMobileResolution: boolean;
 
   constructor() {
-    if (window.innerWidth < 1200) { // see variables.scss
+    if (window.innerWidth < 1100) { // see variables.scss
       this.isMobileResolution = true;
     } else {
       this.isMobileResolution = false;
