@@ -3,7 +3,7 @@ import { UserService } from '../services/user.service';
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable, of, EMPTY } from 'rxjs';
 import { User } from '../models/User.model';
-import { take, mergeMap } from 'rxjs/operators';
+import { take, mergeMap, map, switchMap, first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,21 @@ export class ProfileResolverService implements Resolve<User>{
     Observable<User> | Observable<never> {
 
     let id = +route.paramMap.get('id');
+
+    return this.userService.currentUserObs.pipe(
+      first(),
+      switchMap(user => {
+        if (user && user.id == id) {
+          return of(user);
+        }
+        else {
+          return this.resolveUser(id);
+        }
+      }));
+  }
+
+  private resolveUser(id): Observable<User> {
     if (this.lastUser && this.lastUser.id == id) {
-      console.log('cached value');
       return of(this.lastUser);
     }
 
