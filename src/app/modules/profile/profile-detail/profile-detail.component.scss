@@ -36,3 +36,12 @@ nz-page-header {
 .profile-tabs-card {
   margin-top: 1em;
 }
+
+.username-labeled-text {
+  ::ng-deep {
+    .labeled-text-text {
+      font-size: large;
+      font-weight: bold !important;
+    }
+  }
+}

@@ -12,6 +12,11 @@ export class VerifyEmailComponent implements OnInit {
   constructor(public userService: UserService) { }
 
   ngOnInit() {
+    if (this.userService.currentUser && !this.userService.currentUser.is_verified_email) {
+      this.userService.getCurrentUser().subscribe(user => {
+        this.userService.processNewUser(user);
+      });
+    }
   }
 
   onUserChange(labeledText: LabeledTextComponent, t: any): void {
