@@ -19,6 +19,7 @@ export class VotesComponent implements OnInit {
   @Input() type: 'horizontal' | 'vertical' = 'horizontal';
 
   loginToContinueStr = 'Login to continue';
+  vertifyEmailToContinueStr = 'Verify your email to be able to vote';
   isUpvoted: boolean = false;
   isDownvoted: boolean = false;
 
@@ -80,9 +81,21 @@ export class VotesComponent implements OnInit {
       });
   }
 
-  upvote() {
+  private guard(): boolean {
     if (!this.userService.currentUser) {
       this.msgService.error(this.loginToContinueStr);
+      return false;
+    }
+
+    if (!this.userService.currentUser.is_verified_email) {
+      this.msgService.error(this.vertifyEmailToContinueStr);
+      return false;
+    }
+    return true;
+  }
+
+  upvote() {
+    if (!this.guard()) {
       return;
     }
     if (this.isUpvoted) {
@@ -99,8 +112,7 @@ export class VotesComponent implements OnInit {
   }
 
   downvote() {
-    if (!this.userService.currentUser) {
-      this.msgService.error(this.loginToContinueStr);
+    if (!this.guard()) {
       return;
     }
     if (this.isDownvoted) {
