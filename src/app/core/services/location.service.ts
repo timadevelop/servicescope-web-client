@@ -26,6 +26,9 @@ export class LocationService {
     return this.http.get<Array<GeoSearchResult>>(`${environment.apiUrl}/locations/geo/${query}/`);
   }
 
+  public getMajorCities(): Observable<PaginatedApiResponse<Location>> {
+    return this.http.get<PaginatedApiResponse<Location>>(`${environment.apiUrl}/locations/major/`);
+  }
 
   public search(query: string): Observable<PaginatedApiResponse<Location>> {
     return this.http.get<PaginatedApiResponse<Location>>(`${environment.apiUrl}/locations/?search=${query}`);
