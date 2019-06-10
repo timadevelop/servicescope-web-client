@@ -3,7 +3,7 @@ import { HttpClient, HttpRequest, HttpEvent, HttpResponse, HttpParams } from '@a
 import { AuthService } from '../../modules/auth/auth.service';
 import { User } from '../models/User.model';
 import { environment } from 'src/environments/environment';
-import { catchError, tap, share } from 'rxjs/operators';
+import { catchError, tap, share, switchMap } from 'rxjs/operators';
 import { Observable, of, throwError, ReplaySubject } from 'rxjs';
 import { NzMessageService, UploadXHRArgs } from 'ng-zorro-antd';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';

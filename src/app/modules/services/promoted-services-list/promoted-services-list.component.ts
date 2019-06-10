@@ -18,7 +18,6 @@ export class PromotedServicesListComponent implements OnInit {
   pageSize: number = 5;
   page: number = 1;
   loading: boolean = true;
-  show = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -66,11 +65,6 @@ export class PromotedServicesListComponent implements OnInit {
             r.results.pop();
           }
           this.paginatedServices = r;
-          if (this.paginatedServices.count > 0) {
-            this.show = true;
-          } else {
-            this.show = false;
-          }
           this.loading = false;
         });
     });
