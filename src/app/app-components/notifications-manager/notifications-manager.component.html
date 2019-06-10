@@ -4,13 +4,20 @@
     <app-profile-avatar-uploader [user]="userService.currentUser"></app-profile-avatar-uploader>
   </div>
   <div nz-row style="text-align: center;">
-    <h2 class="title">{{(userService.currentUserObs | async)?.first_name}} {{(userService.currentUserObs | async)?.last_name}}</h2>
+    <h2 class="title">{{(userService.currentUserObs | async)?.first_name}}
+      {{(userService.currentUserObs | async)?.last_name}}</h2>
   </div>
 
-  <div nz-row style="text-align: center;">
-      <p *ngIf="(userService.currentUserObs | async)?.is_verified_email">Verified</p>
-      <p *ngIf="!(userService.currentUserObs | async)?.is_verified_email">Not Verified</p>
-    </div>
+  <div nz-row style="text-align: center; line-height: 20px; margin-top: 5px;">
+    <p *ngIf="(userService.currentUserObs | async)?.is_verified_email">
+      <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"
+        style="font-size: 20px; margin-right: 5px;"></i>
+      Verified</p>
+    <p *ngIf="!(userService.currentUserObs | async)?.is_verified_email">
+      <i nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#eb2f96'"
+        style="font-size: 20px; margin-right: 5px;"></i>
+      Not Verified</p>
+  </div>
   <div nz-row style="text-align: center; opacity: .7;" *ngIf="(userService.currentUserObs | async)?.bio">
     <span>{{(userService.currentUserObs | async)?.bio}}</span>
   </div>
@@ -24,7 +31,8 @@
     <a nz-col nz-button (click)="logout()">Logout</a>
   </div>
   <nz-divider class="margin-5" nzOrientation="left" [nzText]="'New Notifications'"></nz-divider>
-  <nz-list [nzDataSource]="rns.notificationHistory" [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate"></nz-list>
+  <nz-list [nzDataSource]="rns.notificationHistory" [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate">
+  </nz-list>
   <nz-divider class="margin-5" nzOrientation="left" [nzText]="'Prev Notifications'"></nz-divider>
   <nz-list *ngIf="paginatedNotifications" [nzDataSource]="paginatedNotifications ? paginatedNotifications?.results : []"
     [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate" [nzPagination]="pagination" [nzFooter]="footer">
@@ -62,8 +70,8 @@ url: "/saas_api/notifications/1/"
       </span>
     </ng-template>
     <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template> -->
-    <nz-list-item-meta [nzAvatar]="'assets/images/undraw_user.svg'"
-      [nzTitle]="nzTitle" [nzDescription]="descriptionTemplate">
+    <nz-list-item-meta [nzAvatar]="'assets/images/undraw_user.svg'" [nzTitle]="nzTitle"
+      [nzDescription]="descriptionTemplate">
       <ng-template #nzTitle>
         <b><a [routerLink]="[notification.redirect_url]">{{notification.title}} {{notification.id}}</a></b>
         {{notification.text}}
