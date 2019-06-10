@@ -54,6 +54,7 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
           return;
         }
         this.service = data.service;
+        console.log(this.service)
         if (this.service.contact_phone) {
           this.contact_phoneText = `${this.service.contact_phone.substring(0, 4)} Show number`;
         }

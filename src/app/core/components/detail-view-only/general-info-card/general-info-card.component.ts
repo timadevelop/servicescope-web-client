@@ -13,7 +13,7 @@ export class GeneralInfoCardComponent implements OnInit {
   @Input() id: number | string;
   @Input() created_at: string;
   @Input() location: Location;
-  @Input() category: Category;
+  @Input() category: string;
   @Input() tags: Array<Tag>;
   @Input() vertical: boolean = false;
 
