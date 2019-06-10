@@ -1,7 +1,16 @@
 <nz-page-header *ngIf="user" [nzTitle]="null">
   <nz-breadcrumb nz-page-header-breadcrumb class="mb-0">
     <nz-breadcrumb-item [routerLink]="['../']"><a>Profiles</a></nz-breadcrumb-item>
-    <nz-breadcrumb-item>{{getUsername()}}</nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <span style="margin-right: 5px;">{{getUsername()}}</span>
+      <a [routerLink]="['/', 'verify-email']"
+        *ngIf="userService.currentUser?.is_verified_email else notVerifiedTemplate" nz-icon [nzType]="'check-circle'"
+        [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'" style="font-size: 16px;" nz-tooltip nzTitle="Verified"></a>
+      <ng-template #notVerifiedTemplate>
+        <a [routerLink]="['/', 'verify-email']" nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'"
+          [nzTwotoneColor]="'#eb2f96'" nz-tooltip nzTitle="Not Verified" style="font-size: 16px;"></a>
+      </ng-template>
+    </nz-breadcrumb-item>
   </nz-breadcrumb>
   <nz-page-header-content>
     <div class="wrap">
@@ -20,11 +29,12 @@
             [text]="this.user.email || 'No email'">
           </labeled-text>
           <div class="profile-links">
-            <app-email-wrapper *ngIf="user.email && user.id == (userService.currentUserObs | async)?.id" [email]="user.email">
+            <app-email-wrapper *ngIf="user.email && user.id == (userService.currentUserObs | async)?.id"
+              [email]="user.email">
             </app-email-wrapper>
             <app-phone-wrapper *ngIf="user.phone" [phone]="user.phone"></app-phone-wrapper>
-            <a *ngIf="user.id != (userService.currentUserObs | async)?.id" [routerLink]="['/', 'messages', 'user', user.id]"><i
-                nz-icon type="message"></i>Message</a>
+            <a *ngIf="user.id != (userService.currentUserObs | async)?.id"
+              [routerLink]="['/', 'messages', 'user', user.id]"><i nz-icon type="message"></i>Message</a>
           </div>
         </div>
       </div>
