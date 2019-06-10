@@ -90,7 +90,7 @@
               [modelId]="item.id">
             </app-votes>
           </div>
-          <div nz-col nzXs="12" class="price" nz-tooltip
+          <div nz-col nzXs="12" *ngIf="tds.isMobile" class="price" nz-tooltip
             i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price">
             {{item.price + ' ' + item.price_currency}}</div>
         </div>
