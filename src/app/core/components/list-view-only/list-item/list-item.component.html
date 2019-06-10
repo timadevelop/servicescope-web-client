@@ -1,4 +1,5 @@
-<nz-list-item class="list-item stretch-list-item" [class.promoted]="promoted || item.is_promoted" [nzContent]="null" [nzActions]="">
+<nz-list-item class="list-item stretch-list-item" [class.promoted]="promoted || item.is_promoted" [nzContent]="null"
+  [nzActions]="">
   <!-- Actions -->
   <ng-template #priceAction>
 
@@ -9,16 +10,15 @@
     <!-- Templates for list item -->
     <ng-template #avatar>
       <nz-avatar [routerLink]="[modelName ? '/' + modelName : './', item.id]" style="cursor: pointer;" [nzSize]="128"
-        nzShape="square"
-        [nzSrc]="item?.images[0] ? item.images[0].image : null">
+        nzShape="square" [nzSrc]="item?.images[0] ? item.images[0].image : null">
       </nz-avatar>
     </ng-template>
 
     <ng-template #itemTitle>
       <div nz-row class="col-below-mobile" nzType="flex" nzJustify="space-between" nzAlign="start">
-        <i *ngIf="promoted || item.is_promoted" class="promoted-sign" style="font-size: 30px;" nz-icon [nzType]="'dollar'"
-          [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedServiceIconTooltipText"
-          nzTitle="Promoted service"></i>
+        <i *ngIf="promoted || item.is_promoted" class="promoted-sign" style="font-size: 30px;" nz-icon
+          [nzType]="'dollar'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip
+          i18n-nzTitle="@@promotedServiceIconTooltipText" nzTitle="Promoted service"></i>
         <h2 nz-col class="title">
           <a class="title"
             [routerLink]="[modelName ? '/' + modelName : './', item.id]">{{ item.title | slice:0:55 }}{{ item.title.length > 55 ? '...' : ''}}</a>
@@ -31,11 +31,12 @@
 
     <ng-template #tags>
       <div class="tags">
-          <a [routerLink]="['.']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge" *ngFor="let tag of item.tags">
-            <nz-tag nz-tooltip i18n-nzTitle="Text user sees on tag hover@@searchByTagText" nzTitle="Search by tag"
-              [nzColor]="tag.color">{{tag.name}}
-            </nz-tag>
-          </a>
+        <a [routerLink]="['.']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge"
+          *ngFor="let tag of item.tags">
+          <nz-tag nz-tooltip i18n-nzTitle="Text user sees on tag hover@@searchByTagText" nzTitle="Search by tag"
+            [nzColor]="tag.color">{{tag.name}}
+          </nz-tag>
+        </a>
         <!-- <a [routerLink]="[]" [queryParams]="{tags: [tagName]}" queryParamsHandling="merge"
           *ngFor="let tagName of item.tags">
           <nz-tag>
@@ -49,7 +50,7 @@
       <div nz-row nzType="flex" nzJustify="space-between" nzAlign="bottom">
         <div nz-col class="description" nzType="flex" nzAlign="space-between" nzJustify="space-between">
           <div class="description-text " *ngIf="!tds.isMobile">
-            <p>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}</p>
+            <p><a [routerLink]="['', 'services', 'category', item.category]">{{item.category}}</a><i nz-icon style="font-size: 10px; margin: 0 5px;" nzType="double-right" nzTheme="outline"></i>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}</p>
           </div>
           <ng-container *ngTemplateOutlet="tags"></ng-container>
 
