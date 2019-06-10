@@ -49,8 +49,11 @@
     <ng-template #description>
       <div nz-row nzType="flex" nzJustify="space-between" nzAlign="bottom">
         <div nz-col class="description" nzType="flex" nzAlign="space-between" nzJustify="space-between">
-          <div class="description-text " *ngIf="!tds.isMobile">
-            <p><a [routerLink]="['', 'services', 'category', item.category]">{{item.category}}</a><i nz-icon style="font-size: 10px; margin: 0 5px;" nzType="double-right" nzTheme="outline"></i>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}</p>
+          <div class="description-text">
+            <p><a [routerLink]="['', 'services', 'category', item.category]">{{item.category}}</a><i nz-icon
+                style="font-size: 10px; margin: 0 5px;" nzType="double-right"
+                nzTheme="outline"></i>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}
+            </p>
           </div>
           <ng-container *ngTemplateOutlet="tags"></ng-container>
 
@@ -82,10 +85,12 @@
         </div>
         <!-- <div nz-col> -->
         <div nz-row nzType="flex" style="float: right;" class="votes-price-block" nzJustify="space-between">
-          <app-votes nz-col nzXs="12" nzSm="24" [score]="item.score" [currentUserVote]="item.current_user_vote"
-            [model]="modelName" [modelId]="item.id">
-          </app-votes>
-          <div nz-col *ngIf="tds.isMobile" nzXs="12" nzSm="0" class="price" nz-tooltip
+          <div nzXs="12" nzXl="24">
+            <app-votes nz-col [score]="item.score" [currentUserVote]="item.current_user_vote" [model]="modelName"
+              [modelId]="item.id">
+            </app-votes>
+          </div>
+          <div nz-col nzXs="12" class="price" nz-tooltip
             i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price">
             {{item.price + ' ' + item.price_currency}}</div>
         </div>
