@@ -30,14 +30,16 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
     private router: Router
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.reload();
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['visible'] && changes['visible'].currentValue) {
-      this.reload();
+      // this.reload();
       if (this.userService.currentUser) {
-        this.userService.currentUser.notifications_count = 0;
-        this.rns.clear();
+        // this.userService.currentUser.notifications_count = 0;
+        // this.rns.clear();
       }
     }
   }
