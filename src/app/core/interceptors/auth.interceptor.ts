@@ -1,15 +1,28 @@
 import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthService } from '../../modules/auth/auth.service';
+import { TokenInfo } from 'src/app/modules/auth/models';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  private token: string;
 
-  constructor(private auth: AuthService) {}
+  private getTokenInfo(): TokenInfo {
+    const token = JSON.parse(localStorage.getItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY)) as TokenInfo;
+    return token;
+  }
+  public getAuthorizationToken(): string {
+    if (!this.token) {
+      const tokenInfo = this.getTokenInfo();
+      this.token = tokenInfo ? `${tokenInfo.token_type} ${tokenInfo.access_token}` : null;
+    }
+
+    return this.token;
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // Get the auth token from the service.
-    const authToken: string = this.auth.authorizationToken;
+    const authToken: string = this.getAuthorizationToken();
 
     // Clone the request and replace the original headers with
     // cloned headers, updated with the authorization.
