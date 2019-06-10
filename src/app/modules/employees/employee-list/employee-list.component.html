@@ -1,8 +1,0 @@
-<h2>My Employees</h2>
-<ul class="employees">
-  <li *ngFor="let employee of employees$ | async"
-      [routerLink]="['/employees', employee.id]"
-      [class.selected]="employee.id === selectedId">
-    <span class="badge">{{employee.id}}</span> {{employee.name}}
-  </li>
-</ul>

@@ -11,11 +11,6 @@ const routes: Routes = [
     outlet: 'popup'
   },
   {
-    path: 'admin',
-    loadChildren: './modules/admin/admin.module#AdminModule',
-    canLoad: [AuthGuard]
-  },
-  {
     path: 'profiles',
     loadChildren: './modules/profile/profile.module#ProfileModule',
     // canLoad: [AuthGuard]
@@ -25,7 +20,7 @@ const routes: Routes = [
     loadChildren: './modules/messages/messages.module#MessagesModule',
     canLoad: [AuthGuard]
   },
-  { path: '', redirectTo: '/businesses', pathMatch: 'full' },
+  { path: '', redirectTo: '/services', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 

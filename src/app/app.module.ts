@@ -13,8 +13,6 @@ import en from '@angular/common/locales/en';
 import bg from '@angular/common/locales/bg';
 
 import { AppHeaderComponent } from './app-components/app-header/app-header.component';
-import { EmployeesModule } from './modules/employees/employees.module';
-import { BusinessesModule } from './modules/business-center/businesses.module';
 import { ComposeMessageComponent } from './app-components/compose-message/compose-message.component';
 import { AuthModule } from './modules/auth/auth.module';
 
@@ -47,8 +45,6 @@ registerLocaleData(en); // bg
     NgZorroAntdModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    EmployeesModule,
-    BusinessesModule,
     AuthModule,
     CoreModule.forRoot(),
     ServicesModule,

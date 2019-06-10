@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { BusinessDetailComponent } from '../../modules/business-center/business-detail/business-detail.component';
-import { DialogService } from '../services/dialog.service';
+import { Component } from '@angular/compiler/src/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CanDeactivateGuard implements CanDeactivate<BusinessDetailComponent> {
+export class CanDeactivateGuard implements CanDeactivate<Component> {
   canDeactivate(
-    component: BusinessDetailComponent,
+    component: Component,
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | boolean {
@@ -26,6 +25,7 @@ export class CanDeactivateGuard implements CanDeactivate<BusinessDetailComponent
     // }
     // Otherwise ask the user with the dialog service and return its
     // observable which resolves to true or false when the user decides
-    return component.dialogService.confirm('Discard changes?');
+    // return component.dialogService.confirm('Discard changes?');
+    return true;
   }
 }

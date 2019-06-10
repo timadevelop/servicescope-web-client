@@ -46,18 +46,6 @@
     </ng-template>
   </nz-list>
 </nz-drawer>
-<!--
-id: 1
-notification_datetime: "2019-05-15T18:43:38+0300"
-notified: false
-recipient: "/saas_api/users/3/"
-recipient_id: 3
-redirect_url: "/requests/1"
-text: "I wanna be in your business"
-title: "New request"
-type: "info"
-url: "/saas_api/notifications/1/"
--->
 
 <ng-template #notificationTemplate let-notification>
   <nz-list-item [nzContent]="null" [nzActions]="[]" [class.new]="!notification.notified"
