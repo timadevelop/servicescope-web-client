@@ -54,6 +54,7 @@ export class RealtimeNotificationsService implements OnDestroy {
       this.filterNotificationHistory((n: Notification) => n.conversation_id != room);
     }
   }
+
   processNotification(notification: Notification) {
     if (notification.conversation_id) {
       this.chatService.setConversationLastMessage(notification.conversation_id, notification.text);
