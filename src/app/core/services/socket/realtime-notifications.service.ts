@@ -48,8 +48,12 @@ export class RealtimeNotificationsService implements OnDestroy {
       const payload: Notification = m.payload as Notification;
       this.processNotification(payload);
     }
-  }
+    else if (m.type == 'joined_room') {
+      const room: number = +m.payload["room_name"];
 
+      this.filterNotificationHistory((n: Notification) => n.conversation_id != room);
+    }
+  }
   processNotification(notification: Notification) {
     if (
       notification.recipient_id &&
@@ -81,6 +85,10 @@ export class RealtimeNotificationsService implements OnDestroy {
     );
     this.notificationHistory = [...this.notificationHistory, notification];
     this._count += 1;
+  }
+
+  private filterNotificationHistory(filter: (Notification) => boolean) {
+    this.notificationHistory = this.notificationHistory.filter(v => filter(v));
   }
 
   public markNotificationAsRead(notification: Notification) {
