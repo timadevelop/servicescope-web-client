@@ -37,7 +37,6 @@ export class MessagesListComponent implements OnInit {
   }
 
   hasNewMessages(conversation: Conversation) {
-    console.log(conversation.id, this.chatService.badges[conversation.id]);
     return this.chatService.badges[conversation.id] || (this.chatService.badges[conversation.id] !== false && conversation.notifications_count > 0)
   }
 
