@@ -25,6 +25,7 @@ export class UserService {
       if (tokenInfo === null) {
         this.processNewUser(null);
       } else {
+        console.log('reload user');
         this.reloadCurrentUser();
       }
     })

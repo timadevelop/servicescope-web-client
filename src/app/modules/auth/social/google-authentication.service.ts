@@ -14,9 +14,17 @@ export class GoogleAuthenticationService {
   public tokenInfo$: BehaviorSubject<TokenInfo> = new BehaviorSubject<TokenInfo>(null);
   public isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private _loading = false;
 
   constructor(
     private configService: ConfigService, private zone: NgZone, private http: HttpClient) { }
+
+  /**
+   * get loading
+   */
+  public get loading() {
+    return this._loading;
+  }
 
   convertToken(token: string): Observable<TokenInfo> {
     if (!token) {
@@ -38,17 +46,23 @@ export class GoogleAuthenticationService {
   }
 
   signIn(): void {
+    this._loading = true;
     this.auth2.signIn().then((user: gapi.auth2.GoogleUser) => {
       // TODO: access_token
       this.convertToken(user['Zi'].access_token).subscribe((tokenInfo: TokenInfo) => {
         this.zone.run(() => {
           this.tokenInfo$.next(tokenInfo);
           this.isLoggedIn$.next(true);
+          this._loading = false;
         });
       },
         (err) => {
           console.error(err);
+          this._loading = false;
         });
+    }).catch(e => {
+      this._loading = false;
+      console.log(e);
     });
   };
 

@@ -13,6 +13,7 @@ import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.ser
 import { GoogleAuthenticationService } from './social/google-authentication.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { FacebookAuthenticationService } from './social/facebook-authentication.service';
+import { ErrorHandlerService } from 'src/app/core/services/error-handler.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class AuthService {
   private _tokenInfo: TokenInfo;
   public tokenInfo$: ReplaySubject<TokenInfo> = new ReplaySubject<TokenInfo>(1);
   public redirectUrl: string;
+  private _loading = false;
 
   constructor(
     private configService: ConfigService,
@@ -28,10 +30,18 @@ export class AuthService {
     private messageService: NzMessageService,
     private router: Router,
     public i18n: I18n,
+    private errorHandlerService: ErrorHandlerService,
     private nzMessageService: NzMessageService,
     public googleAuthenticationService: GoogleAuthenticationService,
     public facebookAuthenticationService: FacebookAuthenticationService) {
     this.init();
+  }
+
+  /**
+   * get loading
+   */
+  public get loading() {
+    return this.googleAuthenticationService.loading || this.facebookAuthenticationService.loading || this._loading;
   }
 
   private init() {
@@ -53,48 +63,41 @@ export class AuthService {
     return this._tokenInfo ? `${this._tokenInfo.token_type} ${this._tokenInfo.access_token}` : null;
   }
 
-  // Error handler
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      this.messageService.error(`An error occurred: ${error.error.message}`);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      this.messageService.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${JSON.stringify(error.error)}`);
-    }
-    // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
-  };
-
   // Auth methods
   public login(credentials: LoginApiRequest): Observable<boolean> {
+    this._loading = true;
     return this.configService.currentConfig().pipe(
       switchMap((c: ApiClientConfig) => {
         credentials.client_id = c.API_CLIENT_ID;
         credentials.client_secret = c.API_CLIENT_SECRET;
         return this.http.post<TokenInfo>(`${environment.apiUrl}/auth/token/`, credentials)
           .pipe(
-            tap((tokenInfo: TokenInfo) => this.processSucceedLogin(tokenInfo)),
+            tap((tokenInfo: TokenInfo) => {
+              this.processSucceedLogin(tokenInfo);
+              this._loading = false;
+            }),
             mapTo(true),
             catchError(error => {
-              this.handleError(error);
-              return of(false);
+              this.errorHandlerService.handleError(error);
+              this._loading = false;
+              return throwError(error);
             })
           );
       }));
   }
 
   public register(credentials: RegisterApiRequest): Observable<boolean | HttpErrorResponse> {
+    this._loading = true;
     return this.http.post<any>(`${environment.apiUrl}/auth/registration/`, credentials)
       .pipe(
-        tap((_any: any) => true),
+        tap((_any: any) => {
+          this._loading = false;
+        }),
         mapTo(true),
         catchError(error => {
-          this.handleError(error);
+          this.errorHandlerService.handleError(error);
+          this._loading = false;
+
           return throwError(error);
         })
       );
@@ -111,8 +114,8 @@ export class AuthService {
             tap((_any: any) => this.clearUserInfo()),
             mapTo(true),
             catchError(error => {
-              this.handleError(error);
-              return of(false);
+              this.errorHandlerService.handleError(error);
+              return throwError(error);
             })
           )
       }));
@@ -120,7 +123,6 @@ export class AuthService {
 
   // TODO
   public refreshToken(): Observable<boolean> {
-
     const tokenInfo = this.getTokenInfo();
     if (!tokenInfo || !tokenInfo.refresh_token) {
       return of(false);
@@ -131,7 +133,7 @@ export class AuthService {
         tap((tokenInfo: TokenInfo) => this.processSucceedLogin(tokenInfo)),
         mapTo(true),
         catchError(error => {
-          this.handleError(error);
+          this.errorHandlerService.handleError(error);
           return of(false);
         })
       );
@@ -155,6 +157,7 @@ export class AuthService {
   // Localstorage management
 
   private storeTokenInfo(tokens: TokenInfo) {
+    console.log('store token info')
     localStorage.setItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens));
     this._tokenInfo = tokens;
     this.tokenInfo$.next(tokens);

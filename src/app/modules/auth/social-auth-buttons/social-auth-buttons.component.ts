@@ -11,7 +11,7 @@ export class SocialAuthButtonsComponent implements OnInit {
   authIsLoaded: boolean;
   isLoggedInGoogle: boolean;
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
     this.initGoogle();
@@ -33,7 +33,6 @@ export class SocialAuthButtonsComponent implements OnInit {
   private initFacebook() {
     this.authService.facebookAuthenticationService.isLoaded$.subscribe(value => {
       this.authIsLoaded = value;
-      console.log('fb loadded')
     });
     this.authService.facebookAuthenticationService.isLoggedIn$.subscribe(value => {
       this.isLoggedInGoogle = value;

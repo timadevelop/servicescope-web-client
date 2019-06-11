@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,25 +17,27 @@ export class ErrorHandlerService {
       // A client-side or network error occurred. Handle it accordingly.
       this.messageService.error(`An error occurred: ${error.error.message}`);
     } else {
-      console.log(error.error);
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      // this.messageService.error(
-      //   `Backend returned code ${error.status}, ` +
-      //   `body was: ${JSON.stringify(error.error)}`);
-
       if (error.error instanceof Object) {
         if (error.status === 401) {
           // Unauthorized
           localStorage.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
         }
+        else if (error.status === 0) {
+          this.messageService.error('We have some troubles. Contact Administrator please.', {nzDuration: 5000});
+          console.warn('It seems like api does not work.');
+          return;
+        }
         for (let key in error.error) {
+          if (key === 'error' && error.error[key] === 'invalid_grant') {
+            // invalid credentials
+            this.messageService.error(error.error["error_description"]);
+            break
+          }
           this.messageService.error(`${key}: ${error.error[key]}`);
         }
       }
     }
     // return an observable with a user-facing error message
-    console.log('error', error);
     return throwError(
       'Something bad happened on error handling.');
   };

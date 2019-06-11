@@ -20,6 +20,7 @@ export class LoginComponent {
     public router: Router) {
   }
 
+  loading: boolean = false;
   validateForm: FormGroup;
 
   submitForm(): void {
@@ -39,13 +40,29 @@ export class LoginComponent {
     this.validateForm = this.fb.group({
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.minLength(5), Validators.required]],
+      other: { value: null, disabled: true }
     });
   }
 
   private login(email: string, password: string) {
+    this.loading = true;
     const lar = new LoginApiRequest(email, password);
 
     this.authService.login(lar)
-      .subscribe(_ => this.userService.reloadCurrentUser());
+      .subscribe(
+        _ => {
+          // this.userService.reloadCurrentUser()
+          this.loading = false;
+        },
+        error => {
+          for (let key in error.error) {
+            if (key === 'error' && error.error[key] === 'invalid_grant') {
+              const error_description = error.error["error_description"];
+              this.validateForm.controls['other'].setErrors({ 'invalid_grant': error_description })
+              break;
+            }
+          }
+          this.loading = false;
+        });
   }
 }

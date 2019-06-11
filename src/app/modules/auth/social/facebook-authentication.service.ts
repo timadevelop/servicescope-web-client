@@ -18,9 +18,17 @@ export class FacebookAuthenticationService {
   public tokenInfo$: BehaviorSubject<TokenInfo> = new BehaviorSubject<TokenInfo>(null);
   public isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  _loading = false;
 
   constructor(
     private configService: ConfigService, private zone: NgZone, private http: HttpClient) { }
+
+  /**
+   * get loading
+   */
+  public get loading() {
+    return this._loading;
+  }
 
   convertToken(token: string): Observable<TokenInfo> {
     if (!token) {
@@ -43,6 +51,8 @@ export class FacebookAuthenticationService {
 
   signIn(): void {
     const that = this;
+    this._loading = true;
+
     FB.login((response) => {
       console.log('submitLogin', response);
       if (response.authResponse) {
@@ -51,42 +61,24 @@ export class FacebookAuthenticationService {
         that.convertToken(response.authResponse.accessToken).subscribe((tokenInfo: TokenInfo) => {
           that.zone.run(() => {
             that.tokenInfo$.next(tokenInfo);
+            that._loading = false;
             that.isLoggedIn$.next(true);
           });
         },
           (err) => {
+            that._loading = false;
             console.error(err);
           });
       }
       else {
+        that._loading = false;
         console.log('User login failed');
       }
-    }, {scope: 'public_profile,email'});
-
-    // this.auth2.signIn().then((user: gapi.auth2.GoogleUser) => {
-    //   // TODO: access_token
-    //   this.convertToken(user['Zi'].access_token).subscribe((tokenInfo: TokenInfo) => {
-    //     this.zone.run(() => {
-    //       this.tokenInfo$.next(tokenInfo);
-    //       this.isLoggedIn$.next(true);
-    //     });
-    //   },
-    //     (err) => {
-    //       console.error(err);
-    //     });
-    // });
+    }, { scope: 'public_profile,email' });
   };
 
   signOut(): void {
-    // this.auth2.signOut().then(() => {
-    //   this.zone.run(() => {
-    //     this.isLoggedIn$.next(false);
-    //     this.tokenInfo$.next(null);
-    //   });
-    // },
-    //   (err) => {
-    //     console.error(err);
-    //   });
+    // TODO
   }
 
   loadAuth2(): void {
@@ -121,18 +113,6 @@ export class FacebookAuthenticationService {
         js.src = "https://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-      // gapi.load('auth2', () => {
-      //   gapi.auth2.init({
-      //     client_id: client_id,
-      //     fetch_basic_profile: true
-      //   }).then((auth) => {
-      //     this.zone.run(() => {
-      //       this.auth2 = auth;
-      //       this.isLoaded$.next(true);
-      //     });
-      //   },
-      //   );
-      // });
     });
   }
 }

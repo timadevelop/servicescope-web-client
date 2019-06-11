@@ -5,19 +5,14 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  private token: string;
 
   private getTokenInfo(): TokenInfo {
     const token = JSON.parse(localStorage.getItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY)) as TokenInfo;
     return token;
   }
   public getAuthorizationToken(): string {
-    if (!this.token) {
-      const tokenInfo = this.getTokenInfo();
-      this.token = tokenInfo ? `${tokenInfo.token_type} ${tokenInfo.access_token}` : null;
-    }
-
-    return this.token;
+    const tokenInfo = this.getTokenInfo();
+    return tokenInfo ? `${tokenInfo.token_type} ${tokenInfo.access_token}` : null;
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {

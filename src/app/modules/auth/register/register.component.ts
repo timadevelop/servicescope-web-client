@@ -22,9 +22,11 @@ export class RegisterComponent implements OnInit {
     public router: Router) {
   }
 
+  loading: boolean = false;
   validateForm: FormGroup;
 
   submitForm(): void {
+    this.loading = true;
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
@@ -80,10 +82,13 @@ export class RegisterComponent implements OnInit {
         registered => {
           if (registered) {
             this.login(email, password1);
+          } else {
+            this.loading = false;
           }
         },
         error => {
           this.handleRegistrationError(error);
+          this.loading = false;
         });
   }
 
@@ -91,7 +96,10 @@ export class RegisterComponent implements OnInit {
     const lar = new LoginApiRequest(email, password);
 
     this.authService.login(lar)
-      .subscribe(_ => this.userService.reloadCurrentUser());
+      .subscribe(_ => {
+        // this.userService.reloadCurrentUser();
+        this.loading = false;
+      });
   }
 
   private handleRegistrationError(error: HttpErrorResponse) {
