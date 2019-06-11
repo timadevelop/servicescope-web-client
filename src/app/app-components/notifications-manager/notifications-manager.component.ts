@@ -67,6 +67,7 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
     if (!notification.notified) {
       this.rns.markNotificationAsRead(notification);
       notification.notified = true;
+      this.userService.currentUser.notifications_count -= 1;
     }
   }
 
