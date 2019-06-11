@@ -17,4 +17,5 @@ export class User extends Base {
   notifications_count: number;
 
   date_joined: string;
+  last_active: String;//datetime
 }
