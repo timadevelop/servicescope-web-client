@@ -157,7 +157,6 @@ export class AuthService {
   // Localstorage management
 
   private storeTokenInfo(tokens: TokenInfo) {
-    console.log('store token info')
     localStorage.setItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens));
     this._tokenInfo = tokens;
     this.tokenInfo$.next(tokens);

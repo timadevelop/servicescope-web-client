@@ -66,17 +66,17 @@ export class GoogleAuthenticationService {
     });
   };
 
-  signOut(): void {
-    this.auth2.signOut().then(() => {
-      this.zone.run(() => {
-        this.isLoggedIn$.next(false);
-        this.tokenInfo$.next(null);
-      });
-    },
-      (err) => {
-        console.error(err);
-      });
-  }
+  // signOut(): void { // TODO: API Cares About that?
+  //   this.auth2.signOut().then(() => {
+  //     this.zone.run(() => {
+  //       this.isLoggedIn$.next(false);
+  //       this.tokenInfo$.next(null);
+  //     });
+  //   },
+  //     (err) => {
+  //       console.error(err);
+  //     });
+  // }
 
   loadAuth2(): void {
     this.configService.currentConfig().subscribe(c => {

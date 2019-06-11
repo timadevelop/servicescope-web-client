@@ -77,9 +77,10 @@ export class FacebookAuthenticationService {
     }, { scope: 'public_profile,email' });
   };
 
-  signOut(): void {
-    // TODO
-  }
+  // TODO: API Cares About that?
+  // signOut(): void {
+  //   // TODO
+  // }
 
   loadAuth2(): void {
     const that = this;
