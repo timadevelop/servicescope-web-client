@@ -55,6 +55,9 @@ export class RealtimeNotificationsService implements OnDestroy {
     }
   }
   processNotification(notification: Notification) {
+    if (notification.conversation_id) {
+      this.chatService.setConversationLastMessage(notification.conversation_id, notification.text);
+    }
     if (
       notification.recipient_id &&
       (!this.userService.currentUser ||
@@ -74,7 +77,6 @@ export class RealtimeNotificationsService implements OnDestroy {
         this.markNotificationAsRead(notification);
         return;
       }
-      this.chatService.setConversationBadge(notification.conversation_id, notification.text);
     }
 
     this.nzNotificationService.create(

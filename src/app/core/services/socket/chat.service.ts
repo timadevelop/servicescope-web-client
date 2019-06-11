@@ -16,7 +16,7 @@ export class SocketMessage {
 export class ChatService implements OnDestroy {
   public messages: Subject<SocketMessage>;
   public room: string;
-  public badges: { [id: number]: boolean | string } = {};
+  public badges: { [id: number]: { lastMsg: String, isRead: boolean } } = {};
 
   ngOnDestroy() {
     if (this.messages) this.messages.complete();
@@ -41,9 +41,15 @@ export class ChatService implements OnDestroy {
     return this.messages;
   }
 
-  public setConversationBadge(conversation_id: number, value: string) {
-    this.badges[conversation_id] = value;
+  public markConversationAsRead(conversation_id: number) {
+    this.badges[conversation_id] = { ...this.badges[conversation_id], isRead: true };
   }
+
+  public setConversationLastMessage(conversation_id: number, value: String) {
+    let isRead = +this.room == conversation_id;
+    this.badges[conversation_id] = { lastMsg: value, isRead: isRead };
+  }
+
   // TODO ?
   // public getLastMessages() {
 

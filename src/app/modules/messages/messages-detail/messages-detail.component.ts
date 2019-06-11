@@ -111,7 +111,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
       const room: string = m.payload["room_name"];
       if (+room == this.conversation.id) {
         this.nzMsgService.success(`Success socket joined room ${room}`);
-        this.chatService.badges[this.conversation.id] = false;
+        this.chatService.markConversationAsRead(this.conversation.id);
       } else {
         this.nzMsgService.error(`Error joining room ${this.conversation.id}, connected to room ${room} instead :/`);
       }

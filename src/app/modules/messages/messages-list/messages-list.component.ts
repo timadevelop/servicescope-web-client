@@ -37,6 +37,12 @@ export class MessagesListComponent implements OnInit {
   }
 
   hasNewMessages(conversation: Conversation) {
+    if (this.chatService.badges[conversation.id]) {
+      if (!this.chatService.badges[conversation.id].isRead || conversation.notifications_count > 0) {
+        return true;
+      }
+    }
+    return false;
     return this.chatService.badges[conversation.id] || (this.chatService.badges[conversation.id] !== false && conversation.notifications_count > 0)
   }
 
