@@ -5,6 +5,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { Conversation } from 'src/app/core/models/Conversation.model';
 import { ConversationsService } from '../../../core/services/conversations.service';
+import { ChatService } from 'src/app/core/services/socket/chat.service';
 
 @Component({
   selector: 'app-messages-list',
@@ -23,7 +24,8 @@ export class MessagesListComponent implements OnInit {
     public tds: TargetDeviceService,
     public userService: UserService,
     public conversationsService: ConversationsService,
-    private router: Router) { }
+    private router: Router,
+    public chatService: ChatService) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -34,6 +36,19 @@ export class MessagesListComponent implements OnInit {
       });
   }
 
+  hasNewMessages(conversation: Conversation) {
+    return this.chatService.badges[conversation.id] === true || (this.chatService.badges[conversation.id] !== false && conversation.notifications_count > 0)
+  }
+
+  getMessagesListItemClass(conversation: Conversation) {
+    if (this.hasNewMessages(conversation)) {
+      return {
+        new: true
+      }
+    }
+
+    return {};
+  }
 
   loadMoreConversations() {
     if (this.conversations && this.conversations.next) {

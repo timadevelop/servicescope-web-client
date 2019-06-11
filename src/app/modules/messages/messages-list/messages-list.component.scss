@@ -36,6 +36,12 @@
       &.active {
         background: $light-grey-color;
       }
+
+      &.new {
+        * {
+          font-weight: bold;
+        }
+      }
     }
   }
 

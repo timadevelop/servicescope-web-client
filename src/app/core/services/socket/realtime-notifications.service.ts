@@ -65,9 +65,12 @@ export class RealtimeNotificationsService implements OnDestroy {
   notify(notification: Notification) {
     // console.log(this.chatService.room, notification);
 
-    if (notification.conversation_id !== null && this.chatService.room && notification.conversation_id === +this.chatService.room) {
-      this.markNotificationAsRead(notification);
-      return;
+    if (notification.conversation_id !== null) {
+      if (this.chatService.room && notification.conversation_id === +this.chatService.room) {
+        this.markNotificationAsRead(notification);
+        return;
+      }
+      this.chatService.setConversationBadge(notification.conversation_id, notification.text);
     }
 
     this.nzNotificationService.create(

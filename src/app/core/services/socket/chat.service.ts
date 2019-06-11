@@ -16,6 +16,7 @@ export class SocketMessage {
 export class ChatService implements OnDestroy {
   public messages: Subject<SocketMessage>;
   public room: string;
+  public badges: { [id: number]: boolean | string } = {};
 
   ngOnDestroy() {
     if (this.messages) this.messages.complete();
@@ -40,6 +41,9 @@ export class ChatService implements OnDestroy {
     return this.messages;
   }
 
+  public setConversationBadge(conversation_id: number, value: string) {
+    this.badges[conversation_id] = value;
+  }
   // TODO ?
   // public getLastMessages() {
 
