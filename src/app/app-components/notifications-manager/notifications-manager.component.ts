@@ -31,13 +31,13 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
-    this.reload();
+    // this.reload();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['visible'] && changes['visible'].currentValue) {
-      // this.reload();
       if (this.userService.currentUser) {
+        this.reload();
         // this.userService.currentUser.notifications_count = 0;
         // this.rns.clear();
       }

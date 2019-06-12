@@ -17,7 +17,7 @@
         [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
           <a [routerLink]="['/', 'messages', 'c', conversation.id]">
-            {{conversation.users[0].first_name ? conversation.users[0]?.first_name + ' ' + conversation.users[0]?.last_name : "Noname"}}
+            {{conversation.users[0]?.first_name ? conversation.users[0]?.first_name + ' ' + conversation.users[0]?.last_name : "Noname"}}
             <i *ngIf="!isRead(conversation)" nz-icon [nzType]="'info-circle'" [nzTheme]="'fill'" style="color: #6772e5"></i>
           </a>
         </ng-template>
