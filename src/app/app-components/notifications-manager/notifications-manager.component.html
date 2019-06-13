@@ -1,7 +1,10 @@
 <nz-drawer *ngIf="userService.currentUser" [nzWidth]="tds.isMobile ? '85%' : '33%'" [nzClosable]="true"
   [nzVisible]="visible" nzPlacement="right" [nzTitle]="null" (nzOnClose)="onClose()">
-  <div nz-row nzJustify="center">
-    <!-- <app-profile-avatar-uploader [user]="userService.currentUser"></app-profile-avatar-uploader> -->
+  <div nz-row style="text-align: center; margin-bottom: 10px;" nzJustify="center">
+    <nz-badge [nzCount]="rns.count + (userService.currentUserObs | async)?.notifications_count">
+      <nz-avatar [nzSize]="128" nzIcon="user"
+        [nzSrc]="(userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
+    </nz-badge>
   </div>
   <div nz-row style="text-align: center;">
     <h2 class="title">{{(userService.currentUserObs | async)?.first_name}}
