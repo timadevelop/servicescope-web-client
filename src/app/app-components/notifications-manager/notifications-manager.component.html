@@ -1,7 +1,7 @@
 <nz-drawer *ngIf="userService.currentUser" [nzWidth]="tds.isMobile ? '85%' : '33%'" [nzClosable]="true"
   [nzVisible]="visible" nzPlacement="right" [nzTitle]="null" (nzOnClose)="onClose()">
   <div nz-row nzJustify="center">
-    <app-profile-avatar-uploader [user]="userService.currentUser"></app-profile-avatar-uploader>
+    <!-- <app-profile-avatar-uploader [user]="userService.currentUser"></app-profile-avatar-uploader> -->
   </div>
   <div nz-row style="text-align: center;">
     <h2 class="title">{{(userService.currentUserObs | async)?.first_name}}

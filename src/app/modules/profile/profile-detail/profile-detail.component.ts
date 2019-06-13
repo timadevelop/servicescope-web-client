@@ -4,7 +4,7 @@ import { User } from 'src/app/core/models/User.model';
 import { UserService } from 'src/app/core/services/user.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
-import { LabeledTextComponent } from 'src/app/core/components/common/labeled-text/labeled-text.component';
+import { LabeledTextComponent } from '../../shared/components/common/labeled-text/labeled-text.component';
 
 @Component({
   selector: 'app-profile-detail',

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../../models/User.model';
 import { DatePipe } from '@angular/common';
 import { UserService } from 'src/app/core/services/user.service';
 import { AdditionalConversationRouteData } from 'src/app/modules/messages/redirect.guard';
+import { User } from 'src/app/core/models/User.model';
 
 @Component({
   selector: 'app-author-card',

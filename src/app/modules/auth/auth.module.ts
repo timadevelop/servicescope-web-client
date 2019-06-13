@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { SocialAuthButtonsComponent } from './social-auth-buttons/social-auth-buttons.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CoreModule } from 'src/app/core/core.module';
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    SharedModule
   ]
 })
 export class AuthModule { }

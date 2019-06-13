@@ -20,6 +20,14 @@ const routes: Routes = [
     loadChildren: './modules/messages/messages.module#MessagesModule',
     canLoad: [AuthGuard]
   },
+  {
+    path: 'services',
+    loadChildren: './modules/services/services.module#ServicesModule',
+  },
+  {
+    path: '',
+    loadChildren: './modules/auth/auth.module#AuthModule',
+  },
   { path: '', redirectTo: '/services', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

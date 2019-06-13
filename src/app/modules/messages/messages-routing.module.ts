@@ -4,9 +4,9 @@ import { MessagesComponent } from './messages/messages.component';
 
 import { MessagesDetailComponent } from './messages-detail/messages-detail.component';
 import { AuthGuard } from '../auth/auth.guard';
-import { PageNotFoundComponent } from 'src/app/core/components/page-not-found/page-not-found.component';
 import { ConversationResolverService } from './resolvers/conversation-resolver.service';
 import { RedirectGuard } from './redirect.guard';
+import { PageNotFoundComponent } from '../../core/components/page-not-found/page-not-found.component';
 
 const messagesRoutes: Routes = [
   {

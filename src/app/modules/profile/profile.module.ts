@@ -10,6 +10,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { CoreModule } from '../../core/core.module';
 import { ServicesModule } from '../services/services.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ServicesModule } from '../services/services.module';
     CoreModule,
     NgZorroAntdModule,
     ProfileRoutingModule,
-    ServicesModule
+    ServicesModule,
+    SharedModule
   ]
 })
 export class ProfileModule { }

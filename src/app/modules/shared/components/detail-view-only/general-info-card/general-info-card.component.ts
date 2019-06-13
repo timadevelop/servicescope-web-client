@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tag } from '../../../models/Tag.models';
+import { Tag } from 'src/app/core/models/Tag.models';
 import { Location } from 'src/app/core/models/Location.model';
 import { Category } from 'src/app/core/models/Category.models';
 

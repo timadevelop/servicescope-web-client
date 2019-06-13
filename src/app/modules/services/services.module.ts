@@ -16,6 +16,7 @@ import { CreateServiceComponent } from './create-service/create-service.componen
 import { JsonLabelValueEditorComponent } from './create-service/new-service-form/json-label-value-editor/json-label-value-editor.component';
 import { PromotedServicesListComponent } from './promoted-services-list/promoted-services-list.component';
 import { PromoteServiceComponent } from './promote-service/promote-service.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PromoteServiceComponent } from './promote-service/promote-service.compo
     ReactiveFormsModule,
     NgZorroAntdModule,
     ServicesRoutingModule,
+    SharedModule
   ],
   exports: [
     ServicesListComponent

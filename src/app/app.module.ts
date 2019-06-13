@@ -45,9 +45,9 @@ registerLocaleData(en); // bg
     NgZorroAntdModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AuthModule,
+    // AuthModule,
     CoreModule.forRoot(),
-    ServicesModule,
+    // ServicesModule,
     AppRoutingModule,
   ],
   providers: [

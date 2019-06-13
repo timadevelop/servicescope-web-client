@@ -11,6 +11,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CoreModule } from '../../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewMessageFormComponent } from './messages-detail/new-message-form/new-message-form.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NewMessageFormComponent } from './messages-detail/new-message-form/new-
     ReactiveFormsModule,
     NgZorroAntdModule,
     MessagesRoutingModule,
+    SharedModule
   ],
   exports: [
     MessagesListComponent

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
-import { LabeledTextComponent } from 'src/app/core/components/common/labeled-text/labeled-text.component';
+import { LabeledTextComponent } from '../../shared/components/common/labeled-text/labeled-text.component';
 
 @Component({
   selector: 'app-verify-email',

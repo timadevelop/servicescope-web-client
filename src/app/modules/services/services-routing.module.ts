@@ -13,7 +13,7 @@ import { PromoteServiceComponent } from './promote-service/promote-service.compo
 
 const servicesRoutes: Routes = [
   {
-    path: 'services',
+    path: '',
     component: ServicesComponent,
     canActivate: [],
     children: [

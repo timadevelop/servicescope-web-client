@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { ServiceImage } from '../../../models/Service.model';
+import { ServiceImage } from 'src/app/core/models/Service.model';
 import { NzCarouselComponent } from 'ng-zorro-antd';
 
 @Component({
