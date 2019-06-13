@@ -56,6 +56,11 @@ export class FeedbackWidgetComponent implements OnInit {
 
   }
 
+  close(e) {
+    e.preventDefault();
+    this.showFeedbackForm = false;
+  }
+
   onFormSubmit() {
     this.loading = true;
     for (const i in this.feedbackForm.controls) {
