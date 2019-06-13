@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://demo.brainhub.co/saas_api',
-  WEBSOCKET_PROTOCOL: "wss",
-  WEBSOCKET_URL: 'demo.brainhub.co/saas_ws',
+  apiUrl: 'http://localhost:9123/saas_api',
+  WEBSOCKET_PROTOCOL: "ws",
+  WEBSOCKET_URL: 'localhost:9123/saas_ws',
   LOCALSTORAGE_TOKEN_INFO_KEY: 'TOKEN_INFO',
 };
 
