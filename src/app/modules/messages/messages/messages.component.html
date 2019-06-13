@@ -15,7 +15,7 @@
       <app-messages-list></app-messages-list>
     </div>
     <!--detail -->
-    <div nz-col nzXs="24" nzXl="18" class="messages-detail-container" class.hidden="!tds.isMobile || conversation">
+    <div nz-col nzXs="24" nzXl="18" class="messages-detail-container" [class.hidden]="tds.isMobile && !conversation">
       <router-outlet></router-outlet>
     </div>
   </div>

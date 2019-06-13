@@ -6,6 +6,7 @@ import { RealtimeNotificationsService } from './core/services/socket/realtime-no
 
 import icons from './icons';
 import { ConfigService } from './core/services/config.service';
+import { TargetDeviceService } from './core/services/target-device.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ export class AppComponent implements AfterViewInit {
     private router: Router,
     private _iconService: NzIconService,
     private nzEmptyService: NzEmptyService,
-    public rns: RealtimeNotificationsService) {
+    public rns: RealtimeNotificationsService,
+    public tds: TargetDeviceService) {
       // init loading
       this.router.events.subscribe((event: Event) => {
         switch (true) {

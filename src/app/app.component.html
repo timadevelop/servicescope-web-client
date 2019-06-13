@@ -18,7 +18,7 @@
 </div>
 
 <app-notifications-manager [visible]="rns.showNotificationsManager"></app-notifications-manager>
-<app-feedback-widget></app-feedback-widget>
+<app-feedback-widget *ngIf="!tds.isMobile"></app-feedback-widget>
 
 
 <ng-template #customEmptyTpl let-name>
