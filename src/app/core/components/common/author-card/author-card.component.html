@@ -41,7 +41,7 @@
     </div>
 
     <div nz-row nzType="flex" nzJustify="space-between" class="author-row"
-      *ngIf="author.id != userService?.currentUser.id">
+      *ngIf="author.id != userService?.currentUser?.id">
       <p nz-col class="label">Message</p>
       <div nz-col class="value">
         <a [routerLink]="['/', 'messages', 'user', author.id]" [queryParams]="additionalRouteData"><i
