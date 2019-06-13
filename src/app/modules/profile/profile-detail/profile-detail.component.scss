@@ -1,3 +1,5 @@
+@import "~src/variables";
+
 nz-page-header {
   border: 1px solid rgb(235, 237, 240);
 }
@@ -29,7 +31,7 @@ nz-page-header {
   }
 }
 .extra-content {
-  min-width: 240px;
+  // min-width: 240px;
   text-align: right;
 }
 
@@ -55,4 +57,18 @@ nz-page-header {
 
 .mb-0 {
   margin-bottom: 0;
+}
+
+@include respond-below(md) {
+  .wrap {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .extra-content {
+    margin-bottom: 10px;
+  }
+}
+
+@include respond-above(mobile) {
 }
