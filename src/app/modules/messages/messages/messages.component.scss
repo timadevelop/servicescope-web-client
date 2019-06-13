@@ -1,11 +1,11 @@
 @import "~src/variables";
 
 .messages-wrapper {
-  height: 80vh;
+  height: 90vh;
   .messages-list-container,
   .messages-detail-container {
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
   }
   .messages-list-container {
     border-right: 1px solid $light-border-color;
@@ -18,4 +18,8 @@
   .user-logo {
     margin-right: 0.5em;
   }
+}
+
+.hidden {
+  display: none;
 }

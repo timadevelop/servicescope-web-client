@@ -76,7 +76,11 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
 
       this.partner = this.conversation.users[0];
 
-      this.titleService.setTitle(this.i18n({ value: "Conversation", id: "conversationHtmlTitle" }) + ' - ' + this.partner.first_name + ' ' + this.partner.last_name);
+      if (this.partner) {
+        this.titleService.setTitle(this.i18n({ value: "Conversation", id: "conversationHtmlTitle" }) + ' - ' + this.partner.first_name + ' ' + this.partner.last_name);
+      } else {
+        this.titleService.setTitle(this.i18n({ value: "Conversation", id: "conversationHtmlTitle" }));
+      }
       this.messagesService.getConversationMessages(this.conversation.id, '1', '30').subscribe(
         r => {
           this.messages = r;

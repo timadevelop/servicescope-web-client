@@ -1,31 +1,25 @@
 <div class="wrapper" *ngIf="conversation else notfoundtemplate">
-  <div nz-row nzType="flex" nzAlign="middle" class="header">
-    <div nz-col style="margin-right: 15px;" *ngIf="tds.isMobile">
-      <a [routerLink]="['../../']" style="font-size: 30px;" nz-icon nzType="arrow-left" nzTheme="outline"></a>
+  <div nz-row nzType="flex" nzAlign="middle" nzJustify="start" class="header">
+    <div nz-col style="margin-right: 5px;">
+      <a *ngIf="tds.isMobile" [routerLink]="['../../']" style="font-size: 25px;" nz-icon nzType="arrow-left"
+        nzTheme="outline"></a>
+      <a *ngIf="!tds.isMobile" [routerLink]="['/', 'profiles', partner.id]">
+        <nz-avatar nzIcon="user" [nzSrc]="partner?.image || 'assets/images/undraw_user.svg'">
+        </nz-avatar>
+      </a>
     </div>
-    <nz-list-item>
-      <nz-list-item-meta *ngIf="partner" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate"
-        [nzDescription]="descriptionTemplate">
-        <ng-template #titleTemplate>
-          <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]"
-            class="title">{{partner?.first_name ? partner.first_name + ' ' + partner.last_name : "noname"}}</a>
-        </ng-template>
-        <ng-template #avatarTemplate>
-          <a [routerLink]="['/', 'profiles', partner.id]">
-            <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]="partner?.image || 'assets/images/undraw_user.svg'">
-            </nz-avatar>
-          </a>
-        </ng-template>
-        <ng-template #descriptionTemplate>
-          <span><span i18n="@@lastSeenUserText">Last seen:</span> {{partner.last_active | date: 'hh:mm a MMMM d, y'}}</span>
-        </ng-template>
-      </nz-list-item-meta>
-    </nz-list-item>
+    <div nz-col nzSpan="21">
+      <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]"
+        class="title">{{partner && partner.first_name ? partner.first_name + ' ' + partner.last_name : "No partner or noname"}}</a>
+      <br />
+      <span><span i18n="@@lastSeenUserText">Last seen:</span>
+        {{partner.last_active | date: 'hh:mm a MMMM d'}}</span>
+    </div>
   </div>
 
   <!-- msgs -->
   <div nz-row class="conversation-wrapper">
-    <div nz-col class="conversation" nzSpan="24">
+    <!-- <div nz-col class="conversation" nzSpan="24"> -->
       <div nz-row class="conversation-messages" #conversationMessages>
         <nz-spin style="height: 100%;" nzTip="Loading..." [nzSpinning]="loading">
           <div nz-col>
@@ -41,7 +35,7 @@
               [class.same-author]="isLastAuthorMessage(i)" nz-row nzType="flex" nzJustify="start" nzAlign="bottom">
               <a nz-col class="message-author" [routerLink]="['/', 'profiles', msg.author_id]">
                 <nz-avatar *ngIf="isLastAuthorMessage(i)" [nzSize]="32" nzIcon="user"
-                  [nzSrc]="msg.author_id == (userService.currentUserObs | async)?.id ? ((userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg') : (partner.image || 'assets/images/undraw_user.svg')">
+                  [nzSrc]="msg.author_id == (userService.currentUserObs | async)?.id ? ((userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg') : (partner?.image || 'assets/images/undraw_user.svg')">
                 </nz-avatar>
               </a>
               <div nz-col class="message-content">
@@ -66,7 +60,7 @@
       </div>
       <app-new-message-form class="conversation-input" [conversation]="conversation"></app-new-message-form>
     </div>
-  </div>
+  <!-- </div> -->
 </div>
 
 <app-carousel *ngIf="zoomImages?.length > 0" (onZoomClose)="setZoomImages(null)" [imageIndex]="zoomImagesIdx"

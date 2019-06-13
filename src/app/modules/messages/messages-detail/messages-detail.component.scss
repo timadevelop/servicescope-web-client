@@ -2,29 +2,27 @@
 
 .wrapper {
   padding: 0 8px;
-  height: 100%;
+  height: 85%;
   .header {
-    padding: 0 8px;
+    padding: 4px 8px;
     border-bottom: 1px solid $light-border-color;
-    height: 10%;
+    // height: 10%;
   }
 
   .conversation-wrapper {
     padding: 0 8px;
-    height: 90%;
-    > .conversation {
-      height: 100%;
+    height: 100%;
+
+    // > .conversation {
+      // height: 90%;
       display: flex;
       flex-direction: column;
       justify-content: stretch;
       justify-items: stretch;
       .conversation-messages {
         overflow-x: hidden;
-        overflow: hidden;
-        flex: 1;
-        // &:hover {
+        flex: auto;
         overflow-y: scroll;
-        // }
 
         &::-webkit-scrollbar-track {
           border-radius: $radius;
@@ -42,11 +40,12 @@
         }
       }
       .conversation-input {
-        // height: 7%;
+        // height: 10%;
+        flex: none;
         // height: auto;
         border-top: 1px solid $light-border-color;
       }
-    }
+    // }
   }
 }
 

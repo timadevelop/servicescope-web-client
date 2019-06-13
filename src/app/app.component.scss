@@ -22,6 +22,9 @@
 @include respond-below(xs) {
   .app-layout {
     max-width: 98%;
+    .main-wrapper-layout {
+      padding-top: 12px;
+    }
   }
 }
 
