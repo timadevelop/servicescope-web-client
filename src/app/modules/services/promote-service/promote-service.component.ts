@@ -50,6 +50,8 @@ export class PromoteServiceComponent implements OnInit {
   service: Service;
   previousPromotion: ServicePromotion;
 
+  useCoupon: boolean = false;
+
   selectedPlan: 'basic' | 'pro' = null;
 
   paymentIntent: paymentIntents.IPaymentIntent;
@@ -86,17 +88,28 @@ export class PromoteServiceComponent implements OnInit {
           return;
         }
         this.service = data.service;
+        this.dateStartingPoint = new Date(this.service.promoted_til);
+        this.updatePlansDates();
         if (this.service.promotions && this.service.promotions.length > 0) {
           const url = this.service.promotions[0];
           this.servicePromotionsService.getByUrl(url)
             .subscribe(r => {
               this.previousPromotion = r;
-              this.dateStartingPoint = new Date(r.end_datetime);
+              // this.dateStartingPoint = new Date(r.end_datetime);
               this.updatePlansDates();
             });
 
         }
       });
+
+    this.route.queryParamMap.subscribe(params => {
+      const coupon = params.get('coupon');
+      if (coupon == 'true') {
+        this.useCoupon = true;
+      } else {
+        this.useCoupon = false;
+      }
+    })
   }
 
   setSelectedPlan(plan: 'basic' | 'pro') {

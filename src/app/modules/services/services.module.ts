@@ -17,6 +17,7 @@ import { JsonLabelValueEditorComponent } from './create-service/new-service-form
 import { PromotedServicesListComponent } from './promoted-services-list/promoted-services-list.component';
 import { PromoteServiceComponent } from './promote-service/promote-service.component';
 import { SharedModule } from '../shared/shared.module';
+import { PromoteServiceUsingCouponComponent } from './promote-service/promote-service-using-coupon/promote-service-using-coupon.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SharedModule } from '../shared/shared.module';
     CreateServiceComponent,
     NewServiceFormComponent,
     PromoteServiceComponent,
+    PromoteServiceUsingCouponComponent,
     JsonLabelValueEditorComponent
   ],
   imports: [
