@@ -29,25 +29,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    &.msg-col, &.promo-col {
+    color: white;
+    &.msg-col,
+    &.promo-col {
       background: $contrast-color;
     }
     &.phone-col {
       background: $primary-color;
     }
-    a {
-      color: white;
-      i {
-        margin-right: 5px;
-      }
+    i {
+      margin-right: 5px;
     }
   }
-
 }
 
-
 .promoted {
-  position: relative
+  position: relative;
 }
 .promoted-sign {
   position: absolute;
@@ -55,7 +52,6 @@
   right: 16px;
   z-index: 3;
 }
-
 
 @include respond-below(mobile) {
 }
