@@ -5,7 +5,7 @@
   .messages-list-container,
   .messages-detail-container {
     height: 100%;
-    overflow: visible;
+    overflow: hidden;
   }
   .messages-list-container {
     border-right: 1px solid $light-border-color;

@@ -2,11 +2,12 @@
 
 .messages-list-wrapper {
   padding: 0 8px;
-  overflow: hidden;
-  &:hover {
-    overflow-y: scroll;
-  }
-  max-height: 90%;
+  overflow-x: hidden;
+  // &:hover {
+  overflow-y: scroll;
+  // }
+  height: calc(100% - 67px);
+  // max-height: 90%;
 
   &::-webkit-scrollbar-track {
     border-radius: $radius;

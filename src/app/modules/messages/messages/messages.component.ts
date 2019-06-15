@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { Router, NavigationEnd } from '@angular/router';
@@ -13,6 +13,8 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 })
 export class MessagesComponent implements OnInit {
   conversation: boolean;
+
+  height: number;
 
   constructor(
     public userService: UserService,
@@ -29,6 +31,9 @@ export class MessagesComponent implements OnInit {
       this.checkConversation(r.url);
     });
     this.checkConversation(this.router.url);
+    this.tds.resizeObservable$.subscribe(_ => {
+      this.height = document.documentElement.clientHeight - 64 - 24 - 4;
+    });
   }
 
   private checkConversation(url) {

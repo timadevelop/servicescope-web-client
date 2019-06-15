@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { fromEvent } from 'rxjs';
+import { share } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class TargetDeviceService {
   resizeSubscription$;
   constructor() {
     this.updateStatus();
-    this.resizeObservable$ = fromEvent(window, 'resize')
+    this.resizeObservable$ = fromEvent(window, 'resize').pipe(share())
     this.resizeSubscription$ = this.resizeObservable$.subscribe(evt => {
       this.updateStatus();
     })
