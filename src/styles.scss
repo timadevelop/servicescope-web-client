@@ -18,6 +18,10 @@
   margin-right: 0;
 }
 
+.ant-drawer-wrapper-body {
+  overflow-x: hidden !important;
+}
+
 .avatar-uploader {
   &.no-hover .ant-upload:hover {
     border-color: grey;
