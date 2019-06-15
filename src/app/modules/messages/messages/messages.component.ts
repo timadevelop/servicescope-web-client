@@ -14,7 +14,7 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 export class MessagesComponent implements OnInit {
   conversation: boolean;
 
-  height: number;
+  height: number = document.documentElement.clientHeight - 64 - 24 - 4;
 
   constructor(
     public userService: UserService,
@@ -31,9 +31,6 @@ export class MessagesComponent implements OnInit {
       this.checkConversation(r.url);
     });
     this.checkConversation(this.router.url);
-    this.tds.resizeObservable$.subscribe(_ => {
-      this.height = document.documentElement.clientHeight - 64 - 24 - 4;
-    });
   }
 
   private checkConversation(url) {
