@@ -1,7 +1,7 @@
 @import "~src/variables";
 
 .messages-wrapper {
-  height: 85vh;
+  height: calc(100vh - 100px);
   .messages-list-container,
   .messages-detail-container {
     height: 100%;
