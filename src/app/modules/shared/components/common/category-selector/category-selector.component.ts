@@ -4,6 +4,7 @@ import { Category } from 'src/app/core/models/Category.models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CategoriesService } from 'src/app/core/services/categories.service';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 @Component({
   selector: 'app-category-selector',
@@ -27,7 +28,8 @@ export class CategorySelectorComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private categoriesService: CategoriesService) { }
+    private categoriesService: CategoriesService,
+    public tds: TargetDeviceService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

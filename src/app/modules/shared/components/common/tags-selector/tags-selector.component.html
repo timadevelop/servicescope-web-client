@@ -1,6 +1,7 @@
 <nz-select style="width: 100%;" nzMode="tags" i18n-nzPlaceHolder="Select tags text|Asking user to select tags@@selectTagsText" nzPlaceHolder="Select tags" nzAllowClear nzShowSearch
   (nzOnSearch)="onSearch($event)" [nzServerSearch]="true" (nzScrollToBottom)="loadMoreTags()" [(ngModel)]="selectedTags"
-  (ngModelChange)="onTagsChange()" [nzMaxMultipleCount]="maxTagCount" [nzDropdownRender]="render">
+  (ngModelChange)="onTagsChange()" [nzMaxMultipleCount]="maxTagCount" [nzDropdownRender]="render"
+  [nzDropdownClassName]="tds.isMobile ? 'mobile-dropdown' : null">
   <ng-container *ngFor="let tag of tags?.results">
     <nz-option *ngIf="!isLoading" [nzValue]="tag.name" [nzLabel]="tag.name"></nz-option>
   </ng-container>

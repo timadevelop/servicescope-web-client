@@ -3,6 +3,7 @@
   (nzScrollToBottom)="loadMoreLocations()" [nzMenuItemSelectedIcon]="isFormItem ? null : icon" [nzSuffixIcon]="isFormItem ? null : icon"
   [nzSize]="size"
   [ngModel]="selectedLocation"
+  [nzDropdownClassName]="tds.isMobile ? 'mobile-dropdown' : null"
   (ngModelChange)="locationChanged($event)">
   <nz-option [nzLabel]="getLabel(selectedLocation)" [nzValue]="selectedLocation" *ngIf="selectedLocation" nzCustomContent>
     <span>{{getLabel(selectedLocation)}}</span>

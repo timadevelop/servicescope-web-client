@@ -6,6 +6,7 @@ import { Location } from 'src/app/core/models/Location.model';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { Params, Router, ActivatedRoute } from '@angular/router';
 import { I18n } from '@ngx-translate/i18n-polyfill';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 @Component({
   selector: 'app-location-search',
@@ -30,7 +31,8 @@ export class LocationSearchComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private locationService: LocationService,
-    private msgService: NzMessageService
+    private msgService: NzMessageService,
+    public tds: TargetDeviceService
   ) {
   }
 
