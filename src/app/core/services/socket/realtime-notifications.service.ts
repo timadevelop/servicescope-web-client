@@ -2,7 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { ChatService, SocketMessage } from './chat.service';
 import { NzNotificationService } from 'ng-zorro-antd';
 import { AuthService } from 'src/app/modules/auth/auth.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { Notification } from '../../models/Notification.model';
 import { UserService } from '../user.service';
 
@@ -28,8 +28,16 @@ export class RealtimeNotificationsService implements OnDestroy {
 
   public run() {
     if (this.authService.isLoggedIn) {
-      this.sub$ = this.chatService.connect().subscribe((m: SocketMessage) => {
-        this.processMessage(m);
+      this.chatService.onNewSubject.subscribe((sm: Subject<SocketMessage>) => {
+        if (!sm) {
+          // console.log('waiting in rns...');
+          return;
+        }
+        // console.log('reconnect on rns')
+        if (this.sub$) this.sub$.unsubscribe();
+        this.sub$ = sm.subscribe((m: SocketMessage) => {
+          this.processMessage(m);
+        });
       });
     }
   }

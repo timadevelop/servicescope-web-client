@@ -164,8 +164,12 @@ export class AuthService {
 
   public getTokenInfo(): TokenInfo {
     const token = JSON.parse(localStorage.getItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY)) as TokenInfo;
-    this._tokenInfo = token;
-    this.tokenInfo$.next(token);
+    if (!this._tokenInfo || !token || this._tokenInfo.access_token != token.access_token) {
+      this._tokenInfo = token;
+      this.tokenInfo$.next(this._tokenInfo);
+    } else {
+      this._tokenInfo = token;
+    }
     return token;
   }
 

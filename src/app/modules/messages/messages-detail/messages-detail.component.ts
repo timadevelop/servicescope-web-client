@@ -9,7 +9,7 @@ import { Conversation } from 'src/app/core/models/Conversation.model';
 import { User } from 'src/app/core/models/User.model';
 import { NzMessageService } from 'ng-zorro-antd';
 import { ChatService, SocketMessage } from 'src/app/core/services/socket/chat.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
@@ -31,7 +31,9 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   zoomImagesIdx = 1;
   loading = true;
 
-  private sub$: Subscription;
+  private socketMessageSub$: Subscription;
+  private subjectSub$: Subscription;
+  @ViewChild('conversationMessages') private messagesContainer: ElementRef;
 
   constructor(
     public route: ActivatedRoute,
@@ -45,11 +47,10 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnDestroy() {
-    if (this.sub$) this.sub$.unsubscribe();
+    if (this.socketMessageSub$) this.socketMessageSub$.unsubscribe();
+    if (this.subjectSub$) this.subjectSub$.unsubscribe();
     this.chatService.leaveRoom();
   }
-
-  @ViewChild('conversationMessages') private messagesContainer: ElementRef;
 
   setZoomImages(images: Array<any>, startIndex: number = 1) {
     this.zoomImages = images;
@@ -57,11 +58,20 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    if (!this.sub$) {
-      this.sub$ = this.chatService.connect().subscribe((m: SocketMessage) => {
+    this.subjectSub$ = this.chatService.onNewSubject.subscribe((sm: Subject<SocketMessage>) => {
+      if (!sm) {
+        // console.log('waiting in messages- detail...');
+        return;
+      }
+      // console.log('reconnect on messages-detail');
+      if (this.socketMessageSub$) this.socketMessageSub$.unsubscribe();
+
+      this.socketMessageSub$ = sm.subscribe((m: SocketMessage) => {
         this.processSocketMessage(m);
       });
-    }
+
+      // this.joinRoom();
+    });
 
     this.route.data.subscribe((data: { conversation: Conversation }) => {
       // conversation changed

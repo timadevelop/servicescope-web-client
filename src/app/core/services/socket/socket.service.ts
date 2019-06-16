@@ -1,6 +1,9 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import { Observable, Observer, Subject } from 'rxjs';
+import { Observable, Observer, Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../../modules/auth/auth.service';
+import { share } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { NzMessageService } from 'ng-zorro-antd';
 
 const RECONNECTING_INTERVAL = 3000;
 
@@ -9,25 +12,44 @@ const RECONNECTING_INTERVAL = 3000;
 })
 export class SocketService implements OnDestroy {
 
+  private loadingMsgId = null;
+  private reconnect$ = new BehaviorSubject<Subject<MessageEvent>>(null);
+  private subject: Subject<MessageEvent>;
+
   constructor(
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private nzMessageService: NzMessageService
+  ) {
+    this.connect()
+  }
 
   ngOnDestroy() {
     if (this.subject) this.subject.complete();
   }
 
-  private subject: Subject<MessageEvent>;
+  public onReconnect() {
+    return this.reconnect$.asObservable().pipe(share());
+  }
 
-  public connect(url): Subject<MessageEvent> {
-    if (this.subject) {
+  private connect(force = false): Subject<MessageEvent> {
+    if (this.subject && force) {
       this.subject.complete();
+      this.subject = null;
+      this.reconnect$.next(null);
     }
 
     if (!this.subject) {
+      const url = this.getSocketUrl();
       this.subject = this.create(url);
     }
+
+    // this.reconnect$.next(this.subject);
     return this.subject;
+  }
+
+
+  private getSocketUrl(): string {
+    return `${environment.WEBSOCKET_PROTOCOL}://${environment.WEBSOCKET_URL}/global/`
   }
 
   private create(url): Subject<MessageEvent> {
@@ -41,9 +63,12 @@ export class SocketService implements OnDestroy {
     // setup reconnect function
     const that = this;
     const reconnect = (e) => {
+      if (this.loadingMsgId === null) {
+        this.loadingMsgId = this.nzMessageService.loading('Connection lost. Trying to reconnect..', { nzDuration: 0 }).messageId;
+      }
       console.warn('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
       setTimeout(() => {
-        that.connect(url);
+        that.connect(true);
       }, RECONNECTING_INTERVAL);
     }
 
@@ -55,7 +80,12 @@ export class SocketService implements OnDestroy {
     // log on open
     ws.onopen = (e) => {
       if (ws.OPEN) {
+        if (this.loadingMsgId) {
+          this.nzMessageService.remove(this.loadingMsgId);
+          this.loadingMsgId = null;
+        }
         console.log("Successfully connected: " + url);
+        that.reconnect$.next(that.subject);
       }
     }
 

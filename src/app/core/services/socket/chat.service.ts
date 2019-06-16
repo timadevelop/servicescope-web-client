@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from "@angular/core";
-import { Subject } from 'rxjs';
+import { Subject, Observable, of, BehaviorSubject, Subscription } from 'rxjs';
 import { SocketService } from './socket.service';
 import { map, tap, share } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -18,27 +18,43 @@ export class ChatService implements OnDestroy {
   public room: string;
   public badges: { [id: number]: { lastMsg: String, isRead: boolean } } = {};
 
+  private obs$: BehaviorSubject<Subject<SocketMessage>> = new BehaviorSubject(null);
+
+  private sub$: Subscription;
   ngOnDestroy() {
     if (this.messages) this.messages.complete();
+    if (this.sub$) this.sub$.unsubscribe();
   }
 
   constructor(
     private wsService: SocketService) {
+
+    this.connect();
   }
 
-  public connect() {
-    if (this.messages) {
-      return this.messages;
-    }
-    this.messages = <Subject<SocketMessage>>this.wsService.connect(this.getSocketUrl()).pipe(
-      map((response: MessageEvent): SocketMessage => {
-        let data = JSON.parse(response.data);
-        return data;
-      }),
-      share()
-    );
+  public get onNewSubject() {
+    return this.obs$.asObservable().pipe(share());
+  }
 
-    return this.messages;
+  private connect(): void {
+    if (this.sub$) return;
+    this.sub$ = this.wsService.onReconnect().subscribe((s: Subject<MessageEvent>) => {
+      if (s === null) {
+        // console.log('waiting in chat service...');
+        return null;
+      }
+      // console.log('reconnected in chat service');
+      this.messages = <Subject<SocketMessage>>s.pipe(
+        map((response: MessageEvent): SocketMessage => {
+          let data = JSON.parse(response.data);
+          return data;
+        }),
+        share()
+      );
+
+      this.obs$.next(this.messages);
+      return this.messages;
+    });
   }
 
   public markConversationAsRead(conversation_id: number) {
@@ -85,7 +101,4 @@ export class ChatService implements OnDestroy {
     if (this.messages) this.messages.complete();
   }
 
-  private getSocketUrl(): string {
-    return `${environment.WEBSOCKET_PROTOCOL}://${environment.WEBSOCKET_URL}/global/`
-  }
 }
