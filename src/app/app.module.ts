@@ -47,7 +47,7 @@ registerLocaleData(en); // bg
     BrowserAnimationsModule,
     // AuthModule,
     CoreModule.forRoot(),
-    // ServicesModule,
+    ServicesModule,
     AppRoutingModule,
   ],
   providers: [

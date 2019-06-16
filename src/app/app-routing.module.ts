@@ -20,10 +20,10 @@ const routes: Routes = [
     loadChildren: './modules/messages/messages.module#MessagesModule',
     canLoad: [AuthGuard]
   },
-  {
-    path: 'services',
-    loadChildren: './modules/services/services.module#ServicesModule',
-  },
+  // {
+  //   path: 'services',
+  //   loadChildren: './modules/services/services.module#ServicesModule',
+  // },
   {
     path: '',
     loadChildren: './modules/auth/auth.module#AuthModule',
