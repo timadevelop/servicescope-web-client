@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
+import { MessageApiRequest } from 'src/app/core/models/api-request/message-api-request.model';
 
 @Component({
   selector: 'app-messages-detail',
@@ -22,6 +23,7 @@ import { Title } from '@angular/platform-browser';
 export class MessagesDetailComponent implements OnInit, OnDestroy {
 
   messages: PaginatedApiResponse<Message>;
+  pendingMessages: Array<MessageApiRequest> = [];
   conversation: Conversation;
   partner: User;
 
@@ -104,10 +106,12 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   private processSocketMessage(m: SocketMessage) {
     if (m.type == 'new_message') {
       const msg = m.payload as Message;
-      this.appendNewMessage(msg);
-      if (msg.author_id !== this.userService.currentUser.id) {
-        // this.nzMsgService.info(`New message from ${msg.author.first_name}`);
+      // TODO: do not send msg to author on backend
+      if (msg.author_id === this.userService.currentUser.id) {
+        return;
       }
+      this.appendNewMessage(msg);
+
     } else if (m.type == 'deleted_message') {
       const msgId = m.payload;
       this.messages.results = this.messages.results.filter(m => m.id != msgId);
@@ -188,5 +192,15 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     }
     // TODO: Ask
     setTimeout(() => this.scrollToBottom(), 10);
+  }
+
+  onNewMessageRequest(m: MessageApiRequest): void {
+    this.pendingMessages = [...this.pendingMessages, m];
+    setTimeout(() => this.scrollToBottom(), 10);
+  }
+
+  onNewMessageDelivered(m: Message): void {
+    this.pendingMessages = this.pendingMessages.filter(e => e.text != m.text);
+    this.appendNewMessage(m);
   }
 }

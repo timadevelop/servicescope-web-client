@@ -7,6 +7,7 @@ import { MessageApiRequest } from 'src/app/core/models/api-request/message-api-r
 import { HttpEventType, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-new-message-form',
@@ -16,11 +17,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NewMessageFormComponent implements OnInit {
 
   @Input() conversation: Conversation;
+  @Output() onNewMessageRequest = new EventEmitter<MessageApiRequest>();
+  @Output() onNewMessageDelivered = new EventEmitter<Message>();
   showUploadImagesForm: boolean = false;
   maxImagesLength = 10;
   showSendTooltip = false;
-
-  loading: boolean = false;
 
   messageForm = this.fb.group({
     // string
@@ -113,7 +114,8 @@ export class NewMessageFormComponent implements OnInit {
       images
     );
 
-    this.loading = true;
+    this.onNewMessageRequest.emit(message);
+    this.resetForm();
     this.messagesService.create(message)
       .subscribe(
         (event: HttpEvent<{}>) => {
@@ -123,12 +125,10 @@ export class NewMessageFormComponent implements OnInit {
             }
           } else if (event instanceof HttpResponse) {
             // uploaded
-            this.loading = false;
-            this.resetForm()
+            this.onNewMessageDelivered.emit(event.body as Message);
           }
         },
         err => {
-          // fail
           // TODO: handle errors
           console.log(err);
         });
