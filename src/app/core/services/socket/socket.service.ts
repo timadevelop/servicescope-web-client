@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from "@angular/core";
+import { Injectable, OnDestroy, OnInit } from "@angular/core";
 import { Observable, Observer, Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../../modules/auth/auth.service';
 import { share } from 'rxjs/operators';
@@ -10,7 +10,7 @@ const RECONNECTING_INTERVAL = 3000;
 @Injectable({
   providedIn: 'root'
 })
-export class SocketService implements OnDestroy {
+export class SocketService implements OnDestroy, OnInit {
 
   private loadingMsgId = null;
   private reconnect$ = new BehaviorSubject<Subject<MessageEvent>>(null);
@@ -19,9 +19,9 @@ export class SocketService implements OnDestroy {
   constructor(
     private authService: AuthService,
     private nzMessageService: NzMessageService
-  ) {
-    this.connect()
-  }
+  ) {}
+
+  ngOnInit() {}
 
   ngOnDestroy() {
     if (this.subject) this.subject.complete();
@@ -31,7 +31,7 @@ export class SocketService implements OnDestroy {
     return this.reconnect$.asObservable().pipe(share());
   }
 
-  private connect(force = false): Subject<MessageEvent> {
+  public connect(force = false): Subject<MessageEvent> {
     if (this.subject && force) {
       this.subject.complete();
       this.subject = null;

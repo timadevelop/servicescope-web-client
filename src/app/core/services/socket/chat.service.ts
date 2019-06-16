@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from "@angular/core";
+import { Injectable, OnDestroy, OnInit } from "@angular/core";
 import { Subject, Observable, of, BehaviorSubject, Subscription } from 'rxjs';
 import { SocketService } from './socket.service';
 import { map, tap, share } from 'rxjs/operators';
@@ -13,7 +13,7 @@ export class SocketMessage {
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService implements OnDestroy {
+export class ChatService implements OnInit, OnDestroy {
   public messages: Subject<SocketMessage>;
   public room: string;
   public badges: { [id: number]: { lastMsg: String, isRead: boolean } } = {};
@@ -21,15 +21,17 @@ export class ChatService implements OnDestroy {
   private obs$: BehaviorSubject<Subject<SocketMessage>> = new BehaviorSubject(null);
 
   private sub$: Subscription;
+
+  constructor(private wsService: SocketService) {
+    this.connect();
+  }
+
+  ngOnInit(): void {
+  }
+
   ngOnDestroy() {
     if (this.messages) this.messages.complete();
     if (this.sub$) this.sub$.unsubscribe();
-  }
-
-  constructor(
-    private wsService: SocketService) {
-
-    this.connect();
   }
 
   public get onNewSubject() {
@@ -55,6 +57,7 @@ export class ChatService implements OnDestroy {
       this.obs$.next(this.messages);
       return this.messages;
     });
+    this.wsService.connect()
   }
 
   public markConversationAsRead(conversation_id: number) {

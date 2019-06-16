@@ -30,9 +30,11 @@
 </div>
 
 <ng-template #addBtn>
-  <nz-card [routerLink]="['/services', 'create']" class="large-card-button padding-12" style="text-align: center;">
-    <h2 style="margin: 0;"><i nz-icon nzType="plus"></i><span i18n="@@createNewServiceButtonTexst">Create</span></h2>
-  </nz-card>
+  <a [routerLink]="['/services', 'create']">
+    <nz-card class="large-card-button padding-12" style="text-align: center;">
+      <h2 style="margin: 0;"><i nz-icon nzType="plus"></i><span i18n="@@createNewServiceButtonTexst">Create</span></h2>
+    </nz-card>
+  </a>
 </ng-template>
 
 
