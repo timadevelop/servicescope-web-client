@@ -17,7 +17,7 @@
 </ng-template>
 
 <ng-template #carouselContent>
-  <nz-carousel nzAutoPlay #carousel class="carousel">
+  <nz-carousel [nzAutoPlay]="autoPlay" #carousel class="carousel">
     <div nz-carousel-content *ngFor="let image of images">
       <div class="image" [ngStyle]="{'background-image': 'url(' + image.image + ')'}" nz-row nzType="flex"
         nzJustify="center" nzAlign="middle">

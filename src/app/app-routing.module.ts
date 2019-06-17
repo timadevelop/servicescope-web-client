@@ -25,10 +25,10 @@ const routes: Routes = [
   //   loadChildren: './modules/services/services.module#ServicesModule',
   // },
   {
-    path: '',
+    path: 'auth',
     loadChildren: './modules/auth/auth.module#AuthModule',
   },
-  { path: '', redirectTo: '/services', pathMatch: 'full' },
+  { path: '', redirectTo: 'services', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 

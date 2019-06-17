@@ -8,6 +8,9 @@ import { ProfileListComponent } from './profile-list/profile-list.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { UsersListResolverService } from '../../core/resolvers/users-list-resolver.service';
 import { ServicesListResolverService } from '../../core/resolvers/services-list-resolver.service';
+import { FeedResolverService } from 'src/app/core/resolvers/feed-resolver.service';
+import { ServicesListComponent } from '../services/services-list/services-list.component';
+import { FeedComponent } from './feed/feed.component';
 
 const profileRoutes: Routes = [
   {
@@ -17,29 +20,45 @@ const profileRoutes: Routes = [
     children: [
       {
         path: '',
-        component: ProfileHomeComponent,
+        component: ProfileListComponent,
+        resolve: {
+          users: UsersListResolverService
+        },
+        pathMatch: 'full',
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+      },
+      {
+        path: ':id',
+        component: ProfileDetailComponent,
+        resolve: {
+          user: ProfileResolverService,
+        },
         children: [
           {
-            path: '',
-            component: ProfileListComponent,
+            path: 'services',
+            component: ServicesListComponent,
             resolve: {
-              users: UsersListResolverService
-            },
-            pathMatch: 'full',
-            runGuardsAndResolvers: 'paramsOrQueryParamsChange',
-          },
-          {
-            path: ':id',
-            component: ProfileDetailComponent,
-            resolve: {
-              user: ProfileResolverService,
               services: ServicesListResolverService,
             },
             runGuardsAndResolvers: 'paramsOrQueryParamsChange'
 
           },
+          {
+            path: 'feed',
+            component: FeedComponent,
+            resolve: {
+              feed: FeedResolverService,
+            },
+            runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+
+          },
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'feed'
+          }
         ]
-      }
+      },
     ]
   }
 ];

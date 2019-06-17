@@ -12,6 +12,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   @Input() images: Array<ServiceImage>;
   @Input() zoomOnly: boolean = false;
   @Input() imageIndex: number = null;
+  @Input() autoPlay: boolean = true;
 
   @Output() onZoomClose = new EventEmitter<null>()
 

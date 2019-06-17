@@ -1,0 +1,87 @@
+<div nz-row nzGutter="16">
+  <div nz-col nzXs="24" nzXl="18">
+    <!-- mobile -->
+    <div *ngIf="tds.isMobile" nz-row nzGutter="16">
+      <div nz-col nzSpan="12">
+        <!-- <ng-container *ngTemplateOutlet="addBtn"></ng-container> -->
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-card class="large-card-button padding-12" style="background: grey; text-align: center;"
+          (click)="setIsFiltersDrawerVisible(true)">
+          <h2 style="margin: 0;"><i nz-icon nzType="filter"></i><span i18n="@@filtersButtonText">Filters</span></h2>
+        </nz-card>
+      </div>
+    </div>
+    <!-- // mobile -->
+    <app-feed-post (onNewPostRequest)="onNewPostRequest($event)" (onNewPostDelivered)="onNewPostDelivered($event)">
+    </app-feed-post>
+    <ng-container *ngTemplateOutlet="list"></ng-container>
+  </div>
+  <!-- desktop only -->
+  <div *ngIf="!tds.isMobile" nz-col nzXs="24" nzXl="6">
+    <nz-card i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" class="padding-top-0">
+      <app-list-filters></app-list-filters>
+    </nz-card>
+  </div>
+</div>
+
+
+<ng-template #list>
+  <nz-list [nzDataSource]="pendingFeedPosts" *ngIf="pendingFeedPosts?.length > 0" [nzItemLayout]="'horizontal'"
+    [nzRenderItem]="feedItemTemplate">
+  </nz-list>
+  <nz-list [nzDataSource]="feedPosts?.results ? feedPosts.results : []" [nzItemLayout]="'horizontal'"
+    [nzRenderItem]="feedItemTemplate" [nzPagination]="pagination" [nzLoading]="loading">
+    <ng-template #pagination>
+      <nz-card *ngIf="!loading">
+        <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="feedPosts?.count"
+          (nzPageIndexChange)="loadData($event)"></nz-pagination>
+      </nz-card>
+    </ng-template>
+  </nz-list>
+</ng-template>
+
+
+<ng-template #feedItemTemplate let-feedpost>
+  <nz-card [nzLoading]="!feedpost.author">
+    <div *ngIf="feedpost.author" nz-row nzType="flex" nzJustify="start" nzAlign="middle">
+      <div nz-col>
+        <a [routerLink]="['/', 'profiled', feedpost.author?.id]">
+          <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="feedpost.author?.image || 'assets/images/undraw_user.svg'">
+          </nz-avatar>
+        </a>
+      </div>
+      <div nz-col style="flex: 1; margin: 0 10px;">
+        <h3 style="margin: 0;">
+          <a
+            [routerLink]="['/', 'profiled', feedpost.author?.id]">{{feedpost.author?.first_name + ' ' + feedpost.author?.last_name}}</a>
+        </h3>
+        <span class="grey-color">{{feedpost.created_at | date: 'hh:mm a MMMM d yyyy'}}</span>
+      </div>
+    </div>
+    <div nz-row class="mt-10">
+      <p>{{feedpost?.text}}</p>
+    </div>
+    <div class="tags">
+      <nz-tag [nzColor]="tag.color" *ngFor="let tag of feedpost?.tags;">{{tag.name}}</nz-tag>
+    </div>
+    <div class="mt-10">
+      <app-carousel *ngIf="feedpost?.images?.length > 0" [images]="feedpost?.images" autoPlay="false"></app-carousel>
+    </div>
+
+    <div nz-row nzType="flex" nzJustify="space-between">
+      <div nz-col nzXs="12" nzXl="24">
+        <app-votes nz-col [score]="feedpost?.score" [currentUserVote]="feedpost?.current_user_vote" [model]="'feed'"
+          [modelId]="feedpost?.id">
+        </app-votes>
+      </div>
+    </div>
+
+  </nz-card>
+  <!-- <app-list-item [item]="service" modelName="services"></app-list-item> -->
+</ng-template>
+
+<nz-drawer [nzClosable]="true" [nzVisible]="isFiltersDrawerVisible" nzPlacement="right"
+  i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" (nzOnClose)="setIsFiltersDrawerVisible(false)" nzWidth="85%">
+  <app-list-filters></app-list-filters>
+</nz-drawer>

@@ -12,7 +12,7 @@
     </div>
     <div nz-col class="gutter-row" nzSpan="6">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-right">
-        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" class="login-menu-item" routerLink="/login"
+        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" class="login-menu-item" routerLink="/auth/login"
           routerLinkActive="ant-menu-item-selected">
           <a i18n="headerLoginButtonText">Login</a>
         </li>

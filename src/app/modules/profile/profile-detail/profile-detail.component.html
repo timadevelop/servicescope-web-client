@@ -45,6 +45,7 @@
   </nz-page-header-content>
   <nz-page-header-footer>
     <nz-tabset [nzSelectedIndex]="selectedTabsIndex">
+      <nz-tab (nzClick)="changeTab('feed')" nzTitle="Feed"></nz-tab>
       <nz-tab (nzClick)="changeTab('services')" nzTitle="Services"></nz-tab>
       <nz-tab (nzClick)="changeTab('posts')" nzTitle="Posts"></nz-tab>
       <nz-tab (nzClick)="changeTab('offers')" nzTitle="Offers"></nz-tab>
@@ -54,5 +55,7 @@
 </nz-page-header>
 
 <div class="profile-tabs-card">
-  <app-services-list *ngIf="tab == 'services'"></app-services-list>
+  <router-outlet></router-outlet>
+  <!-- <app-feed *ngIf="tab === 'feed'"></app-feed>
+  <app-services-list *ngIf="tab === 'services'"></app-services-list> -->
 </div>

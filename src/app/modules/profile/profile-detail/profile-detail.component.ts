@@ -12,7 +12,7 @@ import { LabeledTextComponent } from '../../shared/components/common/labeled-tex
   styleUrls: ['./profile-detail.component.scss']
 })
 export class ProfileDetailComponent implements OnInit {
-  static DEFAULT_TAB = 'services';
+  // static DEFAULT_TAB = 'feed';
   static TAB_INDEXES = {
     services: 0,
     posts: 1,
@@ -28,7 +28,7 @@ export class ProfileDetailComponent implements OnInit {
   selectedTabsIndex: number = 0;
 
   // tabs
-  tab: string = ProfileDetailComponent.DEFAULT_TAB;
+  // tab: string = ProfileDetailComponent.DEFAULT_TAB;
 
   constructor(
     public route: ActivatedRoute,
@@ -38,6 +38,9 @@ export class ProfileDetailComponent implements OnInit {
     private titleService: Title
   ) {
     this.titleService.setTitle(this.i18n({ value: "User Profile", id: "profileDetailHtmlTitle" }));
+    // this.route.params.subscribe(params => {
+    //   this.tab = params.get('tab');
+    // })
   }
 
   ngOnInit() {
@@ -51,10 +54,10 @@ export class ProfileDetailComponent implements OnInit {
         // services, posts, offers, etc. are propagated to child components
       });
 
-    this.route.queryParamMap.subscribe(qparams => {
-      this.tab = qparams.get('tab') || ProfileDetailComponent.DEFAULT_TAB;
-      this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES[this.tab];
-    });
+    // this.route.queryParamMap.subscribe(qparams => {
+    //   this.tab = qparams.get('tab') || ProfileDetailComponent.DEFAULT_TAB;
+    //   this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES[this.tab];
+    // });
   }
 
   getUsername(): string {
@@ -65,8 +68,9 @@ export class ProfileDetailComponent implements OnInit {
   }
 
   changeTab(tab: string): void {
-    const queryParams: Params = { page: 1, tab: tab };
-    this.updateQueryParams(queryParams);
+    // const queryParams: Params = { page: 1, tab: tab };
+    // this.updateQueryParams(queryParams);
+    this.router.navigate([tab], {relativeTo: this.route, queryParams: {authorId: this.user.id}})
   }
 
   private updateQueryParams(queryParams: Params) {

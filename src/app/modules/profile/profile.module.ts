@@ -11,6 +11,9 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CoreModule } from '../../core/core.module';
 import { ServicesModule } from '../services/services.module';
 import { SharedModule } from '../shared/shared.module';
+import { FeedComponent } from './feed/feed.component';
+import { FeedPostComponent } from './feed/feed-post/feed-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,10 +21,13 @@ import { SharedModule } from '../shared/shared.module';
     ProfileListComponent,
     ProfileDetailComponent,
     ProfileHomeComponent,
+    FeedComponent,
+    FeedPostComponent
   ],
   imports: [
     CommonModule,
     CoreModule,
+    ReactiveFormsModule,
     NgZorroAntdModule,
     ProfileRoutingModule,
     ServicesModule,

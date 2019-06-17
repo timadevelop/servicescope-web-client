@@ -1,0 +1,76 @@
+@import "~src/variables";
+
+.feed-post-input {
+  padding: 0;
+  margin-top: 5px;
+  border: none;
+  overflow: hidden;
+  background: transparent;
+
+  &::-webkit-scrollbar-track {
+    border-radius: $radius;
+    background-color: $light-grey-color;
+  }
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $radius;
+    background-color: $grey-color;
+  }
+}
+
+.actions {
+  .action {
+    font-size: 22px;
+    margin-right: 10px;
+    color: $dark-grey-color;
+    opacity: .5;
+    cursor: pointer;
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+.images-upload, .tags-selector-wrapper {
+  margin-top: 5px;
+  padding-left: 40px;
+}
+
+.tags-selector-wrapper {
+  padding-left: 32px;
+}
+
+.tags-selector ::ng-deep .ant-select-selection {
+  border: none;
+  // border-left: 1px solid $light-border-color;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+
+.submit-button {
+  // padding: 7px 16px 8px;
+  // margin: 0;
+  // font-size: 12.5px;
+  // display: inline-block;
+  // zoom: 1;
+  // cursor: pointer;
+  // white-space: nowrap;
+  // outline: none;
+  // font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  // vertical-align: top;
+  // line-height: 15px;
+  // text-align: center;
+  // text-decoration: none;
+  // background: none;
+  // background-color: #5181b8;
+  // color: #fff;
+  // border: 0;
+  // border-radius: 4px;
+  // box-sizing: border-box;
+}
