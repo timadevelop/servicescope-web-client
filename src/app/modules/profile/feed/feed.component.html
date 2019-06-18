@@ -43,7 +43,7 @@
 
 
 <ng-template #feedItemTemplate let-feedpost>
-  <nz-card [nzLoading]="!feedpost.author">
+  <nz-card [nzLoading]="!feedpost.author" [nzBodyStyle]="{paddingBottom: '10px'}">
     <div *ngIf="feedpost.author" nz-row nzType="flex" nzJustify="start" nzAlign="middle">
       <div nz-col>
         <a [routerLink]="['/', 'profiled', feedpost.author?.id]">
@@ -69,8 +69,13 @@
       <app-carousel *ngIf="feedpost?.images?.length > 0" [images]="feedpost?.images" autoPlay="false"></app-carousel>
     </div>
 
-    <div nz-row nzType="flex" nzJustify="space-between">
-      <div nz-col nzXs="12" nzXl="24">
+    <nz-divider class="margin-10"></nz-divider>
+    <div nz-row nzType="flex" nzJustify="space-between" class="actions">
+      <div nz-col>
+        <!-- TODO: share button -->
+        <i nz-icon type="share-alt" style="font-size: 18px;"></i>
+      </div>
+      <div nz-col>
         <app-votes nz-col [score]="feedpost?.score" [currentUserVote]="feedpost?.current_user_vote" [model]="'feed'"
           [modelId]="feedpost?.id">
         </app-votes>

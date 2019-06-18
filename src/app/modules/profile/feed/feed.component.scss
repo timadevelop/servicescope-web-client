@@ -1,4 +1,4 @@
-@import '~src/variables';
+@import "~src/variables";
 
 .mt-10 {
   margin-top: 10px;
@@ -6,4 +6,18 @@
 
 .grey-color {
   color: $grey-color;
+}
+
+.actions {
+  i {
+    // font-size: 18px;
+    font-size: large;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+      color: $contrast-color;
+    }
+  }
 }

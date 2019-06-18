@@ -21,7 +21,7 @@ export class FeedResolverService implements Resolve<PaginatedApiResponse<FeedPos
     const query = route.queryParamMap.get('q');
     const tags = route.queryParamMap.getAll('tags');
     const ordering = route.queryParamMap.get('ordering');
-    const authorId = route.queryParamMap.get('authorId');
+    const authorId = route.queryParamMap.get('authorId') || route.paramMap.get('id');
 
     const filters = tags.map(tag => {
       return { param: 'tags', value: tag }
@@ -32,7 +32,7 @@ export class FeedResolverService implements Resolve<PaginatedApiResponse<FeedPos
     }
 
     if (authorId) {
-      filters.push({ param: 'author__id', value: authorId });
+      filters.push({ param: 'author_id', value: authorId });
     }
 
 
