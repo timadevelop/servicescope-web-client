@@ -13,7 +13,7 @@
       </div>
     </div>
     <!-- // mobile -->
-    <app-feed-post (onNewPostRequest)="onNewPostRequest($event)" (onNewPostDelivered)="onNewPostDelivered($event)">
+    <app-feed-post *ngIf="userService.currentUser && userService.currentUser.id == this.profileId" (onNewPostRequest)="onNewPostRequest($event)" (onNewPostDelivered)="onNewPostDelivered($event)">
     </app-feed-post>
     <ng-container *ngTemplateOutlet="list"></ng-container>
   </div>

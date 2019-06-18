@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { Params, Router, ActivatedRoute } from '@angular/router';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { FeedPostApiRequest } from 'src/app/core/models/api-request/feedpost-api-request.model.1';
 import { FeedPost } from 'src/app/core/models/FeedPost.model';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-feed',
@@ -20,10 +21,13 @@ export class FeedComponent implements OnInit {
 
   loading: boolean = true;
 
+  profileId: number;
+
   constructor(
     public tds: TargetDeviceService,
     private router: Router,
     private route: ActivatedRoute,
+    public userService: UserService
   ) { }
 
   ngOnInit() {
@@ -39,6 +43,9 @@ export class FeedComponent implements OnInit {
           this.loading = false;
         }
       });
+    this.route.parent.paramMap.subscribe(params => {
+      this.profileId = +params.get('id');
+    });
   }
 
   setIsFiltersDrawerVisible(v: boolean) {
