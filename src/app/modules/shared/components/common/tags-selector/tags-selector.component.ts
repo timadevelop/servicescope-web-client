@@ -105,7 +105,7 @@ export class TagsSelectorComponent implements OnInit {
     this.tagsService.createTag(tagName)
       .subscribe((t: Tag) => {
         this.tags.results.push(t);
-        this.selectedTags.push(t.name);
+        this.selectedTags.push(t);
         this.toggleCreateTagMode(false);
         this.msgService.success(this.i18n({value: "Created tag", id: "successCreatingTagText"}) + ' ' + tagName);
       });
