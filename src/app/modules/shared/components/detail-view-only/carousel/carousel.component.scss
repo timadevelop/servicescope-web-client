@@ -8,7 +8,7 @@
     right: 5px;
     color: $contrast-color;
     border-color: $contrast-color;
-    opacity: .4;
+    opacity: 0.4;
     background: transparent;
     &:hover {
       opacity: 1;
@@ -18,7 +18,7 @@
   [nz-carousel-content] {
     text-align: center;
     height: 360px;
-    background: rgba(0, 0, 0, .1);
+    background: rgba(0, 0, 0, 0.1);
     color: $white-color;
     .image {
       height: 100%;
@@ -32,8 +32,9 @@
     .image-list-item {
       cursor: pointer;
       margin-bottom: 3px;
-      opacity: .4;
-      &.active, &:hover {
+      opacity: 0.4;
+      &.active,
+      &:hover {
         opacity: 1;
       }
     }
@@ -63,6 +64,32 @@
       width: 5vh;
       height: 5vh;
       font-size: large;
+    }
+  }
+}
+
+.arrows {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 360px;
+  .arrow {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+    // background: rgba(0, 0, 0, 0.1);
+    &:hover {
+      > i {
+        opacity: 1;
+      }
+    }
+    > i {
+      color: $white-color;
+      opacity: .3;
+      font-size: 30px;
+      margin: auto;
     }
   }
 }

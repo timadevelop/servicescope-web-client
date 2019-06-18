@@ -5,7 +5,6 @@ import { Tag } from 'src/app/core/models/Tag.models';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { NzMessageService } from 'ng-zorro-antd';
 import { I18n } from '@ngx-translate/i18n-polyfill';
-import { i18n } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-tags-selector',

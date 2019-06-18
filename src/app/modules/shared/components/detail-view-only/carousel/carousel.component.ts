@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ServiceImage } from 'src/app/core/models/Service.model';
 import { NzCarouselComponent } from 'ng-zorro-antd';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 @Component({
   selector: 'app-carousel',
@@ -23,7 +24,9 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   @ViewChild('defaultViewContainer') defaultViewContainer;
   @ViewChild('carousel') carousel: NzCarouselComponent;
 
-  constructor() { }
+  constructor(
+    public tds: TargetDeviceService
+  ) { }
 
   ngOnInit() {
     if (this.zoomOnly) {
