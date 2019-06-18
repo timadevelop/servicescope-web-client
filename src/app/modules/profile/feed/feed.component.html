@@ -33,7 +33,7 @@
   <nz-list [nzDataSource]="feedPosts?.results ? feedPosts.results : []" [nzItemLayout]="'horizontal'"
     [nzRenderItem]="feedItemTemplate" [nzPagination]="pagination" [nzLoading]="loading">
     <ng-template #pagination>
-      <nz-card *ngIf="!loading">
+      <nz-card *ngIf="!loading && feedPosts?.results?.length > 0">
         <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="feedPosts?.count"
           (nzPageIndexChange)="loadData($event)"></nz-pagination>
       </nz-card>
@@ -66,7 +66,7 @@
       <nz-tag [nzColor]="tag.color" *ngFor="let tag of feedpost?.tags;">{{tag.name}}</nz-tag>
     </div>
     <div class="mt-10">
-      <app-carousel *ngIf="feedpost?.images?.length > 0" [images]="feedpost?.images" autoPlay="false"></app-carousel>
+      <app-carousel [focusOnInit]="false" *ngIf="feedpost?.images?.length > 0" [images]="feedpost?.images" autoPlay="false"></app-carousel>
     </div>
 
     <nz-divider class="margin-10"></nz-divider>

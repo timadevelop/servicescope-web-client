@@ -13,6 +13,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   @Input() zoomOnly: boolean = false;
   @Input() imageIndex: number = null;
   @Input() autoPlay: boolean = true;
+  @Input() focusOnInit: boolean = false;
 
   @Output() onZoomClose = new EventEmitter<null>()
 
@@ -31,7 +32,9 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.focusOnView();
+    if (this.focusOnInit) {
+      this.focusOnView();
+    }
   }
 
   zoom(v: boolean) {
