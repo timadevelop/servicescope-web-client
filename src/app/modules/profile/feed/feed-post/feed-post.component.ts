@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { UploadFile, NzMessageService } from 'ng-zorro-antd';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -8,6 +8,7 @@ import { FeedPostApiRequest } from 'src/app/core/models/api-request/feedpost-api
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { FeedPost } from 'src/app/core/models/FeedPost.model';
+import { TagsSelectorComponent } from 'src/app/modules/shared/components/common/tags-selector/tags-selector.component';
 
 @Component({
   selector: 'app-feed-post',
@@ -18,6 +19,7 @@ export class FeedPostComponent implements OnInit {
   @Output() onNewPostRequest = new EventEmitter<FeedPostApiRequest>();
   @Output() onNewPostDelivered = new EventEmitter<FeedPost>();
 
+  public submitOnCtrlEnter: boolean = true;
   focused: boolean = false;
 
   showUploadImagesForm: boolean = false;
@@ -31,6 +33,8 @@ export class FeedPostComponent implements OnInit {
     images: [[], [Validators.minLength(0), Validators.maxLength(this.maxImagesLength + 1)]],
   });
 
+  @ViewChild('tagsSelector') tagsSelector: TagsSelectorComponent;
+
   constructor(
     private i18n: I18n,
     private fb: FormBuilder,
@@ -41,6 +45,21 @@ export class FeedPostComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onBlur() {
+    if (this.feedPostForm.untouched) {
+      this.focused = false;
+    }
+  }
+
+  public onKeyDown = ($event) => {
+    if ($event.ctrlKey && $event.keyCode === 13) {
+        if (this.submitOnCtrlEnter) {
+          this.onFormSubmit();
+        }
+    };
+  }
+
   onFormSubmit() {
     if (this.loading) {
       return;
@@ -142,11 +161,11 @@ export class FeedPostComponent implements OnInit {
   clearImagesEvent: Subject<void> = new Subject<void>();
 
   resetForm() {
+    // TODO: rm stupid clear images event,
     this.clearImagesEvent.next();
-    this.feedPostForm.patchValue({
-      text: "",
-      images: [],
-    });
+    // clear forms
+    this.feedPostForm.reset();
+    this.tagsSelector.reset();
     this.setShowUploadImagesForm(false);
   }
 

@@ -13,7 +13,7 @@ import { ServicesModule } from '../services/services.module';
 import { SharedModule } from '../shared/shared.module';
 import { FeedComponent } from './feed/feed.component';
 import { FeedPostComponent } from './feed/feed-post/feed-post.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CoreModule,
+    FormsModule,
     ReactiveFormsModule,
     NgZorroAntdModule,
     ProfileRoutingModule,

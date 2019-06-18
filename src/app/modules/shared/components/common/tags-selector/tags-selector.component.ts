@@ -39,6 +39,9 @@ export class TagsSelectorComponent implements OnInit {
       .subscribe(t => this.tags = t);
   }
 
+  reset() {
+    this.selectedTags = [];
+  }
 
   onTagsChange() {
     this.onChange.emit(this.selectedTags);

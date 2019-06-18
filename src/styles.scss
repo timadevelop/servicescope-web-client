@@ -19,6 +19,16 @@
   margin-right: 0;
 }
 
+.ant-select-selection--multiple .ant-select-selection__placeholder {
+  margin-left: 0;
+}
+// fix prefix icon on nz-select
+.ant-input-affix-wrapper {
+  .ant-select-selection__rendered {
+    margin-left: 32px;
+  }
+}
+
 .ant-select-dropdown.mobile-dropdown,
 .mobile-dropdown {
   position: fixed;
@@ -160,12 +170,6 @@
     border: 3px solid $primary-color;
   }
 }
-// fix prefix icon on nz-select
-.ant-input-affix-wrapper {
-  .ant-select-selection__rendered {
-    margin-left: 32px;
-  }
-}
 
 .ant-carousel .slick-slider {
   max-height: 100%;
@@ -226,6 +230,11 @@
 
 body {
   background: #f3f3f3;
+}
+
+
+.grey-color {
+  color: $grey-color;
 }
 
 .large-card-button {
