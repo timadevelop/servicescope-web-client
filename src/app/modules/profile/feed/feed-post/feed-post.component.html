@@ -1,4 +1,4 @@
-<nz-card *ngIf="userService.currentUser" (blur)="onBlur()" (click)="focused=true" tabindex="1" (keydown)="onKeyDown($event)"
+<nz-card *ngIf="userService.currentUser" (blur)="onBlur()" tabindex="1" (keydown)="onKeyDown($event)"
   [nzBodyStyle]="{paddingBottom: '10px'}">
   <form nz-row [formGroup]="feedPostForm" (submit)="onFormSubmit()" nzType="flex" nzJustify="start" nzAlign="top">
     <div nz-col>
@@ -6,7 +6,7 @@
     </div>
     <div nz-col style="flex: 1; margin: 0 10px;">
       <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('text')" nzHasFeedback>
-        <textarea autofocus class="feed-post-input" formControlName="text" nz-input
+        <textarea (focus)="focused=true" class="feed-post-input" formControlName="text" nz-input
           [nzAutosize]="{ minRows: 1, maxRows: 999 }" placeholder="What's up?" type="text">
         </textarea>
         <nz-form-explain *ngIf="dirtyOrHasErrors('text')">

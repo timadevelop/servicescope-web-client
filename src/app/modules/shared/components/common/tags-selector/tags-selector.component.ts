@@ -17,7 +17,7 @@ export class TagsSelectorComponent implements OnInit {
 
   tags: PaginatedApiResponse<Tag>;
   tagsSub$: Subscription;
-  selectedTags: Array<string> = [];
+  selectedTags: Array<Tag> = [];
 
   page = '1';
   pageSize = '10';
@@ -43,8 +43,17 @@ export class TagsSelectorComponent implements OnInit {
     this.selectedTags = [];
   }
 
-  onTagsChange() {
-    this.onChange.emit(this.selectedTags);
+  public trackByName(index, item) {
+    return item.name;
+  }
+
+  public isSelected(tag: Tag) {
+    return this.selectedTags.filter(t => t.name.toLowerCase() == tag.name.toLowerCase()).length > 0;
+  }
+
+  onTagsChange(e: Array<Tag>) {
+    this.selectedTags = e;
+    this.onChange.emit(this.selectedTags.map(v => v.name));
   }
 
   onSearch(query: string): void {
