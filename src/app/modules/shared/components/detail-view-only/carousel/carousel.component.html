@@ -3,15 +3,25 @@
   <div class="carousel-container zoomView" #zoomViewContainer *ngIf="zoomView">
     <button (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon type="close"></i></button>
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
+    <div nz-row (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows"  style="height: 100vh;" nzType="flex"
+      nzJustify="space-between" nzAlign="middle">
+      <div nz-col class="arrow" (click)="pre()">
+        <i nz-icon type="left"></i>
+      </div>
+      <div nz-col class="arrow" (click)="next()">
+        <i nz-icon type="right"></i>
+      </div>
+    </div>
   </div>
 
   <div class="carousel-container" #defaultViewContainer *ngIf="!zoomOnly">
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
-    <div nz-row (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows" nzType="flex" nzJustify="space-between" nzAlign="middle">
-      <div nz-col class="arrow" (click)="carousel.pre()">
+    <div nz-row (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows" nzType="flex"
+      nzJustify="space-between" nzAlign="middle">
+      <div nz-col class="arrow" (click)="pre()">
         <i nz-icon type="left"></i>
       </div>
-      <div nz-col class="arrow" (click)="carousel.next()">
+      <div nz-col class="arrow" (click)="next()">
         <i nz-icon type="right"></i>
       </div>
     </div>

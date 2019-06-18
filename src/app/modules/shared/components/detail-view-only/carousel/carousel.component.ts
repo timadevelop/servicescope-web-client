@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter, ViewChildren } from '@angular/core';
 import { ServiceImage } from 'src/app/core/models/Service.model';
 import { NzCarouselComponent } from 'ng-zorro-antd';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
@@ -22,7 +22,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   @ViewChild('zoomViewContainer') zoomViewContainer;
   @ViewChild('defaultViewContainer') defaultViewContainer;
-  @ViewChild('carousel') carousel: NzCarouselComponent;
+  @ViewChildren('carousel') carousels: Array<NzCarouselComponent>;
 
   constructor(
     public tds: TargetDeviceService
@@ -68,7 +68,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   private setDefaultIndex() {
     if (this.imageIndex) {
-      this.carousel.goTo(this.imageIndex);
+      this.carousels.forEach(c => c.goTo(this.imageIndex));
     }
   }
 
@@ -92,11 +92,19 @@ export class CarouselComponent implements OnInit, AfterViewInit {
         const swipe = direction[0] < 0 ? 'next' : 'previous';
         // Do whatever you want with swipe
         if (swipe == 'next') {
-          this.carousel.next();
+          this.next();
         } else if (swipe == 'previous') {
-          this.carousel.pre();
+          this.pre();
         }
       }
     }
+  }
+
+  next() {
+    this.carousels.forEach(c => c.next());
+  }
+
+  pre() {
+    this.carousels.forEach(c => c.pre());
   }
 }
