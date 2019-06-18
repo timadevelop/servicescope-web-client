@@ -7,7 +7,7 @@
 
   <div class="carousel-container" #defaultViewContainer *ngIf="!zoomOnly">
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
-    <div nz-row class="arrows" nzType="flex" nzJustify="space-between" nzAlign="middle">
+    <div nz-row (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows" nzType="flex" nzJustify="space-between" nzAlign="middle">
       <div nz-col class="arrow" (click)="carousel.pre()">
         <i nz-icon type="left"></i>
       </div>
@@ -26,7 +26,7 @@
 </ng-template>
 
 <ng-template #carouselContent>
-  <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="tds.isMobile" #carousel class="carousel">
+  <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
     <div nz-carousel-content *ngFor="let image of images">
       <div class="image" [ngStyle]="{'background-image': 'url(' + image.image + ')'}" nz-row nzType="flex"
         nzJustify="center" nzAlign="middle">
