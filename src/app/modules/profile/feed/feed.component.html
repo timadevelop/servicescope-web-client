@@ -46,7 +46,7 @@
   <nz-card [nzLoading]="!feedpost.author" [nzBodyStyle]="{paddingBottom: '10px'}">
     <div *ngIf="feedpost.author" nz-row nzType="flex" nzJustify="start" nzAlign="middle">
       <div nz-col>
-        <a [routerLink]="['/', 'profiled', feedpost.author?.id]">
+        <a [routerLink]="['/', 'profiles', feedpost.author?.id]">
           <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="feedpost.author?.image || 'assets/images/undraw_user.svg'">
           </nz-avatar>
         </a>
@@ -54,7 +54,7 @@
       <div nz-col style="flex: 1; margin: 0 10px;">
         <h3 style="margin: 0;">
           <a
-            [routerLink]="['/', 'profiled', feedpost.author?.id]">{{feedpost.author?.first_name + ' ' + feedpost.author?.last_name}}</a>
+            [routerLink]="['/', 'profiles', feedpost.author?.id]">{{feedpost.author?.first_name + ' ' + feedpost.author?.last_name}}</a>
         </h3>
         <span class="grey-color">{{feedpost.created_at | date: 'hh:mm a MMMM d yyyy'}}</span>
       </div>

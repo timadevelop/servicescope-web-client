@@ -3,12 +3,12 @@
     <div nz-col style="margin-right: 5px;">
       <a *ngIf="tds.isMobile" [routerLink]="['../../']" style="font-size: 25px;" nz-icon nzType="arrow-left"
         nzTheme="outline"></a>
-      <a *ngIf="!tds.isMobile" [routerLink]="['/', 'profiles', partner.id]">
+      <a *ngIf="!tds.isMobile && partner" [routerLink]="['/', 'profiles', partner.id]">
         <nz-avatar nzIcon="user" [nzSrc]="partner?.image || 'assets/images/undraw_user.svg'">
         </nz-avatar>
       </a>
     </div>
-    <div nz-col nzSpan="21">
+    <div nz-col nzSpan="21" *ngIf="partner">
       <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]"
         class="title">{{partner && partner.first_name ? partner.first_name + ' ' + partner.last_name : "No partner or noname"}}</a>
       <br />
@@ -56,7 +56,7 @@
           </div>
           <div *ngFor="let msg of pendingMessages; trackBy: trackIdentifyByItemId; let i = index" class="message"
             [class.right]="true" [class.same-author]="false" nz-row nzType="flex" nzJustify="start" nzAlign="bottom">
-            <a nz-col class="message-author" [routerLink]="['/', 'profiles', userService.currentUser.id]">
+            <a nz-col class="message-author" [routerLink]="['/', 'profiles', userService.currentUser?.id]">
               <nz-avatar *ngIf="isLastAuthorMessage(i)" [nzSize]="32" nzIcon="user"
                 [nzSrc]="(userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg'">
               </nz-avatar>
