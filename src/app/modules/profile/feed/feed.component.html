@@ -73,7 +73,7 @@
     <div nz-row nzType="flex" nzJustify="space-between" class="actions">
       <div nz-col>
         <!-- TODO: share button -->
-        <i nz-icon type="share-alt" style="font-size: 18px;"></i>
+        <app-share-widget></app-share-widget>
       </div>
       <div nz-col>
         <app-votes nz-col [score]="feedpost?.score" [currentUserVote]="feedpost?.current_user_vote" [model]="'feed'"

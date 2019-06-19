@@ -24,6 +24,7 @@ import { ImagesSelectorComponent } from './components/common/images-selector/ima
 import { LinkifyPipe } from './pipes/linkify.pipe';
 import { ProfileAvatarUploaderComponent } from './components/common/profile-avatar-uploader/profile-avatar-uploader.component';
 import { PayFormComponent } from './components/common/pay-form/pay-form.component';
+import { ShareWidgetComponent } from './components/common/share-widget/share-widget.component';
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import { PayFormComponent } from './components/common/pay-form/pay-form.componen
     ImagesSelectorComponent,
     ProfileAvatarUploaderComponent,
     PayFormComponent,
+    ShareWidgetComponent,
     // pipes
     LinkifyPipe
   ],
@@ -77,6 +79,7 @@ import { PayFormComponent } from './components/common/pay-form/pay-form.componen
     ImagesSelectorComponent,
     ProfileAvatarUploaderComponent,
     PayFormComponent,
+    ShareWidgetComponent,
     // pipes
     LinkifyPipe
   ]

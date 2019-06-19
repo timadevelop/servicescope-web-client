@@ -1,0 +1,15 @@
+.share-widget {
+  .ant-btn {
+    &:first-child {
+      margin-left: 0;
+      padding-left: 0;
+    }
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    height: 27px;
+    padding: 0 7px;
+    margin: 0 7px;
+  }
+}

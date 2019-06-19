@@ -27,7 +27,7 @@ export class FeedComponent implements OnInit {
     public tds: TargetDeviceService,
     private router: Router,
     private route: ActivatedRoute,
-    public userService: UserService
+    public userService: UserService,
   ) { }
 
   ngOnInit() {
