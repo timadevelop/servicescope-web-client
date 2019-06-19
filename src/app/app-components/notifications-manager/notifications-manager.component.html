@@ -33,9 +33,6 @@
       routerLinkActive="ant-menu-item-selected">Messages</a>
     <a nz-col nz-button (click)="logout()">Logout</a>
   </div>
-  <nz-divider class="margin-5" nzOrientation="left" [nzText]="'New Notifications'"></nz-divider>
-  <!-- <nz-list [nzDataSource]="rns.notificationHistory" [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate">
-  </nz-list> -->
   <nz-divider class="margin-5" nzOrientation="left" nzText="Notifications"></nz-divider>
   <nz-list [nzDataSource]="rns.notificationHistory"
     [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate" [nzPagination]="pagination" [nzFooter]="footer">
