@@ -3,11 +3,11 @@
     <nz-breadcrumb-item [routerLink]="['../']"><a>Profiles</a></nz-breadcrumb-item>
     <nz-breadcrumb-item>
       <span style="margin-right: 5px;">{{getUsername()}}</span>
-      <a [routerLink]="['/', 'verify-email']"
+      <a [routerLink]="['/', 'auth', 'verify-email']"
         *ngIf="userService.currentUser?.is_verified_email else notVerifiedTemplate" nz-icon [nzType]="'check-circle'"
         [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'" style="font-size: 16px;" nz-tooltip nzTitle="Verified"></a>
       <ng-template #notVerifiedTemplate>
-        <a [routerLink]="['/', 'verify-email']" nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'"
+        <a [routerLink]="['/', 'auth', 'verify-email']" nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'"
           [nzTwotoneColor]="'#eb2f96'" nz-tooltip nzTitle="Not Verified" style="font-size: 16px;"></a>
       </ng-template>
     </nz-breadcrumb-item>

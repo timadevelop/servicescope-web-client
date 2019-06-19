@@ -58,7 +58,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     if (!user || !user.is_verified_email) {
       // store the attempted url for redirecting
       this.authService.redirectUrl = url;
-      this.router.navigate(['/verify-email']);
+      this.router.navigate(['/auth/verify-email']);
       return false;
     }
     return true
