@@ -1,7 +1,5 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RealtimeNotificationsService } from 'src/app/core/services/socket/realtime-notifications.service';
-import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
-import { NotificationsService } from 'src/app/core/services/notifications.service';
 import { Notification } from 'src/app/core/models/Notification.model';
 import { UserService } from 'src/app/core/services/user.service';
 import { AuthService } from 'src/app/modules/auth/auth.service';
@@ -13,16 +11,11 @@ import { TargetDeviceService } from 'src/app/core/services/target-device.service
   templateUrl: './notifications-manager.component.html',
   styleUrls: ['./notifications-manager.component.scss']
 })
-export class NotificationsManagerComponent implements OnInit, OnChanges {
-
-  paginatedNotifications: PaginatedApiResponse<Notification>;
-  page: string = '1';
-  pageSize: string = '20';
+export class NotificationsManagerComponent implements OnInit {
 
   @Input() visible = false;
 
   constructor(
-    private notificationsService: NotificationsService,
     public rns: RealtimeNotificationsService,
     public tds: TargetDeviceService,
     public userService: UserService,
@@ -31,28 +24,6 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
-    // this.reload();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['visible'] && changes['visible'].currentValue) {
-      if (this.userService.currentUser) {
-        this.reload();
-        // this.userService.currentUser.notifications_count = 0;
-        // this.rns.clear();
-      }
-    }
-  }
-
-  private reload() {
-    this.page = '1';
-    this.notificationsService.getNotifications(this.page, this.pageSize, null)
-      .subscribe(r => {
-        // for (const notification of r.results) {
-        //      this.notiy(notification);
-        // }
-        this.paginatedNotifications = r;
-      });
   }
 
   logout() {
@@ -67,7 +38,6 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
     if (!notification.notified) {
       this.rns.markNotificationAsRead(notification);
       notification.notified = true;
-      this.userService.currentUser.notifications_count -= 1;
     }
   }
 
@@ -75,11 +45,4 @@ export class NotificationsManagerComponent implements OnInit, OnChanges {
     this.rns.showNotificationsManager = false;
   }
 
-  loadData(pi: number): void {
-    this.page = String(pi);
-    this.notificationsService.getNotifications(String(pi), this.pageSize)
-      .subscribe(r => {
-        this.paginatedNotifications = r;
-      });
-  }
 }

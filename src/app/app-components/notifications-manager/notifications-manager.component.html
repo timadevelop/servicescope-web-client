@@ -1,7 +1,7 @@
 <nz-drawer *ngIf="userService.currentUser" [nzWidth]="tds.isMobile ? '85%' : '33%'" [nzClosable]="true"
   [nzVisible]="visible" nzPlacement="right" [nzTitle]="null" (nzOnClose)="onClose()">
   <div nz-row style="text-align: center; margin-bottom: 10px;" nzJustify="center">
-    <nz-badge [nzCount]="rns.count + (userService.currentUserObs | async)?.notifications_count">
+    <nz-badge [nzCount]="rns.count">
       <nz-avatar [nzSize]="128" nzIcon="user"
         [nzSrc]="(userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
     </nz-badge>
@@ -34,18 +34,18 @@
     <a nz-col nz-button (click)="logout()">Logout</a>
   </div>
   <nz-divider class="margin-5" nzOrientation="left" [nzText]="'New Notifications'"></nz-divider>
-  <nz-list [nzDataSource]="rns.notificationHistory" [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate">
-  </nz-list>
-  <nz-divider class="margin-5" nzOrientation="left" [nzText]="'Prev Notifications'"></nz-divider>
-  <nz-list *ngIf="paginatedNotifications" [nzDataSource]="paginatedNotifications ? paginatedNotifications?.results : []"
+  <!-- <nz-list [nzDataSource]="rns.notificationHistory" [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate">
+  </nz-list> -->
+  <nz-divider class="margin-5" nzOrientation="left" nzText="Notifications"></nz-divider>
+  <nz-list [nzDataSource]="rns.notificationHistory"
     [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate" [nzPagination]="pagination" [nzFooter]="footer">
 
     <ng-template #footer>
       <!-- <div><b>ant design</b> footer part</div> -->
     </ng-template>
     <ng-template #pagination>
-      <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedNotifications?.count"
-        (nzPageIndexChange)="loadData($event)"></nz-pagination>
+      <nz-pagination [nzPageIndex]="rns.page" [nzPageSize]="rns.pageSize" [nzTotal]="rns.notificationHistory?.length"
+        (nzPageIndexChange)="rns.loadData($event)"></nz-pagination>
     </ng-template>
   </nz-list>
 </nz-drawer>

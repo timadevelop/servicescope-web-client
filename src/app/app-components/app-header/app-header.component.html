@@ -19,7 +19,7 @@
         <ng-template #userMenuItem>
           <li nz-menu-item *ngIf="userService.currentUserObs | async" (click)="toggleNotificationManager()" class="user-menu-item" [class.ant-menu-item-selected]="rns.showNotificationsManager">
             <div title>
-              <nz-badge [nzCount]="rns.count + (userService.currentUserObs | async)?.notifications_count">
+              <nz-badge [nzCount]="rns.count">
                 <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="(userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
               </nz-badge>
               <span><span class="hello-text" i18n="@@welcomeText">Hi, </span>{{(userService.currentUserObs | async)?.first_name}}</span>

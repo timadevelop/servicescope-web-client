@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/modules/auth/auth.service';
 import { Subscription, Subject } from 'rxjs';
 import { Notification } from '../../models/Notification.model';
 import { UserService } from '../user.service';
+import { NotificationsService } from '../notifications.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,22 +13,26 @@ import { UserService } from '../user.service';
 export class RealtimeNotificationsService implements OnDestroy {
   private sub$: Subscription;
   public notificationHistory: Array<Notification> = [];
-  _count = 0;
   public showNotificationsManager = false;
-
-  ngOnDestroy() {
-    if (this.sub$) this.sub$.unsubscribe();
-  }
+  public page: string = '1';
+  public pageSize: string = '20';
 
   constructor(
+    private notificationsService: NotificationsService,
     private authService: AuthService,
     private userService: UserService,
     private chatService: ChatService,
     private nzNotificationService: NzNotificationService
   ) { }
 
+
+  ngOnDestroy() {
+    if (this.sub$) this.sub$.unsubscribe();
+  }
+
   public run() {
     if (this.authService.isLoggedIn) {
+      this.getNotifications();
       this.chatService.onNewSubject.subscribe((sm: Subject<SocketMessage>) => {
         if (!sm) {
           // console.log('waiting in rns...');
@@ -42,12 +47,30 @@ export class RealtimeNotificationsService implements OnDestroy {
     }
   }
 
+
+  private getNotifications() {
+    this.page = '1';
+    this.notificationsService.getNotifications(this.page, this.pageSize, null)
+      .subscribe(r => {
+        this.notificationHistory = r.results;
+      });
+  }
+
+  loadData(pi: number): void {
+    this.page = String(pi);
+    this.notificationsService.getNotifications(String(pi), this.pageSize)
+      .subscribe(r => {
+        // update, yep, delete old info
+        this.notificationHistory = r.results;
+      });
+  }
+
   public clear() {
-    this._count = 0;
+    this.notificationHistory = [];
   }
 
   public get count() {
-    return this._count;
+    return this.notificationHistory.filter(v => !v.notified).length;
   }
 
 
@@ -95,7 +118,6 @@ export class RealtimeNotificationsService implements OnDestroy {
       {}
     );
     this.notificationHistory = [...this.notificationHistory, notification];
-    this._count += 1;
   }
 
   private filterNotificationHistory(filter: (Notification) => boolean) {
