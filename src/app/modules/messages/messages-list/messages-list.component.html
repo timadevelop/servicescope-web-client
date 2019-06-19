@@ -25,7 +25,7 @@
           <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="conversation.users[0]?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
         </ng-template>
         <ng-template #descriptionTemplate>
-          <span>{{(chatService.badges[conversation.id]?.lastMsg || conversation.last_msg) | slice:0:25 }}</span>
+          <span>{{(chatService.badges[conversation.id]?.lastMsg || conversation.last_msg) | slice:0:30 }}</span>
         </ng-template>
       </nz-list-item-meta>
     </nz-list-item>
