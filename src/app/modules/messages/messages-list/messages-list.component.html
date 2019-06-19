@@ -10,13 +10,13 @@
 
   <nz-list [nzLoadMore]="loadMore" class="messages-list" [nzLoading]="loading">
     <ng-container *ngTemplateOutlet="emptyTemplate"></ng-container>
-    <nz-list-item [routerLink]="['/', 'messages', 'c', conversation.id]" routerLinkActive="active"
+    <nz-list-item [routerLink]="getRouterLink(conversation)" routerLinkActive="active"
       class="messages-list-item" [class.new]="!isRead(conversation)" *ngFor="let conversation of conversations?.results">
       <nz-skeleton *ngIf="false" [nzAvatar]="true" [nzParagraph]="{ rows: 1 }"></nz-skeleton>
       <nz-list-item-meta *ngIf="true" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate"
         [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
-          <a [routerLink]="['/', 'messages', 'c', conversation.id]">
+          <a [routerLink]="getRouterLink(conversation)">
             {{conversation.users[0]?.first_name ? conversation.users[0]?.first_name + ' ' + conversation.users[0]?.last_name : "Noname"}}
             <i *ngIf="!isRead(conversation)" nz-icon [nzType]="'info-circle'" [nzTheme]="'fill'" style="color: #6772e5"></i>
           </a>

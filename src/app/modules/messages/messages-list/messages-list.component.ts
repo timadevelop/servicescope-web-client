@@ -6,6 +6,8 @@ import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated
 import { Conversation } from 'src/app/core/models/Conversation.model';
 import { ConversationsService } from '../../../core/services/conversations.service';
 import { ChatService } from 'src/app/core/services/socket/chat.service';
+import { User } from 'src/app/core/models/User.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-messages-list',
@@ -32,8 +34,41 @@ export class MessagesListComponent implements OnInit {
     this.conversationsService.getConversations(String(this.page), String(this.pageSize))
       .subscribe(r => {
         this.loading = false;
+        const feedbackConversations = r.results.filter(c => this.isFeedbackConversation(c));
+        if (feedbackConversations.length > 0) {
+          const feedbackConversation = feedbackConversations[0];
+          r.results = r.results.filter(c => c.id != feedbackConversation.id);
+          r.results.unshift(feedbackConversation);
+        } else {
+          r.results.unshift(this.getFeedbackConversation());
+        }
         this.conversations = r;
       });
+  }
+
+  isFeedbackConversation(conversation: Conversation): boolean {
+    return conversation.users.filter(u => u.id == environment.FEEDBACK_USER_ID).length > 0;
+  }
+
+  getFeedbackConversation() {
+    const conv = new Conversation();
+    const user = new User();
+    user.id = environment.FEEDBACK_USER_ID;
+    user.first_name = 'Feedback';
+    user.last_name = 'Service';
+    conv.users = [user];
+    conv.id = 0;
+    conv.last_msg = 'Any problems?'
+    conv.notifications_count = 0;
+    return conv;
+  }
+
+  getRouterLink(conversation: Conversation) {
+    if (this.isFeedbackConversation(conversation)) {
+      return ['/', 'messages', 'user', environment.FEEDBACK_USER_ID];
+    } else {
+      return ['/', 'messages', 'c', conversation.id];
+    }
   }
 
   isRead(conversation: Conversation) {

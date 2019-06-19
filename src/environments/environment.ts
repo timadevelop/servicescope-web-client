@@ -8,6 +8,7 @@ export const environment = {
   WEBSOCKET_PROTOCOL: "ws",
   WEBSOCKET_URL: 'localhost:9123/saas_ws',
   LOCALSTORAGE_TOKEN_INFO_KEY: 'TOKEN_INFO',
+  FEEDBACK_USER_ID: 1,
 };
 
 /*
