@@ -33,7 +33,7 @@
   <nz-list [nzDataSource]="feedPosts?.results ? feedPosts.results : []" [nzItemLayout]="'horizontal'"
     [nzRenderItem]="feedItemTemplate" [nzPagination]="pagination" [nzLoading]="loading">
     <ng-template #pagination>
-      <nz-card *ngIf="!loading && feedPosts?.results?.length > 0">
+      <nz-card *ngIf="!loading && feedPosts?.results?.length > 1">
         <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="feedPosts?.count"
           (nzPageIndexChange)="loadData($event)"></nz-pagination>
       </nz-card>
@@ -56,7 +56,7 @@
           <a
             [routerLink]="['/', 'profiles', feedpost.author?.id]">{{feedpost.author?.first_name + ' ' + feedpost.author?.last_name}}</a>
         </h3>
-        <span class="grey-color">{{feedpost.created_at | date: 'hh:mm a MMMM d yyyy'}}</span>
+        <a [routerLink]="['/', 'profiles', 'feed', 'post', feedpost.id]" class="grey-color">{{feedpost.created_at | date: 'hh:mm a MMMM d yyyy'}}</a>
       </div>
     </div>
     <div nz-row class="mt-10">
@@ -73,7 +73,7 @@
     <div nz-row nzType="flex" nzJustify="space-between" class="actions">
       <div nz-col>
         <!-- TODO: share button -->
-        <app-share-widget></app-share-widget>
+        <app-share-widget [shareUrl]="getPublicUrl(feedpost?.id)"></app-share-widget>
       </div>
       <div nz-col>
         <app-votes nz-col [score]="feedpost?.score" [currentUserVote]="feedpost?.current_user_vote" [model]="'feed'"

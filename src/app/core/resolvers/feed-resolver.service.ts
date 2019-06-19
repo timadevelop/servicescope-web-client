@@ -16,6 +16,25 @@ export class FeedResolverService implements Resolve<PaginatedApiResponse<FeedPos
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     Observable<PaginatedApiResponse<FeedPost>> | Observable<never> {
 
+    const feedId = +route.paramMap.get('feedId');
+    if (feedId) {
+      console.log('feedId', feedId);
+      return this.feedService.getFeedPostById(feedId)
+        .pipe(
+          take(1),
+          mergeMap((feedpost: FeedPost) => {
+            const feed = new PaginatedApiResponse<FeedPost>();
+            feed.results = [feedpost];
+            feed.count = 1;
+            return of(feed);
+          }),
+          catchError(e => {
+            console.log(e);
+            return EMPTY;
+          })
+        )
+    }
+
     const page = route.queryParamMap.get('page') || '1';
     const pageSize = route.queryParamMap.get('pageSize') || '20';
     const query = route.queryParamMap.get('q');

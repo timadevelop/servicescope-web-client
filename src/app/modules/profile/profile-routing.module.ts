@@ -19,6 +19,14 @@ const profileRoutes: Routes = [
     canActivate: [],
     children: [
       {
+        path: 'feed/post/:feedId',
+        component: FeedComponent,
+        resolve: {
+          feed: FeedResolverService
+        },
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+      },
+      {
         path: '',
         component: ProfileListComponent,
         resolve: {

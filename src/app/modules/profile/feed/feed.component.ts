@@ -5,6 +5,7 @@ import { TargetDeviceService } from 'src/app/core/services/target-device.service
 import { FeedPostApiRequest } from 'src/app/core/models/api-request/feedpost-api-request.model.1';
 import { FeedPost } from 'src/app/core/models/FeedPost.model';
 import { UserService } from 'src/app/core/services/user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-feed',
@@ -28,6 +29,7 @@ export class FeedComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public userService: UserService,
+    public location: Location
   ) { }
 
   ngOnInit() {
@@ -66,6 +68,10 @@ export class FeedComponent implements OnInit {
         queryParams: queryParams,
         queryParamsHandling: "merge", // remove to replace all query params by provided
       });
+  }
+
+  getPublicUrl(postId: number | string): string {
+    return window.location.origin + this.location.prepareExternalUrl(`/profiles/feed/post/${postId}`);
   }
 
   // posting new
