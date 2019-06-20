@@ -21,9 +21,6 @@
         style="font-size: 20px; margin-right: 5px;"></i>
       Not Verified</p>
   </div>
-  <div nz-row style="text-align: center; opacity: .7;" *ngIf="(userService.currentUserObs | async)?.bio">
-    <span>{{(userService.currentUserObs | async)?.bio}}</span>
-  </div>
   <div *ngIf="userService.currentUser" nz-row nzType="flex" nzJustify="center" class="main-buttons"
     style="width: 100%;">
     <a nz-col nz-button (click)="onClose()" [routerLink]="['/profiles', (userService.currentUserObs | async)?.id]"
