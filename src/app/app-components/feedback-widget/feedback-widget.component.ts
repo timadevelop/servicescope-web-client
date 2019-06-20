@@ -3,6 +3,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FeedbackService } from 'src/app/core/services/feedback.service';
 import { Feedback } from 'src/app/core/models/Feedback.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-feedback-widget',
@@ -35,6 +36,10 @@ export class FeedbackWidgetComponent implements OnInit {
 
   ngOnInit() {
     this.loadLastFeedback();
+  }
+
+  getMessagesFeedbackRouterlink() {
+    return ['/', 'messages', 'user', environment.FEEDBACK_USER_ID];
   }
 
   loadLastFeedback() {

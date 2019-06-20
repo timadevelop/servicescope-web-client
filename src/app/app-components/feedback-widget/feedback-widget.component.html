@@ -44,17 +44,19 @@
         </nz-form-explain>
       </nz-form-control>
     </nz-form-item>
-    <nz-row>
-      <button class="float-right" type="submit" nz-button nzType="primary" [nzLoading]="loading"
-        [attr.disabled]="alreadySentFeedback">
-        <i nz-icon type="rocket"></i>
-        <span i18n="@@sendFeedbackButtonText">Send</span>
-      </button>
-      <button nz-button class="float-right" style="margin-right: 10px;" nzType="default" type="button"
-        (click)="close($event)" [nzLoading]="loading">
-        <i nz-icon type="close"></i>
-        <span i18n="@@closeFeedbackFormButtonText">Close</span>
-      </button>
+    <nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+      <div nz-col>or <a [routerLink]="getMessagesFeedbackRouterlink()" (click)="close($event)">Contact us :)</a></div>
+      <div nz-col><button class="float-right" type="submit" nz-button nzType="primary" [nzLoading]="loading"
+          [attr.disabled]="alreadySentFeedback">
+          <i nz-icon type="rocket"></i>
+          <span i18n="@@sendFeedbackButtonText">Send</span>
+        </button>
+        <button nz-button class="float-right" style="margin-right: 10px;" nzType="default" type="button"
+          (click)="close($event)" [nzLoading]="loading">
+          <i nz-icon type="close"></i>
+          <span i18n="@@closeFeedbackFormButtonText">Close</span>
+        </button>
+      </div>
     </nz-row>
   </form>
 </nz-card>
