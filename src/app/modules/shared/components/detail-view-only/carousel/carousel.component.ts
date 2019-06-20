@@ -58,7 +58,8 @@ export class CarouselComponent implements OnInit, AfterViewInit {
         return;
       }
 
-      const el = container.nativeElement.getElementsByClassName("slick-list")[0];
+      // const el = container.nativeElement.getElementsByClassName("slick-list")[0];
+      const el = container.nativeElement;
       if (el) {
         this.setDefaultIndex();
         el.focus();
