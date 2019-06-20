@@ -14,10 +14,11 @@ import { LabeledTextComponent } from '../../shared/components/common/labeled-tex
 export class ProfileDetailComponent implements OnInit {
   // static DEFAULT_TAB = 'feed';
   static TAB_INDEXES = {
-    services: 0,
-    posts: 1,
-    offers: 2,
-    reviews: 3
+    feed: 0,
+    services: 1,
+    posts: 2,
+    offers: 3,
+    reviews: 4
   };
 
   pageSize: number = 10;
@@ -54,6 +55,15 @@ export class ProfileDetailComponent implements OnInit {
         // services, posts, offers, etc. are propagated to child components
       });
 
+    this.route.url.subscribe(u => {
+      const data = this.route.snapshot.firstChild.data;
+      if ('feed' in data) {
+        this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES['feed'];
+      } else if ('services' in data) {
+        this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES['services'];
+      }
+    })
+
     // this.route.queryParamMap.subscribe(qparams => {
     //   this.tab = qparams.get('tab') || ProfileDetailComponent.DEFAULT_TAB;
     //   this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES[this.tab];
@@ -70,7 +80,7 @@ export class ProfileDetailComponent implements OnInit {
   changeTab(tab: string): void {
     // const queryParams: Params = { page: 1, tab: tab };
     // this.updateQueryParams(queryParams);
-    this.router.navigate([tab], {relativeTo: this.route, queryParams: {authorId: this.user.id}})
+    this.router.navigate([tab], { relativeTo: this.route, queryParams: { authorId: this.user.id } })
   }
 
   private updateQueryParams(queryParams: Params) {

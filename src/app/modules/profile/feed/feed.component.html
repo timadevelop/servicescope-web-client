@@ -13,15 +13,18 @@
       </div>
     </div>
     <!-- // mobile -->
-    <app-feed-post *ngIf="userService.currentUser && userService.currentUser.id == this.profileId" (onNewPostRequest)="onNewPostRequest($event)" (onNewPostDelivered)="onNewPostDelivered($event)">
+    <app-feed-post *ngIf="userService.currentUser && userService.currentUser.id == this.profileId"
+      (onNewPostRequest)="onNewPostRequest($event)" (onNewPostDelivered)="onNewPostDelivered($event)">
     </app-feed-post>
     <ng-container *ngTemplateOutlet="list"></ng-container>
   </div>
   <!-- desktop only -->
   <div *ngIf="!tds.isMobile" nz-col nzXs="24" nzXl="6">
-    <nz-card i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" class="padding-top-0">
-      <app-list-filters></app-list-filters>
+    <nz-card>
+      Yep, it seems like this card is empty
     </nz-card>
+    <nz-divider class="margin-10"></nz-divider>
+    <app-footer></app-footer>
   </div>
 </div>
 
@@ -56,7 +59,8 @@
           <a
             [routerLink]="['/', 'profiles', feedpost.author?.id]">{{feedpost.author?.first_name + ' ' + feedpost.author?.last_name}}</a>
         </h3>
-        <a [routerLink]="['/', 'profiles', 'feed', 'post', feedpost.id]" class="grey-color">{{feedpost.created_at | date: 'hh:mm a MMMM d yyyy'}}</a>
+        <a [routerLink]="['/', 'profiles', 'feed', 'post', feedpost.id]"
+          class="grey-color">{{feedpost.created_at | date: 'hh:mm a MMMM d yyyy'}}</a>
       </div>
     </div>
     <div nz-row class="mt-10">
@@ -66,7 +70,8 @@
       <nz-tag [nzColor]="tag.color" *ngFor="let tag of feedpost?.tags;">{{tag.name}}</nz-tag>
     </div>
     <div class="mt-10">
-      <app-carousel [focusOnInit]="false" *ngIf="feedpost?.images?.length > 0" [images]="feedpost?.images" autoPlay="false"></app-carousel>
+      <app-carousel [focusOnInit]="false" *ngIf="feedpost?.images?.length > 0" [images]="feedpost?.images"
+        autoPlay="false"></app-carousel>
     </div>
 
     <nz-divider class="margin-10"></nz-divider>
