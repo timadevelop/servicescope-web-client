@@ -41,7 +41,7 @@
       <!-- <div><b>ant design</b> footer part</div> -->
     </ng-template>
     <ng-template #pagination>
-      <nz-pagination [nzPageIndex]="rns.page" [nzPageSize]="rns.pageSize" [nzTotal]="rns.notificationHistory?.length"
+      <nz-pagination [nzPageIndex]="rns.page" [nzPageSize]="rns.pageSize" [nzTotal]="rns.notificationHistory?.length || 1"
         (nzPageIndexChange)="rns.loadData($event)"></nz-pagination>
     </ng-template>
   </nz-list>

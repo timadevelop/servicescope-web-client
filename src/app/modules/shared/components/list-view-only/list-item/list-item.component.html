@@ -17,7 +17,7 @@
 
     <ng-template #itemTitle>
       <div nz-row class="col-below-mobile" nzType="flex" nzJustify="space-between" nzAlign="start">
-        <i *ngIf="promoted || item.is_promoted" class="promoted-sign" style="font-size: 30px;" nz-icon
+        <i *ngIf="promoted || item.is_promoted" class="promoted-sign" nz-icon
           [nzType]="'dollar'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip
           i18n-nzTitle="@@promotedServiceIconTooltipText" nzTitle="Promoted service"></i>
         <h2 nz-col class="title">

@@ -42,7 +42,7 @@
   <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
     [nzItemLayout]="'horizontal'" [nzRenderItem]="serviceItemTemplate" [nzPagination]="pagination">
     <ng-template #pagination>
-      <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count"
+      <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count || 1"
         (nzPageIndexChange)="loadData($event)"></nz-pagination>
     </ng-template>
   </nz-list>
