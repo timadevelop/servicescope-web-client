@@ -40,6 +40,7 @@ export class SimilarServicesListComponent implements OnInit {
     return this.servicesService.getServices(this.page + '', '' + this.pageSize, query, filters)
       .subscribe(r => {
         this.paginatedServices = r;
+        r.results = r.results.filter(s => this.service.id != s.id);
         this.loading = false;
       });
   }

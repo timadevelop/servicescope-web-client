@@ -1,4 +1,4 @@
-<nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
+<nz-list [nzDataSource]="paginatedServices?.results || []"
   [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="serviceItemTemplate" [nzFooter]="footer">
 </nz-list>
 
@@ -9,5 +9,5 @@
 </ng-template>
 
 <ng-template #serviceItemTemplate let-serviceitem>
-  <app-list-item modelName="services" [item]="serviceitem" *ngIf="service.id != serviceitem.id"></app-list-item>
+  <app-list-item modelName="services" [item]="serviceitem"></app-list-item>
 </ng-template>
