@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PriceDetailsRow } from 'src/app/core/models/Service.model';
 
 @Component({
   selector: 'app-price-card',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PriceCardComponent implements OnInit {
 
-  @Input() price_details: any = null;
+  @Input() price_details: Array<PriceDetailsRow> = null;
   @Input() price: number | string;
   @Input() currency: string;
   @Input() small: boolean = false;
@@ -17,6 +18,7 @@ export class PriceCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.price_details = this.price_details.filter(v => v.hasOwnProperty('label') && v.hasOwnProperty('value'));
     if (this.price_details instanceof Array && this.price_details.length > 0) {
       this.showPriceDetails = true;
     }
