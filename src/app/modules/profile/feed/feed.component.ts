@@ -13,7 +13,6 @@ import { Location } from '@angular/common';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-  isFiltersDrawerVisible: boolean = false;
   // TODO: use environment constants for initial page and pagesize
   page: number = 1;
   pageSize: number = 20;
@@ -48,10 +47,6 @@ export class FeedComponent implements OnInit {
     this.route.parent.paramMap.subscribe(params => {
       this.profileId = +params.get('id');
     });
-  }
-
-  setIsFiltersDrawerVisible(v: boolean) {
-    this.isFiltersDrawerVisible = v;
   }
 
   loadData(pi: number): void {

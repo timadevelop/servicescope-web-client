@@ -1,18 +1,5 @@
 <div nz-row nzGutter="16">
   <div nz-col nzXs="24" nzXl="18">
-    <!-- mobile -->
-    <div *ngIf="tds.isMobile" nz-row nzGutter="16">
-      <div nz-col nzSpan="12">
-        <!-- <ng-container *ngTemplateOutlet="addBtn"></ng-container> -->
-      </div>
-      <div nz-col nzSpan="12">
-        <nz-card class="large-card-button padding-12" style="background: grey; text-align: center;"
-          (click)="setIsFiltersDrawerVisible(true)">
-          <h2 style="margin: 0;"><i nz-icon nzType="filter"></i><span i18n="@@filtersButtonText">Filters</span></h2>
-        </nz-card>
-      </div>
-    </div>
-    <!-- // mobile -->
     <app-feed-post *ngIf="userService.currentUser && userService.currentUser.id == this.profileId"
       (onNewPostRequest)="onNewPostRequest($event)" (onNewPostDelivered)="onNewPostDelivered($event)">
     </app-feed-post>
@@ -90,8 +77,3 @@
   </nz-card>
   <!-- <app-list-item [item]="service" modelName="services"></app-list-item> -->
 </ng-template>
-
-<nz-drawer [nzClosable]="true" [nzVisible]="isFiltersDrawerVisible" nzPlacement="right"
-  i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" (nzOnClose)="setIsFiltersDrawerVisible(false)" nzWidth="85%">
-  <app-list-filters></app-list-filters>
-</nz-drawer>
