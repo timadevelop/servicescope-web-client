@@ -31,6 +31,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     if (this.zoomOnly) {
       this.zoomView = true;
+      this.toggleBodyScroll(false);
     }
   }
 
@@ -40,11 +41,18 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     }
   }
 
+  private toggleBodyScroll(enable: boolean) {
+    document.body.style.overflow = enable ? 'unset' : 'hidden';
+  }
+
   zoom(v: boolean) {
     this.zoomView = v;
     this.focusOnView();
     if (!this.zoomView) {
       this.onZoomClose.emit();
+      this.toggleBodyScroll(true);
+    } else {
+      this.toggleBodyScroll(false);
     }
   }
 
