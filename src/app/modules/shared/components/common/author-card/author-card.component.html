@@ -1,4 +1,4 @@
-<nz-card class="author-card" *ngIf="author">
+<nz-card class="author-card" *ngIf="author && !horizontal">
   <a [routerLink]="['/profiles', author.id]">
     <div nz-row nzType="flex" nzJustify="center">
       <nz-avatar [nzSize]="100" nzIcon="user" [nzSrc]="author.image || 'assets/images/undraw_user.svg'"></nz-avatar>
@@ -50,5 +50,23 @@
       </div>
     </div>
 
+  </div>
+</nz-card>
+<nz-card *ngIf="author && horizontal">
+  <div nz-row nzType="flex" nzAlign="middle" [nzGutter]="8">
+    <div nz-col>
+      <a [routerLink]="['/profiles', author.id]">
+        <nz-avatar [nzSize]="64" nzIcon="user" [nzSrc]="author.image || 'assets/images/undraw_user.svg'"></nz-avatar>
+      </a>
+    </div>
+    <div nz-col>
+      <a [routerLink]="['/profiles', author.id]">
+        <h2 style="margin-bottom: 0;">
+          {{author.first_name + ' ' + author.last_name}}
+        </h2>
+      </a>
+      <span class="grey-color"><span i18n="@@lastSeenUserText">Last seen:</span>
+        {{author.last_active | date: 'hh:mm a MMMM d'}}</span>
+    </div>
   </div>
 </nz-card>

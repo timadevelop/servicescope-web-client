@@ -13,6 +13,7 @@ export class AuthorCardComponent implements OnInit {
   @Input() itemTitle: string;
   @Input() author: User;
   @Input() override_phone: string = null;
+  @Input() horizontal = false;
 
   additionalRouteData: AdditionalConversationRouteData;
 

@@ -1,39 +1,25 @@
-<div class="general-info" nz-row nzType="flex" [class.col]="vertical"
-  [nzJustify]="vertical ? 'center' : 'space-between'" nzAlign="middle">
-  <div nz-col class="mb-vertical-align">
-    <a [routerLink]="['../']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge" *ngFor="let tag of tags">
-      <nz-tag nz-tooltip i18n-nzTitle="Text user sees on tag hover@@searchByTagText" nzTitle="Search by tag"
-        [nzColor]="tag.color">{{tag.name}}
-      </nz-tag>
-    </a>
-    <nz-tag *ngIf="!tags || tags.length === 0" i18n="Tag text when there are no tags in a list of tags@@noTags">No tags
-    </nz-tag>
-  </div>
-  <div nz-col [nzSpan]="vertical ? 20 : 16" class="mb-vertical-align">
-    <div nz-row nzType="flex" [nzJustify]="vertical ? 'center' : 'end'" nzGutter="16">
-      <span nz-col nz-tooltip i18n-nzTitle="Tooltip text when user hovers item location element@@locationText"
-        nzTitle="Location">
-        <i nz-icon type="environment" style="margin-right: 8px;"></i>
-        <span *ngIf="location && location.name else defaultLocationTemplate">
-          {{location?.name + ' - ' + location?.district?.name}}
-        </span>
-        <ng-template #defaultLocationTemplate>
-          <span
-            i18n="Whole country text|Text is shown to user if location is not pointed at item or form@@wholeCountryText">Whole
-            country</span>
-        </ng-template>
-      </span>
-      <span nz-col nz-tooltip i18n-nzTitle="Tooltip text on category hover@@categoryTooltipText" nzTitle="Category">
-        <i nz-icon type="appstore" style="margin-right: 8px;"></i>{{category}}
-      </span>
-      <span nz-col nz-tooltip i18n-nzTitle="Tooltip text on created_at date hover@@createdTooltipText" nzTitle="Created">
-        <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{created_at | date}}
-      </span>
-      <span nz-col nz-tooltip
-        nzTitle="Tooltip text on item id element hover| For example for service list item user hovers id number and gets tooltip that this number is id@@itemNumberText"
-        nzTitle="Item id">
-        <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{id}}
-      </span>
-    </div>
-  </div>
+<div nz-row nzType="flex" [nzJustify]="justify" nzGutter="16">
+  <span nz-col nz-tooltip i18n-nzTitle="Tooltip text when user hovers item location element@@locationText"
+    nzTitle="Location">
+    <i nz-icon type="environment" style="margin-right: 8px;"></i>
+    <span *ngIf="location && location.name else defaultLocationTemplate">
+      {{location?.name + ' - ' + location?.district?.name}}
+    </span>
+    <ng-template #defaultLocationTemplate>
+      <span
+        i18n="Whole country text|Text is shown to user if location is not pointed at item or form@@wholeCountryText">Whole
+        country</span>
+    </ng-template>
+  </span>
+  <span nz-col nz-tooltip i18n-nzTitle="Tooltip text on category hover@@categoryTooltipText" nzTitle="Category">
+    <i nz-icon type="appstore" style="margin-right: 8px;"></i>{{category}}
+  </span>
+  <span nz-col nz-tooltip i18n-nzTitle="Tooltip text on created_at date hover@@createdTooltipText" nzTitle="Created">
+    <i nz-icon type="clock-circle" style="margin-right: 8px;"></i>{{created_at | date}}
+  </span>
+  <span nz-col nz-tooltip
+    nzTitle="Tooltip text on item id element hover| For example for service list item user hovers id number and gets tooltip that this number is id@@itemNumberText"
+    nzTitle="Item id">
+    <i nz-icon type="ordered-list" style="margin-right: 8px;"></i>{{id}}
+  </span>
 </div>

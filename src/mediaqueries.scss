@@ -12,6 +12,14 @@
   .ant-divider {
     margin: 20px 0;
   }
+
+  .mb-vertical-align {
+    margin-bottom: 12px;
+  }
+
+  .ant-card {
+    margin-bottom: 12px;
+  }
 }
 
 @include respond-above(mobile) {

@@ -10,9 +10,23 @@
     <div nz-row style="text-align: center;" *ngIf="tds.isMobile">
       <h1 class="mb-vertical-align title">{{service.title}}</h1>
     </div>
-    <app-general-info-card [vertical]="tds.isMobile" [id]="service.id" [location]="service.location"
-      [created_at]="service.created_at" [tags]="service.tags" [category]="service.category"></app-general-info-card>
-
+    <div nz-row class="mb-vertical-align" nzType="flex" [nzJustify]="tds.isMobile ? 'center' : 'space-between'"
+      nzAlign="middle">
+      <div>
+        <a [routerLink]="['../']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge"
+          *ngFor="let tag of service.tags">
+          <nz-tag nz-tooltip i18n-nzTitle="Text user sees on tag hover@@searchByTagText" nzTitle="Search by tag"
+            [nzColor]="tag.color">{{tag.name}}
+          </nz-tag>
+        </a>
+      </div>
+      <nz-tag *ngIf="!service.tags || service.tags.length === 0"
+        i18n="Tag text when there are no tags in a list of tags@@noTags">No
+        tags
+      </nz-tag>
+      <app-general-info *ngIf="!tds.isMobile" [id]="service.id" [location]="service.location"
+        [created_at]="service.created_at" [category]="service.category"></app-general-info>
+    </div>
     <!-- description card -->
     <nz-card>
       <div nz-row nzType="flex" nzGutter="16" nzJustify="space-between" nzAlign="top">
@@ -36,19 +50,18 @@
         <ng-container *ngTemplateOutlet="promoButton"></ng-container>
       </div>
     </div>
-    <!-- share card -->
-    <div class="mb-vertical-align" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
-      <!-- <div class="share-btns">
-        <button nz-button><i nz-icon nzType="ng-vlicon:facebook"></i><span i18n="@@shareBtnText">Share</span></button>
-        <button nz-button><i nz-icon nzType="twitter" style="color: #1da1f2;"></i><span
-            i18n="@@tweetBtnText">Tweet</span></button>
-        <button nz-button><i nz-icon nzType="star"></i><span i18n="@@saveBtnText">Save</span></button>
-      </div> -->
-      <app-share-widget></app-share-widget>
-      <div>
-        some
-      </div>
+    <div class="mb-vertical-align">
+      <app-general-info *ngIf="tds.isMobile" justify="center" [id]="service.id" [location]="service.location"
+        [created_at]="service.created_at" [category]="service.category"></app-general-info>
     </div>
+    <!-- share card -->
+    <div class="mb-vertical-align" nz-row nzType="flex" [nzJustify]="tds.isMobile ? 'center' : 'start'"
+      nzAlign="middle">
+      <app-share-widget></app-share-widget>
+    </div>
+    <app-author-card *ngIf="tds.isMobile" [itemTitle]="service.title" [author]="service.author"
+      [override_phone]="service.contact_phone" [horizontal]="true">
+    </app-author-card>
     <!-- more services card -->
     <nz-card [nzTitle]="similarCardTitleTemplate">
       <app-similar-services-list [service]="service"></app-similar-services-list>

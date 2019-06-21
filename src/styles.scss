@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~src/variables";
-@import "~src/mediaqueries";
-
 //
 // ANT DESIGN OVERRIDE
 //
@@ -312,3 +310,6 @@ nz-upload.small {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
+
+
+@import "~src/mediaqueries";
