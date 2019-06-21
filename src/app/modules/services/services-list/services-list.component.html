@@ -19,6 +19,10 @@
     <nz-card>
       <ng-container *ngTemplateOutlet="list"></ng-container>
     </nz-card>
+    <!-- Mobile only footer -->
+    <nz-divider *ngIf="tds.isMobile" class="margin-10"></nz-divider>
+    <app-footer *ngIf="tds.isMobile"></app-footer>
+    <!-- // mobile -->
   </div>
   <!-- desktop only -->
   <div *ngIf="!tds.isMobile" nz-col nzXs="24" nzXl="6">

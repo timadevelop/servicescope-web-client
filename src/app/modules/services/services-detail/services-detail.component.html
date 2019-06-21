@@ -56,7 +56,10 @@
     <ng-template #similarCardTitleTemplate>
       <h2 class="title small" i18n="@@similarServicesCardTitle">Similar services</h2>
     </ng-template>
-
+    <!-- Mobile only footer -->
+    <nz-divider *ngIf="tds.isMobile" class="margin-10"></nz-divider>
+    <app-footer *ngIf="tds.isMobile"></app-footer>
+    <!-- // mobile -->
   </div>
   <!-- right column -->
   <div nz-col class="gutter-row" *ngIf="!tds.isMobile" nzSpan="6">
