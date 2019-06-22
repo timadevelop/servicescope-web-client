@@ -18,4 +18,5 @@ export class User extends Base {
 
   date_joined: string;
   last_active: String;//datetime
+  is_online: boolean;
 }

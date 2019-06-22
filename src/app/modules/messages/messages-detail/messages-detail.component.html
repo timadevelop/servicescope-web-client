@@ -10,10 +10,18 @@
     </div>
     <div nz-col nzSpan="21" *ngIf="partner">
       <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]"
-        class="title">{{partner && partner.first_name ? partner.first_name + ' ' + partner.last_name : "No partner or noname"}}</a>
+        class="title">{{partner && partner.first_name ? partner.first_name + ' ' + partner.last_name : "No partner or noname"}}
+        <nz-badge [nzStatus]="conversation.users[0]?.is_online ? 'success' : 'default'"></nz-badge>
+      </a>
       <br />
-      <span><span i18n="@@lastSeenUserText">Last seen:</span>
-        {{partner.last_active | date: 'hh:mm a MMMM d'}}</span>
+      <span *ngIf="!partner.is_online else userOnlineTmpl">
+        <span i18n="@@lastSeenUserText">Last seen:</span>
+        {{partner.last_active | date: 'hh:mm a MMMM d'}}
+      </span>
+      <ng-template #userOnlineTmpl>
+        <span i18n="@@userOnlineStatusText">Online</span>
+      </ng-template>
+
     </div>
   </div>
 

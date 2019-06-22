@@ -10,19 +10,23 @@
 
   <nz-list [nzLoadMore]="loadMore" class="messages-list" [nzLoading]="loading">
     <ng-container *ngTemplateOutlet="emptyTemplate"></ng-container>
-    <nz-list-item [routerLink]="getRouterLink(conversation)" routerLinkActive="active"
-      class="messages-list-item" [class.new]="!isRead(conversation)" *ngFor="let conversation of conversations?.results">
+    <nz-list-item [routerLink]="getRouterLink(conversation)" routerLinkActive="active" class="messages-list-item"
+      [class.new]="!isRead(conversation)" *ngFor="let conversation of conversations?.results">
       <nz-skeleton *ngIf="false" [nzAvatar]="true" [nzParagraph]="{ rows: 1 }"></nz-skeleton>
       <nz-list-item-meta *ngIf="true" [nzTitle]="titleTemplate" [nzAvatar]="avatarTemplate"
         [nzDescription]="descriptionTemplate">
         <ng-template #titleTemplate>
           <a [routerLink]="getRouterLink(conversation)">
             {{conversation.users[0]?.first_name ? conversation.users[0]?.first_name + ' ' + conversation.users[0]?.last_name : "Noname"}}
-            <i *ngIf="!isRead(conversation)" nz-icon [nzType]="'info-circle'" [nzTheme]="'fill'" style="color: #6772e5"></i>
+            <nz-badge [nzStatus]="conversation.users[0]?.is_online ? 'success' : 'default'"></nz-badge>
+
+            <i *ngIf="!isRead(conversation)" nz-icon [nzType]="'info-circle'" [nzTheme]="'fill'"
+              style="color: #6772e5"></i>
           </a>
         </ng-template>
         <ng-template #avatarTemplate>
-          <nz-avatar [nzSize]="50" nzIcon="user" [nzSrc]="conversation.users[0]?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
+          <nz-avatar [nzSize]="50" nzIcon="user"
+            [nzSrc]="conversation.users[0]?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
         </ng-template>
         <ng-template #descriptionTemplate>
           <span>{{(chatService.badges[conversation.id]?.lastMsg || conversation.last_msg) | slice:0:30 }}</span>
@@ -42,7 +46,8 @@
   <nz-empty *ngIf="!conversations || !conversations.results || conversations.results.length == 0"
     [nzNotFoundContent]="contentTpl">
     <ng-template #contentTpl>
-      <span i18n="Text to tell user that there are no msgs in selected conversation@@noMessagesInConversationText"> No messages </span>
+      <span i18n="Text to tell user that there are no msgs in selected conversation@@noMessagesInConversationText"> No
+        messages </span>
     </ng-template>
   </nz-empty>
 </ng-template>

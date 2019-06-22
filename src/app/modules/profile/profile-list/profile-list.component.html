@@ -24,6 +24,7 @@
             [nzTitle]="nzTitle" [nzDescription]="user.bio || 'Super desc'">
             <ng-template #nzTitle>
               <a [routerLink]="['/profiles', user.id]">{{ user.first_name + ' ' + user.last_name }}</a>
+              <nz-badge style="margin-left: 5px;" [nzStatus]="user.is_online ? 'success' : 'default'"></nz-badge>
             </ng-template>
           </nz-list-item-meta>
           <ng-template #extra>
