@@ -1,49 +1,36 @@
 <nz-page-header *ngIf="user" [nzTitle]="null">
-  <nz-breadcrumb nz-page-header-breadcrumb class="mb-0">
-    <nz-breadcrumb-item [routerLink]="['../']"><a>Profiles</a></nz-breadcrumb-item>
-    <nz-breadcrumb-item>
-      <span style="margin-right: 5px;">{{getUsername()}}</span>
-      <a [routerLink]="['/', 'auth', 'verify-email']"
-        *ngIf="userService.currentUser?.is_verified_email else notVerifiedTemplate" nz-icon [nzType]="'check-circle'"
-        [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'" style="font-size: 16px;" nz-tooltip nzTitle="Verified"></a>
-      <ng-template #notVerifiedTemplate>
-        <a [routerLink]="['/', 'auth', 'verify-email']" nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'"
-          [nzTwotoneColor]="'#eb2f96'" nz-tooltip nzTitle="Not Verified" style="font-size: 16px;"></a>
-      </ng-template>
-    </nz-breadcrumb-item>
-  </nz-breadcrumb>
   <nz-page-header-content>
-    <div class="wrap">
-      <div class="content">
-        <div class="content">
-
-          <labeled-text class="username-labeled-text" [editable]="this.user.id === this.userService?.currentUser?.id"
-            #userNameLabeledText
-            (onChange)="onUserChange(userNameLabeledText, {first_name: $event.substr(0, $event.indexOf(' ')), last_name: $event.substr($event.indexOf(' ')+1)})"
-            label="Username" [text]="getUsername()"></labeled-text>
-          <labeled-text [editable]="this.user.id === this.userService?.currentUser?.id" #bioLabeledText
-            (onChange)="onUserChange(bioLabeledText, {bio: $event})" label="User bio" [text]="user.bio || 'Empty'">
-          </labeled-text>
-          <labeled-text *ngIf="this.user.id === this.userService?.currentUser?.id" [editable]="true" #emailLabeledText
-            (onChange)="onUserChange(emailLabeledText, {email: $event})" label="Email"
-            [text]="this.user.email || 'No email'">
-          </labeled-text>
-          <div class="profile-links">
-            <app-email-wrapper *ngIf="user.email && user.id == (userService.currentUserObs | async)?.id"
-              [email]="user.email">
-            </app-email-wrapper>
-            <app-phone-wrapper *ngIf="user.phone" [phone]="user.phone"></app-phone-wrapper>
-            <a *ngIf="user.id != (userService.currentUserObs | async)?.id"
-              [routerLink]="['/', 'messages', 'user', user.id]"><i nz-icon type="message"></i>Message</a>
-          </div>
+    <div nz-row nzType="flex" nzJustify="space-between">
+      <div nz-col nzXs="24" nzSm="16" class="left-column">
+        <labeled-text [editable]="this.user.id === this.userService?.currentUser?.id" #bioLabeledText maxLength="500"
+          minLength="3" (onChange)="onUserChange(bioLabeledText, {bio: $event})" label="User bio"
+          [text]="user.bio || 'Empty'">
+        </labeled-text>
+        <labeled-text *ngIf="this.user.id === this.userService?.currentUser?.id" [editable]="true" #emailLabeledText
+          (onChange)="onUserChange(emailLabeledText, {email: $event})" label="Email"
+          [text]="this.user.email || 'No email'">
+        </labeled-text>
+        <div class="profile-links">
+          <app-email-wrapper *ngIf="user.email && user.id == (userService.currentUserObs | async)?.id"
+            [email]="user.email">
+          </app-email-wrapper>
+          <app-phone-wrapper *ngIf="user.phone" [phone]="user.phone"></app-phone-wrapper>
+          <a *ngIf="user.id != (userService.currentUserObs | async)?.id"
+            [routerLink]="['/', 'messages', 'user', user.id]">
+            <i nz-icon type="message"></i>Message
+          </a>
         </div>
       </div>
-      <div class="extra-content">
+      <div nz-col nzXs="24" nzSm="6" class="right-column">
         <app-profile-avatar-uploader [user]="user"></app-profile-avatar-uploader>
+        <labeled-text class="username-labeled-text" [editable]="this.user.id === this.userService?.currentUser?.id"
+          #userNameLabeledText maxLength="100" minLength="3"
+          (onChange)="onUserChange(userNameLabeledText, {first_name: $event.substr(0, $event.indexOf(' ')), last_name: $event.substr($event.indexOf(' ')+1)})"
+          label="Username" [text]="getUsername()"></labeled-text>
       </div>
     </div>
   </nz-page-header-content>
-  <nz-page-header-footer>
+  <nz-page-header-footer style="padding-top: 0">
     <nz-tabset [nzSelectedIndex]="selectedTabsIndex">
       <nz-tab (nzClick)="changeTab('feed')" nzTitle="Feed"></nz-tab>
       <nz-tab (nzClick)="changeTab('services')" nzTitle="Services"></nz-tab>

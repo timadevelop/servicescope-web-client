@@ -46,7 +46,7 @@
   </nz-form-explain>
 </form>
 <nz-form-control>
-  <button nz-button nzType="dashed" style="width:100%;" (click)="addField($event)">
+  <button nz-button nzType="dashed" class="add-btn" style="width:100%;" (click)="addField($event)" [disabled]="items.length >= maxItems">
     <i nz-icon type="plus"></i>
     <span i18n="Add fixed price button text@@addFixedPriceBtnText">Add fixed price</span>
   </button>

@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PhoneWrapperComponent implements OnInit {
   showPhone: boolean = false;
-  phoneText: string = "show";
+  phoneText: string = '';
 
   @Input() phone: string;
   @Input() showIcon: boolean = true;
@@ -15,7 +15,7 @@ export class PhoneWrapperComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.phoneText = this.phone.substr(0, 4) + ' ' + this.phoneText;
+    this.phoneText = this.phone.substr(0, 4);
   }
 
   showPhoneNumber(e) {
@@ -24,7 +24,7 @@ export class PhoneWrapperComponent implements OnInit {
     }
     else if (this.phone != this.phoneText) {
       e.preventDefault();
-      this.phoneText = `${this.phone}`;
+      this.phoneText = this.phone;
       this.showPhone = true;
     }
   }

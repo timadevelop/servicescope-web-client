@@ -79,7 +79,19 @@
     <app-price-card [price]="service.price" [currency]="service.price_currency" [price_details]="service.price_details">
     </app-price-card>
     <ng-container *ngTemplateOutlet="promoButton"></ng-container>
-    <nz-divider class="margin-20"></nz-divider>
+    <a [href]="'tel:' + service.contact_phone" *ngIf="(userService.currentUserObs | async)?.id != service.author.id"
+      class="msg-col">
+      <app-card-button>
+        <i nz-icon nzType="phone"></i>
+        <app-phone-wrapper class="phone-wrapper" [showIcon]="false" [phone]="service.contact_phone"></app-phone-wrapper>
+      </app-card-button>
+    </a>
+    <a [routerLink]="['/', 'messages', 'user', service.author.id]" [queryParams]="additionalConversationRouteData"
+      *ngIf="(userService.currentUserObs | async)?.id != service.author.id">
+      <app-card-button>
+        <i nz-icon nzType="message"></i><span i18n="@@messageButtonText">Message</span>
+      </app-card-button>
+    </a>
     <app-author-card [itemTitle]="service.title" [author]="service.author" [override_phone]="service.contact_phone">
     </app-author-card>
     <nz-divider class="margin-10"></nz-divider>
@@ -89,9 +101,9 @@
 
 <ng-template #promoButton>
   <a [routerLink]="['./', 'promote']">
-    <nz-card class="large-card-button padding-12" style="text-align: center;">
-      <h2 style="margin: 0;"><i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span></h2>
-    </nz-card>
+    <app-card-button type="primary">
+      <i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span>
+    </app-card-button>
   </a>
 </ng-template>
 
@@ -101,7 +113,7 @@
     nz-col nzSpan="12" class="msg-col">
     <span><i nz-icon nzType="phone"></i><span i18n="@@callText">Call</span></span>
   </a>
-  <a [routerLink]="['/', 'messages', 'user', service.author.id]"
+  <a [routerLink]="['/', 'messages', 'user', service.author.id]" [queryParams]="additionalConversationRouteData"
     *ngIf="(userService.currentUserObs | async)?.id != service.author.id" nz-col nzSpan="12" class="phone-col">
     <span><i nz-icon nzType="message"></i><span i18n="@@messageUserText">Message</span></span>
   </a>

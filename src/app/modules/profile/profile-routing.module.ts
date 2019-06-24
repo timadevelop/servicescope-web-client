@@ -48,6 +48,10 @@ const profileRoutes: Routes = [
             resolve: {
               services: ServicesListResolverService,
             },
+            data: {
+              showCreateButton: false,
+              showSearchBar: false
+            },
             runGuardsAndResolvers: 'paramsOrQueryParamsChange'
 
           },

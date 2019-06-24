@@ -11,6 +11,8 @@ export class LabeledTextComponent implements OnInit {
   @Input() label: string;
   @Input() text: string;
   @Output() onChange = new EventEmitter<string>();
+  @Input() maxLength = null;
+  @Input() minLength = null;
   newText: string;
 
   @Input() edit: boolean = false;

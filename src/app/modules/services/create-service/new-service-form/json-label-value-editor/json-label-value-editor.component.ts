@@ -16,6 +16,7 @@ export class LabelValueRow {
 export class JsonLabelValueEditorComponent implements OnInit {
   @Output() onChange = new EventEmitter<Array<LabelValueRow>>();
   items: FormArray = this.fb.array([]);
+  maxItems: number = 8;
 
   constructor(
     private fb: FormBuilder,
@@ -30,12 +31,13 @@ export class JsonLabelValueEditorComponent implements OnInit {
     if (e) {
       e.preventDefault();
     }
-    if (!this.items.valid) {
-      this.msgService.warning(this.i18n("First enter valid fixed prices"));
-      // console.log(this.items.errors);
-      return;
-    } else if (this.items.length >= 5) {
-      this.msgService.warning(this.i18n("Only {{number}} allowed", {number: 5}));
+    // if (!this.items.valid) {
+    //   this.msgService.warning(this.i18n("First enter valid fixed prices"));
+    //   // console.log(this.items.errors);
+    //   return;
+    // } else
+     if (this.items.length >= this.maxItems) {
+      this.msgService.warning(this.i18n("Only {{number}} allowed", {number: this.maxItems}));
       return;
     } else {
       this.items.push(this.createItem());

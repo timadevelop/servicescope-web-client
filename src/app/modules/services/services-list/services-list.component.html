@@ -1,12 +1,12 @@
 <div nz-row class="services-row" nzGutter="16">
   <div nz-col nzXs="24" nzXl="18">
-    <app-search-card></app-search-card>
+    <app-search-card *ngIf="showSearchBar"></app-search-card>
     <!-- mobile -->
     <div *ngIf="tds.isMobile" nz-row nzGutter="16">
-      <div nz-col nzSpan="12">
+      <div nz-col nzSpan="12" *ngIf="showCreateButton">
         <ng-container *ngTemplateOutlet="addBtn"></ng-container>
       </div>
-      <div nz-col nzSpan="12">
+      <div nz-col [nzSpan]="showCreateButton ? 12 : 24">
         <nz-card class="large-card-button padding-12" style="background: grey; text-align: center;"
           (click)="setIsFiltersDrawerVisible(true)">
           <h2 style="margin: 0;"><i nz-icon nzType="filter"></i><span i18n="@@filtersButtonText">Filters</span></h2>
@@ -15,7 +15,7 @@
     </div>
     <!-- // mobile -->
     <app-promoted-services-list></app-promoted-services-list>
-    <h3 i18n="@@newServicesCardTitle">New services</h3>
+    <!-- <h3 i18n="@@newServicesCardTitle">New services</h3> -->
     <nz-card>
       <ng-container *ngTemplateOutlet="list"></ng-container>
     </nz-card>
@@ -36,10 +36,10 @@
 </div>
 
 <ng-template #addBtn>
-  <a [routerLink]="['/services', 'create']">
-    <nz-card class="large-card-button padding-12" style="text-align: center;">
-      <h2 style="margin: 0;"><i nz-icon nzType="plus"></i><span i18n="@@createNewServiceButtonTexst">Create</span></h2>
-    </nz-card>
+  <a [routerLink]="['/services', 'create']" *ngIf="showCreateButton">
+    <app-card-button type="primary">
+      <i nz-icon nzType="plus"></i><span i18n="@@createNewServiceButtonTexst">Create</span>
+    </app-card-button>
   </a>
 </ng-template>
 

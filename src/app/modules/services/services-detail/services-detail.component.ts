@@ -9,6 +9,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
+import { AdditionalConversationRouteData } from '../../messages/redirect.guard';
 
 @Component({
   selector: 'app-services-detail',
@@ -23,6 +24,7 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
   showPhone: boolean = false;
   contact_phoneText: string = "Show number";
 
+  additionalConversationRouteData: AdditionalConversationRouteData;
   array = [1, 2, 3, 4];
 
   static TAB_INDEXES = {
@@ -54,7 +56,10 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
           return;
         }
         this.service = data.service;
-        console.log(this.service)
+        this.additionalConversationRouteData = {
+          itemUrl: location.href,
+          itemTitle: this.service.title
+        };
         if (this.service.contact_phone) {
           this.contact_phoneText = `${this.service.contact_phone.substring(0, 4)} Show number`;
         }

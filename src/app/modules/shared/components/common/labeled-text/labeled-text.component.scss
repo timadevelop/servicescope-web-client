@@ -3,6 +3,9 @@
 .labeled-text {
   margin-bottom: 1em;
 
+  word-break: break-all;
+  white-space: normal;
+
   > * {
     margin: 0;
     line-height: 100%;

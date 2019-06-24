@@ -7,6 +7,7 @@ import { Title } from '@angular/platform-browser';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { ServicePromotionsService } from 'src/app/core/services/service-promotions.service';
 import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-services-list',
@@ -19,11 +20,16 @@ export class ServicesListComponent implements OnInit {
   @Input() pageSize: number = 20;
   @Input() page: number = 1;
 
+  currentUserIsAuthorOfServicesList: boolean = false;
+  _showCreateButton: boolean = true;
+  showSearchBar: boolean = true;
+
   isFiltersDrawerVisible: boolean = false;
 
   constructor(
     public route: ActivatedRoute,
     public tds: TargetDeviceService,
+    private userService: UserService,
     private servicePromotionsService: ServicePromotionsService,
     private router: Router,
     private titleService: Title,
@@ -38,21 +44,36 @@ export class ServicesListComponent implements OnInit {
     //Add 'implements OnDestroy' to the class.
     this.sub$.unsubscribe();
   }
+
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(params => {
       this.pageSize = +params.get('pageSize') || this.pageSize;
       this.page = +params.get('page') || this.page;
+      const authorId = +params.get('authorId');
+      if (authorId && this.userService.currentUser && this.userService.currentUser.id == authorId) {
+        this.currentUserIsAuthorOfServicesList = true;
+      }
     });
 
     this.route.data
-      .subscribe((data: { services: PaginatedApiResponse<Service> }) => {
+      .subscribe((data: { services: PaginatedApiResponse<Service>, showSearchBar: boolean, showCreateButton: boolean }) => {
         if (data.services) {
           this.paginatedServices = data.services;
           if (!this.sub$) {
             this.subscribeForPromotedServicesList()
           }
         }
+        if (data.hasOwnProperty('showCreateButton')) {
+          this._showCreateButton = data.showCreateButton;
+        }
+        if (data.hasOwnProperty('showSearchBar')) {
+          this.showSearchBar = data.showSearchBar;
+        }
       });
+  }
+
+  public get showCreateButton() {
+    return this._showCreateButton || this.currentUserIsAuthorOfServicesList;
   }
 
   private subscribeForPromotedServicesList() {

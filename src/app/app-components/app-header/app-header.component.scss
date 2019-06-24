@@ -7,19 +7,15 @@
   border-bottom-right-radius: $radius;
 
   .ant-menu-item {
-    a,
-    i {
-      font-size: large;
-    }
     opacity: 0.5;
     border-bottom-width: 5px;
+    text-align: center;
     &:hover {
       opacity: 1;
     }
-    &.add-menu-item {
-      // &:hover {
-      //   border-bottom-color: $contrast-color;
-      // }
+    a,
+    i {
+      font-size: large;
     }
   }
   .ant-menu-item-selected {

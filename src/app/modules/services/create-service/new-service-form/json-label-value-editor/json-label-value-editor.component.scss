@@ -1,0 +1,10 @@
+@import '~src/variables';
+
+.add-btn {
+  background: rgba($primary-color, .7);
+  color: white;
+  &:disabled {
+    background: $grey-color;
+    opacity: .5;
+  }
+}

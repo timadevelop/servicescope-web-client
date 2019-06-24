@@ -1,2 +1,6 @@
-<a class="phone-wrapper" *ngIf="phone" (click)="showPhoneNumber($event)" [href]="showPhone ? 'tel:' + phoneText: ''">
-  <i *ngIf="showIcon" nz-icon nzType="phone"></i>{{phoneText}}</a>
+<a class="phone-wrapper" *ngIf="phone" [href]="showPhone ? 'tel:' + phoneText: ''">
+  <i *ngIf="showIcon" nz-icon nzType="phone"></i>
+  {{phoneText}}
+  <span *ngIf="!showPhone" class="blur">xxx xxxx</span>
+  <a class="show-text" (click)="showPhoneNumber($event)" i18n="@@showText" *ngIf="!showPhone">show</a>
+</a>

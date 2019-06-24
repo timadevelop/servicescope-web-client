@@ -5,3 +5,13 @@ a.phone-wrapper {
     font-size: 16px;
   }
 }
+
+a.show-text {
+  margin-left: 3px;
+  &.show-text:hover {
+    text-decoration: underline;
+  }
+}
+.blur {
+  filter: blur(3px);
+}

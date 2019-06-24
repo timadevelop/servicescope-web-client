@@ -17,9 +17,10 @@
   margin-right: 0;
 }
 
-
-.ant-back-top {
-  bottom: 80px;
+@include respond-below(mobile) {
+  .ant-back-top {
+    bottom: 80px;
+  }
 }
 
 .ant-notification.ant-notification-topRight {
@@ -242,13 +243,15 @@ body {
   background: $back-color;
 }
 
-
 .grey-color {
   color: $grey-color;
 }
 
 .large-card-button {
-  background: $contrast-color;
+  &.primary {
+    background: $contrast-color;
+  }
+  background: $blue-color;
   opacity: 0.8;
   // margin: 0;
   cursor: pointer;
@@ -310,6 +313,5 @@ nz-upload.small {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
-
 
 @import "~src/mediaqueries";

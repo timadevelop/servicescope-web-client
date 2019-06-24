@@ -4,7 +4,8 @@
   <p class="labeled-text-text" *ngIf="!edit">{{text}}</p>
 
   <nz-input-group *ngIf="edit" [nzSuffix]="suffixIconSearch">
-    <input type="text" nz-input [ngModel]="text" [disabled]="loading" (keyup.enter)="changeText()" (ngModelChange)="setNewText($event)" #textInput />
+    <input type="text" nz-input [ngModel]="text" [disabled]="loading" (keyup.enter)="changeText()"
+      [minlength]="minLength" [maxlength]="maxLength" (ngModelChange)="setNewText($event)" #textInput />
   </nz-input-group>
   <ng-template #suffixIconSearch let-textInput>
     <i *ngIf="!loading" nz-icon type="check" class="save-btn" (click)="changeText()"></i>

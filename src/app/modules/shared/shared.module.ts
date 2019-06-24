@@ -26,6 +26,7 @@ import { ProfileAvatarUploaderComponent } from './components/common/profile-avat
 import { PayFormComponent } from './components/common/pay-form/pay-form.component';
 import { ShareWidgetComponent } from './components/common/share-widget/share-widget.component';
 import { FooterComponent } from './components/common/footer/footer.component';
+import { CardButtonComponent } from './components/common/card-button/card-button.component';
 
 @NgModule({
   imports: [
@@ -57,6 +58,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
     PayFormComponent,
     ShareWidgetComponent,
     FooterComponent,
+    CardButtonComponent,
     // pipes
     LinkifyPipe
   ],
@@ -83,6 +85,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
     PayFormComponent,
     ShareWidgetComponent,
     FooterComponent,
+    CardButtonComponent,
     // pipes
     LinkifyPipe
   ]

@@ -7,7 +7,7 @@
     <nz-list [nzDataSource]="paginatedUsers ? paginatedUsers?.results : []" [nzItemLayout]="'horizontal'"
       [nzRenderItem]="user" [nzPagination]="pagination" [nzFooter]="footer">
       <ng-template #user let-user>
-        <nz-list-item [nzContent]="user.bio || 'Super doper bio'" [nzActions]="[starAction, likeAction, msgAction]">
+        <nz-list-item [nzContent]="user.bio?.slice(0, 50) + '...' || 'Super doper bio'" [nzActions]="[starAction, likeAction, msgAction]">
           <ng-template #starAction>
             <span nz-tooltip nzTitle="Services" [routerLink]="['/profiles', user.id, 'services']">
               <i nz-icon type="tool" style="margin-right: 8px;"></i>{{user.services_count}}
@@ -21,7 +21,7 @@
           <ng-template #msgAction><i nz-icon type="message" style="margin-right: 8px;"></i> 2</ng-template>
           <nz-list-item-meta
             [nzAvatar]="user?.image ? user.image : 'assets/images/undraw_user.svg'"
-            [nzTitle]="nzTitle" [nzDescription]="user.bio || 'Super desc'">
+            [nzTitle]="nzTitle">
             <ng-template #nzTitle>
               <a [routerLink]="['/profiles', user.id]">{{ user.first_name + ' ' + user.last_name }}</a>
               <nz-badge style="margin-left: 5px;" [nzStatus]="user.is_online ? 'success' : 'default'"></nz-badge>
