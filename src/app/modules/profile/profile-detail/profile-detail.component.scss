@@ -58,10 +58,15 @@ nz-page-header {
 
 @include respond-below(md) {
   .right-column {
+    text-align: center;
     order: 1;
   }
   .left-column {
+    text-align: center;
     order: 2;
+  }
+  .ant-page-header-content-view {
+    margin-bottom: 20px;
   }
 }
 
