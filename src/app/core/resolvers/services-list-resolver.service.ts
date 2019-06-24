@@ -34,7 +34,7 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
     });
 
     if (locationId) {
-      filters.push({ param: 'location__id', value: locationId });
+      filters.push({ param: 'location_id', value: locationId });
     }
 
     if (category) {
@@ -53,7 +53,7 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
     }
 
     if (authorId) {
-      filters.push({ param: 'author__id', value: authorId });
+      filters.push({ param: 'author_id', value: authorId });
     }
 
 
