@@ -210,7 +210,12 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   }
 
   onNewMessageDelivered(m: Message): void {
-    this.pendingMessages = this.pendingMessages.filter(e => e.text != m.text);
+    this.pendingMessages = this.pendingMessages.filter(e => {
+      const sameText = e.text === m.text || (e.text == null && m.text == 'null');
+      const sameImagesLength = e.images.length === m.images.length;
+
+      return !sameImagesLength && !sameText;
+    });
     this.appendNewMessage(m);
   }
 }
