@@ -81,7 +81,7 @@ registerLocaleData(en); // bg
         nzBottom: '24px',
         nzPlacement: 'topRight',
         nzDuration: 4500,
-        nzMaxStack: 7,
+        nzMaxStack: 1,
         nzPauseOnHover: true,
         nzAnimate: true
       }
