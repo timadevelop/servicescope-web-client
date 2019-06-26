@@ -56,11 +56,19 @@
     // width: 100%;
     float: initial;
   }
-  .user-logo {
-    margin-left: -10px;
-  }
+  // .user-logo {
+  //   margin-left: -10px;
+  // }
 
   .hello-text {
     display: none;
+  }
+
+  .user-title-container {
+    > * {
+      display: block;
+      line-height: normal;
+    }
+
   }
 }
