@@ -95,8 +95,6 @@ export class NewServiceFormComponent implements OnInit {
   }
 
   onFormSubmit(jsonEditor: JsonLabelValueEditorComponent = null) {
-
-    console.log(this.serviceForm.value)
     for (const i in this.serviceForm.controls) {
       this.serviceForm.controls[i].markAsDirty();
       this.serviceForm.controls[i].updateValueAndValidity();
