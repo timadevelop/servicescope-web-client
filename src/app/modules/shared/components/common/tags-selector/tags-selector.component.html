@@ -9,7 +9,7 @@
   (nzScrollToBottom)="loadMoreTags()"
   [(ngModel)]="selectedTags"
   [nzMaxMultipleCount]="maxTagCount"
-  [nzTokenSeparators]="[',', ' ']"
+  [nzTokenSeparators]="['.', ',', ' ']"
   >
   <ng-container *ngFor="let tag of tags?.results; trackBy: trackByName">
     <nz-option *ngIf="!isSelected(tag.name)" [nzValue]="tag.name" [nzLabel]="tag.name"></nz-option>
