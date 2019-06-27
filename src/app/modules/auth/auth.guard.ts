@@ -38,6 +38,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     if (!this.authService.isLoggedIn) {
       // store the attempted url for redirecting
       this.authService.redirectUrl = url;
+      console.log('set url to ', url);
       this.router.navigate(['/auth/login']);
       return of(false);
     }
@@ -56,8 +57,10 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
   checkEmailVerification(url, user: User): boolean {
     if (!user || !user.is_verified_email) {
+      console.log(user);
       // store the attempted url for redirecting
       this.authService.redirectUrl = url;
+      console.log('navigating to verify-email')
       this.router.navigate(['/auth/verify-email']);
       return false;
     }

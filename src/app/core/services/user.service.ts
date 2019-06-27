@@ -116,6 +116,9 @@ export class UserService {
   public processNewUser(user: User) {
     this.currentUser = user;
     this.currentUser$.next(user);
+    if (user) {
+      this.authService.applyRedirectUrl();
+    }
   }
 
 }

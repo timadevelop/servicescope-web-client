@@ -146,11 +146,12 @@ export class AuthService {
 
   public processSucceedLogin(tokenInfo: TokenInfo): void {
     this.storeTokenInfo(tokenInfo);
+  }
 
+  public applyRedirectUrl() {
     // Redirect the user
     let redirect = this.redirectUrl ? this.router.parseUrl(this.redirectUrl) : '/';
     this.redirectUrl = null;
-    this.nzMessageService.success(this.i18n({value: "Successfully logged in", id: "successfulLoginMessage"}));
     this.router.navigateByUrl(redirect);
   }
 
