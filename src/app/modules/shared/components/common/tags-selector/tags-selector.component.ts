@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { TagsService } from 'src/app/core/services/tags.service';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Tag } from 'src/app/core/models/Tag.models';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { NzMessageService } from 'ng-zorro-antd';
@@ -16,7 +16,15 @@ export class TagsSelectorComponent implements OnInit {
 
   tags: PaginatedApiResponse<Tag>;
   tagsSub$: Subscription;
-  selectedTags: Array<Tag> = [];
+  _selectedTags: Array<string> = [];
+
+  public set selectedTags(v) {
+    this._selectedTags = v;
+    this.onChange.emit(this._selectedTags);
+  }
+  public get selectedTags() {
+    return this._selectedTags;
+  }
 
   page = '1';
   pageSize = '10';
@@ -46,13 +54,10 @@ export class TagsSelectorComponent implements OnInit {
     return item.name;
   }
 
-  public isSelected(tag: Tag) {
-    return this.selectedTags.filter(t => t.name.toLowerCase() == tag.name.toLowerCase()).length > 0;
-  }
 
-  onTagsChange(e: Array<Tag>) {
-    this.selectedTags = e;
-    this.onChange.emit(this.selectedTags.map(v => v.name));
+  public isSelected(tag: string) {
+    const name = tag.toLowerCase();
+    return this.selectedTags.filter(t => t.toLowerCase() == name).length > 0;
   }
 
   onSearch(query: string): void {
@@ -95,18 +100,4 @@ export class TagsSelectorComponent implements OnInit {
     }
   }
 
-
-  createNewTag(tagName: string) {
-    if (tagName.length < 1 || tagName.length > this.maxTagNameLength) {
-      this.msgService.warning(this.i18n({value: 'Invalid tag name', id: 'invalidTagNameText'}));
-      return;
-    }
-    this.tagsService.createTag(tagName)
-      .subscribe((t: Tag) => {
-        this.tags.results.push(t);
-        this.selectedTags.push(t);
-        this.toggleCreateTagMode(false);
-        this.msgService.success(this.i18n({value: "Created tag", id: "successCreatingTagText"}) + ' ' + tagName);
-      });
-  }
 }

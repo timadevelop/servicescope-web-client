@@ -150,9 +150,11 @@ export class AuthService {
 
   public applyRedirectUrl() {
     // Redirect the user
-    let redirect = this.redirectUrl ? this.router.parseUrl(this.redirectUrl) : '/';
-    this.redirectUrl = null;
-    this.router.navigateByUrl(redirect);
+    if (this.redirectUrl) {
+      let redirect = this.router.parseUrl(this.redirectUrl);
+      this.redirectUrl = null;
+      this.router.navigateByUrl(redirect);
+    }
   }
 
   // Localstorage management
