@@ -20,21 +20,22 @@ const routes: Routes = [
     loadChildren: './modules/messages/messages.module#MessagesModule',
     canLoad: [AuthGuard]
   },
-  // {
-  //   path: 'services',
-  //   loadChildren: './modules/services/services.module#ServicesModule',
-  // },
   {
     path: 'auth',
     loadChildren: './modules/auth/auth.module#AuthModule',
   },
   { path: '', redirectTo: 'services', pathMatch: 'full' },
+  {
+    path: '',
+    loadChildren: './modules/about/about.module#AboutModule',
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled'
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled'
   })],
   exports: [RouterModule]
 })

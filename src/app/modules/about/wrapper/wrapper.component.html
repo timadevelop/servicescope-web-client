@@ -1,0 +1,16 @@
+<div nz-row nzGutter="16">
+  <div nz-col nzXs="24" nzXl="18">
+    <nz-card>
+      <router-outlet></router-outlet>
+    </nz-card>
+  </div>
+  <div nz-col nzXs="24" nzXl="6">
+    <nz-card [nzBodyStyle]="{padding: 0}">
+      <ul nz-menu [nzMode]="'inline'">
+        <a [routerLink]="['/', 'about']" routerLinkActive="ant-menu-item-selected" nz-menu-item>About</a>
+        <a [routerLink]="['/', 'faq']" routerLinkActive="ant-menu-item-selected" nz-menu-item>FAQ</a>
+        <a [routerLink]="['/', 'terms']" routerLinkActive="ant-menu-item-selected" nz-menu-item>Terms</a>
+      </ul>
+    </nz-card>
+  </div>
+</div>

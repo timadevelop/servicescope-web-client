@@ -1,10 +1,8 @@
 <div class="footer">
-  <a>Blog</a>
-  <a>Newsletter</a>
-  <a>Apps</a>
-  <a>About</a>
-  <a>FAQ</a>
-  <a>Terms</a>
-  <a>Privacy and Cookies</a>
+  <a href="https://www.facebook.com/brainhublab/">Newsletter</a>
+  <a [routerLink]="['/', 'about']">About</a>
+  <a [routerLink]="['/', 'faq']">FAQ</a>
+  <a [routerLink]="['/', 'terms']">Terms</a>
+  <a [routerLink]="['/', 'terms']" fragment="privacy">Privacy and Cookies</a>
   <p><a>© {{ date.getFullYear() }} brainhub</a></p>
 </div>
