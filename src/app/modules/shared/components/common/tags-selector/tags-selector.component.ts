@@ -34,6 +34,7 @@ export class TagsSelectorComponent implements OnInit {
   createTagMode: boolean = false;
 
   @Input() maxTagCount: number = 5;
+  @Input() defaultTags: Array<string>;
   @Output() onChange = new EventEmitter<Array<string>>();
 
   constructor(
@@ -44,6 +45,10 @@ export class TagsSelectorComponent implements OnInit {
   ngOnInit(): void {
     this.tagsSub$ = this.tagsService.getTags('1', '10')
       .subscribe(t => this.tags = t);
+
+    if (this.defaultTags) {
+      this.selectedTags = this.defaultTags;
+    }
   }
 
   reset() {

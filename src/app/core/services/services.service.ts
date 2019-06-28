@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpRequest, HttpEvent, HttpEventType, HttpResponse, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { UploadFile } from 'ng-zorro-antd';
-import { Service } from '../models/Service.model';
-import { Observable, throwError, of } from 'rxjs';
+import { Service, ServiceImage } from '../models/Service.model';
+import { Observable, throwError, of, from } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { CustomEncoder } from './custom.encoder';
 import { ServiceApiRequest } from '../models/api-request/service-api-request.model';
 import { ErrorHandlerService } from './error-handler.service';
@@ -47,7 +47,9 @@ export class ServicesService {
       } else if (key == 'images') {
         // images
         service.images.forEach((value: UploadFile, index: number, array) => {
-          formData.append(`image_${index}`, value.originFileObj);
+          if (!value.url && value.originFileObj) {
+            formData.append(`image_${index}`, value.originFileObj);
+          }
         });
 
       } else {
@@ -57,6 +59,7 @@ export class ServicesService {
 
     return formData;
   }
+
   public create(service: ServiceApiRequest): Observable<HttpEvent<{}>> {
     const formData = this.generateNewServiceFormData(service);
 
@@ -68,6 +71,52 @@ export class ServicesService {
     });
 
     return this.http.request(req).pipe(
+      catchError(error => {
+        this.errorHandlerService.handleError(error);
+        return throwError(error);
+      })
+    );
+  }
+
+  public update(service: Service, serviceApiRequest: ServiceApiRequest): Observable<HttpEvent<{}>> {
+
+    const newImagesToUpload = serviceApiRequest.images.filter(v => !v.url && v.originFileObj);
+    const untouchedImages = serviceApiRequest.images.filter(v => v.url && !v.originFileObj);
+
+    this.clearServiceImages(service, untouchedImages);
+
+    serviceApiRequest.images = newImagesToUpload;
+
+    const formData = this.generateNewServiceFormData(serviceApiRequest);
+
+    const url: string = service.url;
+
+    const req = new HttpRequest('PATCH', url, formData, {
+      reportProgress: true,
+      withCredentials: true,
+    });
+
+    return this.http.request(req).pipe(
+      catchError(error => {
+        this.errorHandlerService.handleError(error);
+        return throwError(error);
+      })
+    );
+  }
+
+  private clearServiceImages(oldService: Service, untouchedImages: UploadFile[]) {
+    const imagesToDelete = oldService.images.filter(image => untouchedImages.findIndex(v => v.url === image.image) === -1);
+    imagesToDelete.forEach(image => {
+      this.deleteServiceImage(image).subscribe(
+        r => {
+          // console.log('deleted:', image, r);
+        }
+      );
+    })
+  }
+
+  public deleteServiceImage(image: ServiceImage) {
+    return this.http.delete(image.url).pipe(
       catchError(error => {
         this.errorHandlerService.handleError(error);
         return throwError(error);

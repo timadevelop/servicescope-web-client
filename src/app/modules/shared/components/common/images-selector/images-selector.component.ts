@@ -24,6 +24,7 @@ export class ImagesSelectorComponent implements OnInit, AfterViewInit {
   @Input() size: 'small' | 'default' = 'default';
   @Input() clearEvent: Observable<void>;
   @Input() showFileDialog: boolean = false
+  @Input() defaultImages: Array<any> = [];
 
   constructor(private msg: NzMessageService) { }
 
@@ -36,6 +37,9 @@ export class ImagesSelectorComponent implements OnInit, AfterViewInit {
       this.clearSubscription = this.clearEvent.subscribe(() => {
         this.fileList = [];
       });
+    }
+    if (this.defaultImages) {
+      this.fileList = this.defaultImages;
     }
   }
 
@@ -78,9 +82,10 @@ export class ImagesSelectorComponent implements OnInit, AfterViewInit {
     return new Observable<null>().subscribe();
   };
 
-  handleChange(info: { file: UploadFile }): void {
+  handleChange(info: { file: UploadFile, type: string, fileList: Array<UploadFile> }): void {
     this.loading = false;
     info.file.status = 'success';
-    this.onChange.emit(this.fileList);
+    // this.filelist updates using two-way binding
+    this.onChange.emit(info.fileList);
   }
 }

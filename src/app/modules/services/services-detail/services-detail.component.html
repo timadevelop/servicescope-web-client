@@ -92,6 +92,12 @@
         <i nz-icon nzType="message"></i><span i18n="@@messageButtonText">Message</span>
       </app-card-button>
     </a>
+    <a [routerLink]="['./', 'edit']"
+      *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
+      <app-card-button>
+        <i nz-icon nzType="edit"></i><span i18n="@@editButtonText">Edit</span>
+      </app-card-button>
+    </a>
     <app-author-card [itemTitle]="service.title" [author]="service.author" [override_phone]="service.contact_phone">
     </app-author-card>
     <nz-divider class="margin-10"></nz-divider>

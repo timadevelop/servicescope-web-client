@@ -12,7 +12,7 @@ import { CategoriesService } from 'src/app/core/services/categories.service';
 })
 export class CategorySelectorComponent implements OnInit, OnDestroy {
   categories: PaginatedApiResponse<Category>;
-  selectedCategoryString: string;
+  @Input() selectedCategoryString: string;
   optionList: string[] = [];
   isLoadingCategories = false;
   private categoriesSub$: Subscription;
@@ -31,7 +31,7 @@ export class CategorySelectorComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.selectedCategoryString = params.get('category');
+      this.selectedCategoryString = params.get('category') || this.selectedCategoryString;
     });
 
     this.categoriesSub$ = this.categoriesService.getCategories(this.page, this.pageSize)

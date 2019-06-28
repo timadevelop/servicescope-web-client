@@ -10,6 +10,7 @@ import { ServicesListResolverService } from '../../core/resolvers/services-list-
 import { PageNotFoundComponent } from 'src/app/core/components/page-not-found/page-not-found.component';
 import { CreateServiceComponent } from './create-service/create-service.component';
 import { PromoteServiceComponent } from './promote-service/promote-service.component';
+import { EditServiceComponent } from './edit-service/edit-service.component';
 
 const servicesRoutes: Routes = [
   {
@@ -52,6 +53,14 @@ const servicesRoutes: Routes = [
       {
         path: ':id/promote',
         component: PromoteServiceComponent,
+        canActivate: [AuthGuard],
+        resolve: {
+          service: ServiceResolverService
+        },
+      },
+      {
+        path: ':id/edit',
+        component: EditServiceComponent,
         canActivate: [AuthGuard],
         resolve: {
           service: ServiceResolverService

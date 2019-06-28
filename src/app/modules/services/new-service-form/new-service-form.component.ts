@@ -5,16 +5,8 @@ import { UserService } from 'src/app/core/services/user.service';
 import { Location } from 'src/app/core/models/Location.model';
 import { JsonLabelValueEditorComponent } from './json-label-value-editor/json-label-value-editor.component';
 import { UploadFile } from 'ng-zorro-antd';
-import { of } from 'rxjs';
 import { ServiceApiRequest } from 'src/app/core/models/api-request/service-api-request.model';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
-
-
-
-function validateImages(images: Array<UploadFile>) {
-  return of(true);
-}
-
 
 @Component({
   selector: 'app-new-service-form',
@@ -25,6 +17,8 @@ export class NewServiceFormComponent implements OnInit {
 
   maxImagesLength = 10;
 
+  @Input() edit: boolean = false;
+  @Input() service: Service;
   @Output() onSubmit = new EventEmitter<ServiceApiRequest>();
 
   serviceForm = this.fb.group({
@@ -62,12 +56,33 @@ export class NewServiceFormComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getCurrentUser().subscribe(u => {
-      if (u) {
+      if (u && !this.serviceForm.controls['contact_phone'].value) {
         this.serviceForm.patchValue({
           contact_phone: u.phone
         });
       }
     });
+
+    if (this.edit && this.service) {
+      this.serviceForm.patchValue({
+        title: this.service.title,
+        description: this.service.description,
+        price: this.service.price,
+        location: this.service.location.url,
+        images: this.service.images.map((v, index, arr) => {
+          return {
+            uid: index,
+            name: `image_${index}`,
+            status: 'done',
+            url: v.image
+          }
+        }),
+        tags: this.service.tags.map(v => v.name),
+        category: this.service.category,
+        price_details: this.service.price_details,
+        contact_phone: this.service.contact_phone
+      });
+    }
   }
 
   onLocationChange(location: Location) {

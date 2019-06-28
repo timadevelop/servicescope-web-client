@@ -1,13 +1,13 @@
 import { Base } from './Base.model';
 import { User } from './User.model';
-import { Url } from 'url';
 import { Tag } from './Tag.models';
 import { Location } from './Location.model';
-import { Category } from './Category.models';
 
 export class ServiceImage {
-  service: Url
-  image: Url
+  id: number;
+  url: string; // WARNING: this url is a url to serviceImageInstance!
+  service: string;
+  image: string;
 }
 
 export class PriceDetailsRow {
