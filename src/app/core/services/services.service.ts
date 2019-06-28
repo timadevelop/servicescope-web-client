@@ -78,11 +78,13 @@ export class ServicesService {
     );
   }
 
+  /* Update service */
   public update(service: Service, serviceApiRequest: ServiceApiRequest): Observable<HttpEvent<{}>> {
 
     const newImagesToUpload = serviceApiRequest.images.filter(v => !v.url && v.originFileObj);
     const untouchedImages = serviceApiRequest.images.filter(v => v.url && !v.originFileObj);
 
+    // delete deleted on UI images
     this.clearServiceImages(service, untouchedImages);
 
     serviceApiRequest.images = newImagesToUpload;
@@ -96,6 +98,7 @@ export class ServicesService {
       withCredentials: true,
     });
 
+    // update.
     return this.http.request(req).pipe(
       catchError(error => {
         this.errorHandlerService.handleError(error);
@@ -104,6 +107,7 @@ export class ServicesService {
     );
   }
 
+  /* Deletes deleted on UI images */
   private clearServiceImages(oldService: Service, untouchedImages: UploadFile[]) {
     const imagesToDelete = oldService.images.filter(image => untouchedImages.findIndex(v => v.url === image.image) === -1);
     imagesToDelete.forEach(image => {
