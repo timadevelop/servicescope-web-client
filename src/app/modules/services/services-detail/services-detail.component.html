@@ -1,17 +1,23 @@
 <div nz-row nzGutter="16" *ngIf="service" class="service-container">
   <!-- left column -->
   <div nz-col class="gutter-row" nzXs="24" nzXl="18">
+    <!-- Images -->
     <nz-card class="padding-0" [class.promoted]="service.is_promoted">
       <app-carousel [focusOnInit]="true" [images]="service?.images"></app-carousel>
       <i *ngIf="service.is_promoted" class="promoted-sign" style="font-size: 30px;" nz-icon [nzType]="'dollar'"
         [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedServiceIconTooltipText"
         nzTitle="Promoted service"></i>
     </nz-card>
+
+    <!-- Mobile title -->
     <div nz-row style="text-align: center;" *ngIf="tds.isMobile">
       <h1 class="mb-vertical-align title">{{service.title}}</h1>
     </div>
+
+    <!-- Info -->
     <div nz-row class="mb-vertical-align" nzType="flex" [nzJustify]="tds.isMobile ? 'center' : 'space-between'"
       nzAlign="middle">
+      <!-- Tags -->
       <div>
         <a [routerLink]="['../']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge"
           *ngFor="let tag of service.tags">
@@ -24,44 +30,63 @@
         i18n="Tag text when there are no tags in a list of tags@@noTags">No
         tags
       </nz-tag>
+      <!-- Cateogory, created_at, location, id -->
       <app-general-info *ngIf="!tds.isMobile" [id]="service.id" [location]="service.location"
         [created_at]="service.created_at" [category]="service.category"></app-general-info>
     </div>
-    <!-- description card -->
+    <!-- Description card -->
     <nz-card>
       <div nz-row nzType="flex" nzGutter="16" nzJustify="space-between" nzAlign="top">
         <div nz-col nzSm="23" nzXs="22">
+          <!-- Title -->
           <h1 *ngIf="!tds.isMobile" class="title">{{service.title}}</h1>
+          <!-- Description -->
           <div class="service-description">
             {{service.description}}
           </div>
         </div>
+        <!-- Votes -->
         <div nz-col nzSm="1" nzXs="2">
           <app-votes [score]="service.score" type="vertical" [currentUserVote]="service.current_user_vote"
             [model]="'services'" [modelId]="service.id"></app-votes>
         </div>
       </div>
     </nz-card>
+    <!-- Mobile row -->
     <div nz-row nzGutter="16" *ngIf="tds.isMobile">
+      <!-- Price on mobile view -->
       <app-price-card nz-col nzSpan="12" [small]="true" [price]="service.price" [currency]="service.price_currency"
         [price_details]="service.price_details">
       </app-price-card>
+      <!-- Delete service button on mobile -->
       <div nz-col nzSpan="12">
-        <ng-container *ngTemplateOutlet="promoButton"></ng-container>
+        <a nz-popconfirm i18n-nzTitle="@@areYouSureText" nzTitle="Are you sure to delete this service?"
+          nzCancelText="No" i18n-nzCancelText="@@noText" nzOkText="Yes" i18n-nzOkText="@@yesText"
+          (nzOnConfirm)="deleteService(service)" *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
+          <app-card-button>
+            <i nz-icon nzType="delete"></i><span i18n="@@editButtonText">Delete</span>
+          </app-card-button>
+        </a>
       </div>
     </div>
+
+    <!-- General info -->
     <div class="mb-vertical-align">
       <app-general-info *ngIf="tds.isMobile" justify="center" [id]="service.id" [location]="service.location"
         [created_at]="service.created_at" [category]="service.category"></app-general-info>
     </div>
-    <!-- share card -->
+
+    <!-- Share widget -->
     <div class="mb-vertical-align" nz-row nzType="flex" [nzJustify]="tds.isMobile ? 'center' : 'start'"
       nzAlign="middle">
       <app-share-widget></app-share-widget>
     </div>
+
+    <!-- Author card on Mobile -->
     <app-author-card *ngIf="tds.isMobile" [itemTitle]="service.title" [author]="service.author"
       [override_phone]="service.contact_phone" [horizontal]="true">
     </app-author-card>
+
     <!-- more services card -->
     <nz-card [nzTitle]="similarCardTitleTemplate">
       <app-similar-services-list [service]="service"></app-similar-services-list>
@@ -69,16 +94,26 @@
     <ng-template #similarCardTitleTemplate>
       <h2 class="title small" i18n="@@similarServicesCardTitle">Similar services</h2>
     </ng-template>
+
     <!-- Mobile only footer -->
     <nz-divider *ngIf="tds.isMobile" class="margin-10"></nz-divider>
     <app-footer *ngIf="tds.isMobile"></app-footer>
     <!-- // mobile -->
   </div>
-  <!-- right column -->
+  <!-- right column (desktop only) -->
   <div nz-col class="gutter-row" *ngIf="!tds.isMobile" nzSpan="6">
+    <!-- Price card -->
     <app-price-card [price]="service.price" [currency]="service.price_currency" [price_details]="service.price_details">
     </app-price-card>
-    <ng-container *ngTemplateOutlet="promoButton"></ng-container>
+
+    <!-- Promote button -->
+    <a [routerLink]="['./', 'promote']">
+      <app-card-button type="primary">
+        <i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span>
+      </app-card-button>
+    </a>
+
+    <!-- Call button for other users -->
     <a [href]="'tel:' + service.contact_phone" *ngIf="(userService.currentUserObs | async)?.id != service.author.id"
       class="msg-col">
       <app-card-button>
@@ -86,17 +121,23 @@
         <app-phone-wrapper class="phone-wrapper" [showIcon]="false" [phone]="service.contact_phone"></app-phone-wrapper>
       </app-card-button>
     </a>
+
+    <!-- Message Button for other users -->
     <a [routerLink]="['/', 'messages', 'user', service.author.id]" [queryParams]="additionalConversationRouteData"
       *ngIf="(userService.currentUserObs | async)?.id != service.author.id">
       <app-card-button>
         <i nz-icon nzType="message"></i><span i18n="@@messageButtonText">Message</span>
       </app-card-button>
     </a>
+
+    <!-- Edit button for author -->
     <a [routerLink]="['./', 'edit']" *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
       <app-card-button>
         <i nz-icon nzType="edit"></i><span i18n="@@editButtonText">Edit</span>
       </app-card-button>
     </a>
+
+    <!-- Delete button for author -->
     <a nz-popconfirm i18n-nzTitle="@@areYouSureText" nzTitle="Are you sure to delete this service?" nzCancelText="No"
       i18n-nzCancelText="@@noText" nzOkText="Yes" i18n-nzOkText="@@yesText" (nzOnConfirm)="deleteService(service)"
       *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
@@ -104,33 +145,40 @@
         <i nz-icon nzType="delete"></i><span i18n="@@editButtonText">Delete</span>
       </app-card-button>
     </a>
+
+    <!-- Author card -->
     <app-author-card [itemTitle]="service.title" [author]="service.author" [override_phone]="service.contact_phone">
     </app-author-card>
+
     <nz-divider class="margin-10"></nz-divider>
+    <!-- Desktop footer -->
     <app-footer></app-footer>
   </div>
 </div>
 
-<ng-template #promoButton>
-  <a [routerLink]="['./', 'promote']">
-    <app-card-button type="primary">
-      <i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span>
-    </app-card-button>
-  </a>
-</ng-template>
-
-<!-- mobile contact -->
+<!-- mobile contacts fixed box -->
 <div nz-row nzType="flex" nzJustify="stretch" nzAlign="stretch" class="mobile-contact" *ngIf="tds.isMobile">
+  <!-- For other users -->
+  <!-- Call button -->
   <a [href]="'tel:' + service.contact_phone" *ngIf="(userService.currentUserObs | async)?.id != service.author.id"
     nz-col nzSpan="12" class="msg-col">
     <span><i nz-icon nzType="phone"></i><span i18n="@@callText">Call</span></span>
   </a>
+  <!-- Message button -->
   <a [routerLink]="['/', 'messages', 'user', service.author.id]" [queryParams]="additionalConversationRouteData"
     *ngIf="(userService.currentUserObs | async)?.id != service.author.id" nz-col nzSpan="12" class="phone-col">
     <span><i nz-icon nzType="message"></i><span i18n="@@messageUserText">Message</span></span>
   </a>
+
+  <!-- For author -->
+  <!-- Promote button -->
   <a [routerLink]="['./', 'promote']" *ngIf="(userService.currentUserObs | async)?.id == service.author.id" nz-col
-    nzSpan="24" class="promo-col">
-    <span><i nz-icon nzType="rocket"></i><span i18n="@@promoteYourServiceText">Promote your service</span></span>
+    nzSpan="12" class="promo-col">
+    <span><i nz-icon nzType="rocket"></i><span i18n="@@promoteYourServiceText">Promote</span></span>
+  </a>
+  <!-- Edit button -->
+  <a [routerLink]="['./', 'edit']" *ngIf="(userService.currentUserObs | async)?.id == service.author.id" nz-col
+    nzSpan="12" class="edit-col">
+    <span><i nz-icon nzType="edit"></i><span i18n="@@editButtonText">Edit</span></span>
   </a>
 </div>

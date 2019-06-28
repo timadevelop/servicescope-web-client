@@ -34,7 +34,8 @@
     &.promo-col {
       background: $contrast-color;
     }
-    &.phone-col {
+    &.phone-col,
+    &.edit-col {
       background: $primary-color;
     }
     i {
