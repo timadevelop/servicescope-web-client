@@ -151,4 +151,7 @@ export class ServicesService {
       );
   }
 
+  public delete(service: Service) {
+    return this.http.delete(service.url)
+  }
 }

@@ -10,6 +10,7 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
 import { AdditionalConversationRouteData } from '../../messages/redirect.guard';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-services-detail',
@@ -41,7 +42,8 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
     private router: Router,
     public userService: UserService,
     private i18n: I18n,
-    private titleService: Title) { }
+    private titleService: Title,
+    private nzMessageService: NzMessageService) { }
 
   private getTabNameFromUrl(url: string) {
     return url.replace(/(\?.*|\(.*)/, '').split('/').pop();
@@ -101,5 +103,15 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
 
   navigateTo(subRoute: string): void {
     this.router.navigate([`./${subRoute}`], { relativeTo: this.route });
+  }
+
+  deleteService(service: Service) {
+    this.servicesService.delete(service)
+      .subscribe(
+        r => {
+          this.nzMessageService.success(this.i18n({ value: "Successfully deleted service", id: "successOnServiceDelete" }));
+          this.router.navigate(['/', 'services']);
+        }
+      );
   }
 }

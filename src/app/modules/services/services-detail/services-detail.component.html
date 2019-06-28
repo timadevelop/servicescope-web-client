@@ -92,10 +92,16 @@
         <i nz-icon nzType="message"></i><span i18n="@@messageButtonText">Message</span>
       </app-card-button>
     </a>
-    <a [routerLink]="['./', 'edit']"
-      *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
+    <a [routerLink]="['./', 'edit']" *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
       <app-card-button>
         <i nz-icon nzType="edit"></i><span i18n="@@editButtonText">Edit</span>
+      </app-card-button>
+    </a>
+    <a nz-popconfirm i18n-nzTitle="@@areYouSureText" nzTitle="Are you sure to delete this service?" nzCancelText="No"
+      i18n-nzCancelText="@@noText" nzOkText="Yes" i18n-nzOkText="@@yesText" (nzOnConfirm)="deleteService(service)"
+      *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
+      <app-card-button>
+        <i nz-icon nzType="delete"></i><span i18n="@@editButtonText">Delete</span>
       </app-card-button>
     </a>
     <app-author-card [itemTitle]="service.title" [author]="service.author" [override_phone]="service.contact_phone">
