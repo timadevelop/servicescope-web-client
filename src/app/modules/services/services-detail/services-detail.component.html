@@ -67,6 +67,12 @@
             <i nz-icon nzType="delete"></i><span i18n="@@editButtonText">Delete</span>
           </app-card-button>
         </a>
+        <!-- Promote button -->
+        <a [routerLink]="['./', 'promote']" *ngIf="(userService.currentUserObs | async)?.id !== service.author.id">
+          <app-card-button type="primary">
+            <i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span>
+          </app-card-button>
+        </a>
       </div>
     </div>
 
