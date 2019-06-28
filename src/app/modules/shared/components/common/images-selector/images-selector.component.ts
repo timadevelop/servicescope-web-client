@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
 import { UploadFile, NzMessageService, UploadXHRArgs, NzUploadComponent } from 'ng-zorro-antd';
 import { Observer, Observable, Subscription } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Observer, Observable, Subscription } from 'rxjs';
   templateUrl: './images-selector.component.html',
   styleUrls: ['./images-selector.component.scss']
 })
-export class ImagesSelectorComponent implements OnInit, AfterViewInit {
+export class ImagesSelectorComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
   loading: boolean = false;
   showUploadList = {
     showPreviewIcon: true,
@@ -38,6 +38,9 @@ export class ImagesSelectorComponent implements OnInit, AfterViewInit {
         this.fileList = [];
       });
     }
+  }
+
+  ngOnChanges() {
     if (this.defaultImages) {
       this.fileList = this.defaultImages;
     }

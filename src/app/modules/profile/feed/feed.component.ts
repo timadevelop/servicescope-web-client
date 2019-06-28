@@ -6,6 +6,7 @@ import { FeedPostApiRequest } from 'src/app/core/models/api-request/feedpost-api
 import { FeedPost } from 'src/app/core/models/FeedPost.model';
 import { UserService } from 'src/app/core/services/user.service';
 import { Location } from '@angular/common';
+import { FeedService } from '../services/feed.service';
 
 @Component({
   selector: 'app-feed',
@@ -22,13 +23,15 @@ export class FeedComponent implements OnInit {
   loading: boolean = true;
 
   profileId: number;
+  editFeedPost: FeedPost;
 
   constructor(
     public tds: TargetDeviceService,
     private router: Router,
     private route: ActivatedRoute,
     public userService: UserService,
-    public location: Location
+    public location: Location,
+    private feedService: FeedService
   ) { }
 
   ngOnInit() {
@@ -76,6 +79,9 @@ export class FeedComponent implements OnInit {
 
   onNewPostDelivered(fp: FeedPost) {
     this.pendingFeedPosts = this.pendingFeedPosts.filter(e => e.text != fp.text);
+    if (this.editFeedPost) {
+      this.feedPosts.results = this.feedPosts.results.filter(v => v.id !== fp.id);
+    }
     this.appendNewFeedPost(fp);
   }
 
@@ -90,4 +96,14 @@ export class FeedComponent implements OnInit {
   }
 
 
+  deleteFeedPost(fp: FeedPost) {
+    this.feedService.delete(fp)
+      .subscribe(r => {
+        this.feedPosts.results = this.feedPosts.results.filter(post => post.id != fp.id);
+      });
+  }
+
+  edit(fp: FeedPost) {
+    this.editFeedPost = fp;
+  }
 }

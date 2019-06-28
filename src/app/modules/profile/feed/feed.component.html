@@ -1,7 +1,7 @@
 <div nz-row nzGutter="16">
   <div nz-col nzXs="24" nzXl="18">
     <app-feed-post *ngIf="userService.currentUser && userService.currentUser.id == this.profileId"
-      (onNewPostRequest)="onNewPostRequest($event)" (onNewPostDelivered)="onNewPostDelivered($event)">
+      (onNewPostRequest)="onNewPostRequest($event)" (onNewPostDelivered)="onNewPostDelivered($event)" [edit]="editFeedPost != null" [editFeedPost]="editFeedPost">
     </app-feed-post>
     <ng-container *ngTemplateOutlet="list"></ng-container>
     <!-- Mobile only footer -->
@@ -53,6 +53,18 @@
         <a [routerLink]="['/', 'profiles', 'feed', 'post', feedpost.id]"
           class="grey-color">{{feedpost.created_at | date: 'hh:mm a MMMM d yyyy'}}</a>
       </div>
+      <div nz-col>
+        <nz-dropdown [nzTrigger]="'click'" [nzPlacement]="'bottomRight'">
+          <a nz-dropdown><i nz-icon style="font-size: 18px;" class="dropdown-icon" type="down"></i></a>
+          <ul nz-menu>
+            <li nz-menu-item i18n="@@editText" (click)="edit(feedpost)">Edit</li>
+            <li nz-menu-item i18n="@@deleteText" nz-popconfirm i18n-nzTitle="@@areYouSureText"
+              nzTitle="Are you sure?" nzCancelText="No" i18n-nzCancelText="@@noText"
+              nzOkText="Yes" i18n-nzOkText="@@yesText" (nzOnConfirm)="deleteFeedPost(feedpost)"
+              *ngIf="(userService.currentUserObs | async)?.id === feedpost.author?.id">Delete</li>
+          </ul>
+        </nz-dropdown>
+      </div>
     </div>
     <div nz-row class="mt-10">
       <p>{{feedpost?.text}}</p>
@@ -68,7 +80,6 @@
     <nz-divider class="margin-10"></nz-divider>
     <div nz-row nzType="flex" nzJustify="space-between" class="actions">
       <div nz-col>
-        <!-- TODO: share button -->
         <app-share-widget [shareUrl]="getPublicUrl(feedpost?.id)"></app-share-widget>
       </div>
       <div nz-col>

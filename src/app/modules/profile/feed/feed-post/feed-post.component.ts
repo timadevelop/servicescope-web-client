@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { UploadFile, NzMessageService } from 'ng-zorro-antd';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -15,9 +15,12 @@ import { TagsSelectorComponent } from 'src/app/modules/shared/components/common/
   templateUrl: './feed-post.component.html',
   styleUrls: ['./feed-post.component.scss']
 })
-export class FeedPostComponent implements OnInit {
+export class FeedPostComponent implements OnInit, OnChanges {
   @Output() onNewPostRequest = new EventEmitter<FeedPostApiRequest>();
   @Output() onNewPostDelivered = new EventEmitter<FeedPost>();
+
+  @Input() edit: boolean = false;
+  @Input() editFeedPost: FeedPost;
 
   public submitOnCtrlEnter: boolean = true;
   focused: boolean = false;
@@ -34,6 +37,7 @@ export class FeedPostComponent implements OnInit {
   });
 
   @ViewChild('tagsSelector') tagsSelector: TagsSelectorComponent;
+  @ViewChild('postTextArea') postTextArea: ElementRef;
 
   constructor(
     private i18n: I18n,
@@ -41,9 +45,42 @@ export class FeedPostComponent implements OnInit {
     private nzMessageService: NzMessageService,
     public userService: UserService,
     private feedService: FeedService
-  ) {}
+  ) { }
+
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.edit && this.editFeedPost) {
+      this.initEditMode();
+    }
+  }
 
   ngOnInit() {
+  }
+
+  initEditMode() {
+    if (this.edit && this.editFeedPost) {
+      this.feedPostForm.patchValue({
+        tags: this.editFeedPost.tags.map(v => v.name),
+        text: this.editFeedPost.text,
+        images: this.editFeedPost.images.map((v, index, arr) => {
+          return {
+            uid: index,
+            name: `image_${index}`,
+            status: 'done',
+            url: v.image
+          }
+        }),
+      });
+      this.focused = true;
+      this.showUploadImagesForm = true;
+      this.focusOnTextArea();
+    }
+  }
+
+  focusOnTextArea() {
+    if (this.postTextArea) {
+      this.postTextArea.nativeElement.focus();
+    }
   }
 
   onBlur() {
@@ -54,9 +91,9 @@ export class FeedPostComponent implements OnInit {
 
   public onKeyDown = ($event) => {
     if ($event.ctrlKey && $event.keyCode === 13) {
-        if (this.submitOnCtrlEnter) {
-          this.onFormSubmit();
-        }
+      if (this.submitOnCtrlEnter) {
+        this.onFormSubmit();
+      }
     };
   }
 
@@ -78,7 +115,7 @@ export class FeedPostComponent implements OnInit {
       const tags = this.feedPostForm.get('tags').value;
 
       if (!text && images.length < 1) {
-        this.nzMessageService.error(this.i18n({value: "Enter text or add images", id: "errorNoImagesAndNoTextOnFeedPost"}));
+        this.nzMessageService.error(this.i18n({ value: "Enter text or add images", id: "errorNoImagesAndNoTextOnFeedPost" }));
         return;
       }
 
@@ -110,27 +147,44 @@ export class FeedPostComponent implements OnInit {
 
     this.onNewPostRequest.emit(fp);
     this.resetForm();
-    this.feedService.create(fp)
-      .subscribe(
-        (event: HttpEvent<{}>) => {
-          if (event.type === HttpEventType.UploadProgress) {
-            if (event.total! > 0) {
-              // this.percent = (event.loaded / event.total!) * 100;
-            }
-          } else if (event instanceof HttpResponse) {
-            // uploaded
-            console.log('done')
-            this.loading = false;
-            this.onNewPostDelivered.emit(event.body as FeedPost);
-          }
-        },
-        err => {
-          this.loading = false;
-          // TODO: handle errors
-          console.log(err);
-        });
+    if (this.edit) {
+      // edit
+      if (!this.editFeedPost) {
+        this.nzMessageService.error('No editfeedpost provided');
+        return;
+      }
+      this.feedService.update(this.editFeedPost, fp)
+        .subscribe(
+          (event: HttpEvent<{}>) => this.handleHttpEvent(event),
+          err => this.onError(err));
+    } else {
+      // create
+      this.feedService.create(fp)
+        .subscribe(
+          (event: HttpEvent<{}>) => this.handleHttpEvent(event),
+          err => this.onError(err));
+    }
+
   }
 
+  private onError(err) {
+    this.loading = false;
+    // TODO: handle errors
+    console.log(err);
+  }
+
+  handleHttpEvent(event: HttpEvent<{}>) {
+    if (event.type === HttpEventType.UploadProgress) {
+      if (event.total! > 0) {
+        // this.percent = (event.loaded / event.total!) * 100;
+      }
+    } else if (event instanceof HttpResponse) {
+      // uploaded
+      console.log('done')
+      this.loading = false;
+      this.onNewPostDelivered.emit(event.body as FeedPost);
+    }
+  }
 
   onImagesChange(images: Array<UploadFile>) {
     this.feedPostForm.patchValue({

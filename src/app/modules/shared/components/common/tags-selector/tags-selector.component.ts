@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import { TagsService } from 'src/app/core/services/tags.service';
 import { Subscription } from 'rxjs';
 import { Tag } from 'src/app/core/models/Tag.models';
@@ -11,7 +11,7 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
   templateUrl: './tags-selector.component.html',
   styleUrls: ['./tags-selector.component.scss']
 })
-export class TagsSelectorComponent implements OnInit {
+export class TagsSelectorComponent implements OnInit, OnChanges {
   isLoading = false;
 
   tags: PaginatedApiResponse<Tag>;
@@ -46,6 +46,12 @@ export class TagsSelectorComponent implements OnInit {
     this.tagsSub$ = this.tagsService.getTags('1', '10')
       .subscribe(t => this.tags = t);
 
+    if (this.defaultTags) {
+      this.selectedTags = this.defaultTags;
+    }
+  }
+
+  ngOnChanges() {
     if (this.defaultTags) {
       this.selectedTags = this.defaultTags;
     }

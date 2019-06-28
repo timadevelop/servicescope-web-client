@@ -1,13 +1,12 @@
 import { Base } from './Base.model';
 import { User } from './User.model';
-import { Url } from 'url';
 import { Tag } from './Tag.models';
-import { Location } from './Location.model';
-import { Category } from './Category.models';
 
 export class FeedPostImage {
-  feed_post: Url
-  image: Url
+  id: number;
+  url: string; // WARNING: this url is a url to feedpostImageInstance!
+  feed_post: string; // url
+  image: string; // url
 }
 
 export class FeedPost extends Base {
