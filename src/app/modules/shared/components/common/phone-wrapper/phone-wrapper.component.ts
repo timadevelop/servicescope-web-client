@@ -15,6 +15,11 @@ export class PhoneWrapperComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.phone) {
+      this.phone = 'No phone';
+      console.warn('no phone number provided to phone wrapper');
+    }
+
     this.phoneText = this.phone.substr(0, 4);
   }
 
