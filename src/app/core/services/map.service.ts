@@ -25,10 +25,9 @@ export class MapService {
   }
 
   private hereApiLibs = [
-    'http://js.api.here.com/v3/3.0/mapsjs-core.js',
-    'http://js.api.here.com/v3/3.0/mapsjs-service.js',
-    'http://js.api.here.com/v3/3.0/mapsjs-ui.js',
-
+    'https://js.api.here.com/v3/3.0/mapsjs-core.js',
+    'https://js.api.here.com/v3/3.0/mapsjs-service.js',
+    'https://js.api.here.com/v3/3.0/mapsjs-ui.js',
   ];
 
   loadHereMaps(): void {
@@ -39,8 +38,10 @@ export class MapService {
 
   private callback() {
     this.platform = new H.service.Platform({
-      'app_id': 'BJVXDaaQP1vlUYnwyeMc',
-      'app_code': 'IBhx7t7ZiR0N-_3S1_xH-w'
+      app_id: 'BJVXDaaQP1vlUYnwyeMc',
+      app_code: 'IBhx7t7ZiR0N-_3S1_xH-w',
+      useCIT: true,
+      useHTTPS: true
     });
     this.hereMapsLoaded$.next(true);
     this.loading = false;
