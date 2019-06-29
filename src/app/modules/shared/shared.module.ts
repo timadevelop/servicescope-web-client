@@ -27,6 +27,7 @@ import { PayFormComponent } from './components/common/pay-form/pay-form.componen
 import { ShareWidgetComponent } from './components/common/share-widget/share-widget.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { CardButtonComponent } from './components/common/card-button/card-button.component';
+import { MapComponent } from './components/common/map/map.component';
 
 @NgModule({
   imports: [
@@ -59,6 +60,7 @@ import { CardButtonComponent } from './components/common/card-button/card-button
     ShareWidgetComponent,
     FooterComponent,
     CardButtonComponent,
+    MapComponent,
     // pipes
     LinkifyPipe
   ],
@@ -86,6 +88,7 @@ import { CardButtonComponent } from './components/common/card-button/card-button
     ShareWidgetComponent,
     FooterComponent,
     CardButtonComponent,
+    MapComponent,
     // pipes
     LinkifyPipe
   ]

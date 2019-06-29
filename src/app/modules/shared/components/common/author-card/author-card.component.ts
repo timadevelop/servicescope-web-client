@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 import { UserService } from 'src/app/core/services/user.service';
 import { AdditionalConversationRouteData } from 'src/app/modules/messages/redirect.guard';
 import { User } from 'src/app/core/models/User.model';
+import { Location } from 'src/app/core/models/Location.model';
 
 @Component({
   selector: 'app-author-card',
@@ -12,6 +13,7 @@ import { User } from 'src/app/core/models/User.model';
 export class AuthorCardComponent implements OnInit {
   @Input() itemTitle: string;
   @Input() author: User;
+  @Input() location: Location;
   @Input() override_phone: string = null;
   @Input() horizontal = false;
 
