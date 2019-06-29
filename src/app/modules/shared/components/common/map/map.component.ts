@@ -31,11 +31,14 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
         if (isLoaded) {
           this.mapService.initMap(this.mapWrapper.nativeElement);
           this.mapService.geocode(this.location.name + ', Bulgaria');
-          this.sub.unsubscribe();
-          this.sub = null;
+          this.unsubscribe();
         }
       });
     }
+  }
+
+  unsubscribe() {
+    if (this.sub) this.sub.unsubscribe();
   }
 
   ngOnChanges(changes: SimpleChanges) {
