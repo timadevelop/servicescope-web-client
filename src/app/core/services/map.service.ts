@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { ConfigService } from './config.service';
+import { BehaviorSubject } from 'rxjs';
 
 declare var H: any;
 
@@ -13,11 +15,53 @@ export class MapService {
   private bubble: any;
   private group: any;
 
-  constructor() {
+  public hereMapsLoaded$ = new BehaviorSubject(null);
+  public loading: boolean = true;
+
+  constructor(
+    private configService: ConfigService
+  ) {
+    this.loadHereMaps();
+  }
+
+  private hereApiLibs = [
+    'http://js.api.here.com/v3/3.0/mapsjs-core.js',
+    'http://js.api.here.com/v3/3.0/mapsjs-service.js',
+    'http://js.api.here.com/v3/3.0/mapsjs-ui.js',
+
+  ];
+
+  loadHereMaps(): void {
+    this.configService.currentConfig().subscribe(c => {
+      this.loadJs(this.hereApiLibs);
+    });
+  }
+
+  private callback() {
     this.platform = new H.service.Platform({
       'app_id': 'BJVXDaaQP1vlUYnwyeMc',
       'app_code': 'IBhx7t7ZiR0N-_3S1_xH-w'
     });
+    this.hereMapsLoaded$.next(true);
+    this.loading = false;
+  }
+
+  private loadJs(urls, index = 0) {
+    const that = this;
+    return (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = urls[index];
+      js.onload = () => {
+        if (urls.length == index + 1) {
+          that.callback();
+        } else {
+          that.loadJs(urls, index + 1);
+        }
+      }
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', `hereAPI${index}`));
   }
 
   initMap(htmlElement): any {

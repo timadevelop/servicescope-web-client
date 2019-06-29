@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, AfterViewInit, OnChanges, ElementRef, ViewChild, SimpleChanges } from '@angular/core';
 import { Location } from 'src/app/core/models/Location.model';
 import { MapService } from 'src/app/core/services/map.service';
+import { Subscription } from 'rxjs';
 
 declare var H: any;
 
@@ -13,10 +14,12 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() location: Location;
   @Input() fullscreen: boolean = false;
 
+  sub: Subscription;
+
   @ViewChild('mapWrapper') mapWrapper: ElementRef;
 
   constructor(
-    private mapService: MapService
+    public mapService: MapService
   ) { }
 
   ngOnInit() {
@@ -24,13 +27,22 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngAfterViewInit(): void {
     if (this.mapWrapper) {
-      this.mapService.initMap(this.mapWrapper.nativeElement);
+      this.sub = this.mapService.hereMapsLoaded$.subscribe(isLoaded => {
+        if (isLoaded) {
+          this.mapService.initMap(this.mapWrapper.nativeElement);
+          this.mapService.geocode(this.location.name + ', Bulgaria');
+          this.sub.unsubscribe();
+          this.sub = null;
+        }
+      });
     }
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.location) {
-      this.mapService.geocode(this.location.name + ', Bulgaria');
+      if (!this.mapService.loading) {
+        this.mapService.geocode(this.location.name + ', Bulgaria');
+      }
     }
   }
 
