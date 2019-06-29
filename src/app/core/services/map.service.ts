@@ -16,7 +16,6 @@ export class MapService {
   private group: any;
 
   public hereMapsLoaded$ = new BehaviorSubject(null);
-  public loading: boolean = true;
 
   constructor(
     private configService: ConfigService
@@ -31,20 +30,31 @@ export class MapService {
   ];
 
   loadHereMaps(): void {
-    this.configService.currentConfig().subscribe(c => {
-      this.loadJs(this.hereApiLibs);
-    });
+    if (window && window['loaded_H'] === true) {
+      this.callback();
+      return;
+    } else {
+      this.configService.currentConfig().subscribe(c => {
+        this.loadJs(this.hereApiLibs);
+      });
+    }
   }
 
   private callback() {
-    this.platform = new H.service.Platform({
-      app_id: 'BJVXDaaQP1vlUYnwyeMc',
-      app_code: 'IBhx7t7ZiR0N-_3S1_xH-w',
-      useCIT: true,
-      useHTTPS: true
-    });
+    if (!this.platform) {
+      this.platform = new H.service.Platform({
+        app_id: 'BJVXDaaQP1vlUYnwyeMc',
+        app_code: 'IBhx7t7ZiR0N-_3S1_xH-w',
+        useCIT: true,
+        useHTTPS: true
+      });
+    }
+
     this.hereMapsLoaded$.next(true);
-    this.loading = false;
+
+    if (window) {
+      window['loaded_H'] = true;
+    }
   }
 
   private loadJs(urls, index = 0) {
@@ -124,7 +134,11 @@ export class MapService {
 
     // remove old group
     if (this.group) {
-      this.map.removeObject(this.group);
+      try {
+        this.map.removeObject(this.group);
+      } catch (e) {
+        // pass
+      }
     }
     // Add the locations group to the map
     this.map.addObject(group);

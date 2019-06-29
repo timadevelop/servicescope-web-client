@@ -14,6 +14,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() location: Location;
   @Input() fullscreen: boolean = false;
 
+  loaded: boolean = false;
   sub: Subscription;
 
   @ViewChild('mapWrapper') mapWrapper: ElementRef;
@@ -28,6 +29,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
   ngAfterViewInit(): void {
     if (this.mapWrapper) {
       this.sub = this.mapService.hereMapsLoaded$.subscribe(isLoaded => {
+        this.loaded = isLoaded;
         if (isLoaded) {
           this.mapService.initMap(this.mapWrapper.nativeElement);
           this.mapService.geocode(this.location.name + ', Bulgaria');
@@ -43,7 +45,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.location) {
-      if (!this.mapService.loading) {
+      if (this.loaded) {
         this.mapService.geocode(this.location.name + ', Bulgaria');
       }
     }
