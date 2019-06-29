@@ -6,16 +6,17 @@ declare var H: any;
   providedIn: 'root'
 })
 export class MapService {
-  platform: any;
-  defaultLayers: any;
-  map: any;
-  ui: any;
-  bubble: any;
+  private platform: any;
+  private defaultLayers: any;
+  private map: any;
+  private ui: any;
+  private bubble: any;
+  private group: any;
 
   constructor() {
     this.platform = new H.service.Platform({
-      'app_id': '',
-      'app_code': ''
+      'app_id': 'BJVXDaaQP1vlUYnwyeMc',
+      'app_code': 'IBhx7t7ZiR0N-_3S1_xH-w'
     });
   }
 
@@ -55,7 +56,7 @@ export class MapService {
   }
 
   addLocationsToMap(locations) {
-    var group = new H.map.Group(),
+    let group = new H.map.Group(),
       position,
       i;
 
@@ -76,9 +77,14 @@ export class MapService {
         evt.target.getPosition(), evt.target.label);
     }, false);
 
+    // remove old group
+    if (this.group) {
+      this.map.removeObject(this.group);
+    }
     // Add the locations group to the map
     this.map.addObject(group);
     this.map.setCenter(group.getBounds().getCenter());
+    this.group = group;
   }
 
   openBubble(position, text) {
