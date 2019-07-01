@@ -62,7 +62,7 @@
             <nz-form-label nzFor="category" i18n="@@serviceFormLabelPrice">Category</nz-form-label>
             <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('category')"
               nzHasFeedback>
-              <nz-input-group [nzPrefix]="prefixTitle">
+              <nz-input-group [nzPrefix]="prefixCategory">
                 <app-category-selector [isFormItem]="true" (onChange)="onCategoryChange($event)" [selectedCategoryString]="this.serviceForm.controls['category'].value">
                 </app-category-selector>
               </nz-input-group>
@@ -82,7 +82,7 @@
             <nz-form-label nzFor="location" i18n="@@serviceFormLabelLocation">Location</nz-form-label>
             <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('location')"
               nzHasFeedback>
-              <nz-input-group [nzPrefix]="prefixTitle">
+              <nz-input-group [nzPrefix]="prefixLocation">
                 <app-location-search [isFormItem]="true" (onChange)="onLocationChange($event)" [selectedLocation]="this.service?.location"></app-location-search>
               </nz-input-group>
               <nz-form-explain *ngIf="dirtyOrHasErrors('location')">
@@ -123,7 +123,7 @@
       <nz-form-item>
         <nz-form-label nzFor="tags" i18n="@@serviceFormLabelTags">Tags</nz-form-label>
         <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('tags')" nzHasFeedback>
-          <nz-input-group [nzPrefix]="prefixTitle">
+          <nz-input-group [nzPrefix]="prefixTags">
             <app-tags-selector (onChange)="onTagsChange($event)" [defaultTags]="this.serviceForm.controls['tags'].value"></app-tags-selector>
           </nz-input-group>
           <nz-form-explain *ngIf="dirtyOrHasErrors('tags')">
@@ -177,7 +177,7 @@
         <nz-form-item>
           <nz-form-label nzFor="contact_phone" i18n="@@serviceFormLabelPhone">Phone</nz-form-label>
           <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
-            <nz-input-group [nzPrefix]="prefixTitle">
+            <nz-input-group [nzPrefix]="prefixPhone">
               <input type="text" nz-input formControlName="contact_phone"
                 i18n-placeholder="@@serviceFormLabelPhonePlaceholder" placeholder="Contact phone" />
             </nz-input-group>
@@ -202,7 +202,7 @@
       <nz-form-item nz-row>
         <nz-form-control>
           <button (click)="onFormSubmit(jsonEditor)" style="width: 100%;" nz-button nzType="primary">
-              <span *ngIf="!edit" i18n="@@newServiceFormAddButtonText">Add</span>
+              <span *ngIf="!edit" i18n="@@newServiceFormAddButtonText">Create Service</span>
               <span *ngIf="edit" i18n="@@serviceFormSaveButtonText">Save</span>
           </button>
         </nz-form-control>
@@ -217,6 +217,23 @@
 <ng-template #prefixTitle>
   <i nz-icon type="font-size"></i>
 </ng-template>
+
+<ng-template #prefixPhone>
+  <i nz-icon type="phone"></i>
+</ng-template>
+
+<ng-template #prefixTags>
+  <i nz-icon type="tags"></i>
+</ng-template>
+
+<ng-template #prefixCategory>
+  <i nz-icon type="folder"></i>
+</ng-template>
+
+<ng-template #prefixLocation>
+  <i nz-icon type="environment"></i>
+</ng-template>
+
 
 
 
