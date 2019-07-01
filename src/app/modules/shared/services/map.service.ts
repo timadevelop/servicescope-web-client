@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ConfigService } from './config.service';
+import { ConfigService } from '../../../core/services/config.service';
 import { BehaviorSubject } from 'rxjs';
 
 declare var H: any;

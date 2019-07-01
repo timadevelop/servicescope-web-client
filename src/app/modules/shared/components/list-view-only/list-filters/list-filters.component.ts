@@ -1,11 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TagsService } from 'src/app/core/services/tags.service';
+import { TagsService } from 'src/app/modules/shared/services/tags.service';
 import { Tag } from 'src/app/core/models/Tag.models';
 import { Subscription } from 'rxjs';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd';
-import { CategoriesService } from 'src/app/core/services/categories.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({

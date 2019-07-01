@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, SimpleChanges, SimpleChange } from '@angular/core';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { NzMessageService } from 'ng-zorro-antd';
-import { PaymentsService } from 'src/app/core/services/payments.service';
+import { PaymentsService } from 'src/app/modules/shared/services/payments.service';
 import { paymentIntents } from 'stripe';
 import { ConfigService } from 'src/app/core/services/config.service';
 

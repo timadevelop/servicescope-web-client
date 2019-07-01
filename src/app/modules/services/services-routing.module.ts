@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ServicesComponent } from './services/services.component';
 
 import { ServicesDetailComponent } from './services-detail/services-detail.component';
-import { ServiceResolverService } from '../../core/resolvers/service-resolver.service';
+import { ServiceResolverService } from './resolvers/service-resolver.service';
 import { ServicesListComponent } from './services-list/services-list.component';
 import { AuthGuard } from '../auth/auth.guard';
-import { ServicesListResolverService } from '../../core/resolvers/services-list-resolver.service';
+import { ServicesListResolverService } from './resolvers/services-list-resolver.service';
 import { PageNotFoundComponent } from 'src/app/core/components/page-not-found/page-not-found.component';
 import { CreateServiceComponent } from './create-service/create-service.component';
 import { PromoteServiceComponent } from './promote-service/promote-service.component';

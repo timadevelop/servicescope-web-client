@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
 
-import { MessagesService } from 'src/app/core/services/messages.service';
+import { MessagesService } from 'src/app/modules/messages/services/messages.service';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { Message } from 'src/app/core/models/Message.model';
 import { UserService } from 'src/app/core/services/user.service';

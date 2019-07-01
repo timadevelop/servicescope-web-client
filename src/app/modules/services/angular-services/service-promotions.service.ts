@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ErrorHandlerService } from './error-handler.service';
-import { ServicePromotion } from '../models/ServicePromotion.model';
+import { ErrorHandlerService } from '../../../core/services/error-handler.service';
+import { ServicePromotion } from '../../../core/models/ServicePromotion.model';
 import { Observable, throwError, of, Subject, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
-import { CustomEncoder } from './custom.encoder';
+import { PaginatedApiResponse } from '../../../core/models/api-response/paginated-api-response';
+import { CustomEncoder } from '../../../core/services/custom.encoder';
 import { catchError, tap, share } from 'rxjs/operators';
 
 @Injectable({

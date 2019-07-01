@@ -5,7 +5,7 @@ import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { Title } from '@angular/platform-browser';
 import { I18n } from '@ngx-translate/i18n-polyfill';
-import { ServicePromotionsService } from 'src/app/core/services/service-promotions.service';
+import { ServicePromotionsService } from 'src/app/modules/services/angular-services/service-promotions.service';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
 

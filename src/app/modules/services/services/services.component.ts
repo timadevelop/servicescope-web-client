@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicesService } from 'src/app/core/services/services.service';
+import { ServicesService } from 'src/app/modules/services/angular-services/services.service';
 import { Title } from '@angular/platform-browser';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 

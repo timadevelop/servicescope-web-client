@@ -4,7 +4,7 @@ import { TargetDeviceService } from 'src/app/core/services/target-device.service
 import { UserService } from 'src/app/core/services/user.service';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { Conversation } from 'src/app/core/models/Conversation.model';
-import { ConversationsService } from '../../../core/services/conversations.service';
+import { ConversationsService } from '../services/conversations.service';
 import { ChatService } from 'src/app/core/services/socket/chat.service';
 import { User } from 'src/app/core/models/User.model';
 import { environment } from 'src/environments/environment';

@@ -3,7 +3,7 @@ import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated
 import { Service } from 'src/app/core/models/Service.model';
 import { Router, Params, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Tag } from 'src/app/core/models/Tag.models';
-import { ServicePromotionsService } from 'src/app/core/services/service-promotions.service';
+import { ServicePromotionsService } from 'src/app/modules/services/angular-services/service-promotions.service';
 import { ServicePromotion } from 'src/app/core/models/ServicePromotion.model';
 import { filter } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';

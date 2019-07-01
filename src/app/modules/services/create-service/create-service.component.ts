@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/core/models/Service.model';
 import { NzMessageService } from 'ng-zorro-antd';
 import { ServiceApiRequest } from 'src/app/core/models/api-request/service-api-request.model';
-import { ServicesService } from 'src/app/core/services/services.service';
+import { ServicesService } from 'src/app/modules/services/angular-services/services.service';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { I18n } from '@ngx-translate/i18n-polyfill';

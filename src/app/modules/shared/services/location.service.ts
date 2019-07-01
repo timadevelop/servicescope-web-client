@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { GeoSearchResult } from '../models/GeoSearchResult';
+import { GeoSearchResult } from '../../../core/models/GeoSearchResult';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Location } from '../models/Location.model';
-import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
+import { Location } from '../../../core/models/Location.model';
+import { PaginatedApiResponse } from '../../../core/models/api-response/paginated-api-response';
 
 @Injectable({
   providedIn: 'root'

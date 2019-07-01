@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { Service } from 'src/app/core/models/Service.model';
-import { ServicesService } from 'src/app/core/services/services.service';
+import { ServicesService } from 'src/app/modules/services/angular-services/services.service';
 import { Router, Params } from '@angular/router';
 import { Tag } from 'src/app/core/models/Tag.models';
 

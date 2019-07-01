@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { NzMessageService } from 'ng-zorro-antd';
-import { Category } from '../models/Category.models';
-import { Observable, throwError } from 'rxjs';
+import { Category } from '../../../core/models/Category.models';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
-import { CustomEncoder } from './custom.encoder';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { PaginatedApiResponse } from '../../../core/models/api-response/paginated-api-response';
+import { CustomEncoder } from '../../../core/services/custom.encoder';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,7 @@ import { CustomEncoder } from './custom.encoder';
 export class CategoriesService {
 
   constructor(
-    private http: HttpClient,
-    private messageService: NzMessageService) {
+    private http: HttpClient) {
   }
 
   public getCategoryById(id: number): Observable<Category> {

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FeedService } from 'src/app/modules/profile/services/feed.service';
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot, Resolve } from '@angular/router';
-import { FeedPost } from '../models/FeedPost.model';
-import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
+import { FeedPost } from '../../../core/models/FeedPost.model';
+import { PaginatedApiResponse } from '../../../core/models/api-response/paginated-api-response';
 import { Observable, of, EMPTY } from 'rxjs';
 import { take, mergeMap, catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';

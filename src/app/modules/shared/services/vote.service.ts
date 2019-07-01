@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Vote } from '../models/Vote.model';
+import { Vote } from '../../../core/models/Vote.model';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
 import { NzMessageService } from 'ng-zorro-antd';
-import { ErrorHandlerService } from './error-handler.service';
+import { ErrorHandlerService } from '../../../core/services/error-handler.service';
 
 @Injectable({
   providedIn: 'root'

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
-import { Tag } from '../models/Tag.models';
+import { Tag } from '../../../core/models/Tag.models';
 import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
-import { CustomEncoder } from './custom.encoder';
+import { PaginatedApiResponse } from '../../../core/models/api-response/paginated-api-response';
+import { CustomEncoder } from '../../../core/services/custom.encoder';
 import { catchError } from 'rxjs/operators';
-import { ErrorHandlerService } from './error-handler.service';
+import { ErrorHandlerService } from '../../../core/services/error-handler.service';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Route, ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { Service } from 'src/app/core/models/Service.model';
-import { ServicesService } from 'src/app/core/services/services.service';
+import { ServicesService } from 'src/app/modules/services/angular-services/services.service';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';

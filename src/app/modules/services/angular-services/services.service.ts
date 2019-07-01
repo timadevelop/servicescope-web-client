@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpRequest, HttpEvent, HttpEventType, HttpResponse, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { UploadFile } from 'ng-zorro-antd';
-import { Service, ServiceImage } from '../models/Service.model';
+import { Service, ServiceImage } from '../../../core/models/Service.model';
 import { Observable, throwError, of, from } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
+import { PaginatedApiResponse } from '../../../core/models/api-response/paginated-api-response';
 import { catchError, tap } from 'rxjs/operators';
-import { CustomEncoder } from './custom.encoder';
-import { ServiceApiRequest } from '../models/api-request/service-api-request.model';
-import { ErrorHandlerService } from './error-handler.service';
+import { CustomEncoder } from '../../../core/services/custom.encoder';
+import { ServiceApiRequest } from '../../../core/models/api-request/service-api-request.model';
+import { ErrorHandlerService } from '../../../core/services/error-handler.service';
 
 @Injectable({
   providedIn: 'root'

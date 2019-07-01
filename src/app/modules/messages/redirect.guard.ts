@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivateChild, CanLoad, Route, ParamMap } from '@angular/router';
-import { ConversationsService } from '../../core/services/conversations.service';
+import { ConversationsService } from './services/conversations.service';
 import { Observable, of } from 'rxjs';
 import { Conversation } from 'src/app/core/models/Conversation.model';
 import { catchError, switchMap } from 'rxjs/operators';

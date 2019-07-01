@@ -3,7 +3,7 @@ import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated
 import { Category } from 'src/app/core/models/Category.models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CategoriesService } from 'src/app/core/services/categories.service';
+import { CategoriesService } from 'src/app/modules/shared/services/categories.service';
 
 @Component({
   selector: 'app-category-selector',

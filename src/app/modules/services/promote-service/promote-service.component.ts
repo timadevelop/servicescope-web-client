@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/core/models/Service.model';
-import { ServicesService } from 'src/app/core/services/services.service';
+import { ServicesService } from 'src/app/modules/services/angular-services/services.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { paymentIntents } from 'stripe';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { NzMessageService } from 'ng-zorro-antd';
 import { UserService } from 'src/app/core/services/user.service';
-import { ServicePromotionsService } from 'src/app/core/services/service-promotions.service';
+import { ServicePromotionsService } from 'src/app/modules/services/angular-services/service-promotions.service';
 import { ServicePromotion } from 'src/app/core/models/ServicePromotion.model';
 import { Location } from '@angular/common';
 

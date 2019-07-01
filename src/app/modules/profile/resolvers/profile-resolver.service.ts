@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../../core/services/user.service';
 import { Router, RouterStateSnapshot, ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable, of, EMPTY } from 'rxjs';
-import { User } from '../models/User.model';
+import { User } from '../../../core/models/User.model';
 import { take, mergeMap, map, switchMap, first } from 'rxjs/operators';
 
 @Injectable({

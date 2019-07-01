@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
 import { Vote, VoteTypes } from 'src/app/core/models/Vote.model';
-import { VoteService } from 'src/app/core/services/vote.service';
+import { VoteService } from 'src/app/modules/shared/services/vote.service';
 import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({

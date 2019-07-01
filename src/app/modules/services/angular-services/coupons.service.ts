@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ErrorHandlerService } from './error-handler.service';
+import { ErrorHandlerService } from '../../../core/services/error-handler.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';

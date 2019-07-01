@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
-import { TagsService } from 'src/app/core/services/tags.service';
+import { TagsService } from 'src/app/modules/shared/services/tags.service';
 import { Subscription } from 'rxjs';
 import { Tag } from 'src/app/core/models/Tag.models';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';

@@ -39,13 +39,4 @@ export class NotificationsService {
     return this.http.get<PaginatedApiResponse<Notification>>(next);
   }
 
-  // public createNotification(): Observable<Notification> {
-  //   return this.http.post<Notification>(`${environment.apiUrl}/notifications/`, notification)
-  //     .pipe(
-  //       catchError(e => this.errorHandlerService.handleError(e))
-  //     );
-  // }
-
-
-
 }

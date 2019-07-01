@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CouponsService } from 'src/app/core/services/coupons.service';
+import { CouponsService } from 'src/app/modules/services/angular-services/coupons.service';
 import { NzMessageService } from 'ng-zorro-antd';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd';
-import { throwError, Observable } from 'rxjs';
+import { throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

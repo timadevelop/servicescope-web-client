@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileHomeComponent } from './profile-home/profile-home.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
-import { ProfileResolverService } from '../../core/resolvers/profile-resolver.service';
+import { ProfileResolverService } from './resolvers/profile-resolver.service';
 import { ProfileListComponent } from './profile-list/profile-list.component';
 import { AuthGuard } from '../auth/auth.guard';
-import { UsersListResolverService } from '../../core/resolvers/users-list-resolver.service';
-import { ServicesListResolverService } from '../../core/resolvers/services-list-resolver.service';
-import { FeedResolverService } from 'src/app/core/resolvers/feed-resolver.service';
+import { UsersListResolverService } from './resolvers/users-list-resolver.service';
+import { ServicesListResolverService } from '../services/resolvers/services-list-resolver.service';
+import { FeedResolverService } from 'src/app/modules/profile/resolvers/feed-resolver.service';
 import { ServicesListComponent } from '../services/services-list/services-list.component';
 import { FeedComponent } from './feed/feed.component';
 

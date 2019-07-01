@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit, OnChanges, ElementRef, ViewChild, SimpleChanges } from '@angular/core';
 import { Location } from 'src/app/core/models/Location.model';
-import { MapService } from 'src/app/core/services/map.service';
+import { MapService } from 'src/app/modules/shared/services/map.service';
 import { Subscription } from 'rxjs';
 
 declare var H: any;

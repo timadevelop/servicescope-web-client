@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
-import { LocationService } from 'src/app/core/services/location.service';
+import { LocationService } from 'src/app/modules/shared/services/location.service';
 
 import { Location } from 'src/app/core/models/Location.model';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
