@@ -9,7 +9,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { UsersListResolverService } from './resolvers/users-list-resolver.service';
 import { ServicesListResolverService } from '../services/resolvers/services-list-resolver.service';
 import { FeedResolverService } from 'src/app/modules/profile/resolvers/feed-resolver.service';
-import { ServicesListComponent } from '../services/services-list/services-list.component';
+import { ServicesListComponent } from '../services/components/services-list/services-list.component';
 import { FeedComponent } from './feed/feed.component';
 
 const profileRoutes: Routes = [

@@ -3,26 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { ServicesRoutingModule } from './services-routing.module';
 
-import { ServicesComponent } from './services/services.component';
-import { ServicesListComponent } from './services-list/services-list.component';
-import { ServicesDetailComponent } from './services-detail/services-detail.component';
+import { ServicesListComponent } from './components/services-list/services-list.component';
+import { ServicesDetailComponent } from './components/services-detail/services-detail.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { CoreModule } from '../../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SimilarServicesListComponent } from './similar-services-list/similar-services-list.component';
-import { NewServiceFormComponent } from './new-service-form/new-service-form.component';
-import { CreateServiceComponent } from './create-service/create-service.component';
-import { JsonLabelValueEditorComponent } from './new-service-form/json-label-value-editor/json-label-value-editor.component';
-import { PromotedServicesListComponent } from './promoted-services-list/promoted-services-list.component';
-import { PromoteServiceComponent } from './promote-service/promote-service.component';
+import { SimilarServicesListComponent } from './components/similar-services-list/similar-services-list.component';
+import { NewServiceFormComponent } from './components/new-service-form/new-service-form.component';
+import { CreateServiceComponent } from './components/create-service/create-service.component';
+import { JsonLabelValueEditorComponent } from './components/new-service-form/json-label-value-editor/json-label-value-editor.component';
+import { PromotedServicesListComponent } from './components/promoted-services-list/promoted-services-list.component';
+import { PromoteServiceComponent } from './components/promote-service/promote-service.component';
 import { SharedModule } from '../shared/shared.module';
-import { PromoteServiceUsingCouponComponent } from './promote-service/promote-service-using-coupon/promote-service-using-coupon.component';
-import { EditServiceComponent } from './edit-service/edit-service.component';
+import { PromoteServiceUsingCouponComponent } from './components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component';
+import { EditServiceComponent } from './components/edit-service/edit-service.component';
 
 @NgModule({
   declarations: [
-    ServicesComponent,
     ServicesListComponent,
     ServicesDetailComponent,
     SimilarServicesListComponent,

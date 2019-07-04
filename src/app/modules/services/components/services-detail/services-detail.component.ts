@@ -9,7 +9,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
-import { AdditionalConversationRouteData } from '../../messages/redirect.guard';
+import { AdditionalConversationRouteData } from '../../../messages/redirect.guard';
 import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
