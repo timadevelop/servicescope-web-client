@@ -7,6 +7,7 @@ import { FeedPost } from 'src/app/core/models/FeedPost.model';
 import { UserService } from 'src/app/core/services/user.service';
 import { Location } from '@angular/common';
 import { FeedService } from '../services/feed.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-feed',
@@ -69,7 +70,7 @@ export class FeedComponent implements OnInit {
   }
 
   getPublicUrl(postId: number | string): string {
-    return window.location.origin + this.location.prepareExternalUrl(`/profiles/feed/post/${postId}`);
+    return environment.PUBLIC_ORIGIN + this.location.prepareExternalUrl(`/profiles/feed/post/${postId}`);
   }
 
   // posting new

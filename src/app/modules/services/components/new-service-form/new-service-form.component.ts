@@ -126,7 +126,7 @@ export class NewServiceFormComponent implements OnInit {
   }
 
   private scrollToError() {
-    const firstElementWithError = document.querySelector('.ng-invalid');
+    const firstElementWithError = document ? document.querySelector('.ng-invalid') : null;
     if (firstElementWithError) {
       firstElementWithError.scrollIntoView({ behavior: 'smooth' });
     }

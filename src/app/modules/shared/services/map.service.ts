@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { ConfigService } from '../../../core/services/config.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -18,7 +18,8 @@ export class MapService {
   public hereMapsLoaded$ = new BehaviorSubject(null);
 
   constructor(
-    private configService: ConfigService
+    private configService: ConfigService,
+    @Inject('isBrowser') private isBrowser: boolean,
   ) {
     this.loadHereMaps();
   }
@@ -30,6 +31,10 @@ export class MapService {
   ];
 
   loadHereMaps(): void {
+    if (!this.isBrowser) {
+      console.warn('Not loading here maps js files. Reason: platform is not a browser.');
+      return;
+    }
     if (window && window['loaded_H'] === true) {
       this.callback();
       return;
@@ -42,6 +47,7 @@ export class MapService {
 
   private callback() {
     if (!this.platform) {
+      // TODO: rm these codes
       this.platform = new H.service.Platform({
         app_id: 'BJVXDaaQP1vlUYnwyeMc',
         app_code: 'IBhx7t7ZiR0N-_3S1_xH-w',
@@ -52,12 +58,16 @@ export class MapService {
 
     this.hereMapsLoaded$.next(true);
 
-    if (window) {
+    if (this.isBrowser && window) {
       window['loaded_H'] = true;
     }
   }
 
   private loadJs(urls, index = 0) {
+    if (!this.isBrowser) {
+      console.warn('Not loading here maps js files. Reason: platform is not a browser.');
+      return;
+    }
     const that = this;
     return (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];

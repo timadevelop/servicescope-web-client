@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, Inject } from '@angular/core';
 import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.service';
 import { HttpClient } from '@angular/common/http';
 import { TokenInfo } from '../models';
@@ -21,7 +21,10 @@ export class FacebookAuthenticationService {
   _loading = false;
 
   constructor(
-    private configService: ConfigService, private zone: NgZone, private http: HttpClient) { }
+    @Inject('isBrowser') private isBrowser: boolean,
+    private configService: ConfigService,
+    private zone: NgZone,
+    private http: HttpClient) { }
 
   /**
    * get loading
@@ -83,6 +86,9 @@ export class FacebookAuthenticationService {
   // }
 
   loadAuth2(): void {
+    if (!this.isBrowser) {
+      return;
+    }
     const that = this;
     this.configService.currentConfig().subscribe(c => {
       const appId = c.FACEBOOK_APP_ID;

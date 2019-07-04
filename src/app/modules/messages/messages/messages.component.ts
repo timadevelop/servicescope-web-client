@@ -14,7 +14,7 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 export class MessagesComponent implements OnInit {
   conversation: boolean;
 
-  height: number = document.documentElement.clientHeight - 64 - 24 - 4;
+  height: number = document ? (document.documentElement.clientHeight - 64 - 24 - 4) : 0;
 
   constructor(
     public userService: UserService,

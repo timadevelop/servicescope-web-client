@@ -67,20 +67,6 @@ export class ProfileAvatarUploaderComponent implements OnInit {
     reader.readAsDataURL(img);
   }
 
-  // TODO?
-  private checkImageDimension(file: File): Promise<boolean> {
-    return new Promise(resolve => {
-      const img = new Image(); // create image
-      img.src = window.URL.createObjectURL(file);
-      img.onload = () => {
-        const width = img.naturalWidth;
-        const height = img.naturalHeight;
-        window.URL.revokeObjectURL(img.src!);
-        resolve(width === height && width >= 300);
-      };
-    });
-  }
-
   uploadAvatar = (item: UploadXHRArgs) => {
     return this.userService.updateCurrentUserAvatar(item)
       .subscribe(

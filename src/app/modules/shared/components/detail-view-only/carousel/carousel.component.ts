@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter, ViewChildren } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter, ViewChildren, Inject } from '@angular/core';
 import { ServiceImage } from 'src/app/core/models/Service.model';
 import { NzCarouselComponent } from 'ng-zorro-antd';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-carousel',
@@ -25,7 +26,8 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   @ViewChildren('carousel') carousels: Array<NzCarouselComponent>;
 
   constructor(
-    public tds: TargetDeviceService
+    public tds: TargetDeviceService,
+    @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit() {
@@ -42,7 +44,9 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   private toggleBodyScroll(enable: boolean) {
-    document.body.style.overflow = enable ? 'unset' : 'hidden';
+    if (this.document) {
+      this.document.body.style.overflow = enable ? 'unset' : 'hidden';
+    }
   }
 
   zoom(v: boolean) {

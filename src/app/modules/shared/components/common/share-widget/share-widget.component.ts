@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-share-widget',
@@ -12,12 +13,17 @@ export class ShareWidgetComponent implements OnInit {
   }
 
   @Input() shareUrl: string;
-  constructor() { }
+  constructor(
+    @Inject('isBrowser') private isBrowser: boolean
+  ) { }
 
   ngOnInit() {
   }
 
   share(provider: 'twitter' | 'facebook') {
+    if (!this.isBrowser && window) {
+      return;
+    }
     let shareURL = this.shareUrls[provider]; //url base
 
     let params = this.getParams(provider)
@@ -36,17 +42,19 @@ export class ShareWidgetComponent implements OnInit {
     }
     if (provider == 'facebook') {
       return {
-        u: this.shareUrl || window.location.href
+        u: this.getShareUrl()
       }
     }
   }
 
   public copy() {
-    this.copyToClipboard(this.getShareUrl());
+    if (this.isBrowser) {
+      this.copyToClipboard(this.getShareUrl());
+    }
   }
 
   private getShareUrl() {
-    return this.shareUrl || window.location.href;
+    return this.shareUrl || (this.isBrowser && window ? window.location.href : environment.PUBLIC_ORIGIN);
   }
 
   private copyToClipboard(str: string) {

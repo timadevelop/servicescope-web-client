@@ -51,6 +51,7 @@ registerLocaleData(en); // bg
     AppRoutingModule,
   ],
   providers: [
+    { provide: 'isBrowser', useValue: true },
     { provide: TRANSLATIONS_FORMAT, useValue: "xlf" },
     { provide: LOCALE_ID, useValue: DEFAULT_LOCALE },
     { provide: MISSING_TRANSLATION_STRATEGY, useValue: MissingTranslationStrategy.Ignore },
