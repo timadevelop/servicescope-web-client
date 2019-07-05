@@ -1,4 +1,4 @@
-import { Injectable, NgZone, Inject } from '@angular/core';
+import { Injectable, NgZone, Inject, PLATFORM_ID } from '@angular/core';
 import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.service';
 import { HttpClient } from '@angular/common/http';
 import { TokenInfo } from '../models';
@@ -7,6 +7,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { isPlatformBrowser } from '@angular/common';
 declare var FB: any;
 
 @Injectable({
@@ -21,7 +22,7 @@ export class FacebookAuthenticationService {
   _loading = false;
 
   constructor(
-    @Inject('isBrowser') private isBrowser: boolean,
+    @Inject(PLATFORM_ID) private platformId: Object,
     private configService: ConfigService,
     private zone: NgZone,
     private http: HttpClient) { }
@@ -86,7 +87,7 @@ export class FacebookAuthenticationService {
   // }
 
   loadAuth2(): void {
-    if (!this.isBrowser) {
+    if (!isPlatformBrowser(this.platformId)) {
       return;
     }
     const that = this;

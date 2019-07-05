@@ -5,7 +5,12 @@
     "types": [
       "gapi",
       "gapi.auth2"
-    ]
+    ],
+    "paths": {
+      "stream": [
+        "node_modules/stream-browserify"
+      ]
+    }
   },
   "exclude": [
     "test.ts",

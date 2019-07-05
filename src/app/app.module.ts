@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslationStrategy } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,11 @@ import { NotificationsManagerComponent } from './app-components/notifications-ma
 import { I18n, MISSING_TRANSLATION_STRATEGY } from '@ngx-translate/i18n-polyfill';
 import { FeedbackWidgetComponent } from './app-components/feedback-widget/feedback-widget.component';
 
+import { CookieService } from './core/services/cookie.service';
+
+import { TransferHttpCacheModule } from '@hapiness/ng-universal-transfer-http';
+
+
 declare const require; // Use the require method provided by webpack
 // const translations = require(`raw-loader!../locale/messages.bg.xlf`);
 
@@ -39,7 +44,9 @@ registerLocaleData(en); // bg
     FeedbackWidgetComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'saasWebClient' }),
+    BrowserTransferStateModule,
+    TransferHttpCacheModule,
     FormsModule,
     ReactiveFormsModule,
     NgZorroAntdModule,
@@ -51,7 +58,11 @@ registerLocaleData(en); // bg
     AppRoutingModule,
   ],
   providers: [
-    { provide: 'isBrowser', useValue: true },
+    CookieService,
+    {
+        provide: 'req',
+        useValue: null
+    },
     { provide: TRANSLATIONS_FORMAT, useValue: "xlf" },
     { provide: LOCALE_ID, useValue: DEFAULT_LOCALE },
     { provide: MISSING_TRANSLATION_STRATEGY, useValue: MissingTranslationStrategy.Ignore },

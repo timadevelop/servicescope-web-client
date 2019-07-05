@@ -1,14 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd';
 import { throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { isPlatformBrowser } from '@angular/common';
+import { CookieService } from './cookie.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorHandlerService {
   constructor(
+    private cookieService: CookieService,
+    @Inject(PLATFORM_ID) private platformId: Object,
     private messageService: NzMessageService
   ) { }
 
@@ -20,10 +24,12 @@ export class ErrorHandlerService {
       if (error.error instanceof Object) {
         if (error.status === 401) {
           // Unauthorized
-          localStorage.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
+          if (isPlatformBrowser(this.platformId)) {
+            this.cookieService.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
+          }
         }
         else if (error.status === 0) {
-          this.messageService.error('We have some troubles. Contact Administrator please.', {nzDuration: 5000});
+          this.messageService.error('We have some troubles. Contact Administrator please.', { nzDuration: 5000 });
           console.warn('It seems like api does not work.');
           return;
         }

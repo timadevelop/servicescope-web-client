@@ -7,5 +7,6 @@ npm install
 if [ "$ENV" = "production" ]; then
     ng serve --host 0.0.0.0 --disable-host-check --disableHostCheck
 else
-    ng serve --aot --host 0.0.0.0 --disable-host-check --disableHostCheck --base-href=/saas_web/ --public-host=$SAAS_WEB_PUBLIC_HOST
+    #ng serve --aot --host 0.0.0.0 --disable-host-check --disableHostCheck --base-href=/saas_web/ --public-host=$SAAS_WEB_PUBLIC_HOST
+    npm run build:ssr && npm run serve:ssr
 fi

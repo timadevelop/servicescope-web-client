@@ -1,9 +1,10 @@
-import { Injectable, OnDestroy, OnInit } from "@angular/core";
+import { Injectable, OnDestroy, OnInit, PLATFORM_ID, Inject } from "@angular/core";
 import { Observable, Observer, Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
 import { AuthService } from '../../../modules/auth/auth.service';
 import { share } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { NzMessageService } from 'ng-zorro-antd';
+import { isPlatformBrowser } from '@angular/common';
 
 const RECONNECTING_INTERVAL = 3000;
 
@@ -17,8 +18,9 @@ export class SocketService implements OnDestroy, OnInit {
   private subject: Subject<MessageEvent>;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private authService: AuthService,
-    private nzMessageService: NzMessageService
+    private nzMessageService: NzMessageService,
   ) {}
 
   ngOnInit() {}
@@ -53,6 +55,9 @@ export class SocketService implements OnDestroy, OnInit {
   }
 
   private create(url): Subject<MessageEvent> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return null;
+    }
     // get token
     const token = this.authService.getTokenInfo();
     if (!token || !this.authService.isLoggedIn) {

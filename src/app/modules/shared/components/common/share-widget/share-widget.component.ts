@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-share-widget',
@@ -14,14 +15,14 @@ export class ShareWidgetComponent implements OnInit {
 
   @Input() shareUrl: string;
   constructor(
-    @Inject('isBrowser') private isBrowser: boolean
+    @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
   ngOnInit() {
   }
 
   share(provider: 'twitter' | 'facebook') {
-    if (!this.isBrowser && window) {
+    if (!isPlatformBrowser(this.platformId)) {
       return;
     }
     let shareURL = this.shareUrls[provider]; //url base
@@ -48,13 +49,13 @@ export class ShareWidgetComponent implements OnInit {
   }
 
   public copy() {
-    if (this.isBrowser) {
+    if (isPlatformBrowser(this.platformId)) {
       this.copyToClipboard(this.getShareUrl());
     }
   }
 
   private getShareUrl() {
-    return this.shareUrl || (this.isBrowser && window ? window.location.href : environment.PUBLIC_ORIGIN);
+    return this.shareUrl || (isPlatformBrowser(this.platformId) && window ? window.location.href : environment.PUBLIC_ORIGIN);
   }
 
   private copyToClipboard(str: string) {

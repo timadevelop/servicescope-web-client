@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { Observable, of, throwError, ReplaySubject } from 'rxjs';
 import { tap, delay, mapTo, catchError, retry, map, switchMap } from 'rxjs/operators';
 import { TokenInfo } from './models';
@@ -14,6 +14,8 @@ import { GoogleAuthenticationService } from './social/google-authentication.serv
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { FacebookAuthenticationService } from './social/facebook-authentication.service';
 import { ErrorHandlerService } from 'src/app/core/services/error-handler.service';
+import { isPlatformBrowser } from '@angular/common';
+import { CookieService } from 'src/app/core/services/cookie.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +27,10 @@ export class AuthService {
   private _loading = false;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cookieService: CookieService,
     private configService: ConfigService,
     private http: HttpClient,
-    private messageService: NzMessageService,
     private router: Router,
     public i18n: I18n,
     private errorHandlerService: ErrorHandlerService,
@@ -160,13 +163,31 @@ export class AuthService {
   // Localstorage management
 
   private storeTokenInfo(tokens: TokenInfo) {
-    localStorage.setItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens));
+    console.log('setCookie to', tokens);
+    var now = new Date();
+    const expiryDate = new Date(now.getTime() + tokens.expires_in*1000);
+    this.cookieService.set(environment.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens), expiryDate);
     this._tokenInfo = tokens;
     this.tokenInfo$.next(tokens);
   }
 
   public getTokenInfo(): TokenInfo {
-    const token = JSON.parse(localStorage.getItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY)) as TokenInfo;
+    console.log('isBrosers:', isPlatformBrowser(this.platformId));
+    // if (!isPlatformBrowser(this.platformId)) {
+    //   return new TokenInfo();
+    // }
+
+
+    const cookie = this.cookieService.get(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
+    console.log(`cookiie: >${cookie}<`);
+    if (!cookie) {
+      console.log('no cokie')
+      return new TokenInfo();
+    }
+
+    console.log('all~! cokie')
+
+    const token = JSON.parse(cookie) as TokenInfo;
     if (!this._tokenInfo || !token || this._tokenInfo.access_token != token.access_token) {
       this._tokenInfo = token;
       this.tokenInfo$.next(this._tokenInfo);
@@ -177,8 +198,12 @@ export class AuthService {
   }
 
   private removeTokenInfo() {
-    localStorage.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
+
+    console.log('isBrosers:', isPlatformBrowser(this.platformId));
+    // if (isPlatformBrowser(this.platformId)) {
+    this.cookieService.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
     this._tokenInfo = null;
     this.tokenInfo$.next(null);
+    // }
   }
 }

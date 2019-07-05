@@ -1,6 +1,7 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { share } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,10 @@ export class TargetDeviceService {
   private isMobileResolution: boolean;
   resizeObservable$;
   resizeSubscription$;
-  constructor(@Inject('isBrowser') private isBrowser: boolean) {
-    console.log('this.isBrowser', this.isBrowser);
-    if (!this.isBrowser) {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    if (!isPlatformBrowser(this.platformId)) {
       this.isMobileResolution = false;
       return;
     }
@@ -23,7 +25,7 @@ export class TargetDeviceService {
   }
 
   private updateStatus() {
-    if (this.isBrowser && window && window.innerWidth < 1100) { // see variables.scss
+    if (isPlatformBrowser(this.platformId) && window && window.innerWidth < 1100) { // see variables.scss
       this.isMobileResolution = true;
     } else {
       this.isMobileResolution = false;
