@@ -163,29 +163,16 @@ export class AuthService {
   // Localstorage management
 
   private storeTokenInfo(tokens: TokenInfo) {
-    console.log('setCookie to', tokens);
-    var now = new Date();
-    const expiryDate = new Date(now.getTime() + tokens.expires_in*1000);
-    this.cookieService.set(environment.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens), expiryDate);
+    this.cookieService.setWithExpiryInSeconds(environment.LOCALSTORAGE_TOKEN_INFO_KEY, JSON.stringify(tokens), tokens.expires_in);
     this._tokenInfo = tokens;
     this.tokenInfo$.next(tokens);
   }
 
   public getTokenInfo(): TokenInfo {
-    console.log('isBrosers:', isPlatformBrowser(this.platformId));
-    // if (!isPlatformBrowser(this.platformId)) {
-    //   return new TokenInfo();
-    // }
-
-
     const cookie = this.cookieService.get(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
-    console.log(`cookiie: >${cookie}<`);
     if (!cookie) {
-      console.log('no cokie')
       return new TokenInfo();
     }
-
-    console.log('all~! cokie')
 
     const token = JSON.parse(cookie) as TokenInfo;
     if (!this._tokenInfo || !token || this._tokenInfo.access_token != token.access_token) {
@@ -198,12 +185,12 @@ export class AuthService {
   }
 
   private removeTokenInfo() {
-
-    console.log('isBrosers:', isPlatformBrowser(this.platformId));
-    // if (isPlatformBrowser(this.platformId)) {
-    this.cookieService.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
-    this._tokenInfo = null;
-    this.tokenInfo$.next(null);
-    // }
+    if (isPlatformBrowser(this.platformId)) {
+      this.cookieService.removeItem(environment.LOCALSTORAGE_TOKEN_INFO_KEY);
+      this._tokenInfo = null;
+      this.tokenInfo$.next(null);
+    } else {
+      console.warn("Trying to logout user during SSR.")
+    }
   }
 }

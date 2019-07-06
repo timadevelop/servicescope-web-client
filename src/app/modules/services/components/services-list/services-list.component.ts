@@ -40,9 +40,7 @@ export class ServicesListComponent implements OnInit {
   sub$: Subscription;
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    this.sub$.unsubscribe();
+    if (this.sub$) this.sub$.unsubscribe();
   }
 
   ngOnInit(): void {
