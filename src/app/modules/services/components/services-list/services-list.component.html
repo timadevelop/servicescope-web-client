@@ -25,7 +25,7 @@
     <!-- // mobile -->
   </div>
   <!-- desktop only -->
-  <div *ngIf="!tds.isMobile" nz-col nzXs="24" nzXl="6">
+  <div *ngIf="!tds.isMobile" nz-col nzXs="0" nzXl="6">
     <ng-container *ngTemplateOutlet="addBtn"></ng-container>
     <nz-card i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" class="padding-top-0">
       <app-list-filters></app-list-filters>
