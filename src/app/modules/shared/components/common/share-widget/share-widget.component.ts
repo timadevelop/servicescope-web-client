@@ -59,6 +59,9 @@ export class ShareWidgetComponent implements OnInit {
   }
 
   private copyToClipboard(str: string) {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     const el = document.createElement('textarea');  // Create a <textarea> element
     el.value = str;                                 // Set its value to the string that you want copied
     el.setAttribute('readonly', '');                // Make it readonly to be tamper-proof

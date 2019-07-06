@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
 import { I18n } from '@ngx-translate/i18n-polyfill';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-messages',
@@ -14,16 +15,19 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 export class MessagesComponent implements OnInit {
   conversation: boolean;
 
-  height: number = document ? (document.documentElement.clientHeight - 64 - 24 - 4) : 0;
-
+  height: number;
   constructor(
     public userService: UserService,
     public tds: TargetDeviceService,
     private router: Router,
     private titleService: Title,
-    private i18n: I18n
+    private i18n: I18n,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.titleService.setTitle(this.i18n({ value: "Messages", id: "messagesHtmlTitle" }));
+    if (isPlatformBrowser(this.platformId)) {
+      this.height = document ? (document.documentElement.clientHeight - 64 - 24 - 4) : 0;
+    }
   }
 
   ngOnInit() {

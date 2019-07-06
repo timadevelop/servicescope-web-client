@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, PLATFORM_ID, Inject } from '@angular/core';
 import { Service } from 'src/app/core/models/Service.model';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
@@ -7,6 +7,7 @@ import { JsonLabelValueEditorComponent } from './json-label-value-editor/json-la
 import { UploadFile } from 'ng-zorro-antd';
 import { ServiceApiRequest } from 'src/app/core/models/api-request/service-api-request.model';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-new-service-form',
@@ -48,6 +49,7 @@ export class NewServiceFormComponent implements OnInit {
 
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     private fb: FormBuilder,
     public tds: TargetDeviceService,
     private userService: UserService) {
@@ -126,9 +128,11 @@ export class NewServiceFormComponent implements OnInit {
   }
 
   private scrollToError() {
-    const firstElementWithError = document ? document.querySelector('.ng-invalid') : null;
-    if (firstElementWithError) {
-      firstElementWithError.scrollIntoView({ behavior: 'smooth' });
+    if (isPlatformBrowser(this.platformId)) {
+      const firstElementWithError = document ? document.querySelector('.ng-invalid') : null;
+      if (firstElementWithError) {
+        firstElementWithError.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 
