@@ -1,10 +1,11 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.service';
 import { switchMap } from 'rxjs/operators';
 import { TokenInfo } from '../models';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,10 @@ export class GoogleAuthenticationService {
   private _loading = false;
 
   constructor(
-    private configService: ConfigService, private zone: NgZone, private http: HttpClient) { }
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private configService: ConfigService,
+    private zone: NgZone,
+    private http: HttpClient) { }
 
   /**
    * get loading
@@ -79,6 +83,9 @@ export class GoogleAuthenticationService {
   // }
 
   loadAuth2(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     this.configService.currentConfig().subscribe(c => {
       const client_id = c.GOOGLE_CLIENT_ID;
       gapi.load('auth2', () => {
