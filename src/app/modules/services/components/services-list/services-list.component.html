@@ -59,7 +59,7 @@
   <app-list-item [item]="service" modelName="services"></app-list-item>
 </ng-template>
 
-<nz-drawer [nzClosable]="true" [nzVisible]="isFiltersDrawerVisible" nzPlacement="right"
+<nz-drawer *ngIf="tds.isMobile" [nzClosable]="true" [nzVisible]="isFiltersDrawerVisible" nzPlacement="right"
   i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" (nzOnClose)="setIsFiltersDrawerVisible(false)" nzWidth="85%">
   <app-list-filters></app-list-filters>
 </nz-drawer>
