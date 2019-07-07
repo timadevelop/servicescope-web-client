@@ -52,6 +52,9 @@
   bottom: 16px;
   right: 16px;
   z-index: 3;
+  color: $yellow-color;
+  background: $white-color;
+  border-radius: 50%;
 }
 
 @include respond-below(mobile) {
@@ -60,6 +63,5 @@
 .phone-wrapper {
   ::ng-deep a {
     color: $white-color;
-
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { Route, ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { Service } from 'src/app/core/models/Service.model';
 import { ServicesService } from 'src/app/modules/services/angular-services/services.service';
@@ -8,7 +8,7 @@ import { TargetDeviceService } from 'src/app/core/services/target-device.service
 import { UserService } from 'src/app/core/services/user.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
-import { DatePipe } from '@angular/common';
+import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { AdditionalConversationRouteData } from '../../../messages/redirect.guard';
 import { NzMessageService } from 'ng-zorro-antd';
 
@@ -43,7 +43,8 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
     public userService: UserService,
     private i18n: I18n,
     private titleService: Title,
-    private nzMessageService: NzMessageService) { }
+    private nzMessageService: NzMessageService,
+    @Inject(PLATFORM_ID) private platformId: Object) { }
 
   private getTabNameFromUrl(url: string) {
     return url.replace(/(\?.*|\(.*)/, '').split('/').pop();
@@ -58,10 +59,12 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
           return;
         }
         this.service = data.service;
-        this.additionalConversationRouteData = {
-          itemUrl: location.href,
-          itemTitle: this.service.title
-        };
+        if (isPlatformBrowser(this.platformId)) {
+          this.additionalConversationRouteData = {
+            itemUrl: location.href,
+            itemTitle: this.service.title
+          };
+        }
         if (this.service.contact_phone) {
           this.contact_phoneText = `${this.service.contact_phone.substring(0, 4)} Show number`;
         }

@@ -1,12 +1,12 @@
-import { Component, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, TemplateRef, ViewChild, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { slideInAnimation } from './animations';
 import { RouterOutlet, Router, Event, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { NzIconService, NzEmptyService } from 'ng-zorro-antd';
 import { RealtimeNotificationsService } from './core/services/socket/realtime-notifications.service';
 
-import icons from './icons';
-import { ConfigService } from './core/services/config.service';
+import { customIcons, serverPlatformIcons } from './icons';
 import { TargetDeviceService } from './core/services/target-device.service';
+import { isPlatformServer } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -21,37 +21,44 @@ export class AppComponent implements AfterViewInit {
   loading: boolean = false;
 
   constructor(
-    private configService: ConfigService,
+    @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router,
     private _iconService: NzIconService,
     private nzEmptyService: NzEmptyService,
     public rns: RealtimeNotificationsService,
     public tds: TargetDeviceService) {
-      // init loading
-      this.router.events.subscribe((event: Event) => {
-        switch (true) {
-          case event instanceof NavigationStart: {
-            this.loading = true;
-            break;
-          }
-
-          case event instanceof NavigationEnd:
-          case event instanceof NavigationCancel:
-          case event instanceof NavigationError: {
-            setTimeout(() => this.loading = false);
-            break;
-          }
-          default: {
-            break;
-          }
+    // init loading
+    this.router.events.subscribe((event: Event) => {
+      switch (true) {
+        case event instanceof NavigationStart: {
+          this.loading = true;
+          break;
         }
+
+        case event instanceof NavigationEnd:
+        case event instanceof NavigationCancel:
+        case event instanceof NavigationError: {
+          setTimeout(() => this.loading = false);
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    });
+    // register custom icons
+    customIcons.forEach(icon => {
+      this._iconService.addIconLiteral(icon.type, icon.literal);
+    });
+
+    // register ng icons on ssr
+    if (isPlatformServer(this.platformId)) {
+      serverPlatformIcons.forEach(icon => {
+        this._iconService.addIcon(icon);
       });
-      // register custom icons
-      icons.forEach(icon => {
-        this._iconService.addIconLiteral(icon.type, icon.literal);
-      });
-      // run notifications service
-      this.rns.run();
+    }
+    // run notifications service
+    this.rns.run();
   }
 
   ngAfterViewInit() {

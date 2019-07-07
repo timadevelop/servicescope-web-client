@@ -15,7 +15,6 @@ import { Request } from 'express';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { CookieService } from './core/services/cookie.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 @Injectable()
 export class RequestCookies {
@@ -36,7 +35,6 @@ export class RequestCookies {
     HttpClientModule,
     NoopAnimationsModule,
     NzI18nModule,
-    NgZorroAntdModule
   ],
   bootstrap: [AppComponent],
   providers: [

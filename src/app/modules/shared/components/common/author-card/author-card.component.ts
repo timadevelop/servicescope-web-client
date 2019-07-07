@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { Component, OnInit, Input, PLATFORM_ID, Inject } from '@angular/core';
+import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { UserService } from 'src/app/core/services/user.service';
 import { AdditionalConversationRouteData } from 'src/app/modules/messages/redirect.guard';
 import { User } from 'src/app/core/models/User.model';
@@ -20,14 +20,17 @@ export class AuthorCardComponent implements OnInit {
   additionalRouteData: AdditionalConversationRouteData;
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     public userService: UserService,
     private datePipe: DatePipe) {
   }
 
   ngOnInit() {
-    this.additionalRouteData = {
-      itemUrl: location.href,
-      itemTitle: this.itemTitle
+    if (isPlatformBrowser(this.platformId)) {
+      this.additionalRouteData = {
+        itemUrl: location.href,
+        itemTitle: this.itemTitle
+      }
     }
   }
 

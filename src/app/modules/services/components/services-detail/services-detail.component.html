@@ -4,7 +4,7 @@
     <!-- Images -->
     <nz-card class="padding-0" [class.promoted]="service.is_promoted">
       <app-carousel [focusOnInit]="true" [images]="service?.images"></app-carousel>
-      <i *ngIf="service.is_promoted" class="promoted-sign" style="font-size: 30px;" nz-icon [nzType]="'dollar'"
+      <i *ngIf="service.is_promoted" class="promoted-sign" style="font-size: 30px" nz-icon [nzType]="'dollar'"
         [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedServiceIconTooltipText"
         nzTitle="Promoted service"></i>
     </nz-card>
