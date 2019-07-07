@@ -1,5 +1,5 @@
-import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslationStrategy } from '@angular/core';
+import { BrowserModule, BrowserTransferStateModule, ɵgetDOM, DOCUMENT } from '@angular/platform-browser';
+import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslationStrategy, APP_INITIALIZER, PLATFORM_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,7 +7,7 @@ import { NgZorroAntdModule, NZ_I18N, en_US, NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_C
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, isPlatformBrowser } from '@angular/common';
 
 import en from '@angular/common/locales/en';
 import bg from '@angular/common/locales/bg';
@@ -27,6 +27,8 @@ import { CookieService } from './core/services/cookie.service';
 
 import { TransferHttpCacheModule } from '@hapiness/ng-universal-transfer-http';
 
+import { PrebootModule } from 'preboot';
+
 
 declare const require; // Use the require method provided by webpack
 // const translations = require(`raw-loader!../locale/messages.bg.xlf`);
@@ -44,7 +46,8 @@ registerLocaleData(en); // bg
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'saasWebClient' }),
-    BrowserTransferStateModule,
+    PrebootModule.withConfig({ appRoot: 'app-root' }),
+    // BrowserTransferStateModule,
     TransferHttpCacheModule,
     FormsModule,
     ReactiveFormsModule,
@@ -57,6 +60,28 @@ registerLocaleData(en); // bg
     AppRoutingModule,
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: function(document: HTMLDocument, platformId: Object): Function {
+        return () => {
+          if (isPlatformBrowser(platformId)) {
+            const dom = ɵgetDOM();
+            const styles: any[] = Array.prototype.slice.apply(dom.querySelectorAll(document, `style[ng-transition]`));
+            styles.forEach(el => {
+              // Remove ng-transition attribute to prevent Angular appInitializerFactory
+              // to remove server styles before preboot complete
+              el.removeAttribute('ng-transition');
+            });
+            document.addEventListener('PrebootComplete', () => {
+              // After preboot complete, remove the server scripts
+              setTimeout(() => styles.forEach(el => dom.remove(el)));
+            });
+          }
+        };
+      },
+      deps: [DOCUMENT, PLATFORM_ID],
+      multi: true
+    },
     CookieService,
     {
         provide: 'req',
