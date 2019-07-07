@@ -13,7 +13,7 @@ import { EditServiceComponent } from './components/edit-service/edit-service.com
 
 const servicesRoutes: Routes = [
   {
-    path: 'services',
+    path: '',
     canActivate: [],
     children: [
       {

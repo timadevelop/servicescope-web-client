@@ -14,11 +14,10 @@ import bg from '@angular/common/locales/bg';
 
 import { AppHeaderComponent } from './app-components/app-header/app-header.component';
 import { ComposeMessageComponent } from './app-components/compose-message/compose-message.component';
-import { AuthModule } from './modules/auth/auth.module';
 
 import { httpInterceptorProviders } from './core/interceptors';
 import { CoreModule } from './core/core.module';
-import { ServicesModule } from './modules/services/services.module';
+// import { ServicesModule } from './modules/services/services.module';
 import { NotificationsManagerComponent } from './app-components/notifications-manager/notifications-manager.component';
 
 import { I18n, MISSING_TRANSLATION_STRATEGY } from '@ngx-translate/i18n-polyfill';
@@ -54,7 +53,7 @@ registerLocaleData(en); // bg
     BrowserAnimationsModule,
     // AuthModule,
     CoreModule.forRoot(),
-    ServicesModule,
+    // ServicesModule,
     AppRoutingModule,
   ],
   providers: [
