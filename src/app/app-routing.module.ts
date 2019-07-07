@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { ComposeMessageComponent } from './app-components/compose-message/compose-message.component';
 import { AuthGuard } from './modules/auth/auth.guard';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
@@ -40,9 +40,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     scrollPositionRestoration: 'enabled',
     anchorScrolling: 'enabled',
-    preloadingStrategy: PreloadAllModules,
     initialNavigation: 'enabled'
-    // initialNavigation: 'enabled'
   })],
   exports: [RouterModule]
 })
