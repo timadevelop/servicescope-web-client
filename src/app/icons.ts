@@ -53,7 +53,8 @@ const serverPlatformIcons = [
   antIcons.TwitterOutline,
   antIcons.FullscreenOutline,
   antIcons.FullscreenExitOutline,
-  antIcons.RiseOutline
+  antIcons.RiseOutline,
+  antIcons.FilterOutline
 ];
 
 export {

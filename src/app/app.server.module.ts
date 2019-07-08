@@ -17,12 +17,17 @@ import { CookieService } from './core/services/cookie.service';
 import { BrowserModule } from '@angular/platform-browser';
 
 @Injectable()
-export class RequestCookies {
-    constructor(@Inject(REQUEST) private request: Request) {}
+export class RequestDetails {
+  constructor(@Inject(REQUEST) private request: Request) { }
 
-    get cookies() {
-        return !!this.request.headers.cookie ? this.request.headers.cookie : null;
-    }
+  get cookies() {
+    return !!this.request.headers.cookie ? this.request.headers.cookie : null;
+  }
+
+  get headers() {
+    return !!this.request.headers ? this.request.headers : null;
+  }
+
 }
 
 @NgModule({
@@ -40,8 +45,8 @@ export class RequestCookies {
   providers: [
 
     CookieService,
-    { provide: 'req', useClass: RequestCookies },
+    { provide: 'req', useClass: RequestDetails },
     { provide: NZ_I18N, useValue: en_US }
   ]
 })
-export class AppServerModule {}
+export class AppServerModule { }
