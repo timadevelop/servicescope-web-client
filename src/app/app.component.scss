@@ -34,29 +34,6 @@
   }
 }
 
-@keyframes loop {
-  0% {
-    width: 0%;
-    transform: translateX(0%);
-  }
-  7% {
-    width: 10%;
-    transform: translateX(0%);
-  }
-  40% {
-    width: 60%;
-  }
-  50% {
-    transform: translateX(85%);
-  }
-
-  75% {
-    width: 100%;
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
 
 .global-loading-indicator {
   position: absolute;
@@ -69,11 +46,20 @@
 
 .loader-line {
   position: fixed;
-  height: 5px;
-  background: linear-gradient(90deg, $primary-color, $contrast-color);
-  opacity: 0.5;
-  will-change: transform, width;
-  animation: 1.7s infinite loop linear;
+  width: 100%;
+  height: 3px;
+  background: lighten($contrast-color, 20%);
+  animation: loading-bar 3s linear;
+}
+
+@keyframes loading-bar {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 90%;
+  }
 }
 
 * {
