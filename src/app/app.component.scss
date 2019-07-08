@@ -69,10 +69,11 @@
 
 .loader-line {
   position: fixed;
-  height: 3px;
+  height: 5px;
   background: linear-gradient(90deg, $primary-color, $contrast-color);
   opacity: 0.5;
-  animation: 1.7s infinite loop cubic-bezier(0.42, 0, 0.58, 1);
+  will-change: transform, width;
+  animation: 1.7s infinite loop linear;
 }
 
 * {

@@ -6,7 +6,7 @@ import { RealtimeNotificationsService } from './core/services/socket/realtime-no
 
 import { customIcons, serverPlatformIcons } from './icons';
 import { TargetDeviceService } from './core/services/target-device.service';
-import { isPlatformServer } from '@angular/common';
+import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -28,24 +28,28 @@ export class AppComponent implements AfterViewInit {
     public rns: RealtimeNotificationsService,
     public tds: TargetDeviceService) {
     // init loading
-    this.router.events.subscribe((event: Event) => {
-      switch (true) {
-        case event instanceof NavigationStart: {
-          this.loading = true;
-          break;
-        }
+    if (isPlatformBrowser(this.platformId)) {
+      this.router.events.subscribe((event: Event) => {
+        switch (true) {
+          case event instanceof NavigationStart: {
+            if (!this.loading) this.loading = true;
+            break;
+          }
 
-        case event instanceof NavigationEnd:
-        case event instanceof NavigationCancel:
-        case event instanceof NavigationError: {
-          setTimeout(() => this.loading = false);
-          break;
+          case event instanceof NavigationEnd:
+          case event instanceof NavigationCancel:
+          case event instanceof NavigationError: {
+            if (this.loading === true) {
+              setTimeout(() => this.loading = false);
+            }
+            break;
+          }
+          default: {
+            break;
+          }
         }
-        default: {
-          break;
-        }
-      }
-    });
+      });
+    }
     // register custom icons
     customIcons.forEach(icon => {
       this._iconService.addIconLiteral(icon.type, icon.literal);
@@ -56,6 +60,7 @@ export class AppComponent implements AfterViewInit {
       serverPlatformIcons.forEach(icon => {
         this._iconService.addIcon(icon);
       });
+      this.loading = true;
     }
     // run notifications service
     this.rns.run();
