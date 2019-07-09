@@ -54,7 +54,9 @@ const serverPlatformIcons = [
   antIcons.FullscreenOutline,
   antIcons.FullscreenExitOutline,
   antIcons.RiseOutline,
-  antIcons.FilterOutline
+  antIcons.FilterOutline,
+  antIcons.EditOutline,
+  antIcons.DeleteOutline
 ];
 
 export {
