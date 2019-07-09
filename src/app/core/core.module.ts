@@ -6,6 +6,7 @@ import { RealtimeNotificationsService } from './services/socket/realtime-notific
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { ConfigService } from './services/config.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SeoService } from './services/seo.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [SocketService, ChatService, RealtimeNotificationsService, ConfigService]
+      providers: [SocketService, ChatService, RealtimeNotificationsService, ConfigService, SeoService]
     }
   }
 }

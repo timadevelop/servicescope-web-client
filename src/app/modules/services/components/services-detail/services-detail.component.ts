@@ -11,6 +11,7 @@ import { Title } from '@angular/platform-browser';
 import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { AdditionalConversationRouteData } from '../../../messages/redirect.guard';
 import { NzMessageService } from 'ng-zorro-antd';
+import { SeoService } from 'src/app/core/services/seo.service';
 
 @Component({
   selector: 'app-services-detail',
@@ -44,7 +45,8 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
     private i18n: I18n,
     private titleService: Title,
     private nzMessageService: NzMessageService,
-    @Inject(PLATFORM_ID) private platformId: Object) { }
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private seo: SeoService) { }
 
   private getTabNameFromUrl(url: string) {
     return url.replace(/(\?.*|\(.*)/, '').split('/').pop();
@@ -65,6 +67,13 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
             itemTitle: this.service.title
           };
         }
+
+        this.seo.generateTags({
+          title: this.service.title,
+          description: this.service.description,
+          image: this.service.images.length > 0 ? this.service.images[0].image : null
+        });
+
         if (this.service.contact_phone) {
           this.contact_phoneText = `${this.service.contact_phone.substring(0, 4)} Show number`;
         }

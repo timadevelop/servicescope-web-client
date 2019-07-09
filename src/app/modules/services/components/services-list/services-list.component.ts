@@ -8,6 +8,7 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 import { ServicePromotionsService } from 'src/app/modules/services/angular-services/service-promotions.service';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
+import { SeoService } from 'src/app/core/services/seo.service';
 
 @Component({
   selector: 'app-services-list',
@@ -33,8 +34,13 @@ export class ServicesListComponent implements OnInit {
     private servicePromotionsService: ServicePromotionsService,
     private router: Router,
     private titleService: Title,
-    private i18n: I18n) {
+    private i18n: I18n,
+    private seo: SeoService) {
     this.titleService.setTitle(this.i18n({ value: "Services", id: "servicesListHtmlTitle" }));
+    this.seo.generateTags({
+      title: this.i18n({ value: 'Services', id: 'servicesText' }),
+      description: this.i18n({ value: 'Search services seo description', id: 'servicesListSeoDescription'}),
+    });
   }
 
   sub$: Subscription;
