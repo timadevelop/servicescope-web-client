@@ -71,7 +71,8 @@ export class ServicesDetailComponent implements OnInit, OnDestroy {
         this.seo.generateTags({
           title: this.service.title,
           description: this.service.description,
-          image: this.service.images.length > 0 ? this.service.images[0].image : null
+          image: this.service.images.length > 0 ? this.service.images[0].image : null,
+          keywords: this.service.tags.map(t => t.name).join(',')
         });
 
         if (this.service.contact_phone) {

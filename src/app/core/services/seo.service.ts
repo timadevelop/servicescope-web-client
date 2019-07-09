@@ -6,7 +6,7 @@ export class MetaConfig {
   title: string;
   description: string;
   image?: string; // url
-  keywords: string;
+  keywords?: string;
 }
 
 @Injectable({
