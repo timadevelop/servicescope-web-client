@@ -6,6 +6,7 @@ export class MetaConfig {
   title: string;
   description: string;
   image?: string; // url
+  keywords: string;
 }
 
 @Injectable({
@@ -17,12 +18,15 @@ export class SeoService {
   constructor(private meta: Meta) { }
 
   generateTags(config : MetaConfig) {
-    // default values
     config = {
       title: config.title || 'GetMaker',
       description: config.description || 'Search services TODO',
-      image: config.image || 'https://instafire-app.firebaseapp.com/assets/seo.jpeg'
+      image: config.image || 'https://instafire-app.firebaseapp.com/assets/seo.jpeg',
+      keywords: config.keywords || 'services,job,post,offer,tag'
     }
+
+    this.meta.updateTag({ name: 'description', content: config.description });
+    this.meta.updateTag({ name: 'keywords', content: config.keywords });
 
     this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
     this.meta.updateTag({ name: 'twitter:site', content: '@teemofeev' });
@@ -35,7 +39,6 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:title', content: config.title });
     this.meta.updateTag({ property: 'og:description', content: config.description });
     this.meta.updateTag({ property: 'og:image', content: config.image });
-    // this.meta.updateTag({ property: 'og:url', content: `https://instafire-app.firebaseapp.com/${config.slug}` });
   }
 
 }
