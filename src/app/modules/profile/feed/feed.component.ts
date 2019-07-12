@@ -8,6 +8,9 @@ import { UserService } from 'src/app/core/services/user.service';
 import { Location } from '@angular/common';
 import { FeedService } from '../services/feed.service';
 import { environment } from 'src/environments/environment';
+import { SeoService } from 'src/app/core/services/seo.service';
+import { Title } from '@angular/platform-browser';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-feed',
@@ -32,7 +35,10 @@ export class FeedComponent implements OnInit {
     private route: ActivatedRoute,
     public userService: UserService,
     public location: Location,
-    private feedService: FeedService
+    private feedService: FeedService,
+    private seo: SeoService,
+    private titleService: Title,
+    private i18n: I18n
   ) { }
 
   ngOnInit() {
@@ -46,11 +52,26 @@ export class FeedComponent implements OnInit {
         if (data.feed) {
           this.feedPosts = data.feed;
           this.loading = false;
+          if (this.feedPosts.results.length === 1) {
+            this.initSeoForPost(this.feedPosts[0]);
+          }
         }
       });
     this.route.parent.paramMap.subscribe(params => {
       this.profileId = +params.get('id');
     });
+  }
+
+  initSeoForPost(fp: FeedPost) {
+    const title = this.i18n({ value: 'Feed Post', id: "feedPostText" }) + ' ' + fp.text;
+    this.titleService.setTitle(title);
+    // seo
+    this.seo.generateTags({
+      title: title,
+      description: fp.text,
+      image: fp.images.length > 0 ? fp.images[0].image : null,
+      keywords: fp.tags.map(t => t.name).join(',')
+});
   }
 
   loadData(pi: number): void {

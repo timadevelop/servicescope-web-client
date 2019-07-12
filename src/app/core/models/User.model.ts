@@ -8,7 +8,7 @@ export class User extends Base {
   bio: string;
   first_name: string;
   last_name: string;
-  image: Url;
+  image: string; // url
 
   services_count: number;
   posts_count: number;

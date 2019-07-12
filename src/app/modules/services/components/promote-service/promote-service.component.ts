@@ -10,6 +10,8 @@ import { UserService } from 'src/app/core/services/user.service';
 import { ServicePromotionsService } from 'src/app/modules/services/angular-services/service-promotions.service';
 import { ServicePromotion } from 'src/app/core/models/ServicePromotion.model';
 import { Location } from '@angular/common';
+import { Title } from '@angular/platform-browser';
+import { SeoService } from 'src/app/core/services/seo.service';
 
 
 
@@ -76,7 +78,8 @@ export class PromoteServiceComponent implements OnInit {
     private nzMsgService: NzMessageService,
     private route: ActivatedRoute,
     private servicesService: ServicesService,
-    private servicePromotionsService: ServicePromotionsService
+    private servicePromotionsService: ServicePromotionsService,
+    private seo: SeoService
   ) { }
 
   ngOnInit() {
@@ -90,6 +93,14 @@ export class PromoteServiceComponent implements OnInit {
         this.service = data.service;
         this.dateStartingPoint = new Date(this.service.promoted_til);
         this.updatePlansDates();
+
+        this.seo.generateTags({
+          title: 'Promote ' + this.service.title,
+          description: this.service.description,
+          image: this.service.images.length > 0 ? this.service.images[0].image : null,
+          keywords: this.service.tags.map(t => t.name).join(',')
+        });
+
         if (this.service.promotions && this.service.promotions.length > 0) {
           const url = this.service.promotions[0];
           this.servicePromotionsService.getByUrl(url)

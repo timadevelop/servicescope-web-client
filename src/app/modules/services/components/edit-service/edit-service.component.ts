@@ -7,6 +7,7 @@ import { Title } from '@angular/platform-browser';
 import { ServiceApiRequest } from 'src/app/core/models/api-request/service-api-request.model';
 import { Service } from 'src/app/core/models/Service.model';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
+import { SeoService } from 'src/app/core/services/seo.service';
 
 @Component({
   selector: 'app-edit-service',
@@ -25,7 +26,8 @@ export class EditServiceComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public i18n: I18n,
-    private titleService: Title
+    private titleService: Title,
+    private seo: SeoService
   ) {
     this.creatingItemProgressText = this.i18n({ value: 'Editing', id: 'editingItemProgressText' });
     this.titleService.setTitle(this.i18n({ value: 'Edit Service', id: "editServiceHtmlTitle" }));
@@ -33,14 +35,20 @@ export class EditServiceComponent implements OnInit {
 
   ngOnInit() {
     this.route.data
-    .subscribe((data: { service: Service }) => {
-      if (!data.service) {
-        console.warn('Not found service');
-        // this.router.navigate(['/404'])
-        return;
-      }
-      this.service = data.service;
-    });
+      .subscribe((data: { service: Service }) => {
+        if (!data.service) {
+          console.warn('Not found service');
+          // this.router.navigate(['/404'])
+          return;
+        }
+        this.service = data.service;
+        this.seo.generateTags({
+          title: this.i18n({ value: 'Edit', id: "editText" }) + ' ' + this.service.title,
+          description: this.service.description,
+          image: this.service.images.length > 0 ? this.service.images[0].image : null,
+          keywords: this.service.tags.map(t => t.name).join(',')
+        });
+      });
 
   }
 

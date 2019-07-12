@@ -5,7 +5,6 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileListComponent } from './profile-list/profile-list.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
-import { ProfileHomeComponent } from './profile-home/profile-home.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { CoreModule } from '../../core/core.module';
@@ -20,7 +19,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ProfileComponent,
     ProfileListComponent,
     ProfileDetailComponent,
-    ProfileHomeComponent,
     FeedComponent,
     FeedPostComponent
   ],

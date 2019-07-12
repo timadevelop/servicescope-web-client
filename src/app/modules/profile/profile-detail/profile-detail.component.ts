@@ -5,6 +5,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
 import { LabeledTextComponent } from '../../shared/components/common/labeled-text/labeled-text.component';
+import { SeoService } from 'src/app/core/services/seo.service';
 
 @Component({
   selector: 'app-profile-detail',
@@ -36,7 +37,8 @@ export class ProfileDetailComponent implements OnInit {
     private router: Router,
     public userService: UserService,
     private i18n: I18n,
-    private titleService: Title
+    private titleService: Title,
+    private seo: SeoService
   ) {
     this.titleService.setTitle(this.i18n({ value: "User Profile", id: "profileDetailHtmlTitle" }));
     // this.route.params.subscribe(params => {
@@ -53,6 +55,13 @@ export class ProfileDetailComponent implements OnInit {
         }
         this.titleService.setTitle(this.user.first_name + ' ' + this.user.last_name + ' ' + this.i18n({ value: "Profile", id: "profileHtmlTitle" }));
         // services, posts, offers, etc. are propagated to child components
+        // seo
+        this.seo.generateTags({
+          title: this.i18n({ value: 'User Profile', id: "userProfileText" }) + ' ' + this.user.first_name + ' ' + this.user.last_name,
+          description: this.user.bio,
+          image: this.user.image,
+          keywords: 'user,profile,services,feed,posts'
+        });
       });
 
     this.route.url.subscribe(u => {
