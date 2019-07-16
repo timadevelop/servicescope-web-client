@@ -17,7 +17,7 @@ export class ErrorHandlerService {
   ) { }
 
   public handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
+    if (isPlatformBrowser(this.platformId) && error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       this.messageService.error(`An error occurred: ${error.error.message}`);
     } else {

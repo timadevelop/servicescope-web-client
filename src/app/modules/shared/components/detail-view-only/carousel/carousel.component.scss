@@ -22,9 +22,14 @@
     color: $white-color;
     .image {
       height: 100%;
-      background-size: contain; // TODO: use cover?
-      background-repeat: no-repeat;
-      background-position: center;
+      // TODO: use review whether to use background-image or img tag
+      // background-size: contain;
+      // background-repeat: no-repeat;
+      // background-position: center;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
   }
   .carousel-images-list {
@@ -90,7 +95,7 @@
     }
     > i {
       color: $white-color;
-      opacity: .3;
+      opacity: 0.3;
       font-size: 30px;
       margin: auto;
     }
