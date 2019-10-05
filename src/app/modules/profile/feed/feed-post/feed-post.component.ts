@@ -36,8 +36,8 @@ export class FeedPostComponent implements OnInit, OnChanges {
     images: [[], [Validators.minLength(0), Validators.maxLength(this.maxImagesLength + 1)]],
   });
 
-  @ViewChild('tagsSelector') tagsSelector: TagsSelectorComponent;
-  @ViewChild('postTextArea') postTextArea: ElementRef;
+  @ViewChild('tagsSelector', { static: false }) tagsSelector: TagsSelectorComponent;
+  @ViewChild('postTextArea', { static: false }) postTextArea: ElementRef;
 
   constructor(
     private i18n: I18n,

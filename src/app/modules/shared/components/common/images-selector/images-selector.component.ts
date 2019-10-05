@@ -30,7 +30,7 @@ export class ImagesSelectorComponent implements OnInit, OnChanges, AfterViewInit
 
   clearSubscription: Subscription = null;
 
-  @ViewChild('uploadCont') nzUpload: NzUploadComponent;
+  @ViewChild('uploadCont', { static: false }) nzUpload: NzUploadComponent;
 
   ngOnInit() {
     if (this.clearEvent) {

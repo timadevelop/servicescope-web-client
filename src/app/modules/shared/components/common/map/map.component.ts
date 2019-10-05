@@ -17,7 +17,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnChanges {
   loaded: boolean = false;
   sub: Subscription;
 
-  @ViewChild('mapWrapper') mapWrapper: ElementRef;
+  @ViewChild('mapWrapper', { static: false }) mapWrapper: ElementRef;
 
   constructor(
     public mapService: MapService

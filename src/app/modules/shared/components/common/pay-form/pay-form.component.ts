@@ -20,7 +20,7 @@ export class PayFormComponent implements OnInit {
   @Input() currency: string;
   @Input() metadata: object;
   @Output() onSucceededPayment = new EventEmitter<paymentIntents.IPaymentIntent>();
-  @ViewChild('cardElement') cardElement: ElementRef;
+  @ViewChild('cardElement', { static: false }) cardElement: ElementRef;
 
   card: any;
   cardErrors: any;

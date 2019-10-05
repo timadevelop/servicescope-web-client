@@ -21,8 +21,8 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   zoomView: boolean = false;
 
-  @ViewChild('zoomViewContainer') zoomViewContainer;
-  @ViewChild('defaultViewContainer') defaultViewContainer;
+  @ViewChild('zoomViewContainer', { static: false }) zoomViewContainer;
+  @ViewChild('defaultViewContainer', { static: false }) defaultViewContainer;
   @ViewChildren('carousel') carousels: Array<NzCarouselComponent>;
 
   constructor(

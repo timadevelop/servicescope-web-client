@@ -1,4 +1,4 @@
-import { BrowserModule, BrowserTransferStateModule, ɵgetDOM, DOCUMENT } from '@angular/platform-browser';
+import { BrowserModule, ɵgetDOM } from '@angular/platform-browser';
 import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslationStrategy, APP_INITIALIZER, PLATFORM_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,7 +7,7 @@ import { NgZorroAntdModule, NZ_I18N, en_US, NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_C
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData, isPlatformBrowser } from '@angular/common';
+import { registerLocaleData, isPlatformBrowser, DOCUMENT } from '@angular/common';
 
 import en from '@angular/common/locales/en';
 import bg from '@angular/common/locales/bg';
@@ -62,7 +62,7 @@ registerLocaleData(en); // bg
   providers: [
     {
       provide: APP_INITIALIZER,
-      useFactory: function(document: HTMLDocument, platformId: Object): Function {
+      useFactory: function (document: HTMLDocument, platformId: Object): Function {
         return () => {
           if (isPlatformBrowser(platformId)) {
             const dom = ɵgetDOM();
@@ -84,8 +84,8 @@ registerLocaleData(en); // bg
     },
     CookieService,
     {
-        provide: 'req',
-        useValue: null
+      provide: 'req',
+      useValue: null
     },
     { provide: TRANSLATIONS_FORMAT, useValue: "xlf" },
     { provide: LOCALE_ID, useValue: DEFAULT_LOCALE },

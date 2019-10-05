@@ -33,7 +33,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
 
   private socketMessageSub$: Subscription;
   private subjectSub$: Subscription;
-  @ViewChild('conversationMessages') private messagesContainer: ElementRef;
+  @ViewChild('conversationMessages', { static: false }) private messagesContainer: ElementRef;
 
   constructor(
     public route: ActivatedRoute,

@@ -16,7 +16,7 @@ import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 })
 export class AppComponent implements AfterViewInit {
   title = 'saasWebClient';
-  @ViewChild('customEmptyTpl') customEmptyTpl: TemplateRef<any>;
+  @ViewChild('customEmptyTpl', { static: false }) customEmptyTpl: TemplateRef<any>;
 
   loading: boolean = false;
 
