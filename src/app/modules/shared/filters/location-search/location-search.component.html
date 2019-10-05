@@ -1,0 +1,27 @@
+<nz-select style="width: 100%;" nzMode="default" [nzPlaceHolder]="nullLocation.name"
+  nzAllowClear nzShowSearch [nzServerSearch]="true" (nzOnSearch)="search($event)"
+  (nzScrollToBottom)="loadMoreLocations()" [nzMenuItemSelectedIcon]="isFormItem ? null : icon" [nzSuffixIcon]="isFormItem ? null : icon"
+  [nzSize]="size"
+  [ngModel]="selectedLocation"
+  [nzDropdownClassName]="tds.isMobile ? 'mobile-dropdown' : null"
+  (ngModelChange)="locationChanged($event)">
+  <nz-option [nzLabel]="getLabel(selectedLocation)" [nzValue]="selectedLocation" *ngIf="selectedLocation" nzCustomContent>
+    <span>{{getLabel(selectedLocation)}}</span>
+  </nz-option>
+  <nz-option [nzLabel]="getLabel(nullLocation)" [nzValue]="nullLocation" *ngIf="!isFormItem && selectedLocation != this.nullLocation" nzCustomContent>
+    <span>{{getLabel(nullLocation)}}</span>
+  </nz-option>
+
+
+  <ng-container *ngFor="let location of locations?.results; trackBy:trackIdentifyByItemId">
+    <nz-option [nzLabel]="getLabel(location)" [nzValue]="location" nzCustomContent *ngIf="!selectedLocation || location.id != selectedLocation.id">
+      <span>{{getLabel(location)}}</span>
+    </nz-option>
+  </ng-container>
+  <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
+    <i nz-icon nzType="loading" class="loading-icon"></i> <span i18n="@@loadingText">Loading...</span>
+  </nz-option>
+</nz-select>
+<ng-template #icon>
+  <i nz-icon nzType="environment"></i>
+</ng-template>

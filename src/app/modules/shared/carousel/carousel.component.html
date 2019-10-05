@@ -1,0 +1,61 @@
+<div *ngIf="images && images.length > 0 else warning">
+
+  <div class="carousel-container zoomView" *ngIf="zoomView">
+    <button (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon nzType="close"></i></button>
+    <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
+    <div nz-row tabindex="1" #zoomViewContainer (keydown.esc)="zoom(false)" (keydown.arrowleft)="pre()" (keydown.arrowright)="next()" (keydown.f)="zoom(true)"  (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows"  style="height: 100vh;" nzType="flex"
+      nzJustify="space-between" nzAlign="middle">
+      <div nz-col class="arrow" (click)="pre()">
+        <i nz-icon nzType="left"></i>
+      </div>
+      <div nz-col class="arrow" (click)="next()">
+        <i nz-icon nzType="right"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-container" *ngIf="!zoomOnly">
+    <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
+    <div nz-row tabindex="1" #defaultViewContainer (keydown.esc)="zoom(false)" (keydown.arrowleft)="pre()" (keydown.arrowright)="next()" (keydown.f)="zoom(true)" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows" nzType="flex"
+      nzJustify="space-between" nzAlign="middle">
+      <div nz-col class="arrow" (click)="pre()">
+        <i nz-icon nzType="left"></i>
+      </div>
+      <div nz-col class="arrow" (click)="next()">
+        <i nz-icon nzType="right"></i>
+      </div>
+    </div>
+    <button (click)="zoom(true)" class="zoom-btn" nz-button [nzSize]="'large'" nzShape="circle"><i nz-icon
+        type="fullscreen"></i></button>
+  </div>
+
+</div>
+
+<ng-template #warning>
+  <nz-alert nzType="warning" nzMessage="No images to show"></nz-alert>
+</ng-template>
+
+<ng-template #carouselContent>
+  <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
+    <div nz-carousel-content *ngFor="let image of images">
+      <div class="image" nz-row nzType="flex"
+        nzJustify="center" nzAlign="middle">
+        <!-- TODO: ? background-image vs img tag (SEO) -->
+        <!-- [ngStyle]="{'background-image': 'url(' + image.image + ')'}"  -->
+        <img [src]="image.image">
+      </div>
+    </div>
+  </nz-carousel>
+  <div class="carousel-images-list">
+    <div nz-row nzType="flex" nzGutter="16">
+      <div class="image-list-item" [class.active]="carousel.activeIndex == index" nz-col
+        *ngFor="let image of images; let index=index;" (click)="carousel.goTo(index)" nz-tooltip
+        i18n-nzTitle="Go to carousel image text|Text is diaplayed on tooltip then user hovers image in carousel images list@@gotoCarouselImageText"
+        nzTitle="Goto image">
+        <nz-avatar [nzSize]="50" nzShape="square" [nzSrc]="image.image">
+        </nz-avatar>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

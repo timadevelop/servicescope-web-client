@@ -3,7 +3,7 @@ import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslat
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, en_US, NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG } from 'ng-zorro-antd';
+import { NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG, NzLayoutModule, NzBackTopModule, NzGridModule, NzMenuModule, NzAvatarModule, NzBadgeModule, NzCardModule, NzButtonModule, NzFormModule, NzRateModule, NzInputModule, NzIconModule, NzDrawerModule, NzDividerModule, NzListModule, NzPaginationModule, NgZorroAntdModule } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +28,7 @@ import { CookieService } from './core/services/cookie.service';
 import { TransferHttpCacheModule } from '@hapiness/ng-universal-transfer-http';
 
 import { PrebootModule } from 'preboot';
+import { RouterModule } from '@angular/router';
 
 
 declare const require; // Use the require method provided by webpack
@@ -51,7 +52,24 @@ registerLocaleData(en); // bg
     TransferHttpCacheModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     NgZorroAntdModule,
+    // NzLayoutModule,
+    // NzBackTopModule,
+    // NzGridModule,
+    // NzMenuModule,
+    // NzBadgeModule,
+    // NzCardModule,
+    // NzFormModule,
+    // NzRateModule,
+    // NzInputModule,
+    // NzIconModule,
+    // NzDrawerModule,
+    // NzDividerModule,
+    // NzListModule,
+    // NzPaginationModule,
+    // NzButtonModule,
+    // NzAvatarModule,
     HttpClientModule,
     BrowserAnimationsModule,
     // AuthModule,
@@ -103,25 +121,26 @@ registerLocaleData(en); // bg
     },
     I18n,
     httpInterceptorProviders,
-    {
-      provide: NZ_MESSAGE_CONFIG, useValue: {
-        nzDuration: 3000,
-        nzMaxStack: 10,
-        nzPauseOnHover: true,
-        nzAnimate: true
-      }
-    },
-    {
-      provide: NZ_NOTIFICATION_CONFIG, useValue: {
-        nzTop: '24px',
-        nzBottom: '24px',
-        nzPlacement: 'topRight',
-        nzDuration: 4500,
-        nzMaxStack: 1,
-        nzPauseOnHover: true,
-        nzAnimate: true
-      }
-    }
+    // TODO
+    // {
+    //   provide: NZ_MESSAGE_CONFIG, useValue: {
+    //     nzDuration: 3000,
+    //     nzMaxStack: 10,
+    //     nzPauseOnHover: true,
+    //     nzAnimate: true
+    //   }
+    // },
+    // {
+    //   provide: NZ_NOTIFICATION_CONFIG, useValue: {
+    //     nzTop: '24px',
+    //     nzBottom: '24px',
+    //     nzPlacement: 'topRight',
+    //     nzDuration: 4500,
+    //     nzMaxStack: 1,
+    //     nzPauseOnHover: true,
+    //     nzAnimate: true
+    //   }
+    // }
   ],
   bootstrap: [AppComponent]
 })

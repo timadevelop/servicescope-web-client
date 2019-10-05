@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RegisterComponent } from './register/register.component';
 import { SocialAuthButtonsComponent } from './social-auth-buttons/social-auth-buttons.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { CoreModule } from 'src/app/core/core.module';
-import { SharedModule } from '../shared/shared.module';
+import { NzFormModule, NzInputModule, NzGridModule, NzIconModule, NzDividerModule, NzSpinModule, NzButtonModule, NzAvatarModule, NzCardModule } from 'ng-zorro-antd';
+import { LabeledTextModule } from '../shared/labeled-text/labeled-text.module';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,18 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    NgZorroAntdModule,
-    SharedModule
+
+    NzFormModule,
+    NzInputModule,
+    NzGridModule,
+    NzIconModule,
+    NzDividerModule,
+    NzSpinModule,
+    NzButtonModule,
+    NzAvatarModule,
+    NzCardModule,
+    LabeledTextModule
+
   ]
 })
 export class AuthModule { }

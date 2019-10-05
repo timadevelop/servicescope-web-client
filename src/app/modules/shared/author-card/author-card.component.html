@@ -1,0 +1,76 @@
+<nz-card class="author-card" *ngIf="author && !horizontal">
+  <a [routerLink]="['/profiles', author.id]">
+    <div nz-row nzType="flex" nzJustify="center">
+      <nz-avatar [nzSize]="100" nzIcon="user" [nzSrc]="author.image || 'assets/images/undraw_user.svg'"></nz-avatar>
+    </div>
+    <div nz-row nzType="flex" nzJustify="center" class="author-name">
+      <h2>
+        {{author.first_name + ' ' + author.last_name}}
+      </h2>
+    </div>
+  </a>
+  <div nz-row class="author-role">
+    <p>Service provider</p>
+  </div>
+  <div nz-row class="author-statistics">
+    <nz-divider nzOrientation="left" [nzText]="statHeader"></nz-divider>
+    <ng-template #statHeader>
+      <h2 class="title">Author statistics</h2>
+    </ng-template>
+    <app-label-value-row label="Services" [value]="author.services_count"
+      [routerlink]="['/profiles', author.id, 'services']"></app-label-value-row>
+    <app-label-value-row label="Posts" [value]="author.posts_count" [routerlink]="['/profiles', author.id, 'posts']">
+    </app-label-value-row>
+    <app-label-value-row label="Reviews" [value]="author.income_reviews_count"
+      [routerlink]="['/profiles', author.id, 'reviews']"></app-label-value-row>
+    <app-label-value-row label="Offers" [value]="author.offers_count" [routerlink]="['/profiles', author.id, 'offers']">
+    </app-label-value-row>
+    <app-label-value-row label="Joined" [value]="transformDateString(author.date_joined)"></app-label-value-row>
+  </div>
+  <div nz-row class="author-contacts">
+    <nz-divider nzOrientation="left" [nzText]="contactsHeader"></nz-divider>
+    <ng-template #contactsHeader>
+      <h2 class="title">Contacts</h2>
+    </ng-template>
+
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row">
+      <p nz-col class="label">Phone</p>
+      <div nz-col class="value">
+        <app-phone-wrapper [phone]="override_phone || author.phone"></app-phone-wrapper>
+      </div>
+    </div>
+
+    <div nz-row nzType="flex" nzJustify="space-between" class="author-row"
+      *ngIf="author.id != userService?.currentUser?.id">
+      <p nz-col class="label">Message</p>
+      <div nz-col class="value">
+        <a [routerLink]="['/', 'messages', 'user', author.id]" [queryParams]="additionalRouteData"><i
+            style="margin-right: 5px;" nz-icon nzType="message"></i>Message</a>
+        <!-- TODO: margin for all icons -->
+      </div>
+    </div>
+
+  </div>
+  <app-map [location]="location"></app-map>
+</nz-card>
+<nz-card *ngIf="author && horizontal">
+  <div nz-row nzType="flex" nzAlign="middle" [nzGutter]="8">
+    <div nz-col>
+      <a [routerLink]="['/profiles', author.id]">
+        <nz-avatar [nzSize]="64" nzIcon="user" [nzSrc]="author.image || 'assets/images/undraw_user.svg'"></nz-avatar>
+      </a>
+    </div>
+    <div nz-col>
+      <a [routerLink]="['/profiles', author.id]">
+        <h2 style="margin-bottom: 0;">
+          {{author.first_name + ' ' + author.last_name}}
+        </h2>
+      </a>
+      <span class="grey-color"><span i18n="@@lastSeenUserText">Last seen:</span>
+        {{author.last_active | date: 'hh:mm a MMMM d'}}</span>
+    </div>
+  </div>
+</nz-card>
+<nz-card *ngIf="horizontal">
+  <app-map [location]="location"></app-map>
+</nz-card>

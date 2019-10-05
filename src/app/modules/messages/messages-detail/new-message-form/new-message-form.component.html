@@ -9,9 +9,9 @@
   </div>
   <div nz-col nzXs="8" nzSm="4">
     <div class="actions">
-      <i nz-tooltip [nzTitle]="showUploadImagesForm ? 'Remove images' : 'Add images'" nz-icon type="picture"
+      <i nz-tooltip [nzTitle]="showUploadImagesForm ? 'Remove images' : 'Add images'" nz-icon nzType="picture"
         (click)="setShowUploadImagesForm(!showUploadImagesForm)" [class.active]="showUploadImagesForm"></i>
-      <i nz-icon type="message" class="send-message-button" (click)="onFormSubmit()"></i>
+      <i nz-icon nzType="message" class="send-message-button" (click)="onFormSubmit()"></i>
     </div>
   </div>
   <div nz-col nzSpan="24" class="images-upload" *ngIf="showUploadImagesForm">

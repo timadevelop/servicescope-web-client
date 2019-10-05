@@ -17,7 +17,7 @@
           <app-phone-wrapper *ngIf="user.phone" [phone]="user.phone"></app-phone-wrapper>
           <a *ngIf="user.id != (userService.currentUserObs | async)?.id"
             [routerLink]="['/', 'messages', 'user', user.id]">
-            <i nz-icon type="message"></i>Message
+            <i nz-icon nzType="message"></i>Message
           </a>
         </div>
       </div>

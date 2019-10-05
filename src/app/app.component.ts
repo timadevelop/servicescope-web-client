@@ -68,7 +68,8 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // set custom empty data template
-    this.nzEmptyService.setDefaultContent(this.customEmptyTpl); // tslint:disable-line:no-any
+    // TODO: deprecated: 'setDefaultContent' is deprecated and would be removed in 9.0.0. Please migrate to 'NzConfigService'. Error
+    // this.nzEmptyService.setDefaultContent(this.customEmptyTpl); // tslint:disable-line:no-any
   }
 
   getAnimationData(

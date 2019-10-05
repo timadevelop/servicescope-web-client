@@ -36,7 +36,7 @@
           a coupon code</a>
 
         <ng-template #boostingProcessTitleTemplate>
-          <i *ngIf="!isBoosted" nz-icon type="loading" style="font-size: 24px;margin-right: 5px;"></i>
+          <i *ngIf="!isBoosted" nz-icon nzType="loading" style="font-size: 24px;margin-right: 5px;"></i>
           <span *ngIf="!isBoosted else successBoostedTitleTemplate"
             i18n="Card title for service boosting process@@promoteServiceBoostingProcessText">
             Boosting Your Service...</span>
@@ -63,12 +63,12 @@
             <h2 class="title green-color plan-title">Pro</h2>
             <nz-divider></nz-divider>
             <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="rocket"></i>
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="rocket"></i>
               <span>{{getPlan('pro').days}} Days <b class="green-color">Boosted</b> service status</span>
             </div>
             <nz-divider></nz-divider>
             <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="align-left"></i>
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="align-left"></i>
               <span nz-col nzSpan="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque velit beatae id
                 quod,
                 nulla ipsa qui est nisi minus accusamus sequi explicabo, vero mollitia sit quo, ipsam ex. Nam,
@@ -76,7 +76,7 @@
             </div>
             <nz-divider></nz-divider>
             <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="clock-circle"></i>
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="clock-circle"></i>
               <span nz-col nzSpan="21">
                 <span>Service will be promoted til</span>
                 {{getPlan('pro').target_date | date}}
@@ -94,12 +94,12 @@
             <h2 class="title blue-color plan-title">Basic</h2>
             <nz-divider></nz-divider>
             <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="rocket"></i>
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="rocket"></i>
               <span>{{getPlan('basic').days}} Days <b class="blue-color">Boosted</b> service status</span>
             </div>
             <nz-divider></nz-divider>
             <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="align-left"></i>
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="align-left"></i>
               <span nz-col nzSpan="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque velit beatae id
                 quod,
                 nulla ipsa qui est nisi minus accusamus sequi explicabo, vero mollitia sit quo, ipsam ex. Nam,
@@ -107,7 +107,7 @@
             </div>
             <nz-divider></nz-divider>
             <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
-              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon type="clock-circle"></i>
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="clock-circle"></i>
               <span nz-col nzSpan="21">
                 <span>Service will be promoted til</span>
                 {{getPlan('basic').target_date | date}}
@@ -166,7 +166,7 @@
               <nz-input-group [nzPrefix]="prefixEmail">
                 <input nz-input formControlName="email" placeholder="Email" type="email" />
               </nz-input-group>
-              <ng-template #prefixEmail><i nz-icon type="mail"></i></ng-template>
+              <ng-template #prefixEmail><i nz-icon nzType="mail"></i></ng-template>
 
               <nz-form-explain *ngIf="validateUserEmail.get('email')?.dirty && validateUserEmail.get('email')?.errors">
                 <ng-container *ngIf="validateUserEmail.get('email')?.hasError('email')">

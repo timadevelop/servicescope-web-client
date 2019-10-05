@@ -1,0 +1,14 @@
+<nz-input-group nzCompact>
+  <nz-input-number style="width: 30%" i18n-nzPlaceHolder="Literaly min price text@@minPriceText"
+    nzPlaceHolder="Min price" [nzMin]="min" [nzMax]="max" [ngModel]="priceMin" (ngModelChange)="onMinChange($event)">
+  </nz-input-number>
+  <nz-input-number style="width: 30%" i18n-nzPlaceHolder="Literaly max price text@@maxPriceText"
+    nzPlaceHolder="Max price" [nzMin]="min" [ngModel]="priceMax" (ngModelChange)="onMaxChange($event)">
+  </nz-input-number>
+  <button style="height: 42px;" nz-button (click)="filter()">Ok</button>
+  <button style="height: 42px;" nz-button (click)="clear()"><i nz-icon nzType="close"></i></button>
+</nz-input-group>
+<nz-row>
+  <nz-slider nzRange [ngModel]="[priceMin || min, priceMax || max]" (nzOnAfterChange)="onSliderEvent($event)"
+    [nzMarks]="generateMarks()" [nzMax]="max" [nzMin]="min"></nz-slider>
+</nz-row>

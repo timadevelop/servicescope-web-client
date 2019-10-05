@@ -1,0 +1,14 @@
+<div class="labeled-text">
+  <p class="labeled-text-label">{{label}}<i *ngIf="editable" (click)="edit = !edit" nz-icon class="edit-btn"
+      type="edit"></i></p>
+  <p class="labeled-text-text" *ngIf="!edit">{{text}}</p>
+
+  <nz-input-group *ngIf="edit" [nzSuffix]="suffixIconSearch">
+    <input type="text" nz-input [ngModel]="text" [disabled]="loading" (keyup.enter)="changeText()"
+      [minlength]="minLength" [maxlength]="maxLength" (ngModelChange)="setNewText($event)" #textInput />
+  </nz-input-group>
+  <ng-template #suffixIconSearch let-textInput>
+    <i *ngIf="!loading" nz-icon nzType="check" class="save-btn" (click)="changeText()"></i>
+    <i *ngIf="loading" nz-icon nzType="loading"></i>
+  </ng-template>
+</div>

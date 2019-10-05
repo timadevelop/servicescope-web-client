@@ -8,7 +8,7 @@ import { FeedPostApiRequest } from 'src/app/core/models/api-request/feedpost-api
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { FeedPost } from 'src/app/core/models/FeedPost.model';
-import { TagsSelectorComponent } from 'src/app/modules/shared/components/common/tags-selector/tags-selector.component';
+import { TagsSelectorComponent } from 'src/app/modules/shared/tags-selector/tags-selector.component';
 
 @Component({
   selector: 'app-feed-post',
