@@ -11,8 +11,10 @@
     <nz-row nzType="flex" nzJustify="center">
       <div nz-col [nzXs]="24" [nzSm]="24">
         <nz-spin [nzSpinning]="loading">
-          <app-list-item [promoted]="isBoosted" [item]="service" modelName="services">
-          </app-list-item>
+          <nz-list>
+            <app-list-item [promoted]="isBoosted" [item]="service" modelName="services">
+            </app-list-item>
+          </nz-list>
         </nz-spin>
       </div>
 
@@ -31,8 +33,8 @@
       <h2 style="text-align: center;" class="title mb-vertical-align">
         <span *ngIf="paymentIntent?.status != 'succeeded' else boostingProcessTitleTemplate"
           i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Select Plan</span>
-        {{' '}}<a *ngIf="paymentIntent?.status != 'succeeded'"
-          i18n="@@orUseCouponText" [routerLink]="[]" [queryParams]="{coupon: true}" style="font-size: small">or use
+        {{' '}}<a *ngIf="paymentIntent?.status != 'succeeded'" i18n="@@orUseCouponText" [routerLink]="[]"
+          [queryParams]="{coupon: true}" style="font-size: small">or use
           a coupon code</a>
 
         <ng-template #boostingProcessTitleTemplate>

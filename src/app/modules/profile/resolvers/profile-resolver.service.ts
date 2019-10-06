@@ -17,16 +17,18 @@ export class ProfileResolverService implements Resolve<User>{
     console.log(route.paramMap.get('id'));
     let id = +route.paramMap.get('id');
 
-    return this.userService.currentUserObs.pipe(
-      first(),
-      switchMap(user => {
-        if (user && user.id == id) {
-          return of(user);
-        }
-        else {
-          return this.resolveUser(id);
-        }
-      }));
+    return this.resolveUser(id);
+    // return this.userService.currentUserObs.pipe(
+    //   first(),
+    //   switchMap(user => {
+    //     console.log(user);
+    //     if (user && user.id == id) {
+    //       return of(user);
+    //     }
+    //     else {
+    //       return this.resolveUser(id);
+    //     }
+    //   }));
   }
 
   private resolveUser(id): Observable<User> {

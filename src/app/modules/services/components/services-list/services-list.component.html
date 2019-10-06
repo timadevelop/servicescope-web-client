@@ -47,6 +47,9 @@
 <ng-template #list>
   <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
     [nzItemLayout]="'horizontal'" [nzRenderItem]="serviceItemTemplate" [nzPagination]="pagination">
+    <ng-template #serviceItemTemplate let-service>
+      <app-list-item [item]="service" modelName="services"></app-list-item>
+    </ng-template>
     <ng-template #pagination>
       <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count || 1"
         (nzPageIndexChange)="loadData($event)"></nz-pagination>
@@ -55,9 +58,6 @@
 </ng-template>
 
 
-<ng-template #serviceItemTemplate let-service>
-  <app-list-item [item]="service" modelName="services"></app-list-item>
-</ng-template>
 
 <nz-drawer *ngIf="tds.isMobile" [nzClosable]="true" [nzVisible]="isFiltersDrawerVisible" nzPlacement="right"
   i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" (nzOnClose)="setIsFiltersDrawerVisible(false)" nzWidth="85%">

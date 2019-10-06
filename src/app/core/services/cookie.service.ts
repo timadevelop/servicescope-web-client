@@ -55,6 +55,7 @@ export class CookieService {
     if (isPlatformBrowser(this.platformId)) {
       let cookieValue = `${key}=${value}`;
       if (expires) cookieValue += `;expires='${expires.toUTCString()}'`
+      cookieValue += `;path=/`
       document.cookie = cookieValue;
       // update current value
       this.cookieStore[key.trim()] = value;

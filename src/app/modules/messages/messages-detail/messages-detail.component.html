@@ -59,8 +59,7 @@
               </div>
             </div>
             <div nz-tooltip nzTitle="Remove Message" (click)="removeMessage(msg)"
-              *ngIf="msg.author_id == (userService.currentUserObs | async)?.id" nz-col class="deleteButton"><i nz-icon
-                type="delete"></i></div>
+              *ngIf="msg.author_id == (userService.currentUserObs | async)?.id" nz-col class="deleteButton"><i nz-icon nzType="delete"></i></div>
           </div>
           <div *ngFor="let msg of pendingMessages; trackBy: trackIdentifyByItemId; let i = index" class="message"
             [class.right]="true" [class.same-author]="false" nz-row nzType="flex" nzJustify="start" nzAlign="bottom">

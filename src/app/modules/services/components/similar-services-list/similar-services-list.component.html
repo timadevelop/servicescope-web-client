@@ -1,13 +1,13 @@
-<nz-list [nzDataSource]="paginatedServices?.results || []"
-  [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="serviceItemTemplate" [nzFooter]="footer">
+<nz-list [nzDataSource]="paginatedServices?.results || []" [nzItemLayout]="'horizontal'" [nzLoading]="loading"
+  [nzRenderItem]="serviceItemTemplate" [nzFooter]="footer">
+  <ng-template #serviceItemTemplate let-serviceitem>
+    <app-list-item modelName="services" [item]="serviceitem"></app-list-item>
+  </ng-template>
 </nz-list>
 
 <ng-template #footer>
   <nz-row style="text-align: center;" *ngIf="paginatedServices && paginatedServices.results.length > 0">
-    <a (click)="navigateToAllSimilarServices()"  i18n-nzTitle="@@seeAllSimilarServicesButtonText">See all similar services</a>
+    <a (click)="navigateToAllSimilarServices()" i18n-nzTitle="@@seeAllSimilarServicesButtonText">See all similar
+      services</a>
   </nz-row>
-</ng-template>
-
-<ng-template #serviceItemTemplate let-serviceitem>
-  <app-list-item modelName="services" [item]="serviceitem"></app-list-item>
 </ng-template>
