@@ -61,11 +61,11 @@
   <div *ngIf="focused" nz-row nzType="flex" nzJustify="space-between" nzAlign="middle" class="actions">
     <div nz-col>
       <i nz-tooltip class="action" [nzTitle]="showUploadImagesForm ? 'Remove images' : 'Add images'" nz-icon
-        type="picture" (click)="setShowUploadImagesForm(!showUploadImagesForm)"
+        nzType="picture" (click)="setShowUploadImagesForm(!showUploadImagesForm)"
         [class.active]="showUploadImagesForm"></i>
     </div>
     <div nz-col>
-      <small nz-checkbox class="grey-color" [(ngModel)]="submitOnCtrlEnter"
+      <small nz-checkbox class="grey-color" name="submit-on-ctrl-enter" [(ngModel)]="submitOnCtrlEnter"
         i18n="@@submitFeedPostOnCtrlEnterKeyDown">Post on Ctrl +
         Enter</small>
       <button nz-button nzType="primary" class="submit-button" (click)="onFormSubmit()">Post</button>
