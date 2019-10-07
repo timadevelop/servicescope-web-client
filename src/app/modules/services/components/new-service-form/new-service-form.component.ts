@@ -87,12 +87,6 @@ export class NewServiceFormComponent implements OnInit {
     }
   }
 
-  onLocationChange(location: Location) {
-    this.serviceForm.patchValue({
-      location: location.url
-    });
-  }
-
 
   onFormSubmit(jsonEditor: JsonLabelValueEditorComponent = null) {
     for (const i in this.serviceForm.controls) {
@@ -103,7 +97,8 @@ export class NewServiceFormComponent implements OnInit {
     const isJsonValid = jsonEditor ? jsonEditor.validate() : true;
     if (this.serviceForm.valid && isJsonValid) {
       // create new service
-      this.onSubmit.emit(this.serviceForm.value);
+      // location -> locationUrl
+      this.onSubmit.emit({ ...this.serviceForm.value, location: this.serviceForm.controls['location'].value.url });
     } else {
       this.scrollToError();
     }

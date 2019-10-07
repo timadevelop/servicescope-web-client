@@ -12,7 +12,7 @@ import { FeedComponent } from './feed/feed.component';
 import { FeedPostComponent } from './feed/feed-post/feed-post.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FooterModule } from '../shared/footer/footer.module';
-import { NzListModule, NzDividerModule, NzPaginationModule, NzCardModule, NzAvatarModule, NzDropDownModule, NzTagModule, NzFormModule, NzToolTipModule, NzInputModule, NzPageHeaderModule, NzTabsModule, NzGridModule, NzBreadCrumbModule, NzBadgeModule, NzIconModule, NzButtonModule, NzCheckboxModule } from 'ng-zorro-antd';
+import { NzListModule, NzDividerModule, NzPaginationModule, NzCardModule, NzAvatarModule, NzDropDownModule, NzTagModule, NzFormModule, NzToolTipModule, NzInputModule, NzPageHeaderModule, NzTabsModule, NzGridModule, NzBreadCrumbModule, NzBadgeModule, NzIconModule, NzButtonModule, NzCheckboxModule, NzPopconfirmModule } from 'ng-zorro-antd';
 import { VotesModule } from '../shared/votes/votes.module';
 import { CarouselModule } from '../shared/carousel/carousel.module';
 import { ShareWidgetModule } from '../shared/share-widget/share-widget.module';
@@ -47,6 +47,7 @@ import { PhoneWrapperModule } from '../shared/phone-wrapper/phone-wrapper.module
     NzButtonModule,
     NzCheckboxModule,
     NzIconModule,
+    NzPopconfirmModule,
     NzAvatarModule,
     NzDropDownModule,
     NzPaginationModule,
