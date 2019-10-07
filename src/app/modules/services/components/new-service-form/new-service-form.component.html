@@ -62,8 +62,7 @@
             <nz-form-label nzFor="category" i18n="@@serviceFormLabelPrice">Category</nz-form-label>
             <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="categoryErrorTemplate">
               <nz-input-group [nzPrefix]="prefixCategory">
-                <app-category-selector [isFormItem]="true" (onChange)="onCategoryChange($event)"
-                  [selectedCategoryString]="this.serviceForm.controls['category'].value">
+                <app-category-selector [isFormItem]="true" formControlName="category">
                 </app-category-selector>
               </nz-input-group>
               <ng-template #categoryErrorTemplate let-control>
@@ -82,8 +81,7 @@
             <nz-form-label nzFor="location" i18n="@@serviceFormLabelLocation">Location</nz-form-label>
             <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="locationErrorTemplate">
               <nz-input-group [nzPrefix]="prefixLocation">
-                <app-location-search [isFormItem]="true" (onChange)="onLocationChange($event)"
-                  [selectedLocation]="this.service?.location"></app-location-search>
+                <app-location-search [isFormItem]="true" formControlName="location"></app-location-search>
               </nz-input-group>
               <ng-template #locationErrorTemplate let-control>
                 <ng-container *ngIf="control.hasError('required')"
@@ -148,8 +146,7 @@
       <nz-form-item>
         <nz-form-label nzFor="images" i18n="@@serviceFormLabelImages">Images</nz-form-label>
         <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback="false" [nzErrorTip]="imagesErrorTemplate">
-          <app-images-selector [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)"
-            [defaultImages]="this.serviceForm.controls['images'].value">
+          <app-images-selector [maxItemsLength]="maxImagesLength" formControlName="images">
           </app-images-selector>
           <ng-template #imagesErrorTemplate let-control>
             <ng-container *ngIf="control.hasError('minlength')"

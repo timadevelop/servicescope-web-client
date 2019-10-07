@@ -55,8 +55,7 @@
     </div>
 
     <div *ngIf="focused && showUploadImagesForm" nz-col nzSpan="24" class="images-upload">
-      <app-images-selector [clearEvent]="clearImagesEvent.asObservable()" [maxItemsLength]="maxImagesLength"
-        (onChange)="onImagesChange($event)" size="small" [defaultImages]="feedPostForm.controls['images'].value">
+      <app-images-selector [clearEvent]="clearImagesEvent.asObservable()" formControlName="images" size="small" [defaultImages]="feedPostForm.controls['images'].value">
       </app-images-selector>
     </div>
   </form>

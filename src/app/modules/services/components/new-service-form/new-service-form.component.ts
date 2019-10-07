@@ -70,7 +70,7 @@ export class NewServiceFormComponent implements OnInit {
         title: this.service.title,
         description: this.service.description,
         price: this.service.price,
-        location: this.service.location.url,
+        location: this.service.location,
         images: this.service.images.map((v, index, arr) => {
           return {
             uid: index,
@@ -93,17 +93,6 @@ export class NewServiceFormComponent implements OnInit {
     });
   }
 
-  onCategoryChange(categoryName: string) {
-    this.serviceForm.patchValue({
-      category: categoryName
-    })
-  }
-
-  onImagesChange(images: Array<UploadFile>) {
-    this.serviceForm.patchValue({
-      images: images
-    })
-  }
 
   onFormSubmit(jsonEditor: JsonLabelValueEditorComponent = null) {
     for (const i in this.serviceForm.controls) {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, forwardRef } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
 import { LocationService } from 'src/app/core/services/location.service';
 
@@ -8,12 +8,37 @@ import { Params, Router, ActivatedRoute } from '@angular/router';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+
+const customValueProvider = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => LocationSearchComponent),
+  multi: true
+};
+
 @Component({
   selector: 'app-location-search',
   templateUrl: './location-search.component.html',
-  styleUrls: ['./location-search.component.scss']
+  styleUrls: ['./location-search.component.scss'],
+  providers: [customValueProvider]
 })
-export class LocationSearchComponent implements OnInit {
+export class LocationSearchComponent implements OnInit, ControlValueAccessor {
+
+  //
+  // ControlValueAccessor
+  propagateChange: any = () => { };
+
+  writeValue(value: Location): void {
+    if (value) this.selectedLocation = value;
+  }
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+  registerOnTouched(fn: any): void { }
+  setDisabledState(isDisabled: boolean): void { }
+  // /ControlValueAccessor
+  //
+
   @Input() selectedLocation: Location;
   locations: PaginatedApiResponse<Location>;
   isLoading = false;
@@ -45,8 +70,7 @@ export class LocationSearchComponent implements OnInit {
     // this.search(this.i18n({value: "", id: "defaultLocationSearchQuery", description: "Default search query for location selector (later will be deprecated, we`ll use most popular locations)"})); // TODO get main locations
 
     this.nullLocation.name = this.isFormItem ? this.i18n({ value: "Select Location", id: 'selectLocationText' }) : this.i18n({ value: "Whole country", id: 'wholeCountryText' });
-    if (!this.selectedLocation)
-    {
+    if (!this.selectedLocation) {
       this.selectedLocation = this.nullLocation;
     }
 
@@ -111,6 +135,7 @@ export class LocationSearchComponent implements OnInit {
   locationChanged(l: Location) {
     this.selectedLocation = l;
     this.onChange.emit(this.selectedLocation == this.nullLocation ? null : this.selectedLocation);
+    this.propagateChange(this.selectedLocation);
 
     if (!this.isFormItem) {
       // update query params

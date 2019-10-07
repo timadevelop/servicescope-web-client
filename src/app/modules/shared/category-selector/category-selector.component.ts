@@ -1,16 +1,39 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, Input, forwardRef } from '@angular/core';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { Category } from 'src/app/core/models/Category.models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CategoriesService } from 'src/app/core/services/categories.service';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+
+const customValueProvider = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => CategorySelectorComponent),
+  multi: true
+};
 
 @Component({
   selector: 'app-category-selector',
   templateUrl: './category-selector.component.html',
-  styleUrls: ['./category-selector.component.scss']
+  styleUrls: ['./category-selector.component.scss'],
+  providers: [customValueProvider]
 })
-export class CategorySelectorComponent implements OnInit, OnDestroy {
+export class CategorySelectorComponent implements OnInit, OnDestroy, ControlValueAccessor {
+  //
+  // ControlValueAccessor
+  propagateChange:any = () => {};
+
+  writeValue(value: string): void {
+    if (value) this.selectedCategoryString = value;
+  }
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+  registerOnTouched(fn: any): void { }
+  setDisabledState(isDisabled: boolean): void {}
+  // /ControlValueAccessor
+  //
+
   categories: PaginatedApiResponse<Category>;
   @Input() selectedCategoryString: string;
   optionList: string[] = [];
@@ -80,7 +103,9 @@ export class CategorySelectorComponent implements OnInit, OnDestroy {
 
   onCategoryChange(categoryName: string) {
     if (this.isFormItem) {
+      this.selectedCategoryString = categoryName;
       this.onChange.emit(categoryName);
+      this.propagateChange(categoryName);
     } else if (!categoryName) {
       this.navigateToSavingQueryParams(['../../']);
     } else if (!this.selectedCategoryString) {

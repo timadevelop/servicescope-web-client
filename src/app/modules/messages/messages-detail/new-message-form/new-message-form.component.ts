@@ -134,15 +134,6 @@ export class NewMessageFormComponent implements OnInit {
         });
   }
 
-  onImagesChange(images: Array<UploadFile>) {
-    this.messageForm.patchValue({
-      images: images
-    });
-    if (images.length < 1) {
-      this.setShowUploadImagesForm(false);
-    }
-  }
-
   setShowUploadImagesForm(v: boolean) {
     this.showUploadImagesForm = v;
     if (!this.showUploadImagesForm) {

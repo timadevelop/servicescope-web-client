@@ -1,13 +1,22 @@
-import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
-import { UploadFile, NzMessageService, UploadXHRArgs, NzUploadComponent } from 'ng-zorro-antd';
-import { Observer, Observable, Subscription } from 'rxjs';
+import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, EventEmitter, Output, Input, ViewChild, forwardRef } from '@angular/core';
+import { UploadFile, NzMessageService, NzUploadComponent, UploadXHRArgs } from 'ng-zorro-antd';
+import { Observable, Subscription, Observer } from 'rxjs';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+
+const customValueProvider = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => ImagesSelectorComponent),
+  multi: true
+};
+
 
 @Component({
   selector: 'app-images-selector',
   templateUrl: './images-selector.component.html',
-  styleUrls: ['./images-selector.component.scss']
+  styleUrls: ['./images-selector.component.scss'],
+  providers: [customValueProvider]
 })
-export class ImagesSelectorComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+export class ImagesSelectorComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy, ControlValueAccessor {
   loading: boolean = false;
   showUploadList = {
     showPreviewIcon: true,
@@ -25,6 +34,22 @@ export class ImagesSelectorComponent implements OnInit, OnChanges, AfterViewInit
   @Input() clearEvent: Observable<void>;
   @Input() showFileDialog: boolean = false
   @Input() defaultImages: Array<any> = [];
+
+  //
+  // ControlValueAccessor
+  propagateChange: any = () => { };
+
+  writeValue(value: Array<UploadFile>): void {
+    if (value) this.fileList = value;
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+  registerOnTouched(fn: any): void { }
+  setDisabledState(isDisabled: boolean): void { }
+  // /ControlValueAccessor
+  //
 
   constructor(private msg: NzMessageService) { }
 
@@ -88,7 +113,8 @@ export class ImagesSelectorComponent implements OnInit, OnChanges, AfterViewInit
   handleChange(info: { file: UploadFile, type: string, fileList: Array<UploadFile> }): void {
     this.loading = false;
     info.file.status = 'success';
-    // this.filelist updates using two-way binding
+    // this.filelist updates using two-way binding in 'images-selector' template
     this.onChange.emit(info.fileList);
+    this.propagateChange(info.fileList);
   }
 }

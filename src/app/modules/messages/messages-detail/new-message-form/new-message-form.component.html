@@ -16,7 +16,7 @@
   </div>
   <div nz-col nzSpan="24" class="images-upload" *ngIf="showUploadImagesForm">
     <app-images-selector [showFileDialog]="true" [clearEvent]="clearImagesEvent.asObservable()"
-      [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)" size="small">
+      [maxItemsLength]="maxImagesLength" formControlName="images" size="small">
     </app-images-selector>
   </div>
 </form>

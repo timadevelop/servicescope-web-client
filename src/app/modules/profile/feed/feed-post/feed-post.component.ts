@@ -186,15 +186,6 @@ export class FeedPostComponent implements OnInit, OnChanges {
     }
   }
 
-  onImagesChange(images: Array<UploadFile>) {
-    this.feedPostForm.patchValue({
-      images: images
-    });
-    if (images.length < 1) {
-      this.setShowUploadImagesForm(false);
-    }
-  }
-
   setShowUploadImagesForm(v: boolean) {
     this.showUploadImagesForm = v;
     if (!this.showUploadImagesForm) {
