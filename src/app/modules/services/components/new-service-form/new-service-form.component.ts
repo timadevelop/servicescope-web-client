@@ -99,12 +99,6 @@ export class NewServiceFormComponent implements OnInit {
     })
   }
 
-  onTagsChange(tags: Array<string>) {
-    this.serviceForm.patchValue({
-      tags: tags
-    })
-  }
-
   onImagesChange(images: Array<UploadFile>) {
     this.serviceForm.patchValue({
       images: images

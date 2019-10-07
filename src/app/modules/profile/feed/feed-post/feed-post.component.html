@@ -31,8 +31,7 @@
     <!-- Tags -->
     <div *ngIf="focused" class="tags-selector-wrapper" nz-col nzSpan="24">
       <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('tags')" nzHasFeedback>
-        <app-tags-selector #tagsSelector class="tags-selector" (onChange)="onTagsChange($event)"
-          [defaultTags]="feedPostForm.controls['tags'].value"></app-tags-selector>
+        <app-tags-selector #tagsSelector class="tags-selector" formControlName="tags"></app-tags-selector>
         <nz-form-explain *ngIf="dirtyOrHasErrors('tags')">
           <ng-container *ngIf="feedPostForm.get('tags')?.hasError('minlength')"
             i18n="Error message|tags array is too short@@formErrorTagsArrayIsTooShort">

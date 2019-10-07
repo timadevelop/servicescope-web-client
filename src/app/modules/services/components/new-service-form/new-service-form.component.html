@@ -124,7 +124,7 @@
         <nz-form-label nzFor="tags" i18n="@@serviceFormLabelTags">Tags</nz-form-label>
         <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('tags')" nzHasFeedback>
           <nz-input-group [nzPrefix]="prefixTags">
-            <app-tags-selector (onChange)="onTagsChange($event)" [defaultTags]="this.serviceForm.controls['tags'].value"></app-tags-selector>
+            <app-tags-selector formControlName="tags"></app-tags-selector>
           </nz-input-group>
           <nz-form-explain *ngIf="dirtyOrHasErrors('tags')">
             <ng-container *ngIf="serviceForm.get('tags')?.hasError('minlength')"

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges, forwardRef } from '@angular/core';
 import { TagsService } from 'src/app/core/services/tags.service';
 import { Subscription } from 'rxjs';
 import { Tag } from 'src/app/core/models/Tag.models';
@@ -6,12 +6,38 @@ import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated
 import { NzMessageService } from 'ng-zorro-antd';
 import { I18n } from '@ngx-translate/i18n-polyfill';
 
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+
+const customValueProvider = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => TagsSelectorComponent),
+  multi: true
+};
+
+
 @Component({
   selector: 'app-tags-selector',
   templateUrl: './tags-selector.component.html',
-  styleUrls: ['./tags-selector.component.scss']
+  styleUrls: ['./tags-selector.component.scss'],
+  providers: [customValueProvider]
 })
-export class TagsSelectorComponent implements OnInit, OnChanges {
+export class TagsSelectorComponent implements OnInit, OnChanges, ControlValueAccessor {
+
+  //
+  // ControlValueAccessor
+  propagateChange: any = () => { };
+
+  writeValue(value: Array<string>): void {
+    if (value) this._selectedTags = value;
+  }
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+  registerOnTouched(fn: any): void { }
+  setDisabledState(isDisabled: boolean): void { }
+  // /ControlValueAccessor
+  //
+
   isLoading = false;
 
   tags: PaginatedApiResponse<Tag>;
@@ -21,7 +47,9 @@ export class TagsSelectorComponent implements OnInit, OnChanges {
   public set selectedTags(v) {
     this._selectedTags = v;
     this.onChange.emit(this._selectedTags);
+    this.propagateChange(this._selectedTags);
   }
+
   public get selectedTags() {
     return this._selectedTags;
   }
@@ -38,9 +66,7 @@ export class TagsSelectorComponent implements OnInit, OnChanges {
   @Output() onChange = new EventEmitter<Array<string>>();
 
   constructor(
-    private i18n: I18n,
-    private tagsService: TagsService,
-    private msgService: NzMessageService) { }
+    private tagsService: TagsService) { }
 
   ngOnInit(): void {
     this.tagsSub$ = this.tagsService.getTags('1', '10')

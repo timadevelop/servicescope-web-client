@@ -206,12 +206,6 @@ export class FeedPostComponent implements OnInit, OnChanges {
   }
 
 
-  onTagsChange(tags: Array<string>) {
-    this.feedPostForm.patchValue({
-      tags: tags
-    })
-  }
-
   clearImagesEvent: Subject<void> = new Subject<void>();
 
   resetForm() {
