@@ -13,34 +13,34 @@
       <form *ngIf="!authService.isLoggedIn" nz-form [formGroup]="validateForm" class="login-form"
         (ngSubmit)="submitForm()">
         <nz-form-item>
-          <nz-form-control nzHasFeedback>
+          <nz-form-control nzHasFeedback [nzErrorTip]="emailErrorTemplate">
             <nz-input-group [nzPrefix]="prefixEmail">
               <input nz-input formControlName="email" placeholder="Email" type="email" />
             </nz-input-group>
-            <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
-              <ng-container *ngIf="validateForm.get('email')?.hasError('email')">
+            <ng-template #emailErrorTemplate let-control>
+              <ng-container *ngIf="control.hasError('email')">
                 The input is not valid E-mail!
               </ng-container>
-              <ng-container *ngIf="validateForm.get('email')?.hasError('required')">
+              <ng-container *ngIf="control.hasError('required')">
                 Please input your E-mail!
               </ng-container>
-            </nz-form-explain>
+            </ng-template>
           </nz-form-control>
         </nz-form-item>
 
         <nz-form-item>
-          <nz-form-control nzHasFeedback>
+          <nz-form-control nzHasFeedback [nzErrorTip]="passwordErrorTemplate">
             <nz-input-group [nzPrefix]="prefixLock">
               <input type="password" nz-input formControlName="password" placeholder="Password" />
             </nz-input-group>
-            <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors">
-              <ng-container *ngIf="validateForm.get('password')?.hasError('minlength')">
+            <ng-template #passwordErrorTemplate let-control>
+              <ng-container *ngIf="control.hasError('minlength')">
                 Use at least 5 characters for password
               </ng-container>
-              <ng-container *ngIf="validateForm.get('password')?.hasError('required')">
+              <ng-container *ngIf="control.hasError('required')">
                 Please input your password!
               </ng-container>
-            </nz-form-explain>
+            </ng-template>
           </nz-form-control>
         </nz-form-item>
         <ng-container *ngIf="validateForm.get('other')?.hasError('invalid_grant')">

@@ -170,14 +170,14 @@
               </nz-input-group>
               <ng-template #prefixEmail><i nz-icon nzType="mail"></i></ng-template>
 
-              <nz-form-explain *ngIf="validateUserEmail.get('email')?.dirty && validateUserEmail.get('email')?.errors">
-                <ng-container *ngIf="validateUserEmail.get('email')?.hasError('email')">
+              <ng-template #tagsErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('email')">
                   The input is not valid E-mail!
                 </ng-container>
-                <ng-container *ngIf="validateUserEmail.get('email')?.hasError('required')">
+                <ng-container *ngIf="control.hasError('required')">
                   Please input your E-mail!
                 </ng-container>
-              </nz-form-explain>
+              </ng-template>
             </nz-form-control>
           </nz-form-item>
 

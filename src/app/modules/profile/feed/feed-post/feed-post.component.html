@@ -5,55 +5,58 @@
       <nz-avatar nzIcon="user" [nzSrc]="userService.currentUser.image || 'assets/images/undraw_user.svg'"></nz-avatar>
     </div>
     <div nz-col style="flex: 1; margin: 0 10px;">
-      <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('text')" nzHasFeedback>
-        <textarea (focus)="focused=true" #postTextArea class="feed-post-input" formControlName="text" nz-input
-          [nzAutosize]="{ minRows: 1, maxRows: 999 }" placeholder="What's up?" type="text">
+      <nz-form-item>
+        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="textErrorTemplate">
+          <textarea (focus)="focused=true" #postTextArea class="feed-post-input" formControlName="text" nz-input
+            [nzAutosize]="{ minRows: 1, maxRows: 999 }" placeholder="What's up?" type="text">
         </textarea>
-        <nz-form-explain *ngIf="dirtyOrHasErrors('text')">
-          <ng-container *ngIf="feedPostForm.get('text')?.hasError('minlength')"
-            i18n="Error message|text is too short@@formErrorTextIsTooShort">
-            Too short text
-          </ng-container>
-          <ng-container *ngIf="feedPostForm.get('text')?.hasError('maxlength')"
-            i18n="Error message|text is too long, ask user to delete some of them@@formErrorTextIsTooLong">
-            Too long text
-          </ng-container>
-          <ng-container *ngIf="feedPostForm.get('text')?.hasError('required')"
-            i18n="Error message|text is empty or invalid, ask user to provide text@@formErrorTextNotProvided">
-            Add text
-          </ng-container>
-        </nz-form-explain>
-      </nz-form-control>
+          <ng-template #textErrorTemplate let-control>
+            <ng-container *ngIf="control.hasError('minlength')"
+              i18n="Error message|text is too short@@formErrorTextIsTooShort">
+              Too short text
+            </ng-container>
+            <ng-container *ngIf="control.hasError('maxlength')"
+              i18n="Error message|text is too long, ask user to delete some of them@@formErrorTextIsTooLong">
+              Too long text
+            </ng-container>
+            <ng-container *ngIf="control.hasError('required')"
+              i18n="Error message|text is empty or invalid, ask user to provide text@@formErrorTextNotProvided">
+              Add text
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
     </div>
     <div nz-col *ngIf="!focused">
       <button nz-button nzType="primary" class="submit-button">Post</button>
     </div>
     <!-- Tags -->
     <div *ngIf="focused" class="tags-selector-wrapper" nz-col nzSpan="24">
-      <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('tags')" nzHasFeedback>
-        <app-tags-selector #tagsSelector class="tags-selector" formControlName="tags"></app-tags-selector>
-        <nz-form-explain *ngIf="dirtyOrHasErrors('tags')">
-          <ng-container *ngIf="feedPostForm.get('tags')?.hasError('minlength')"
-            i18n="Error message|tags array is too short@@formErrorTagsArrayIsTooShort">
-            Select more tags
-          </ng-container>
-          <ng-container *ngIf="feedPostForm.get('tags')?.hasError('maxlength')"
-            i18n="Error message|tags array is too long, ask user to delete some of them@@formErrorTagsArrayIsTooLong">
-            Too much tags selected, reduce tags count
-          </ng-container>
-          <ng-container *ngIf="feedPostForm.get('tags')?.hasError('required')"
-            i18n="Error message|tags array is empty or invalid, ask user to select tags@@formErrorTagsArrayNotProvided">
-            Select at least 3 tags
-          </ng-container>
-        </nz-form-explain>
+      <nz-form-item>
+        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="tagsErrorTemplate">
+          <app-tags-selector #tagsSelector class="tags-selector" formControlName="tags"></app-tags-selector>
+          <ng-template #tagsErrorTemplate let-control>
+            <ng-container *ngIf="control.hasError('minlength')"
+              i18n="Error message|tags array is too short@@formErrorTagsArrayIsTooShort">
+              Select more tags
+            </ng-container>
+            <ng-container *ngIf="control.hasError('maxlength')"
+              i18n="Error message|tags array is too long, ask user to delete some of them@@formErrorTagsArrayIsTooLong">
+              Too much tags selected, reduce tags count
+            </ng-container>
+            <ng-container *ngIf="control.hasError('required')"
+              i18n="Error message|tags array is empty or invalid, ask user to select tags@@formErrorTagsArrayNotProvided">
+              Select at least 3 tags
+            </ng-container>
+          </ng-template>
 
-      </nz-form-control>
+        </nz-form-control>
+      </nz-form-item>
     </div>
 
     <div *ngIf="focused && showUploadImagesForm" nz-col nzSpan="24" class="images-upload">
-      <app-images-selector [clearEvent]="clearImagesEvent.asObservable()"
-        [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)" size="small"
-        [defaultImages]="feedPostForm.controls['images'].value">
+      <app-images-selector [clearEvent]="clearImagesEvent.asObservable()" [maxItemsLength]="maxImagesLength"
+        (onChange)="onImagesChange($event)" size="small" [defaultImages]="feedPostForm.controls['images'].value">
       </app-images-selector>
     </div>
   </form>

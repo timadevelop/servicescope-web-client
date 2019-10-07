@@ -5,51 +5,51 @@
         <div nz-col nzSpan="16">
           <nz-form-item>
             <nz-form-label nzFor="title" i18n="@@serviceFormLabelTitle">Service title</nz-form-label>
-            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="titleErrorTemplate">
               <nz-input-group [nzPrefix]="prefixTitle">
                 <input type="text" nz-input formControlName="title" i18n-placeholder="@@serviceFormLabelTitle"
                   placeholder="Service title" />
               </nz-input-group>
-              <nz-form-explain *ngIf="dirtyOrHasErrors('title')">
-                <ng-container *ngIf="serviceForm.get('title')?.hasError('minlength')"
+              <ng-template #titleErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('minlength')"
                   i18n="Error message|Service title is too short@@serviceFormErrorTitleIsTooShort">
                   Title is too short
                 </ng-container>
-                <ng-container *ngIf="serviceForm.get('title')?.hasError('maxlength')"
+                <ng-container *ngIf="control.hasError('maxlength')"
                   i18n="Error message|Service title is too long@@serviceFormErrorTitleIsTooLong">
                   Title is too long
                 </ng-container>
-                <ng-container *ngIf="serviceForm.get('title')?.hasError('required')"
+                <ng-container *ngIf="control.hasError('required')"
                   i18n="Error message|Service title is not provided, ask user to provide valid one@@serviceFormErrorTitleNotProvided">
                   Please input valid title
                 </ng-container>
-              </nz-form-explain>
+              </ng-template>
             </nz-form-control>
           </nz-form-item>
         </div>
         <div nz-col nzSpan="8">
           <nz-form-item>
             <nz-form-label nzFor="price" i18n="@@serviceFormLabelPrice">Price</nz-form-label>
-            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="priceErrorTemplate">
               <nz-input-group nzCompact>
                 <nz-input-number style="width: 60%" formControlName="price" [nzMin]="0" [nzStep]="10"></nz-input-number>
                 <input type="text" style="width: 30%; padding: 0;padding-left: 10px;" nz-input disabled
                   i18n-value="@@currency" value="BGN" />
               </nz-input-group>
-              <nz-form-explain *ngIf="dirtyOrHasErrors('price')">
-                <ng-container *ngIf="serviceForm.get('price')?.hasError('min')"
+              <ng-template #priceErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('min')"
                   i18n="Error message|Service price is too small@@serviceFormErrorPriceIsTooSmall">
                   Price is too small
                 </ng-container>
-                <ng-container *ngIf="serviceForm.get('price')?.hasError('max')"
+                <ng-container *ngIf="control.hasError('max')"
                   i18n="Error message|Service price is too big@@serviceFormErrorPriceIsTooBig">
                   Price is too big
                 </ng-container>
-                <ng-container *ngIf="serviceForm.get('price')?.hasError('required')"
+                <ng-container *ngIf="control.hasError('required')"
                   i18n="Error message|Service price is not provided, Ask user to provide valid one@@serviceFormErrorPriceNotProvided">
                   Please input valid title
                 </ng-container>
-              </nz-form-explain>
+              </ng-template>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -60,18 +60,18 @@
         <div nz-col nzSpan="12">
           <nz-form-item>
             <nz-form-label nzFor="category" i18n="@@serviceFormLabelPrice">Category</nz-form-label>
-            <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('category')"
-              nzHasFeedback>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="categoryErrorTemplate">
               <nz-input-group [nzPrefix]="prefixCategory">
-                <app-category-selector [isFormItem]="true" (onChange)="onCategoryChange($event)" [selectedCategoryString]="this.serviceForm.controls['category'].value">
+                <app-category-selector [isFormItem]="true" (onChange)="onCategoryChange($event)"
+                  [selectedCategoryString]="this.serviceForm.controls['category'].value">
                 </app-category-selector>
               </nz-input-group>
-              <nz-form-explain *ngIf="dirtyOrHasErrors('category')">
-                <ng-container *ngIf="serviceForm.get('category')?.hasError('required')"
+              <ng-template #categoryErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('required')"
                   i18n="Error message|Service category is not select, ask user to select valid one@@serviceFormErrorCategoryNotProvided">
                   Please select valid category
                 </ng-container>
-              </nz-form-explain>
+              </ng-template>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -80,17 +80,17 @@
         <div nz-col nzSpan="12">
           <nz-form-item>
             <nz-form-label nzFor="location" i18n="@@serviceFormLabelLocation">Location</nz-form-label>
-            <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('location')"
-              nzHasFeedback>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="locationErrorTemplate">
               <nz-input-group [nzPrefix]="prefixLocation">
-                <app-location-search [isFormItem]="true" (onChange)="onLocationChange($event)" [selectedLocation]="this.service?.location"></app-location-search>
+                <app-location-search [isFormItem]="true" (onChange)="onLocationChange($event)"
+                  [selectedLocation]="this.service?.location"></app-location-search>
               </nz-input-group>
-              <nz-form-explain *ngIf="dirtyOrHasErrors('location')">
-                <ng-container *ngIf="serviceForm.get('location')?.hasError('required')"
+              <ng-template #locationErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('required')"
                   i18n="Error message|Service location is not provided, ask user to select valid one@@serviceFormErrorPriceNotProvided">
                   Please select valid location
                 </ng-container>
-              </nz-form-explain>
+              </ng-template>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -98,49 +98,48 @@
       <!-- Description -->
       <nz-form-item>
         <nz-form-label nzFor="description" i18n="@@serviceFormLabelDescription">Description</nz-form-label>
-        <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('description')"
-          nzHasFeedback>
+        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="descriptionErrorTemplate">
           <textarea formControlName="description" nz-input rows="10" i18n-placeholder="@@serviceFormLabelDescription"
             placeholder="Description"></textarea>
-          <nz-form-explain *ngIf="dirtyOrHasErrors('description')">
-            <ng-container *ngIf="serviceForm.get('description')?.hasError('minlength')"
+          <ng-template #descriptionErrorTemplate let-control>
+            <ng-container *ngIf="control.hasError('minlength')"
               i18n="Error message|Service description is too short@@serviceFormErrorDescriptionIsTooShort">
               Description is too short
             </ng-container>
-            <ng-container *ngIf="serviceForm.get('description')?.hasError('maxlength')"
+            <ng-container *ngIf="control.hasError('maxlength')"
               i18n="Error message|Service description is too long@@serviceFormErrorDescriptionIsTooLong">
               Description is too long
             </ng-container>
-            <ng-container *ngIf="serviceForm.get('description')?.hasError('required')"
+            <ng-container *ngIf="control.hasError('required')"
               i18n="Error message|Service description is empty or invalid, ask user for valid one@@serviceFormErrorDescriptionNotProvided">
               Please input valid description
             </ng-container>
-          </nz-form-explain>
+          </ng-template>
         </nz-form-control>
       </nz-form-item>
 
       <!-- Tags -->
       <nz-form-item>
         <nz-form-label nzFor="tags" i18n="@@serviceFormLabelTags">Tags</nz-form-label>
-        <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('tags')" nzHasFeedback>
+        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="tagsErrorTemplate">
           <nz-input-group [nzPrefix]="prefixTags">
             <app-tags-selector formControlName="tags"></app-tags-selector>
           </nz-input-group>
-          <nz-form-explain *ngIf="dirtyOrHasErrors('tags')">
-            <ng-container *ngIf="serviceForm.get('tags')?.hasError('minlength')"
+          <ng-template #tagsErrorTemplate let-control>
+
+            <ng-container *ngIf="control.hasError('minlength')"
               i18n="Error message|Service tags array is too short@@serviceFormErrorTagsArrayIsTooShort">
               Select more tags
             </ng-container>
-            <ng-container *ngIf="serviceForm.get('tags')?.hasError('maxlength')"
+            <ng-container *ngIf="control.hasError('maxlength')"
               i18n="Error message|Service tags array is too long, ask user to delete some of them@@serviceFormErrorTagsArrayIsTooLong">
               Too much tags selected, reduce tags count
             </ng-container>
-            <ng-container *ngIf="serviceForm.get('tags')?.hasError('required')"
+            <ng-container *ngIf="control.hasError('required')"
               i18n="Error message|Service tags array is empty or invalid, ask user to select tags@@serviceFormErrorTagsArrayNotProvided">
               Select tags for new service
             </ng-container>
-          </nz-form-explain>
-
+          </ng-template>
         </nz-form-control>
       </nz-form-item>
 
@@ -148,24 +147,24 @@
       <!-- Images -->
       <nz-form-item>
         <nz-form-label nzFor="images" i18n="@@serviceFormLabelImages">Images</nz-form-label>
-        <nz-form-control [nzSm]="24" [nzXs]="24" [nzValidateStatus]="getFieldValidateStatus('images')"
-          nzHasFeedback="false">
-          <app-images-selector [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)" [defaultImages]="this.serviceForm.controls['images'].value">
+        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback="false" [nzErrorTip]="imagesErrorTemplate">
+          <app-images-selector [maxItemsLength]="maxImagesLength" (onChange)="onImagesChange($event)"
+            [defaultImages]="this.serviceForm.controls['images'].value">
           </app-images-selector>
-          <nz-form-explain *ngIf="dirtyOrHasErrors('images')">
-            <ng-container *ngIf="serviceForm.get('images')?.hasError('minlength')"
+          <ng-template #imagesErrorTemplate let-control>
+            <ng-container *ngIf="control.hasError('minlength')"
               i18n="Error message|Service images array is too short, ask user to add images@@serviceFormErrorImagesArrayIsTooShort">
               Add more images
             </ng-container>
-            <ng-container *ngIf="serviceForm.get('images')?.hasError('maxlength')"
+            <ng-container *ngIf="control.hasError('maxlength')"
               i18n="Error message|Service images array is too long, ask user to add images@@serviceFormErrorImagesArrayIsTooLong">
               Too many images
             </ng-container>
-            <ng-container *ngIf="serviceForm.get('images')?.hasError('required')"
+            <ng-container *ngIf="control.hasError('required')"
               i18n="Error message|Service images array is invalid or empty, ask user to add images@@serviceFormErrorImagesArrayNotProvided">
               Please add images for new service
             </ng-container>
-          </nz-form-explain>
+          </ng-template>
 
         </nz-form-control>
       </nz-form-item>
@@ -176,18 +175,18 @@
       <div>
         <nz-form-item>
           <nz-form-label nzFor="contact_phone" i18n="@@serviceFormLabelPhone">Phone</nz-form-label>
-          <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback>
+          <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="phoneErrorTemplate">
             <nz-input-group [nzPrefix]="prefixPhone">
               <input type="text" nz-input formControlName="contact_phone"
                 i18n-placeholder="@@serviceFormLabelPhonePlaceholder" placeholder="Contact phone" />
             </nz-input-group>
-            <nz-form-explain *ngIf="dirtyOrHasErrors('contact_phone')">
+            <ng-template #phoneErrorTemplate let-control>
               <ng-container
-                *ngIf="serviceForm.get('contact_phone')?.hasError('minlength') || serviceForm.get('contact_phone')?.hasError('maxlength') || serviceForm.get('contact_phone')?.hasError('required')"
+                *ngIf="control.hasError('minlength') || control.hasError('maxlength') || control.hasError('required')"
                 i18n="Error message|Service contact phone is invalid, ask user to provide valid one@@serviceFormErrorPhoneIsInvalid">
                 Please input valid phone
               </ng-container>
-            </nz-form-explain>
+            </ng-template>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
@@ -202,8 +201,8 @@
       <nz-form-item nz-row>
         <nz-form-control>
           <button (click)="onFormSubmit(jsonEditor)" style="width: 100%;" nz-button nzType="primary">
-              <span *ngIf="!edit" i18n="@@newServiceFormAddButtonText">Create Service</span>
-              <span *ngIf="edit" i18n="@@serviceFormSaveButtonText">Save</span>
+            <span *ngIf="!edit" i18n="@@newServiceFormAddButtonText">Create Service</span>
+            <span *ngIf="edit" i18n="@@serviceFormSaveButtonText">Save</span>
           </button>
         </nz-form-control>
         <!-- TODO: policies, agreement, etc. -->
@@ -233,24 +232,3 @@
 <ng-template #prefixLocation>
   <i nz-icon nzType="environment"></i>
 </ng-template>
-
-
-
-
-<!--
-<nz-form-control nzHasFeedback>
-    <nz-input-group [nzPrefix]="prefixUser">
-      <input nz-input formControlName="first_name" placeholder="First Name" type="text" />
-    </nz-input-group>
-    <nz-form-explain *ngIf="validateForm.get('first_name')?.dirty && validateForm.get('first_name')?.errors">
-      <ng-container *ngIf="validateForm.get('first_name')?.hasError('minlength')">
-        First name is too short
-      </ng-container>
-      <ng-container *ngIf="validateForm.get('first_name')?.hasError('maxlength')">
-        First name is too long
-      </ng-container>
-      <ng-container *ngIf="validateForm.get('first_name')?.hasError('required')">
-        Please input your first name
-      </ng-container>
-    </nz-form-explain>
-  </nz-form-control> -->
