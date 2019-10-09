@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange, ElementRef, HostListener } from '@angular/core';
 import { Subject } from 'rxjs';
 import { UploadFile, NzMessageService } from 'ng-zorro-antd';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -9,6 +9,7 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 import { HttpEvent, HttpEventType, HttpResponse } from '@angular/common/http';
 import { FeedPost } from 'src/app/core/models/FeedPost.model';
 import { TagsSelectorComponent } from 'src/app/modules/shared/tags-selector/tags-selector.component';
+import { KEY_CODE } from 'src/app/core/keycodes';
 
 @Component({
   selector: 'app-feed-post',
@@ -35,6 +36,15 @@ export class FeedPostComponent implements OnInit, OnChanges {
     text: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(1000)]],
     images: [[], [Validators.minLength(0), Validators.maxLength(this.maxImagesLength + 1)]],
   });
+
+  @HostListener('document:keydown', ['$event'])
+  onKeyDown = ($event: KeyboardEvent) => {
+    if ($event.ctrlKey && $event.keyCode === KEY_CODE.ENTER) {
+      if (this.submitOnCtrlEnter) {
+        this.onFormSubmit();
+      }
+    };
+  }
 
   @ViewChild('tagsSelector', { static: false }) tagsSelector: TagsSelectorComponent;
   @ViewChild('postTextArea', { static: false }) postTextArea: ElementRef;
@@ -87,14 +97,6 @@ export class FeedPostComponent implements OnInit, OnChanges {
     if (this.feedPostForm.untouched) {
       this.focused = false;
     }
-  }
-
-  public onKeyDown = ($event) => {
-    if ($event.ctrlKey && $event.keyCode === 13) {
-      if (this.submitOnCtrlEnter) {
-        this.onFormSubmit();
-      }
-    };
   }
 
   onFormSubmit() {

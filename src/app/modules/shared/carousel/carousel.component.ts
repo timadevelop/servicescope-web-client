@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter, ViewChildren, Inject } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter, ViewChildren, Inject, HostListener } from '@angular/core';
 import { ServiceImage } from 'src/app/core/models/Service.model';
 import { NzCarouselComponent } from 'ng-zorro-antd';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { DOCUMENT } from '@angular/common';
+import { KEY_CODE } from 'src/app/core/keycodes';
 
 @Component({
   selector: 'app-carousel',
@@ -41,6 +42,27 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if (this.focusOnInit) {
       this.focusOnView();
+    }
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    if (this.focusOnInit || this.zoomView) {
+      if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
+        this.next();
+      }
+
+      if (event.keyCode === KEY_CODE.LEFT_ARROW) {
+        this.pre();
+      }
+
+      if (event.keyCode === KEY_CODE.ESC) {
+        this.zoom(false);
+      }
+
+      if (event.keyCode === KEY_CODE.F) {
+        this.zoom(true);
+      }
     }
   }
 

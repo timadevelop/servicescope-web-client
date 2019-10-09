@@ -3,8 +3,8 @@
   <div class="carousel-container zoomView" *ngIf="zoomView">
     <button (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon nzType="close"></i></button>
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
-    <div nz-row tabindex="1" #zoomViewContainer (keydown.esc)="zoom(false)" (keydown.arrowleft)="pre()" (keydown.arrowright)="next()" (keydown.f)="zoom(true)"  (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows"  style="height: 100vh;" nzType="flex"
-      nzJustify="space-between" nzAlign="middle">
+    <div nz-row tabindex="1" #zoomViewContainer (touchend)="swipe($event, 'end')" class="arrows" style="height: 100vh;"
+      nzType="flex" nzJustify="space-between" nzAlign="middle">
       <div nz-col class="arrow" (click)="pre()">
         <i nz-icon nzType="left"></i>
       </div>
@@ -16,8 +16,8 @@
 
   <div class="carousel-container" *ngIf="!zoomOnly">
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
-    <div *ngIf="!hideButtonsOnPreview" nz-row tabindex="1" #defaultViewContainer (keydown.esc)="zoom(false)" (keydown.arrowleft)="pre()" (keydown.arrowright)="next()" (keydown.f)="zoom(true)" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows" nzType="flex"
-      nzJustify="space-between" nzAlign="middle">
+    <div *ngIf="!hideButtonsOnPreview" nz-row tabindex="1" #defaultViewContainer (touchstart)="swipe($event, 'start')"
+      (touchend)="swipe($event, 'end')" class="arrows" nzType="flex" nzJustify="space-between" nzAlign="middle">
       <div nz-col class="arrow" (click)="pre()">
         <i nz-icon nzType="left"></i>
       </div>
@@ -25,7 +25,8 @@
         <i nz-icon nzType="right"></i>
       </div>
     </div>
-    <button *ngIf="!hideButtonsOnPreview" (click)="zoom(true)" class="zoom-btn" nz-button [nzSize]="'large'" nzShape="circle"><i nz-icon nzType="fullscreen"></i></button>
+    <button *ngIf="!hideButtonsOnPreview" (click)="zoom(true)" class="zoom-btn" nz-button [nzSize]="'large'"
+      nzShape="circle"><i nz-icon nzType="fullscreen"></i></button>
   </div>
 
 </div>
@@ -37,8 +38,7 @@
 <ng-template #carouselContent>
   <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
     <div nz-carousel-content *ngFor="let image of images">
-      <div class="image" nz-row nzType="flex"
-        nzJustify="center" nzAlign="middle">
+      <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
         <!-- TODO: ? background-image vs img tag (SEO) -->
         <!-- [ngStyle]="{'background-image': 'url(' + image.image + ')'}"  -->
         <img [src]="image.image">

@@ -1,5 +1,4 @@
-<nz-card *ngIf="userService.currentUser" (blur)="onBlur()" tabindex="1" (keydown)="onKeyDown($event)"
-  [nzBodyStyle]="{paddingBottom: '10px'}">
+<nz-card *ngIf="userService.currentUser" (blur)="onBlur()" tabindex="1" [nzBodyStyle]="{paddingBottom: '10px'}">
   <form nz-row [formGroup]="feedPostForm" (submit)="onFormSubmit()" nzType="flex" nzJustify="start" nzAlign="top">
     <div nz-col>
       <nz-avatar nzIcon="user" [nzSrc]="userService.currentUser.image || 'assets/images/undraw_user.svg'"></nz-avatar>
@@ -55,7 +54,8 @@
     </div>
 
     <div *ngIf="focused && showUploadImagesForm" nz-col nzSpan="24" class="images-upload">
-      <app-images-selector [clearEvent]="clearImagesEvent.asObservable()" formControlName="images" size="small" [defaultImages]="feedPostForm.controls['images'].value">
+      <app-images-selector [clearEvent]="clearImagesEvent.asObservable()" formControlName="images" size="small"
+        [defaultImages]="feedPostForm.controls['images'].value">
       </app-images-selector>
     </div>
   </form>
