@@ -24,9 +24,16 @@
           <a class="title"
             [routerLink]="['/', 'seeks', item.id]">{{ item.title | slice:0:55 }}{{ item.title.length > 55 ? '...' : ''}}</a>
         </h2>
-        <div nz-col class="price " *ngIf="!tds.isMobile && item.max_price != '0.00'" nz-tooltip
-          i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price"><i nz-icon nzType="euro"
-            style="margin-right: 8px;"></i>{{item.max_price + ' ' + item.max_price_currency}}</div>
+        <div nz-col class="price " *ngIf="!tds.isMobile" nz-tooltip
+          i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price">
+          <i nz-icon nzType="euro" style="margin-right: 8px;"></i>
+          <span *ngIf="item.max_price != '0.00'">
+            {{item.max_price + ' ' + item.max_price_currency}}
+          </span>
+          <span *ngIf="item.max_price == '0.00'" i18n>
+            Free
+          </span>
+        </div>
       </div>
     </ng-template>
 
@@ -91,9 +98,15 @@
               [modelId]="item.id">
             </app-votes>
           </div>
-          <div nz-col nzXs="12" *ngIf="tds.isMobile && item.max_price != '0.00'" class="price" nz-tooltip
+          <div nz-col nzXs="12" *ngIf="tds.isMobile" class="price" nz-tooltip
             i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price">
-            {{item.max_price + ' ' + item.max_price_currency}}</div>
+            <span *ngIf="item.max_price != '0.00'">
+              {{item.max_price + ' ' + item.max_price_currency}}
+            </span>
+            <span *ngIf="item.max_price == '0.00'" i18n>
+              Free
+            </span>
+          </div>
         </div>
         <!-- </div> -->
       </div>
