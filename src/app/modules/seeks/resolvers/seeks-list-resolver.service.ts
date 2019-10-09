@@ -22,8 +22,8 @@ export class SeeksListResolverService implements Resolve<PaginatedApiResponse<Se
     const query = route.queryParamMap.get('q');
     const tags = route.queryParamMap.getAll('tags');
     const locationId = route.queryParamMap.get('locationId');
-    const priceMin = route.queryParamMap.get('max_price_min');
-    const priceMax = route.queryParamMap.get('max_price_max');
+    const priceMin = route.queryParamMap.get('price_min');
+    const priceMax = route.queryParamMap.get('price_max');
     const ordering = route.queryParamMap.get('ordering');
     const authorId = route.queryParamMap.get('authorId');
 
