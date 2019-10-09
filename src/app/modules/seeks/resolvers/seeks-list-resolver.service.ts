@@ -12,7 +12,7 @@ import { PaginatedApiResponse } from '../../../core/models/api-response/paginate
   providedIn: 'root'
 })
 export class SeeksListResolverService implements Resolve<PaginatedApiResponse<Seek>>{
-  constructor(private seeksService: SeeksService, private router: Router) {}
+  constructor(private seeksService: SeeksService, private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     Observable<PaginatedApiResponse<Seek>> | Observable<never> {
@@ -24,7 +24,10 @@ export class SeeksListResolverService implements Resolve<PaginatedApiResponse<Se
     const locationId = route.queryParamMap.get('locationId');
     const priceMin = route.queryParamMap.get('price_min');
     const priceMax = route.queryParamMap.get('price_max');
-    const ordering = route.queryParamMap.get('ordering');
+    let ordering = route.queryParamMap.get('ordering');
+    if (ordering == 'price' || ordering == '-price') {
+      ordering = ordering.replace('price', 'max_price');
+    }
     const authorId = route.queryParamMap.get('authorId');
 
     const category = route.paramMap.get('category');
