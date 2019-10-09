@@ -55,7 +55,7 @@
     <!-- Mobile row -->
     <div nz-row nzGutter="16" *ngIf="tds.isMobile">
       <!-- Price on mobile view -->
-      <app-price-card *ngIf="seek.max_price" nz-col nzSpan="12" [small]="true" [price]="seek.max_price"
+      <app-price-card *ngIf="seek?.max_price != '0.00'" nz-col nzSpan="12" [small]="true" [price]="seek.max_price"
         [currency]="seek.max_price_currency">
       </app-price-card>
       <!-- Delete seek button on mobile -->
@@ -109,7 +109,7 @@
   <!-- right column (desktop only) -->
   <div nz-col class="gutter-row" *ngIf="!tds.isMobile" nzSpan="6">
     <!-- Price card -->
-    <app-price-card *ngIf="seek.max_price" [price]="seek.max_price" [currency]="seek.max_price_currency">
+    <app-price-card *ngIf="seek.max_price != '0.00'" [price]="seek.max_price" [currency]="seek.max_price_currency">
     </app-price-card>
 
     <!-- Promote button -->

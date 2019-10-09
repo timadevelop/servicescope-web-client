@@ -15,7 +15,7 @@ export class Seek extends Base {
   author: User;
   title: string;
   description: string;
-  max_price: Number;
+  max_price: string; // "0.00"
   max_price_currency: string;
   contact_phone: string;
   // contact_email: string;
