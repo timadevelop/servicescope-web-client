@@ -16,7 +16,7 @@
 
   <div class="carousel-container" *ngIf="!zoomOnly">
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
-    <div nz-row tabindex="1" #defaultViewContainer (keydown.esc)="zoom(false)" (keydown.arrowleft)="pre()" (keydown.arrowright)="next()" (keydown.f)="zoom(true)" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows" nzType="flex"
+    <div *ngIf="!hideButtonsOnPreview" nz-row tabindex="1" #defaultViewContainer (keydown.esc)="zoom(false)" (keydown.arrowleft)="pre()" (keydown.arrowright)="next()" (keydown.f)="zoom(true)" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="arrows" nzType="flex"
       nzJustify="space-between" nzAlign="middle">
       <div nz-col class="arrow" (click)="pre()">
         <i nz-icon nzType="left"></i>
@@ -25,7 +25,7 @@
         <i nz-icon nzType="right"></i>
       </div>
     </div>
-    <button (click)="zoom(true)" class="zoom-btn" nz-button [nzSize]="'large'" nzShape="circle"><i nz-icon nzType="fullscreen"></i></button>
+    <button *ngIf="!hideButtonsOnPreview" (click)="zoom(true)" class="zoom-btn" nz-button [nzSize]="'large'" nzShape="circle"><i nz-icon nzType="fullscreen"></i></button>
   </div>
 
 </div>
@@ -51,7 +51,7 @@
         *ngFor="let image of images; let index=index;" (click)="carousel.goTo(index)" nz-tooltip
         i18n-nzTitle="Go to carousel image text|Text is diaplayed on tooltip then user hovers image in carousel images list@@gotoCarouselImageText"
         nzTitle="Goto image">
-        <nz-avatar [nzSize]="50" nzShape="square" [nzSrc]="image.image">
+        <nz-avatar (click)="zoom(true)" [nzSize]="50" nzShape="square" [nzSrc]="image.image">
         </nz-avatar>
       </div>
     </div>
