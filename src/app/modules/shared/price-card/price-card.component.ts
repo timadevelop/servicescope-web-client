@@ -18,7 +18,7 @@ export class PriceCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.price_details = this.price_details.filter(v => v.hasOwnProperty('label') && v.hasOwnProperty('value'));
+    if (this.price_details) this.price_details = this.price_details.filter(v => v.hasOwnProperty('label') && v.hasOwnProperty('value'));
     if (this.price_details instanceof Array && this.price_details.length > 0) {
       this.showPriceDetails = true;
     }

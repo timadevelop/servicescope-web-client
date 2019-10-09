@@ -1,0 +1,191 @@
+<div nz-row nzGutter="16" *ngIf="seek" class="seek-container">
+  <!-- left column -->
+  <div nz-col class="gutter-row" nzXs="24" nzXl="18">
+    <!-- Images -->
+    <nz-card class="padding-0" [class.promoted]="seek.is_promoted">
+      <app-carousel [focusOnInit]="true" [images]="seek?.images"></app-carousel>
+      <i *ngIf="seek.is_promoted" class="promoted-sign" style="font-size: 30px" nz-icon [nzType]="'dollar'"
+        [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedSeekIconTooltipText"
+        nzTitle="Promoted seek"></i>
+    </nz-card>
+
+    <!-- Mobile title -->
+    <div nz-row style="text-align: center;" *ngIf="tds.isMobile">
+      <h1 class="mb-vertical-align title">{{seek.title}}</h1>
+    </div>
+
+    <!-- Info -->
+    <div nz-row class="mb-vertical-align" nzType="flex" [nzJustify]="tds.isMobile ? 'center' : 'space-between'"
+      nzAlign="middle">
+      <!-- Tags -->
+      <div>
+        <a [routerLink]="['../']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge"
+          *ngFor="let tag of seek.tags">
+          <nz-tag nz-tooltip i18n-nzTitle="Text user sees on tag hover@@searchByTagText" nzTitle="Search by tag"
+            [nzColor]="tag.color">{{tag.name}}
+          </nz-tag>
+        </a>
+      </div>
+      <nz-tag *ngIf="!seek.tags || seek.tags.length === 0"
+        i18n="Tag text when there are no tags in a list of tags@@noTags">No
+        tags
+      </nz-tag>
+      <!-- Cateogory, created_at, location, id -->
+      <app-general-info *ngIf="!tds.isMobile" [id]="seek.id" [location]="seek.location" [created_at]="seek.created_at"
+        [category]="seek.category"></app-general-info>
+    </div>
+    <!-- Description card -->
+    <nz-card>
+      <div nz-row nzType="flex" nzGutter="16" nzJustify="space-between" nzAlign="top">
+        <div nz-col nzSm="23" nzXs="22">
+          <!-- Title -->
+          <h1 *ngIf="!tds.isMobile" class="title">{{seek.title}}</h1>
+          <!-- Description -->
+          <div class="seek-description">
+            {{seek.description}}
+          </div>
+        </div>
+        <!-- Votes -->
+        <div nz-col nzSm="1" nzXs="2">
+          <app-votes [score]="seek.score" type="vertical" [currentUserVote]="seek.current_user_vote"
+            [model]="'seekings'" [modelId]="seek.id"></app-votes>
+        </div>
+      </div>
+    </nz-card>
+    <!-- Mobile row -->
+    <div nz-row nzGutter="16" *ngIf="tds.isMobile">
+      <!-- Price on mobile view -->
+      <app-price-card *ngIf="seek.max_price" nz-col nzSpan="12" [small]="true" [price]="seek.max_price"
+        [currency]="seek.max_price_currency">
+      </app-price-card>
+      <!-- Delete seek button on mobile -->
+      <div nz-col nzSpan="12">
+        <a nz-popconfirm i18n-nzTitle="@@areYouSureText" nzTitle="Are you sure to delete this seek?" nzCancelText="No"
+          i18n-nzCancelText="@@noText" nzOkText="Yes" i18n-nzOkText="@@yesText" (nzOnConfirm)="deleteSeek(seek)"
+          *ngIf="(userService.currentUserObs | async)?.id === seek.author.id">
+          <app-card-button>
+            <i nz-icon nzType="delete"></i><span i18n="@@editButtonText">Delete</span>
+          </app-card-button>
+        </a>
+        <!-- Promote button -->
+        <a [routerLink]="['./', 'promote']" *ngIf="(userService.currentUserObs | async)?.id !== seek.author.id">
+          <app-card-button type="primary">
+            <i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span>
+          </app-card-button>
+        </a>
+      </div>
+    </div>
+
+    <!-- General info -->
+    <div class="mb-vertical-align">
+      <app-general-info *ngIf="tds.isMobile" justify="center" [id]="seek.id" [location]="seek.location"
+        [created_at]="seek.created_at" [category]="seek.category"></app-general-info>
+    </div>
+
+    <!-- Share widget -->
+    <div class="mb-vertical-align" nz-row nzType="flex" [nzJustify]="tds.isMobile ? 'center' : 'start'"
+      nzAlign="middle">
+      <app-share-widget></app-share-widget>
+    </div>
+
+    <!-- Author card on Mobile -->
+    <app-author-card *ngIf="tds.isMobile" [itemTitle]="seek.title" [author]="seek.author"
+      [override_phone]="seek.contact_phone" [horizontal]="true" [location]="seek.location">
+    </app-author-card>
+
+    <!-- more seeks card -->
+    <nz-card [nzTitle]="similarCardTitleTemplate">
+      <app-similar-seeks-list [seek]="seek"></app-similar-seeks-list>
+    </nz-card>
+    <ng-template #similarCardTitleTemplate>
+      <h2 class="title small" i18n="@@similarSeeksCardTitle">Similar seeks</h2>
+    </ng-template>
+
+    <!-- Mobile only footer -->
+    <nz-divider *ngIf="tds.isMobile" class="margin-10"></nz-divider>
+    <app-footer *ngIf="tds.isMobile"></app-footer>
+    <!-- // mobile -->
+  </div>
+  <!-- right column (desktop only) -->
+  <div nz-col class="gutter-row" *ngIf="!tds.isMobile" nzSpan="6">
+    <!-- Price card -->
+    <app-price-card *ngIf="seek.max_price" [price]="seek.max_price" [currency]="seek.max_price_currency">
+    </app-price-card>
+
+    <!-- Promote button -->
+    <a [routerLink]="['./', 'promote']">
+      <app-card-button type="primary">
+        <i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span>
+      </app-card-button>
+    </a>
+
+    <!-- Call button for other users -->
+    <a [href]="'tel:' + seek.contact_phone" *ngIf="(userService.currentUserObs | async)?.id != seek.author.id"
+      class="msg-col">
+      <app-card-button>
+        <i nz-icon nzType="phone"></i>
+        <app-phone-wrapper class="phone-wrapper" [showIcon]="false" [phone]="seek.contact_phone"></app-phone-wrapper>
+      </app-card-button>
+    </a>
+
+    <!-- Message Button for other users -->
+    <a [routerLink]="['/', 'messages', 'user', seek.author.id]" [queryParams]="additionalConversationRouteData"
+      *ngIf="(userService.currentUserObs | async)?.id != seek.author.id">
+      <app-card-button>
+        <i nz-icon nzType="message"></i><span i18n="@@messageButtonText">Message</span>
+      </app-card-button>
+    </a>
+
+    <!-- Edit button for author -->
+    <a [routerLink]="['./', 'edit']" *ngIf="(userService.currentUserObs | async)?.id === seek.author.id">
+      <app-card-button>
+        <i nz-icon nzType="edit"></i><span i18n="@@editButtonText">Edit</span>
+      </app-card-button>
+    </a>
+
+    <!-- Delete button for author -->
+    <a nz-popconfirm i18n-nzTitle="@@areYouSureText" nzTitle="Are you sure to delete this seek?" nzCancelText="No"
+      i18n-nzCancelText="@@noText" nzOkText="Yes" i18n-nzOkText="@@yesText" (nzOnConfirm)="deleteSeek(seek)"
+      *ngIf="(userService.currentUserObs | async)?.id === seek.author.id">
+      <app-card-button>
+        <i nz-icon nzType="delete"></i><span i18n="@@editButtonText">Delete</span>
+      </app-card-button>
+    </a>
+
+    <!-- Author card -->
+    <app-author-card [itemTitle]="seek.title" [author]="seek.author" [override_phone]="seek.contact_phone"
+      [location]="seek.location">
+    </app-author-card>
+
+    <nz-divider class="margin-10"></nz-divider>
+    <!-- Desktop footer -->
+    <app-footer></app-footer>
+  </div>
+</div>
+
+<!-- mobile contacts fixed box -->
+<div nz-row nzType="flex" nzJustify="stretch" nzAlign="stretch" class="mobile-contact" *ngIf="tds.isMobile">
+  <!-- For other users -->
+  <!-- Call button -->
+  <a [href]="'tel:' + seek.contact_phone" *ngIf="(userService.currentUserObs | async)?.id != seek.author.id" nz-col
+    nzSpan="12" class="msg-col">
+    <span><i nz-icon nzType="phone"></i><span i18n="@@callText">Call</span></span>
+  </a>
+  <!-- Message button -->
+  <a [routerLink]="['/', 'messages', 'user', seek.author.id]" [queryParams]="additionalConversationRouteData"
+    *ngIf="(userService.currentUserObs | async)?.id != seek.author.id" nz-col nzSpan="12" class="phone-col">
+    <span><i nz-icon nzType="message"></i><span i18n="@@messageUserText">Message</span></span>
+  </a>
+
+  <!-- For author -->
+  <!-- Promote button -->
+  <a [routerLink]="['./', 'promote']" *ngIf="(userService.currentUserObs | async)?.id == seek.author.id" nz-col
+    nzSpan="12" class="promo-col">
+    <span><i nz-icon nzType="rocket"></i><span i18n="@@promoteYourSeekText">Promote</span></span>
+  </a>
+  <!-- Edit button -->
+  <a [routerLink]="['./', 'edit']" *ngIf="(userService.currentUserObs | async)?.id == seek.author.id" nz-col nzSpan="12"
+    class="edit-col">
+    <span><i nz-icon nzType="edit"></i><span i18n="@@editButtonText">Edit</span></span>
+  </a>
+</div>

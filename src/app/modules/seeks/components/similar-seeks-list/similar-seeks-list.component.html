@@ -1,0 +1,13 @@
+<nz-list [nzDataSource]="paginatedSeeks?.results || []" [nzItemLayout]="'horizontal'" [nzLoading]="loading"
+  [nzRenderItem]="seekItemTemplate" [nzFooter]="footer">
+  <ng-template #seekItemTemplate let-seekitem>
+    <app-seeks-list-item modelName="seeks" [item]="seekitem"></app-seeks-list-item>
+  </ng-template>
+</nz-list>
+
+<ng-template #footer>
+  <nz-row style="text-align: center;" *ngIf="paginatedSeeks && paginatedSeeks.results.length > 0">
+    <a (click)="navigateToAllSimilarSeeks()" i18n-nzTitle="@@seeAllSimilarSeeksButtonText">See all similar
+      seeks</a>
+  </nz-row>
+</ng-template>

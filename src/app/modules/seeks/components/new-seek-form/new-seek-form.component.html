@@ -1,0 +1,226 @@
+<form nz-form [formGroup]="seekForm" (ngSubmit)="null" onkeypress="return event.keyCode != 13;">
+  <div nz-row nzType="flex" nzJustify="space-between" nzAlign="stretch" nzGutter="32">
+    <div nz-col nzXs="24" nzXl="16">
+      <div nz-row nzType="flex" nzJustify="space-between" nzGutter="8">
+        <div nz-col nzSpan="16">
+          <nz-form-item>
+            <nz-form-label nzFor="title" i18n="@@seekFormLabelTitle">Seek title</nz-form-label>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="titleErrorTemplate">
+              <nz-input-group [nzPrefix]="prefixTitle">
+                <input type="text" nz-input formControlName="title" i18n-placeholder="@@seekFormLabelTitle"
+                  placeholder="Seek title" />
+              </nz-input-group>
+              <ng-template #titleErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('minlength')"
+                  i18n="Error message|Seek title is too short@@seekFormErrorTitleIsTooShort">
+                  Title is too short
+                </ng-container>
+                <ng-container *ngIf="control.hasError('maxlength')"
+                  i18n="Error message|Seek title is too long@@seekFormErrorTitleIsTooLong">
+                  Title is too long
+                </ng-container>
+                <ng-container *ngIf="control.hasError('required')"
+                  i18n="Error message|Seek title is not provided, ask user to provide valid one@@seekFormErrorTitleNotProvided">
+                  Please input valid title
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="8">
+          <nz-form-item>
+            <nz-form-label nzFor="max_price" i18n="@@seekFormLabelPrice">Max Price</nz-form-label>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="max_priceErrorTemplate">
+              <nz-input-group nzCompact>
+                <nz-input-number style="width: 60%" formControlName="max_price" [nzMin]="0" [nzStep]="10"></nz-input-number>
+                <input type="text" style="width: 30%; padding: 0;padding-left: 10px;" nz-input disabled
+                  i18n-value="@@currency" value="BGN" />
+              </nz-input-group>
+              <ng-template #max_priceErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('min')"
+                  i18n="Error message|Seek max_price is too small@@seekFormErrorPriceIsTooSmall">
+                  Price is too small
+                </ng-container>
+                <ng-container *ngIf="control.hasError('max')"
+                  i18n="Error message|Seek max_price is too big@@seekFormErrorPriceIsTooBig">
+                  Price is too big
+                </ng-container>
+                <ng-container *ngIf="control.hasError('required')"
+                  i18n="Error message|Seek max_price is not provided, Ask user to provide valid one@@seekFormErrorPriceNotProvided">
+                  Please input valid title
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+
+      <div nz-row nzType="flex" nzJustify="space-between" nzGutter="8">
+        <!-- Category -->
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label nzFor="category" i18n="@@seekFormLabelPrice">Category</nz-form-label>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="categoryErrorTemplate">
+              <nz-input-group [nzPrefix]="prefixCategory">
+                <app-category-selector [isFormItem]="true" formControlName="category">
+                </app-category-selector>
+              </nz-input-group>
+              <ng-template #categoryErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('required')"
+                  i18n="Error message|Seek category is not select, ask user to select valid one@@seekFormErrorCategoryNotProvided">
+                  Please select valid category
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <!-- Location -->
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label nzFor="location" i18n="@@seekFormLabelLocation">Location</nz-form-label>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="locationErrorTemplate">
+              <nz-input-group [nzPrefix]="prefixLocation">
+                <app-location-search [isFormItem]="true" formControlName="location"></app-location-search>
+              </nz-input-group>
+              <ng-template #locationErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('required')"
+                  i18n="Error message|Seek location is not provided, ask user to select valid one@@seekFormErrorPriceNotProvided">
+                  Please select valid location
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <!-- Description -->
+      <nz-form-item>
+        <nz-form-label nzFor="description" i18n="@@seekFormLabelDescription">Description</nz-form-label>
+        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="descriptionErrorTemplate">
+          <textarea formControlName="description" nz-input rows="10" i18n-placeholder="@@seekFormLabelDescription"
+            placeholder="Description"></textarea>
+          <ng-template #descriptionErrorTemplate let-control>
+            <ng-container *ngIf="control.hasError('minlength')"
+              i18n="Error message|Seek description is too short@@seekFormErrorDescriptionIsTooShort">
+              Description is too short
+            </ng-container>
+            <ng-container *ngIf="control.hasError('maxlength')"
+              i18n="Error message|Seek description is too long@@seekFormErrorDescriptionIsTooLong">
+              Description is too long
+            </ng-container>
+            <ng-container *ngIf="control.hasError('required')"
+              i18n="Error message|Seek description is empty or invalid, ask user for valid one@@seekFormErrorDescriptionNotProvided">
+              Please input valid description
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+      <!-- Tags -->
+      <nz-form-item>
+        <nz-form-label nzFor="tags" i18n="@@seekFormLabelTags">Tags</nz-form-label>
+        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="tagsErrorTemplate">
+          <nz-input-group [nzPrefix]="prefixTags">
+            <app-tags-selector formControlName="tags"></app-tags-selector>
+          </nz-input-group>
+          <ng-template #tagsErrorTemplate let-control>
+
+            <ng-container *ngIf="control.hasError('minlength')"
+              i18n="Error message|Seek tags array is too short@@seekFormErrorTagsArrayIsTooShort">
+              Select more tags
+            </ng-container>
+            <ng-container *ngIf="control.hasError('maxlength')"
+              i18n="Error message|Seek tags array is too long, ask user to delete some of them@@seekFormErrorTagsArrayIsTooLong">
+              Too much tags selected, reduce tags count
+            </ng-container>
+            <ng-container *ngIf="control.hasError('required')"
+              i18n="Error message|Seek tags array is empty or invalid, ask user to select tags@@seekFormErrorTagsArrayNotProvided">
+              Select tags for new seek
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <!-- Images -->
+      <nz-form-item>
+        <nz-form-label nzFor="images" i18n="@@seekFormLabelImages">Images</nz-form-label>
+        <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback="false" [nzErrorTip]="imagesErrorTemplate">
+          <app-images-selector [maxItemsLength]="maxImagesLength" formControlName="images">
+          </app-images-selector>
+          <ng-template #imagesErrorTemplate let-control>
+            <ng-container *ngIf="control.hasError('minlength')"
+              i18n="Error message|Seek images array is too short, ask user to add images@@seekFormErrorImagesArrayIsTooShort">
+              Add more images
+            </ng-container>
+            <ng-container *ngIf="control.hasError('maxlength')"
+              i18n="Error message|Seek images array is too long, ask user to add images@@seekFormErrorImagesArrayIsTooLong">
+              Too many images
+            </ng-container>
+            <ng-container *ngIf="control.hasError('required')"
+              i18n="Error message|Seek images array is invalid or empty, ask user to add images@@seekFormErrorImagesArrayNotProvided">
+              Please add images for new seek
+            </ng-container>
+          </ng-template>
+
+        </nz-form-control>
+      </nz-form-item>
+
+    </div>
+    <nz-divider *ngIf="tds.isMobile" class="margin-5"></nz-divider>
+    <div nz-col nzXs="24" nzXl="8" class="optional-form-segment">
+      <div>
+        <nz-form-item>
+          <nz-form-label nzFor="contact_phone" i18n="@@seekFormLabelPhone">Phone</nz-form-label>
+          <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="phoneErrorTemplate">
+            <nz-input-group [nzPrefix]="prefixPhone">
+              <input type="text" nz-input formControlName="contact_phone"
+                i18n-placeholder="@@seekFormLabelPhonePlaceholder" placeholder="Contact phone" />
+            </nz-input-group>
+            <ng-template #phoneErrorTemplate let-control>
+              <ng-container
+                *ngIf="control.hasError('minlength') || control.hasError('maxlength') || control.hasError('required')"
+                i18n="Error message|Seek contact phone is invalid, ask user to provide valid one@@seekFormErrorPhoneIsInvalid">
+                Please input valid phone
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+
+      <!-- submit -->
+
+      <nz-form-item nz-row>
+        <nz-form-control>
+          <button (click)="onFormSubmit()" style="width: 100%;" nz-button nzType="primary">
+            <span *ngIf="!edit" i18n="@@newSeekFormAddButtonText">Create Seek</span>
+            <span *ngIf="edit" i18n="@@seekFormSaveButtonText">Save</span>
+          </button>
+        </nz-form-control>
+        <!-- TODO: policies, agreement, etc. -->
+        <small style="opacity: .7;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat esse voluptatem
+          iusto. Nisi doloremque!</small>
+      </nz-form-item>
+    </div>
+  </div>
+</form>
+
+<ng-template #prefixTitle>
+  <i nz-icon nzType="font-size"></i>
+</ng-template>
+
+<ng-template #prefixPhone>
+  <i nz-icon nzType="phone"></i>
+</ng-template>
+
+<ng-template #prefixTags>
+  <i nz-icon nzType="tags"></i>
+</ng-template>
+
+<ng-template #prefixCategory>
+  <i nz-icon nzType="folder"></i>
+</ng-template>
+
+<ng-template #prefixLocation>
+  <i nz-icon nzType="environment"></i>
+</ng-template>

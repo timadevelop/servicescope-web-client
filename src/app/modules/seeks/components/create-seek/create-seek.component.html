@@ -1,0 +1,15 @@
+<nz-card [nzTitle]="title">
+  <nz-row nzType="flex" nzJustify="center">
+    <div nz-col [nzXs]="24" [nzSm]="24">
+      <nz-spin [nzSpinning]="loading" [nzTip]="creatingItemProgressText + (this.percent !== null ? ' (' + this.percent.toString() + '%)' : null)">
+        <app-new-seek-form (onSubmit)="createNewSeek($event)"></app-new-seek-form>
+      </nz-spin>
+    </div>
+
+  </nz-row>
+
+</nz-card>
+
+<ng-template #title>
+  <h2 style="text-align: center;" class="title" i18n="Card title for new seek form@@addNewSeekText">Add seek</h2>
+</ng-template>

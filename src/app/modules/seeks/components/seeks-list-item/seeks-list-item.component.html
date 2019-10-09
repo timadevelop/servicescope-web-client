@@ -1,0 +1,102 @@
+<nz-list-item class="seeks-list-item stretch-seeks-list-item" [class.promoted]="promoted || item.is_promoted"
+  [nzContent]="null" [nzActions]="">
+  <!-- Actions -->
+  <ng-template #priceAction>
+
+  </ng-template>
+
+  <!-- List item meta -->
+  <nz-list-item-meta [nzAvatar]="avatar" [nzTitle]="itemTitle" [nzDescription]="description">
+    <!-- Templates for list item -->
+    <ng-template #avatar>
+      <a [routerLink]="['/', 'seeks', item.id]" style="cursor: pointer;">
+        <nz-avatar [nzSize]="128" nzShape="square" [nzSrc]="item?.images[0] ? item.images[0].image : null">
+        </nz-avatar>
+      </a>
+    </ng-template>
+
+    <ng-template #itemTitle>
+      <div nz-row class="col-below-mobile" nzType="flex" nzJustify="space-between" nzAlign="start">
+        <i *ngIf="promoted || item.is_promoted" class="promoted-sign" nz-icon [nzType]="'dollar'" [nzTheme]="'twotone'"
+          [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedServiceIconTooltipText"
+          nzTitle="Promoted service"></i>
+        <h2 nz-col class="title">
+          <a class="title"
+            [routerLink]="['/', 'seeks', item.id]">{{ item.title | slice:0:55 }}{{ item.title.length > 55 ? '...' : ''}}</a>
+        </h2>
+        <div nz-col class="price " *ngIf="!tds.isMobile && item.max_price" nz-tooltip
+          i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price"><i nz-icon nzType="euro"
+            style="margin-right: 8px;"></i>{{item.max_price + ' ' + item.max_price_currency}}</div>
+      </div>
+    </ng-template>
+
+    <ng-template #tags>
+      <div class="tags">
+        <a [routerLink]="['.']" [queryParams]="{tags: [tag.name]}" queryParamsHandling="merge"
+          *ngFor="let tag of item.tags">
+          <nz-tag nz-tooltip i18n-nzTitle="Text user sees on tag hover@@searchByTagText" nzTitle="Search by tag"
+            [nzColor]="tag.color">{{tag.name}}
+          </nz-tag>
+        </a>
+        <!-- <a [routerLink]="[]" [queryParams]="{tags: [tagName]}" queryParamsHandling="merge"
+          *ngFor="let tagName of item.tags">
+          <nz-tag>
+            {{tagName}}
+          </nz-tag>
+        </a> -->
+      </div>
+    </ng-template>
+
+    <ng-template #description>
+      <div nz-row nzType="flex" nzJustify="space-between" nzAlign="bottom">
+        <div nz-col class="description" nzType="flex" nzAlign="space-between" nzJustify="space-between">
+          <div class="description-text">
+            <p><a [routerLink]="['', 'services', 'category', item.category]">{{item.category}}</a><i nz-icon
+                style="font-size: 10px; margin: 0 5px;" nzType="double-right"
+                nzTheme="outline"></i>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}
+            </p>
+          </div>
+          <ng-container *ngTemplateOutlet="tags"></ng-container>
+
+          <div nz-row nzType="flex" class="bottom-info " *ngIf="!tds.isMobile">
+            <span nz-col nz-tooltip i18n-nzTitle="Tooltip text when user hovers item location element@@locationText"
+              nzTitle="Location">
+              <i nz-icon nzType="environment" style="margin-right: 8px;"></i>
+              <span *ngIf="item.location && item.location.name else defaultLocationTemplate">
+                {{item.location.name + ' - ' + item.location?.district?.name}}
+              </span>
+              <ng-template #defaultLocationTemplate>
+                <span
+                  i18n="Whole country text|Text is shown to user if location is not pointed at item or form@@wholeCountryText">Whole
+                  country</span>
+              </ng-template>
+            </span>
+            <nz-divider nzType="vertical"></nz-divider>
+            <span nz-col nz-tooltip i18n-nzTitle="Tooltip text on created_at date hover@@createdTooltipText"
+              nzTitle="Created">
+              <i nz-icon nzType="clock-circle" style="margin-right: 8px;"></i>{{item.created_at | date}}
+            </span>
+            <nz-divider nzType="vertical"></nz-divider>
+            <span nz-col nz-tooltip
+              nzTitle="Tooltip text on item id element hover| For example for service list item user hovers id number and gets tooltip that this number is id@@itemNumberText"
+              nzTitle="Item id">
+              <i nz-icon nzType="ordered-list" style="margin-right: 8px;"></i>{{item.id}}
+            </span>
+          </div>
+        </div>
+        <!-- <div nz-col> -->
+        <div nz-row nzType="flex" style="float: right;" class="votes-price-block" nzJustify="space-between">
+          <div nzXs="12" nzXl="24">
+            <app-votes nz-col [score]="item.score" [currentUserVote]="item.current_user_vote" [model]="'seekings'"
+              [modelId]="item.id">
+            </app-votes>
+          </div>
+          <div nz-col nzXs="12" *ngIf="tds.isMobile && item.max_price" class="price" nz-tooltip
+            i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price">
+            {{item.max_price + ' ' + item.max_price_currency}}</div>
+        </div>
+        <!-- </div> -->
+      </div>
+    </ng-template>
+  </nz-list-item-meta>
+</nz-list-item>

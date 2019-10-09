@@ -1,0 +1,8 @@
+@import "~src/variables";
+
+@include respond-below(xl) {
+  .seeks-row {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

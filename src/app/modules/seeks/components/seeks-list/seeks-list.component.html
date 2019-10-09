@@ -1,0 +1,65 @@
+<div nz-row class="seeks-row" nzGutter="16">
+  <div nz-col nzXs="24" nzXl="18">
+    <app-search-card *ngIf="showSearchBar"></app-search-card>
+    <!-- mobile -->
+    <div *ngIf="tds.isMobile" nz-row nzGutter="16">
+      <div nz-col nzSpan="12" *ngIf="showCreateButton">
+        <ng-container *ngTemplateOutlet="addBtn"></ng-container>
+      </div>
+      <div nz-col [nzSpan]="showCreateButton ? 12 : 24">
+        <nz-card class="large-card-button padding-12" style="background: grey; text-align: center;"
+          (click)="setIsFiltersDrawerVisible(true)">
+          <h2 style="margin: 0;"><i nz-icon nzType="filter"></i><span i18n="@@filtersButtonText">Filters</span></h2>
+        </nz-card>
+      </div>
+    </div>
+    <!-- // mobile -->
+    <app-promoted-seeks-list></app-promoted-seeks-list>
+    <!-- <h3 i18n="@@newSeeksCardTitle">New seeks</h3> -->
+    <nz-card>
+      <ng-container *ngTemplateOutlet="list"></ng-container>
+    </nz-card>
+    <!-- Mobile only footer -->
+    <nz-divider *ngIf="tds.isMobile" class="margin-10"></nz-divider>
+    <app-footer *ngIf="tds.isMobile"></app-footer>
+    <!-- // mobile -->
+  </div>
+  <!-- desktop only -->
+  <div *ngIf="!tds.isMobile" nz-col nzXs="0" nzXl="6">
+    <ng-container *ngTemplateOutlet="addBtn"></ng-container>
+    <nz-card i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" class="padding-top-0">
+      <app-list-filters></app-list-filters>
+    </nz-card>
+    <nz-divider class="margin-10"></nz-divider>
+    <app-footer></app-footer>
+  </div>
+</div>
+
+<ng-template #addBtn>
+  <a [routerLink]="['/seeks', 'create']" *ngIf="showCreateButton">
+    <app-card-button type="primary">
+      <i nz-icon nzType="plus"></i><span i18n="@@createNewSeekButtonTexst">Create</span>
+    </app-card-button>
+  </a>
+</ng-template>
+
+
+<ng-template #list>
+  <nz-list [nzDataSource]="paginatedSeeks ? paginatedSeeks.results ? paginatedSeeks.results : [] : []"
+    [nzItemLayout]="'horizontal'" [nzRenderItem]="seekItemTemplate" [nzPagination]="pagination">
+    <ng-template #seekItemTemplate let-seek>
+      <app-seeks-list-item [item]="seek"></app-seeks-list-item>
+    </ng-template>
+    <ng-template #pagination>
+      <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedSeeks?.count || 1"
+        (nzPageIndexChange)="loadData($event)"></nz-pagination>
+    </ng-template>
+  </nz-list>
+</ng-template>
+
+
+
+<nz-drawer *ngIf="tds.isMobile" [nzClosable]="true" [nzVisible]="isFiltersDrawerVisible" nzPlacement="right"
+  i18n-nzTitle="@@filtersCardTitle" nzTitle="Filters" (nzOnClose)="setIsFiltersDrawerVisible(false)" nzWidth="85%">
+  <app-list-filters></app-list-filters>
+</nz-drawer>

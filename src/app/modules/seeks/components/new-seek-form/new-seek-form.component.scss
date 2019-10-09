@@ -1,0 +1,14 @@
+@import "~src/variables";
+
+.optional-form-segment {
+  border-left: 1px solid $light-border-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@include respond-below(mobile) {
+  .optional-form-segment {
+    border-left: none;
+  }
+}

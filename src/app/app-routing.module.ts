@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'services',
     loadChildren: './modules/services/services.module#ServicesModule',
   },
+  {
+    path: 'seeks',
+    loadChildren: './modules/seeks/seeks.module#SeeksModule',
+  },
   { path: '', redirectTo: 'services', pathMatch: 'full' },
   {
     path: '',

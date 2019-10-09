@@ -1,0 +1,193 @@
+<div class="wrapper">
+  <h2 style="text-align: center;" class="title mb-vertical-align"
+    i18n="Card title for promote seek form@@promoteSeekText">Promote seek</h2>
+
+  <div class="description">
+    <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, fugiat porro,
+      minima quae laborum quas repellendus pariatur ipsam quia ad molestias error corrupti saepe aliquam, deserunt aut
+      facere consectetur labore?</p>
+  </div>
+  <nz-card>
+    <nz-row nzType="flex" nzJustify="center">
+      <div nz-col [nzXs]="24" [nzSm]="24">
+        <nz-spin [nzSpinning]="loading">
+          <nz-list>
+            <app-seeks-list-item [promoted]="isBoosted" [item]="seek" modelName="seeks">
+            </app-seeks-list-item>
+          </nz-list>
+        </nz-spin>
+      </div>
+
+    </nz-row>
+  </nz-card>
+
+  <div
+    *ngIf="userService.currentUser && (userService.currentUserObs | async)?.email else noEmailOrNotLoggedInUserTemplate">
+    <nz-modal [nzVisible]="useCoupon" i18n-nzTitle="Card title for promote seek using coupon@@promoteSeekText"
+      [nzClosable]="false" [nzFooter]="null" nzTitle="Use coupon">
+      <app-promote-seek-using-coupon [seek_id]="seek.id"></app-promote-seek-using-coupon>
+    </nz-modal>
+
+    <div *ngIf="!useCoupon">
+
+      <h2 style="text-align: center;" class="title mb-vertical-align">
+        <span *ngIf="paymentIntent?.status != 'succeeded' else boostingProcessTitleTemplate"
+          i18n="Card title for promote seek select plan@@promoteSeekSelectPlanText">Select Plan</span>
+        {{' '}}<a *ngIf="paymentIntent?.status != 'succeeded'" i18n="@@orUseCouponText" [routerLink]="[]"
+          [queryParams]="{coupon: true}" style="font-size: small">or use
+          a coupon code</a>
+
+        <ng-template #boostingProcessTitleTemplate>
+          <i *ngIf="!isBoosted" nz-icon nzType="loading" style="font-size: 24px;margin-right: 5px;"></i>
+          <span *ngIf="!isBoosted else successBoostedTitleTemplate"
+            i18n="Card title for seek boosting process@@promoteSeekBoostingProcessText">
+            Boosting Your Seek...</span>
+        </ng-template>
+
+        <ng-template #successBoostedTitleTemplate>
+          <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"
+            style="font-size: 24px; margin-right: 5px;"></i>
+          <span i18n="Card title for successfully boosted seek@@promoteSeekSelectedPlanSuccessText">
+            Successfully Boosted Seek</span>
+        </ng-template>
+
+      </h2>
+      <p *ngIf="paymentIntent?.status != 'succeeded' && seek.is_promoted && dateStartingPoint"
+        style="margin-bottom: 10px;" class="description">
+        <span i18n="Card title for promote seek select plan@@promoteSeekSelectPlanText">Your seek is currently
+          promoted til</span>
+        {{dateStartingPoint | date}}
+      </p>
+      <nz-row nzGutter="16" nzType="flex" nzJustify="center" class="promote-plans">
+        <nz-col *ngIf="paymentIntent?.status != 'succeeded' || selectedPlan == 'pro'" nzXs="24" nzMd="12" nz-tooltip
+          i18n-nzTitle="clickToSelectText" nzTitle="Click to select">
+          <nz-card class="promote-plan-card" [class.selected]="selectedPlan == 'pro'" (click)="setSelectedPlan('pro')">
+            <h2 class="title green-color plan-title">Pro</h2>
+            <nz-divider></nz-divider>
+            <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="rocket"></i>
+              <span>{{getPlan('pro').days}} Days <b class="green-color">Boosted</b> seek status</span>
+            </div>
+            <nz-divider></nz-divider>
+            <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="align-left"></i>
+              <span nz-col nzSpan="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque velit beatae id
+                quod,
+                nulla ipsa qui est nisi minus accusamus sequi explicabo, vero mollitia sit quo, ipsam ex. Nam,
+                tenetur!</span>
+            </div>
+            <nz-divider></nz-divider>
+            <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="clock-circle"></i>
+              <span nz-col nzSpan="21">
+                <span>Seek will be promoted til</span>
+                {{getPlan('pro').target_date | date}}
+              </span>
+            </div>
+            <nz-divider></nz-divider>
+            <h2 class="price title">{{getPlan('pro').price / 100}} {{getPlan('pro').currency}}</h2>
+          </nz-card>
+        </nz-col>
+
+        <nz-col *ngIf="paymentIntent?.status != 'succeeded' || selectedPlan == 'basic'" nzXs="24" nzMd="12" nz-tooltip
+          i18n-nzTitle="clickToSelectText" nzTitle="Click to select">
+          <nz-card class="promote-plan-card" [class.selected]="selectedPlan == 'basic'"
+            (click)="setSelectedPlan('basic')">
+            <h2 class="title blue-color plan-title">Basic</h2>
+            <nz-divider></nz-divider>
+            <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="rocket"></i>
+              <span>{{getPlan('basic').days}} Days <b class="blue-color">Boosted</b> seek status</span>
+            </div>
+            <nz-divider></nz-divider>
+            <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="align-left"></i>
+              <span nz-col nzSpan="21">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque velit beatae id
+                quod,
+                nulla ipsa qui est nisi minus accusamus sequi explicabo, vero mollitia sit quo, ipsam ex. Nam,
+                tenetur!</span>
+            </div>
+            <nz-divider></nz-divider>
+            <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
+              <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="clock-circle"></i>
+              <span nz-col nzSpan="21">
+                <span>Seek will be promoted til</span>
+                {{getPlan('basic').target_date | date}}
+              </span>
+            </div>
+            <nz-divider></nz-divider>
+            <h2 class="price title">{{getPlan('basic').price / 100}} {{getPlan('basic').currency}}</h2>
+          </nz-card>
+        </nz-col>
+      </nz-row>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #title>
+  <h2 style="text-align: center;" class="title" i18n="Card title for promote seek form@@promoteSeekText">Promote
+    seek</h2>
+</ng-template>
+
+<nz-modal [(nzVisible)]="selectedPlan && !paymentIntent" [nzFooter]="null" (nzOnCancel)="setSelectedPlan(null)"
+  [nzTitle]="modalPayTitle">
+  <app-pay-form (onSucceededPayment)="onSucceededPayment($event)" [amount]="getPlan(selectedPlan)?.price"
+    [currency]="getPlan(selectedPlan)?.currency" [metadata]="getPaymentMetadata()"></app-pay-form>
+</nz-modal>
+
+
+<ng-template #modalPayTitle>
+  <h2 style="text-align: left;" class="title" i18n="Pay for seek promotion@@promoteSeekPayText">
+    Pay for seek boost
+  </h2>
+
+</ng-template>
+
+
+<ng-template #noEmailOrNotLoggedInUserTemplate>
+  <div *ngIf="!userService.currentUser else noEmailUserTemplate">
+    Log In first
+  </div>
+  <ng-template #noEmailUserTemplate>
+    <nz-modal nzVisible="true" (nzOnCancel)="onClosedUserEmailForm()" [nzFooter]="null">
+      <h2 style="text-align: center;" class="title mb-vertical-align">
+        <span i18n="@@oopsText">Ooops..</span>
+      </h2>
+      <div class="description">
+
+        <p i18n="User has no email@@promoteSeekUserHasNoEmail" style="text-align: center;">In order to promote a
+          seek we need to know your
+          email. Please, update your profile or provide your email in a following form:</p>
+      </div>
+      <div nz-row nzType="flex" nzJustify="center">
+        <form nz-col nz-form [formGroup]="validateUserEmail" [nzLayout]="'inline'"
+          (ngSubmit)="submitNewUserEmailForm()">
+          <nz-form-item>
+            <nz-form-control nzHasFeedback>
+              <nz-input-group [nzPrefix]="prefixEmail">
+                <input nz-input formControlName="email" placeholder="Email" type="email" />
+              </nz-input-group>
+              <ng-template #prefixEmail><i nz-icon nzType="mail"></i></ng-template>
+
+              <ng-template #tagsErrorTemplate let-control>
+                <ng-container *ngIf="control.hasError('email')">
+                  The input is not valid E-mail!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('required')">
+                  Please input your E-mail!
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control>
+              <button nz-button nzType="primary" i18n="@@provideEmailText">Provide email</button>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </div>
+    </nz-modal>
+  </ng-template>
+</ng-template>

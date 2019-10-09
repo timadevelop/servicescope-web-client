@@ -1,0 +1,58 @@
+@import "~src/variables";
+
+.wrapper {
+  overflow: hidden;
+}
+
+.promote-plans {
+  padding: 0 16px;
+  .promote-plan-card {
+    cursor: pointer;
+
+    animation: fade-in-bottom 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+    transition: all 0.4s ease;
+    &:hover {
+      box-shadow: 0 14px 24px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+    &.selected {
+      box-shadow: 0 14px 24px rgba(50, 50, 93, 0.1), 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .plan-title {
+      text-align: center;
+      font-size: 17px;
+      line-height: 28px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+    }
+    .plan-insight {
+      i {
+        margin-right: 10px;
+      }
+    }
+    .price {
+      text-align: center;
+    }
+  }
+}
+
+
+.pay-container {
+  animation: fade-in-bottom 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+.description {
+  max-width: 50%;
+  text-align: center;
+  margin: auto;
+  color: $grey-color;
+}
+
+.green-color {
+  color: $green-color;
+}
+
+.blue-color {
+  color: $blue-color;
+}
