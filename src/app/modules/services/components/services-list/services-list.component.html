@@ -48,7 +48,7 @@
   <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
     [nzItemLayout]="'horizontal'" [nzRenderItem]="serviceItemTemplate" [nzPagination]="pagination">
     <ng-template #serviceItemTemplate let-service>
-      <app-list-item [item]="service" modelName="services"></app-list-item>
+      <app-services-list-item [item]="service" modelName="services"></app-services-list-item>
     </ng-template>
     <ng-template #pagination>
       <nz-pagination [nzPageIndex]="page" [nzPageSize]="pageSize" [nzTotal]="paginatedServices?.count || 1"

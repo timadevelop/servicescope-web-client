@@ -16,12 +16,11 @@ import { PromotedServicesListComponent } from './components/promoted-services-li
 import { PromoteServiceComponent } from './components/promote-service/promote-service.component';
 import { PromoteServiceUsingCouponComponent } from './components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
-import { NzCardModule, NzGridModule, NzSpinModule, NzFormModule, NzInputModule, NzInputNumberModule, NzDividerModule, NzIconModule, NzButtonModule, NzModalModule, NzListModule, NzTagModule, NzPaginationModule, NzDrawerModule, NzPopconfirmModule } from 'ng-zorro-antd';
+import { NzCardModule, NzGridModule, NzSpinModule, NzFormModule, NzInputModule, NzInputNumberModule, NzDividerModule, NzIconModule, NzButtonModule, NzModalModule, NzListModule, NzTagModule, NzPaginationModule, NzDrawerModule, NzPopconfirmModule, NzAvatarModule } from 'ng-zorro-antd';
 import { ImagesSelectorModule } from '../shared/images-selector/images-selector.module';
 import { TagsSelectorModule } from '../shared/tags-selector/tags-selector.module';
 import { CategorySelectorModule } from '../shared/category-selector/category-selector.module';
 import { FiltersModule } from '../shared/filters/filters.module';
-import { ListItemModule } from '../shared/list-item/list-item.module';
 import { PayFormModule } from '../shared/pay-form/pay-form.module';
 import { CarouselModule } from '../shared/carousel/carousel.module';
 import { GeneralInfoCardModule } from '../shared/general-info-card/general-info-card.module';
@@ -32,10 +31,12 @@ import { FooterModule } from '../shared/footer/footer.module';
 import { AuthorCardModule } from '../shared/author-card/author-card.module';
 import { ShareWidgetModule } from '../shared/share-widget/share-widget.module';
 import { PhoneWrapperModule } from '../shared/phone-wrapper/phone-wrapper.module';
+import { ServicesListItemComponent } from './components/services-list-item/services-list-item.component';
 
 @NgModule({
   declarations: [
     ServicesListComponent,
+    ServicesListItemComponent,
     ServicesDetailComponent,
     SimilarServicesListComponent,
     PromotedServicesListComponent,
@@ -61,6 +62,7 @@ import { PhoneWrapperModule } from '../shared/phone-wrapper/phone-wrapper.module
     NzInputNumberModule,
     NzDividerModule,
     NzIconModule,
+    NzAvatarModule,
     NzPopconfirmModule,
     NzButtonModule,
     NzModalModule,
@@ -73,7 +75,6 @@ import { PhoneWrapperModule } from '../shared/phone-wrapper/phone-wrapper.module
     TagsSelectorModule,
     CategorySelectorModule,
     FiltersModule,
-    ListItemModule,
     PayFormModule,
     CarouselModule,
     GeneralInfoCardModule,

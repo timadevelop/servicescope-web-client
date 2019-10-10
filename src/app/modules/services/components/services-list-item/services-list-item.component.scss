@@ -1,6 +1,6 @@
 @import "~src/variables";
 
-.list-item {
+.services-list-item {
   align-items: flex-start;
   // border-bottom: 1px solid $light-border-color !important;
 
@@ -49,7 +49,7 @@
 }
 
 @include respond-below(mobile) {
-  .list-item {
+  .services-list-item {
     * {
       font-weight: normal;
     }

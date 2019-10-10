@@ -1,4 +1,4 @@
-<nz-list-item class="list-item stretch-list-item" [class.promoted]="promoted || item.is_promoted" [nzContent]="null"
+<nz-list-item class="services-list-item stretch-list-item" [class.promoted]="promoted || item.is_promoted" [nzContent]="null"
   [nzActions]="">
   <!-- Actions -->
   <ng-template #priceAction>
@@ -11,7 +11,7 @@
     <ng-template #avatar>
       <a [routerLink]="[modelName ? '/' + modelName : './', item.id]" style="cursor: pointer;">
         <nz-avatar [nzSize]="128" nzShape="square" [nzSrc]="item?.images[0] ? item.images[0].image : null">
-        </nz-avatar>
+z        </nz-avatar>
       </a>
     </ng-template>
 

@@ -1,7 +1,7 @@
 <nz-list [nzDataSource]="paginatedServices?.results || []" [nzItemLayout]="'horizontal'" [nzLoading]="loading"
   [nzRenderItem]="serviceItemTemplate" [nzFooter]="footer">
   <ng-template #serviceItemTemplate let-serviceitem>
-    <app-list-item modelName="services" [item]="serviceitem"></app-list-item>
+    <app-services-list-item modelName="services" [item]="serviceitem"></app-services-list-item>
   </ng-template>
 </nz-list>
 
