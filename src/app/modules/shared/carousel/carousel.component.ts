@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter, ViewChildren, Inject, HostListener } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, Output, EventEmitter, ViewChildren, Inject, HostListener, PLATFORM_ID } from '@angular/core';
 import { ServiceImage } from 'src/app/core/models/Service.model';
 import { NzCarouselComponent } from 'ng-zorro-antd';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { KEY_CODE } from 'src/app/core/keycodes';
 
 @Component({
@@ -27,10 +27,14 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   @ViewChild('defaultViewContainer', { static: false }) defaultViewContainer;
   @ViewChildren('carousel') carousels: Array<NzCarouselComponent>;
 
+  isBrowser: boolean;
   constructor(
     public tds: TargetDeviceService,
-    @Inject(DOCUMENT) private document: Document
-  ) { }
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: Object,
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit() {
     if (this.zoomOnly) {

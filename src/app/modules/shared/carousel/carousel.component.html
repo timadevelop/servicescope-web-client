@@ -36,19 +36,28 @@
 </ng-template>
 
 <ng-template #carouselContent>
-  <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
-    <div nz-carousel-content *ngFor="let image of images">
+  <ng-container *ngIf="isBrowser">
+    <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
+      <!-- <div nz-carousel-content *ngFor="let image of images">
+        <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+          <img [src]="image.image">
+        </div>
+      </div> -->
+    </nz-carousel>
+  </ng-container>
+  <!--
+  <ng-container *ngIf="!isBrowser">
+    <div class="carousel">
       <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
-        <!-- TODO: ? background-image vs img tag (SEO) -->
-        <!-- [ngStyle]="{'background-image': 'url(' + image.image + ')'}"  -->
-        <img [src]="image.image">
+        <img [src]="images[0].image">
       </div>
     </div>
-  </nz-carousel>
+  </ng-container> -->
+
   <div class="carousel-images-list">
     <div nz-row nzType="flex" nzGutter="16">
-      <div class="image-list-item" [class.active]="carousel.activeIndex == index" nz-col
-        *ngFor="let image of images; let index=index;" (click)="carousel.goTo(index)" nz-tooltip
+      <div class="image-list-item" [class.active]="carousel?.activeIndex == index" nz-col
+        *ngFor="let image of images; let index=index;" (click)="carousel?.goTo(index)" nz-tooltip
         i18n-nzTitle="Go to carousel image text|Text is diaplayed on tooltip then user hovers image in carousel images list@@gotoCarouselImageText"
         nzTitle="Goto image">
         <nz-avatar (click)="zoom(true)" [nzSize]="50" nzShape="square" [nzSrc]="image.image">
