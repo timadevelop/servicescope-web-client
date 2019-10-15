@@ -4,6 +4,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { PaymentsService } from 'src/app/core/services/payments.service';
 import { paymentIntents } from 'stripe';
 import { ConfigService } from 'src/app/core/services/config.service';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-pay-form',
@@ -34,11 +35,14 @@ export class PayFormComponent implements OnInit {
     private i18n: I18n,
     private nzMsgService: NzMessageService,
     private paymentsService: PaymentsService,
-    private configService: ConfigService
+    private configService: ConfigService,
+    private platform: Platform
   ) {
-    this.configService.currentConfig().subscribe(c => {
-      this.stripe = Stripe(c.STRIPE_PUBLIC_KEY)
-    });
+    if (this.platform.isBrowser) {
+      this.configService.currentConfig().subscribe(c => {
+        this.stripe = Stripe(c.STRIPE_PUBLIC_KEY);
+      });
+    }
   }
 
   ngOnInit() { }
@@ -74,32 +78,36 @@ export class PayFormComponent implements OnInit {
   }
 
   createStripeElementsForm() {
-    let elements = this.stripe.elements();
-    this.card = elements.create('card');
-    this.card.mount(this.cardElement.nativeElement);
+    if (this.stripe) {
+      let elements = this.stripe.elements();
+      this.card = elements.create('card');
+      this.card.mount(this.cardElement.nativeElement);
 
-    this.card.addEventListener('change', ({ error }) => {
-      if (error) {
-        this.handleError(error);
-      } else {
-        this.clearErrors();
-      }
-    });
+      this.card.addEventListener('change', ({ error }) => {
+        if (error) {
+          this.handleError(error);
+        } else {
+          this.clearErrors();
+        }
+      });
+    }
   }
 
   async handleForm(e) {
-    this.loading = true;
     e.preventDefault();
 
-    const { source, error } = await this.stripe.createSource(this.card);
+    if (this.stripe) {
+      this.loading = true;
+      const { source, error } = await this.stripe.createSource(this.card);
 
-    if (error) {
-      this.handleError(error);
-      this.loading = false;
-    } else {
-      this.clearErrors();
-      // pay
-      this.handleCardPayment();
+      if (error) {
+        this.handleError(error);
+        this.loading = false;
+      } else {
+        this.clearErrors();
+        // pay
+        this.handleCardPayment();
+      }
     }
   }
 
@@ -118,10 +126,12 @@ export class PayFormComponent implements OnInit {
       return;
     };
 
-    this.loading = true;
-    const that = this;
-    this.stripe.handleCardPayment(
-      this.paymentIntent.client_secret, this.card, {
+    if (this.stripe) {
+
+      this.loading = true;
+      const that = this;
+      this.stripe.handleCardPayment(
+        this.paymentIntent.client_secret, this.card, {
         payment_method_data: {
           billing_details: {
             // TODO: SCA user data?
@@ -129,18 +139,19 @@ export class PayFormComponent implements OnInit {
           }
         }
       }
-    ).then((result: { paymentIntent: paymentIntents.IPaymentIntent, error: any }) => {
-      if (result.error) {
-        // Display error.message in your UI.
-        that.nzMsgService.error('Error');
-        console.log(result.error);
-        that.loading = false;
-      } else {
-        // The payment has succeeded. Display a success message.
-        that.processSucceededPayment(result.paymentIntent);
-        that.loading = false;
-      }
-    });
+      ).then((result: { paymentIntent: paymentIntents.IPaymentIntent, error: any }) => {
+        if (result.error) {
+          // Display error.message in your UI.
+          that.nzMsgService.error('Error');
+          console.log(result.error);
+          that.loading = false;
+        } else {
+          // The payment has succeeded. Display a success message.
+          that.processSucceededPayment(result.paymentIntent);
+          that.loading = false;
+        }
+      });
+    }
   }
 
   // handle stripe errors and translate them

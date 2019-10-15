@@ -61,10 +61,11 @@
     padding: 5%;
     // padding-top: 20%;
 
-    nz-carousel {
+    nz-carousel, ti-carousel {
       height: 90%;
     }
-    [nz-carousel-content] {
+
+    [nz-carousel-content], .carousel-content {
       height: 90vh;
       background: transparent;
     }

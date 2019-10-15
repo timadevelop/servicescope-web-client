@@ -4,6 +4,7 @@ import { NzCarouselComponent } from 'ng-zorro-antd';
 import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { KEY_CODE } from 'src/app/core/keycodes';
+import { TiCarouselComponent } from './ti-carousel/ti-carousel/ti-carousel.component';
 
 @Component({
   selector: 'app-carousel',
@@ -25,7 +26,8 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   @ViewChild('zoomViewContainer', { static: false }) zoomViewContainer;
   @ViewChild('defaultViewContainer', { static: false }) defaultViewContainer;
-  @ViewChildren('carousel') carousels: Array<NzCarouselComponent>;
+  // TODO: see https://github.com/NG-ZORRO/ng-zorro-antd/issues/4292
+  @ViewChildren('carousel') carousels: Array<TiCarouselComponent>;
 
   isBrowser: boolean;
   constructor(
@@ -33,7 +35,8 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
-    this.isBrowser = isPlatformBrowser(platformId);
+    // always show carousel (TODO: see https://github.com/NG-ZORRO/ng-zorro-antd/issues/4292)
+    this.isBrowser = true; //isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
@@ -149,6 +152,10 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   next() {
     this.carousels.forEach(c => c.next());
+  }
+
+  goTo(index: number) {
+    this.carousels.forEach(c => c.goTo(index));
   }
 
   pre() {

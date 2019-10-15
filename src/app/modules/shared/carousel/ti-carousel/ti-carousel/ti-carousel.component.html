@@ -1,0 +1,10 @@
+<div class="carousel-wrapper">
+  <ul class="carousel-inner" #carousel [ngStyle]="{
+      width: (items?.length * 100) + '%',
+      left: (-activeIndex * 100) + '%'
+    }">
+    <li *ngFor="let item of items;" class="carousel-item">
+      <ng-container [ngTemplateOutlet]="item.tpl"></ng-container>
+    </li>
+  </ul>
+</div>

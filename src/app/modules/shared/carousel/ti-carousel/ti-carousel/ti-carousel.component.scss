@@ -1,0 +1,32 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:host {
+  max-height: 100%;
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+
+.carousel-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: left 0.4s;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.carousel-item {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}

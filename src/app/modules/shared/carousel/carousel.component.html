@@ -36,7 +36,8 @@
 </ng-template>
 
 <ng-template #nzcarousel>
-  {{getSome()}}
+  <!-- {{getSome()}} -->
+  <!-- TODO: see https://github.com/NG-ZORRO/ng-zorro-antd/issues/4292 -->
   <!-- <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
     <div class="carousel-content" nz-carousel-content *ngFor="let image of images">
       <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
@@ -44,6 +45,18 @@
       </div>
     </div>
   </nz-carousel> -->
+
+  <!-- Use own carousel for now -->
+  <ti-carousel class="carousel-content" #carousel>
+    <ng-container *ngFor="let image of images;">
+      <ng-container *carouselItem>
+        <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+          <img [src]="image.image">
+        </div>
+      </ng-container>
+    </ng-container>
+  </ti-carousel>
+
 </ng-template>
 
 
@@ -63,10 +76,10 @@
   <div class="carousel-images-list">
     <div nz-row nzType="flex" nzGutter="16">
       <div class="image-list-item" [class.active]="carousel?.activeIndex == index" nz-col
-        *ngFor="let image of images; let index=index;" (click)="carousel?.goTo(index)" nz-tooltip
-        i18n-nzTitle="Go to carousel image text|Text is diaplayed on tooltip then user hovers image in carousel images list@@gotoCarouselImageText"
-        nzTitle="Goto image">
-        <nz-avatar (click)="zoom(true)" [nzSize]="50" nzShape="square" [nzSrc]="image.image">
+        *ngFor="let image of images; let index=index;" (click)="goTo(index)">
+        <nz-avatar [nzSize]="50" nzShape="square" [nzSrc]="image.image" nz-tooltip
+          i18n-nzTitle="Go to carousel image text|Text is diaplayed on tooltip then user hovers image in carousel images list@@gotoCarouselImageText"
+          nzTitle="Goto image">
         </nz-avatar>
       </div>
     </div>

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselComponent } from './carousel.component';
-import { NzAlertModule, NzAvatarModule, NzButtonModule, NzCarouselModule, NzIconModule, NzGridModule } from 'ng-zorro-antd';
+import { NzAlertModule, NzAvatarModule, NzButtonModule, NzCarouselModule, NzIconModule, NzGridModule, NzToolTipModule } from 'ng-zorro-antd';
+import { TiCarouselComponent, CarouselItemElement } from './ti-carousel/ti-carousel/ti-carousel.component';
+import { CarouselItemDirective } from './ti-carousel/ti-carousel/ti-carousel-item.directive';
 
 @NgModule({
   imports: [
@@ -11,9 +13,15 @@ import { NzAlertModule, NzAvatarModule, NzButtonModule, NzCarouselModule, NzIcon
     NzIconModule,
     NzAlertModule,
     NzAvatarModule,
-    NzButtonModule
+    NzButtonModule,
+    NzToolTipModule
   ],
-  declarations: [CarouselComponent],
+  declarations: [
+    CarouselItemDirective,
+    CarouselItemElement,
+    TiCarouselComponent,
+    CarouselComponent
+  ],
   exports: [CarouselComponent]
 })
 export class CarouselModule { }
