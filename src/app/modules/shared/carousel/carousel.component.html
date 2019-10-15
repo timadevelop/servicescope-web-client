@@ -35,24 +35,30 @@
   <nz-alert nzType="warning" nzMessage="No images to show"></nz-alert>
 </ng-template>
 
+<ng-template #nzcarousel>
+  <!-- {{getSome()}} -->
+  <!-- <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
+    <div class="carousel-content" nz-carousel-content *ngFor="let image of images">
+      <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+        <img [src]="image.image">
+      </div>
+    </div>
+  </nz-carousel> -->
+</ng-template>
+
+
 <ng-template #carouselContent>
-  <ng-container *ngIf="isBrowser">
-    <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
-      <!-- <div nz-carousel-content *ngFor="let image of images">
-        <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
-          <img [src]="image.image">
-        </div>
-      </div> -->
-    </nz-carousel>
+  <ng-container *ngIf="isBrowser === true">
+    <ng-container *ngTemplateOutlet="nzcarousel"></ng-container>
   </ng-container>
-  <!--
+
   <ng-container *ngIf="!isBrowser">
     <div class="carousel">
       <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
-        <img [src]="images[0].image">
+        <img [src]="images[0].image" class="carousel-preview-image">
       </div>
     </div>
-  </ng-container> -->
+  </ng-container>
 
   <div class="carousel-images-list">
     <div nz-row nzType="flex" nzGutter="16">

@@ -39,9 +39,7 @@ export class AppComponent implements AfterViewInit {
           case event instanceof NavigationEnd:
           case event instanceof NavigationCancel:
           case event instanceof NavigationError: {
-            if (this.loading === true) {
-              setTimeout(() => this.loading = false);
-            }
+            if (this.loading) setTimeout(() => this.loading = false);
             break;
           }
           default: {

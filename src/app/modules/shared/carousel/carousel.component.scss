@@ -15,7 +15,11 @@
     }
   }
 
-  [nz-carousel-content] {
+  .carousel-preview-image {
+    height: 360px;
+  }
+
+  [nz-carousel-content], .carousel-content {
     text-align: center;
     height: 360px;
     background: rgba(0, 0, 0, 0.1);

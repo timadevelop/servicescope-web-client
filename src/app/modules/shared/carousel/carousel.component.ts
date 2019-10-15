@@ -33,7 +33,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
-    this.isBrowser = isPlatformBrowser(platformId);
+    this.isBrowser = true; //isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
@@ -138,6 +138,13 @@ export class CarouselComponent implements OnInit, AfterViewInit {
         }
       }
     }
+  }
+
+
+  getSome() {
+    console.log('ahaahahaha', this.isBrowser);
+    return 'hahahaha';
+
   }
 
   next() {

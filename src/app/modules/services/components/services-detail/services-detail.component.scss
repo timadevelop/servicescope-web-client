@@ -60,8 +60,6 @@
 @include respond-below(mobile) {
 }
 
-.phone-wrapper {
-  ::ng-deep a {
-    color: $white-color;
-  }
+.phone-wrapper ::ng-deep a {
+  color: $white-color;
 }

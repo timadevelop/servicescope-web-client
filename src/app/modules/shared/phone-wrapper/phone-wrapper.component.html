@@ -2,5 +2,5 @@
   <i *ngIf="showIcon" nz-icon nzType="phone"></i>
   {{phoneText}}
   <span *ngIf="!showPhone" class="blur">xxx xxxx</span>
-  <a [href]="'tel:' + phone" class="show-text" (click)="showPhoneNumber($event)" i18n="@@showText" *ngIf="!showPhone">show</a>
+  <a class="show-text" (click)="showPhoneNumber($event)" i18n="@@showText" *ngIf="!showPhone">show</a>
 </a>
