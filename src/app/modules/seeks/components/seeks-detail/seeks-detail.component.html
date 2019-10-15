@@ -120,13 +120,10 @@
     </a>
 
     <!-- Call button for other users -->
-    <a [href]="'tel:' + seek.contact_phone" *ngIf="(userService.currentUserObs | async)?.id != seek.author.id"
-      class="msg-col">
-      <app-card-button>
-        <i nz-icon nzType="phone"></i>
-        <app-phone-wrapper class="phone-wrapper" [showIcon]="false" [phone]="seek.contact_phone"></app-phone-wrapper>
-      </app-card-button>
-    </a>
+    <app-card-button>
+      <i nz-icon nzType="phone"></i>
+      <app-phone-wrapper class="phone-wrapper" [showIcon]="false" [phone]="seek.contact_phone"></app-phone-wrapper>
+    </app-card-button>
 
     <!-- Message Button for other users -->
     <a [routerLink]="['/', 'messages', 'user', seek.author.id]" [queryParams]="additionalConversationRouteData"
