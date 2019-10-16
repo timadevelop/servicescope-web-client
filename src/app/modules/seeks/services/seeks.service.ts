@@ -38,6 +38,9 @@ export class SeeksService {
       } else if (key == 'max_price') {
         // max price
         formData.append(key, seek[key] === null ? '0' : seek[key].toString());
+      } else if (key == 'max_price_currency') {
+        // max price
+        formData.append(key, seek[key] === null ? 'BGN' : seek[key]);
       } else if (key == 'images') {
         // images
         seek.images.forEach((value: UploadFile, index: number, array) => {
