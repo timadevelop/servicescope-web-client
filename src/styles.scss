@@ -26,8 +26,14 @@
 .ant-notification.ant-notification-topRight {
   top: 70px !important;
 }
+
 .ant-tag {
   padding: 2px 7px;
+  margin-bottom: 8px;
+}
+
+a > .ant-tag {
+  cursor: pointer;
 }
 
 .ant-select-selection--multiple .ant-select-selection__placeholder {
