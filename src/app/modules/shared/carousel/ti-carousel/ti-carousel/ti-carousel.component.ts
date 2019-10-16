@@ -18,8 +18,20 @@ export class TiCarouselComponent {
   public activeIndex = 0;
 
   goTo(index) {
-    if (index < 0 || index >= this.items.length) return;
-    this.activeIndex = index;
+    if (this.items.length <= 1) {
+      return;
+    }
+
+    if (index < 0) {
+      // go to the last slide
+      this.activeIndex = this.items.length - 1;
+    } else if (index >= this.items.length) {
+      // go to the first slide
+      this.activeIndex = 0;
+    } else {
+      // go to i-th slide ( 0 <= i <= this.items.length )
+      this.activeIndex = index;
+    }
   }
 
   pre() {
