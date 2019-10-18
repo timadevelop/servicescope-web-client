@@ -9,8 +9,8 @@
       </a>
     </div>
     <div nz-col nzSpan="21" *ngIf="partner">
-      <a nz-tooltip nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]"
-        class="title">{{partner && partner.first_name ? partner.first_name + ' ' + partner.last_name : "No partner or noname"}}
+      <a nz-tooltip i18n-nzTitle="@@gotoUserProfileTooltipText" nzTitle="Go to user profile" [routerLink]="['/', 'profiles', partner.id]"
+        class="title">{{partner && partner.first_name ? partner.first_name + ' ' + partner.last_name : "Noname"}}
         <nz-badge [nzStatus]="conversation.users[0]?.is_online ? 'success' : 'default'"></nz-badge>
       </a>
       <br />
@@ -58,7 +58,7 @@
                 </div>
               </div>
             </div>
-            <div nz-tooltip nzTitle="Remove Message" (click)="removeMessage(msg)"
+            <div nz-tooltip i18n-nzTitle="@@removeMessageTooltipText" nzTitle="Remove Message" (click)="removeMessage(msg)"
               *ngIf="msg.author_id == (userService.currentUserObs | async)?.id" nz-col class="deleteButton"><i nz-icon nzType="delete"></i></div>
           </div>
           <div *ngFor="let msg of pendingMessages; trackBy: trackIdentifyByItemId; let i = index" class="message"
