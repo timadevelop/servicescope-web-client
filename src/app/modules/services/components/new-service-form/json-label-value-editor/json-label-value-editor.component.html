@@ -16,41 +16,25 @@
       </nz-input-group>
       <ng-template #labelValueErrorTemplate let-control>
         <ng-container *ngIf="item.get('label')?.hasError('minlength')"
-          i18n="Error message|Provided label length is too short@@shortLabelFormError">
-          Label is too Short
-        </ng-container>
+          i18n="Error message|Provided label length is too short@@shortLabelFormError">Label is too Short</ng-container>
         <ng-container *ngIf="item.get('label')?.hasError('maxlength')"
-          i18n="Error message|Provided label length is too long@@longLabelFormError">
-          Label is too long
-        </ng-container>
+          i18n="Error message|Provided label length is too long@@longLabelFormError">Label is too long</ng-container>
         <ng-container *ngIf="item.get('label')?.hasError('required')"
-          i18n="Error message|Provided label length is invalid@@invalidLabelFormError">
-          Invalid label
-        </ng-container>
+          i18n="Error message|Provided label length is invalid@@invalidLabelFormError">Invalid label</ng-container>
         <ng-container *ngIf="item.get('value')?.hasError('min')"
-          i18n="Error message|Provided value is too small@@smallValueFormError">
-          Value is too small
-        </ng-container>
+          i18n="Error message|Provided value is too small@@smallValueFormError">Value is too small</ng-container>
         <ng-container *ngIf="item.get('value')?.hasError('max')"
-          i18n="Error message|Provided value is too big@@bigValueFormError">
-          Value is too big
-        </ng-container>
+          i18n="Error message|Provided value is too big@@bigValueFormError">Value is too big</ng-container>
         <ng-container *ngIf="item.get('value')?.hasError('required')"
-          i18n="Error message|Provided value is invalid@@invalidValueFormError">
-          Value is invalid
-        </ng-container>
+          i18n="Error message|Provided value is invalid@@invalidValueFormError">Value is invalid</ng-container>
       </ng-template>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-explain *ngIf="items.invalid && items.length <= 1 && items.untouched"
-    i18n="Warning message|Information about fixed prices is empty@@emptyFixedPricesWarning">
-    Information about fixed prices is empty
-  </nz-form-explain>
+    i18n="Warning message|Information about fixed prices is empty@@emptyFixedPricesWarning">Information about fixed prices is empty</nz-form-explain>
   <nz-form-explain *ngIf="items.invalid && items.touched"
-    i18n="Error message|Invalid fixed prices form explain@@invalidFixedPricesFormError">
-    Invalid fixed prices information
-  </nz-form-explain>
+    i18n="Error message|Invalid fixed prices form explain@@invalidFixedPricesFormError">Invalid fixed prices information</nz-form-explain>
 </form>
 <nz-form-control>
   <button nz-button nzType="dashed" class="add-btn" style="width:100%;" (click)="addField($event)"

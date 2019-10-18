@@ -34,12 +34,8 @@
               <input type="password" nz-input formControlName="password" placeholder="Password" />
             </nz-input-group>
             <ng-template #passwordErrorTemplate let-control>
-              <ng-container *ngIf="control.hasError('minlength')">
-                Use at least 5 characters for password
-              </ng-container>
-              <ng-container *ngIf="control.hasError('required')">
-                Please input your password!
-              </ng-container>
+              <ng-container *ngIf="control.hasError('minlength')">Use at least 5 characters for password</ng-container>
+              <ng-container *ngIf="control.hasError('required')">Please input your password!</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>

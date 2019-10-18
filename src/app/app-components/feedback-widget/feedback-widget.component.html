@@ -28,17 +28,11 @@
           placeholder="Tell us about your experience" [attr.disabled]="alreadySentFeedback"></textarea>
         <ng-template #textErrorTemplate let-control>
           <ng-container *ngIf="control.hasError('minlength')"
-            i18n="Error message|Service text is too short@@feedbackFormErrorTextIsTooShort">
-            Text is too short
-          </ng-container>
+            i18n="Error message|Service text is too short@@feedbackFormErrorTextIsTooShort">Text is too short</ng-container>
           <ng-container *ngIf="control.hasError('maxlength')"
-            i18n="Error message|Service text is too long@@feedbackFormErrorTextIsTooLong">
-            Text is too long
-          </ng-container>
+            i18n="Error message|Service text is too long@@feedbackFormErrorTextIsTooLong">Text is too long</ng-container>
           <ng-container *ngIf="control.hasError('required')"
-            i18n="Error message|Service text is empty or invalid, ask user for valid one@@feedbackFormErrorTextNotProvided">
-            Please input valid text
-          </ng-container>
+            i18n="Error message|Service text is empty or invalid, ask user for valid one@@feedbackFormErrorTextNotProvided">Please input valid text</ng-container>
         </ng-template>
       </nz-form-control>
     </nz-form-item>

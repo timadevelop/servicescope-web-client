@@ -63,12 +63,41 @@
                 }
               ]
             },
-            "bg": {
+            "production-bg": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
               "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ],
+              "outputPath": "dist/browser/",
+              "i18nFile": "src/locale/messages.bg.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "bg",
+              "i18nMissingTranslation": "ignore"
+            },
+            "bg": {
               "outputPath": "dist/saasWebClient-bg/",
               "i18nFile": "src/locale/messages.bg.xlf",
               "i18nFormat": "xlf",
-              "i18nLocale": "bg"
+              "i18nLocale": "bg",
+              "i18nMissingTranslation": "warning"
             }
           }
         },
@@ -131,6 +160,17 @@
           "configurations": {
             "production": {
               "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "production-bg": {
+              "i18nFile": "src/locale/messages.bg.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "bg",
+                "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"

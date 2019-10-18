@@ -126,8 +126,7 @@
 </div>
 
 <ng-template #title>
-  <h2 style="text-align: center;" class="title" i18n="Card title for promote seek form@@promoteSeekText">Promote
-    seek</h2>
+  <h2 style="text-align: center;" class="title" i18n="Card title for promote seek form@@promoteSeekText">Promote seek</h2>
 </ng-template>
 
 <nz-modal [(nzVisible)]="selectedPlan && !paymentIntent" [nzFooter]="null" (nzOnCancel)="setSelectedPlan(null)"
@@ -138,27 +137,20 @@
 
 
 <ng-template #modalPayTitle>
-  <h2 style="text-align: left;" class="title" i18n="Pay for seek promotion@@promoteSeekPayText">
-    Pay for seek boost
-  </h2>
+  <h2 style="text-align: left;" class="title" i18n="Pay for seek promotion@@promoteSeekPayText">Pay for seek boost</h2>
 
 </ng-template>
 
 
 <ng-template #noEmailOrNotLoggedInUserTemplate>
-  <div *ngIf="!userService.currentUser else noEmailUserTemplate">
-    Log In first
-  </div>
+  <div *ngIf="!userService.currentUser else noEmailUserTemplate">Log In first</div>
   <ng-template #noEmailUserTemplate>
     <nz-modal nzVisible="true" (nzOnCancel)="onClosedUserEmailForm()" [nzFooter]="null">
       <h2 style="text-align: center;" class="title mb-vertical-align">
         <span i18n="@@oopsText">Ooops..</span>
       </h2>
       <div class="description">
-
-        <p i18n="User has no email@@promoteSeekUserHasNoEmail" style="text-align: center;">In order to promote a
-          seek we need to know your
-          email. Please, update your profile or provide your email in a following form:</p>
+        <p i18n="User has no email@@promoteSeekUserHasNoEmail" style="text-align: center;">In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</p>
       </div>
       <div nz-row nzType="flex" nzJustify="center">
         <form nz-col nz-form [formGroup]="validateUserEmail" [nzLayout]="'inline'"

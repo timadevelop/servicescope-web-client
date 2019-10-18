@@ -46,7 +46,30 @@ router.use(express.static(DIST_FOLDER, {
 
 // All regular routes use the Universal engine
 router.get('*', (req, res) => {
-  res.render('index', { req });
+  // res.render('index', { req });
+  // this is for i18n
+  const supportedLocales = ['bg', 'en'];
+  const defaultLocale = 'bg';
+  const matches = req.url.match(/^\/([a-z]{2}(?:-[A-Z]{2})?)\//);
+
+  // check if the requested url has a correct format '/locale' and matches any of the supportedLocales
+  const locale = (matches && supportedLocales.indexOf(matches[1]) !== -1) ? matches[1] : defaultLocale;
+
+
+  let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  if (ip.substr(0, 7) === '::ffff:') {
+    ip = ip.substr(7);
+  }
+
+  res.render(`index`, {
+    req,
+    providers: [
+      {provide: 'language', useFactory: () => locale, deps: []},
+      {provide: 'locale', useFactory: () => locale, deps: []},
+      {provide: 'ip', useFactory: () => ip, deps: []},
+
+    ]
+  });
 });
 
 app.use('/saas_web', router);

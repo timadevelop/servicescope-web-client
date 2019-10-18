@@ -34,14 +34,12 @@
         <span *ngIf="paymentIntent?.status != 'succeeded' else boostingProcessTitleTemplate"
           i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Select Plan</span>
         {{' '}}<a *ngIf="paymentIntent?.status != 'succeeded'" i18n="@@orUseCouponText" [routerLink]="[]"
-          [queryParams]="{coupon: true}" style="font-size: small">or use
-          a coupon code</a>
+          [queryParams]="{coupon: true}" style="font-size: small">or use a coupon code</a>
 
         <ng-template #boostingProcessTitleTemplate>
           <i *ngIf="!isBoosted" nz-icon nzType="loading" style="font-size: 24px;margin-right: 5px;"></i>
           <span *ngIf="!isBoosted else successBoostedTitleTemplate"
-            i18n="Card title for service boosting process@@promoteServiceBoostingProcessText">
-            Boosting Your Service...</span>
+            i18n="Card title for service boosting process@@promoteServiceBoostingProcessText">Boosting Your Service...</span>
         </ng-template>
 
         <ng-template #successBoostedTitleTemplate>
@@ -138,17 +136,13 @@
 
 
 <ng-template #modalPayTitle>
-  <h2 style="text-align: left;" class="title" i18n="Pay for service promotion@@promoteServicePayText">
-    Pay for service boost
-  </h2>
+  <h2 style="text-align: left;" class="title" i18n="Pay for service promotion@@promoteServicePayText">Pay for service boost</h2>
 
 </ng-template>
 
 
 <ng-template #noEmailOrNotLoggedInUserTemplate>
-  <div *ngIf="!userService.currentUser else noEmailUserTemplate">
-    Log In first
-  </div>
+  <div *ngIf="!userService.currentUser else noEmailUserTemplate">Log In first</div>
   <ng-template #noEmailUserTemplate>
     <nz-modal nzVisible="true" (nzOnCancel)="onClosedUserEmailForm()" [nzFooter]="null">
       <h2 style="text-align: center;" class="title mb-vertical-align">

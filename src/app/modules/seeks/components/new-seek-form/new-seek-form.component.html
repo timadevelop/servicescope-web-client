@@ -12,17 +12,11 @@
               </nz-input-group>
               <ng-template #titleErrorTemplate let-control>
                 <ng-container *ngIf="control.hasError('minlength')"
-                  i18n="Error message|Seek title is too short@@seekFormErrorTitleIsTooShort">
-                  Title is too short
-                </ng-container>
+                  i18n="Error message|Seek title is too short@@seekFormErrorTitleIsTooShort">Title is too short</ng-container>
                 <ng-container *ngIf="control.hasError('maxlength')"
-                  i18n="Error message|Seek title is too long@@seekFormErrorTitleIsTooLong">
-                  Title is too long
-                </ng-container>
+                  i18n="Error message|Seek title is too long@@seekFormErrorTitleIsTooLong">Title is too long</ng-container>
                 <ng-container *ngIf="control.hasError('required')"
-                  i18n="Error message|Seek title is not provided, ask user to provide valid one@@seekFormErrorTitleNotProvided">
-                  Please input valid title
-                </ng-container>
+                  i18n="Error message|Seek title is not provided, ask user to provide valid one@@seekFormErrorTitleNotProvided">Please input valid title</ng-container>
               </ng-template>
             </nz-form-control>
           </nz-form-item>
@@ -38,17 +32,11 @@
               </nz-input-group>
               <ng-template #max_priceErrorTemplate let-control>
                 <ng-container *ngIf="control.hasError('min')"
-                  i18n="Error message|Seek max_price is too small@@seekFormErrorPriceIsTooSmall">
-                  Price is too small
-                </ng-container>
+                  i18n="Error message|Seek max_price is too small@@seekFormErrorPriceIsTooSmall">Price is too small</ng-container>
                 <ng-container *ngIf="control.hasError('max')"
-                  i18n="Error message|Seek max_price is too big@@seekFormErrorPriceIsTooBig">
-                  Price is too big
-                </ng-container>
+                  i18n="Error message|Seek max_price is too big@@seekFormErrorPriceIsTooBig">Price is too big</ng-container>
                 <ng-container *ngIf="control.hasError('required')"
-                  i18n="Error message|Seek max_price is not provided, Ask user to provide valid one@@seekFormErrorPriceNotProvided">
-                  Please input valid title
-                </ng-container>
+                  i18n="Error message|Seek max_price is not provided, Ask user to provide valid one@@seekFormErrorPriceNotProvided">Please input valid title</ng-container>
               </ng-template>
             </nz-form-control>
           </nz-form-item>
@@ -67,9 +55,7 @@
               </nz-input-group>
               <ng-template #categoryErrorTemplate let-control>
                 <ng-container *ngIf="control.hasError('required')"
-                  i18n="Error message|Seek category is not select, ask user to select valid one@@seekFormErrorCategoryNotProvided">
-                  Please select valid category
-                </ng-container>
+                  i18n="Error message|Seek category is not select, ask user to select valid one@@seekFormErrorCategoryNotProvided">Please select valid category</ng-container>
               </ng-template>
             </nz-form-control>
           </nz-form-item>
@@ -85,9 +71,7 @@
               </nz-input-group>
               <ng-template #locationErrorTemplate let-control>
                 <ng-container *ngIf="control.hasError('required')"
-                  i18n="Error message|Seek location is not provided, ask user to select valid one@@seekFormErrorPriceNotProvided">
-                  Please select valid location
-                </ng-container>
+                  i18n="Error message|Seek location is not provided, ask user to select valid one@@seekFormErrorPriceNotProvided">Please select valid location</ng-container>
               </ng-template>
             </nz-form-control>
           </nz-form-item>
@@ -101,17 +85,11 @@
             placeholder="Description"></textarea>
           <ng-template #descriptionErrorTemplate let-control>
             <ng-container *ngIf="control.hasError('minlength')"
-              i18n="Error message|Seek description is too short@@seekFormErrorDescriptionIsTooShort">
-              Description is too short
-            </ng-container>
+              i18n="Error message|Seek description is too short@@seekFormErrorDescriptionIsTooShort">Description is too short</ng-container>
             <ng-container *ngIf="control.hasError('maxlength')"
-              i18n="Error message|Seek description is too long@@seekFormErrorDescriptionIsTooLong">
-              Description is too long
-            </ng-container>
+              i18n="Error message|Seek description is too long@@seekFormErrorDescriptionIsTooLong">Description is too long</ng-container>
             <ng-container *ngIf="control.hasError('required')"
-              i18n="Error message|Seek description is empty or invalid, ask user for valid one@@seekFormErrorDescriptionNotProvided">
-              Please input valid description
-            </ng-container>
+              i18n="Error message|Seek description is empty or invalid, ask user for valid one@@seekFormErrorDescriptionNotProvided">Please input valid description</ng-container>
           </ng-template>
         </nz-form-control>
       </nz-form-item>
@@ -126,17 +104,13 @@
           <ng-template #tagsErrorTemplate let-control>
 
             <ng-container *ngIf="control.hasError('minlength')"
-              i18n="Error message|Seek tags array is too short@@seekFormErrorTagsArrayIsTooShort">
-              Select more tags
-            </ng-container>
+              i18n="Error message|Seek tags array is too short@@seekFormErrorTagsArrayIsTooShort">Select more tags</ng-container>
             <ng-container *ngIf="control.hasError('maxlength')"
               i18n="Error message|Seek tags array is too long, ask user to delete some of them@@seekFormErrorTagsArrayIsTooLong">
               Too much tags selected, reduce tags count
             </ng-container>
             <ng-container *ngIf="control.hasError('required')"
-              i18n="Error message|Seek tags array is empty or invalid, ask user to select tags@@seekFormErrorTagsArrayNotProvided">
-              Select tags for new seek
-            </ng-container>
+              i18n="Error message|Seek tags array is empty or invalid, ask user to select tags@@seekFormErrorTagsArrayNotProvided">Select tags for new seek</ng-container>
           </ng-template>
         </nz-form-control>
       </nz-form-item>
@@ -150,17 +124,11 @@
           </app-images-selector>
           <ng-template #imagesErrorTemplate let-control>
             <ng-container *ngIf="control.hasError('minlength')"
-              i18n="Error message|Seek images array is too short, ask user to add images@@seekFormErrorImagesArrayIsTooShort">
-              Add more images
-            </ng-container>
+              i18n="Error message|Seek images array is too short, ask user to add images@@seekFormErrorImagesArrayIsTooShort">Add more images</ng-container>
             <ng-container *ngIf="control.hasError('maxlength')"
-              i18n="Error message|Seek images array is too long, ask user to add images@@seekFormErrorImagesArrayIsTooLong">
-              Too many images
-            </ng-container>
+              i18n="Error message|Seek images array is too long, ask user to add images@@seekFormErrorImagesArrayIsTooLong">Too many images</ng-container>
             <ng-container *ngIf="control.hasError('required')"
-              i18n="Error message|Seek images array is invalid or empty, ask user to add images@@seekFormErrorImagesArrayNotProvided">
-              Please add images for new seek
-            </ng-container>
+              i18n="Error message|Seek images array is invalid or empty, ask user to add images@@seekFormErrorImagesArrayNotProvided">Please add images for new seek</ng-container>
           </ng-template>
 
         </nz-form-control>
@@ -180,9 +148,7 @@
             <ng-template #phoneErrorTemplate let-control>
               <ng-container
                 *ngIf="control.hasError('minlength') || control.hasError('maxlength') || control.hasError('required')"
-                i18n="Error message|Seek contact phone is invalid, ask user to provide valid one@@seekFormErrorPhoneIsInvalid">
-                Please input valid phone
-              </ng-container>
+                i18n="Error message|Seek contact phone is invalid, ask user to provide valid one@@seekFormErrorPhoneIsInvalid">Please input valid phone</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>

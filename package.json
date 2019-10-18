@@ -11,12 +11,15 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --aot --prod && ng run saasWebClient:server:production"
+    "build:client-and-server-bundles": "ng build --aot --prod && ng run saasWebClient:server:production",
+    "build:ssr-bg": "npm run build:client-and-server-bundles-bg && npm run compile:server",
+    "build:client-and-server-bundles-bg": "ng build --configuration=production-bg && ng run saasWebClient:server:production-bg"
   },
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0",
     "@angular/animations": "~8.2.9",
+    "@angular/cdk": "^8.2.3",
     "@angular/common": "~8.2.9",
     "@angular/compiler": "~8.2.9",
     "@angular/core": "~8.2.9",

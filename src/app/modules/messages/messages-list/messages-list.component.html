@@ -46,8 +46,7 @@
   <nz-empty *ngIf="!conversations || !conversations.results || conversations.results.length == 0"
     [nzNotFoundContent]="contentTpl">
     <ng-template #contentTpl>
-      <span i18n="Text to tell user that there are no msgs in selected conversation@@noMessagesInConversationText"> No
-        messages </span>
+      <span i18n="Text to tell user that there are no msgs in selected conversation@@noMessagesInConversationText">No messages</span>
     </ng-template>
   </nz-empty>
 </ng-template>

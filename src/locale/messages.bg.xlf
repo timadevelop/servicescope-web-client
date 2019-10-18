@@ -1,789 +1,2534 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+<xliff version="1.2"
+  xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="loadingText" datatype="html">
-        <source>Loading...</source>
+      <trans-unit id="noDataText" datatype="html">
+        <source>No data</source>
+        <target>No data</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/location-search/location-search.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">27</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="headerServicesButtonText" datatype="html">
+        <source>Services</source>
+        <target>Services</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/category-selector/category-selector.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/tags-selector/tags-selector.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit><trans-unit id="gotoCarouselImageText" datatype="html">
-        <source>Goto image</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/detail-view-only/carousel/carousel.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-        <note priority="1" from="description">Text is diaplayed on tooltip then user hovers image in carousel images list</note>
-        <note priority="1" from="meaning">Go to carousel image text</note>
-      </trans-unit><trans-unit id="minPriceText" datatype="html">
-        <source>Min price</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/price-filter/price-filter.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-        <note priority="1" from="description">Literaly min price text</note>
-      </trans-unit><trans-unit id="maxPriceText" datatype="html">
-        <source>Max price</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/price-filter/price-filter.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-        <note priority="1" from="description">Literaly max price text</note>
-      </trans-unit><trans-unit id="searchByTagText" datatype="html">
-        <source>Search by tag</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-        <note priority="1" from="description">Text user sees on tag hover</note>
-      </trans-unit><trans-unit id="noTags" datatype="html">
-        <source>No tags
-    </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
-          <context context-type="linenumber">9</context>
-        </context-group>
-        <note priority="1" from="description">Tag text when there are no tags in a list of tags</note>
-      </trans-unit><trans-unit id="wholeCountryText" datatype="html">
-        <source>Whole country</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-item/list-item.component.html</context>
-          <context context-type="linenumber">56</context>
-        </context-group>
-        <note priority="1" from="description">Text is shown to user if location is not pointed at item or form</note>
-        <note priority="1" from="meaning">Whole country text</note>
-      </trans-unit><trans-unit id="locationText" datatype="html">
-        <source>Location</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-item/list-item.component.html</context>
-          <context context-type="linenumber">49</context>
-        </context-group>
-        <note priority="1" from="description">Tooltip text when user hovers item location element</note>
-      </trans-unit><trans-unit id="createdTooltipText" datatype="html">
-        <source>Created</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/detail-view-only/general-info-card/general-info-card.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-item/list-item.component.html</context>
-          <context context-type="linenumber">62</context>
-        </context-group>
-        <note priority="1" from="description">Tooltip text on created_at date hover</note>
-      </trans-unit><trans-unit id="currency" datatype="html">
-        <source>BGN</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/detail-view-only/price-card/price-card.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
-      </trans-unit><trans-unit id="priceDetailsText" datatype="html">
-        <source>Price details</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/detail-view-only/price-card/price-card.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-        <note priority="1" from="description">Collapse container header in price card if price details are provided</note>
-      </trans-unit><trans-unit id="sortingSectionText" datatype="html">
-        <source>Sorting</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-        <note priority="1" from="description">Literaly Sorting word for describing a section with sorting functionality</note>
-      </trans-unit><trans-unit id="priceSectionText" datatype="html">
-        <source>Price</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
-        <note priority="1" from="description">Literaly Price word for describing a section with price filter functionality</note>
-      </trans-unit><trans-unit id="categorySectionText" datatype="html">
-        <source>Category</source>
+      </trans-unit>
+      <trans-unit id="headerPostsButtonText" datatype="html">
+        <source>Seeks</source>
+        <target>Seeks</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
-        <note priority="1" from="description">Literaly Category word for describing a section with category filter functionality</note>
-      </trans-unit><trans-unit id="tagsSectionText" datatype="html">
-        <source>Tags</source>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <target>Login</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
-        <note priority="1" from="description">Literaly Tags word for describing a section with tags filtering functionality</note>
-      </trans-unit><trans-unit id="searchTagsText" datatype="html">
-        <source>Search tags</source>
+        <note priority="1" from="description">headerLoginButtonText</note>
+      </trans-unit>
+      <trans-unit id="welcomeText" datatype="html">
+        <source>Hi, </source>
+        <target>Hi, </target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
+          <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
           <context context-type="linenumber">25</context>
         </context-group>
-        <note priority="1" from="description">search tags placeholder</note>
-      </trans-unit><trans-unit id="loadMoreText" datatype="html">
-        <source>Load More</source>
+      </trans-unit>
+      <trans-unit id="feedbackFormLabelRate" datatype="html">
+        <source>How would you rate your experience?</source>
+        <target>How would you rate your experience?</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feedbackFormErrorTitleNotProvided" datatype="html">
+        <source>Please input valid rating</source>
+        <target>Please input valid rating</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Service title is not provided, ask user to provide valid one</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="feedbackFormLabelText" datatype="html">
+        <source>Tell us about your experience</source>
+        <target>Tell us about your experience</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="feedbackFormErrorTextIsTooShort" datatype="html">
+        <source>Text is too short</source>
+        <target>Text is too short</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Service text is too short</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="feedbackFormErrorTextIsTooLong" datatype="html">
+        <source>Text is too long</source>
+        <target>Text is too long</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description">Service text is too long</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="feedbackFormErrorTextNotProvided" datatype="html">
+        <source>Please input valid text</source>
+        <target>Please input valid text</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Service text is empty or invalid, ask user for valid one</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="sendFeedbackButtonText" datatype="html">
+        <source>Send</source>
+        <target>Send</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="closeFeedbackFormButtonText" datatype="html">
+        <source>Close</source>
+        <target>Close</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="helloText" datatype="html">
+        <source>Hi</source>
+        <target>Hi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutText" datatype="html">
+        <source>About</source>
+        <target>About</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/about/about/about.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="termsText" datatype="html">
+        <source>Terms</source>
+        <target>Terms</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/about/terms/terms.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="privacyAndCookiesText" datatype="html">
+        <source>Privacy and cookies</source>
+        <target>Privacy and cookies</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/about/terms/terms.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="faqText" datatype="html">
+        <source>FAQ</source>
+        <target>FAQ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/about/faq/faq.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="VerifiedText" datatype="html">
+        <source>
+      Successfully Verified</source>
+        <target>
+      Successfully Verified</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">Verified email</note>
+      </trans-unit>
+      <trans-unit id="notVerifiedText" datatype="html">
+        <source>
+        Not Verified</source>
+        <target>
+        Not Verified</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Not Verified email</note>
+      </trans-unit>
+      <trans-unit id="messagesTitleText" datatype="html">
+        <source>Messages
+        </source>
+        <target>Messages
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages/messages.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Title tells user that this is messages section of website</note>
+      </trans-unit>
+      <trans-unit id="lastSeenUserText" datatype="html">
+        <source>Last seen:</source>
+        <target>Last seen:</target>
+        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/author-card/author-card.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="userOnlineStatusText" datatype="html">
+        <source>Online</source>
+        <target>Online</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loadMoreText" datatype="html">
+        <source>Load more</source>
+        <target>Load more</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
+          <context context-type="linenumber">39</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-list/messages-list.component.html</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-      </trans-unit><trans-unit id="filtersCardTitle" datatype="html">
-        <source>Filters</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-filters/list-filters.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">39</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-list/services-list.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">32</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="gotoCarouselImageText" datatype="html">
+        <source>Goto image</source>
+        <target>Goto image</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-list/services-list.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="sourcefile">app/modules/shared/carousel/carousel.component.html</context>
+          <context context-type="linenumber">82</context>
         </context-group>
-        <note priority="1" from="description">Filters card title</note>
-      </trans-unit><trans-unit id="sortNewestFirstText" datatype="html">
-        <source>Newest</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/ordering-filter/ordering-filter.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
-        <note priority="1" from="description">In sorting feature a button text for sorting items by date (newest first)</note>
-      </trans-unit><trans-unit id="sortCheapestFirstText" datatype="html">
-        <source>Cheapest</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/ordering-filter/ordering-filter.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
-        <note priority="1" from="description">In sorting feature a button text for sorting items by price (Cheapest first)</note>
-      </trans-unit><trans-unit id="sortMostExpensiveFirstText" datatype="html">
-        <source>Most Expensive</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/ordering-filter/ordering-filter.component.html</context>
-          <context context-type="linenumber">5</context>
-        </context-group>
-        <note priority="1" from="description">In sorting feature a button text for sorting items by price (Most Expensive first)</note>
-      </trans-unit><trans-unit id="sortMostPointsFirstText" datatype="html">
-        <source>Superhero</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/filter-components/ordering-filter/ordering-filter.component.html</context>
-          <context context-type="linenumber">6</context>
-        </context-group>
-        <note priority="1" from="description">In sorting feature a button text for sorting items by ponts (Most points first)</note>
-      </trans-unit><trans-unit id="priceTooltipText" datatype="html">
-        <source>Price</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-item/list-item.component.html</context>
-          <context context-type="linenumber">23</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/list-view-only/list-item/list-item.component.html</context>
-          <context context-type="linenumber">79</context>
-        </context-group>
-        <note priority="1" from="description">Tooltip text on item price hover</note>
-      </trans-unit><trans-unit id="selectCategoryText" datatype="html">
-        <source>Select category</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/category-selector/category-selector.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Asking user to select category</note>
-        <note priority="1" from="meaning">Select category text</note>
-      </trans-unit><trans-unit id="selectTagsText" datatype="html">
-        <source>Select tags</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/tags-selector/tags-selector.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Asking user to select tags</note>
-        <note priority="1" from="meaning">Select tags text</note>
-      </trans-unit><trans-unit id="createTagText" datatype="html">
-        <source>Create tag</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/tags-selector/tags-selector.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/tags-selector/tags-selector.component.html</context>
-          <context context-type="linenumber">23</context>
-        </context-group>
-        <note priority="1" from="description">Create new tag text on button in tag-selector</note>
-        <note priority="1" from="meaning">Create new tag text</note>
-      </trans-unit><trans-unit id="createNewTagInputPlaceholder" datatype="html">
-        <source>New tag name</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/tags-selector/tags-selector.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-        <note priority="1" from="description">Placeholder for input on new tag creation</note>
-      </trans-unit><trans-unit id="cancelText" datatype="html">
-        <source>Cancel</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/tags-selector/tags-selector.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-        <note priority="1" from="description">Cancel creating new tag text on button in tag-selector</note>
-        <note priority="1" from="meaning">Cancel creating new tag text</note>
-      </trans-unit><trans-unit id="addToUploadText" datatype="html">
+        <note priority="1" from="description">Text is diaplayed on tooltip then user hovers image in carousel images list</note>
+        <note priority="1" from="meaning">Go to carousel image text</note>
+      </trans-unit>
+      <trans-unit id="addToUploadText" datatype="html">
         <source>Add</source>
+        <target>Add</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/core/components/common/images-selector/images-selector.component.html</context>
+          <context context-type="sourcefile">app/modules/shared/images-selector/images-selector.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description">Text for add button</note>
         <note priority="1" from="meaning">Add new file to uploader text</note>
-      </trans-unit><trans-unit id="filtersButtonText" datatype="html">
-        <source>Filters</source>
+      </trans-unit>
+      <trans-unit id="noMessagesInConversationText" datatype="html">
+        <source>No messages</source>
+        <target>No messages</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-list/services-list.component.html</context>
+          <context context-type="sourcefile">app/modules/messages/messages-list/messages-list.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description">Text to tell user that there are no msgs in selected conversation</note>
+      </trans-unit>
+      <trans-unit id="filtersButtonText" datatype="html">
+        <source>Filters</source>
+        <target>Filters</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list/services-list.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
-      </trans-unit><trans-unit id="createNewServiceButtonTexst" datatype="html">
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="filtersCardTitle" datatype="html">
+        <source>Filters</source>
+        <target>Filters</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list/services-list.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list/services-list.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createNewServiceButtonTexst" datatype="html">
         <source>Create</source>
+        <target>Добави сървис</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-list/services-list.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-      </trans-unit><trans-unit id="shareBtnText" datatype="html">
-        <source>Share</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit><trans-unit id="tweetBtnText" datatype="html">
-        <source>Tweet</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">40</context>
-        </context-group>
-      </trans-unit><trans-unit id="saveBtnText" datatype="html">
-        <source>Save</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-detail/services-detail.component.html</context>
+          <context context-type="sourcefile">app/modules/services/components/services-list/services-list.component.html</context>
           <context context-type="linenumber">41</context>
         </context-group>
-      </trans-unit><trans-unit id="similarServicesCardTitle" datatype="html">
-        <source>Similar services</source>
+      </trans-unit>
+      <trans-unit id="editText" datatype="html">
+        <source>Edit</source>
+        <target>Edit</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
+          <context context-type="linenumber">62</context>
         </context-group>
-      </trans-unit><trans-unit id="promoteButtonText" datatype="html">
-        <source>Promote</source>
+      </trans-unit>
+      <trans-unit id="deleteText" datatype="html">
+        <source>Delete</source>
+        <target>Delete</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">69</context>
+          <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
+          <context context-type="linenumber">66</context>
         </context-group>
-      </trans-unit><trans-unit id="callText" datatype="html">
-        <source>Call</source>
+      </trans-unit>
+      <trans-unit id="areYouSureText" datatype="html">
+        <source>Are you sure?</source>
+        <target>Are you sure?</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-detail/services-detail.component.html</context>
+          <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noText" datatype="html">
+        <source>No</source>
+        <target>No</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="yesText" datatype="html">
+        <source>Yes</source>
+        <target>Yes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="shareBtnText" datatype="html">
+        <source>Share</source>
+        <target>Share</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/share-widget/share-widget.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tweetBtnText" datatype="html">
+        <source>Tweet</source>
+        <target>Tweet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/share-widget/share-widget.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="copyBtnText" datatype="html">
+        <source>Copy</source>
+        <target>Copy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/share-widget/share-widget.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loadingText" datatype="html">
+        <source>Loading Data...</source>
+        <target>Loading Data...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/tags-selector/tags-selector.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/category-selector/category-selector.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/location-search/location-search.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="selectTagsText" datatype="html">
+        <source>Select tags</source>
+        <target>Select tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/tags-selector/tags-selector.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Asking user to select tags</note>
+        <note priority="1" from="meaning">Select tags text</note>
+      </trans-unit>
+      <trans-unit id="showText" datatype="html">
+        <source>show</source>
+        <target>show</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/phone-wrapper/phone-wrapper.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formErrorTextIsTooShort" datatype="html">
+        <source>Too short text</source>
+        <target>Too short text</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">text is too short</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="formErrorTextIsTooLong" datatype="html">
+        <source>Too long text</source>
+        <target>Too long text</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">text is too long, ask user to delete some of them</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="formErrorTextNotProvided" datatype="html">
+        <source>Add text</source>
+        <target>Add text</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">text is empty or invalid, ask user to provide text</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="formErrorTagsArrayIsTooShort" datatype="html">
+        <source>Select more tags</source>
+        <target>Select more tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description">tags array is too short</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="formErrorTagsArrayIsTooLong" datatype="html">
+        <source>Too much tags selected, reduce tags count</source>
+        <target>Too much tags selected, reduce tags count</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">tags array is too long, ask user to delete some of them</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="formErrorTagsArrayNotProvided" datatype="html">
+        <source>Select at least 3 tags</source>
+        <target>Select at least 3 tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description">tags array is empty or invalid, ask user to select tags</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="submitFeedPostOnCtrlEnterKeyDown" datatype="html">
+        <source>Post on Ctrl + Enter</source>
+        <target>Post on Ctrl + Enter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="selectCategoryText" datatype="html">
+        <source>Select category</source>
+        <target>Select category</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/category-selector/category-selector.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Asking user to select category</note>
+        <note priority="1" from="meaning">Select category text</note>
+      </trans-unit>
+      <trans-unit id="minPriceText" datatype="html">
+        <source>Min price</source>
+        <target>Min price</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/price-filter/price-filter.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">Literaly min price text</note>
+      </trans-unit>
+      <trans-unit id="maxPriceText" datatype="html">
+        <source>Max price</source>
+        <target>Max price</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/price-filter/price-filter.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Literaly max price text</note>
+      </trans-unit>
+      <trans-unit id="sortNewestFirstText" datatype="html">
+        <source>Newest</source>
+        <target>Newest</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/ordering-filter/ordering-filter.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">In sorting feature a button text for sorting items by date (newest first)</note>
+      </trans-unit>
+      <trans-unit id="sortCheapestFirstText" datatype="html">
+        <source>Cheapest</source>
+        <target>Cheapest</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/ordering-filter/ordering-filter.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">In sorting feature a button text for sorting items by price (Cheapest first)</note>
+      </trans-unit>
+      <trans-unit id="sortMostExpensiveFirstText" datatype="html">
+        <source>Most Expensive</source>
+        <target>Most Expensive</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/ordering-filter/ordering-filter.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">In sorting feature a button text for sorting items by price (Most Expensive first)</note>
+      </trans-unit>
+      <trans-unit id="sortMostPointsFirstText" datatype="html">
+        <source>Superhero</source>
+        <target>Superhero</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/ordering-filter/ordering-filter.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">In sorting feature a button text for sorting items by ponts (Most points first)</note>
+      </trans-unit>
+      <trans-unit id="sortingSectionText" datatype="html">
+        <source>Sorting</source>
+        <target>Sorting</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">Literaly Sorting word for describing a section with sorting functionality</note>
+      </trans-unit>
+      <trans-unit id="priceSectionText" datatype="html">
+        <source>Price</source>
+        <target>Price</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Literaly Price word for describing a section with price filter functionality</note>
+      </trans-unit>
+      <trans-unit id="categorySectionText" datatype="html">
+        <source>Category</source>
+        <target>Category</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Literaly Category word for describing a section with category filter functionality</note>
+      </trans-unit>
+      <trans-unit id="tagsSectionText" datatype="html">
+        <source>Tags</source>
+        <target>Tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">Literaly Tags word for describing a section with tags filtering functionality</note>
+      </trans-unit>
+      <trans-unit id="searchTagsText" datatype="html">
+        <source>Search tags</source>
+        <target>Search tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">search tags placeholder</note>
+      </trans-unit>
+      <trans-unit id="payFormCreditOrDebitCardText" datatype="html">
+        <source>Credit or debit card</source>
+        <target>Credit or debit card</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/pay-form/pay-form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payButtonText" datatype="html">
+        <source>Pay</source>
+        <target>Pay</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/pay-form/pay-form.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Pay text for pay button</note>
+      </trans-unit>
+      <trans-unit id="payFormPaidText" datatype="html">
+        <source>Paid</source>
+        <target>Paid</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/pay-form/pay-form.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="payFormPaidDescriptionText" datatype="html">
+        <source>Successfully paid</source>
+        <target>Successfully paid</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/pay-form/pay-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wholeCountryText" datatype="html">
+        <source>Whole country</source>
+        <target>Whole country</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+        <note priority="1" from="description">Text is shown to user if location is not pointed at item or form</note>
+        <note priority="1" from="meaning">Whole country text</note>
+      </trans-unit>
+      <trans-unit id="locationText" datatype="html">
+        <source>Location</source>
+        <target>Location</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <note priority="1" from="description">Tooltip text when user hovers item location element</note>
+      </trans-unit>
+      <trans-unit id="categoryTooltipText" datatype="html">
+        <source>Category</source>
+        <target>Category</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Tooltip text on category hover</note>
+      </trans-unit>
+      <trans-unit id="createdTooltipText" datatype="html">
+        <source>Created</source>
+        <target>Created</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
           <context context-type="linenumber">76</context>
         </context-group>
-      </trans-unit><trans-unit id="messageUserText" datatype="html">
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <note priority="1" from="description">Tooltip text on created_at date hover</note>
+      </trans-unit>
+      <trans-unit id="currency" datatype="html">
+        <source>BGN</source>
+        <target>BGN</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/price-card/price-card.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priceDetailsText" datatype="html">
+        <source>Price details</source>
+        <target>Price details</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/price-card/price-card.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Collapse container header in price card if price details are provided</note>
+      </trans-unit>
+      <trans-unit id="promotedServiceIconTooltipText" datatype="html">
+        <source>Promoted service</source>
+        <target>Promoted service</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="priceTooltipText" datatype="html">
+        <source>Price</source>
+        <target>Price</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+        <note priority="1" from="description">Tooltip text on item price hover</note>
+      </trans-unit>
+      <trans-unit id="searchByTagText" datatype="html">
+        <source>Search by tag</source>
+        <target>Search by tag</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+        <note priority="1" from="description">Text user sees on tag hover</note>
+      </trans-unit>
+      <trans-unit id="noTags" datatype="html">
+        <source>No tags</source>
+        <target>No tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Tag text when there are no tags in a list of tags</note>
+      </trans-unit>
+      <trans-unit id="editButtonText" datatype="html">
+        <source>Delete</source>
+        <target>Delete</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">186</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">186</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="promoteButtonText" datatype="html">
+        <source>Promote</source>
+        <target>Promote</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="similarServicesCardTitle" datatype="html">
+        <source>Similar services</source>
+        <target>Similar services</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="messageButtonText" datatype="html">
         <source>Message</source>
+        <target>Message</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">132</context>
         </context-group>
-      </trans-unit><trans-unit id="promoteYourServiceText" datatype="html">
-        <source>Promote your service</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">132</context>
         </context-group>
-      </trans-unit><trans-unit id="addNewServiceText" datatype="html">
+      </trans-unit>
+      <trans-unit id="callText" datatype="html">
+        <source>Call</source>
+        <target>Call</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="messageUserText" datatype="html">
+        <source>Message</source>
+        <target>Message</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">174</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">174</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="promoteYourServiceText" datatype="html">
+        <source>Promote</source>
+        <target>Promote</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">181</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addNewServiceText" datatype="html">
         <source>Add service</source>
+        <target>Add service</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/create-service.component.html</context>
+          <context context-type="sourcefile">app/modules/services/components/create-service/create-service.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">Card title for new service form</note>
-      </trans-unit><trans-unit id="fixedPricesInputLabelPlaceholder" datatype="html">
-        <source>Service</source>
+      </trans-unit>
+      <trans-unit id="editServiceText" datatype="html">
+        <source>Edit service
+        </source>
+        <target>Edit service
+        </target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="sourcefile">app/modules/services/components/edit-service/edit-service.component.html</context>
+          <context context-type="linenumber">15</context>
         </context-group>
-        <note priority="1" from="description">Placeholder for label in fixed prices</note>
-      </trans-unit><trans-unit id="fixedPricesInputPricePlaceholder" datatype="html">
-        <source>Price</source>
+        <note priority="1" from="description">Card title for edit service form</note>
+      </trans-unit>
+      <trans-unit id="fixedPricesInputLabelPlaceholder" datatype="html">
+        <source>Service</source>
+        <target>Service</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
-      </trans-unit><trans-unit id="confirmTitle" datatype="html">
+        <note priority="1" from="description">Placeholder for label in fixed prices</note>
+      </trans-unit>
+      <trans-unit id="fixedPricesInputPricePlaceholder" datatype="html">
+        <source>Price</source>
+        <target>Price</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="confirmTitle" datatype="html">
         <source>Are you sure?</source>
+        <target>Are you sure?</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">12</context>
         </context-group>
-      </trans-unit><trans-unit id="confirmCancelBtnText" datatype="html">
+      </trans-unit>
+      <trans-unit id="confirmCancelBtnText" datatype="html">
         <source>Yes</source>
+        <target>Yes</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">13</context>
         </context-group>
-      </trans-unit><trans-unit id="shortLabelFormError" datatype="html">
-        <source>
-          Label is too Short
-        </source>
+      </trans-unit>
+      <trans-unit id="shortLabelFormError" datatype="html">
+        <source>Label is too Short</source>
+        <target>Label is too Short</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <note priority="1" from="description">Provided label length is too short</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="longLabelFormError" datatype="html">
-        <source>
-          Label is too long
-        </source>
+      </trans-unit>
+      <trans-unit id="longLabelFormError" datatype="html">
+        <source>Label is too long</source>
+        <target>Label is too long</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description">Provided label length is too long</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="invalidLabelFormError" datatype="html">
-        <source>
-          Invalid label
-        </source>
+      </trans-unit>
+      <trans-unit id="invalidLabelFormError" datatype="html">
+        <source>Invalid label</source>
+        <target>Invalid label</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <note priority="1" from="description">Provided label length is invalid</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="smallValueFormError" datatype="html">
-        <source>
-          Value is too small
-        </source>
+      </trans-unit>
+      <trans-unit id="smallValueFormError" datatype="html">
+        <source>Value is too small</source>
+        <target>Value is too small</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <note priority="1" from="description">Provided value is too small</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="bigValueFormError" datatype="html">
-        <source>
-          Value is too big
-        </source>
+      </trans-unit>
+      <trans-unit id="bigValueFormError" datatype="html">
+        <source>Value is too big</source>
+        <target>Value is too big</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">27</context>
         </context-group>
         <note priority="1" from="description">Provided value is too big</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="invalidValueFormError" datatype="html">
-        <source>
-          Value is invalid
-        </source>
+      </trans-unit>
+      <trans-unit id="invalidValueFormError" datatype="html">
+        <source>Value is invalid</source>
+        <target>Value is invalid</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">29</context>
         </context-group>
         <note priority="1" from="description">Provided value is invalid</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="emptyFixedPricesWarning" datatype="html">
-        <source>
-    Information about fixed prices is empty
-  </source>
+      </trans-unit>
+      <trans-unit id="emptyFixedPricesWarning" datatype="html">
+        <source>Information about fixed prices is empty</source>
+        <target>Information about fixed prices is empty</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">35</context>
         </context-group>
         <note priority="1" from="description">Information about fixed prices is empty</note>
         <note priority="1" from="meaning">Warning message</note>
-      </trans-unit><trans-unit id="invalidFixedPricesFormError" datatype="html">
-        <source>
-    Invalid fixed prices information
-  </source>
+      </trans-unit>
+      <trans-unit id="invalidFixedPricesFormError" datatype="html">
+        <source>Invalid fixed prices information</source>
+        <target>Invalid fixed prices information</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <note priority="1" from="description">Invalid fixed prices form explain</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="addFixedPriceBtnText" datatype="html">
+      </trans-unit>
+      <trans-unit id="addFixedPriceBtnText" datatype="html">
         <source>Add fixed price</source>
+        <target>Add fixed price</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
+          <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">Add fixed price button text</note>
-      </trans-unit><trans-unit id="serviceFormLabelTitle" datatype="html">
+      </trans-unit>
+      <trans-unit id="serviceFormLabelTitle" datatype="html">
         <source>Service title</source>
+        <target>Service title</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
-      </trans-unit><trans-unit id="serviceFormErrorTitleIsTooShort" datatype="html">
-        <source>
-                  Title is too short
-                </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorTitleIsTooShort" datatype="html">
+        <source>Title is too short</source>
+        <target>Title is too short</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description">Service title is too short</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorTitleIsTooLong" datatype="html">
-        <source>
-                  Title is too long
-                </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorTitleIsTooLong" datatype="html">
+        <source>Title is too long</source>
+        <target>Title is too long</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <note priority="1" from="description">Service title is too long</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorTitleNotProvided" datatype="html">
-        <source>
-                  Please input valid title
-                </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorTitleNotProvided" datatype="html">
+        <source>Please input valid title</source>
+        <target>Please input valid title</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <note priority="1" from="description">Service title is not provided, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormLabelPrice" datatype="html">
+      </trans-unit>
+      <trans-unit id="serviceFormLabelPrice" datatype="html">
         <source>Price</source>
+        <target>Price</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">50</context>
         </context-group>
-      </trans-unit><trans-unit id="serviceFormErrorPriceIsTooSmall" datatype="html">
-        <source>
-                  Price is too small
-                </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorPriceIsTooSmall" datatype="html">
+        <source>Price is too small</source>
+        <target>Price is too small</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">35</context>
         </context-group>
         <note priority="1" from="description">Service price is too small</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorPriceIsTooBig" datatype="html">
-        <source>
-                  Price is too big
-                </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorPriceIsTooBig" datatype="html">
+        <source>Price is too big</source>
+        <target>Price is too big</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <note priority="1" from="description">Service price is too big</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorPriceNotProvided" datatype="html">
-        <source>
-                  Please input valid title
-                </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorPriceNotProvided" datatype="html">
+        <source>Please input valid title</source>
+        <target>Please input valid title</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">39</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">90</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">74</context>
         </context-group>
         <note priority="1" from="description">Service price is not provided, Ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorCategoryNotProvided" datatype="html">
-        <source>
-                  Please select valid category
-                </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorCategoryNotProvided" datatype="html">
+        <source>Please select valid category</source>
+        <target>Please select valid category</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">71</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">58</context>
         </context-group>
         <note priority="1" from="description">Service category is not select, ask user to select valid one</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormLabelLocation" datatype="html">
+      </trans-unit>
+      <trans-unit id="serviceFormLabelLocation" datatype="html">
         <source>Location</source>
+        <target>Location</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="serviceFormLabelDescription" datatype="html">
+        <source>Description</source>
+        <target>Description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">82</context>
         </context-group>
-      </trans-unit><trans-unit id="serviceFormLabelDescription" datatype="html">
-        <source>Description</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">85</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorDescriptionIsTooShort" datatype="html">
+        <source>Description is too short</source>
+        <target>Description is too short</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">104</context>
-        </context-group>
-      </trans-unit><trans-unit id="serviceFormErrorDescriptionIsTooShort" datatype="html">
-        <source>
-              Description is too short
-            </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">107</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">88</context>
         </context-group>
         <note priority="1" from="description">Service description is too short</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorDescriptionIsTooLong" datatype="html">
-        <source>
-              Description is too long
-            </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorDescriptionIsTooLong" datatype="html">
+        <source>Description is too long</source>
+        <target>Description is too long</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">111</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">Service description is too long</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorDescriptionNotProvided" datatype="html">
-        <source>
-              Please input valid description
-            </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorDescriptionNotProvided" datatype="html">
+        <source>Please input valid description</source>
+        <target>Please input valid description</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">115</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">92</context>
         </context-group>
         <note priority="1" from="description">Service description is empty or invalid, ask user for valid one</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormLabelTags" datatype="html">
+      </trans-unit>
+      <trans-unit id="serviceFormLabelTags" datatype="html">
         <source>Tags</source>
+        <target>Tags</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">124</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">99</context>
         </context-group>
-      </trans-unit><trans-unit id="serviceFormErrorTagsArrayIsTooShort" datatype="html">
-        <source>
-              Select more tags
-            </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorTagsArrayIsTooShort" datatype="html">
+        <source>Select more tags</source>
+        <target>Select more tags</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">107</context>
         </context-group>
         <note priority="1" from="description">Service tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorTagsArrayIsTooLong" datatype="html">
-        <source>
-              Too much tags selected, reduce tags count
-            </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorTagsArrayIsTooLong" datatype="html">
+        <source>Too much tags selected, reduce tags count</source>
+        <target>Too much tags selected, reduce tags count</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">135</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">109</context>
         </context-group>
         <note priority="1" from="description">Service tags array is too long, ask user to delete some of them</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorTagsArrayNotProvided" datatype="html">
-        <source>
-              Select tags for new service
-            </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorTagsArrayNotProvided" datatype="html">
+        <source>Select tags for new service</source>
+        <target>Select tags for new service</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">113</context>
         </context-group>
         <note priority="1" from="description">Service tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormLabelImages" datatype="html">
+      </trans-unit>
+      <trans-unit id="serviceFormLabelImages" datatype="html">
         <source>Images</source>
+        <target>Images</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">150</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">121</context>
         </context-group>
-      </trans-unit><trans-unit id="serviceFormErrorImagesArrayIsTooShort" datatype="html">
-        <source>
-              Add more images
-            </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorImagesArrayIsTooShort" datatype="html">
+        <source>Add more images</source>
+        <target>Add more images</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">157</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">127</context>
         </context-group>
         <note priority="1" from="description">Service images array is too short, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorImagesArrayIsTooLong" datatype="html">
-        <source>
-              Too many images
-            </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorImagesArrayIsTooLong" datatype="html">
+        <source>Too many images</source>
+        <target>Too many images</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">161</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">129</context>
         </context-group>
         <note priority="1" from="description">Service images array is too long, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormErrorImagesArrayNotProvided" datatype="html">
-        <source>
-              Please add images for new service
-            </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorImagesArrayNotProvided" datatype="html">
+        <source>Please add images for new service</source>
+        <target>Please add images for new service</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">165</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">131</context>
         </context-group>
         <note priority="1" from="description">Service images array is invalid or empty, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormLabelPhone" datatype="html">
+      </trans-unit>
+      <trans-unit id="serviceFormLabelPhone" datatype="html">
         <source>Phone</source>
+        <target>Phone</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">178</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">142</context>
         </context-group>
-      </trans-unit><trans-unit id="serviceFormLabelPhonePlaceholder" datatype="html">
+      </trans-unit>
+      <trans-unit id="serviceFormLabelPhonePlaceholder" datatype="html">
         <source>Contact phone</source>
+        <target>Contact phone</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">182</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">146</context>
         </context-group>
-      </trans-unit><trans-unit id="serviceFormErrorPhoneIsInvalid" datatype="html">
-        <source>
-                Please input valid phone
-              </source>
+      </trans-unit>
+      <trans-unit id="serviceFormErrorPhoneIsInvalid" datatype="html">
+        <source>Please input valid phone</source>
+        <target>Please input valid phone</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">187</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">151</context>
         </context-group>
         <note priority="1" from="description">Service contact phone is invalid, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormLabelEmail" datatype="html">
-        <source>Email</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">194</context>
-        </context-group>
-      </trans-unit><trans-unit id="serviceFormLabelEmailPlaceholder" datatype="html">
-        <source>Email for contact</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">198</context>
-        </context-group>
-      </trans-unit><trans-unit id="serviceFormErrorEmailIsInvalid" datatype="html">
-        <source>
-                &gt;
-                Please input valid Email
-              </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">203</context>
-        </context-group>
-        <note priority="1" from="description">Service contact email is invalid, ask user to provide valid one</note>
-        <note priority="1" from="meaning">Error message</note>
-      </trans-unit><trans-unit id="serviceFormLabelFixedPrices" datatype="html">
+      </trans-unit>
+      <trans-unit id="serviceFormLabelFixedPrices" datatype="html">
         <source>Fixed Prices</source>
+        <target>Fixed Prices</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">211</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">156</context>
         </context-group>
-      </trans-unit><trans-unit id="newServiceFormAddButtonText" datatype="html">
-        <source>Add</source>
+      </trans-unit>
+      <trans-unit id="newServiceFormAddButtonText" datatype="html">
+        <source>Create Service</source>
+        <target>Create Service</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/create-service/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">221</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">167</context>
         </context-group>
-      </trans-unit><trans-unit id="messagesTitleText" datatype="html">
-        <source>Messages</source>
+      </trans-unit>
+      <trans-unit id="serviceFormSaveButtonText" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/messages/messages/messages.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
+          <context context-type="linenumber">168</context>
         </context-group>
-        <note priority="1" from="description">Title tells user that this is messages section of website</note>
-      </trans-unit><trans-unit id="noMessagesInConversationText" datatype="html">
-        <source> No messages </source>
+      </trans-unit>
+      <trans-unit id="promoteServiceText" datatype="html">
+        <source>Promote service</source>
+        <target>Promote service</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/messages/messages-list/messages-list.component.html</context>
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote service form</note>
+      </trans-unit>
+      <trans-unit id="promoteServiceSelectPlanText" datatype="html">
+        <source>Select Plan</source>
+        <target>Select Plan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote service select plan</note>
+      </trans-unit>
+      <trans-unit id="orUseCouponText" datatype="html">
+        <source>or use a coupon code</source>
+        <target>or use a coupon code</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="promoteServiceBoostingProcessText" datatype="html">
+        <source>Boosting Your Service...</source>
+        <target>Boosting Your Service...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
           <context context-type="linenumber">43</context>
         </context-group>
-        <note priority="1" from="description">Text to tell user that there are no msgs in selected conversation</note>
+        <note priority="1" from="description">Card title for service boosting process</note>
       </trans-unit>
-      <trans-unit id="invalidTagNameText" datatype="html">
-        <source>Invalid tag name</source>
+      <trans-unit id="promoteServiceSelectedPlanSuccessText" datatype="html">
+        <source>
+            Successfully Boosted Service</source>
+        <target>Successfully Boosted Service</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/components/common/tags-selector/tags-selector.component.ts</context>
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <note priority="1" from="description">Card title for successfully boosted service</note>
+      </trans-unit>
+      <trans-unit id="1312a6160952495c027bdb8f912af26996b4eeea" datatype="html">
+        <source>Click to select</source>
+        <target>Click to select</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+        <note priority="1" from="description">clickToSelectText</note>
+      </trans-unit>
+      <trans-unit id="promoteServicePayText" datatype="html">
+        <source>Pay for service boost</source>
+        <target>Pay for service boost</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+        <note priority="1" from="description">Pay for service promotion</note>
+      </trans-unit>
+      <trans-unit id="oopsText" datatype="html">
+        <source>Ooops..</source>
+        <target>Ooops..</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">151</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">150</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="promoteServiceUserHasNoEmail" datatype="html">
+        <source>In order to promote a
+          service we need to know your
+          email. Please, update your profile or provide your email in a following form:</source>
+        <target>In order to promote a
+          service we need to know your
+          email. Please, update your profile or provide your email in a following form:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">155</context>
+        </context-group>
+        <note priority="1" from="description">User has no email</note>
+      </trans-unit>
+      <trans-unit id="provideEmailText" datatype="html">
+        <source>Provide email</source>
+        <target>Provide email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">178</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="couponCodeLabel" datatype="html">
+        <source>Coupon code</source>
+        <target>Coupon code</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="useCouponButtonText" datatype="html">
+        <source>Use coupon</source>
+        <target>Use coupon</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Use coupon button text</note>
+      </trans-unit>
+      <trans-unit id="cancelText" datatype="html">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="promoteServiceUsingCouponSuccessText" datatype="html">
+        <source>Successfully Boosted Service</source>
+        <target>Successfully Boosted Service</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">Card title for successfully boosted service</note>
+      </trans-unit>
+      <trans-unit id="promotedTilText" datatype="html">
+        <source>Boosting works until</source>
+        <target>Boosting works until</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="openServiceText" datatype="html">
+        <source>Open service #<x id="INTERPOLATION" equiv-text="{{service_id}}"/>
+        </source>
+        <target>Open service #<x id="INTERPOLATION" equiv-text="{{service_id}}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Open promoted service after boosting using coupon</note>
+      </trans-unit>
+      <trans-unit id="promotedSeekIconTooltipText" datatype="html">
+        <source>Promoted seek</source>
+        <target>Promoted seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="similarSeeksCardTitle" datatype="html">
+        <source>Similar seeks</source>
+        <target>Similar seeks</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="promoteYourSeekText" datatype="html">
+        <source>Promote</source>
+        <target>Promote</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">181</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createNewSeekButtonTexst" datatype="html">
+        <source>Create</source>
+        <target>Create</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="addNewSeekText" datatype="html">
+        <source>Add seek</source>
+        <target>Add seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/create-seek/create-seek.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Card title for new seek form</note>
+      </trans-unit>
+      <trans-unit id="promoteSeekText" datatype="html">
+        <source>Promote seek</source>
+        <target>Promote seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote seek form</note>
+      </trans-unit>
+      <trans-unit id="promoteSeekSelectPlanText" datatype="html">
+        <source>Select Plan</source>
+        <target>Select Plan</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote seek select plan</note>
+      </trans-unit>
+      <trans-unit id="promoteSeekBoostingProcessText" datatype="html">
+        <source>
+            Boosting Your Seek...</source>
+        <target>
+            Boosting Your Seek...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">Card title for seek boosting process</note>
+      </trans-unit>
+      <trans-unit id="promoteSeekSelectedPlanSuccessText" datatype="html">
+        <source>
+            Successfully Boosted Seek</source>
+        <target>
+            Successfully Boosted Seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <note priority="1" from="description">Card title for successfully boosted seek</note>
+      </trans-unit>
+      <trans-unit id="promoteSeekPayText" datatype="html">
+        <source>Pay for seek boost</source>
+        <target>Pay for seek boost</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+        <note priority="1" from="description">Pay for seek promotion</note>
+      </trans-unit>
+      <trans-unit id="promoteSeekUserHasNoEmail" datatype="html">
+        <source>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</source>
+        <target>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+        <note priority="1" from="description">User has no email</note>
+      </trans-unit>
+      <trans-unit id="editSeekText" datatype="html">
+        <source>Edit seek
+        </source>
+        <target>Edit seek
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/edit-seek/edit-seek.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Card title for edit seek form</note>
+      </trans-unit>
+      <trans-unit id="3020849bc1c622a2c4bc1168afae093d44024fa2" datatype="html">
+        <source>Free</source>
+        <target>Free</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormLabelTitle" datatype="html">
+        <source>Seek title</source>
+        <target>Seek title</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormErrorTitleIsTooShort" datatype="html">
+        <source>Title is too short</source>
+        <target>Title is too short</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Seek title is too short</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorTitleIsTooLong" datatype="html">
+        <source>Title is too long</source>
+        <target>Title is too long</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">Seek title is too long</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorTitleNotProvided" datatype="html">
+        <source>Please input valid title</source>
+        <target>Please input valid title</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Seek title is not provided, ask user to provide valid one</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormLabelPrice" datatype="html">
+        <source>Max Price</source>
+        <target>Max Price</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormErrorPriceIsTooSmall" datatype="html">
+        <source>Price is too small</source>
+        <target>Price is too small</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <note priority="1" from="description">Seek max_price is too small</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorPriceIsTooBig" datatype="html">
+        <source>Price is too big</source>
+        <target>Price is too big</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <note priority="1" from="description">Seek max_price is too big</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorPriceNotProvided" datatype="html">
+        <source>Please input valid title</source>
+        <target>Please input valid title</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <note priority="1" from="description">Seek max_price is not provided, Ask user to provide valid one</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorCategoryNotProvided" datatype="html">
+        <source>Please select valid category</source>
+        <target>Please select valid category</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <note priority="1" from="description">Seek category is not select, ask user to select valid one</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormLabelLocation" datatype="html">
+        <source>Location</source>
+        <target>Location</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormLabelDescription" datatype="html">
+        <source>Description</source>
+        <target>Description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormErrorDescriptionIsTooShort" datatype="html">
+        <source>Description is too short</source>
+        <target>Description is too short</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <note priority="1" from="description">Seek description is too short</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorDescriptionIsTooLong" datatype="html">
+        <source>Description is too long</source>
+        <target>Description is too long</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+        <note priority="1" from="description">Seek description is too long</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorDescriptionNotProvided" datatype="html">
+        <source>Please input valid description</source>
+        <target>Please input valid description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <note priority="1" from="description">Seek description is empty or invalid, ask user for valid one</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormLabelTags" datatype="html">
+        <source>Tags</source>
+        <target>Tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormErrorTagsArrayIsTooShort" datatype="html">
+        <source>Select more tags</source>
+        <target>Select more tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+        <note priority="1" from="description">Seek tags array is too short</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorTagsArrayIsTooLong" datatype="html">
+        <source>
+              Too much tags selected, reduce tags count
+        </source>
+        <target>
+              Too much tags selected, reduce tags count
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+        <note priority="1" from="description">Seek tags array is too long, ask user to delete some of them</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorTagsArrayNotProvided" datatype="html">
+        <source>Select tags for new seek</source>
+        <target>Select tags for new seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+        <note priority="1" from="description">Seek tags array is empty or invalid, ask user to select tags</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormLabelImages" datatype="html">
+        <source>Images</source>
+        <target>Images</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormErrorImagesArrayIsTooShort" datatype="html">
+        <source>Add more images</source>
+        <target>Add more images</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+        <note priority="1" from="description">Seek images array is too short, ask user to add images</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorImagesArrayIsTooLong" datatype="html">
+        <source>Too many images</source>
+        <target>Too many images</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+        <note priority="1" from="description">Seek images array is too long, ask user to add images</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormErrorImagesArrayNotProvided" datatype="html">
+        <source>Please add images for new seek</source>
+        <target>Please add images for new seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+        <note priority="1" from="description">Seek images array is invalid or empty, ask user to add images</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="seekFormLabelPhone" datatype="html">
+        <source>Phone</source>
+        <target>Phone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormLabelPhonePlaceholder" datatype="html">
+        <source>Contact phone</source>
+        <target>Contact phone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">146</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormErrorPhoneIsInvalid" datatype="html">
+        <source>Please input valid phone</source>
+        <target>Please input valid phone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">151</context>
+        </context-group>
+        <note priority="1" from="description">Seek contact phone is invalid, ask user to provide valid one</note>
+        <note priority="1" from="meaning">Error message</note>
+      </trans-unit>
+      <trans-unit id="newSeekFormAddButtonText" datatype="html">
+        <source>Create Seek</source>
+        <target>Create Seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekFormSaveButtonText" datatype="html">
+        <source>Save</source>
+        <target>Save</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
+          <context context-type="linenumber">163</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="promoteSeekUsingCouponSuccessText" datatype="html">
+        <source>
+      Successfully Boosted Seek</source>
+        <target>
+      Successfully Boosted Seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="description">Card title for successfully boosted seek</note>
+      </trans-unit>
+      <trans-unit id="openSeekText" datatype="html">
+        <source>Open seek #<x id="INTERPOLATION" equiv-text="{{seek_id}}"/>
+        </source>
+        <target>Open seek #<x id="INTERPOLATION" equiv-text="{{seek_id}}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <note priority="1" from="description">Open promoted seek after boosting using coupon</note>
+      </trans-unit>
+      <trans-unit id="conversationHtmlTitle" datatype="html">
+        <source>Conversation</source>
+        <target>Conversation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="successCreatingTagText" datatype="html">
-        <source>Created tag</source>
+      <trans-unit id="messagesHtmlTitle" datatype="html">
+        <source>Messages</source>
+        <target>Messages</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/components/common/tags-selector/tags-selector.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/messages/messages/messages.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="defaultLocationSearchQuery" datatype="html">
-        <source>a</source>
+      <trans-unit id="feedPostText" datatype="html">
+        <source>Feed Post</source>
+        <target>Feed Post</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/components/list-view-only/filter-components/location-search/location-search.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Default search query for location selector (later will be deprecated, we`ll use most popular locations)</note>
-      </trans-unit>
-      <trans-unit id="selectLocationText" datatype="html">
-        <source>Select Location</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/components/list-view-only/filter-components/location-search/location-search.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/profile/feed/feed.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="districtText" datatype="html">
-        <source>District</source>
+      <trans-unit id="errorNoImagesAndNoTextOnFeedPost" datatype="html">
+        <source>Enter text or add images</source>
+        <target>Enter text or add images</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/components/list-view-only/filter-components/location-search/location-search.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/profile/feed/feed-post/feed-post.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <note priority="1" from="description">Simple district word</note>
       </trans-unit>
-      <trans-unit id="warnUserAboutAbilityToSearchLocationInSearchSelector" datatype="html">
-        <source>You can search location by name</source>
+      <trans-unit id="profileDetailHtmlTitle" datatype="html">
+        <source>User Profile</source>
+        <target>User Profile</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/core/components/list-view-only/filter-components/location-search/location-search.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/profile/profile-detail/profile-detail.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <note priority="1" from="description">Notify user that he/she can search location by name instead of scrolling down a lot of time</note>
+      </trans-unit>
+      <trans-unit id="profileHtmlTitle" datatype="html">
+        <source>Profile</source>
+        <target>Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile-detail/profile-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="userProfileText" datatype="html">
+        <source>User Profile</source>
+        <target>User Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile-detail/profile-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="profilesHtmlTitle" datatype="html">
+        <source>Profiles</source>
+        <target>Profiles</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile-list/profile-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile/profile.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="usersText" datatype="html">
+        <source>Users</source>
+        <target>Users</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile-list/profile-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="usersListText" datatype="html">
+        <source>Users list</source>
+        <target>Users list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/profile-list/profile-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="creatingItemProgressText" datatype="html">
+        <source>Creating</source>
+        <target>Creating</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createSeekHtmlTitle" datatype="html">
+        <source>Create Seek</source>
+        <target>Create Seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createSeekText" datatype="html">
+        <source>Create Seek</source>
+        <target>Create Seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="27fc7d2a0ba7333ab7faca1be01b7edc55885cdb" datatype="html">
+        <source>Create new Seek</source>
+        <target>Create new Seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="newSeekCreatedMessageText" datatype="html">
+        <source>Successfully created seek #<x id="INTERPOLATION" equiv-text="{{id}}"/>
+        </source>
+        <target>Successfully created seek #<x id="INTERPOLATION" equiv-text="{{id}}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="newSeekCreatingErrorText" datatype="html">
+        <source>Error creating seek</source>
+        <target>Error creating seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Message notifies user about an error while creating new seek</note>
+      </trans-unit>
+      <trans-unit id="editingItemProgressText" datatype="html">
+        <source>Editing</source>
+        <target>Editing</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/edit-seek/edit-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editSeekHtmlTitle" datatype="html">
+        <source>Edit Seek</source>
+        <target>Edit Seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/edit-seek/edit-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekUpdatedMessageText" datatype="html">
+        <source>Successfully updated seek #<x id="INTERPOLATION" equiv-text="{{id}}"/>
+        </source>
+        <target>Successfully updated seek #<x id="INTERPOLATION" equiv-text="{{id}}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/edit-seek/edit-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seekUpdateErrorText" datatype="html">
+        <source>Error updating seek</source>
+        <target>Error updating seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/edit-seek/edit-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Message notifies user about an error while updating seek</note>
+      </trans-unit>
+      <trans-unit id="successPaymentForSeekBoostingText" datatype="html">
+        <source>Successfully paid for seek boosting</source>
+        <target>Successfully paid for seek boosting</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="boostingSeekLoadingText" datatype="html">
+        <source>Boosting your seek...</source>
+        <target>Boosting your seek...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wrongSeekIdText" datatype="html">
+        <source>No seek id provided</source>
+        <target>No seek id provided</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wrongCouponCodeText" datatype="html">
+        <source>Wrong coupon code</source>
+        <target>Wrong coupon code</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="successOnSeekDelete" datatype="html">
+        <source>Successfully deleted seek</source>
+        <target>Successfully deleted seek</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/seeks-detail/seeks-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seeksListHtmlTitle" datatype="html">
+        <source>Seeks</source>
+        <target>Seeks</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/seeks-list/seeks-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seeksText" datatype="html">
+        <source>Seeks</source>
+        <target>Seeks</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/seeks-list/seeks-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seeksListSeoDescription" datatype="html">
+        <source>Search seeks seo description</source>
+        <target>Search seeks seo description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/seeks/components/seeks-list/seeks-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createServiceHtmlTitle" datatype="html">
+        <source>Create Service</source>
+        <target>Create Service</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="createServiceText" datatype="html">
+        <source>Create Service</source>
+        <target>Create Service</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="987e6c22ad16291aac9ec059f8c1be45cc4bdb05" datatype="html">
+        <source>Create new Service</source>
+        <target>Create new Service</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="newServiceCreatedMessageText" datatype="html">
-        <source>Successfully created service #<x id="INTERPOLATION" equiv-text="{{id}}"/></source>
+        <source>Successfully created service #<x id="INTERPOLATION" equiv-text="{{id}}"/>
+        </source>
+        <target>Successfully created service #<x id="INTERPOLATION" equiv-text="{{id}}"/>
+        </target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/create-service/create-service.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="newServiceCreatingErrorText" datatype="html">
         <source>Error creating service</source>
+        <target>Error creating service</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/create-service/create-service.component.ts</context>
+          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
         <note priority="1" from="description">Message notifies user about an error while creating new service</note>
+      </trans-unit>
+      <trans-unit id="editServiceHtmlTitle" datatype="html">
+        <source>Edit Service</source>
+        <target>Edit Service</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="serviceUpdatedMessageText" datatype="html">
+        <source>Successfully updated service #<x id="INTERPOLATION" equiv-text="{{id}}"/>
+        </source>
+        <target>Successfully updated service #<x id="INTERPOLATION" equiv-text="{{id}}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="serviceUpdateErrorText" datatype="html">
+        <source>Error updating service</source>
+        <target>Error updating service</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Message notifies user about an error while updating service</note>
+      </trans-unit>
+      <trans-unit id="72f4e2078159f34038ff5856253c0b6f1d1e792d" datatype="html">
+        <source>Only <x id="INTERPOLATION" equiv-text="{{number}}"/>
+ allowed</source>
+        <target>Only <x id="INTERPOLATION" equiv-text="{{number}}"/>
+ allowed</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="successPaymentForServiceBoostingText" datatype="html">
+        <source>Successfully paid for service boosting</source>
+        <target>Successfully paid for service boosting</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="boostingServiceLoadingText" datatype="html">
+        <source>Boosting your service...</source>
+        <target>Boosting your service...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wrongServiceIdText" datatype="html">
+        <source>No service id provided</source>
+        <target>No service id provided</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="successOnServiceDelete" datatype="html">
+        <source>Successfully deleted service</source>
+        <target>Successfully deleted service</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/services-detail/services-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="servicesListHtmlTitle" datatype="html">
+        <source>Services</source>
+        <target>Services</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/services-list/services-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="servicesText" datatype="html">
+        <source>Services</source>
+        <target>Services</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/services-list/services-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="servicesListSeoDescription" datatype="html">
+        <source>Search services seo description</source>
+        <target>Search services seo description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/services/components/services-list/services-list.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4c745da22a97f302dc6483986c9bb6c605095867" datatype="html">
+        <source>You can select 5 tags max</source>
+        <target>You can select 5 tags max</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/filters/list-filters/list-filters.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="districtText" datatype="html">
+        <source>District</source>
+        <target>District</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/filters/location-search/location-search.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Simple district word</note>
+      </trans-unit>
+      <trans-unit id="selectLocationText" datatype="html">
+        <source>Select Location</source>
+        <target>Select Location</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/filters/location-search/location-search.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="warnUserAboutAbilityToSearchLocationInSearchSelector" datatype="html">
+        <source>You can search location by name</source>
+        <target>You can search location by name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/filters/location-search/location-search.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">Notify user that he/she can search location by name instead of scrolling down a lot of time</note>
+      </trans-unit>
+      <trans-unit id="13631441472a2bfc70a6fe3d96077f85a7e4a608" datatype="html">
+        <source>Wrong paymentIntent id. Contact administrator.</source>
+        <target>Wrong paymentIntent id. Contact administrator.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="incompleteCardNumberErrorText" datatype="html">
+        <source>Your card number is incomplete.</source>
+        <target>Your card number is incomplete.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invalidCardNumberErrorText" datatype="html">
+        <source>Your card number is invalid.</source>
+        <target>Your card number is invalid.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="incompleteCardExpiryErrorText" datatype="html">
+        <source>Your card&apos;s expiration date is incomplete.</source>
+        <target>Your card&apos;s expiration date is incomplete.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invalidCardExpiryYearPastErrorText" datatype="html">
+        <source>Your card&apos;s expiration year is in the past.</source>
+        <target>Your card&apos;s expiration year is in the past.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invalidCardExpiryYearErrorText" datatype="html">
+        <source>Your card&apos;s expiration year is invalid.</source>
+        <target>Your card&apos;s expiration year is invalid.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="invalidCardExpiryErrorText" datatype="html">
+        <source>Your card&apos;s expiration is invalid.</source>
+        <target>Your card&apos;s expiration is invalid.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="incompleteCardCVCErrorText" datatype="html">
+        <source>Your card&apos;s security code is incomplete.</source>
+        <target>Your card&apos;s security code is incomplete.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="incompleteCardZipErrorText" datatype="html">
+        <source>Your postal code is incomplete.</source>
+        <target>Your postal code is incomplete.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="unknownErrorText" datatype="html">
+        <source>Unknown error. Contact administrator</source>
+        <target>Unknown error. Contact administrator</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="permissionDeniedOnUserAvatarChangeText" datatype="html">
+        <source>You can not change avatar of this user!</source>
+        <target>You can not change avatar of this user!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="uploadImageErrorBecauseFileType" datatype="html">
+        <source>You can only upload JPG / PNG file!</source>
+        <target>You can only upload JPG / PNG file!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="uploadImageErrorBecauseSize" datatype="html">
+        <source>Image must smaller than 3MB!</source>
+        <target>Image must smaller than 3MB!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="successUpdatedAvatar" datatype="html">
+        <source>Successfully updated avatar</source>
+        <target>Successfully updated avatar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errorUpdatingAvatar" datatype="html">
+        <source>Error uploading new avatar</source>
+        <target>Error uploading new avatar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="networkErrorText" datatype="html">
+        <source>Network error</source>
+        <target>Network error</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

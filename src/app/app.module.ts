@@ -115,7 +115,7 @@ registerLocaleData(en); // bg
         if (locale == DEFAULT_LOCALE) {
           return '';
         }
-        return require(`raw-loader!../locale/messages.${locale}.xlf`);
+        return require(`raw-loader!../locale/messages.${locale}.xlf`).default;
       },
       deps: [LOCALE_ID]
     },

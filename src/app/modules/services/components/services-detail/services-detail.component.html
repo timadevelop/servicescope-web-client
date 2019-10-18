@@ -27,9 +27,7 @@
         </a>
       </div>
       <nz-tag *ngIf="!service.tags || service.tags.length === 0"
-        i18n="Tag text when there are no tags in a list of tags@@noTags">No
-        tags
-      </nz-tag>
+        i18n="Tag text when there are no tags in a list of tags@@noTags">No tags</nz-tag>
       <!-- Cateogory, created_at, location, id -->
       <app-general-info *ngIf="!tds.isMobile" [id]="service.id" [location]="service.location"
         [created_at]="service.created_at" [category]="service.category"></app-general-info>

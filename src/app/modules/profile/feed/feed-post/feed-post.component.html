@@ -11,17 +11,11 @@
         </textarea>
           <ng-template #textErrorTemplate let-control>
             <ng-container *ngIf="control.hasError('minlength')"
-              i18n="Error message|text is too short@@formErrorTextIsTooShort">
-              Too short text
-            </ng-container>
+              i18n="Error message|text is too short@@formErrorTextIsTooShort">Too short text</ng-container>
             <ng-container *ngIf="control.hasError('maxlength')"
-              i18n="Error message|text is too long, ask user to delete some of them@@formErrorTextIsTooLong">
-              Too long text
-            </ng-container>
+              i18n="Error message|text is too long, ask user to delete some of them@@formErrorTextIsTooLong">Too long text</ng-container>
             <ng-container *ngIf="control.hasError('required')"
-              i18n="Error message|text is empty or invalid, ask user to provide text@@formErrorTextNotProvided">
-              Add text
-            </ng-container>
+              i18n="Error message|text is empty or invalid, ask user to provide text@@formErrorTextNotProvided">Add text</ng-container>
           </ng-template>
         </nz-form-control>
       </nz-form-item>
@@ -36,17 +30,11 @@
           <app-tags-selector #tagsSelector class="tags-selector" formControlName="tags"></app-tags-selector>
           <ng-template #tagsErrorTemplate let-control>
             <ng-container *ngIf="control.hasError('minlength')"
-              i18n="Error message|tags array is too short@@formErrorTagsArrayIsTooShort">
-              Select more tags
-            </ng-container>
+              i18n="Error message|tags array is too short@@formErrorTagsArrayIsTooShort">Select more tags</ng-container>
             <ng-container *ngIf="control.hasError('maxlength')"
-              i18n="Error message|tags array is too long, ask user to delete some of them@@formErrorTagsArrayIsTooLong">
-              Too much tags selected, reduce tags count
-            </ng-container>
+              i18n="Error message|tags array is too long, ask user to delete some of them@@formErrorTagsArrayIsTooLong">Too much tags selected, reduce tags count</ng-container>
             <ng-container *ngIf="control.hasError('required')"
-              i18n="Error message|tags array is empty or invalid, ask user to select tags@@formErrorTagsArrayNotProvided">
-              Select at least 3 tags
-            </ng-container>
+              i18n="Error message|tags array is empty or invalid, ask user to select tags@@formErrorTagsArrayNotProvided">Select at least 3 tags</ng-container>
           </ng-template>
 
         </nz-form-control>
@@ -68,8 +56,7 @@
     </div>
     <div nz-col>
       <small nz-checkbox class="grey-color" name="submit-on-ctrl-enter" [(ngModel)]="submitOnCtrlEnter"
-        i18n="@@submitFeedPostOnCtrlEnterKeyDown">Post on Ctrl +
-        Enter</small>
+        i18n="@@submitFeedPostOnCtrlEnterKeyDown">Post on Ctrl + Enter</small>
       <button nz-button nzType="primary" class="submit-button" (click)="onFormSubmit()">Post</button>
     </div>
   </div>
