@@ -4,9 +4,9 @@
     <nz-spin [nzSpinning]="loading || authService.loading">
       <nz-row class="login-header" nzType="flex" nzJustify="center">
         <nz-col>
-          <h1>Log into <b>Saas</b></h1>
-          <p>Or
-            <a [routerLink]="['/auth/register']"> Create Account</a>
+          <h1><ng-container i18n>Log into</ng-container> <b>getMaker</b></h1>
+          <p><span i18n>Or</span>{{' '}}
+            <a [routerLink]="['/auth/register']" i18n>Create Account</a>
           </p>
         </nz-col>
       </nz-row>
@@ -18,12 +18,8 @@
               <input nz-input formControlName="email" placeholder="Email" type="email" />
             </nz-input-group>
             <ng-template #emailErrorTemplate let-control>
-              <ng-container *ngIf="control.hasError('email')">
-                The input is not valid E-mail!
-              </ng-container>
-              <ng-container *ngIf="control.hasError('required')">
-                Please input your E-mail!
-              </ng-container>
+              <ng-container *ngIf="control.hasError('email')" i18n>The input is not valid E-mail!</ng-container>
+              <ng-container *ngIf="control.hasError('required')" i18n>Please input your E-mail!</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>
@@ -34,8 +30,8 @@
               <input type="password" nz-input formControlName="password" placeholder="Password" />
             </nz-input-group>
             <ng-template #passwordErrorTemplate let-control>
-              <ng-container *ngIf="control.hasError('minlength')">Use at least 5 characters for password</ng-container>
-              <ng-container *ngIf="control.hasError('required')">Please input your password!</ng-container>
+              <ng-container *ngIf="control.hasError('minlength')" i18n>Use at least 5 characters for password</ng-container>
+              <ng-container *ngIf="control.hasError('required')" i18n>Please input your password!</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>
@@ -47,21 +43,20 @@
 
         <nz-form-item>
           <nz-form-control>
-            <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid">Log
-              in</button>
+            <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid" i18n>Login</button>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item class="login-form-social-section">
-          <p>or continue with</p>
+          <p i18n>or continue with</p>
           <app-social-auth-buttons></app-social-auth-buttons>
         </nz-form-item>
         <nz-form-item class="login-form-forgot-section">
-          <a>Forgot password?</a>
+          <a i18n>Forgot password?</a>
         </nz-form-item>
         <nz-divider nzDashed></nz-divider>
         <nz-form-item class="login-form-info">
-          <p>Secured login TODO</p>
-          <a>Terms</a> & <a>Privacy</a>
+          <p i18n>Secured login TODO</p>
+          <a i18n>Terms</a> & <a i18n>Privacy</a>
         </nz-form-item>
       </form>
       <ng-template #prefixEmail><i nz-icon nzType="mail"></i></ng-template>

@@ -27,7 +27,9 @@
     <span i18n="@@promotedTilText">
       Boosting works until</span> {{promoted_til | date: 'hh:mm a MMMM d yyyy'}}
     <br />
-    <a [routerLink]="['/', 'services', service_id]"
-      i18n="Open promoted service after boosting using coupon@@openServiceText">Open service #{{service_id}}</a>
+    <a [routerLink]="['/', 'services', service_id]">
+      <ng-container i18n="Open promoted service after boosting using coupon@@openServiceText">Open service #</ng-container>
+      {{service_id}}
+    </a>
   </div>
 </ng-template>

@@ -12,10 +12,10 @@
   </div>
   <!-- desktop only -->
   <div *ngIf="!tds.isMobile" nz-col nzXs="24" nzXl="6">
-    <nz-card>
+    <!-- <nz-card>
       Yep, it seems like this card is empty
     </nz-card>
-    <nz-divider class="margin-10"></nz-divider>
+    <nz-divider class="margin-10"></nz-divider> -->
     <app-footer></app-footer>
   </div>
 </div>
@@ -59,11 +59,11 @@
             style="font-size: 18px;" class="dropdown-icon" nzType="down"></i></a>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu nzSelectable>
-            <li nz-menu-item i18n="@@editText" (click)="edit(feedpost)">Edit</li>
+            <li nz-menu-item i18n="@@editText" (click)="edit(feedpost)" i18n>Edit</li>
             <li nz-menu-item i18n="@@deleteText" nz-popconfirm i18n-nzTitle="@@areYouSureText" nzTitle="Are you sure?"
               nzCancelText="No" i18n-nzCancelText="@@noText" nzOkText="Yes" i18n-nzOkText="@@yesText"
               (nzOnConfirm)="deleteFeedPost(feedpost)"
-              *ngIf="(userService.currentUserObs | async)?.id === feedpost.author?.id">Delete</li>
+              *ngIf="(userService.currentUserObs | async)?.id === feedpost.author?.id" i18n>Delete</li>
           </ul>
         </nz-dropdown-menu>
 

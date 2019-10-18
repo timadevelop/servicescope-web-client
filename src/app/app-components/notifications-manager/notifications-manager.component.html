@@ -15,20 +15,19 @@
     <p *ngIf="(userService.currentUserObs | async)?.is_verified_email">
       <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"
         style="font-size: 20px; margin-right: 5px;"></i>
-      Verified</p>
+      <ng-container i18n>Verified</ng-container></p>
     <p *ngIf="!(userService.currentUserObs | async)?.is_verified_email">
       <i nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#eb2f96'"
         style="font-size: 20px; margin-right: 5px;"></i>
-      Not Verified</p>
+      <ng-container i18n>Not Verified</ng-container></p>
   </div>
   <div *ngIf="userService.currentUser" nz-row nzType="flex" nzJustify="center" class="main-buttons"
     style="width: 100%;">
     <a nz-col nz-button (click)="onClose()" [routerLink]="['/profiles', (userService.currentUserObs | async)?.id]"
-      routerLinkActive="ant-menu-item-selected">Profile
-    </a>
+      routerLinkActive="ant-menu-item-selected" i18n>Profile</a>
     <a nz-col nz-button (click)="onClose()" [routerLink]="['/messages']"
-      routerLinkActive="ant-menu-item-selected">Messages</a>
-    <a nz-col nz-button (click)="logout()">Logout</a>
+      routerLinkActive="ant-menu-item-selected" i18n>Messages</a>
+    <a nz-col nz-button (click)="logout()" i18n>Logout</a>
   </div>
   <nz-divider class="margin-5" nzOrientation="left" nzText="Notifications"></nz-divider>
   <nz-list [nzDataSource]="rns.notificationHistory"

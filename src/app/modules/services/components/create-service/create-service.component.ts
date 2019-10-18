@@ -55,9 +55,9 @@ export class CreateServiceComponent implements OnInit {
             this.msgService.success(
               this.i18n(
                 {
-                  value: "Successfully created service #{{id}}",
+                  value: "Successfully created service #",
                   id: 'newServiceCreatedMessageText'
-                }, { id: id }));
+                }) + `${id}`);
             this.router.navigate(['/services', id]);
           }
         },

@@ -55,9 +55,9 @@ export class CreateSeekComponent implements OnInit {
             this.msgSeek.success(
               this.i18n(
                 {
-                  value: "Successfully created seek #{{id}}",
+                  value: "Successfully created seek #",
                   id: 'newSeekCreatedMessageText'
-                }, { id: id }));
+                }) + `${id}`);
             this.router.navigate(['/seeks', id]);
           }
         },

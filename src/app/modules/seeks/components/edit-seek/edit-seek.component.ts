@@ -69,9 +69,9 @@ export class EditSeekComponent implements OnInit {
             this.msgSeek.success(
               this.i18n(
                 {
-                  value: "Successfully updated seek #{{id}}",
+                  value: "Successfully updated seek #",
                   id: 'seekUpdatedMessageText'
-                }, { id: id }));
+                }) + `${id}`);
             this.router.navigate(['/seeks', id]);
           }
         },

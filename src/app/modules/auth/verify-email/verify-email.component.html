@@ -1,11 +1,10 @@
 <nz-card style="text-align: center;" *ngIf="userService.currentUser">
-  <h2 class="title mb-vertical-align">Verify email status</h2>
+  <h2 class="title mb-vertical-align" i18n>Verify email status</h2>
 
   <h2 *ngIf="userService.currentUser?.is_verified_email else notVerifiedTemplate">
     <i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"
       style="font-size: 24px; margin-right: 5px;"></i>
-    <span i18n="Verified email@@VerifiedText">
-      Successfully Verified</span>
+    <span i18n="Verified email@@VerifiedText" i18n>Successfully Verified</span>
 
   </h2>
 
@@ -13,15 +12,15 @@
     <h2>
       <i nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#eb2f96'"
         style="font-size: 24px; margin-right: 5px;"></i>
-      <span i18n="Not Verified email@@notVerifiedText">
-        Not Verified</span>
+      <span i18n="Not Verified email@@notVerifiedText" i18n>Not Verified</span>
     </h2>
     <div class="grey-color" *ngIf="(userService.currentUserObs | async)?.email">
-      <p style="text-align: center;">Your email ({{(userService.currentUserObs | async)?.email}}) is not verified</p>
-      <p style="text-align: center;">We sent you confirmation email, check your inbox to verify it.</p>
+      <p style="text-align: center;">{{(userService.currentUserObs | async)?.email}}</p>
+      <p style="text-align: center;" i18n>Your email is not verified</p>
+      <p style="text-align: center;" i18n>We sent you confirmation email, check your inbox to verify it.</p>
     </div>
     <div style="max-width: 500px;margin: auto;" class="grey-color" *ngIf="!(userService.currentUserObs | async)?.email">
-      <p style="text-align: center;">Your profile has no email, provide one please:</p>
+      <p style="text-align: center;" i18n>Your profile has no email, provide one please:</p>
       <labeled-text [editable]="true" [edit]="true" #emailLabeledText (onChange)="onUserChange(emailLabeledText, {email: $event})"
         label="Email" [text]="(userService.currentUserObs | async)?.email"></labeled-text>
       </div>

@@ -69,9 +69,9 @@ export class EditServiceComponent implements OnInit {
             this.msgService.success(
               this.i18n(
                 {
-                  value: "Successfully updated service #{{id}}",
+                  value: "Successfully updated service #",
                   id: 'serviceUpdatedMessageText'
-                }, { id: id }));
+                }) + `${id}`);
             this.router.navigate(['/services', id]);
           }
         },

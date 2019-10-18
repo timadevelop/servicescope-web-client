@@ -7,7 +7,7 @@
   [nzTitle]="titleTemplate">
   <h1 class="thanks" *ngIf="alreadySentFeedback">
     <i class="smile-icon" nz-icon [nzType]="'smile'"></i>
-    <p>Thanks for Feedback!</p>
+    <p i18n>Thanks for Feedback!</p>
   </h1>
   <form nz-form [formGroup]="feedbackForm" (submit)="onFormSubmit()" [class.sent]="alreadySentFeedback">
     <nz-form-item>

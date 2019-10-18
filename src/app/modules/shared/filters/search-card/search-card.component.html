@@ -6,7 +6,7 @@
           <div nz-col [nzSpan]="12">
             <nz-form-control style="width: 100%">
               <nz-input-group [nzSize]="'large'" [nzPrefix]="searchIcon">
-                <input type="text" name="query" nz-input [(ngModel)]="query" placeholder="Services search" />
+                <input type="text" name="query" nz-input [(ngModel)]="query" i18n-placeholder="@@searchPlaceholder" placeholder="Search" />
               </nz-input-group>
               <ng-template #searchIcon>
                 <!-- todo search -->

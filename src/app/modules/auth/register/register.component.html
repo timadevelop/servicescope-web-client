@@ -3,9 +3,9 @@
     <nz-spin [nzSpinning]="loading">
       <nz-row class="register-header" nzType="flex" nzJustify="center">
         <nz-col>
-          <h1>Create Account</h1>
-          <p>Or
-            <a [routerLink]="['/auth/login']"> Login</a>
+          <h1 i18n>Create Account</h1>
+          <p><ng-container i18n>Or</ng-container>{{' '}}
+            <a [routerLink]="['/auth/login']" i18n>Login</a>
           </p>
         </nz-col>
       </nz-row>
@@ -17,9 +17,9 @@
               <input nz-input formControlName="first_name" placeholder="First Name" type="text" />
             </nz-input-group>
             <ng-template #firstNameErrorTemplate let-control>
-              <ng-container *ngIf="control.hasError('minlength')">First name is too short</ng-container>
-              <ng-container *ngIf="control.hasError('maxlength')">First name is too long</ng-container>
-              <ng-container *ngIf="control.hasError('required')">Please input your first name</ng-container>
+              <ng-container *ngIf="control.hasError('minlength')" i18n>First name is too short</ng-container>
+              <ng-container *ngIf="control.hasError('maxlength')" i18n>First name is too long</ng-container>
+              <ng-container *ngIf="control.hasError('required')" i18n>Please input your first name</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>
@@ -29,9 +29,9 @@
               <input nz-input formControlName="last_name" placeholder="Last Name" type="text" />
             </nz-input-group>
             <ng-template #lastNameErrorTemplate let-control>
-              <ng-container *ngIf="control.hasError('minlength')">Last name is too short</ng-container>
-              <ng-container *ngIf="control.hasError('maxlength')">Last name is too long</ng-container>
-              <ng-container *ngIf="control.hasError('required')">Please input your last name</ng-container>
+              <ng-container *ngIf="control.hasError('minlength')" i18n>Last name is too short</ng-container>
+              <ng-container *ngIf="control.hasError('maxlength')" i18n>Last name is too long</ng-container>
+              <ng-container *ngIf="control.hasError('required')" i18n>Please input your last name</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>
@@ -44,12 +44,8 @@
               <ng-container *ngIf="control.hasError('customerror')">
                 {{validateForm.get('email').getError('customerror')}}
               </ng-container>
-              <ng-container *ngIf="control.hasError('email')">
-                The input is not valid E-mail!
-              </ng-container>
-              <ng-container *ngIf="control.hasError('required')">
-                Please input your E-mail!
-              </ng-container>
+              <ng-container *ngIf="control.hasError('email')" i18n>The input is not valid E-mail!</ng-container>
+              <ng-container *ngIf="control.hasError('required')" i18n>Please input your E-mail!</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>
@@ -60,8 +56,8 @@
                 (ngModelChange)="updateConfirmValidator()" />
             </nz-input-group>
             <ng-template #passwordErrorTemplate let-control>
-              <ng-container *ngIf="control.hasError('minlength')">Use at least 8 characters for password</ng-container>
-              <ng-container *ngIf="control.hasError('required')">Please input your password!</ng-container>
+              <ng-container *ngIf="control.hasError('minlength')" i18n>Use at least 8 characters for password</ng-container>
+              <ng-container *ngIf="control.hasError('required')" i18n>Please input your password!</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>
@@ -72,25 +68,24 @@
                 placeholder="Confirm Password" />
             </nz-input-group>
             <ng-template #checkPasswordErrorTemplate let-control>
-              <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
-              <ng-container *ngIf="control.hasError('confirm')">Two passwords that you enter is inconsistent!</ng-container>
+              <ng-container *ngIf="control.hasError('required')" i18n>Please confirm your password!</ng-container>
+              <ng-container *ngIf="control.hasError('confirm')" i18n>Two passwords that you enter is inconsistent!</ng-container>
             </ng-template>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
           <nz-form-control>
-            <button nz-button class="register-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid">Create
-              Account</button>
+            <button nz-button class="register-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid" i18n>Create Account</button>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item class="register-form-social-section">
-          <p>or continue with</p>
+          <p i18n>or continue with</p>
           <app-social-auth-buttons></app-social-auth-buttons>
         </nz-form-item>
         <nz-divider nzDashed></nz-divider>
         <nz-form-item class="register-form-info">
-          <p>Secured register TODO</p>
-          <a>Terms</a> & <a>Privacy</a>
+          <p i18n>Secured register TODO</p>
+          <a i18n>Terms</a> & <a i18n>Privacy</a>
         </nz-form-item>
       </form>
       <ng-template #prefixUser><i nz-icon nzType="user"></i></ng-template>

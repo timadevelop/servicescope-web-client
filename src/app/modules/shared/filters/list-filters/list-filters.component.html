@@ -19,7 +19,7 @@
       <nz-tag [nzColor]="tag.color" *ngFor="let tag of selectedTags; trackBy:trackIdentifyByItemId"
         (nzCheckedChange)="clickedTag(tag.name)" [nzChecked]="true" nzMode="checkable">
         {{tag.name}}</nz-tag>
-      <nz-tag *ngIf="!selectedTags || selectedTags.length === 0">no selected tags</nz-tag>
+      <nz-tag *ngIf="!selectedTags || selectedTags.length === 0" i18n>no selected tags</nz-tag>
     </div>
 
     <input class="tags-search-input" (input)="searchTags($event.target.value)" nz-input i18n-placeholder="search tags placeholder@@searchTagsText" placeholder="Search tags"

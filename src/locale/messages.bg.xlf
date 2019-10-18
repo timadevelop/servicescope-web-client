@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="1.2"
-  xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="bg" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="noDataText" datatype="html">
         <source>No data</source>
-        <target>No data</target>
+<target>Превод No data</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
           <context context-type="linenumber">27</context>
@@ -13,7 +12,7 @@
       </trans-unit>
       <trans-unit id="headerServicesButtonText" datatype="html">
         <source>Services</source>
-        <target>Services</target>
+<target>Превод Services</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
           <context context-type="linenumber">6</context>
@@ -21,7 +20,7 @@
       </trans-unit>
       <trans-unit id="headerPostsButtonText" datatype="html">
         <source>Seeks</source>
-        <target>Seeks</target>
+<target>Превод Seeks</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
           <context context-type="linenumber">9</context>
@@ -29,24 +28,80 @@
       </trans-unit>
       <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
         <source>Login</source>
-        <target>Login</target>
+<target>Превод Login</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
           <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">8</context>
         </context-group>
         <note priority="1" from="description">headerLoginButtonText</note>
       </trans-unit>
       <trans-unit id="welcomeText" datatype="html">
         <source>Hi, </source>
-        <target>Hi, </target>
+<target>Превод Hi, </target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
           <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="814efcc244d182cabfdcdf7754097cdd023514d9" datatype="html">
+        <source>Verified</source>
+<target>Превод Verified</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9d9b6163b0b137099a88c32e3c6ec59eacb362f0" datatype="html">
+        <source>Not Verified</source>
+<target>Превод Not Verified</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
+        <source>Profile</source>
+<target>Превод Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ea965d544a7dfd8185064c52cdfff553cf94d585" datatype="html">
+        <source>Messages</source>
+<target>Превод Messages</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+<target>Превод Logout</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7b58146557e281bcabcc2748848e74c0823f4b8e" datatype="html">
+        <source>Thanks for Feedback!</source>
+<target>Превод Thanks for Feedback!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="feedbackFormLabelRate" datatype="html">
         <source>How would you rate your experience?</source>
-        <target>How would you rate your experience?</target>
+<target>Превод How would you rate your experience?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">14</context>
@@ -54,7 +109,7 @@
       </trans-unit>
       <trans-unit id="feedbackFormErrorTitleNotProvided" datatype="html">
         <source>Please input valid rating</source>
-        <target>Please input valid rating</target>
+<target>Превод Please input valid rating</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">17</context>
@@ -64,7 +119,7 @@
       </trans-unit>
       <trans-unit id="feedbackFormLabelText" datatype="html">
         <source>Tell us about your experience</source>
-        <target>Tell us about your experience</target>
+<target>Превод Tell us about your experience</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">25</context>
@@ -76,7 +131,7 @@
       </trans-unit>
       <trans-unit id="feedbackFormErrorTextIsTooShort" datatype="html">
         <source>Text is too short</source>
-        <target>Text is too short</target>
+<target>Превод Text is too short</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">31</context>
@@ -86,7 +141,7 @@
       </trans-unit>
       <trans-unit id="feedbackFormErrorTextIsTooLong" datatype="html">
         <source>Text is too long</source>
-        <target>Text is too long</target>
+<target>Превод Text is too long</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">33</context>
@@ -96,7 +151,7 @@
       </trans-unit>
       <trans-unit id="feedbackFormErrorTextNotProvided" datatype="html">
         <source>Please input valid text</source>
-        <target>Please input valid text</target>
+<target>Превод Please input valid text</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">35</context>
@@ -106,7 +161,7 @@
       </trans-unit>
       <trans-unit id="sendFeedbackButtonText" datatype="html">
         <source>Send</source>
-        <target>Send</target>
+<target>Превод Send</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">44</context>
@@ -114,7 +169,7 @@
       </trans-unit>
       <trans-unit id="closeFeedbackFormButtonText" datatype="html">
         <source>Close</source>
-        <target>Close</target>
+<target>Превод Close</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">49</context>
@@ -122,7 +177,7 @@
       </trans-unit>
       <trans-unit id="helloText" datatype="html">
         <source>Hi</source>
-        <target>Hi</target>
+<target>Превод Hi</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app-components/feedback-widget/feedback-widget.component.html</context>
           <context context-type="linenumber">59</context>
@@ -130,7 +185,7 @@
       </trans-unit>
       <trans-unit id="aboutText" datatype="html">
         <source>About</source>
-        <target>About</target>
+<target>Превод About</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/about/about/about.component.html</context>
           <context context-type="linenumber">1</context>
@@ -138,7 +193,7 @@
       </trans-unit>
       <trans-unit id="termsText" datatype="html">
         <source>Terms</source>
-        <target>Terms</target>
+<target>Превод Terms</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/about/terms/terms.component.html</context>
           <context context-type="linenumber">1</context>
@@ -146,7 +201,7 @@
       </trans-unit>
       <trans-unit id="privacyAndCookiesText" datatype="html">
         <source>Privacy and cookies</source>
-        <target>Privacy and cookies</target>
+<target>Превод Privacy and cookies</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/about/terms/terms.component.html</context>
           <context context-type="linenumber">17</context>
@@ -154,17 +209,235 @@
       </trans-unit>
       <trans-unit id="faqText" datatype="html">
         <source>FAQ</source>
-        <target>FAQ</target>
+<target>Превод FAQ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/about/faq/faq.component.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="89dc6633b574788601ffb727a0d34d969173ec7e" datatype="html">
+        <source>Log into</source>
+<target>Превод Log into</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1b518e7f8c067fa55ea797bb1b35b4a2d31dccbc" datatype="html">
+        <source>Or</source>
+<target>Превод Or</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e19fcf996343543e13789f17b550ab0c08124b5c" datatype="html">
+        <source>Create Account</source>
+<target>Превод Create Account</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="806cb20447cf3b338bdf730fd49b0eaf51e1bdbe" datatype="html">
+        <source>The input is not valid E-mail!</source>
+<target>Превод The input is not valid E-mail!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="06cec39982f63f835bf19606dc0c7eb8a532446c" datatype="html">
+        <source>Please input your E-mail!</source>
+<target>Превод Please input your E-mail!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f3d74a2dc3b6f35915fca1aaee9a9ae2c08229c5" datatype="html">
+        <source>Use at least 5 characters for password</source>
+<target>Превод Use at least 5 characters for password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d8542d7377e973367c20b74dd75d91849a2f9ebb" datatype="html">
+        <source>Please input your password!</source>
+<target>Превод Please input your password!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a69628f4b35601bf2b19607baef27814a1715b95" datatype="html">
+        <source>or continue with</source>
+<target>Превод or continue with</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3a8e04b34236be1cb450987973bcb7b33d483e35" datatype="html">
+        <source>Forgot password?</source>
+<target>Превод Forgot password?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="891ffbf685c3aa0013f1e046e223592e797b04d0" datatype="html">
+        <source>Secured login TODO</source>
+<target>Превод Secured login TODO</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="69580f2c2dbf4edf7096820ba8c393367352d774" datatype="html">
+        <source>Terms</source>
+<target>Превод Terms</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3c78b53bca33467190c0b7a01320bc093a2b1427" datatype="html">
+        <source>Privacy</source>
+<target>Превод Privacy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="429b882634d2080aaf4183744175cdb3e16db2bc" datatype="html">
+        <source>First name is too short</source>
+<target>Превод First name is too short</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="145df89e804a48de4da9f33768537142c44d23ac" datatype="html">
+        <source>First name is too long</source>
+<target>Превод First name is too long</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="709f2549d197ed0227dca39f6bd36a54a37d3aa3" datatype="html">
+        <source>Please input your first name</source>
+<target>Превод Please input your first name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5f8b0eaaa88e20d380e550446eb08777cf6af275" datatype="html">
+        <source>Last name is too short</source>
+<target>Превод Last name is too short</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="827bce82fde8bad8950ad7ee0be9c7dd471b48b2" datatype="html">
+        <source>Last name is too long</source>
+<target>Превод Last name is too long</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="884629f681c91b70544097ef95ab5e20f52d1300" datatype="html">
+        <source>Please input your last name</source>
+<target>Превод Please input your last name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bf146487ed9907e96dae10cab862ca04a82ca753" datatype="html">
+        <source>Use at least 8 characters for password</source>
+<target>Превод Use at least 8 characters for password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6f9a24605dfe3eced97211b44dad44cd08754831" datatype="html">
+        <source>Please confirm your password!</source>
+<target>Превод Please confirm your password!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e31c2e5ff1d840926820e83c1666b92b7bda25a9" datatype="html">
+        <source>Two passwords that you enter is inconsistent!</source>
+<target>Превод Two passwords that you enter is inconsistent!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b8982439bd912ae48ecaf43d41d819d96fe8e01b" datatype="html">
+        <source>Secured register TODO</source>
+<target>Превод Secured register TODO</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3aa572549b8f3df5b7c1b0558d9c15075f861f86" datatype="html">
+        <source>Verify email status</source>
+<target>Превод Verify email status</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="VerifiedText" datatype="html">
-        <source>
-      Successfully Verified</source>
-        <target>
-      Successfully Verified</target>
+        <source>Successfully Verified</source>
+<target>Превод Successfully Verified</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
           <context context-type="linenumber">7</context>
@@ -172,21 +445,43 @@
         <note priority="1" from="description">Verified email</note>
       </trans-unit>
       <trans-unit id="notVerifiedText" datatype="html">
-        <source>
-        Not Verified</source>
-        <target>
-        Not Verified</target>
+        <source>Not Verified</source>
+<target>Превод Not Verified</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description">Not Verified email</note>
       </trans-unit>
+      <trans-unit id="2ece432e7240c3f180eb9aa3db20eede07e82568" datatype="html">
+        <source>Your email is not verified</source>
+<target>Превод Your email is not verified</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8bc54e75ebc604c4dde3e08a606f0709687cd210" datatype="html">
+        <source>We sent you confirmation email, check your inbox to verify it.</source>
+<target>Превод We sent you confirmation email, check your inbox to verify it.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5bcd7705bf096c58f0eb89bf0bfe491db53b0444" datatype="html">
+        <source>Your profile has no email, provide one please:</source>
+<target>Превод Your profile has no email, provide one please:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="messagesTitleText" datatype="html">
         <source>Messages
-        </source>
-        <target>Messages
-        </target>
+          </source>
+<target>Превод Messages
+          </target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages/messages.component.html</context>
           <context context-type="linenumber">14</context>
@@ -194,8 +489,8 @@
         <note priority="1" from="description">Title tells user that this is messages section of website</note>
       </trans-unit>
       <trans-unit id="lastSeenUserText" datatype="html">
-        <source>Last seen:</source>
-        <target>Last seen:</target>
+        <source>Last seen</source>
+<target>Превод Last seen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
           <context context-type="linenumber">18</context>
@@ -207,15 +502,23 @@
       </trans-unit>
       <trans-unit id="userOnlineStatusText" datatype="html">
         <source>Online</source>
-        <target>Online</target>
+<target>Превод Online</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="ff2c66f2dd5448c447ddeb882b7183e8c1534a33" datatype="html">
+        <source>conversation start</source>
+<target>Превод conversation start</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="loadMoreText" datatype="html">
         <source>Load more</source>
-        <target>Load more</target>
+<target>Превод Load more</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
           <context context-type="linenumber">39</context>
@@ -229,9 +532,17 @@
           <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="92bbc9d43100d1c8c65d708fcbb02dab949bb68e" datatype="html">
+        <source>Conversation not found</source>
+<target>Превод Conversation not found</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="gotoCarouselImageText" datatype="html">
         <source>Goto image</source>
-        <target>Goto image</target>
+<target>Превод Goto image</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/carousel/carousel.component.html</context>
           <context context-type="linenumber">82</context>
@@ -241,7 +552,7 @@
       </trans-unit>
       <trans-unit id="addToUploadText" datatype="html">
         <source>Add</source>
-        <target>Add</target>
+<target>Превод Add</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/images-selector/images-selector.component.html</context>
           <context context-type="linenumber">15</context>
@@ -251,16 +562,40 @@
       </trans-unit>
       <trans-unit id="noMessagesInConversationText" datatype="html">
         <source>No messages</source>
-        <target>No messages</target>
+<target>Превод No messages</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-list/messages-list.component.html</context>
           <context context-type="linenumber">49</context>
         </context-group>
         <note priority="1" from="description">Text to tell user that there are no msgs in selected conversation</note>
       </trans-unit>
+      <trans-unit id="b1a23253e0fc0295ea6a2dd1398aa21fff478f3a" datatype="html">
+        <source>Hey, would you tell author about this?</source>
+<target>Превод Hey, would you tell author about this?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b6fb58bdafab3431e83ea3da0992170e0f90dbb2" datatype="html">
+        <source>No, thanks</source>
+<target>Превод No, thanks</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c078246bb15f2f955cb8b995f034094c885f8132" datatype="html">
+        <source>Yes, send message</source>
+<target>Превод Yes, send message</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="filtersButtonText" datatype="html">
         <source>Filters</source>
-        <target>Filters</target>
+<target>Превод Filters</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list/services-list.component.html</context>
           <context context-type="linenumber">12</context>
@@ -272,7 +607,7 @@
       </trans-unit>
       <trans-unit id="filtersCardTitle" datatype="html">
         <source>Filters</source>
-        <target>Filters</target>
+<target>Превод Filters</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list/services-list.component.html</context>
           <context context-type="linenumber">30</context>
@@ -296,7 +631,7 @@
       </trans-unit>
       <trans-unit id="createNewServiceButtonTexst" datatype="html">
         <source>Create</source>
-        <target>Добави сървис</target>
+<target>Превод Create</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list/services-list.component.html</context>
           <context context-type="linenumber">41</context>
@@ -304,7 +639,7 @@
       </trans-unit>
       <trans-unit id="editText" datatype="html">
         <source>Edit</source>
-        <target>Edit</target>
+<target>Превод Edit</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
           <context context-type="linenumber">62</context>
@@ -312,7 +647,7 @@
       </trans-unit>
       <trans-unit id="deleteText" datatype="html">
         <source>Delete</source>
-        <target>Delete</target>
+<target>Превод Delete</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
           <context context-type="linenumber">66</context>
@@ -320,18 +655,18 @@
       </trans-unit>
       <trans-unit id="areYouSureText" datatype="html">
         <source>Are you sure?</source>
-        <target>Are you sure?</target>
+<target>Превод Are you sure?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
           <context context-type="linenumber">63</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">61</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">142</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
@@ -344,18 +679,18 @@
       </trans-unit>
       <trans-unit id="noText" datatype="html">
         <source>No</source>
-        <target>No</target>
+<target>Превод No</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
           <context context-type="linenumber">64</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">62</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">142</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
@@ -368,18 +703,18 @@
       </trans-unit>
       <trans-unit id="yesText" datatype="html">
         <source>Yes</source>
-        <target>Yes</target>
+<target>Превод Yes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed.component.html</context>
           <context context-type="linenumber">64</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">62</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">145</context>
+          <context context-type="linenumber">143</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
@@ -392,7 +727,7 @@
       </trans-unit>
       <trans-unit id="shareBtnText" datatype="html">
         <source>Share</source>
-        <target>Share</target>
+<target>Превод Share</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/share-widget/share-widget.component.html</context>
           <context context-type="linenumber">3</context>
@@ -400,7 +735,7 @@
       </trans-unit>
       <trans-unit id="tweetBtnText" datatype="html">
         <source>Tweet</source>
-        <target>Tweet</target>
+<target>Превод Tweet</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/share-widget/share-widget.component.html</context>
           <context context-type="linenumber">5</context>
@@ -408,7 +743,7 @@
       </trans-unit>
       <trans-unit id="copyBtnText" datatype="html">
         <source>Copy</source>
-        <target>Copy</target>
+<target>Превод Copy</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/share-widget/share-widget.component.html</context>
           <context context-type="linenumber">6</context>
@@ -416,7 +751,7 @@
       </trans-unit>
       <trans-unit id="loadingText" datatype="html">
         <source>Loading Data...</source>
-        <target>Loading Data...</target>
+<target>Превод Loading Data...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/tags-selector/tags-selector.component.html</context>
           <context context-type="linenumber">19</context>
@@ -432,7 +767,7 @@
       </trans-unit>
       <trans-unit id="selectTagsText" datatype="html">
         <source>Select tags</source>
-        <target>Select tags</target>
+<target>Превод Select tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/tags-selector/tags-selector.component.html</context>
           <context context-type="linenumber">5</context>
@@ -442,7 +777,7 @@
       </trans-unit>
       <trans-unit id="showText" datatype="html">
         <source>show</source>
-        <target>show</target>
+<target>Превод show</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/phone-wrapper/phone-wrapper.component.html</context>
           <context context-type="linenumber">5</context>
@@ -450,7 +785,7 @@
       </trans-unit>
       <trans-unit id="formErrorTextIsTooShort" datatype="html">
         <source>Too short text</source>
-        <target>Too short text</target>
+<target>Превод Too short text</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">14</context>
@@ -460,7 +795,7 @@
       </trans-unit>
       <trans-unit id="formErrorTextIsTooLong" datatype="html">
         <source>Too long text</source>
-        <target>Too long text</target>
+<target>Превод Too long text</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">16</context>
@@ -470,7 +805,7 @@
       </trans-unit>
       <trans-unit id="formErrorTextNotProvided" datatype="html">
         <source>Add text</source>
-        <target>Add text</target>
+<target>Превод Add text</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">18</context>
@@ -480,7 +815,7 @@
       </trans-unit>
       <trans-unit id="formErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
-        <target>Select more tags</target>
+<target>Превод Select more tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">33</context>
@@ -490,7 +825,7 @@
       </trans-unit>
       <trans-unit id="formErrorTagsArrayIsTooLong" datatype="html">
         <source>Too much tags selected, reduce tags count</source>
-        <target>Too much tags selected, reduce tags count</target>
+<target>Превод Too much tags selected, reduce tags count</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">35</context>
@@ -500,25 +835,33 @@
       </trans-unit>
       <trans-unit id="formErrorTagsArrayNotProvided" datatype="html">
         <source>Select at least 3 tags</source>
-        <target>Select at least 3 tags</target>
+<target>Превод Select at least 3 tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <note priority="1" from="description">tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
       </trans-unit>
       <trans-unit id="submitFeedPostOnCtrlEnterKeyDown" datatype="html">
         <source>Post on Ctrl + Enter</source>
-        <target>Post on Ctrl + Enter</target>
+<target>Превод Post on Ctrl + Enter</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="submitNewPost" datatype="html">
+        <source>Post</source>
+<target>Превод Post</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="selectCategoryText" datatype="html">
         <source>Select category</source>
-        <target>Select category</target>
+<target>Превод Select category</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/category-selector/category-selector.component.html</context>
           <context context-type="linenumber">3</context>
@@ -528,7 +871,7 @@
       </trans-unit>
       <trans-unit id="minPriceText" datatype="html">
         <source>Min price</source>
-        <target>Min price</target>
+<target>Превод Min price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/price-filter/price-filter.component.html</context>
           <context context-type="linenumber">3</context>
@@ -537,16 +880,24 @@
       </trans-unit>
       <trans-unit id="maxPriceText" datatype="html">
         <source>Max price</source>
-        <target>Max price</target>
+<target>Превод Max price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/price-filter/price-filter.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
         <note priority="1" from="description">Literaly max price text</note>
       </trans-unit>
+      <trans-unit id="searchPlaceholder" datatype="html">
+        <source>Search</source>
+<target>Превод Search</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/search-card/search-card.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="sortNewestFirstText" datatype="html">
         <source>Newest</source>
-        <target>Newest</target>
+<target>Превод Newest</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/ordering-filter/ordering-filter.component.html</context>
           <context context-type="linenumber">2</context>
@@ -555,7 +906,7 @@
       </trans-unit>
       <trans-unit id="sortCheapestFirstText" datatype="html">
         <source>Cheapest</source>
-        <target>Cheapest</target>
+<target>Превод Cheapest</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/ordering-filter/ordering-filter.component.html</context>
           <context context-type="linenumber">4</context>
@@ -564,7 +915,7 @@
       </trans-unit>
       <trans-unit id="sortMostExpensiveFirstText" datatype="html">
         <source>Most Expensive</source>
-        <target>Most Expensive</target>
+<target>Превод Most Expensive</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/ordering-filter/ordering-filter.component.html</context>
           <context context-type="linenumber">5</context>
@@ -573,7 +924,7 @@
       </trans-unit>
       <trans-unit id="sortMostPointsFirstText" datatype="html">
         <source>Superhero</source>
-        <target>Superhero</target>
+<target>Превод Superhero</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/ordering-filter/ordering-filter.component.html</context>
           <context context-type="linenumber">6</context>
@@ -582,7 +933,7 @@
       </trans-unit>
       <trans-unit id="sortingSectionText" datatype="html">
         <source>Sorting</source>
-        <target>Sorting</target>
+<target>Превод Sorting</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
           <context context-type="linenumber">2</context>
@@ -591,7 +942,7 @@
       </trans-unit>
       <trans-unit id="priceSectionText" datatype="html">
         <source>Price</source>
-        <target>Price</target>
+<target>Превод Price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
           <context context-type="linenumber">6</context>
@@ -600,7 +951,7 @@
       </trans-unit>
       <trans-unit id="categorySectionText" datatype="html">
         <source>Category</source>
-        <target>Category</target>
+<target>Превод Category</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
           <context context-type="linenumber">10</context>
@@ -609,16 +960,24 @@
       </trans-unit>
       <trans-unit id="tagsSectionText" datatype="html">
         <source>Tags</source>
-        <target>Tags</target>
+<target>Превод Tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
         <note priority="1" from="description">Literaly Tags word for describing a section with tags filtering functionality</note>
       </trans-unit>
+      <trans-unit id="3df4aa1a843a02478fb231839ae23e372eb58ec8" datatype="html">
+        <source>no selected tags</source>
+<target>Превод no selected tags</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="searchTagsText" datatype="html">
         <source>Search tags</source>
-        <target>Search tags</target>
+<target>Превод Search tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
           <context context-type="linenumber">25</context>
@@ -627,7 +986,7 @@
       </trans-unit>
       <trans-unit id="payFormCreditOrDebitCardText" datatype="html">
         <source>Credit or debit card</source>
-        <target>Credit or debit card</target>
+<target>Превод Credit or debit card</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/pay-form/pay-form.component.html</context>
           <context context-type="linenumber">3</context>
@@ -635,7 +994,7 @@
       </trans-unit>
       <trans-unit id="payButtonText" datatype="html">
         <source>Pay</source>
-        <target>Pay</target>
+<target>Превод Pay</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/pay-form/pay-form.component.html</context>
           <context context-type="linenumber">13</context>
@@ -644,7 +1003,7 @@
       </trans-unit>
       <trans-unit id="payFormPaidText" datatype="html">
         <source>Paid</source>
-        <target>Paid</target>
+<target>Превод Paid</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/pay-form/pay-form.component.html</context>
           <context context-type="linenumber">19</context>
@@ -652,7 +1011,7 @@
       </trans-unit>
       <trans-unit id="payFormPaidDescriptionText" datatype="html">
         <source>Successfully paid</source>
-        <target>Successfully paid</target>
+<target>Превод Successfully paid</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/pay-form/pay-form.component.html</context>
           <context context-type="linenumber">23</context>
@@ -660,7 +1019,7 @@
       </trans-unit>
       <trans-unit id="wholeCountryText" datatype="html">
         <source>Whole country</source>
-        <target>Whole country</target>
+<target>Превод Whole country</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
           <context context-type="linenumber">10</context>
@@ -678,7 +1037,7 @@
       </trans-unit>
       <trans-unit id="locationText" datatype="html">
         <source>Location</source>
-        <target>Location</target>
+<target>Превод Location</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
           <context context-type="linenumber">3</context>
@@ -695,19 +1054,19 @@
       </trans-unit>
       <trans-unit id="categoryTooltipText" datatype="html">
         <source>Category</source>
-        <target>Category</target>
+<target>Превод Category</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">13</context>
         </context-group>
         <note priority="1" from="description">Tooltip text on category hover</note>
       </trans-unit>
       <trans-unit id="createdTooltipText" datatype="html">
         <source>Created</source>
-        <target>Created</target>
+<target>Превод Created</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
@@ -721,7 +1080,7 @@
       </trans-unit>
       <trans-unit id="currency" datatype="html">
         <source>BGN</source>
-        <target>BGN</target>
+<target>Превод BGN</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/price-card/price-card.component.html</context>
           <context context-type="linenumber">4</context>
@@ -741,7 +1100,7 @@
       </trans-unit>
       <trans-unit id="priceDetailsText" datatype="html">
         <source>Price details</source>
-        <target>Price details</target>
+<target>Превод Price details</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/price-card/price-card.component.html</context>
           <context context-type="linenumber">17</context>
@@ -750,7 +1109,7 @@
       </trans-unit>
       <trans-unit id="promotedServiceIconTooltipText" datatype="html">
         <source>Promoted service</source>
-        <target>Promoted service</target>
+<target>Превод Promoted service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
           <context context-type="linenumber">22</context>
@@ -766,7 +1125,7 @@
       </trans-unit>
       <trans-unit id="priceTooltipText" datatype="html">
         <source>Price</source>
-        <target>Price</target>
+<target>Превод Price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
           <context context-type="linenumber">28</context>
@@ -787,7 +1146,7 @@
       </trans-unit>
       <trans-unit id="searchByTagText" datatype="html">
         <source>Search by tag</source>
-        <target>Search by tag</target>
+<target>Превод Search by tag</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
           <context context-type="linenumber">37</context>
@@ -808,7 +1167,7 @@
       </trans-unit>
       <trans-unit id="noTags" datatype="html">
         <source>No tags</source>
-        <target>No tags</target>
+<target>Превод No tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
           <context context-type="linenumber">30</context>
@@ -821,22 +1180,22 @@
       </trans-unit>
       <trans-unit id="editButtonText" datatype="html">
         <source>Delete</source>
-        <target>Delete</target>
+<target>Превод Delete</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">65</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="linenumber">137</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">148</context>
+          <context context-type="linenumber">146</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">186</context>
+          <context context-type="linenumber">184</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
@@ -857,14 +1216,14 @@
       </trans-unit>
       <trans-unit id="promoteButtonText" datatype="html">
         <source>Promote</source>
-        <target>Promote</target>
+<target>Превод Promote</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">71</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">116</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
@@ -877,18 +1236,18 @@
       </trans-unit>
       <trans-unit id="similarServicesCardTitle" datatype="html">
         <source>Similar services</source>
-        <target>Similar services</target>
+<target>Превод Similar services</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">101</context>
+          <context context-type="linenumber">99</context>
         </context-group>
       </trans-unit>
       <trans-unit id="messageButtonText" datatype="html">
         <source>Message</source>
-        <target>Message</target>
+<target>Превод Message</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">132</context>
+          <context context-type="linenumber">130</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
@@ -897,10 +1256,10 @@
       </trans-unit>
       <trans-unit id="callText" datatype="html">
         <source>Call</source>
-        <target>Call</target>
+<target>Превод Call</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">169</context>
+          <context context-type="linenumber">167</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
@@ -909,10 +1268,10 @@
       </trans-unit>
       <trans-unit id="messageUserText" datatype="html">
         <source>Message</source>
-        <target>Message</target>
+<target>Превод Message</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">174</context>
+          <context context-type="linenumber">172</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
@@ -921,15 +1280,15 @@
       </trans-unit>
       <trans-unit id="promoteYourServiceText" datatype="html">
         <source>Promote</source>
-        <target>Promote</target>
+<target>Превод Promote</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">181</context>
+          <context context-type="linenumber">179</context>
         </context-group>
       </trans-unit>
       <trans-unit id="addNewServiceText" datatype="html">
         <source>Add service</source>
-        <target>Add service</target>
+<target>Превод Add service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/create-service/create-service.component.html</context>
           <context context-type="linenumber">14</context>
@@ -938,9 +1297,9 @@
       </trans-unit>
       <trans-unit id="editServiceText" datatype="html">
         <source>Edit service
-        </source>
-        <target>Edit service
-        </target>
+  </source>
+<target>Превод Edit service
+  </target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/edit-service/edit-service.component.html</context>
           <context context-type="linenumber">15</context>
@@ -949,7 +1308,7 @@
       </trans-unit>
       <trans-unit id="fixedPricesInputLabelPlaceholder" datatype="html">
         <source>Service</source>
-        <target>Service</target>
+<target>Превод Service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">7</context>
@@ -958,7 +1317,7 @@
       </trans-unit>
       <trans-unit id="fixedPricesInputPricePlaceholder" datatype="html">
         <source>Price</source>
-        <target>Price</target>
+<target>Превод Price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">9</context>
@@ -966,7 +1325,7 @@
       </trans-unit>
       <trans-unit id="confirmTitle" datatype="html">
         <source>Are you sure?</source>
-        <target>Are you sure?</target>
+<target>Превод Are you sure?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">12</context>
@@ -974,7 +1333,7 @@
       </trans-unit>
       <trans-unit id="confirmCancelBtnText" datatype="html">
         <source>Yes</source>
-        <target>Yes</target>
+<target>Превод Yes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">13</context>
@@ -982,7 +1341,7 @@
       </trans-unit>
       <trans-unit id="shortLabelFormError" datatype="html">
         <source>Label is too Short</source>
-        <target>Label is too Short</target>
+<target>Превод Label is too Short</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">19</context>
@@ -992,7 +1351,7 @@
       </trans-unit>
       <trans-unit id="longLabelFormError" datatype="html">
         <source>Label is too long</source>
-        <target>Label is too long</target>
+<target>Превод Label is too long</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">21</context>
@@ -1002,7 +1361,7 @@
       </trans-unit>
       <trans-unit id="invalidLabelFormError" datatype="html">
         <source>Invalid label</source>
-        <target>Invalid label</target>
+<target>Превод Invalid label</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">23</context>
@@ -1012,7 +1371,7 @@
       </trans-unit>
       <trans-unit id="smallValueFormError" datatype="html">
         <source>Value is too small</source>
-        <target>Value is too small</target>
+<target>Превод Value is too small</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">25</context>
@@ -1022,7 +1381,7 @@
       </trans-unit>
       <trans-unit id="bigValueFormError" datatype="html">
         <source>Value is too big</source>
-        <target>Value is too big</target>
+<target>Превод Value is too big</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">27</context>
@@ -1032,7 +1391,7 @@
       </trans-unit>
       <trans-unit id="invalidValueFormError" datatype="html">
         <source>Value is invalid</source>
-        <target>Value is invalid</target>
+<target>Превод Value is invalid</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">29</context>
@@ -1042,7 +1401,7 @@
       </trans-unit>
       <trans-unit id="emptyFixedPricesWarning" datatype="html">
         <source>Information about fixed prices is empty</source>
-        <target>Information about fixed prices is empty</target>
+<target>Превод Information about fixed prices is empty</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">35</context>
@@ -1052,7 +1411,7 @@
       </trans-unit>
       <trans-unit id="invalidFixedPricesFormError" datatype="html">
         <source>Invalid fixed prices information</source>
-        <target>Invalid fixed prices information</target>
+<target>Превод Invalid fixed prices information</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">37</context>
@@ -1062,7 +1421,7 @@
       </trans-unit>
       <trans-unit id="addFixedPriceBtnText" datatype="html">
         <source>Add fixed price</source>
-        <target>Add fixed price</target>
+<target>Превод Add fixed price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.html</context>
           <context context-type="linenumber">43</context>
@@ -1071,7 +1430,7 @@
       </trans-unit>
       <trans-unit id="serviceFormLabelTitle" datatype="html">
         <source>Service title</source>
-        <target>Service title</target>
+<target>Превод Service title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1083,7 +1442,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorTitleIsTooShort" datatype="html">
         <source>Title is too short</source>
-        <target>Title is too short</target>
+<target>Превод Title is too short</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">15</context>
@@ -1093,7 +1452,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorTitleIsTooLong" datatype="html">
         <source>Title is too long</source>
-        <target>Title is too long</target>
+<target>Превод Title is too long</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">17</context>
@@ -1103,7 +1462,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorTitleNotProvided" datatype="html">
         <source>Please input valid title</source>
-        <target>Please input valid title</target>
+<target>Превод Please input valid title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">19</context>
@@ -1113,7 +1472,7 @@
       </trans-unit>
       <trans-unit id="serviceFormLabelPrice" datatype="html">
         <source>Price</source>
-        <target>Price</target>
+<target>Превод Price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">26</context>
@@ -1125,7 +1484,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorPriceIsTooSmall" datatype="html">
         <source>Price is too small</source>
-        <target>Price is too small</target>
+<target>Превод Price is too small</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">35</context>
@@ -1135,7 +1494,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorPriceIsTooBig" datatype="html">
         <source>Price is too big</source>
-        <target>Price is too big</target>
+<target>Превод Price is too big</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">37</context>
@@ -1145,7 +1504,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorPriceNotProvided" datatype="html">
         <source>Please input valid title</source>
-        <target>Please input valid title</target>
+<target>Превод Please input valid title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">39</context>
@@ -1159,7 +1518,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorCategoryNotProvided" datatype="html">
         <source>Please select valid category</source>
-        <target>Please select valid category</target>
+<target>Превод Please select valid category</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">58</context>
@@ -1169,7 +1528,7 @@
       </trans-unit>
       <trans-unit id="serviceFormLabelLocation" datatype="html">
         <source>Location</source>
-        <target>Location</target>
+<target>Превод Location</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">67</context>
@@ -1177,7 +1536,7 @@
       </trans-unit>
       <trans-unit id="serviceFormLabelDescription" datatype="html">
         <source>Description</source>
-        <target>Description</target>
+<target>Превод Description</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">82</context>
@@ -1189,7 +1548,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorDescriptionIsTooShort" datatype="html">
         <source>Description is too short</source>
-        <target>Description is too short</target>
+<target>Превод Description is too short</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">88</context>
@@ -1199,7 +1558,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorDescriptionIsTooLong" datatype="html">
         <source>Description is too long</source>
-        <target>Description is too long</target>
+<target>Превод Description is too long</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">90</context>
@@ -1209,7 +1568,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorDescriptionNotProvided" datatype="html">
         <source>Please input valid description</source>
-        <target>Please input valid description</target>
+<target>Превод Please input valid description</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">92</context>
@@ -1219,7 +1578,7 @@
       </trans-unit>
       <trans-unit id="serviceFormLabelTags" datatype="html">
         <source>Tags</source>
-        <target>Tags</target>
+<target>Превод Tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">99</context>
@@ -1227,7 +1586,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
-        <target>Select more tags</target>
+<target>Превод Select more tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">107</context>
@@ -1237,7 +1596,7 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorTagsArrayIsTooLong" datatype="html">
         <source>Too much tags selected, reduce tags count</source>
-        <target>Too much tags selected, reduce tags count</target>
+<target>Превод Too much tags selected, reduce tags count</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">109</context>
@@ -1247,105 +1606,105 @@
       </trans-unit>
       <trans-unit id="serviceFormErrorTagsArrayNotProvided" datatype="html">
         <source>Select tags for new service</source>
-        <target>Select tags for new service</target>
+<target>Превод Select tags for new service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">113</context>
+          <context context-type="linenumber">111</context>
         </context-group>
         <note priority="1" from="description">Service tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
       </trans-unit>
       <trans-unit id="serviceFormLabelImages" datatype="html">
         <source>Images</source>
-        <target>Images</target>
+<target>Превод Images</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">121</context>
+          <context context-type="linenumber">119</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviceFormErrorImagesArrayIsTooShort" datatype="html">
         <source>Add more images</source>
-        <target>Add more images</target>
+<target>Превод Add more images</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">127</context>
+          <context context-type="linenumber">125</context>
         </context-group>
         <note priority="1" from="description">Service images array is too short, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
       </trans-unit>
       <trans-unit id="serviceFormErrorImagesArrayIsTooLong" datatype="html">
         <source>Too many images</source>
-        <target>Too many images</target>
+<target>Превод Too many images</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">129</context>
+          <context context-type="linenumber">127</context>
         </context-group>
         <note priority="1" from="description">Service images array is too long, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
       </trans-unit>
       <trans-unit id="serviceFormErrorImagesArrayNotProvided" datatype="html">
         <source>Please add images for new service</source>
-        <target>Please add images for new service</target>
+<target>Превод Please add images for new service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">129</context>
         </context-group>
         <note priority="1" from="description">Service images array is invalid or empty, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
       </trans-unit>
       <trans-unit id="serviceFormLabelPhone" datatype="html">
         <source>Phone</source>
-        <target>Phone</target>
+<target>Превод Phone</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">142</context>
+          <context context-type="linenumber">140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviceFormLabelPhonePlaceholder" datatype="html">
         <source>Contact phone</source>
-        <target>Contact phone</target>
+<target>Превод Contact phone</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">146</context>
+          <context context-type="linenumber">144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviceFormErrorPhoneIsInvalid" datatype="html">
         <source>Please input valid phone</source>
-        <target>Please input valid phone</target>
+<target>Превод Please input valid phone</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">151</context>
+          <context context-type="linenumber">149</context>
         </context-group>
         <note priority="1" from="description">Service contact phone is invalid, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
       </trans-unit>
       <trans-unit id="serviceFormLabelFixedPrices" datatype="html">
         <source>Fixed Prices</source>
-        <target>Fixed Prices</target>
+<target>Превод Fixed Prices</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">156</context>
+          <context context-type="linenumber">154</context>
         </context-group>
       </trans-unit>
       <trans-unit id="newServiceFormAddButtonText" datatype="html">
         <source>Create Service</source>
-        <target>Create Service</target>
+<target>Превод Create Service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">167</context>
+          <context context-type="linenumber">165</context>
         </context-group>
       </trans-unit>
       <trans-unit id="serviceFormSaveButtonText" datatype="html">
         <source>Save</source>
-        <target>Save</target>
+<target>Превод Save</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
-          <context context-type="linenumber">168</context>
+          <context context-type="linenumber">166</context>
         </context-group>
       </trans-unit>
       <trans-unit id="promoteServiceText" datatype="html">
         <source>Promote service</source>
-        <target>Promote service</target>
+<target>Превод Promote service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1356,26 +1715,26 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">129</context>
+          <context context-type="linenumber">127</context>
         </context-group>
         <note priority="1" from="description">Card title for promote service form</note>
       </trans-unit>
       <trans-unit id="promoteServiceSelectPlanText" datatype="html">
         <source>Select Plan</source>
-        <target>Select Plan</target>
+<target>Превод Select Plan</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
           <context context-type="linenumber">35</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">55</context>
         </context-group>
         <note priority="1" from="description">Card title for promote service select plan</note>
       </trans-unit>
       <trans-unit id="orUseCouponText" datatype="html">
         <source>or use a coupon code</source>
-        <target>or use a coupon code</target>
+<target>Превод or use a coupon code</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
           <context context-type="linenumber">37</context>
@@ -1387,33 +1746,34 @@
       </trans-unit>
       <trans-unit id="promoteServiceBoostingProcessText" datatype="html">
         <source>Boosting Your Service...</source>
-        <target>Boosting Your Service...</target>
+<target>Превод Boosting Your Service...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">42</context>
         </context-group>
         <note priority="1" from="description">Card title for service boosting process</note>
       </trans-unit>
       <trans-unit id="promoteServiceSelectedPlanSuccessText" datatype="html">
         <source>
             Successfully Boosted Service</source>
-        <target>Successfully Boosted Service</target>
+<target>Превод
+            Successfully Boosted Service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">48</context>
         </context-group>
         <note priority="1" from="description">Card title for successfully boosted service</note>
       </trans-unit>
       <trans-unit id="1312a6160952495c027bdb8f912af26996b4eeea" datatype="html">
         <source>Click to select</source>
-        <target>Click to select</target>
+<target>Превод Click to select</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">61</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">93</context>
+          <context context-type="linenumber">91</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
@@ -1427,19 +1787,19 @@
       </trans-unit>
       <trans-unit id="promoteServicePayText" datatype="html">
         <source>Pay for service boost</source>
-        <target>Pay for service boost</target>
+<target>Превод Pay for service boost</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">141</context>
+          <context context-type="linenumber">139</context>
         </context-group>
         <note priority="1" from="description">Pay for service promotion</note>
       </trans-unit>
       <trans-unit id="oopsText" datatype="html">
         <source>Ooops..</source>
-        <target>Ooops..</target>
+<target>Превод Ooops..</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">151</context>
+          <context context-type="linenumber">149</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
@@ -1450,21 +1810,21 @@
         <source>In order to promote a
           service we need to know your
           email. Please, update your profile or provide your email in a following form:</source>
-        <target>In order to promote a
+<target>Превод In order to promote a
           service we need to know your
           email. Please, update your profile or provide your email in a following form:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">155</context>
+          <context context-type="linenumber">153</context>
         </context-group>
         <note priority="1" from="description">User has no email</note>
       </trans-unit>
       <trans-unit id="provideEmailText" datatype="html">
         <source>Provide email</source>
-        <target>Provide email</target>
+<target>Превод Provide email</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">182</context>
+          <context context-type="linenumber">180</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
@@ -1473,7 +1833,7 @@
       </trans-unit>
       <trans-unit id="couponCodeLabel" datatype="html">
         <source>Coupon code</source>
-        <target>Coupon code</target>
+<target>Превод Coupon code</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1493,7 +1853,7 @@
       </trans-unit>
       <trans-unit id="useCouponButtonText" datatype="html">
         <source>Use coupon</source>
-        <target>Use coupon</target>
+<target>Превод Use coupon</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
           <context context-type="linenumber">11</context>
@@ -1506,7 +1866,7 @@
       </trans-unit>
       <trans-unit id="cancelText" datatype="html">
         <source>Cancel</source>
-        <target>Cancel</target>
+<target>Превод Cancel</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
           <context context-type="linenumber">14</context>
@@ -1517,8 +1877,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="promoteServiceUsingCouponSuccessText" datatype="html">
-        <source>Successfully Boosted Service</source>
-        <target>Successfully Boosted Service</target>
+        <source>
+      Successfully Boosted Service</source>
+<target>Превод
+      Successfully Boosted Service</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
           <context context-type="linenumber">24</context>
@@ -1526,8 +1888,10 @@
         <note priority="1" from="description">Card title for successfully boosted service</note>
       </trans-unit>
       <trans-unit id="promotedTilText" datatype="html">
-        <source>Boosting works until</source>
-        <target>Boosting works until</target>
+        <source>
+      Boosting works until</source>
+<target>Превод
+      Boosting works until</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
           <context context-type="linenumber">27</context>
@@ -1538,10 +1902,8 @@
         </context-group>
       </trans-unit>
       <trans-unit id="openServiceText" datatype="html">
-        <source>Open service #<x id="INTERPOLATION" equiv-text="{{service_id}}"/>
-        </source>
-        <target>Open service #<x id="INTERPOLATION" equiv-text="{{service_id}}"/>
-        </target>
+        <source>Open service #</source>
+<target>Превод Open service #</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.html</context>
           <context context-type="linenumber">31</context>
@@ -1550,7 +1912,7 @@
       </trans-unit>
       <trans-unit id="promotedSeekIconTooltipText" datatype="html">
         <source>Promoted seek</source>
-        <target>Promoted seek</target>
+<target>Превод Promoted seek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1558,7 +1920,7 @@
       </trans-unit>
       <trans-unit id="similarSeeksCardTitle" datatype="html">
         <source>Similar seeks</source>
-        <target>Similar seeks</target>
+<target>Превод Similar seeks</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">101</context>
@@ -1566,7 +1928,7 @@
       </trans-unit>
       <trans-unit id="promoteYourSeekText" datatype="html">
         <source>Promote</source>
-        <target>Promote</target>
+<target>Превод Promote</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">181</context>
@@ -1574,7 +1936,7 @@
       </trans-unit>
       <trans-unit id="createNewSeekButtonTexst" datatype="html">
         <source>Create</source>
-        <target>Create</target>
+<target>Превод Create</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
           <context context-type="linenumber">41</context>
@@ -1582,7 +1944,7 @@
       </trans-unit>
       <trans-unit id="addNewSeekText" datatype="html">
         <source>Add seek</source>
-        <target>Add seek</target>
+<target>Превод Add seek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/create-seek/create-seek.component.html</context>
           <context context-type="linenumber">14</context>
@@ -1591,7 +1953,7 @@
       </trans-unit>
       <trans-unit id="promoteSeekText" datatype="html">
         <source>Promote seek</source>
-        <target>Promote seek</target>
+<target>Превод Promote seek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1608,7 +1970,7 @@
       </trans-unit>
       <trans-unit id="promoteSeekSelectPlanText" datatype="html">
         <source>Select Plan</source>
-        <target>Select Plan</target>
+<target>Превод Select Plan</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
           <context context-type="linenumber">35</context>
@@ -1622,7 +1984,7 @@
       <trans-unit id="promoteSeekBoostingProcessText" datatype="html">
         <source>
             Boosting Your Seek...</source>
-        <target>
+<target>Превод
             Boosting Your Seek...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
@@ -1633,7 +1995,7 @@
       <trans-unit id="promoteSeekSelectedPlanSuccessText" datatype="html">
         <source>
             Successfully Boosted Seek</source>
-        <target>
+<target>Превод
             Successfully Boosted Seek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
@@ -1643,7 +2005,7 @@
       </trans-unit>
       <trans-unit id="promoteSeekPayText" datatype="html">
         <source>Pay for seek boost</source>
-        <target>Pay for seek boost</target>
+<target>Превод Pay for seek boost</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
           <context context-type="linenumber">140</context>
@@ -1652,7 +2014,7 @@
       </trans-unit>
       <trans-unit id="promoteSeekUserHasNoEmail" datatype="html">
         <source>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</source>
-        <target>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</target>
+<target>Превод In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
           <context context-type="linenumber">153</context>
@@ -1661,9 +2023,9 @@
       </trans-unit>
       <trans-unit id="editSeekText" datatype="html">
         <source>Edit seek
-        </source>
-        <target>Edit seek
-        </target>
+  </source>
+<target>Превод Edit seek
+  </target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/edit-seek/edit-seek.component.html</context>
           <context context-type="linenumber">15</context>
@@ -1672,7 +2034,7 @@
       </trans-unit>
       <trans-unit id="3020849bc1c622a2c4bc1168afae093d44024fa2" datatype="html">
         <source>Free</source>
-        <target>Free</target>
+<target>Превод Free</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
           <context context-type="linenumber">33</context>
@@ -1684,7 +2046,7 @@
       </trans-unit>
       <trans-unit id="seekFormLabelTitle" datatype="html">
         <source>Seek title</source>
-        <target>Seek title</target>
+<target>Превод Seek title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1696,7 +2058,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorTitleIsTooShort" datatype="html">
         <source>Title is too short</source>
-        <target>Title is too short</target>
+<target>Превод Title is too short</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">15</context>
@@ -1706,7 +2068,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorTitleIsTooLong" datatype="html">
         <source>Title is too long</source>
-        <target>Title is too long</target>
+<target>Превод Title is too long</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">17</context>
@@ -1716,7 +2078,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorTitleNotProvided" datatype="html">
         <source>Please input valid title</source>
-        <target>Please input valid title</target>
+<target>Превод Please input valid title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">19</context>
@@ -1726,7 +2088,7 @@
       </trans-unit>
       <trans-unit id="seekFormLabelPrice" datatype="html">
         <source>Max Price</source>
-        <target>Max Price</target>
+<target>Превод Max Price</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">26</context>
@@ -1738,7 +2100,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorPriceIsTooSmall" datatype="html">
         <source>Price is too small</source>
-        <target>Price is too small</target>
+<target>Превод Price is too small</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">35</context>
@@ -1748,7 +2110,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorPriceIsTooBig" datatype="html">
         <source>Price is too big</source>
-        <target>Price is too big</target>
+<target>Превод Price is too big</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">37</context>
@@ -1758,7 +2120,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorPriceNotProvided" datatype="html">
         <source>Please input valid title</source>
-        <target>Please input valid title</target>
+<target>Превод Please input valid title</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">39</context>
@@ -1772,7 +2134,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorCategoryNotProvided" datatype="html">
         <source>Please select valid category</source>
-        <target>Please select valid category</target>
+<target>Превод Please select valid category</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">58</context>
@@ -1782,7 +2144,7 @@
       </trans-unit>
       <trans-unit id="seekFormLabelLocation" datatype="html">
         <source>Location</source>
-        <target>Location</target>
+<target>Превод Location</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">67</context>
@@ -1790,7 +2152,7 @@
       </trans-unit>
       <trans-unit id="seekFormLabelDescription" datatype="html">
         <source>Description</source>
-        <target>Description</target>
+<target>Превод Description</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">82</context>
@@ -1802,7 +2164,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorDescriptionIsTooShort" datatype="html">
         <source>Description is too short</source>
-        <target>Description is too short</target>
+<target>Превод Description is too short</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">88</context>
@@ -1812,7 +2174,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorDescriptionIsTooLong" datatype="html">
         <source>Description is too long</source>
-        <target>Description is too long</target>
+<target>Превод Description is too long</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">90</context>
@@ -1822,7 +2184,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorDescriptionNotProvided" datatype="html">
         <source>Please input valid description</source>
-        <target>Please input valid description</target>
+<target>Превод Please input valid description</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">92</context>
@@ -1832,7 +2194,7 @@
       </trans-unit>
       <trans-unit id="seekFormLabelTags" datatype="html">
         <source>Tags</source>
-        <target>Tags</target>
+<target>Превод Tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">99</context>
@@ -1840,7 +2202,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
-        <target>Select more tags</target>
+<target>Превод Select more tags</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">107</context>
@@ -1851,10 +2213,10 @@
       <trans-unit id="seekFormErrorTagsArrayIsTooLong" datatype="html">
         <source>
               Too much tags selected, reduce tags count
-        </source>
-        <target>
+            </source>
+<target>Превод
               Too much tags selected, reduce tags count
-        </target>
+            </target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">109</context>
@@ -1864,7 +2226,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorTagsArrayNotProvided" datatype="html">
         <source>Select tags for new seek</source>
-        <target>Select tags for new seek</target>
+<target>Превод Select tags for new seek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">113</context>
@@ -1874,7 +2236,7 @@
       </trans-unit>
       <trans-unit id="seekFormLabelImages" datatype="html">
         <source>Images</source>
-        <target>Images</target>
+<target>Превод Images</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">121</context>
@@ -1882,7 +2244,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorImagesArrayIsTooShort" datatype="html">
         <source>Add more images</source>
-        <target>Add more images</target>
+<target>Превод Add more images</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">127</context>
@@ -1892,7 +2254,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorImagesArrayIsTooLong" datatype="html">
         <source>Too many images</source>
-        <target>Too many images</target>
+<target>Превод Too many images</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">129</context>
@@ -1902,7 +2264,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorImagesArrayNotProvided" datatype="html">
         <source>Please add images for new seek</source>
-        <target>Please add images for new seek</target>
+<target>Превод Please add images for new seek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">131</context>
@@ -1912,7 +2274,7 @@
       </trans-unit>
       <trans-unit id="seekFormLabelPhone" datatype="html">
         <source>Phone</source>
-        <target>Phone</target>
+<target>Превод Phone</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">142</context>
@@ -1920,7 +2282,7 @@
       </trans-unit>
       <trans-unit id="seekFormLabelPhonePlaceholder" datatype="html">
         <source>Contact phone</source>
-        <target>Contact phone</target>
+<target>Превод Contact phone</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">146</context>
@@ -1928,7 +2290,7 @@
       </trans-unit>
       <trans-unit id="seekFormErrorPhoneIsInvalid" datatype="html">
         <source>Please input valid phone</source>
-        <target>Please input valid phone</target>
+<target>Превод Please input valid phone</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">151</context>
@@ -1938,7 +2300,7 @@
       </trans-unit>
       <trans-unit id="newSeekFormAddButtonText" datatype="html">
         <source>Create Seek</source>
-        <target>Create Seek</target>
+<target>Превод Create Seek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">162</context>
@@ -1946,7 +2308,7 @@
       </trans-unit>
       <trans-unit id="seekFormSaveButtonText" datatype="html">
         <source>Save</source>
-        <target>Save</target>
+<target>Превод Save</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">163</context>
@@ -1955,7 +2317,7 @@
       <trans-unit id="promoteSeekUsingCouponSuccessText" datatype="html">
         <source>
       Successfully Boosted Seek</source>
-        <target>
+<target>Превод
       Successfully Boosted Seek</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
@@ -1964,571 +2326,13 @@
         <note priority="1" from="description">Card title for successfully boosted seek</note>
       </trans-unit>
       <trans-unit id="openSeekText" datatype="html">
-        <source>Open seek #<x id="INTERPOLATION" equiv-text="{{seek_id}}"/>
-        </source>
-        <target>Open seek #<x id="INTERPOLATION" equiv-text="{{seek_id}}"/>
-        </target>
+        <source>Open seek #</source>
+<target>Превод Open seek #</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">Open promoted seek after boosting using coupon</note>
-      </trans-unit>
-      <trans-unit id="conversationHtmlTitle" datatype="html">
-        <source>Conversation</source>
-        <target>Conversation</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="messagesHtmlTitle" datatype="html">
-        <source>Messages</source>
-        <target>Messages</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/messages/messages/messages.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="feedPostText" datatype="html">
-        <source>Feed Post</source>
-        <target>Feed Post</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/feed/feed.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="errorNoImagesAndNoTextOnFeedPost" datatype="html">
-        <source>Enter text or add images</source>
-        <target>Enter text or add images</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/feed/feed-post/feed-post.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profileDetailHtmlTitle" datatype="html">
-        <source>User Profile</source>
-        <target>User Profile</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/profile-detail/profile-detail.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profileHtmlTitle" datatype="html">
-        <source>Profile</source>
-        <target>Profile</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/profile-detail/profile-detail.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="userProfileText" datatype="html">
-        <source>User Profile</source>
-        <target>User Profile</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/profile-detail/profile-detail.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profilesHtmlTitle" datatype="html">
-        <source>Profiles</source>
-        <target>Profiles</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/profile-list/profile-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/profile/profile.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="usersText" datatype="html">
-        <source>Users</source>
-        <target>Users</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/profile-list/profile-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="usersListText" datatype="html">
-        <source>Users list</source>
-        <target>Users list</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/profile/profile-list/profile-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="creatingItemProgressText" datatype="html">
-        <source>Creating</source>
-        <target>Creating</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="createSeekHtmlTitle" datatype="html">
-        <source>Create Seek</source>
-        <target>Create Seek</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="createSeekText" datatype="html">
-        <source>Create Seek</source>
-        <target>Create Seek</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="27fc7d2a0ba7333ab7faca1be01b7edc55885cdb" datatype="html">
-        <source>Create new Seek</source>
-        <target>Create new Seek</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="newSeekCreatedMessageText" datatype="html">
-        <source>Successfully created seek #<x id="INTERPOLATION" equiv-text="{{id}}"/>
-        </source>
-        <target>Successfully created seek #<x id="INTERPOLATION" equiv-text="{{id}}"/>
-        </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="newSeekCreatingErrorText" datatype="html">
-        <source>Error creating seek</source>
-        <target>Error creating seek</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/create-seek/create-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Message notifies user about an error while creating new seek</note>
-      </trans-unit>
-      <trans-unit id="editingItemProgressText" datatype="html">
-        <source>Editing</source>
-        <target>Editing</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/edit-seek/edit-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="editSeekHtmlTitle" datatype="html">
-        <source>Edit Seek</source>
-        <target>Edit Seek</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/edit-seek/edit-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="seekUpdatedMessageText" datatype="html">
-        <source>Successfully updated seek #<x id="INTERPOLATION" equiv-text="{{id}}"/>
-        </source>
-        <target>Successfully updated seek #<x id="INTERPOLATION" equiv-text="{{id}}"/>
-        </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/edit-seek/edit-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="seekUpdateErrorText" datatype="html">
-        <source>Error updating seek</source>
-        <target>Error updating seek</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/edit-seek/edit-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Message notifies user about an error while updating seek</note>
-      </trans-unit>
-      <trans-unit id="successPaymentForSeekBoostingText" datatype="html">
-        <source>Successfully paid for seek boosting</source>
-        <target>Successfully paid for seek boosting</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="boostingSeekLoadingText" datatype="html">
-        <source>Boosting your seek...</source>
-        <target>Boosting your seek...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="wrongSeekIdText" datatype="html">
-        <source>No seek id provided</source>
-        <target>No seek id provided</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="wrongCouponCodeText" datatype="html">
-        <source>Wrong coupon code</source>
-        <target>Wrong coupon code</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="successOnSeekDelete" datatype="html">
-        <source>Successfully deleted seek</source>
-        <target>Successfully deleted seek</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/seeks-detail/seeks-detail.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="seeksListHtmlTitle" datatype="html">
-        <source>Seeks</source>
-        <target>Seeks</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/seeks-list/seeks-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="seeksText" datatype="html">
-        <source>Seeks</source>
-        <target>Seeks</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/seeks-list/seeks-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="seeksListSeoDescription" datatype="html">
-        <source>Search seeks seo description</source>
-        <target>Search seeks seo description</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/seeks/components/seeks-list/seeks-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="createServiceHtmlTitle" datatype="html">
-        <source>Create Service</source>
-        <target>Create Service</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="createServiceText" datatype="html">
-        <source>Create Service</source>
-        <target>Create Service</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="987e6c22ad16291aac9ec059f8c1be45cc4bdb05" datatype="html">
-        <source>Create new Service</source>
-        <target>Create new Service</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="newServiceCreatedMessageText" datatype="html">
-        <source>Successfully created service #<x id="INTERPOLATION" equiv-text="{{id}}"/>
-        </source>
-        <target>Successfully created service #<x id="INTERPOLATION" equiv-text="{{id}}"/>
-        </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="newServiceCreatingErrorText" datatype="html">
-        <source>Error creating service</source>
-        <target>Error creating service</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Message notifies user about an error while creating new service</note>
-      </trans-unit>
-      <trans-unit id="editServiceHtmlTitle" datatype="html">
-        <source>Edit Service</source>
-        <target>Edit Service</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="serviceUpdatedMessageText" datatype="html">
-        <source>Successfully updated service #<x id="INTERPOLATION" equiv-text="{{id}}"/>
-        </source>
-        <target>Successfully updated service #<x id="INTERPOLATION" equiv-text="{{id}}"/>
-        </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="serviceUpdateErrorText" datatype="html">
-        <source>Error updating service</source>
-        <target>Error updating service</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Message notifies user about an error while updating service</note>
-      </trans-unit>
-      <trans-unit id="72f4e2078159f34038ff5856253c0b6f1d1e792d" datatype="html">
-        <source>Only <x id="INTERPOLATION" equiv-text="{{number}}"/>
- allowed</source>
-        <target>Only <x id="INTERPOLATION" equiv-text="{{number}}"/>
- allowed</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/new-service-form/json-label-value-editor/json-label-value-editor.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="successPaymentForServiceBoostingText" datatype="html">
-        <source>Successfully paid for service boosting</source>
-        <target>Successfully paid for service boosting</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="boostingServiceLoadingText" datatype="html">
-        <source>Boosting your service...</source>
-        <target>Boosting your service...</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="wrongServiceIdText" datatype="html">
-        <source>No service id provided</source>
-        <target>No service id provided</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="successOnServiceDelete" datatype="html">
-        <source>Successfully deleted service</source>
-        <target>Successfully deleted service</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/services-detail/services-detail.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="servicesListHtmlTitle" datatype="html">
-        <source>Services</source>
-        <target>Services</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/services-list/services-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="servicesText" datatype="html">
-        <source>Services</source>
-        <target>Services</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/services-list/services-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="servicesListSeoDescription" datatype="html">
-        <source>Search services seo description</source>
-        <target>Search services seo description</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/services/components/services-list/services-list.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4c745da22a97f302dc6483986c9bb6c605095867" datatype="html">
-        <source>You can select 5 tags max</source>
-        <target>You can select 5 tags max</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/filters/list-filters/list-filters.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="districtText" datatype="html">
-        <source>District</source>
-        <target>District</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/filters/location-search/location-search.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Simple district word</note>
-      </trans-unit>
-      <trans-unit id="selectLocationText" datatype="html">
-        <source>Select Location</source>
-        <target>Select Location</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/filters/location-search/location-search.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="warnUserAboutAbilityToSearchLocationInSearchSelector" datatype="html">
-        <source>You can search location by name</source>
-        <target>You can search location by name</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/filters/location-search/location-search.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <note priority="1" from="description">Notify user that he/she can search location by name instead of scrolling down a lot of time</note>
-      </trans-unit>
-      <trans-unit id="13631441472a2bfc70a6fe3d96077f85a7e4a608" datatype="html">
-        <source>Wrong paymentIntent id. Contact administrator.</source>
-        <target>Wrong paymentIntent id. Contact administrator.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="incompleteCardNumberErrorText" datatype="html">
-        <source>Your card number is incomplete.</source>
-        <target>Your card number is incomplete.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="invalidCardNumberErrorText" datatype="html">
-        <source>Your card number is invalid.</source>
-        <target>Your card number is invalid.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="incompleteCardExpiryErrorText" datatype="html">
-        <source>Your card&apos;s expiration date is incomplete.</source>
-        <target>Your card&apos;s expiration date is incomplete.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="invalidCardExpiryYearPastErrorText" datatype="html">
-        <source>Your card&apos;s expiration year is in the past.</source>
-        <target>Your card&apos;s expiration year is in the past.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="invalidCardExpiryYearErrorText" datatype="html">
-        <source>Your card&apos;s expiration year is invalid.</source>
-        <target>Your card&apos;s expiration year is invalid.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="invalidCardExpiryErrorText" datatype="html">
-        <source>Your card&apos;s expiration is invalid.</source>
-        <target>Your card&apos;s expiration is invalid.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="incompleteCardCVCErrorText" datatype="html">
-        <source>Your card&apos;s security code is incomplete.</source>
-        <target>Your card&apos;s security code is incomplete.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="incompleteCardZipErrorText" datatype="html">
-        <source>Your postal code is incomplete.</source>
-        <target>Your postal code is incomplete.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="unknownErrorText" datatype="html">
-        <source>Unknown error. Contact administrator</source>
-        <target>Unknown error. Contact administrator</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="permissionDeniedOnUserAvatarChangeText" datatype="html">
-        <source>You can not change avatar of this user!</source>
-        <target>You can not change avatar of this user!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="uploadImageErrorBecauseFileType" datatype="html">
-        <source>You can only upload JPG / PNG file!</source>
-        <target>You can only upload JPG / PNG file!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="uploadImageErrorBecauseSize" datatype="html">
-        <source>Image must smaller than 3MB!</source>
-        <target>Image must smaller than 3MB!</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="successUpdatedAvatar" datatype="html">
-        <source>Successfully updated avatar</source>
-        <target>Successfully updated avatar</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="errorUpdatingAvatar" datatype="html">
-        <source>Error uploading new avatar</source>
-        <target>Error uploading new avatar</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="networkErrorText" datatype="html">
-        <source>Network error</source>
-        <target>Network error</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
       </trans-unit>
     </body>
   </file>

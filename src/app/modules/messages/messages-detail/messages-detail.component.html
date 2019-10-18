@@ -15,7 +15,7 @@
       </a>
       <br />
       <span *ngIf="!partner.is_online else userOnlineTmpl">
-        <span i18n="@@lastSeenUserText">Last seen:</span>
+        <span i18n="@@lastSeenUserText">Last seen</span>:
         {{partner.last_active | date: 'hh:mm a MMMM d'}}
       </span>
       <ng-template #userOnlineTmpl>
@@ -32,7 +32,7 @@
       <nz-spin style="height: 100%;" nzTip="Loading..." [nzSpinning]="loading">
         <div nz-col>
           <div *ngIf="!messages || !messages.next" nz-row style="text-align: center;">
-            <small>conversation start</small>
+            <small i18n>conversation start</small>
           </div>
 
           <div *ngIf="messages && messages.next" (click)="loadMore()" nz-row style="text-align: center;">
@@ -97,7 +97,7 @@
 
 <ng-template #notfoundtemplate>
   <div nz-row nzJustify="center" nzType="flex">
-    <h2>Conversation not found</h2>
+    <h2 i18n>Conversation not found</h2>
     <app-page-not-found></app-page-not-found>
   </div>
 </ng-template>
