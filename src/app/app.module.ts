@@ -3,7 +3,7 @@ import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslat
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG, NzLayoutModule, NzBackTopModule, NzGridModule, NzMenuModule, NzAvatarModule, NzBadgeModule, NzCardModule, NzButtonModule, NzFormModule, NzRateModule, NzInputModule, NzIconModule, NzDrawerModule, NzDividerModule, NzListModule, NzPaginationModule, NgZorroAntdModule } from 'ng-zorro-antd';
+import { NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG, NzLayoutModule, NzBackTopModule, NzGridModule, NzMenuModule, NzAvatarModule, NzBadgeModule, NzCardModule, NzButtonModule, NzFormModule, NzRateModule, NzInputModule, NzIconModule, NzDrawerModule, NzDividerModule, NzListModule, NzPaginationModule, NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -114,12 +114,15 @@ registerLocaleData(en); // bg
         locale = locale || DEFAULT_LOCALE;
         if (locale == DEFAULT_LOCALE) {
           return '';
+        } else if (locale == 'bg') {
+          registerLocaleData(bg);
         }
         return require(`raw-loader!../locale/messages.${locale}.xlf`).default;
       },
       deps: [LOCALE_ID]
     },
     I18n,
+    { provide: NZ_I18N, useValue: en_US },
     httpInterceptorProviders,
     // TODO
     // {

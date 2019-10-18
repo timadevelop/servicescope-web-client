@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, TemplateRef, ViewChild, AfterViewInit, Inject, PLATFORM_ID, LOCALE_ID } from '@angular/core';
 import { slideInAnimation } from './animations';
 import { RouterOutlet, Router, Event, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { NzIconService, NzEmptyService } from 'ng-zorro-antd';
@@ -7,6 +7,8 @@ import { RealtimeNotificationsService } from './core/services/socket/realtime-no
 import { customIcons, serverPlatformIcons } from './icons';
 import { TargetDeviceService } from './core/services/target-device.service';
 import { isPlatformServer, isPlatformBrowser } from '@angular/common';
+
+import { NzI18nService, bg_BG } from 'ng-zorro-antd/i18n';
 
 @Component({
   selector: 'app-root',
@@ -25,8 +27,10 @@ export class AppComponent implements AfterViewInit {
     private router: Router,
     private _iconService: NzIconService,
     private nzEmptyService: NzEmptyService,
+    private nzI18n: NzI18nService,
     public rns: RealtimeNotificationsService,
-    public tds: TargetDeviceService) {
+    public tds: TargetDeviceService,
+    @Inject(LOCALE_ID) locale: string) {
     // init loading
     if (isPlatformBrowser(this.platformId)) {
       this.router.events.subscribe((event: Event) => {
@@ -47,6 +51,11 @@ export class AppComponent implements AfterViewInit {
           }
         }
       });
+
+      if (locale === 'bg') {
+        // en_US is by default
+        this.nzI18n.setLocale(bg_BG);
+      }
     }
     // register custom icons
     customIcons.forEach(icon => {
