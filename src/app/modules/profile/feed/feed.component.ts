@@ -63,6 +63,7 @@ export class FeedComponent implements OnInit {
   }
 
   initSeoForPost(fp: FeedPost) {
+    if (!fp) return;
     const title = this.i18n({ value: 'Feed Post', id: "feedPostText" }) + ' ' + fp.text;
     this.titleService.setTitle(title);
     // seo

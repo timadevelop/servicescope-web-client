@@ -963,6 +963,22 @@
           <context context-type="linenumber">81</context>
         </context-group>
         <note priority="1" from="description">Tooltip text on created_at date hover</note>
+      </trans-unit><trans-unit id="itemNumberText" datatype="html">
+        <source>Item id</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
+        <note priority="1" from="description"> For example for service list item user hovers id number and gets tooltip that this number is id</note>
+        <note priority="1" from="meaning">Tooltip text on item id element hover</note>
       </trans-unit><trans-unit id="currency" datatype="html">
         <source>BGN</source>
         <context-group purpose="location">
@@ -1116,8 +1132,16 @@
           <context context-type="linenumber">65</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">146</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">148</context>
         </context-group>
       </trans-unit><trans-unit id="promoteButtonText" datatype="html">
         <source>Promote</source>
@@ -1161,19 +1185,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">146</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
           <context context-type="linenumber">184</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">139</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">148</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
