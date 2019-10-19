@@ -11,9 +11,8 @@ export class User extends Base {
   image: string; // url
 
   services_count: number;
-  posts_count: number;
+  seekings_count: number;
   income_reviews_count: number;
-  offers_count: number;
   notifications_count: number;
 
   date_joined: string;

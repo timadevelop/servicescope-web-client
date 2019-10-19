@@ -19,12 +19,12 @@
     </ng-template>
     <app-label-value-row i18n-label="@@servicesLabel" label="Services" [value]="author.services_count"
       [routerlink]="['/profiles', author.id, 'services']"></app-label-value-row>
-    <app-label-value-row i18n-label="@@postsLabel" label="Posts" [value]="author.posts_count" [routerlink]="['/profiles', author.id, 'posts']">
+    <app-label-value-row i18n-label="@@seeksLabel" label="Seeks" [value]="author.seekings_count" [routerlink]="['/profiles', author.id, 'seeks']">
     </app-label-value-row>
     <!-- <app-label-value-row i18n-label="@@reviewsLabel" label="Reviews" [value]="author.income_reviews_count"
       [routerlink]="['/profiles', author.id, 'reviews']"></app-label-value-row> -->
-    <app-label-value-row i18n-label="@@offersLabel" label="Offers" [value]="author.offers_count" [routerlink]="['/profiles', author.id, 'offers']">
-    </app-label-value-row>
+    <!-- <app-label-value-row i18n-label="@@offersLabel" label="Offers" [value]="author.offers_count" [routerlink]="['/profiles', author.id, 'offers']">
+    </app-label-value-row> -->
     <app-label-value-row i18n-label="@@joinedLabel" label="Joined" [value]="transformDateString(author.date_joined)"></app-label-value-row>
   </div>
   <div nz-row class="author-contacts">
