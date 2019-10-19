@@ -307,11 +307,11 @@
         <source>or continue with</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">51</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">83</context>
         </context-group>
         <target>или да продължите с</target>
       </trans-unit>
@@ -319,7 +319,7 @@
         <source>Forgot password?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">55</context>
         </context-group>
         <target>Забравена парола?</target>
       </trans-unit>
@@ -327,7 +327,7 @@
         <source>Secured login TODO</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">59</context>
         </context-group>
         <target>Защитено влизане TODO</target>
       </trans-unit>
@@ -335,11 +335,11 @@
         <source>Terms</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="linenumber">89</context>
         </context-group>
         <target>условия</target>
       </trans-unit>
@@ -347,11 +347,11 @@
         <source>Privacy</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="linenumber">89</context>
         </context-group>
         <target>поверителност</target>
       </trans-unit>
@@ -431,7 +431,7 @@
         <source>Secured register TODO</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">88</context>
         </context-group>
         <target>Защитена регистрация TODO</target>
       </trans-unit>
@@ -680,22 +680,6 @@
         </context-group>
         <target>стреми</target>
       </trans-unit>
-      <trans-unit id="offersTab" datatype="html">
-        <source>Offers</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-        <target>оферти</target>
-      </trans-unit>
-      <trans-unit id="reviewsTab" datatype="html">
-        <source>Reviews</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-        <target>Отзиви</target>
-      </trans-unit>
       <trans-unit id="filtersButtonText" datatype="html">
         <source>Filters</source>
         <context-group purpose="location">
@@ -719,16 +703,16 @@
           <context context-type="linenumber">63</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
           <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
           <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <target>Филтри</target>
       </trans-unit>
@@ -827,6 +811,14 @@
           <context context-type="linenumber">145</context>
         </context-group>
         <target>да</target>
+      </trans-unit>
+      <trans-unit id="createNewSeekButtonTexst" datatype="html">
+        <source>Create</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <target>създавам</target>
       </trans-unit>
       <trans-unit id="shareBtnText" datatype="html">
         <source>Share</source>
@@ -1284,21 +1276,13 @@
         </context-group>
         <target>Услуги</target>
       </trans-unit>
-      <trans-unit id="postsLabel" datatype="html">
-        <source>Posts</source>
+      <trans-unit id="seeksLabel" datatype="html">
+        <source>Seeks</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/author-card/author-card.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
-        <target>Публикации</target>
-      </trans-unit>
-      <trans-unit id="offersLabel" datatype="html">
-        <source>Offers</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/shared/author-card/author-card.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-        <target>оферти</target>
+        <target>стреми</target>
       </trans-unit>
       <trans-unit id="joinedLabel" datatype="html">
         <source>Joined</source>
@@ -1384,12 +1368,12 @@
           <context context-type="linenumber">24</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
           <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">Text user sees on tag hover</note>
         <target>Търсене по таг</target>
@@ -2137,6 +2121,18 @@
         <note priority="1" from="description">Open promoted service after boosting using coupon</note>
         <target>Отворена услуга №</target>
       </trans-unit>
+      <trans-unit id="3020849bc1c622a2c4bc1168afae093d44024fa2" datatype="html">
+        <source>Free</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+        <target>Безплатно</target>
+      </trans-unit>
       <trans-unit id="promotedSeekIconTooltipText" datatype="html">
         <source>Promoted seek</source>
         <context-group purpose="location">
@@ -2161,14 +2157,6 @@
         </context-group>
         <target>Насърчаване</target>
       </trans-unit>
-      <trans-unit id="createNewSeekButtonTexst" datatype="html">
-        <source>Create</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-        <target>създавам</target>
-      </trans-unit>
       <trans-unit id="addNewSeekText" datatype="html">
         <source>Add seek</source>
         <context-group purpose="location">
@@ -2177,74 +2165,6 @@
         </context-group>
         <note priority="1" from="description">Card title for new seek form</note>
         <target>Добавете търсене</target>
-      </trans-unit>
-      <trans-unit id="promoteSeekText" datatype="html">
-        <source>Promote seek</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">27</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">129</context>
-        </context-group>
-        <note priority="1" from="description">Card title for promote seek form</note>
-        <target>Популяризиране на търсенето</target>
-      </trans-unit>
-      <trans-unit id="promoteSeekSelectPlanText" datatype="html">
-        <source>Select Plan</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">57</context>
-        </context-group>
-        <note priority="1" from="description">Card title for promote seek select plan</note>
-        <target>Изберете План</target>
-      </trans-unit>
-      <trans-unit id="promoteSeekBoostingProcessText" datatype="html">
-        <source>
-            Boosting Your Seek...</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">43</context>
-        </context-group>
-        <note priority="1" from="description">Card title for seek boosting process</note>
-        <target>Увеличаване на търсенето ви ...</target>
-      </trans-unit>
-      <trans-unit id="promoteSeekSelectedPlanSuccessText" datatype="html">
-        <source>
-            Successfully Boosted Seek</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-        <note priority="1" from="description">Card title for successfully boosted seek</note>
-        <target>Успешно засилено търсене</target>
-      </trans-unit>
-      <trans-unit id="promoteSeekPayText" datatype="html">
-        <source>Pay for seek boost</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">140</context>
-        </context-group>
-        <note priority="1" from="description">Pay for seek promotion</note>
-        <target>Платете за търсене на стимули</target>
-      </trans-unit>
-      <trans-unit id="promoteSeekUserHasNoEmail" datatype="html">
-        <source>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">153</context>
-        </context-group>
-        <note priority="1" from="description">User has no email</note>
-        <target>За да насърчим търсенето, ние трябва да знаем вашия имейл. Моля, актуализирайте потребителския си профил или предоставете имейла си в следната форма:</target>
       </trans-unit>
       <trans-unit id="editSeekText" datatype="html">
         <source>Edit seek
@@ -2255,18 +2175,6 @@
         </context-group>
         <note priority="1" from="description">Card title for edit seek form</note>
         <target>Редактиране на търсенето</target>
-      </trans-unit>
-      <trans-unit id="3020849bc1c622a2c4bc1168afae093d44024fa2" datatype="html">
-        <source>Free</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">104</context>
-        </context-group>
-        <target>Безплатно</target>
       </trans-unit>
       <trans-unit id="seekFormLabelTitle" datatype="html">
         <source>Seek title</source>
@@ -2535,6 +2443,74 @@
           <context context-type="linenumber">163</context>
         </context-group>
         <target>Запази</target>
+      </trans-unit>
+      <trans-unit id="promoteSeekText" datatype="html">
+        <source>Promote seek</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote seek form</note>
+        <target>Популяризиране на търсенето</target>
+      </trans-unit>
+      <trans-unit id="promoteSeekSelectPlanText" datatype="html">
+        <source>Select Plan</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote seek select plan</note>
+        <target>Изберете План</target>
+      </trans-unit>
+      <trans-unit id="promoteSeekBoostingProcessText" datatype="html">
+        <source>
+            Boosting Your Seek...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">Card title for seek boosting process</note>
+        <target>Увеличаване на търсенето ви ...</target>
+      </trans-unit>
+      <trans-unit id="promoteSeekSelectedPlanSuccessText" datatype="html">
+        <source>
+            Successfully Boosted Seek</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <note priority="1" from="description">Card title for successfully boosted seek</note>
+        <target>Успешно засилено търсене</target>
+      </trans-unit>
+      <trans-unit id="promoteSeekPayText" datatype="html">
+        <source>Pay for seek boost</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+        <note priority="1" from="description">Pay for seek promotion</note>
+        <target>Платете за търсене на стимули</target>
+      </trans-unit>
+      <trans-unit id="promoteSeekUserHasNoEmail" datatype="html">
+        <source>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+        <note priority="1" from="description">User has no email</note>
+        <target>За да насърчим търсенето, ние трябва да знаем вашия имейл. Моля, актуализирайте потребителския си профил или предоставете имейла си в следната форма:</target>
       </trans-unit>
       <trans-unit id="promoteSeekUsingCouponSuccessText" datatype="html">
         <source>

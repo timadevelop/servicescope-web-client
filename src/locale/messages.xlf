@@ -243,43 +243,43 @@
         <source>or continue with</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">51</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit><trans-unit id="3a8e04b34236be1cb450987973bcb7b33d483e35" datatype="html">
         <source>Forgot password?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit><trans-unit id="891ffbf685c3aa0013f1e046e223592e797b04d0" datatype="html">
         <source>Secured login TODO</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit><trans-unit id="69580f2c2dbf4edf7096820ba8c393367352d774" datatype="html">
         <source>Terms</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit><trans-unit id="3c78b53bca33467190c0b7a01320bc093a2b1427" datatype="html">
         <source>Privacy</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit><trans-unit id="429b882634d2080aaf4183744175cdb3e16db2bc" datatype="html">
         <source>First name is too short</source>
@@ -339,7 +339,7 @@
         <source>Secured register TODO</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">88</context>
         </context-group>
       </trans-unit><trans-unit id="3aa572549b8f3df5b7c1b0558d9c15075f861f86" datatype="html">
         <source>Verify email status</source>
@@ -530,18 +530,6 @@
           <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
           <context context-type="linenumber">37</context>
         </context-group>
-      </trans-unit><trans-unit id="offersTab" datatype="html">
-        <source>Offers</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-      </trans-unit><trans-unit id="reviewsTab" datatype="html">
-        <source>Reviews</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
       </trans-unit><trans-unit id="filtersButtonText" datatype="html">
         <source>Filters</source>
         <context-group purpose="location">
@@ -563,16 +551,16 @@
           <context context-type="linenumber">63</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
           <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
           <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit><trans-unit id="createNewServiceButtonTexst" datatype="html">
         <source>Create</source>
@@ -657,6 +645,12 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">145</context>
+        </context-group>
+      </trans-unit><trans-unit id="createNewSeekButtonTexst" datatype="html">
+        <source>Create</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit><trans-unit id="shareBtnText" datatype="html">
         <source>Share</source>
@@ -1022,17 +1016,11 @@
           <context context-type="sourcefile">app/modules/shared/author-card/author-card.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
-      </trans-unit><trans-unit id="postsLabel" datatype="html">
-        <source>Posts</source>
+      </trans-unit><trans-unit id="seeksLabel" datatype="html">
+        <source>Seeks</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/author-card/author-card.component.html</context>
           <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit><trans-unit id="offersLabel" datatype="html">
-        <source>Offers</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/shared/author-card/author-card.component.html</context>
-          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit><trans-unit id="joinedLabel" datatype="html">
         <source>Joined</source>
@@ -1106,12 +1094,12 @@
           <context context-type="linenumber">24</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">24</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
           <context context-type="linenumber">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">Text user sees on tag hover</note>
       </trans-unit><trans-unit id="noTags" datatype="html">
@@ -1721,6 +1709,16 @@
           <context context-type="linenumber">31</context>
         </context-group>
         <note priority="1" from="description">Open promoted service after boosting using coupon</note>
+      </trans-unit><trans-unit id="3020849bc1c622a2c4bc1168afae093d44024fa2" datatype="html">
+        <source>Free</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
       </trans-unit><trans-unit id="promotedSeekIconTooltipText" datatype="html">
         <source>Promoted seek</source>
         <context-group purpose="location">
@@ -1739,12 +1737,6 @@
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">181</context>
         </context-group>
-      </trans-unit><trans-unit id="createNewSeekButtonTexst" datatype="html">
-        <source>Create</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-list/seeks-list.component.html</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
       </trans-unit><trans-unit id="addNewSeekText" datatype="html">
         <source>Add seek</source>
         <context-group purpose="location">
@@ -1752,62 +1744,6 @@
           <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">Card title for new seek form</note>
-      </trans-unit><trans-unit id="promoteSeekText" datatype="html">
-        <source>Promote seek</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">27</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">129</context>
-        </context-group>
-        <note priority="1" from="description">Card title for promote seek form</note>
-      </trans-unit><trans-unit id="promoteSeekSelectPlanText" datatype="html">
-        <source>Select Plan</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">57</context>
-        </context-group>
-        <note priority="1" from="description">Card title for promote seek select plan</note>
-      </trans-unit><trans-unit id="promoteSeekBoostingProcessText" datatype="html">
-        <source>
-            Boosting Your Seek...</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">43</context>
-        </context-group>
-        <note priority="1" from="description">Card title for seek boosting process</note>
-      </trans-unit><trans-unit id="promoteSeekSelectedPlanSuccessText" datatype="html">
-        <source>
-            Successfully Boosted Seek</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-        <note priority="1" from="description">Card title for successfully boosted seek</note>
-      </trans-unit><trans-unit id="promoteSeekPayText" datatype="html">
-        <source>Pay for seek boost</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">140</context>
-        </context-group>
-        <note priority="1" from="description">Pay for seek promotion</note>
-      </trans-unit><trans-unit id="promoteSeekUserHasNoEmail" datatype="html">
-        <source>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">153</context>
-        </context-group>
-        <note priority="1" from="description">User has no email</note>
       </trans-unit><trans-unit id="editSeekText" datatype="html">
         <source>Edit seek
   </source>
@@ -1816,16 +1752,6 @@
           <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description">Card title for edit seek form</note>
-      </trans-unit><trans-unit id="3020849bc1c622a2c4bc1168afae093d44024fa2" datatype="html">
-        <source>Free</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">104</context>
-        </context-group>
       </trans-unit><trans-unit id="seekFormLabelTitle" datatype="html">
         <source>Seek title</source>
         <context-group purpose="location">
@@ -2040,6 +1966,62 @@
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">163</context>
         </context-group>
+      </trans-unit><trans-unit id="promoteSeekText" datatype="html">
+        <source>Promote seek</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">129</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote seek form</note>
+      </trans-unit><trans-unit id="promoteSeekSelectPlanText" datatype="html">
+        <source>Select Plan</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote seek select plan</note>
+      </trans-unit><trans-unit id="promoteSeekBoostingProcessText" datatype="html">
+        <source>
+            Boosting Your Seek...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <note priority="1" from="description">Card title for seek boosting process</note>
+      </trans-unit><trans-unit id="promoteSeekSelectedPlanSuccessText" datatype="html">
+        <source>
+            Successfully Boosted Seek</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <note priority="1" from="description">Card title for successfully boosted seek</note>
+      </trans-unit><trans-unit id="promoteSeekPayText" datatype="html">
+        <source>Pay for seek boost</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+        <note priority="1" from="description">Pay for seek promotion</note>
+      </trans-unit><trans-unit id="promoteSeekUserHasNoEmail" datatype="html">
+        <source>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+        <note priority="1" from="description">User has no email</note>
       </trans-unit><trans-unit id="promoteSeekUsingCouponSuccessText" datatype="html">
         <source>
       Successfully Boosted Seek</source>
