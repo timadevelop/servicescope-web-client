@@ -37,7 +37,7 @@ export class JsonLabelValueEditorComponent implements OnInit {
     //   return;
     // } else
      if (this.items.length >= this.maxItems) {
-      this.msgService.warning(this.i18n("Only {{number}} allowed", {number: this.maxItems}));
+      this.msgService.warning(this.i18n("Only") + ` ${this.maxItems} ` + this.i18n("items allowed"));
       return;
     } else {
       this.items.push(this.createItem());
