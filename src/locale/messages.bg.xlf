@@ -604,7 +604,7 @@
         <source>Type new message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <target>Въведете ново съобщение</target>
       </trans-unit>
@@ -612,7 +612,7 @@
         <source>Hey, would you tell author about this?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <target>Хей, бихте ли казали на автора за това?</target>
       </trans-unit>
@@ -620,7 +620,7 @@
         <source>No, thanks</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <target>Не благодаря</target>
       </trans-unit>
@@ -628,7 +628,7 @@
         <source>Yes, send message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
         <target>Да, изпратете съобщение</target>
       </trans-unit>
@@ -2634,6 +2634,14 @@
           <context context-type="linenumber">1</context>
         </context-group>
         <target>вместо</target>
+      </trans-unit>
+      <trans-unit id="96ac4be45ec06a3441ff3fd592a0a01aa1b99f35" datatype="html">
+        <source>Hey, I am interested in this: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/new-message-form/new-message-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Ей, интересувам се от това:</target>
       </trans-unit>
       <trans-unit id="messagesHtmlTitle" datatype="html">
         <source>Messages</source>

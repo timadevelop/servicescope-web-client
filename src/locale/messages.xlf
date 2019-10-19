@@ -474,25 +474,25 @@
         <source>Type new message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit><trans-unit id="b1a23253e0fc0295ea6a2dd1398aa21fff478f3a" datatype="html">
         <source>Hey, would you tell author about this?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit><trans-unit id="b6fb58bdafab3431e83ea3da0992170e0f90dbb2" datatype="html">
         <source>No, thanks</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit><trans-unit id="c078246bb15f2f955cb8b995f034094c885f8132" datatype="html">
         <source>Yes, send message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit><trans-unit id="userbioLabel" datatype="html">
         <source>User bio</source>
@@ -2124,6 +2124,13 @@
         <source>instead</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="96ac4be45ec06a3441ff3fd592a0a01aa1b99f35" datatype="html">
+        <source>Hey, I am interested in this: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/new-message-form/new-message-form.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
