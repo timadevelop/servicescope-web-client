@@ -16,7 +16,7 @@ import { PromotedServicesListComponent } from './components/promoted-services-li
 import { PromoteServiceComponent } from './components/promote-service/promote-service.component';
 import { PromoteServiceUsingCouponComponent } from './components/promote-service/promote-service-using-coupon/promote-service-using-coupon.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
-import { NzCardModule, NzGridModule, NzSpinModule, NzFormModule, NzInputModule, NzInputNumberModule, NzDividerModule, NzIconModule, NzButtonModule, NzModalModule, NzListModule, NzTagModule, NzPaginationModule, NzDrawerModule, NzPopconfirmModule, NzAvatarModule } from 'ng-zorro-antd';
+import { NzCardModule, NzGridModule, NzSpinModule, NzFormModule, NzInputModule, NzInputNumberModule, NzDividerModule, NzIconModule, NzButtonModule, NzModalModule, NzListModule, NzTagModule, NzPaginationModule, NzDrawerModule, NzPopconfirmModule, NzAvatarModule, NzToolTipModule } from 'ng-zorro-antd';
 import { ImagesSelectorModule } from '../shared/images-selector/images-selector.module';
 import { TagsSelectorModule } from '../shared/tags-selector/tags-selector.module';
 import { CategorySelectorModule } from '../shared/category-selector/category-selector.module';
@@ -66,6 +66,7 @@ import { ServicesListItemComponent } from './components/services-list-item/servi
     NzPopconfirmModule,
     NzButtonModule,
     NzModalModule,
+    NzToolTipModule,
     NzListModule,
     NzTagModule,
     NzPaginationModule,
