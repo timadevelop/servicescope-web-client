@@ -142,7 +142,8 @@ export class PayFormComponent implements OnInit {
       ).then((result: { paymentIntent: paymentIntents.IPaymentIntent, error: any }) => {
         if (result.error) {
           // Display error.message in your UI.
-          that.nzMsgService.error('Error');
+          // TODO
+          that.nzMsgService.error(this.i18n('Payment error:') + String(result.error));
           console.log(result.error);
           that.loading = false;
         } else {

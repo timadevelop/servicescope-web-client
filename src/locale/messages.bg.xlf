@@ -91,6 +91,14 @@
         </context-group>
         <target>Излез от профила си</target>
       </trans-unit>
+      <trans-unit id="notificationsManagerNotificationDividerText" datatype="html">
+        <source>Notifications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <target>Известия</target>
+      </trans-unit>
       <trans-unit id="7b58146557e281bcabcc2748848e74c0823f4b8e" datatype="html">
         <source>Thanks for Feedback!</source>
         <context-group purpose="location">
@@ -575,6 +583,14 @@
         <note priority="1" from="meaning">Add new file to uploader text</note>
         <target>Добави</target>
       </trans-unit>
+      <trans-unit id="searchConversationsPlaceholder" datatype="html">
+        <source>Search conversations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-list/messages-list.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <target>Търсене на разговори</target>
+      </trans-unit>
       <trans-unit id="noMessagesInConversationText" datatype="html">
         <source>No messages</source>
         <context-group purpose="location">
@@ -615,6 +631,70 @@
           <context context-type="linenumber">31</context>
         </context-group>
         <target>Да, изпратете съобщение</target>
+      </trans-unit>
+      <trans-unit id="userbioLabel" datatype="html">
+        <source>User bio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <target>Био на потребителя</target>
+      </trans-unit>
+      <trans-unit id="emailLabel" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <target>електронна поща</target>
+      </trans-unit>
+      <trans-unit id="profileDetailUsernameLabel" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <target>Потребител</target>
+      </trans-unit>
+      <trans-unit id="feedTab" datatype="html">
+        <source>Feed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <target>фураж</target>
+      </trans-unit>
+      <trans-unit id="servicesTab" datatype="html">
+        <source>Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <target>Услуги</target>
+      </trans-unit>
+      <trans-unit id="seeksTab" datatype="html">
+        <source>Seeks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <target>стреми</target>
+      </trans-unit>
+      <trans-unit id="offersTab" datatype="html">
+        <source>Offers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <target>оферти</target>
+      </trans-unit>
+      <trans-unit id="reviewsTab" datatype="html">
+        <source>Reviews</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <target>Отзиви</target>
       </trans-unit>
       <trans-unit id="filtersButtonText" datatype="html">
         <source>Filters</source>
@@ -798,6 +878,14 @@
         <note priority="1" from="meaning">Select tags text</note>
         <target>Изберете маркери</target>
       </trans-unit>
+      <trans-unit id="f462c96fbe17cc89fc9893ab5293be90d4c8b081" datatype="html">
+        <source>Send email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/email-wrapper/email-wrapper.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <target>Изпратете имейл</target>
+      </trans-unit>
       <trans-unit id="showText" datatype="html">
         <source>show</source>
         <context-group purpose="location">
@@ -805,6 +893,14 @@
           <context context-type="linenumber">5</context>
         </context-group>
         <target>шоу</target>
+      </trans-unit>
+      <trans-unit id="feedPostPlaceholder" datatype="html">
+        <source>What's up?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <target>Какво става?</target>
       </trans-unit>
       <trans-unit id="formErrorTextIsTooShort" datatype="html">
         <source>Too short text</source>
@@ -835,6 +931,14 @@
         <note priority="1" from="description">text is empty or invalid, ask user to provide text</note>
         <note priority="1" from="meaning">Error message</note>
         <target>Добави текст</target>
+      </trans-unit>
+      <trans-unit id="feedPostButton" datatype="html">
+        <source>Post</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <target>пост</target>
       </trans-unit>
       <trans-unit id="formErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
@@ -918,6 +1022,14 @@
         </context-group>
         <target>Търсене</target>
       </trans-unit>
+      <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
+        <source>Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/search-card/search-card.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <target>Търсене</target>
+      </trans-unit>
       <trans-unit id="sortNewestFirstText" datatype="html">
         <source>Newest</source>
         <context-group purpose="location">
@@ -988,7 +1100,7 @@
           <context context-type="linenumber">16</context>
         </context-group>
         <note priority="1" from="description">Literaly Tags word for describing a section with tags filtering functionality</note>
-        <target>Tags</target>
+        <target>Тагове</target>
       </trans-unit>
       <trans-unit id="3df4aa1a843a02478fb231839ae23e372eb58ec8" datatype="html">
         <source>no selected tags</source>
@@ -1277,39 +1389,15 @@
         <note priority="1" from="description">Tag text when there are no tags in a list of tags</note>
         <target>Без тагове</target>
       </trans-unit>
-      <trans-unit id="editButtonText" datatype="html">
+      <trans-unit id="deleteButtonText" datatype="html">
         <source>Delete</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
           <context context-type="linenumber">65</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">137</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">146</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">184</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">67</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">139</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">148</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">186</context>
         </context-group>
         <target>Изтрий</target>
       </trans-unit>
@@ -1352,6 +1440,34 @@
           <context context-type="linenumber">132</context>
         </context-group>
         <target>съобщение</target>
+      </trans-unit>
+      <trans-unit id="editButtonText" datatype="html">
+        <source>Edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">146</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">184</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">186</context>
+        </context-group>
+        <target>редактиране</target>
       </trans-unit>
       <trans-unit id="callText" datatype="html">
         <source>Call</source>
@@ -1680,7 +1796,7 @@
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">99</context>
         </context-group>
-        <target>Tags</target>
+        <target>Тагове</target>
       </trans-unit>
       <trans-unit id="serviceFormErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
@@ -2288,7 +2404,7 @@
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">99</context>
         </context-group>
-        <target>Tags</target>
+        <target>Тагове</target>
       </trans-unit>
       <trans-unit id="seekFormErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
@@ -2421,6 +2537,42 @@
         <note priority="1" from="description">Open promoted seek after boosting using coupon</note>
         <target>Отворено търсене #</target>
       </trans-unit>
+      <trans-unit id="ae9bdf0fff92901ed536aae3490bd05cdb67efc1" datatype="html">
+        <source>An error occurred:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/register/register.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Възникна грешка:</target>
+      </trans-unit>
+      <trans-unit id="db6083b89f7a833d4b4d4633769ccad7e147cff4" datatype="html">
+        <source>We have some troubles. Contact Administrator please.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Имаме някои проблеми. Свържете се с администратора, моля.</target>
+      </trans-unit>
+      <trans-unit id="b2bfc132fdf615218d6165ad357d6d36c11fb473" datatype="html">
+        <source>It seems like api does not work.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Изглежда, че апи не работи.</target>
+      </trans-unit>
+      <trans-unit id="640e9b047c36785bbc50aed0d2d08f728f621df4" datatype="html">
+        <source>Something bad happened on error handling.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Нещо лошо се случи при работа с грешки.</target>
+      </trans-unit>
       <trans-unit id="conversationHtmlTitle" datatype="html">
         <source>Conversation</source>
         <context-group purpose="location">
@@ -2433,6 +2585,38 @@
         </context-group>
         <target>разговор</target>
       </trans-unit>
+      <trans-unit id="6acd7b5d19bc8a8dd47ab0ffae8c1108367bfc82" datatype="html">
+        <source>Success socket joined room</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Успешна гнездо присъедини стая</target>
+      </trans-unit>
+      <trans-unit id="a89a87fc1d493cc0d96335ad1a6da8cbc0b11a26" datatype="html">
+        <source>Error joining room</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Грешка при присъединяването към стаята</target>
+      </trans-unit>
+      <trans-unit id="f80be3171746c25acc1c7fb243af7074f7b2416f" datatype="html">
+        <source>connected to room</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>свързан със стая</target>
+      </trans-unit>
+      <trans-unit id="93c55596b9757c5e8e95e1252d59829dd645210a" datatype="html">
+        <source>instead</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>вместо</target>
+      </trans-unit>
       <trans-unit id="messagesHtmlTitle" datatype="html">
         <source>Messages</source>
         <context-group purpose="location">
@@ -2440,6 +2624,14 @@
           <context context-type="linenumber">1</context>
         </context-group>
         <target>Съобщения</target>
+      </trans-unit>
+      <trans-unit id="e5757826e724ee93140c0caf98c438e544ad7dc8" datatype="html">
+        <source>Not found user with id</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/redirect.guard.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Не е намерен потребител с идентификатор</target>
       </trans-unit>
       <trans-unit id="feedPostText" datatype="html">
         <source>Feed Post</source>
@@ -2456,6 +2648,14 @@
           <context context-type="linenumber">1</context>
         </context-group>
         <target>Въведете текст или добавете изображения</target>
+      </trans-unit>
+      <trans-unit id="0e7b1e9d78bbbfed34e74f0fd67ed51a0ccd0fab" datatype="html">
+        <source>A post for editing is not provided</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/feed/feed-post/feed-post.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Публикация за редактиране не е предоставена</target>
       </trans-unit>
       <trans-unit id="profileDetailHtmlTitle" datatype="html">
         <source>User Profile</source>
@@ -2643,7 +2843,7 @@
         </context-group>
         <target>Грешен код на талон</target>
       </trans-unit>
-      <trans-unit id="successOnSeekDelete" datatype="html">
+      <trans-unit id="019d6fa64631c73f4835163126ce96d2d677a4c9" datatype="html">
         <source>Successfully deleted seek</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/seeks/components/seeks-detail/seeks-detail.component.ts</context>
@@ -2847,6 +3047,22 @@
         <note priority="1" from="description">Notify user that he/she can search location by name instead of scrolling down a lot of time</note>
         <target>Можете да търсите местоположение по име</target>
       </trans-unit>
+      <trans-unit id="c2ebb69204b9def3889dea10839730db7fc5c786" datatype="html">
+        <source>You can only upload JPG or PNG file!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/images-selector/images-selector.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Можете да качвате само JPG или PNG файл!</target>
+      </trans-unit>
+      <trans-unit id="27cbca838216e9ca5742662f4fd0f7b352b8f010" datatype="html">
+        <source>Image must smaller than 5MB!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/images-selector/images-selector.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Изображението трябва да е по-малко от 5MB!</target>
+      </trans-unit>
       <trans-unit id="13631441472a2bfc70a6fe3d96077f85a7e4a608" datatype="html">
         <source>Wrong paymentIntent id. Contact administrator.</source>
         <context-group purpose="location">
@@ -2854,6 +3070,14 @@
           <context context-type="linenumber">1</context>
         </context-group>
         <target>Неправилно плащанеИдентификационен номер Свържете се с администратора.</target>
+      </trans-unit>
+      <trans-unit id="5b3a111c93e7ad4e402ef5b55c0ee25cb7e8ed03" datatype="html">
+        <source>Payment error:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <target>Грешка в плащането:</target>
       </trans-unit>
       <trans-unit id="incompleteCardNumberErrorText" datatype="html">
         <source>Your card number is incomplete.</source>

@@ -1,7 +1,7 @@
 <div nz-col class="messages-list-wrapper">
   <div class="search mb-vertical-align">
     <nz-input-group [nzSuffix]="suffixIconSearch">
-      <input type="text" nz-input i18nPlaceholder="@@searchConversationsPlaceholder" placeholder="Search conversations" (change)="search($event.target.value)" />
+      <input type="text" nz-input i18n-placeholder="@@searchConversationsPlaceholder" placeholder="Search conversations" (change)="search($event.target.value)" />
     </nz-input-group>
     <ng-template #suffixIconSearch>
       <i nz-icon nzType="search"></i>

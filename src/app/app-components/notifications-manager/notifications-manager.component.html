@@ -29,7 +29,7 @@
       routerLinkActive="ant-menu-item-selected" i18n>Messages</a>
     <a nz-col nz-button (click)="logout()" i18n>Logout</a>
   </div>
-  <nz-divider class="margin-5" nzOrientation="left" nzText="Notifications"></nz-divider>
+  <nz-divider class="margin-5" nzOrientation="left" i18n-nzText="@@notificationsManagerNotificationDividerText" nzText="Notifications"></nz-divider>
   <nz-list [nzDataSource]="rns.notificationHistory"
     [nzItemLayout]="'horizontal'" [nzRenderItem]="notificationTemplate" [nzPagination]="pagination" [nzFooter]="footer">
 

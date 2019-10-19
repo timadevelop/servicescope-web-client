@@ -17,7 +17,7 @@ export class ProfileDetailComponent implements OnInit {
   static TAB_INDEXES = {
     feed: 0,
     services: 1,
-    posts: 2,
+    seeks: 2,
     offers: 3,
     reviews: 4
   };

@@ -80,7 +80,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
       this.chatService.leaveRoom();
 
       if (!this.conversation) {
-        this.nzMsgService.error(`Conversation not found`);
+        this.nzMsgService.error(this.i18n('Conversation not found'));
         return;
       }
 
@@ -128,10 +128,10 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     } else if (m.type == 'joined_room') {
       const room: string = m.payload["room_name"];
       if (+room == this.conversation.id) {
-        this.nzMsgService.success(`Success socket joined room ${room}`);
+        this.nzMsgService.success(this.i18n(`Success socket joined room`) + ` ${room}`);
         this.chatService.markConversationAsRead(this.conversation.id);
       } else {
-        this.nzMsgService.error(`Error joining room ${this.conversation.id}, connected to room ${room} instead :/`);
+        this.nzMsgService.error(`${this.i18n('Error joining room')} ${this.conversation.id}, ${this.i18n('connected to room')} ${room} ${this.i18n('instead')} :/`);
       }
     } else if (m.type == 'connected') {
       this.joinRoom();

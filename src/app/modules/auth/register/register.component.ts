@@ -7,6 +7,7 @@ import { RegisterApiRequest } from 'src/app/core/models/api-request/register-api
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { LoginApiRequest } from 'src/app/core/models/api-request/login-api-request.model';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     public authService: AuthService,
     public userService: UserService,
-    public router: Router) {
+    public router: Router,
+    private i18n: I18n) {
   }
 
   loading: boolean = false;
@@ -105,7 +107,7 @@ export class RegisterComponent implements OnInit {
   private handleRegistrationError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
-      console.error(`An error occurred: ${error.error.message}`);
+      console.error(`${this.i18n('An error occurred:')} ${error.error.message}`);
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,

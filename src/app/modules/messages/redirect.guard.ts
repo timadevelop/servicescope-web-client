@@ -8,6 +8,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { ConversationApiRequest } from 'src/app/core/models/api-request/conversation-api-request.model';
 import { Location } from '@angular/common';
 import { NzMessageService } from 'ng-zorro-antd';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 
 export class AdditionalConversationRouteData {
@@ -23,6 +24,7 @@ export class RedirectGuard implements CanActivate, CanActivateChild, CanLoad {
     private userService: UserService,
     private conversationsService: ConversationsService,
     private router: Router,
+    private i18n: I18n,
     private nzMessageService: NzMessageService
   ) { }
 
@@ -59,7 +61,7 @@ export class RedirectGuard implements CanActivate, CanActivateChild, CanLoad {
               return this.createNewService(user);
             }),
             catchError(err => {
-              this.nzMessageService.error(`Not found user with id ${userId}`)
+              this.nzMessageService.error(`${this.i18n('Not found user with id')} ${userId}`);
               this.router.navigate(['/', 'messages']);
               return of(false);
             }))

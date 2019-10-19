@@ -71,6 +71,12 @@
           <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
           <context context-type="linenumber">30</context>
         </context-group>
+      </trans-unit><trans-unit id="notificationsManagerNotificationDividerText" datatype="html">
+        <source>Notifications</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
       </trans-unit><trans-unit id="7b58146557e281bcabcc2748848e74c0823f4b8e" datatype="html">
         <source>Thanks for Feedback!</source>
         <context-group purpose="location">
@@ -451,6 +457,12 @@
         </context-group>
         <note priority="1" from="description">Text for add button</note>
         <note priority="1" from="meaning">Add new file to uploader text</note>
+      </trans-unit><trans-unit id="searchConversationsPlaceholder" datatype="html">
+        <source>Search conversations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/messages/messages-list/messages-list.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
       </trans-unit><trans-unit id="noMessagesInConversationText" datatype="html">
         <source>No messages</source>
         <context-group purpose="location">
@@ -481,6 +493,54 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
           <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit><trans-unit id="userbioLabel" datatype="html">
+        <source>User bio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit><trans-unit id="emailLabel" datatype="html">
+        <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit><trans-unit id="profileDetailUsernameLabel" datatype="html">
+        <source>Username</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit><trans-unit id="feedTab" datatype="html">
+        <source>Feed</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit><trans-unit id="servicesTab" datatype="html">
+        <source>Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit><trans-unit id="seeksTab" datatype="html">
+        <source>Seeks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit><trans-unit id="offersTab" datatype="html">
+        <source>Offers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit><trans-unit id="reviewsTab" datatype="html">
+        <source>Reviews</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit><trans-unit id="filtersButtonText" datatype="html">
         <source>Filters</source>
@@ -638,11 +698,23 @@
         </context-group>
         <note priority="1" from="description">Asking user to select tags</note>
         <note priority="1" from="meaning">Select tags text</note>
+      </trans-unit><trans-unit id="f462c96fbe17cc89fc9893ab5293be90d4c8b081" datatype="html">
+        <source>Send email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/email-wrapper/email-wrapper.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
       </trans-unit><trans-unit id="showText" datatype="html">
         <source>show</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/phone-wrapper/phone-wrapper.component.html</context>
           <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit><trans-unit id="feedPostPlaceholder" datatype="html">
+        <source>What&apos;s up?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit><trans-unit id="formErrorTextIsTooShort" datatype="html">
         <source>Too short text</source>
@@ -668,6 +740,12 @@
         </context-group>
         <note priority="1" from="description">text is empty or invalid, ask user to provide text</note>
         <note priority="1" from="meaning">Error message</note>
+      </trans-unit><trans-unit id="feedPostButton" datatype="html">
+        <source>Post</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
       </trans-unit><trans-unit id="formErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
         <context-group purpose="location">
@@ -731,6 +809,12 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/filters/search-card/search-card.component.html</context>
           <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
+        <source>Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/filters/search-card/search-card.component.html</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit><trans-unit id="sortNewestFirstText" datatype="html">
         <source>Newest</source>
@@ -1025,39 +1109,15 @@
           <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">Tag text when there are no tags in a list of tags</note>
-      </trans-unit><trans-unit id="editButtonText" datatype="html">
+      </trans-unit><trans-unit id="deleteButtonText" datatype="html">
         <source>Delete</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
           <context context-type="linenumber">65</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">137</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">146</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
-          <context context-type="linenumber">184</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">67</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">139</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">148</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
-          <context context-type="linenumber">186</context>
         </context-group>
       </trans-unit><trans-unit id="promoteButtonText" datatype="html">
         <source>Promote</source>
@@ -1092,6 +1152,32 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">132</context>
+        </context-group>
+      </trans-unit><trans-unit id="editButtonText" datatype="html">
+        <source>Edit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">146</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
+          <context context-type="linenumber">184</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
+          <context context-type="linenumber">186</context>
         </context-group>
       </trans-unit><trans-unit id="callText" datatype="html">
         <source>Call</source>
@@ -1954,12 +2040,72 @@
         </context-group>
         <note priority="1" from="description">Open promoted seek after boosting using coupon</note>
       </trans-unit>
+      <trans-unit id="ae9bdf0fff92901ed536aae3490bd05cdb67efc1" datatype="html">
+        <source>An error occurred:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/auth/register/register.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="db6083b89f7a833d4b4d4633769ccad7e147cff4" datatype="html">
+        <source>We have some troubles. Contact Administrator please.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b2bfc132fdf615218d6165ad357d6d36c11fb473" datatype="html">
+        <source>It seems like api does not work.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="640e9b047c36785bbc50aed0d2d08f728f621df4" datatype="html">
+        <source>Something bad happened on error handling.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="conversationHtmlTitle" datatype="html">
         <source>Conversation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6acd7b5d19bc8a8dd47ab0ffae8c1108367bfc82" datatype="html">
+        <source>Success socket joined room</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a89a87fc1d493cc0d96335ad1a6da8cbc0b11a26" datatype="html">
+        <source>Error joining room</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f80be3171746c25acc1c7fb243af7074f7b2416f" datatype="html">
+        <source>connected to room</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="93c55596b9757c5e8e95e1252d59829dd645210a" datatype="html">
+        <source>instead</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
           <context context-type="linenumber">1</context>
@@ -1972,6 +2118,13 @@
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="e5757826e724ee93140c0caf98c438e544ad7dc8" datatype="html">
+        <source>Not found user with id</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/messages/redirect.guard.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="feedPostText" datatype="html">
         <source>Feed Post</source>
         <context-group purpose="location">
@@ -1981,6 +2134,13 @@
       </trans-unit>
       <trans-unit id="errorNoImagesAndNoTextOnFeedPost" datatype="html">
         <source>Enter text or add images</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/profile/feed/feed-post/feed-post.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0e7b1e9d78bbbfed34e74f0fd67ed51a0ccd0fab" datatype="html">
+        <source>A post for editing is not provided</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/profile/feed/feed-post/feed-post.component.ts</context>
           <context context-type="linenumber">1</context>
@@ -2152,7 +2312,7 @@
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="successOnSeekDelete" datatype="html">
+      <trans-unit id="019d6fa64631c73f4835163126ce96d2d677a4c9" datatype="html">
         <source>Successfully deleted seek</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/seeks/components/seeks-detail/seeks-detail.component.ts</context>
@@ -2331,8 +2491,29 @@
         </context-group>
         <note priority="1" from="description">Notify user that he/she can search location by name instead of scrolling down a lot of time</note>
       </trans-unit>
+      <trans-unit id="c2ebb69204b9def3889dea10839730db7fc5c786" datatype="html">
+        <source>You can only upload JPG or PNG file!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/images-selector/images-selector.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="27cbca838216e9ca5742662f4fd0f7b352b8f010" datatype="html">
+        <source>Image must smaller than 5MB!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/images-selector/images-selector.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="13631441472a2bfc70a6fe3d96077f85a7e4a608" datatype="html">
         <source>Wrong paymentIntent id. Contact administrator.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5b3a111c93e7ad4e402ef5b55c0ee25cb7e8ed03" datatype="html">
+        <source>Payment error:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
           <context context-type="linenumber">1</context>

@@ -62,7 +62,7 @@
           nzCancelText="No" i18n-nzCancelText="@@noText" nzOkText="Yes" i18n-nzOkText="@@yesText"
           (nzOnConfirm)="deleteService(service)" *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
           <app-card-button>
-            <i nz-icon nzType="delete"></i><span i18n="@@editButtonText">Delete</span>
+            <i nz-icon nzType="delete"></i><span i18n="@@deleteButtonText">Delete</span>
           </app-card-button>
         </a>
         <!-- Promote button -->
@@ -143,7 +143,7 @@
       i18n-nzCancelText="@@noText" nzOkText="Yes" i18n-nzOkText="@@yesText" (nzOnConfirm)="deleteService(service)"
       *ngIf="(userService.currentUserObs | async)?.id === service.author.id">
       <app-card-button>
-        <i nz-icon nzType="delete"></i><span i18n="@@editButtonText">Delete</span>
+        <i nz-icon nzType="delete"></i><span i18n="@@deleteButtonText">Delete</span>
       </app-card-button>
     </a>
 

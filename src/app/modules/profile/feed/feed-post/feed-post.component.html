@@ -7,7 +7,7 @@
       <nz-form-item>
         <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="textErrorTemplate">
           <textarea (focus)="focused=true" #postTextArea class="feed-post-input" formControlName="text" nz-input
-            [nzAutosize]="{ minRows: 1, maxRows: 999 }" placeholder="What's up?" type="text">
+            [nzAutosize]="{ minRows: 1, maxRows: 999 }" i18n-placeholder="@@feedPostPlaceholder" placeholder="What's up?" type="text">
         </textarea>
           <ng-template #textErrorTemplate let-control>
             <ng-container *ngIf="control.hasError('minlength')"
@@ -21,7 +21,7 @@
       </nz-form-item>
     </div>
     <div nz-col *ngIf="!focused">
-      <button nz-button nzType="primary" class="submit-button">Post</button>
+      <button nz-button nzType="primary" class="submit-button" i18n="@@feedPostButton">Post</button>
     </div>
     <!-- Tags -->
     <div *ngIf="focused" class="tags-selector-wrapper" nz-col nzSpan="24">

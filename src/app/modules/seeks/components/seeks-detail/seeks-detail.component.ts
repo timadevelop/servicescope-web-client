@@ -122,7 +122,7 @@ export class SeeksDetailComponent implements OnInit, OnDestroy {
     this.seeksService.delete(seek)
       .subscribe(
         r => {
-          this.nzMessageSeek.success(this.i18n({ value: "Successfully deleted seek", id: "successOnSeekDelete" }));
+          this.nzMessageSeek.success(this.i18n({ value: "Successfully deleted seek"}) + ` #${seek.id}`);
           this.router.navigate(['/', 'seeks']);
         }
       );

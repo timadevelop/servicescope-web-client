@@ -3,11 +3,11 @@
     <div nz-row nzType="flex" nzJustify="space-between">
       <div nz-col nzXs="24" nzSm="16" class="left-column">
         <labeled-text [editable]="this.user.id === this.userService?.currentUser?.id" #bioLabeledText maxLength="500"
-          minLength="3" (onChange)="onUserChange(bioLabeledText, {bio: $event})" label="User bio"
+          minLength="3" (onChange)="onUserChange(bioLabeledText, {bio: $event})" i18n-label="@@userbioLabel" label="User bio"
           [text]="user.bio || 'Empty'">
         </labeled-text>
         <labeled-text *ngIf="this.user.id === this.userService?.currentUser?.id" [editable]="true" #emailLabeledText
-          (onChange)="onUserChange(emailLabeledText, {email: $event})" label="Email"
+          (onChange)="onUserChange(emailLabeledText, {email: $event})" i18n-label="@@emailLabel" label="Email"
           [text]="this.user.email || 'No email'">
         </labeled-text>
         <div class="profile-links">
@@ -26,17 +26,17 @@
         <labeled-text class="username-labeled-text" [editable]="this.user.id === this.userService?.currentUser?.id"
           #userNameLabeledText maxLength="100" minLength="3"
           (onChange)="onUserChange(userNameLabeledText, {first_name: $event.substr(0, $event.indexOf(' ')), last_name: $event.substr($event.indexOf(' ')+1)})"
-          label="Username" [text]="getUsername()"></labeled-text>
+          i18n-label="@@profileDetailUsernameLabel" label="Username" [text]="getUsername()"></labeled-text>
       </div>
     </div>
   </nz-page-header-content>
   <nz-page-header-footer style="padding-top: 0">
     <nz-tabset [nzSelectedIndex]="selectedTabsIndex">
-      <nz-tab (nzClick)="changeTab('feed')" nzTitle="Feed"></nz-tab>
-      <nz-tab (nzClick)="changeTab('services')" nzTitle="Services"></nz-tab>
-      <nz-tab (nzClick)="changeTab('posts')" nzTitle="Posts"></nz-tab>
-      <nz-tab (nzClick)="changeTab('offers')" nzTitle="Offers"></nz-tab>
-      <nz-tab (nzClick)="changeTab('reviews')" nzTitle="Reviews"></nz-tab>
+      <nz-tab (nzClick)="changeTab('feed')" i18n-nzTitle="@@feedTab" nzTitle="Feed"></nz-tab>
+      <nz-tab (nzClick)="changeTab('services')" i18n-nzTitle="@@servicesTab" nzTitle="Services"></nz-tab>
+      <nz-tab (nzClick)="changeTab('seeks')" i18n-nzTitle="@@seeksTab" nzTitle="Seeks"></nz-tab>
+      <nz-tab (nzClick)="changeTab('offers')" i18n-nzTitle="@@offersTab" nzTitle="Offers"></nz-tab>
+      <nz-tab (nzClick)="changeTab('reviews')" i18n-nzTitle="@@reviewsTab" nzTitle="Reviews"></nz-tab>
     </nz-tabset>
   </nz-page-header-footer>
 </nz-page-header>

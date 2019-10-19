@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, EventEmitter, O
 import { UploadFile, NzMessageService, NzUploadComponent, UploadXHRArgs } from 'ng-zorro-antd';
 import { Observable, Subscription, Observer } from 'rxjs';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 const customValueProvider = {
   provide: NG_VALUE_ACCESSOR,
@@ -51,7 +52,7 @@ export class ImagesSelectorComponent implements OnInit, OnChanges, AfterViewInit
   // /ControlValueAccessor
   //
 
-  constructor(private msg: NzMessageService) { }
+  constructor(private msg: NzMessageService, private i18n: I18n) { }
 
   clearSubscription: Subscription = null;
 
@@ -90,13 +91,13 @@ export class ImagesSelectorComponent implements OnInit, OnChanges, AfterViewInit
     return new Observable((observer: Observer<boolean>) => {
       const isValidFileType = file.type === 'image/jpeg' || file.type === 'image/png';
       if (!isValidFileType) {
-        this.msg.error('You can only upload JPG or PNG file!');
+        this.msg.error(this.i18n('You can only upload JPG or PNG file!'));
         observer.complete();
         return;
       }
       const isLt5M = file.size / 1024 / 1024 < 5;
       if (!isLt5M) {
-        this.msg.error('Image must smaller than 5MB!');
+        this.msg.error(this.i18n('Image must smaller than 5MB!'));
         observer.complete();
         return;
       }

@@ -152,7 +152,7 @@ export class FeedPostComponent implements OnInit, OnChanges {
     if (this.edit) {
       // edit
       if (!this.editFeedPost) {
-        this.nzMessageService.error('No editfeedpost provided');
+        this.nzMessageService.error(this.i18n('A post for editing is not provided'));
         return;
       }
       this.feedService.update(this.editFeedPost, fp)
