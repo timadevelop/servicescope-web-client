@@ -8,6 +8,7 @@ import { HttpEventType, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-new-message-form',
@@ -32,6 +33,7 @@ export class NewMessageFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private i18n: I18n,
     private fb: FormBuilder,
     private messagesService: MessagesService,
     private nzMessageService: NzMessageService,
@@ -39,7 +41,7 @@ export class NewMessageFormComponent implements OnInit {
 
 
   private generateDefaultMessageFor(url: string, title: string): string {
-    return `Hey, i'm writing about - ${title} - ${url}`
+    return this.i18n(`Hey, I am interested in this: `) +  ` - ${title} - ${url}`;
   }
 
   ngOnInit() {

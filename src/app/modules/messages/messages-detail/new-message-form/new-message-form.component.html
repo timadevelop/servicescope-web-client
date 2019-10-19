@@ -5,7 +5,8 @@
 <form nz-row [formGroup]="messageForm" (submit)="onFormSubmit()" class="conversation-form" nzType="flex"
   nzJustify="space-between" nzAlign="middle">
   <div nz-col nzXs="16" nzSm="20">
-    <input autofocus class="message-input" formControlName="text" nz-input i18n-placeholder="@@typeNewMessagePlaceholder" placeholder="Type new message" type="text">
+    <input autofocus class="message-input" formControlName="text" nz-input
+      i18n-placeholder="@@typeNewMessagePlaceholder" placeholder="Type new message" type="text">
   </div>
   <div nz-col nzXs="8" nzSm="4">
     <div class="actions">
@@ -26,8 +27,8 @@
 </ng-template>
 
 <ng-template #contentTemplate>
-  <div nz-row nzType="flex" nzJustify="space-between">
-    <button nz-button (click)="setShowSendTooltip(false)" i18n>No, thanks</button>
+  <div nz-row>
+    <button nz-button style="margin-right: 5px;" (click)="setShowSendTooltip(false)" i18n>No, thanks</button>
     <button nz-button nzType="primary" (click)="sendDefaultMsg()" i18n>Yes, send message</button>
   </div>
 </ng-template>

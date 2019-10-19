@@ -10,7 +10,7 @@ import { MessagesDetailComponent } from './messages-detail/messages-detail.compo
 import { CoreModule } from '../../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewMessageFormComponent } from './messages-detail/new-message-form/new-message-form.component';
-import { NzGridModule, NzAvatarModule, NzIconModule, NzCardModule, NzBadgeModule, NzSpinModule, NzListModule, NzInputModule, NzSkeletonModule, NzEmptyModule, NzPopoverModule, NzToolTipModule } from 'ng-zorro-antd';
+import { NzGridModule, NzAvatarModule, NzIconModule, NzCardModule, NzBadgeModule, NzSpinModule, NzListModule, NzInputModule, NzSkeletonModule, NzEmptyModule, NzPopoverModule, NzToolTipModule, NzButtonModule } from 'ng-zorro-antd';
 import { CarouselModule } from '../shared/carousel/carousel.module';
 import { ImagesSelectorModule } from '../shared/images-selector/images-selector.module';
 
@@ -29,8 +29,9 @@ import { ImagesSelectorModule } from '../shared/images-selector/images-selector.
     MessagesRoutingModule,
     CarouselModule,
     ImagesSelectorModule,
-    NzToolTipModule,
     //
+    NzToolTipModule,
+    NzButtonModule,
     NzGridModule,
     NzAvatarModule,
     NzIconModule,
