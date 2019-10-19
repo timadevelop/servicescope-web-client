@@ -2,9 +2,9 @@
 <nz-card *ngIf="loading || paginatedServices?.results.length > 0" [nzLoading]="loading">
   <nz-list [nzDataSource]="paginatedServices ? paginatedServices.results ? paginatedServices.results : [] : []"
     [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="serviceItemTemplate">
+    <ng-template #serviceItemTemplate let-servicePromotion>
+      <app-services-list-item promoted="true" modelName="services" [item]="servicePromotion.service">
+      </app-services-list-item>
+    </ng-template>
   </nz-list>
 </nz-card>
-
-<ng-template #serviceItemTemplate let-servicePromotion>
-  <app-services-list-item promoted="true" modelName="services" [item]="servicePromotion.service"></app-services-list-item>
-</ng-template>

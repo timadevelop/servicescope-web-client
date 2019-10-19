@@ -2,9 +2,8 @@
 <nz-card *ngIf="loading || paginatedSeeks?.results.length > 0" [nzLoading]="loading">
   <nz-list [nzDataSource]="paginatedSeeks ? paginatedSeeks.results ? paginatedSeeks.results : [] : []"
     [nzItemLayout]="'horizontal'" [nzLoading]="loading" [nzRenderItem]="seekItemTemplate">
+    <ng-template #seekItemTemplate let-seekPromotion>
+      <app-seeks-list-item promoted="true" modelName="seeks" [item]="seekPromotion.seek"></app-seeks-list-item>
+    </ng-template>
   </nz-list>
 </nz-card>
-
-<ng-template #seekItemTemplate let-seekPromotion>
-  <app-seeks-list-item promoted="true" modelName="seeks" [item]="seekPromotion.seek"></app-seeks-list-item>
-</ng-template>
