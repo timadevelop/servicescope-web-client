@@ -78,16 +78,16 @@
             <button nz-button class="register-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid" i18n>Create Account</button>
           </nz-form-control>
         </nz-form-item>
-        <nz-form-item class="register-form-social-section">
-          <p i18n>or continue with</p>
-          <app-social-auth-buttons></app-social-auth-buttons>
-        </nz-form-item>
-        <nz-divider nzDashed></nz-divider>
-        <nz-form-item class="register-form-info">
-          <p i18n>Secured register TODO</p>
-          <a i18n>Terms</a> & <a i18n>Privacy</a>
-        </nz-form-item>
       </form>
+      <nz-form-item class="register-form-social-section">
+        <p i18n>or continue with</p>
+        <app-social-auth-buttons></app-social-auth-buttons>
+      </nz-form-item>
+      <nz-divider nzDashed></nz-divider>
+      <nz-form-item class="register-form-info">
+        <p i18n>Secured register TODO</p>
+        <a i18n>Terms</a> & <a i18n>Privacy</a>
+      </nz-form-item>
       <ng-template #prefixUser><i nz-icon nzType="user"></i></ng-template>
       <ng-template #prefixEmail><i nz-icon nzType="mail"></i></ng-template>
       <ng-template #prefixLock><i nz-icon nzType="lock"></i></ng-template>
