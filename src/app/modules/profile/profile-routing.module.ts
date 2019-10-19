@@ -9,6 +9,8 @@ import { ServicesListResolverService } from '../services/resolvers/services-list
 import { FeedResolverService } from 'src/app/modules/profile/resolvers/feed-resolver.service';
 import { ServicesListComponent } from '../services/components/services-list/services-list.component';
 import { FeedComponent } from './feed/feed.component';
+import { SeeksListComponent } from '../seeks/components/seeks-list/seeks-list.component';
+import { SeeksListResolverService } from '../seeks/resolvers/seeks-list-resolver.service';
 
 const profileRoutes: Routes = [
   {
@@ -45,6 +47,19 @@ const profileRoutes: Routes = [
             component: ServicesListComponent,
             resolve: {
               services: ServicesListResolverService,
+            },
+            data: {
+              showCreateButton: false,
+              showSearchBar: false
+            },
+            runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+
+          },
+          {
+            path: 'seeks',
+            component: SeeksListComponent,
+            resolve: {
+              seeks: SeeksListResolverService,
             },
             data: {
               showCreateButton: false,

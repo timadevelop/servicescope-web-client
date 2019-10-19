@@ -22,6 +22,7 @@ import { LabeledTextModule } from '../shared/labeled-text/labeled-text.module';
 import { ProfileAvatarUploaderModule } from '../shared/profile-avatar-uploader/profile-avatar-uploader.module';
 import { EmailWrapperModule } from '../shared/email-wrapper/email-wrapper.module';
 import { PhoneWrapperModule } from '../shared/phone-wrapper/phone-wrapper.module';
+import { SeeksModule } from '../seeks/seeks.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { PhoneWrapperModule } from '../shared/phone-wrapper/phone-wrapper.module
     ReactiveFormsModule,
     ProfileRoutingModule,
     ServicesModule,
-
+    SeeksModule,
     //
     NzGridModule,
     NzListModule,

@@ -70,6 +70,8 @@ export class ProfileDetailComponent implements OnInit {
         this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES['feed'];
       } else if ('services' in data) {
         this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES['services'];
+      } else if ('seeks' in data) {
+        this.selectedTabsIndex = ProfileDetailComponent.TAB_INDEXES['seeks'];
       }
     })
 
