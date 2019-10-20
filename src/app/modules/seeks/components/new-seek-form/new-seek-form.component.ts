@@ -35,7 +35,7 @@ export class NewSeekFormComponent implements OnInit {
     // location url
     location: [null, Validators.required],
     // image_1: File, image_2: File, ...
-    images: [[], [Validators.required, Validators.minLength(1), Validators.maxLength(this.maxImagesLength)]],
+    images: [[], [Validators.minLength(0), Validators.maxLength(this.maxImagesLength)]],
     // [string]
     tags: [[], [Validators.required, Validators.minLength(3), Validators.maxLength(5)]],
     // string
