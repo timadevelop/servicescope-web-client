@@ -42,7 +42,12 @@ export class PriceFilterComponent implements OnInit {
 
 
   onMinChange(v: number) {
-    this.priceMin = v;
+    if (v > this.priceMax) {
+      this.priceMin = this.priceMax;
+    } else {
+      this.priceMin = v;
+    }
+    this.adjustMaxValue();
   }
 
   adjustMaxValue(selectedMax: number = null) {
@@ -57,12 +62,13 @@ export class PriceFilterComponent implements OnInit {
     } else if (this.max - v > this.max * 0.85 && v > 10) {
       // auto decrease max value if priceMax is in first 10% of allowed range
       this.max = this.priceMax * 1.5;
-    } else {
-      // no changes
-      return;
     }
-    // changed max value
-    // this.generateMarks();
+    const diff = this.priceMax - this.priceMin
+    if (diff > 0 && diff < this.max * 0.25) {
+      const delta = diff > 5 ? diff * 0.25 : 2;
+      if (this.priceMin - delta > 0) this.min = this.priceMin - delta;
+      this.max = this.priceMax + delta;
+    }
   }
 
   generateMarks() {

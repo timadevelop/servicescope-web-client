@@ -1,6 +1,6 @@
 <nz-input-group nzCompact>
   <nz-input-number style="width: 30%" i18n-nzPlaceHolder="Literaly min price text@@minPriceText"
-    nzPlaceHolder="Min price" [nzMin]="min" [nzMax]="max" [ngModel]="priceMin" (ngModelChange)="onMinChange($event)">
+    nzPlaceHolder="Min price" [nzMin]="0" [nzMax]="max" [ngModel]="priceMin" (ngModelChange)="onMinChange($event)">
   </nz-input-number>
   <nz-input-number style="width: 30%" i18n-nzPlaceHolder="Literaly max price text@@maxPriceText"
     nzPlaceHolder="Max price" [nzMin]="min" [ngModel]="priceMax" (ngModelChange)="onMaxChange($event)">
