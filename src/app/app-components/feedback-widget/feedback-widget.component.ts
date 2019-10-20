@@ -61,8 +61,8 @@ export class FeedbackWidgetComponent implements OnInit {
 
   }
 
-  close(e) {
-    e.preventDefault();
+  close(e = null) {
+    if (e) e.preventDefault();
     this.showFeedbackForm = false;
   }
 
@@ -80,6 +80,7 @@ export class FeedbackWidgetComponent implements OnInit {
           this.feedbackService.storeInLocalStorage(feedback);
           this.loadLastFeedback();
           this.loading = false;
+          this.close();
         })
     } else {
       this.loading = false;
