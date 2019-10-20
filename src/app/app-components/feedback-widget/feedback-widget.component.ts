@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FeedbackService } from 'src/app/core/services/feedback.service';
 import { Feedback } from 'src/app/core/models/Feedback.model';
 import { environment } from 'src/environments/environment';
+import { TargetDeviceService } from 'src/app/core/services/target-device.service';
 
 @Component({
   selector: 'app-feedback-widget',
@@ -27,7 +28,8 @@ export class FeedbackWidgetComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public userService: UserService,
-    private feedbackService: FeedbackService
+    private feedbackService: FeedbackService,
+    private tds: TargetDeviceService
   ) { }
 
   differenceInDays(firstDate, secondDate) {

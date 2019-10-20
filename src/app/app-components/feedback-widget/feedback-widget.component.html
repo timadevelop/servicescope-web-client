@@ -1,4 +1,4 @@
-<div class="feedback-widget-button-container" *ngIf="userService.currentUser">
+<div class="feedback-widget-button-container" *ngIf="userService.currentUser && (!tds.isMobile || !alreadySentFeedback)">
   <button nz-button nzSize="large" nzShape="circle" (click)="showFeedbackForm = !showFeedbackForm"><i nz-icon
       [nzType]="showFeedbackForm ? 'close' : 'heart'"></i></button>
 </div>

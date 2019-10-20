@@ -18,8 +18,12 @@
 }
 
 @include respond-below(mobile) {
+  .feedback-widget-button-container {
+    bottom: 64px !important;
+    right: 20px !important;
+  }
   .ant-back-top {
-    bottom: 80px;
+    bottom: 110px;
   }
 }
 
