@@ -21,7 +21,7 @@ const customValueProvider = {
 export class CategorySelectorComponent implements OnInit, OnDestroy, ControlValueAccessor {
   //
   // ControlValueAccessor
-  propagateChange:any = () => {};
+  propagateChange: any = () => { };
 
   writeValue(value: string): void {
     if (value) this.selectedCategoryString = value;
@@ -30,7 +30,7 @@ export class CategorySelectorComponent implements OnInit, OnDestroy, ControlValu
     this.propagateChange = fn;
   }
   registerOnTouched(fn: any): void { }
-  setDisabledState(isDisabled: boolean): void {}
+  setDisabledState(isDisabled: boolean): void { }
   // /ControlValueAccessor
   //
 
@@ -102,8 +102,15 @@ export class CategorySelectorComponent implements OnInit, OnDestroy, ControlValu
 
 
   onCategoryChange(categoryName: string) {
-    const queryParams: Params = { category: categoryName, page: 1, pageSize: this.pageSize, price_max: null, price_min: null };
-    this.updateQueryParams(queryParams);
+    if (this.isFormItem) {
+      this.selectedCategoryString = categoryName;
+      this.onChange.emit(categoryName);
+      this.propagateChange(categoryName);
+    } else {
+      // change selected category
+      const queryParams: Params = { category: categoryName, page: 1, pageSize: this.pageSize, price_max: null, price_min: null };
+      this.updateQueryParams(queryParams);
+    }
   }
 
   /*
