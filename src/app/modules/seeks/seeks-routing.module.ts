@@ -31,24 +31,6 @@ const seeksRoutes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'category',
-        children: [
-          {
-            path: '',
-            component: PageNotFoundComponent,
-            pathMatch: 'full'
-          },
-          {
-            path: ':category',
-            component: SeeksListComponent,
-            resolve: {
-              seeks: SeeksListResolverService
-            },
-            runGuardsAndResolvers: 'paramsOrQueryParamsChange'
-          }
-        ]
-      },
-      {
         path: ':id/promote',
         component: PromoteSeekComponent,
         canActivate: [AuthGuard],

@@ -30,7 +30,7 @@ export class SeeksListResolverService implements Resolve<PaginatedApiResponse<Se
     }
     const authorId = route.queryParamMap.get('authorId');
 
-    const category = route.paramMap.get('category');
+    const category = route.queryParamMap.get('category');
 
     const filters = tags.map(tag => {
       return { param: 'tags', value: tag }

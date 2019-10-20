@@ -31,24 +31,6 @@ const servicesRoutes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: 'category',
-        children: [
-          {
-            path: '',
-            component: PageNotFoundComponent,
-            pathMatch: 'full'
-          },
-          {
-            path: ':category',
-            component: ServicesListComponent,
-            resolve: {
-              services: ServicesListResolverService
-            },
-            runGuardsAndResolvers: 'paramsOrQueryParamsChange'
-          }
-        ]
-      },
-      {
         path: ':id/promote',
         component: PromoteServiceComponent,
         canActivate: [AuthGuard],

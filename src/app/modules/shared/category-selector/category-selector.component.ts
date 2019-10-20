@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter, Input, forwardRef } from '@angular/core';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
 import { Category } from 'src/app/core/models/Category.models';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CategoriesService } from 'src/app/core/services/categories.service';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
@@ -53,8 +53,8 @@ export class CategorySelectorComponent implements OnInit, OnDestroy, ControlValu
     private categoriesService: CategoriesService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.selectedCategoryString = params.get('category') || this.selectedCategoryString;
+    this.route.queryParamMap.subscribe(qparams => {
+      this.selectedCategoryString = qparams.get('category') || this.selectedCategoryString;
     });
 
     this.categoriesSub$ = this.categoriesService.getCategories(this.page, this.pageSize)
@@ -102,18 +102,21 @@ export class CategorySelectorComponent implements OnInit, OnDestroy, ControlValu
 
 
   onCategoryChange(categoryName: string) {
-    if (this.isFormItem) {
-      this.selectedCategoryString = categoryName;
-      this.onChange.emit(categoryName);
-      this.propagateChange(categoryName);
-    } else if (!categoryName) {
-      this.navigateToSavingQueryParams(['../../']);
-    } else if (!this.selectedCategoryString) {
-      this.navigateToSavingQueryParams(['./category', categoryName]);
-    } else {
-      // change selected category
-      this.navigateToSavingQueryParams(['../', categoryName]);
-    }
+    const queryParams: Params = { category: categoryName, page: 1, pageSize: this.pageSize, price_max: null, price_min: null };
+    this.updateQueryParams(queryParams);
+  }
+
+  /*
+  * Route helper
+  */
+  private updateQueryParams(queryParams: Params) {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: queryParams,
+        queryParamsHandling: "merge", // remove to replace all query params by provided
+      });
   }
 
   private appendCategories(response: PaginatedApiResponse<Category>) {
@@ -124,12 +127,4 @@ export class CategorySelectorComponent implements OnInit, OnDestroy, ControlValu
     this.categories = response;
   }
 
-  private navigateToSavingQueryParams(route: Array<string>) {
-    this.router.navigate(
-      route,
-      {
-        relativeTo: this.route,
-        queryParamsHandling: "merge", // remove to replace all query params by provided
-      });
-  }
 }

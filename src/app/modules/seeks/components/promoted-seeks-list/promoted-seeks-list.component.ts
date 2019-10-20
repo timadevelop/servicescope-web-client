@@ -37,7 +37,7 @@ export class PromotedSeeksListComponent implements OnInit {
       // const page = queryParamMap.get('page') || String(this.page);
       const page = String(this.page); // random order, vlad!
       const query = queryParamMap.get('q');
-      const category = paramMap.get('category');
+      const category = queryParamMap.get('category');
       const tags = queryParamMap.getAll('tags');
       const authorId = queryParamMap.get('authorId');
       const locationId = queryParamMap.get('locationId');

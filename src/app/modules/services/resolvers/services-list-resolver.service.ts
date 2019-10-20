@@ -27,7 +27,7 @@ export class ServicesListResolverService implements Resolve<PaginatedApiResponse
     const ordering = route.queryParamMap.get('ordering');
     const authorId = route.queryParamMap.get('authorId');
 
-    const category = route.paramMap.get('category');
+    const category = route.queryParamMap.get('category');
 
     const filters = tags.map(tag => {
       return { param: 'tags', value: tag }

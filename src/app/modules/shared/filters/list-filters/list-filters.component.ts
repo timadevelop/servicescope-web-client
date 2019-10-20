@@ -124,7 +124,7 @@ export class ListFiltersComponent implements OnInit, OnDestroy {
       this.selectedTagStrings = this.selectedTagStrings.filter(v => v != name);
     }
     this.page = '1';
-    const queryParams: Params = { tags: this.selectedTagStrings, page: 1, pageSize: this.pageSize };
+    const queryParams: Params = { tags: this.selectedTagStrings, page: 1, pageSize: this.pageSize, price_max: null, price_min: null };
     this.updateQueryParams(queryParams);
 
   }
