@@ -6,6 +6,7 @@ import { ConfigService, ApiClientConfig } from 'src/app/core/services/config.ser
 import { switchMap } from 'rxjs/operators';
 import { TokenInfo } from '../models';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class GoogleAuthenticationService {
     @Inject(PLATFORM_ID) private platformId: Object,
     private configService: ConfigService,
     private zone: NgZone,
+    private router: Router,
     private http: HttpClient) { }
 
   /**
@@ -57,6 +59,7 @@ export class GoogleAuthenticationService {
         this.zone.run(() => {
           this.tokenInfo$.next(tokenInfo);
           this.isLoggedIn$.next(true);
+          this.router.navigate(['/']);
           this._loading = false;
         });
       },

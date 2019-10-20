@@ -100,6 +100,7 @@ export class RegisterComponent implements OnInit {
     this.authService.login(lar)
       .subscribe(_ => {
         // this.userService.reloadCurrentUser();
+        this.router.navigate(['/']);
         this.loading = false;
       });
   }

@@ -52,6 +52,7 @@ export class LoginComponent {
       .subscribe(
         _ => {
           // this.userService.reloadCurrentUser()
+          this.router.navigate(['/']);
           this.loading = false;
         },
         error => {

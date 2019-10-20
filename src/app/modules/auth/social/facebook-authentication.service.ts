@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 declare var FB: any;
 
 @Injectable({
@@ -25,6 +26,7 @@ export class FacebookAuthenticationService {
     @Inject(PLATFORM_ID) private platformId: Object,
     private configService: ConfigService,
     private zone: NgZone,
+    private router: Router,
     private http: HttpClient) { }
 
   /**
@@ -67,6 +69,7 @@ export class FacebookAuthenticationService {
             that.tokenInfo$.next(tokenInfo);
             that._loading = false;
             that.isLoggedIn$.next(true);
+            this.router.navigate(['/']);
           });
         },
           (err) => {
