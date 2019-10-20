@@ -29,7 +29,7 @@ export class FeedbackWidgetComponent implements OnInit {
     private fb: FormBuilder,
     public userService: UserService,
     private feedbackService: FeedbackService,
-    private tds: TargetDeviceService
+    public tds: TargetDeviceService
   ) { }
 
   differenceInDays(firstDate, secondDate) {
