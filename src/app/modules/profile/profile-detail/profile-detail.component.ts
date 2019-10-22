@@ -51,7 +51,6 @@ export class ProfileDetailComponent implements OnInit {
       .subscribe((data: { user: User }) => {
         if (data.user) {
           this.user = data.user;
-          this.updateQueryParams({ authorId: this.user.id });
         }
         this.titleService.setTitle(this.user.first_name + ' ' + this.user.last_name + ' ' + this.i18n({ value: "Profile", id: "profileHtmlTitle" }));
         // services, posts, offers, etc. are propagated to child components
@@ -91,7 +90,7 @@ export class ProfileDetailComponent implements OnInit {
   changeTab(tab: string): void {
     // const queryParams: Params = { page: 1, tab: tab };
     // this.updateQueryParams(queryParams);
-    this.router.navigate([tab], { relativeTo: this.route, queryParams: { authorId: this.user.id } })
+    this.router.navigate([tab], { relativeTo: this.route })
   }
 
   private updateQueryParams(queryParams: Params) {

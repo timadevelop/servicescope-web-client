@@ -50,7 +50,8 @@ const profileRoutes: Routes = [
             },
             data: {
               showCreateButton: false,
-              showSearchBar: false
+              showSearchBar: false,
+              author_id_parent_parameter: 'id'
             },
             runGuardsAndResolvers: 'paramsOrQueryParamsChange'
 
@@ -63,7 +64,8 @@ const profileRoutes: Routes = [
             },
             data: {
               showCreateButton: false,
-              showSearchBar: false
+              showSearchBar: false,
+              author_id_parent_parameter: 'id'
             },
             runGuardsAndResolvers: 'paramsOrQueryParamsChange'
 
@@ -73,6 +75,9 @@ const profileRoutes: Routes = [
             component: FeedComponent,
             resolve: {
               feed: FeedResolverService,
+            },
+            data: {
+              author_id_parent_parameter: 'id'
             },
             runGuardsAndResolvers: 'paramsOrQueryParamsChange'
 

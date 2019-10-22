@@ -28,7 +28,12 @@ export class SeeksListResolverService implements Resolve<PaginatedApiResponse<Se
     if (ordering == 'price' || ordering == '-price') {
       ordering = ordering.replace('price', 'max_price');
     }
-    const authorId = route.queryParamMap.get('authorId');
+    let authorId = route.queryParamMap.get('authorId');
+    if ('author_id_parent_parameter' in route.data && route.data.author_id_parent_parameter) {
+      // e.g. /users/:userId/projects
+      authorId = route.parent.paramMap.get(route.data.author_id_parent_parameter);
+    }
+
 
     const category = route.queryParamMap.get('category');
 
