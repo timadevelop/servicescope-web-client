@@ -52,7 +52,7 @@
       </h2>
       <p *ngIf="paymentIntent?.status != 'succeeded' && service.is_promoted && dateStartingPoint"
         style="margin-bottom: 10px;" class="description">
-        <span i18n="Card title for promote service select plan@@promoteServiceSelectPlanText">Your service is currently
+        <span i18n="Card title for promote service select plan@@promotedServiceTilDate">Your service is currently
           promoted til</span>
         {{dateStartingPoint | date}}
       </p>

@@ -1559,10 +1559,6 @@
           <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
           <context context-type="linenumber">35</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
-          <context context-type="linenumber">55</context>
-        </context-group>
         <note priority="1" from="description">Card title for promote service select plan</note>
       </trans-unit><trans-unit id="orUseCouponText" datatype="html">
         <source>or use a coupon code</source>
@@ -1589,6 +1585,14 @@
           <context context-type="linenumber">48</context>
         </context-group>
         <note priority="1" from="description">Card title for successfully boosted service</note>
+      </trans-unit><trans-unit id="promotedServiceTilDate" datatype="html">
+        <source>Your service is currently
+          promoted til</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/services/components/promote-service/promote-service.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote service select plan</note>
       </trans-unit><trans-unit id="1312a6160952495c027bdb8f912af26996b4eeea" datatype="html">
         <source>Click to select</source>
         <context-group purpose="location">
@@ -1987,10 +1991,6 @@
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
           <context context-type="linenumber">35</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
-          <context context-type="linenumber">57</context>
-        </context-group>
         <note priority="1" from="description">Card title for promote seek select plan</note>
       </trans-unit><trans-unit id="promoteSeekBoostingProcessText" datatype="html">
         <source>
@@ -2008,6 +2008,20 @@
           <context context-type="linenumber">50</context>
         </context-group>
         <note priority="1" from="description">Card title for successfully boosted seek</note>
+      </trans-unit><trans-unit id="promotedSeekTilDate" datatype="html">
+        <source>Your seek is currently
+          promoted til</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description">Card title for promote seek select plan</note>
+      </trans-unit><trans-unit id="c3c68c536dea9d95d54ac4c4f5fb2b5e2e6ad9aa" datatype="html">
+        <source>Seek will be promoted til</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
       </trans-unit><trans-unit id="promoteSeekPayText" datatype="html">
         <source>Pay for seek boost</source>
         <context-group purpose="location">

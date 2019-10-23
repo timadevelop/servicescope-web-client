@@ -54,7 +54,7 @@
       </h2>
       <p *ngIf="paymentIntent?.status != 'succeeded' && seek.is_promoted && dateStartingPoint"
         style="margin-bottom: 10px;" class="description">
-        <span i18n="Card title for promote seek select plan@@promoteSeekSelectPlanText">Your seek is currently
+        <span i18n="Card title for promote seek select plan@@promotedSeekTilDate">Your seek is currently
           promoted til</span>
         {{dateStartingPoint | date}}
       </p>
@@ -80,7 +80,7 @@
             <div nz-row nzType="flex" nzJustify="start" nzAlign="middle" class="plan-insight">
               <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="clock-circle"></i>
               <span nz-col nzSpan="21">
-                <span>Seek will be promoted til</span>
+                <span i18n>Seek will be promoted til</span>
                 {{getPlan('pro').target_date | date}}
               </span>
             </div>
