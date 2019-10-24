@@ -17,7 +17,7 @@ export class SeoService {
 
   constructor(private meta: Meta) { }
 
-  generateTags(config : MetaConfig) {
+  generateTags(config: MetaConfig) {
     config = {
       title: config.title || 'GetMaker',
       description: config.description || 'Search services TODO',
@@ -38,7 +38,8 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:site_name', content: 'GetMaker' });
     this.meta.updateTag({ property: 'og:title', content: config.title });
     this.meta.updateTag({ property: 'og:description', content: config.description });
-    this.meta.updateTag({ property: 'og:image', content: config.image });
+    this.meta.updateTag({ property: 'og:image', content: config.image.replace('https', 'http') });
+    this.meta.updateTag({ property: 'og:image:secure_url', content: config.image });
   }
 
 }
