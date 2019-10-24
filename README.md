@@ -1,31 +1,38 @@
-# SaasWebClient
+<p align="center">
+  <a href="http://ng.ant.design">
+    <img width="230" src="./src/assets/images/logo.jpg">
+  </a>
+</p>
+<div align="center">
+  <h1>GetMaker Web Client</h1>
+  <p>Built with
+    <a href="https://github.com/angular/angular">Angular 8</a>
+    , <a href="https://github.com/angular/universal/">Angular Universal</a>
+    , <a href="https://github.com/NG-ZORRO/ng-zorro-antd">NG-ZORRO</a>
+    , <a href="https://github.com/expressjs/express">Express</a>
+  </p>
+</div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Localization
+### Localization and SSR
 
-Run `ng serve` or `ng build` with `--configuration=bg` flag
+`npm run build:ssr && npm run serve:ssr` to build the application with English locale and serve it using express universal server.
+Locale-specific build: `npm run build:ssr-bg` to build the application using Bulgarian locale (see `./src/locale/messages.bg.xlf`).
 
-## Development server
+This project doesn't support dynamic language change, each locale should be served by a different server.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Development and production server
 
-## Code scaffolding
+Use Docker, docker-compose and .env file for serving: both for development and production mode.
+See `Dockerfile` in this repo and provide all `env` variables defined in [timadevelop/saasContainer](https://github.com/timadevelop/saasContainer).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Tests
 
-## Build
+WIP
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+----
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Made [@brainhublab](https://github.com/brainhublab)
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Contacts: [timadevelop](https://github.com/timadevelop)
