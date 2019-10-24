@@ -1,9 +1,9 @@
 import { BrowserModule, ɵgetDOM, BrowserTransferStateModule } from '@angular/platform-browser';
-import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslationStrategy, APP_INITIALIZER, PLATFORM_ID } from '@angular/core';
+import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslationStrategy, APP_INITIALIZER, PLATFORM_ID, Injector, ComponentFactoryResolver } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG, NzLayoutModule, NzBackTopModule, NzGridModule, NzMenuModule, NzAvatarModule, NzBadgeModule, NzCardModule, NzButtonModule, NzFormModule, NzRateModule, NzInputModule, NzIconModule, NzDrawerModule, NzDividerModule, NzListModule, NzPaginationModule, NgZorroAntdModule, NZ_I18N, en_US, NzMessageModule, NzNotificationModule, NzNotificationServiceModule, NzMessageServiceModule } from 'ng-zorro-antd';
+import { NzLayoutModule, NzBackTopModule, NzGridModule, NzMenuModule, NzAvatarModule, NzBadgeModule, NzCardModule, NzButtonModule, NzFormModule, NzRateModule, NzInputModule, NzIconModule, NzDrawerModule, NzDividerModule, NzListModule, NzPaginationModule, NgZorroAntdModule, NZ_I18N, en_US, NzMessageModule, NzNotificationModule, NzNotificationServiceModule, NzMessageServiceModule, NzConfig, NZ_CONFIG } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +29,7 @@ import { TransferHttpCacheModule } from '@hapiness/ng-universal-transfer-http';
 
 import { PrebootModule } from 'preboot';
 import { RouterModule } from '@angular/router';
+import { GlobalTemplatesComponent } from './app-components/global-templates/global-templates.component';
 
 
 declare const require; // Use the require method provided by webpack
@@ -37,9 +38,26 @@ declare const require; // Use the require method provided by webpack
 const DEFAULT_LOCALE = "en-US";
 registerLocaleData(en); // bg
 
+
+// The Factory function
+const nzConfigFactory = (
+  injector: Injector,
+  resolver: ComponentFactoryResolver
+): NzConfig => {
+  const factory = resolver.resolveComponentFactory(GlobalTemplatesComponent);
+  const { nzIndicator } = factory.create(injector).instance;
+  return {
+    spin: {
+      nzIndicator
+    }
+  };
+};
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    GlobalTemplatesComponent,
     AppHeaderComponent,
     ComposeMessageComponent,
     NotificationsManagerComponent,
@@ -122,29 +140,20 @@ registerLocaleData(en); // bg
       },
       deps: [LOCALE_ID]
     },
+    httpInterceptorProviders,
+    {
+      // The FactoryProvider
+      provide: NZ_CONFIG,
+      useFactory: nzConfigFactory,
+      deps: [Injector, ComponentFactoryResolver]
+    },
     I18n,
     { provide: NZ_I18N, useValue: en_US },
-    httpInterceptorProviders,
-    // TODO
-    // {
-    //   provide: NZ_MESSAGE_CONFIG, useValue: {
-    //     nzDuration: 3000,
-    //     nzMaxStack: 10,
-    //     nzPauseOnHover: true,
-    //     nzAnimate: true
-    //   }
-    // },
-    // {
-    //   provide: NZ_NOTIFICATION_CONFIG, useValue: {
-    //     nzTop: '24px',
-    //     nzBottom: '24px',
-    //     nzPlacement: 'topRight',
-    //     nzDuration: 4500,
-    //     nzMaxStack: 1,
-    //     nzPauseOnHover: true,
-    //     nzAnimate: true
-    //   }
-    // }
+  ],
+  entryComponents: [
+    // Must be present here to be resolved by ComponentFactoryResolver.
+    // Using Ivy it is not required
+    GlobalTemplatesComponent
   ],
   bootstrap: [AppComponent]
 })
