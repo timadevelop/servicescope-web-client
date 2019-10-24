@@ -9,6 +9,6 @@
   <button style="height: 42px;" nz-button (click)="clear()"><i nz-icon nzType="close"></i></button>
 </nz-input-group>
 <nz-row>
-  <nz-slider nzRange [ngModel]="[min, max]" (nzOnAfterChange)="onSliderEvent($event)"
+  <nz-slider nzRange [ngModel]="[priceMin, priceMax]" (nzOnAfterChange)="onSliderEvent($event)"
     [nzMarks]="generateMarks()" [nzMax]="max" [nzMin]="min"></nz-slider>
 </nz-row>

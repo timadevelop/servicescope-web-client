@@ -27,7 +27,7 @@ export class PriceFilterComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.priceMin = params.get('price_min') === null ? null : +params.get('price_min');
       this.priceMax = params.get('price_max') === null ? null : +params.get('price_max');
-      this.adjustSliderValues(this.priceMax);
+      this.adjustSliderValues();
     });
   }
 
@@ -39,32 +39,26 @@ export class PriceFilterComponent implements OnInit {
 
   onMaxChange(v: number) {
     this.priceMax = v;
-    this.adjustSliderValues(v);
+    this.adjustSliderValues();
   }
 
 
   onMinChange(v: number) {
-    if (v > this.priceMax) {
-      this.priceMin = this.priceMax;
-    } else {
-      this.priceMin = v;
-    }
+    this.priceMin = v;
     this.adjustSliderValues();
   }
 
-  adjustSliderValues(selectedMax: number = null) {
-    let v = selectedMax || this.priceMax;
-
+  adjustSliderValues() {
     // adjust max
-    if (!v) {
+    if (!this.priceMax) {
       this.max = INITIAL_MAX_PRICE;
-    } else if (v > this.max) {
+    } else if (this.priceMax > this.max) {
       // increase if overflow
-      this.max = v * 1.5;
-    } else if (this.max - v < this.max * 0.15) {
+      this.max = this.priceMax * 1.5;
+    } else if (this.max - this.priceMax < this.max * 0.15) {
       // auto increase max value if priceMax is in last 10% of allowed range
       this.max = this.max * 1.5;
-    } else if (this.max - v > this.max * 0.85 && v > 10) {
+    } else if (this.max - this.priceMax > this.max * 0.85 && this.priceMax > 10) {
       // auto decrease max value if priceMax is in first 10% of allowed range
       this.max = this.priceMax * 1.5;
     }
