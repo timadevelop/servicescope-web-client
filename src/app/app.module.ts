@@ -1,9 +1,9 @@
-import { BrowserModule, ɵgetDOM } from '@angular/platform-browser';
+import { BrowserModule, ɵgetDOM, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, TRANSLATIONS, LOCALE_ID, TRANSLATIONS_FORMAT, MissingTranslationStrategy, APP_INITIALIZER, PLATFORM_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG, NzLayoutModule, NzBackTopModule, NzGridModule, NzMenuModule, NzAvatarModule, NzBadgeModule, NzCardModule, NzButtonModule, NzFormModule, NzRateModule, NzInputModule, NzIconModule, NzDrawerModule, NzDividerModule, NzListModule, NzPaginationModule, NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { NZ_MESSAGE_CONFIG, NZ_NOTIFICATION_CONFIG, NzLayoutModule, NzBackTopModule, NzGridModule, NzMenuModule, NzAvatarModule, NzBadgeModule, NzCardModule, NzButtonModule, NzFormModule, NzRateModule, NzInputModule, NzIconModule, NzDrawerModule, NzDividerModule, NzListModule, NzPaginationModule, NgZorroAntdModule, NZ_I18N, en_US, NzMessageModule, NzNotificationModule, NzNotificationServiceModule, NzMessageServiceModule } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -48,28 +48,29 @@ registerLocaleData(en); // bg
   imports: [
     BrowserModule.withServerTransition({ appId: 'saasWebClient' }),
     PrebootModule.withConfig({ appRoot: 'app-root' }),
-    // BrowserTransferStateModule,
+    BrowserTransferStateModule,
     TransferHttpCacheModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    NgZorroAntdModule,
-    // NzLayoutModule,
-    // NzBackTopModule,
-    // NzGridModule,
-    // NzMenuModule,
-    // NzBadgeModule,
-    // NzCardModule,
-    // NzFormModule,
-    // NzRateModule,
-    // NzInputModule,
-    // NzIconModule,
-    // NzDrawerModule,
-    // NzDividerModule,
-    // NzListModule,
-    // NzPaginationModule,
-    // NzButtonModule,
-    // NzAvatarModule,
+    NzLayoutModule,
+    NzBackTopModule,
+    NzGridModule,
+    NzMenuModule,
+    NzBadgeModule,
+    NzCardModule,
+    NzFormModule,
+    NzRateModule,
+    NzInputModule,
+    NzIconModule,
+    NzDrawerModule,
+    NzDividerModule,
+    NzListModule,
+    NzPaginationModule,
+    NzButtonModule,
+    NzAvatarModule,
+    NzMessageModule,
+    NzNotificationModule,
     HttpClientModule,
     BrowserAnimationsModule,
     // AuthModule,
