@@ -21,7 +21,8 @@
       </nz-form-item>
     </div>
     <div nz-col *ngIf="!focused">
-      <button nz-button nzType="primary" class="submit-button" i18n="@@feedPostButton">Post</button>
+      <button *ngIf="!edit" nz-button nzType="primary" class="submit-button" i18n="@@feedPostButton">Post</button>
+      <button *ngIf="edit" nz-button nzType="primary" class="submit-button" i18n="@@feedPostUpdateButton">Update</button>
     </div>
     <!-- Tags -->
     <div *ngIf="focused" class="tags-selector-wrapper" nz-col nzSpan="24">
@@ -57,7 +58,8 @@
     <div nz-col>
       <small nz-checkbox class="grey-color" name="submit-on-ctrl-enter" [(ngModel)]="submitOnCtrlEnter"
         i18n="@@submitFeedPostOnCtrlEnterKeyDown">Post on Ctrl + Enter</small>
-      <button nz-button nzType="primary" class="submit-button" (click)="onFormSubmit()" i18n="@@submitNewPost">Post</button>
+        <button *ngIf="!edit" nz-button nzType="primary" class="submit-button" (click)="onFormSubmit()" i18n="@@submitNewPost">Post</button>
+        <button *ngIf="edit" nz-button nzType="primary" class="submit-button" (click)="onFormSubmit()" i18n="@@submitUpdatePost">Update</button>
     </div>
   </div>
 </nz-card>

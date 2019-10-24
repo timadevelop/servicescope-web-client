@@ -104,6 +104,7 @@ export class FeedComponent implements OnInit {
     this.pendingFeedPosts = this.pendingFeedPosts.filter(e => e.text != fp.text);
     if (this.editFeedPost) {
       this.feedPosts.results = this.feedPosts.results.filter(v => v.id !== fp.id);
+      this.editFeedPost = null;
     }
     this.appendNewFeedPost(fp);
   }

@@ -182,7 +182,6 @@ export class FeedPostComponent implements OnInit, OnChanges {
       }
     } else if (event instanceof HttpResponse) {
       // uploaded
-      console.log('done')
       this.loading = false;
       this.onNewPostDelivered.emit(event.body as FeedPost);
     }
