@@ -46,10 +46,11 @@ registerLocaleData(en); // bg
     FeedbackWidgetComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule.withServerTransition({ appId: 'saasWebClient' }),
-    PrebootModule.withConfig({ appRoot: 'app-root' }),
     BrowserTransferStateModule,
     TransferHttpCacheModule,
+    PrebootModule.withConfig({ appRoot: 'app-root' }),
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
@@ -75,8 +76,7 @@ registerLocaleData(en); // bg
     BrowserAnimationsModule,
     // AuthModule,
     CoreModule.forRoot(),
-    // ServicesModule,
-    AppRoutingModule,
+    // ServicesModule
   ],
   providers: [
     {

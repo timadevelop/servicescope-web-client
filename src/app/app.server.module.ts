@@ -7,14 +7,11 @@ import { AppComponent } from './app.component';
 
 // Import the require modules
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { en_US, NZ_I18N, NzI18nModule } from 'ng-zorro-antd/i18n';
-
 
 import { Request } from 'express';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { CookieService } from './core/services/cookie.service';
-import { BrowserModule } from '@angular/platform-browser';
 
 @Injectable()
 export class RequestDetails {
@@ -33,12 +30,13 @@ export class RequestDetails {
 @NgModule({
   imports: [
     AppModule,
-    ServerModule,
-    BrowserModule.withServerTransition({ appId: 'saasWebClient' }),
-    ServerTransferStateModule,
+    // use map of modules instead of lazy loading on server
     ModuleMapLoaderModule,
-    HttpClientModule,
+    ServerModule,
+    ServerTransferStateModule,
+    // no animations
     NoopAnimationsModule,
+    // ng-zorro translations
     NzI18nModule,
   ],
   bootstrap: [AppComponent],
