@@ -54,7 +54,7 @@
         style="margin-bottom: 10px;" class="description">
         <span i18n="Card title for promote service select plan@@promotedServiceTilDate">Your service is currently
           promoted til</span>
-        {{dateStartingPoint | date}}
+        {{dateStartingPoint | date:'medium'}}
       </p>
       <nz-row nzGutter="16" nzType="flex" nzJustify="center" class="promote-plans">
         <nz-col *ngIf="paymentIntent?.status != 'succeeded' || selectedPlan == 'pro'" nzXs="24" nzMd="12" nz-tooltip
@@ -79,7 +79,7 @@
               <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="clock-circle"></i>
               <span nz-col nzSpan="21">
                 <span>Service will be promoted til</span>
-                {{getPlan('pro').target_date | date}}
+                {{getPlan('pro').target_date | date:'medium'}}
               </span>
             </div>
             <nz-divider></nz-divider>
@@ -110,7 +110,7 @@
               <i nz-col nzSpan="2" style="font-size: 36px;" nz-icon nzType="clock-circle"></i>
               <span nz-col nzSpan="21">
                 <span>Service will be promoted til</span>
-                {{getPlan('basic').target_date | date}}
+                {{getPlan('basic').target_date | date:'medium'}}
               </span>
             </div>
             <nz-divider></nz-divider>
