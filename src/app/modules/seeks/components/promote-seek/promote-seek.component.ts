@@ -89,7 +89,11 @@ export class PromoteSeekComponent implements OnInit {
           return;
         }
         this.seek = data.seek;
-        this.dateStartingPoint = new Date(this.seek.promoted_til);
+        const promotedTilDate = new Date(this.seek.promoted_til);
+
+        if (promotedTilDate > this.dateStartingPoint) {
+          this.dateStartingPoint = promotedTilDate;
+        }
         this.updatePlansDates();
 
         this.seo.generateTags({

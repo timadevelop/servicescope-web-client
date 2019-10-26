@@ -91,7 +91,11 @@ export class PromoteServiceComponent implements OnInit {
           return;
         }
         this.service = data.service;
-        this.dateStartingPoint = new Date(this.service.promoted_til);
+        const promotedTilDate = new Date(this.service.promoted_til);
+
+        if (promotedTilDate > this.dateStartingPoint) {
+          this.dateStartingPoint = promotedTilDate;
+        }
         this.updatePlansDates();
 
         this.seo.generateTags({
