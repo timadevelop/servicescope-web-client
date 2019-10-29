@@ -740,11 +740,17 @@
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">24</context>
         </context-group>
+      </trans-unit><trans-unit id="feedPostUpdateButton" datatype="html">
+        <source>Update</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
       </trans-unit><trans-unit id="formErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <note priority="1" from="description">tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
@@ -752,7 +758,7 @@
         <source>Too much tags selected, reduce tags count</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">36</context>
         </context-group>
         <note priority="1" from="description">tags array is too long, ask user to delete some of them</note>
         <note priority="1" from="meaning">Error message</note>
@@ -760,7 +766,7 @@
         <source>Select at least 3 tags</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <note priority="1" from="description">tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
@@ -768,13 +774,19 @@
         <source>Post on Ctrl + Enter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit><trans-unit id="submitNewPost" datatype="html">
         <source>Post</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit><trans-unit id="submitUpdatePost" datatype="html">
+        <source>Update</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit><trans-unit id="selectCategoryText" datatype="html">
         <source>Select category</source>

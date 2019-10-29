@@ -49,7 +49,7 @@
           <context context-type="sourcefile">app/app-components/app-header/app-header.component.html</context>
           <context context-type="linenumber">25</context>
         </context-group>
-        <target>Здравей</target>
+        <target>Здравей, </target>
       </trans-unit>
       <trans-unit id="814efcc244d182cabfdcdf7754097cdd023514d9" datatype="html">
         <source>Verified</source>
@@ -57,7 +57,7 @@
           <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
-        <target>Потвърдено</target>
+        <target state="translated">Потвърден</target>
       </trans-unit>
       <trans-unit id="9d9b6163b0b137099a88c32e3c6ec59eacb362f0" datatype="html">
         <source>Not Verified</source>
@@ -65,7 +65,7 @@
           <context context-type="sourcefile">app/app-components/notifications-manager/notifications-manager.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
-        <target>Не е потвърдено</target>
+        <target state="translated">Не е потвърден</target>
       </trans-unit>
       <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
         <source>Profile</source>
@@ -221,7 +221,7 @@
           <context context-type="sourcefile">app/modules/about/faq/faq.component.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>ЧЗВ</target>
+        <target state="translated">FAQ</target>
       </trans-unit>
       <trans-unit id="89dc6633b574788601ffb727a0d34d969173ec7e" datatype="html">
         <source>Log into</source>
@@ -493,7 +493,8 @@
           <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">Title tells user that this is messages section of website</note>
-        <target>Съобщения</target>
+        <target state="translated">Съобщения
+           </target>
       </trans-unit>
       <trans-unit id="gotoUserProfileTooltipText" datatype="html">
         <source>Go to user profile</source>
@@ -932,11 +933,19 @@
         </context-group>
         <target>Поствай</target>
       </trans-unit>
+      <trans-unit id="feedPostUpdateButton" datatype="html">
+        <source>Update</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <target>Актуализация</target>
+      </trans-unit>
       <trans-unit id="formErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <note priority="1" from="description">tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
@@ -946,7 +955,7 @@
         <source>Too much tags selected, reduce tags count</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">36</context>
         </context-group>
         <note priority="1" from="description">tags array is too long, ask user to delete some of them</note>
         <note priority="1" from="meaning">Error message</note>
@@ -956,7 +965,7 @@
         <source>Select at least 3 tags</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <note priority="1" from="description">tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
@@ -966,7 +975,7 @@
         <source>Post on Ctrl + Enter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <target>Публикувай Ctrl + Enter</target>
       </trans-unit>
@@ -974,9 +983,17 @@
         <source>Post</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
         </context-group>
         <target>Поствай</target>
+      </trans-unit>
+      <trans-unit id="submitUpdatePost" datatype="html">
+        <source>Update</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <target>Актуализация</target>
       </trans-unit>
       <trans-unit id="selectCategoryText" datatype="html">
         <source>Select category</source>
@@ -1056,7 +1073,7 @@
           <context context-type="linenumber">6</context>
         </context-group>
         <note priority="1" from="description">In sorting feature a button text for sorting items by ponts (Most points first)</note>
-        <target>Супергерой</target>
+        <target state="translated">Баш майстор</target>
       </trans-unit>
       <trans-unit id="sortingSectionText" datatype="html">
         <source>Sorting</source>
@@ -1100,7 +1117,7 @@
           <context context-type="sourcefile">app/modules/shared/filters/list-filters/list-filters.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
-        <target>няма избрани маркери</target>
+        <target state="translated">няма избрани тагове</target>
       </trans-unit>
       <trans-unit id="searchTagsText" datatype="html">
         <source>Search tags</source>
@@ -1241,7 +1258,7 @@
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">31</context>
         </context-group>
-        <target>лв.</target>
+        <target state="translated">лв.</target>
       </trans-unit>
       <trans-unit id="priceDetailsText" datatype="html">
         <source>Price details</source>
@@ -1389,7 +1406,7 @@
           <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">Tag text when there are no tags in a list of tags</note>
-        <target>Без тагове</target>
+        <target state="translated">Без тагове</target>
       </trans-unit>
       <trans-unit id="deleteButtonText" datatype="html">
         <source>Delete</source>
@@ -1429,7 +1446,7 @@
           <context context-type="sourcefile">app/modules/seeks/components/seeks-detail/seeks-detail.component.html</context>
           <context context-type="linenumber">118</context>
         </context-group>
-        <target>Насърчи</target>
+        <target state="translated">Промотирай</target>
       </trans-unit>
       <trans-unit id="similarServicesCardTitle" datatype="html">
         <source>Similar services</source>
@@ -1501,7 +1518,7 @@
           <context context-type="sourcefile">app/modules/services/components/services-detail/services-detail.component.html</context>
           <context context-type="linenumber">179</context>
         </context-group>
-        <target>Насърчи</target>
+        <target state="translated">Промотирай</target>
       </trans-unit>
       <trans-unit id="addNewServiceText" datatype="html">
         <source>Add service</source>
@@ -1520,7 +1537,8 @@
           <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description">Card title for edit service form</note>
-        <target>Редактирай услуга</target>
+        <target state="translated">Редактирай услуга
+ </target>
       </trans-unit>
       <trans-unit id="fixedPricesInputLabelPlaceholder" datatype="html">
         <source>Service</source>
@@ -1808,7 +1826,7 @@
         </context-group>
         <note priority="1" from="description">Service tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Избери още маркери</target>
+        <target state="translated">Избери още тагове</target>
       </trans-unit>
       <trans-unit id="serviceFormErrorTagsArrayIsTooLong" datatype="html">
         <source>Too much tags selected, reduce tags count</source>
@@ -1963,7 +1981,7 @@
           <context context-type="linenumber">42</context>
         </context-group>
         <note priority="1" from="description">Card title for service boosting process</note>
-        <target>Увеличаване на услугата ви ...</target>
+        <target state="translated">Промотиране на услугата ви ...</target>
       </trans-unit>
       <trans-unit id="promoteServiceSelectedPlanSuccessText" datatype="html">
         <source>
@@ -1973,7 +1991,8 @@
           <context context-type="linenumber">48</context>
         </context-group>
         <note priority="1" from="description">Card title for successfully boosted service</note>
-        <target>Успешно промотирана услуга</target>
+        <target state="translated">
+            Успешно промотирана услуга</target>
       </trans-unit>
       <trans-unit id="promotedServiceTilDate" datatype="html">
         <source>Your service is currently
@@ -1983,8 +2002,8 @@
           <context context-type="linenumber">55</context>
         </context-group>
         <note priority="1" from="description">Card title for promote service select plan</note>
-        <target>Вашата услуга е в момента
-          промотиран до</target>
+        <target state="translated">Понастоящем услугата ви
+          е промотирана до</target>
       </trans-unit>
       <trans-unit id="1312a6160952495c027bdb8f912af26996b4eeea" datatype="html">
         <source>Click to select</source>
@@ -2014,7 +2033,7 @@
           <context context-type="linenumber">139</context>
         </context-group>
         <note priority="1" from="description">Pay for service promotion</note>
-        <target>Платете за повишаване на услугата</target>
+        <target state="translated">Платете за промотиране на услугата</target>
       </trans-unit>
       <trans-unit id="oopsText" datatype="html">
         <source>Ooops..</source>
@@ -2026,7 +2045,7 @@
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
           <context context-type="linenumber">150</context>
         </context-group>
-        <target>Ами сега ..</target>
+        <target state="translated">Ooops..</target>
       </trans-unit>
       <trans-unit id="promoteServiceUserHasNoEmail" datatype="html">
         <source>In order to promote a
@@ -2104,7 +2123,8 @@
           <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">Card title for successfully boosted service</note>
-        <target>Успешно промотирана услуга</target>
+        <target state="translated">
+      Успешно промотирана услуга</target>
       </trans-unit>
       <trans-unit id="promotedTilText" datatype="html">
         <source>
@@ -2117,7 +2137,8 @@
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek-using-coupon/promote-seek-using-coupon.component.html</context>
           <context context-type="linenumber">27</context>
         </context-group>
-        <target>Увеличаването работи до</target>
+        <target state="translated">
+       Промотирано до</target>
       </trans-unit>
       <trans-unit id="openServiceText" datatype="html">
         <source>Open service #</source>
@@ -2126,7 +2147,7 @@
           <context context-type="linenumber">31</context>
         </context-group>
         <note priority="1" from="description">Open promoted service after boosting using coupon</note>
-        <target>Отвори услуга №</target>
+        <target state="translated">Отвори услуга #</target>
       </trans-unit>
       <trans-unit id="3020849bc1c622a2c4bc1168afae093d44024fa2" datatype="html">
         <source>Free</source>
@@ -2181,7 +2202,8 @@
           <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description">Card title for edit seek form</note>
-        <target>Редактирай търсенето</target>
+        <target state="translated">Редактирай търсенето
+  </target>
       </trans-unit>
       <trans-unit id="seekFormLabelTitle" datatype="html">
         <source>Seek title</source>
@@ -2347,7 +2369,7 @@
         </context-group>
         <note priority="1" from="description">Seek tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Избери още маркери</target>
+        <target state="translated">Избери още тагове</target>
       </trans-unit>
       <trans-unit id="seekFormErrorTagsArrayIsTooLong" datatype="html">
         <source>
@@ -2359,7 +2381,9 @@
         </context-group>
         <note priority="1" from="description">Seek tags array is too long, ask user to delete some of them</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Избрани са твърде много тагове, намали броя на таговете</target>
+        <target state="translated">
+  Избрани са твърде много тагове, намали броя на таговете
+   </target>
       </trans-unit>
       <trans-unit id="seekFormErrorTagsArrayNotProvided" datatype="html">
         <source>Select tags for new seek</source>
@@ -2369,7 +2393,7 @@
         </context-group>
         <note priority="1" from="description">Seek tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Изберете маркери за ново търсене</target>
+        <target state="translated">Изберете тагове за ново търсене</target>
       </trans-unit>
       <trans-unit id="seekFormLabelImages" datatype="html">
         <source>Images</source>
@@ -2485,7 +2509,8 @@
           <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">Card title for seek boosting process</note>
-        <target>Увеличаване на търсенето ви ...</target>
+        <target state="translated">
+    Промотиране на търсенето ви ...</target>
       </trans-unit>
       <trans-unit id="promoteSeekSelectedPlanSuccessText" datatype="html">
         <source>
@@ -2495,7 +2520,8 @@
           <context context-type="linenumber">50</context>
         </context-group>
         <note priority="1" from="description">Card title for successfully boosted seek</note>
-        <target>Успешно засилено търсене</target>
+        <target state="translated">
+     Успешно промотирано търсене</target>
       </trans-unit>
       <trans-unit id="promotedSeekTilDate" datatype="html">
         <source>Your seek is currently
@@ -2505,8 +2531,8 @@
           <context context-type="linenumber">57</context>
         </context-group>
         <note priority="1" from="description">Card title for promote seek select plan</note>
-        <target>В момента търсенето ви
-          промотиран до</target>
+        <target state="translated">В момента търсенето ви
+          е промотирано до</target>
       </trans-unit>
       <trans-unit id="c3c68c536dea9d95d54ac4c4f5fb2b5e2e6ad9aa" datatype="html">
         <source>Seek will be promoted til</source>
@@ -2514,7 +2540,7 @@
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
           <context context-type="linenumber">83</context>
         </context-group>
-        <target>Търсенето ще бъде повишено до</target>
+        <target state="translated">Търсенето ще бъде промотирано до</target>
       </trans-unit>
       <trans-unit id="promoteSeekPayText" datatype="html">
         <source>Pay for seek boost</source>
@@ -2523,7 +2549,7 @@
           <context context-type="linenumber">140</context>
         </context-group>
         <note priority="1" from="description">Pay for seek promotion</note>
-        <target>Плати за стимулиране на търсене</target>
+        <target state="translated">Плати за протомиране на търсене</target>
       </trans-unit>
       <trans-unit id="promoteSeekUserHasNoEmail" datatype="html">
         <source>In order to promote a seek we need to know your email. Please, update your profile or provide your email in a following form:</source>
@@ -2542,7 +2568,8 @@
           <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">Card title for successfully boosted seek</note>
-        <target>Успешно засилено търсене</target>
+        <target state="translated">
+       Успешно промотирано търсене</target>
       </trans-unit>
       <trans-unit id="openSeekText" datatype="html">
         <source>Open seek #</source>
@@ -2579,7 +2606,7 @@
           <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Изглежда, че API не работи.</target>
+        <target state="translated">Изглежда, че API не работи.</target>
       </trans-unit>
       <trans-unit id="640e9b047c36785bbc50aed0d2d08f728f621df4" datatype="html">
         <source>Something bad happened on error handling.</source>
@@ -2587,7 +2614,7 @@
           <context context-type="sourcefile">src/app/core/services/error-handler.service.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Нещо лошо се случи при работа по отстраняване на грешки.</target>
+        <target state="translated">Нещо лошо се случи при работа по обработване на грешки.</target>
       </trans-unit>
       <trans-unit id="conversationHtmlTitle" datatype="html">
         <source>Conversation</source>
@@ -2607,7 +2634,7 @@
           <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Успешна гнездо присъедини стая</target>
+        <target state="translated">Успешно присъедини сте към разговора</target>
       </trans-unit>
       <trans-unit id="a89a87fc1d493cc0d96335ad1a6da8cbc0b11a26" datatype="html">
         <source>Error joining room</source>
@@ -2615,7 +2642,7 @@
           <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Грешка при присъединяването към стаята</target>
+        <target state="translated">Грешка при присъединяването към разговора</target>
       </trans-unit>
       <trans-unit id="f80be3171746c25acc1c7fb243af7074f7b2416f" datatype="html">
         <source>connected to room</source>
@@ -2623,7 +2650,7 @@
           <context context-type="sourcefile">src/app/modules/messages/messages-detail/messages-detail.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>свързан със стая</target>
+        <target state="translated">Успешно установена връзка за разговор</target>
       </trans-unit>
       <trans-unit id="93c55596b9757c5e8e95e1252d59829dd645210a" datatype="html">
         <source>instead</source>
@@ -2639,7 +2666,7 @@
           <context context-type="sourcefile">src/app/modules/messages/messages-detail/new-message-form/new-message-form.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Ей, интересувам се от това:</target>
+        <target state="translated">Здравейте, интересувам се от тази обява:</target>
       </trans-unit>
       <trans-unit id="messagesHtmlTitle" datatype="html">
         <source>Messages</source>
@@ -2663,7 +2690,7 @@
           <context context-type="sourcefile">src/app/modules/profile/feed/feed.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Пощенска публикация</target>
+        <target state="translated">Feed Post</target>
       </trans-unit>
       <trans-unit id="errorNoImagesAndNoTextOnFeedPost" datatype="html">
         <source>Enter text or add images</source>
@@ -2929,7 +2956,7 @@
           <context context-type="sourcefile">src/app/modules/services/components/create-service/create-service.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Успешно създадена услуга №</target>
+        <target state="translated">Успешно създадена услуга #</target>
       </trans-unit>
       <trans-unit id="newServiceCreatingErrorText" datatype="html">
         <source>Error creating service</source>
@@ -2954,7 +2981,7 @@
           <context context-type="sourcefile">src/app/modules/services/components/edit-service/edit-service.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Успешно актуализирана услуга №</target>
+        <target state="translated">Успешно актуализирана услуга #</target>
       </trans-unit>
       <trans-unit id="serviceUpdateErrorText" datatype="html">
         <source>Error updating service</source>
@@ -2987,7 +3014,7 @@
           <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Успешно платено за повишаване на услугата</target>
+        <target state="translated">Успешно платено за промотиране на услугата</target>
       </trans-unit>
       <trans-unit id="boostingServiceLoadingText" datatype="html">
         <source>Boosting your service...</source>
@@ -2995,7 +3022,7 @@
           <context context-type="sourcefile">src/app/modules/services/components/promote-service/promote-service.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Увеличаване на услугата ви ...</target>
+        <target state="translated">Промотиране на услугата ви ...</target>
       </trans-unit>
       <trans-unit id="wrongServiceIdText" datatype="html">
         <source>No service id provided</source>
