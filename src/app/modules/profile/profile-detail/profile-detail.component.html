@@ -23,7 +23,7 @@
       </div>
       <div nz-col nzXs="24" nzSm="6" class="right-column">
         <app-profile-avatar-uploader [user]="user"></app-profile-avatar-uploader>
-        <labeled-text class="username-labeled-text" [editable]="this.user.id === this.userService?.currentUser?.id"
+        <labeled-text class="username-labeled-text" [editable]="true"
           #userNameLabeledText maxLength="100" minLength="3"
           (onChange)="onUserChange(userNameLabeledText, {first_name: $event.substr(0, $event.indexOf(' ')), last_name: $event.substr($event.indexOf(' ')+1)})"
           i18n-label="@@profileDetailUsernameLabel" label="Username" [text]="getUsername()"></labeled-text>

@@ -65,6 +65,8 @@
   }
 
   .user-title-container {
+    width: fit-content;
+    margin: auto;
     > * {
       display: block;
       line-height: normal;
