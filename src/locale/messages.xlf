@@ -441,11 +441,17 @@
           <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
           <context context-type="linenumber">100</context>
         </context-group>
+      </trans-unit><trans-unit id="carouselNoImagesWarning" datatype="html">
+        <source>No images to show</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/carousel/carousel.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
       </trans-unit><trans-unit id="gotoCarouselImageText" datatype="html">
         <source>Goto image</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/carousel/carousel.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">46</context>
         </context-group>
         <note priority="1" from="description">Text is diaplayed on tooltip then user hovers image in carousel images list</note>
         <note priority="1" from="meaning">Go to carousel image text</note>

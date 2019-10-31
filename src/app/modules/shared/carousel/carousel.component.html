@@ -1,10 +1,11 @@
 <div *ngIf="images && images.length > 0 else warning">
+  <div class="carousel-container" [class.zoomView]="zoomView">
 
-  <div class="carousel-container zoomView" *ngIf="zoomView">
-    <button (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon nzType="close"></i></button>
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
-    <div nz-row tabindex="1" #zoomViewContainer (touchend)="swipe($event, 'end')" class="arrows" style="height: 100vh;"
-      nzType="flex" nzJustify="space-between" nzAlign="middle">
+
+    <div *ngIf="!hideButtonsOnPreview" nz-row tabindex="1" #zoomViewContainer (touchend)="swipe($event, 'end')"
+      class="arrows" [ngStyle]="{height: zoomView ? '100vh' : null}" nzType="flex" nzJustify="space-between"
+      nzAlign="middle">
       <div nz-col class="arrow" (click)="pre()">
         <i nz-icon nzType="left"></i>
       </div>
@@ -12,41 +13,20 @@
         <i nz-icon nzType="right"></i>
       </div>
     </div>
-  </div>
+    <button *ngIf="zoomView" (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon
+        nzType="close"></i></button>
+    <button *ngIf="!zoomView && !hideButtonsOnPreview" (click)="zoom(true)" class="zoom-btn" nz-button
+      [nzSize]="'large'" nzShape="circle"><i nz-icon nzType="fullscreen"></i></button>
 
-  <div class="carousel-container" *ngIf="!zoomOnly">
-    <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
-    <div *ngIf="!hideButtonsOnPreview" nz-row tabindex="1" #defaultViewContainer (touchstart)="swipe($event, 'start')"
-      (touchend)="swipe($event, 'end')" class="arrows" nzType="flex" nzJustify="space-between" nzAlign="middle">
-      <div nz-col class="arrow" (click)="pre()">
-        <i nz-icon nzType="left"></i>
-      </div>
-      <div nz-col class="arrow" (click)="next()">
-        <i nz-icon nzType="right"></i>
-      </div>
-    </div>
-    <button *ngIf="!hideButtonsOnPreview" (click)="zoom(true)" class="zoom-btn" nz-button [nzSize]="'large'"
-      nzShape="circle"><i nz-icon nzType="fullscreen"></i></button>
   </div>
-
 </div>
 
 <ng-template #warning>
-  <nz-alert nzType="warning" nzMessage="No images to show"></nz-alert>
+  <nz-alert nzType="warning" i18n-nzMessage="@@carouselNoImagesWarning" nzMessage="No images to show"></nz-alert>
 </ng-template>
 
-<ng-template #nzcarousel>
-  <!-- {{getSome()}} -->
-  <!-- TODO: see https://github.com/NG-ZORRO/ng-zorro-antd/issues/4292 -->
-  <!-- <nz-carousel [nzAutoPlay]="autoPlay" [nzEnableSwipe]="false" #carousel class="carousel">
-    <div class="carousel-content" nz-carousel-content *ngFor="let image of images">
-      <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
-        <img [src]="image.image">
-      </div>
-    </div>
-  </nz-carousel> -->
-
-  <!-- Use own carousel for now -->
+<!-- TODO: see https://github.com/NG-ZORRO/ng-zorro-antd/issues/4292, https://github.com/timadevelop/saasWebClient/commit/4e7072f2353adf3e3fa93d385cd9de14b9b13e97 -->
+<ng-template #carouselContent>
   <ti-carousel class="carousel-content" #carousel>
     <ng-container *ngFor="let image of images;">
       <ng-container *carouselItem>
@@ -56,22 +36,6 @@
       </ng-container>
     </ng-container>
   </ti-carousel>
-
-</ng-template>
-
-
-<ng-template #carouselContent>
-  <ng-container *ngIf="isBrowser === true">
-    <ng-container *ngTemplateOutlet="nzcarousel"></ng-container>
-  </ng-container>
-
-  <ng-container *ngIf="!isBrowser">
-    <div class="carousel">
-      <div class="image" nz-row nzType="flex" nzJustify="center" nzAlign="middle">
-        <img [src]="images[0].image" class="carousel-preview-image">
-      </div>
-    </div>
-  </ng-container>
 
   <div class="carousel-images-list">
     <div nz-row nzType="flex" nzGutter="16">
@@ -84,5 +48,4 @@
       </div>
     </div>
   </div>
-
 </ng-template>
