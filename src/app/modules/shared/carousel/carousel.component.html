@@ -1,28 +1,36 @@
 <div *ngIf="images && images.length > 0 else warning">
-  <div class="carousel-container" [class.zoomView]="zoomView">
-
+  <!-- Regular view -->
+  <div class="carousel-container">
     <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
-
-    <div *ngIf="!hideButtonsOnPreview" nz-row tabindex="1" #zoomViewContainer (touchend)="swipe($event, 'end')"
-      class="arrows" [ngStyle]="{height: zoomView ? '100vh' : null}" nzType="flex" nzJustify="space-between"
-      nzAlign="middle">
-      <div nz-col class="arrow" (click)="pre()">
-        <i nz-icon nzType="left"></i>
-      </div>
-      <div nz-col class="arrow" (click)="next()">
-        <i nz-icon nzType="right"></i>
-      </div>
-    </div>
-    <button *ngIf="zoomView" (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon
-        nzType="close"></i></button>
-    <button *ngIf="!zoomView && !hideButtonsOnPreview" (click)="zoom(true)" class="zoom-btn" nz-button
+    <ng-container *ngTemplateOutlet="arrowsTemplate"></ng-container>
+    <button *ngIf="!hideButtonsOnPreview" (click)="zoom(true)" class="zoom-btn" nz-button
       [nzSize]="'large'" nzShape="circle"><i nz-icon nzType="fullscreen"></i></button>
-
   </div>
+  <!-- Zoom view -->
+  <div class="carousel-container zoomView" *ngIf="zoomView">
+      <ng-container *ngTemplateOutlet="carouselContent"></ng-container>
+      <ng-container *ngTemplateOutlet="arrowsTemplate"></ng-container>
+      <button (click)="zoom(false)" class="close-btn" nz-button nzShape="circle"><i nz-icon
+          nzType="close"></i></button>
+    </div>
 </div>
 
 <ng-template #warning>
   <nz-alert nzType="warning" i18n-nzMessage="@@carouselNoImagesWarning" nzMessage="No images to show"></nz-alert>
+</ng-template>
+
+<ng-template #arrowsTemplate>
+    <div nz-row tabindex="1" #zoomViewContainer (touchend)="swipe($event, 'end')"
+    class="arrows" [ngStyle]="zoomView ? {height: '100vh'} : null" nzType="flex" nzJustify="space-between"
+    nzAlign="middle">
+    <div nz-col class="arrow" (click)="pre()">
+      <i nz-icon nzType="left"></i>
+    </div>
+    <div nz-col class="arrow" (click)="next()">
+      <i nz-icon nzType="right"></i>
+    </div>
+  </div>
+
 </ng-template>
 
 <!-- TODO: see https://github.com/NG-ZORRO/ng-zorro-antd/issues/4292, https://github.com/timadevelop/saasWebClient/commit/4e7072f2353adf3e3fa93d385cd9de14b9b13e97 -->

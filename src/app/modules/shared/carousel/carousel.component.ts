@@ -143,13 +143,6 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     }
   }
 
-
-  getSome() {
-    console.log('ahaahahaha', this.isBrowser);
-    return 'hahahaha';
-
-  }
-
   next() {
     this.carousels.forEach(c => c.next());
   }
