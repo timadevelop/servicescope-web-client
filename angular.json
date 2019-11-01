@@ -90,7 +90,7 @@
               "i18nFile": "src/locale/messages.bg.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "bg",
-              "i18nMissingTranslation": "ignore"
+              "i18nMissingTranslation": "warning"
             },
             "bg": {
               "outputPath": "dist/saasWebClient-bg/",

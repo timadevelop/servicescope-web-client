@@ -4,6 +4,11 @@ import { TokenInfo } from 'src/app/modules/auth/models';
 import { environment } from 'src/environments/environment';
 import { CookieService } from '../services/cookie.service';
 
+const API_HEADER_NAMES = {
+  authorization: 'Authorization',
+  apiKey: 'Api-Key'
+}
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
@@ -34,8 +39,11 @@ export class AuthInterceptor implements HttpInterceptor {
     // cloned headers, updated with the authorization.
     let newHeaders = req.headers;
     if (authToken) {
-      newHeaders = newHeaders.set('Authorization', authToken);
+      newHeaders = newHeaders.set(API_HEADER_NAMES.authorization, authToken);
+    }
 
+    if ('API_KEY' in environment) {
+      newHeaders = newHeaders.set(API_HEADER_NAMES.apiKey, environment.API_KEY);
     }
 
     const authReq = req.clone({

@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  API_KEY: 'M9oudt0Y.CslR5xOFQkmPPzi3oBbNNcih8MwPLL5h',
   apiUrl: 'http://api:9123/saas_api',
   WEBSOCKET_PROTOCOL: "ws",
   WEBSOCKET_URL: 'api:9123/saas_ws',
