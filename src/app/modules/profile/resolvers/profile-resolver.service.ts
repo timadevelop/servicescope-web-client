@@ -14,7 +14,6 @@ export class ProfileResolverService implements Resolve<User>{
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
     Observable<User> | Observable<never> {
 
-    console.log(route.paramMap.get('id'));
     let id = +route.paramMap.get('id');
 
     return this.resolveUser(id);

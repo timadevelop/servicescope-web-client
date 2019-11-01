@@ -7,6 +7,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { PaginatedApiResponse } from '../../../core/models/api-response/paginated-api-response';
 import { CustomEncoder } from '../../../core/services/custom.encoder';
 import { catchError, tap, share } from 'rxjs/operators';
+import { Cacheable } from 'ngx-cacheable';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,9 @@ export class ServicePromotionsService {
     return this.http.post<ServicePromotion>(`${environment.apiUrl}/service-promotions/`, promotion);
   }
 
+  @Cacheable({
+    maxAge: 5 * 1000
+  })
   public get(page: string, pageSize: string, query: string = null, filters: Array<{ param: string, value: string }> = []): Observable<PaginatedApiResponse<ServicePromotion>> {
     let params = new HttpParams({ encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize);
 

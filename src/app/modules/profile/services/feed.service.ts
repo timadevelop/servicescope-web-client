@@ -9,6 +9,7 @@ import { FeedPost, FeedPostImage } from 'src/app/core/models/FeedPost.model';
 import { FeedPostApiRequest } from 'src/app/core/models/api-request/feedpost-api-request.model.1';
 import { CustomEncoder } from 'src/app/core/services/custom.encoder';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
+import { Cacheable } from 'ngx-cacheable';
 
 
 @Injectable({
@@ -120,6 +121,9 @@ export class FeedService {
 
 
 
+  @Cacheable({
+    maxAge: 30 * 100
+  })
   public getFeedPosts(page: string, pageSize: string, query: string = null, filters: Array<{ param: string, value: string }> = []): Observable<PaginatedApiResponse<FeedPost>> {
     let params = new HttpParams({ encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize);
 

@@ -8,6 +8,7 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 import { CustomEncoder } from 'src/app/core/services/custom.encoder';
 import { ConversationApiRequest } from 'src/app/core/models/api-request/conversation-api-request.model';
 import { ErrorHandlerService } from 'src/app/core/services/error-handler.service';
+import { Cacheable } from 'ngx-cacheable';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,10 @@ export class ConversationsService {
   }
 
 
+
+  @Cacheable({
+    maxAge: 40 * 100
+  })
   public getConversations(
     page: string,
     pageSize: string,

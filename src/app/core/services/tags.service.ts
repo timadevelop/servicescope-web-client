@@ -8,6 +8,7 @@ import { PaginatedApiResponse } from '../models/api-response/paginated-api-respo
 import { CustomEncoder } from './custom.encoder';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlerService } from './error-handler.service';
+import { Cacheable } from 'ngx-cacheable';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +20,19 @@ export class TagsService {
     private errorHandlerService: ErrorHandlerService) {
   }
 
+  @Cacheable()
   public getTagById(id: number): Observable<Tag> {
     return this.http.get<Tag>(`${environment.apiUrl}/tags/${id}/`);
   }
 
+  @Cacheable()
   public getTagByName(name: string): Observable<Tag> {
     return this.http.get<Tag>(`${environment.apiUrl}/tags/name/${name}/`);
   }
 
+  @Cacheable({
+    maxAge: 60 * 1000
+  })
   public getTags(page: string, pageSize: string, query: string = null): Observable<PaginatedApiResponse<Tag>> {
     let params = new HttpParams({ encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize);
 
@@ -40,6 +46,9 @@ export class TagsService {
     return this.http.get<PaginatedApiResponse<Tag>>(`${environment.apiUrl}/tags/`, options);
   }
 
+  @Cacheable({
+    maxAge: 60 * 1000
+  })
   public getNextTags(next: string): Observable<PaginatedApiResponse<Tag>> {
     return this.http.get<PaginatedApiResponse<Tag>>(next);
   }

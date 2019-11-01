@@ -11,6 +11,8 @@ import { CustomEncoder } from '../../../core/services/custom.encoder';
 import { ServiceApiRequest } from '../../../core/models/api-request/service-api-request.model';
 import { ErrorHandlerService } from '../../../core/services/error-handler.service';
 
+import { Cacheable } from 'ngx-cacheable';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +23,9 @@ export class ServicesService {
     private errorHandlerService: ErrorHandlerService) {
   }
 
+  @Cacheable({
+    maxAge: 20 * 1000
+  })
   public getServiceById(id: number): Observable<Service> {
     return this.http.get<Service>(`${environment.apiUrl}/services/${id}/`);
   }
@@ -128,6 +133,9 @@ export class ServicesService {
     );
   }
 
+  @Cacheable({
+    maxAge: 60 * 1000
+  })
   public getServices(page: string, pageSize: string, query: string = null, filters: Array<{ param: string, value: string }> = []): Observable<PaginatedApiResponse<Service>> {
     let params = new HttpParams({ encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize);
 

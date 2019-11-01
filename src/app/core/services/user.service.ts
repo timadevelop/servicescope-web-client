@@ -9,6 +9,7 @@ import { NzMessageService, UploadXHRArgs } from 'ng-zorro-antd';
 import { PaginatedApiResponse } from '../models/api-response/paginated-api-response';
 import { CustomEncoder } from './custom.encoder';
 import { ErrorHandlerService } from './error-handler.service';
+import { Cacheable } from 'ngx-cacheable';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,9 @@ export class UserService {
     return this.http.get<User>(`${environment.apiUrl}/users/${id}/`);
   }
 
+  @Cacheable({
+    maxAge: 60 * 1000
+  })
   public getUsers(page: string, pageSize: string): Observable<PaginatedApiResponse<User>> {
     const options =
       { params: new HttpParams({ encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize) };

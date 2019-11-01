@@ -10,6 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { CustomEncoder } from '../../../core/services/custom.encoder';
 import { SeekApiRequest } from '../../../core/models/api-request/seek-api-request.model';
 import { ErrorHandlerService } from '../../../core/services/error-handler.service';
+import { Cacheable } from 'ngx-cacheable';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,9 @@ export class SeeksService {
     private errorHandlerService: ErrorHandlerService) {
   }
 
+  @Cacheable({
+    maxAge: 20 * 1000
+  })
   public getSeekById(id: number): Observable<Seek> {
     return this.http.get<Seek>(`${environment.apiUrl}/seekings/${id}/`);
   }
@@ -125,6 +129,9 @@ export class SeeksService {
     );
   }
 
+  @Cacheable({
+    maxAge: 60 * 1000
+  })
   public getSeeks(page: string, pageSize: string, query: string = null, filters: Array<{ param: string, value: string }> = []): Observable<PaginatedApiResponse<Seek>> {
     let params = new HttpParams({ encoder: new CustomEncoder() }).set('page', page).set('page_size', pageSize);
 

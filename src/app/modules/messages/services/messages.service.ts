@@ -9,6 +9,7 @@ import { UploadFile } from 'ng-zorro-antd';
 import { catchError } from 'rxjs/operators';
 import { CustomEncoder } from '../../../core/services/custom.encoder';
 import { PaginatedApiResponse } from '../../../core/models/api-response/paginated-api-response';
+import { Cacheable } from 'ngx-cacheable';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,10 @@ export class MessagesService {
   }
 
 
+
+  @Cacheable({
+    maxAge: 5 * 100
+  })
   public getMessages(
     page: string,
     pageSize: string,
