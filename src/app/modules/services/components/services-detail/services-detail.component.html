@@ -39,8 +39,8 @@
           <!-- Title -->
           <h1 *ngIf="!tds.isMobile" class="title">{{service.title}}</h1>
           <!-- Description -->
-          <div class="service-description">
-            {{service.description}}
+          <div class="service-description" [innerHtml]="service.description | safe: 'html'">
+            <!-- {{service.description}} -->
           </div>
         </div>
         <!-- Votes -->

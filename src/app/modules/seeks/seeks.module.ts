@@ -32,6 +32,7 @@ import { ShareWidgetModule } from '../shared/share-widget/share-widget.module';
 import { PhoneWrapperModule } from '../shared/phone-wrapper/phone-wrapper.module';
 import { RouterModule } from '@angular/router';
 import { SeeksListItemComponent } from './components/seeks-list-item/seeks-list-item.component';
+import { RichTextEditorModule } from '../shared/rich-text-editor/rich-text-editor.module';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { SeeksListItemComponent } from './components/seeks-list-item/seeks-list-
     AuthorCardModule,
     ShareWidgetModule,
     PhoneWrapperModule,
+    RichTextEditorModule
   ],
   exports: [
     SeeksListComponent

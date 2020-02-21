@@ -41,8 +41,8 @@
           <!-- Title -->
           <h1 *ngIf="!tds.isMobile" class="title">{{seek.title}}</h1>
           <!-- Description -->
-          <div class="seek-description">
-            {{seek.description}}
+          <div class="seek-description" [innerHtml]="service.description | safe: 'html'">
+            <!-- {{seek.description}} -->
           </div>
         </div>
         <!-- Votes -->

@@ -32,6 +32,7 @@ import { AuthorCardModule } from '../shared/author-card/author-card.module';
 import { ShareWidgetModule } from '../shared/share-widget/share-widget.module';
 import { PhoneWrapperModule } from '../shared/phone-wrapper/phone-wrapper.module';
 import { ServicesListItemComponent } from './components/services-list-item/services-list-item.component';
+import { RichTextEditorModule } from '../shared/rich-text-editor/rich-text-editor.module';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { ServicesListItemComponent } from './components/services-list-item/servi
     AuthorCardModule,
     ShareWidgetModule,
     PhoneWrapperModule,
+    RichTextEditorModule
   ],
   exports: [
     ServicesListComponent

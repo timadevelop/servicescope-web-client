@@ -81,9 +81,9 @@
       <nz-form-item>
         <nz-form-label nzFor="description" i18n="@@seekFormLabelDescription">Description</nz-form-label>
         <nz-form-control [nzSm]="24" [nzXs]="24" nzHasFeedback [nzErrorTip]="descriptionErrorTemplate">
-          <textarea formControlName="description" nz-input rows="10" i18n-placeholder="@@seekFormLabelDescription"
-            placeholder="Description"></textarea>
-          <ng-template #descriptionErrorTemplate let-control>
+            <quill-editor formControlName="description" [sanitize]="true" [required]="true" i18n-placeholder="@@seekFormLabelDescription"
+              placeholder="Description"></quill-editor>
+            <ng-template #descriptionErrorTemplate let-control>
             <ng-container *ngIf="control.hasError('minlength')"
               i18n="Error message|Seek description is too short@@seekFormErrorDescriptionIsTooShort">Description is too short</ng-container>
             <ng-container *ngIf="control.hasError('maxlength')"
