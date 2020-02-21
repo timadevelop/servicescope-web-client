@@ -40,6 +40,10 @@ a > .ant-tag {
   cursor: pointer;
 }
 
+.ant-input-group.ant-input-group-compact > *{
+  height: 42px;
+}
+
 .ant-select-selection--multiple .ant-select-selection__placeholder {
   margin-left: 0;
 }
