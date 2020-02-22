@@ -10,13 +10,15 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { NzFormModule, NzInputModule, NzGridModule, NzIconModule, NzDividerModule, NzSpinModule, NzButtonModule, NzAvatarModule, NzCardModule } from 'ng-zorro-antd';
 import { LabeledTextModule } from '../shared/labeled-text/labeled-text.module';
+import { RestoreComponent } from './restore/restore.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     SocialAuthButtonsComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    RestoreComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,33 @@
+<nz-row nzType="flex" nzJustify="space-around" nzAlign="middle">
+  <nz-col class="restore-container" nzSpan="12">
+    <nz-spin [nzSpinning]="loading || authService.loading">
+      <nz-row class="restore-header" nzType="flex" nzJustify="center">
+        <nz-col>
+          <h1><ng-container i18n>Restore password</ng-container></h1>
+          <p><span i18n>Or</span>{{' '}}
+            <a [routerLink]="['/auth/login']" i18n>Login</a>
+          </p>
+        </nz-col>
+      </nz-row>
+      <form *ngIf="!authService.isLoggedIn" nz-form [formGroup]="validateForm" class="restore-form"
+        (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzHasFeedback [nzErrorTip]="emailErrorTemplate">
+            <nz-input-group [nzPrefix]="prefixEmail">
+              <input nz-input formControlName="email" placeholder="Email" type="email" />
+            </nz-input-group>
+            <ng-template #emailErrorTemplate let-control>
+              <ng-container *ngIf="control.hasError('email')" i18n>The input is not valid E-mail!</ng-container>
+              <ng-container *ngIf="control.hasError('required')" i18n>Please input your E-mail!</ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button class="restore-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid" i18n>Restore</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-spin>
+  </nz-col>
+</nz-row>

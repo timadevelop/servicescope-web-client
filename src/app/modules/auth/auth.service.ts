@@ -66,6 +66,9 @@ export class AuthService {
     return this._tokenInfo ? `${this._tokenInfo.token_type} ${this._tokenInfo.access_token}` : null;
   }
 
+  public restore(email: string): Observable<{ detail: string }> {
+    return this.http.post<{detail: string}>(`${environment.apiUrl}/rest-auth/password/reset/`, { email });
+  }
   // Auth methods
   public login(credentials: LoginApiRequest): Observable<boolean> {
     this._loading = true;

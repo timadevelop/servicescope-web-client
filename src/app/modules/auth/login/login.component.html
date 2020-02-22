@@ -52,7 +52,7 @@
         <app-social-auth-buttons></app-social-auth-buttons>
       </nz-form-item>
       <nz-form-item class="login-form-forgot-section">
-        <a i18n>Forgot password?</a>
+        <a [routerLink]="['/', 'auth', 'restore']" i18n>Forgot password?</a>
       </nz-form-item>
       <nz-divider nzDashed></nz-divider>
       <nz-form-item class="login-form-info">
