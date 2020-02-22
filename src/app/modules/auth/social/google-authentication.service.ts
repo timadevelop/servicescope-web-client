@@ -7,6 +7,7 @@ import { switchMap } from 'rxjs/operators';
 import { TokenInfo } from '../models';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,7 @@ export class GoogleAuthenticationService {
     private configService: ConfigService,
     private zone: NgZone,
     private router: Router,
+    private nzMsg: NzMessageService,
     private http: HttpClient) { }
 
   /**
@@ -51,27 +53,25 @@ export class GoogleAuthenticationService {
       }));
   }
 
-  signIn(): void {
+  async signIn() {
     this._loading = true;
-    this.auth2.signIn().then((user: gapi.auth2.GoogleUser) => {
-      // TODO: access_token
-      this.convertToken(user['Zi'].access_token).subscribe((tokenInfo: TokenInfo) => {
-        this.zone.run(() => {
-          this.tokenInfo$.next(tokenInfo);
-          this.isLoggedIn$.next(true);
-          this.router.navigate(['/']);
-          this._loading = false;
-        });
-      },
-        (err) => {
-          console.error(err);
-          this._loading = false;
-        });
-    }).catch(e => {
+    try {
+      if (!this.auth2.currentUser) {
+        await this.auth2.signIn();
+      }
+      const token = this.auth2.currentUser.get().getAuthResponse(true).access_token;
+      const tokenInfo: TokenInfo = await this.convertToken(token).toPromise();
+      this.zone.run(() => {
+        this.tokenInfo$.next(tokenInfo);
+        this.isLoggedIn$.next(true);
+        this.router.navigate(['/']);
+        this._loading = false;
+      });
+    } catch (e) {
       this._loading = false;
-      console.log(e);
-    });
-  };
+      this.nzMsg.error("Error logging in using google");
+    }
+  }
 
   // signOut(): void { // TODO: API Cares About that?
   //   this.auth2.signOut().then(() => {
