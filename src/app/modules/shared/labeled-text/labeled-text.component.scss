@@ -20,6 +20,11 @@
   .labeled-text-text {
     font-weight: 400;
   }
+  ::ng-deep .quill-editor + .ant-input-suffix {
+    top: auto;
+    bottom: 5%;
+  }
+
 }
 
 .edit-btn {

@@ -13,6 +13,7 @@ export class LabeledTextComponent implements OnInit {
   @Output() onChange = new EventEmitter<string>();
   @Input() maxLength = null;
   @Input() minLength = null;
+  @Input() richText: boolean = false;
   newText: string;
 
   @Input() edit: boolean = false;

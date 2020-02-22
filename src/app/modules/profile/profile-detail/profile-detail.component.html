@@ -4,7 +4,7 @@
       <div nz-col nzXs="24" nzSm="16" class="left-column">
         <labeled-text [editable]="this.user.id === this.userService?.currentUser?.id" #bioLabeledText maxLength="500"
           minLength="3" (onChange)="onUserChange(bioLabeledText, {bio: $event})" i18n-label="@@userbioLabel" label="User bio"
-          [text]="user.bio || 'Empty'">
+          [text]="user.bio || 'Empty'" [richText]="true">
         </labeled-text>
         <labeled-text *ngIf="this.user.id === this.userService?.currentUser?.id" [editable]="true" #emailLabeledText
           (onChange)="onUserChange(emailLabeledText, {email: $event})" i18n-label="@@emailLabel" label="Email"
