@@ -25,7 +25,9 @@ import { FeedbackWidgetComponent } from './app-components/feedback-widget/feedba
 
 import { CookieService } from './core/services/cookie.service';
 
-import { TransferHttpCacheModule } from '@hapiness/ng-universal-transfer-http';
+// import { TransferHttpCacheModule } from '@hapiness/ng-universal-transfer-http';
+// TODO: npm i
+import {TransferHttpCacheModule} from '@nguniversal/common';
 
 import { PrebootModule } from 'preboot';
 import { RouterModule } from '@angular/router';

@@ -51,7 +51,7 @@ export class SocketService implements OnDestroy, OnInit {
 
 
   private getSocketUrl(): string {
-    return `${environment.WEBSOCKET_PROTOCOL}://${environment.WEBSOCKET_URL}/global/`
+    return `${environment.WEBSOCKET_PROTOCOL}://${environment.WEBSOCKET_URL}/global/`;
   }
 
   private create(url): Subject<MessageEvent> {

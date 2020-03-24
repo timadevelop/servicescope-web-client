@@ -61,12 +61,16 @@ export class LocationSearchComponent implements OnInit, ControlValueAccessor {
   ) {
   }
 
-  ngOnInit() {
-    this.locationService.getMajorCities()
-      .subscribe(mcs => {
-        this.locations = mcs;
-      });
+  private async loadMajorLocations() {
+    try {
+      this.locations = await this.locationService.getMajorCities().toPromise();
+    } catch (e) {
+      // TODO
+    }
+  }
 
+  ngOnInit() {
+    this.loadMajorLocations();
     // this.search(this.i18n({value: "", id: "defaultLocationSearchQuery", description: "Default search query for location selector (later will be deprecated, we`ll use most popular locations)"})); // TODO get main locations
 
     this.nullLocation.name = this.isFormItem ? this.i18n({ value: "Select Location", id: 'selectLocationText' }) : this.i18n({ value: "Whole country", id: 'wholeCountryText' });

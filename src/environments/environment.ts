@@ -4,13 +4,15 @@
 
 export const environment = {
   production: false,
-  API_KEY: 'M9oudt0Y.CslR5xOFQkmPPzi3oBbNNcih8MwPLL5h',
-  apiUrl: 'http://localhost:9123/saas_api',
+  API_KEY: 'oKw647Nq.CbRoJGmdUbYgmDFNBoBZJH6TMhyPIBsh',
+  PUBLIC_HOST: '127.0.0.1:9999',
+  INTERNAL_HOST: 'tasks.wrapper',
+  apiUrl: 'http://127.0.0.1:9999/DEVsaas_api',
   WEBSOCKET_PROTOCOL: "ws",
-  WEBSOCKET_URL: 'localhost:9123/saas_ws',
+  WEBSOCKET_URL: '127.0.0.1:9999/saas_ws',
   LOCALSTORAGE_TOKEN_INFO_KEY: 'TOKEN_INFO',
   FEEDBACK_USER_ID: 1,
-  PUBLIC_ORIGIN: 'http://localhost:9127',
+  PUBLIC_ORIGIN: 'http://127.0.0.1:9999/saas_web',
 };
 
 /*

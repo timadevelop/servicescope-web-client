@@ -18,6 +18,8 @@ ARG PORT=4200
 EXPOSE ${PORT}
 
 RUN npm install
+RUN npx npm-force-resolutions
+RUN npm install
 
 # start app
 CMD ./run.sh
