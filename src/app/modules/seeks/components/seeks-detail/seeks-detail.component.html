@@ -41,7 +41,7 @@
           <!-- Title -->
           <h1 *ngIf="!tds.isMobile" class="title">{{seek.title}}</h1>
           <!-- Description -->
-          <div class="seek-description" [innerHtml]="service.description | safe: 'html'">
+          <div class="seek-description" [innerHtml]="seek.description | safe: 'html'">
             <!-- {{seek.description}} -->
           </div>
         </div>
@@ -68,11 +68,11 @@
           </app-card-button>
         </a>
         <!-- Promote button -->
-        <a [routerLink]="['./', 'promote']" *ngIf="(userService.currentUserObs | async)?.id !== seek.author.id">
+        <!-- <a [routerLink]="['./', 'promote']" *ngIf="(userService.currentUserObs | async)?.id !== seek.author.id">
           <app-card-button type="primary">
             <i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span>
           </app-card-button>
-        </a>
+        </a> -->
       </div>
     </div>
 
@@ -113,11 +113,11 @@
     </app-price-card>
 
     <!-- Promote button -->
-    <a [routerLink]="['./', 'promote']">
+    <!-- <a [routerLink]="['./', 'promote']">
       <app-card-button type="primary">
         <i nz-icon nzType="rise"></i><span i18n="@@promoteButtonText">Promote</span>
       </app-card-button>
-    </a>
+    </a> -->
 
     <!-- Call button for other users -->
     <app-card-button>
@@ -176,12 +176,12 @@
 
   <!-- For author -->
   <!-- Promote button -->
-  <a [routerLink]="['./', 'promote']" *ngIf="(userService.currentUserObs | async)?.id == seek.author.id" nz-col
+  <!-- <a [routerLink]="['./', 'promote']" *ngIf="(userService.currentUserObs | async)?.id == seek.author.id" nz-col
     nzSpan="12" class="promo-col">
     <span><i nz-icon nzType="rocket"></i><span i18n="@@promoteYourSeekText">Promote</span></span>
-  </a>
+  </a> -->
   <!-- Edit button -->
-  <a [routerLink]="['./', 'edit']" *ngIf="(userService.currentUserObs | async)?.id == seek.author.id" nz-col nzSpan="12"
+  <a [routerLink]="['./', 'edit']" *ngIf="(userService.currentUserObs | async)?.id == seek.author.id" nz-col nzSpan="24"
     class="edit-col">
     <span><i nz-icon nzType="edit"></i><span i18n="@@editButtonText">Edit</span></span>
   </a>

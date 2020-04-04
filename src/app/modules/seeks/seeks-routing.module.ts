@@ -30,14 +30,14 @@ const seeksRoutes: Routes = [
         component: CreateSeekComponent,
         canActivate: [AuthGuard],
       },
-      {
-        path: ':id/promote',
-        component: PromoteSeekComponent,
-        canActivate: [AuthGuard],
-        resolve: {
-          seek: SeekResolverService
-        },
-      },
+      // {
+      //   path: ':id/promote',
+      //   component: PromoteSeekComponent,
+      //   canActivate: [AuthGuard],
+      //   resolve: {
+      //     seek: SeekResolverService
+      //   },
+      // },
       {
         path: ':id/edit',
         component: EditSeekComponent,

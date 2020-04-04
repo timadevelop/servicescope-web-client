@@ -30,14 +30,14 @@ const servicesRoutes: Routes = [
         component: CreateServiceComponent,
         canActivate: [AuthGuard],
       },
-      {
-        path: ':id/promote',
-        component: PromoteServiceComponent,
-        canActivate: [AuthGuard],
-        resolve: {
-          service: ServiceResolverService
-        },
-      },
+      // {
+      //   path: ':id/promote',
+      //   component: PromoteServiceComponent,
+      //   canActivate: [AuthGuard],
+      //   resolve: {
+      //     service: ServiceResolverService
+      //   },
+      // },
       {
         path: ':id/edit',
         component: EditServiceComponent,

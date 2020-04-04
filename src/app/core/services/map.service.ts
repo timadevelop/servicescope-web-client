@@ -112,8 +112,11 @@ export class MapService {
     geocoder.geocode(
       geocodingParameters,
       result => {
-        let locations = result.response.view[0].result;
-        this.addLocationsToMap(locations);
+        let locations = result.response.view[0];
+        if (locations) {
+          locations = locations.result;
+          this.addLocationsToMap(locations);
+        }
       },
       error => {
         console.log('Can\'t reach the remote server', error);
