@@ -1,0 +1,14 @@
+const envVar:string = '${ENV}';
+
+export const environment = {
+  production: envVar == 'production',
+  API_KEY: '${API_KEY}',
+  PUBLIC_HOST: '${WEBCLIENT_PUBLIC_HOST}',
+  INTERNAL_HOST: 'tasks.wrapper',
+  apiUrl: '${API_PUBLIC_URL}',
+  WEBSOCKET_PROTOCOL: "${WEBCLIENT_WS_PROTOCOL}",
+  WEBSOCKET_URL: '${WEBCLIENT_WS_URL}',
+  LOCALSTORAGE_TOKEN_INFO_KEY: 'TOKEN_INFO',
+  FEEDBACK_USER_ID: ${FEEDBACK_USER_ID},
+  PUBLIC_ORIGIN: '${WEBCLIENT_PUBLIC_URL}',
+};
