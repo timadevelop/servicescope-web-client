@@ -3,26 +3,29 @@
     <div nz-col class="gutter-row" nzSpan="18">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-left">
         <li nz-menu-item routerLink="/services" routerLinkActive="ant-menu-item-selected">
-          <a i18n="@@headerServicesButtonText">Services</a>
+          <a routerLink="/services" i18n="@@headerServicesButtonText">Services</a>
         </li>
         <li nz-menu-item routerLink="/seeks" routerLinkActive="ant-menu-item-selected">
-          <a i18n="@@headerPostsButtonText">Seeks</a>
+          <a routerLink="/seeks" i18n="@@headerPostsButtonText">Seeks</a>
         </li>
       </div>
     </div>
     <div nz-col class="gutter-row" nzSpan="6">
       <div nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="header-menu header-menu-right">
-        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" class="login-menu-item" routerLink="/auth/login"
-          routerLinkActive="ant-menu-item-selected">
-          <a i18n="headerLoginButtonText">Login</a>
+        <li nz-menu-item *ngIf="!authService.isLoggedIn else userMenuItem" class="login-menu-item"
+          routerLink="/auth/login" routerLinkActive="ant-menu-item-selected">
+          <a routerLink="/auth/login" i18n="headerLoginButtonText">Login</a>
         </li>
         <ng-template #userMenuItem>
-          <li nz-menu-item *ngIf="userService.currentUserObs | async" (click)="toggleNotificationManager()" class="user-menu-item" [class.ant-menu-item-selected]="rns.showNotificationsManager">
+          <li nz-menu-item *ngIf="userService.currentUserObs | async" (click)="toggleNotificationManager()"
+            class="user-menu-item" [class.ant-menu-item-selected]="rns.showNotificationsManager">
             <div class="user-title-container" title>
               <nz-badge [nzCount]="rns.count">
-                <nz-avatar class="user-logo" nzIcon="user" [nzSrc]="(userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
+                <nz-avatar class="user-logo" nzIcon="user"
+                  [nzSrc]="(userService.currentUserObs | async)?.image || 'assets/images/undraw_user.svg'"></nz-avatar>
               </nz-badge>
-              <span><span class="hello-text" i18n="@@welcomeText">Hi, </span>{{(userService.currentUserObs | async)?.first_name}}</span>
+              <span><span class="hello-text" i18n="@@welcomeText">Hi,
+                </span>{{(userService.currentUserObs | async)?.first_name}}</span>
             </div>
           </li>
         </ng-template>

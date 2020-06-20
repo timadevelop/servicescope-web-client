@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 
 import { MessagesService } from 'src/app/modules/messages/services/messages.service';
 import { PaginatedApiResponse } from 'src/app/core/models/api-response/paginated-api-response';
@@ -14,6 +14,7 @@ import { TargetDeviceService } from 'src/app/core/services/target-device.service
 import { I18n } from '@ngx-translate/i18n-polyfill';
 import { Title } from '@angular/platform-browser';
 import { MessageApiRequest } from 'src/app/core/models/api-request/message-api-request.model';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-messages-detail',
@@ -43,6 +44,7 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
     private nzMsgService: NzMessageService,
     public tds: TargetDeviceService,
     private titleService: Title,
+    @Inject(PLATFORM_ID) private platformId: object,
     private i18n: I18n
   ) { }
 
@@ -63,14 +65,12 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
         // console.log('waiting in messages- detail...');
         return;
       }
-      // console.log('reconnect on messages-detail');
+
       if (this.socketMessageSub$) this.socketMessageSub$.unsubscribe();
 
       this.socketMessageSub$ = sm.subscribe((m: SocketMessage) => {
         this.processSocketMessage(m);
       });
-
-      // this.joinRoom();
     });
 
     this.route.data.subscribe((data: { conversation: Conversation }) => {
@@ -110,7 +110,9 @@ export class MessagesDetailComponent implements OnInit, OnDestroy {
   }
 
   private joinRoom() {
-    this.chatService.joinRoom(String(this.conversation.id));
+    if (isPlatformBrowser(this.platformId)) {
+      this.chatService.joinRoom(String(this.conversation.id));
+    }
   }
 
   private processSocketMessage(m: SocketMessage) {

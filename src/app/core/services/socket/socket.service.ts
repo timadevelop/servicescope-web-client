@@ -12,7 +12,6 @@ const RECONNECTING_INTERVAL = 3000;
   providedIn: 'root'
 })
 export class SocketService implements OnDestroy, OnInit {
-
   private loadingMsgId = null;
   private reconnect$ = new BehaviorSubject<Subject<MessageEvent>>(null);
   private subject: Subject<MessageEvent>;
@@ -21,9 +20,9 @@ export class SocketService implements OnDestroy, OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private authService: AuthService,
     private nzMessageService: NzMessageService,
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnDestroy() {
     if (this.subject) this.subject.complete();

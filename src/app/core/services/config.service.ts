@@ -23,8 +23,7 @@ export class ConfigService {
   constructor(
     private http: HttpClient,
     private errorHandlerService: ErrorHandlerService) {
-      this.getConfig().subscribe(r => this._config = r);
-      console.log('init config service'); // TODO
+    this.getConfig().subscribe(r => this._config = r);
   }
 
   public currentConfig(): Observable<ApiClientConfig> {

@@ -1,9 +1,8 @@
-import { Injectable, OnDestroy, OnInit } from "@angular/core";
+import { Injectable, OnDestroy, OnInit, Inject, PLATFORM_ID } from "@angular/core";
 import { Subject, Observable, of, BehaviorSubject, Subscription } from 'rxjs';
 import { SocketService } from './socket.service';
 import { map, tap, share } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { AuthService } from 'src/app/modules/auth/auth.service';
+import { isPlatformBrowser } from '@angular/common';
 
 export class SocketMessage {
   type: string;
@@ -22,8 +21,12 @@ export class ChatService implements OnInit, OnDestroy {
 
   private sub$: Subscription;
 
-  constructor(private wsService: SocketService) {
-    this.connect();
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    private wsService: SocketService) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.connect();
+    }
   }
 
   ngOnInit(): void {
@@ -39,20 +42,22 @@ export class ChatService implements OnInit, OnDestroy {
   }
 
   private connect(): void {
-    if (this.sub$) return;
+    if (this.sub$) {
+      return;
+    }
     this.sub$ = this.wsService.onReconnect().subscribe((s: Subject<MessageEvent>) => {
       if (s === null) {
         // console.log('waiting in chat service...');
         return null;
       }
-      // console.log('reconnected in chat service');
-      this.messages = <Subject<SocketMessage>>s.pipe(
+
+      this.messages = s.pipe(
         map((response: MessageEvent): SocketMessage => {
           let data = JSON.parse(response.data);
           return data;
         }),
         share()
-      );
+      ) as Subject<SocketMessage>;
 
       this.obs$.next(this.messages);
       return this.messages;

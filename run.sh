@@ -8,6 +8,9 @@ npm install
 
 bash ./scripts/parse_env.sh
 
+# ADD trailing slash to env base href variable
+[[ "${WEBCLIENT_BASE_HREF}" != */ ]] && export WEBCLIENT_BASE_HREF="${WEBCLIENT_BASE_HREF}/"
+
 if [ "$ENV" = "production" ]; then
   # Angular use universal for prod
   if [ "$LOCALE" = "bg" ]; then
@@ -17,8 +20,8 @@ if [ "$ENV" = "production" ]; then
   fi
 else
   if [ "$LOCALE" = "bg" ]; then
-    ng serve --configuration=bg --aot --host 0.0.0.0 --disable-host-check --disableHostCheck --base-href=$WEBCLIENT_BASE_HREF/ --public-host=$WEBCLIENT_PUBLIC_URL
+    ng serve --configuration=bg --aot --host 0.0.0.0 --disable-host-check --disableHostCheck --base-href=$WEBCLIENT_BASE_HREF --public-host=$WEBCLIENT_PUBLIC_URL
   else
-    ng serve --aot --host 0.0.0.0 --disable-host-check --disableHostCheck --base-href=$WEBCLIENT_BASE_HREF/ --public-host=$WEBCLIENT_PUBLIC_URL
+    ng serve --aot --host 0.0.0.0 --disable-host-check --disableHostCheck --base-href=$WEBCLIENT_BASE_HREF --public-host=$WEBCLIENT_PUBLIC_URL
   fi
 fi
