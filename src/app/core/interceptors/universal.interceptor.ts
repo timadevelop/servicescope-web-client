@@ -15,7 +15,8 @@ export class UniversalInterceptor implements HttpInterceptor {
     if (isPlatformServer(this.platformId)) {
       // rewrite url:
       // Rewrited http://getmaker.io:9999/saas_api/config/get_configuration/ to http://tasks.wrapper/saas_api/config/get_configuration/
-      const newUrl = req.url.replace(environment.PUBLIC_HOST, environment.INTERNAL_HOST);
+      let newUrl = req.url.replace(environment.PUBLIC_HOST, environment.INTERNAL_HOST);
+      newUrl = req.url.replace('https', 'http');
       // console.log(`Rewrited ${req.url} to ${newUrl}`);
       serverReq = req.clone({ url: newUrl });
     } else {
