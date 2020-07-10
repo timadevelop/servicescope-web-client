@@ -56,7 +56,7 @@ export class GoogleAuthenticationService {
   async signIn() {
     this._loading = true;
     try {
-      if (!this.auth2.currentUser) {
+      if (!this.auth2.currentUser || !this.auth2.currentUser.get().isSignedIn()) {
         await this.auth2.signIn();
       }
       const token = this.auth2.currentUser.get().getAuthResponse(true).access_token;
