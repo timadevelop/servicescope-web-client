@@ -4,7 +4,7 @@
   </a>
 </p>
 <div align="center">
-  <h1>GetMaker Web Client</h1>
+  <h1>Serviscope Web Client</h1>
   <p>Built with
     <a href="https://github.com/angular/angular">Angular 8</a>
     , <a href="https://github.com/angular/universal/">Angular Universal</a>

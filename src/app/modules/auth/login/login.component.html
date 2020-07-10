@@ -4,7 +4,9 @@
     <nz-spin [nzSpinning]="loading || authService.loading">
       <nz-row class="login-header" nzType="flex" nzJustify="center">
         <nz-col>
-          <h1><ng-container i18n>Log into</ng-container> <b>getMaker</b></h1>
+          <h1>
+            <ng-container i18n>Log into</ng-container> <b>Serviscope</b>
+          </h1>
           <p><span i18n>Or</span>{{' '}}
             <a [routerLink]="['/auth/register']" i18n>Create Account</a>
           </p>
@@ -30,7 +32,8 @@
               <input type="password" nz-input formControlName="password" placeholder="Password" />
             </nz-input-group>
             <ng-template #passwordErrorTemplate let-control>
-              <ng-container *ngIf="control.hasError('minlength')" i18n>Use at least 5 characters for password</ng-container>
+              <ng-container *ngIf="control.hasError('minlength')" i18n>Use at least 5 characters for password
+              </ng-container>
               <ng-container *ngIf="control.hasError('required')" i18n>Please input your password!</ng-container>
             </ng-template>
           </nz-form-control>
@@ -43,7 +46,8 @@
 
         <nz-form-item>
           <nz-form-control>
-            <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid" i18n>Login</button>
+            <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="validateForm.invalid"
+              i18n>Login</button>
           </nz-form-control>
         </nz-form-item>
       </form>

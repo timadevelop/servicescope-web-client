@@ -19,7 +19,7 @@ export class SeoService {
 
   generateTags(config: MetaConfig) {
     config = {
-      title: config.title || 'GetMaker',
+      title: config.title || 'Serviscope',
       description: config.description || 'Search services TODO',
       image: config.image || 'https://instafire-app.firebaseapp.com/assets/seo.jpeg',
       keywords: config.keywords || 'services,job,post,offer,tag'
@@ -35,7 +35,7 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:image', content: config.image });
 
     this.meta.updateTag({ property: 'og:type', content: 'article' });
-    this.meta.updateTag({ property: 'og:site_name', content: 'GetMaker' });
+    this.meta.updateTag({ property: 'og:site_name', content: 'Serviscope' });
     this.meta.updateTag({ property: 'og:title', content: config.title });
     this.meta.updateTag({ property: 'og:description', content: config.description });
     this.meta.updateTag({ property: 'og:image', content: config.image.replace('https', 'http') });
