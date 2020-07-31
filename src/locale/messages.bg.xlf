@@ -174,7 +174,7 @@
         </context-group>
         <note priority="1" from="description">Service text is empty or invalid, ask user for valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валиден текст</target>
+        <target>Моля, въведи валиден текст</target>
       </trans-unit>
       <trans-unit id="sendFeedbackButtonText" datatype="html">
         <source>Send</source>
@@ -206,7 +206,7 @@
           <context context-type="sourcefile">app/modules/about/about/about.component.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Относно</target>
+        <target>За нас</target>
       </trans-unit>
       <trans-unit id="termsText" datatype="html">
         <source>Terms</source>
@@ -282,7 +282,7 @@
         <source>The input is not valid E-mail!</source>
 
 
-        <target>Входиран е невалиден имейл!</target>
+        <target>Имейла е невалиден!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">23</context>
@@ -300,7 +300,7 @@
         <source>Please input your E-mail!</source>
 
 
-        <target>Моля, въведете своя имейл!</target>
+        <target>Моля, въведи своя имейл!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">24</context>
@@ -317,7 +317,7 @@
       <trans-unit id="afd6397c0d5010f587603c6da2bc612c04315ffc" datatype="html">
         <source>Use at least 5 characters for password
         </source>
-        <target state="new">Use at least 5 characters for password
+        <target>Използвай поне 5 знака за парола
         </target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
@@ -330,13 +330,13 @@
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">33</context>
         </context-group>
-        <target>Използвайте поне 5 знака за парола</target>
+        <target>Използвай поне 5 знака за парола</target>
       </trans-unit>
       <trans-unit id="d8542d7377e973367c20b74dd75d91849a2f9ebb" datatype="html">
         <source>Please input your password!</source>
 
 
-        <target>Моля, въведете вашата парола!</target>
+        <target>Моля, въведи твоята парола!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">37</context>
@@ -350,7 +350,7 @@
         <source>or continue with</source>
 
 
-        <target>или продължете с</target>
+        <target>или продължи с</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">55</context>
@@ -372,7 +372,7 @@
       <trans-unit id="891ffbf685c3aa0013f1e046e223592e797b04d0" datatype="html">
         <source>Secured login TODO</source>
 
-        <target>Защитено влизане TODO</target>
+        <target>Защитено влизане</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/login/login.component.html</context>
           <context context-type="linenumber">63</context>
@@ -428,7 +428,7 @@
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
           <context context-type="linenumber">22</context>
         </context-group>
-        <target>Моля, въведете вашето първо име</target>
+        <target>Моля, въведи твоето първо име</target>
       </trans-unit>
       <trans-unit id="5f8b0eaaa88e20d380e550446eb08777cf6af275" datatype="html">
         <source>Last name is too short</source>
@@ -452,7 +452,7 @@
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
           <context context-type="linenumber">34</context>
         </context-group>
-        <target>Моля, въведете вашето фамилно име</target>
+        <target>Моля, въведи твоето фамилно име</target>
       </trans-unit>
       <trans-unit id="bf146487ed9907e96dae10cab862ca04a82ca753" datatype="html">
         <source>Use at least 8 characters for password</source>
@@ -468,7 +468,7 @@
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
           <context context-type="linenumber">71</context>
         </context-group>
-        <target>Моля, потвърдете паролата си!</target>
+        <target>Моля, потвърди паролата си!</target>
       </trans-unit>
       <trans-unit id="e31c2e5ff1d840926820e83c1666b92b7bda25a9" datatype="html">
         <source>Two passwords that you enter is inconsistent!</source>
@@ -476,7 +476,7 @@
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
           <context context-type="linenumber">72</context>
         </context-group>
-        <target>Две пароли, които въвеждате, са непоследователни!</target>
+        <target>Паролите не съвпадат!</target>
       </trans-unit>
       <trans-unit id="b8982439bd912ae48ecaf43d41d819d96fe8e01b" datatype="html">
         <source>Secured register TODO</source>
@@ -484,11 +484,10 @@
           <context context-type="sourcefile">app/modules/auth/register/register.component.html</context>
           <context context-type="linenumber">88</context>
         </context-group>
-        <target>Защитена регистрация TODO</target>
+        <target>Защитена регистрация</target>
       </trans-unit>
       <trans-unit id="saveBtnText" datatype="html">
         <source>Save</source>
-        <target state="new">Save</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/labeled-text/labeled-text.component.html</context>
           <context context-type="linenumber">20</context>
@@ -535,7 +534,7 @@
           <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
-        <target>Изпратихме ви имейл за потвърждение, проверете входящата си поща, за да го потвърдите.</target>
+        <target>Изпратихме ти имейл за потвърждение, провери входящата си поща, за да го потвърдиш.</target>
       </trans-unit>
       <trans-unit id="5bcd7705bf096c58f0eb89bf0bfe491db53b0444" datatype="html">
         <source>Your profile has no email, provide one please:</source>
@@ -543,11 +542,11 @@
           <context context-type="sourcefile">app/modules/auth/verify-email/verify-email.component.html</context>
           <context context-type="linenumber">23</context>
         </context-group>
-        <target>Потребителският ви профил няма имейл, въведете имейл, моля:</target>
+        <target>Потребителският ти профил няма имейл, въведи имейл, моля:</target>
       </trans-unit>
       <trans-unit id="2101c58325f68fc35c315a9b71e93bd893a872ff" datatype="html">
         <source>Restore password</source>
-        <target state="new">Restore password</target>
+        <target>Възстанови парола</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/restore/restore.component.html</context>
           <context context-type="linenumber">6</context>
@@ -555,7 +554,7 @@
       </trans-unit>
       <trans-unit id="d5cec7468241d72cafd86ad1af6d55b09a6e3ae5" datatype="html">
         <source>Restore</source>
-        <target state="new">Restore</target>
+        <target>Възстанови</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/auth/restore/restore.component.html</context>
           <context context-type="linenumber">27</context>
@@ -577,7 +576,7 @@
           <context context-type="sourcefile">app/modules/messages/messages-detail/messages-detail.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
-        <target>Отидете на потребителския профил</target>
+        <target>Отвори потребителския профил</target>
       </trans-unit>
       <trans-unit id="lastSeenUserText" datatype="html">
         <source>Last seen</source>
@@ -653,7 +652,7 @@
 
         <note priority="1" from="description">Text is diaplayed on tooltip then user hovers image in carousel images list</note>
         <note priority="1" from="meaning">Go to carousel image text</note>
-        <target>Отиди на изображение</target>
+        <target>Отвори изображение</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/carousel/carousel.component.html</context>
           <context context-type="linenumber">54</context>
@@ -692,7 +691,7 @@
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
-        <target>Въведете ново съобщение</target>
+        <target>Въведи ново съобщение</target>
       </trans-unit>
       <trans-unit id="b1a23253e0fc0295ea6a2dd1398aa21fff478f3a" datatype="html">
         <source>Hey, would you tell author about this?</source>
@@ -955,7 +954,7 @@
         </context-group>
         <note priority="1" from="description">Asking user to select tags</note>
         <note priority="1" from="meaning">Select tags text</note>
-        <target>Изберете маркери</target>
+        <target>Избери маркери</target>
       </trans-unit>
       <trans-unit id="f462c96fbe17cc89fc9893ab5293be90d4c8b081" datatype="html">
         <source>Send email</source>
@@ -1025,7 +1024,7 @@
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">25</context>
         </context-group>
-        <target>Актуализация</target>
+        <target>Редактирай</target>
       </trans-unit>
       <trans-unit id="formErrorTagsArrayIsTooShort" datatype="html">
         <source>Select more tags</source>
@@ -1035,7 +1034,7 @@
         </context-group>
         <note priority="1" from="description">tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Изберете още маркери</target>
+        <target>Избери още маркери</target>
       </trans-unit>
       <trans-unit id="formErrorTagsArrayIsTooLong" datatype="html">
         <source>Too much tags selected, reduce tags count</source>
@@ -1055,7 +1054,7 @@
         </context-group>
         <note priority="1" from="description">tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Изберете поне 3 маркера</target>
+        <target>Избери поне 3 маркера</target>
       </trans-unit>
       <trans-unit id="submitFeedPostOnCtrlEnterKeyDown" datatype="html">
         <source>Post on Ctrl + Enter</source>
@@ -1063,7 +1062,7 @@
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">60</context>
         </context-group>
-        <target>Публикувай Ctrl + Enter</target>
+        <target>Публикувай при Ctrl + Enter</target>
       </trans-unit>
       <trans-unit id="submitNewPost" datatype="html">
         <source>Post</source>
@@ -1079,7 +1078,7 @@
           <context context-type="sourcefile">app/modules/profile/feed/feed-post/feed-post.component.html</context>
           <context context-type="linenumber">62</context>
         </context-group>
-        <target>Актуализация</target>
+        <target>Редактирай</target>
       </trans-unit>
       <trans-unit id="selectCategoryText" datatype="html">
         <source>Select category</source>
@@ -1089,7 +1088,7 @@
         </context-group>
         <note priority="1" from="description">Asking user to select category</note>
         <note priority="1" from="meaning">Select category text</note>
-        <target>Изберете категория</target>
+        <target>Избери категория</target>
       </trans-unit>
       <trans-unit id="minPriceText" datatype="html">
         <source>Min price</source>
@@ -1303,7 +1302,7 @@
 
 
         <note priority="1" from="description">Tooltip text on created_at date hover</note>
-        <target>Създаден</target>
+        <target>Създадено</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/shared/general-info-card/general-info-card.component.html</context>
           <context context-type="linenumber">16</context>
@@ -1409,7 +1408,7 @@
           <context context-type="sourcefile">app/modules/shared/author-card/author-card.component.html</context>
           <context context-type="linenumber">28</context>
         </context-group>
-        <target>Присъедини</target>
+        <target>Присъединени</target>
       </trans-unit>
       <trans-unit id="9b475bb63675494482effde989c7f1f18c232620" datatype="html">
         <source>Contacts</source>
@@ -1633,7 +1632,7 @@
           <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">Card title for new service form</note>
-        <target>Добавете услуга</target>
+        <target>Добави услуга</target>
       </trans-unit>
       <trans-unit id="editServiceText" datatype="html">
         <source>Edit service
@@ -1805,7 +1804,7 @@
 
         <note priority="1" from="description">Service title is not provided, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валидно заглавие</target>
+        <target>Моля, въведи валидно заглавие</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">21</context>
@@ -1849,7 +1848,7 @@
 
         <note priority="1" from="description">Service price is not provided, Ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валидно заглавие</target>
+        <target>Моля, въведи валидно заглавие</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">44</context>
@@ -1932,7 +1931,7 @@
 
         <note priority="1" from="description">Service description is empty or invalid, ask user for valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валидно описание</target>
+        <target>Моля, въведи валидно описание</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">102</context>
@@ -1952,7 +1951,7 @@
 
         <note priority="1" from="description">Service tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Изберете още маркери</target>
+        <target>Избери още маркери</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">118</context>
@@ -1974,7 +1973,7 @@
 
         <note priority="1" from="description">Service tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Изберете маркери за нова услуга</target>
+        <target>Избери маркери за нова услуга</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">124</context>
@@ -1994,7 +1993,7 @@
 
         <note priority="1" from="description">Service images array is too short, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Добавете още изображения</target>
+        <target>Добави още изображения</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">139</context>
@@ -2045,7 +2044,7 @@
 
         <note priority="1" from="description">Service contact phone is invalid, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валиден телефон</target>
+        <target>Моля, въведи валиден телефон</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">166</context>
@@ -2102,7 +2101,7 @@
           <context context-type="linenumber">35</context>
         </context-group>
         <note priority="1" from="description">Card title for promote service select plan</note>
-        <target>Изберете План</target>
+        <target>Избери План</target>
       </trans-unit>
       <trans-unit id="orUseCouponText" datatype="html">
         <source>or use a coupon code</source>
@@ -2196,7 +2195,7 @@
           <context context-type="linenumber">153</context>
         </context-group>
         <note priority="1" from="description">User has no email</note>
-        <target>С цел популяризиране на a услуга, която трябва да знаем вашата електронна поща. Моля, актуализирайте потребителския си профил или предоставете имейла си в следната форма:</target>
+        <target>С цел популяризиране на a услуга трябва да знаем вашата електронна поща. Моля, актуализирайте потребителския си профил или предоставете имейла си в следната форма:</target>
       </trans-unit>
       <trans-unit id="provideEmailText" datatype="html">
         <source>Provide email</source>
@@ -2208,7 +2207,7 @@
           <context context-type="sourcefile">app/modules/seeks/components/promote-seek/promote-seek.component.html</context>
           <context context-type="linenumber">178</context>
         </context-group>
-        <target>Въведете имейл</target>
+        <target>Въведи имейл</target>
       </trans-unit>
       <trans-unit id="couponCodeLabel" datatype="html">
         <source>Coupon code</source>
@@ -2241,7 +2240,7 @@
           <context context-type="linenumber">11</context>
         </context-group>
         <note priority="1" from="description">Use coupon button text</note>
-        <target>Използвайте талон</target>
+        <target>Използвай талон</target>
       </trans-unit>
       <trans-unit id="cancelText" datatype="html">
         <source>Cancel</source>
@@ -2332,7 +2331,7 @@
           <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">Card title for new seek form</note>
-        <target>Добавете търсене</target>
+        <target>Добави търсене</target>
       </trans-unit>
       <trans-unit id="editSeekText" datatype="html">
         <source>Edit seek
@@ -2382,7 +2381,7 @@
 
         <note priority="1" from="description">Seek title is not provided, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валидно заглавие</target>
+        <target>Моля, въведи валидно заглавие</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">21</context>
@@ -2426,7 +2425,7 @@
 
         <note priority="1" from="description">Seek max_price is not provided, Ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валидно заглавие</target>
+        <target>Моля, въведи валидно заглавие</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">45</context>
@@ -2508,7 +2507,7 @@
 
         <note priority="1" from="description">Seek description is empty or invalid, ask user for valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валидно описание</target>
+        <target>Моля, въведи валидно описание</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">103</context>
@@ -2528,7 +2527,7 @@
 
         <note priority="1" from="description">Seek tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Изберете още маркери</target>
+        <target>Избери още маркери</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">119</context>
@@ -2552,7 +2551,7 @@
 
         <note priority="1" from="description">Seek tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Изберете тагове за ново търсене</target>
+        <target>Избери тагове за ново търсене</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">126</context>
@@ -2572,7 +2571,7 @@
 
         <note priority="1" from="description">Seek images array is too short, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Добавете още изображения</target>
+        <target>Добави още изображения</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">141</context>
@@ -2594,7 +2593,7 @@
 
         <note priority="1" from="description">Seek images array is invalid or empty, ask user to add images</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, добавете изображения за ново търсене</target>
+        <target>Моля, добави изображения за ново търсене</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">147</context>
@@ -2623,7 +2622,7 @@
 
         <note priority="1" from="description">Seek contact phone is invalid, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведете валиден телефон</target>
+        <target>Моля, въведи валиден телефон</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">168</context>
@@ -2671,7 +2670,7 @@
           <context context-type="linenumber">35</context>
         </context-group>
         <note priority="1" from="description">Card title for promote seek select plan</note>
-        <target>Изберете План</target>
+        <target>Избери План</target>
       </trans-unit>
       <trans-unit id="promoteSeekBoostingProcessText" datatype="html">
         <source>
@@ -2866,7 +2865,7 @@
           <context context-type="sourcefile">src/app/modules/profile/feed/feed-post/feed-post.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Въведете текст или добавете изображения</target>
+        <target>Въведи текст или добавете изображения</target>
       </trans-unit>
       <trans-unit id="0e7b1e9d78bbbfed34e74f0fd67ed51a0ccd0fab" datatype="html">
         <source>A post for editing is not provided</source>
@@ -3230,7 +3229,7 @@
           <context context-type="sourcefile">src/app/modules/services/components/services-list/services-list.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Описание на услугите за търсене</target>
+        <target>Услугите в България</target>
       </trans-unit>
       <trans-unit id="4c745da22a97f302dc6483986c9bb6c605095867" datatype="html">
         <source>You can select 5 tags max</source>
@@ -3238,7 +3237,7 @@
           <context context-type="sourcefile">src/app/modules/shared/filters/list-filters/list-filters.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Можете да изберете максимум 5 маркера</target>
+        <target>Може да избереш максимум 5 маркера</target>
       </trans-unit>
       <trans-unit id="districtText" datatype="html">
         <source>District</source>
@@ -3255,7 +3254,7 @@
           <context context-type="sourcefile">src/app/modules/shared/filters/location-search/location-search.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Изберете Местоположение</target>
+        <target>Избери Местоположение</target>
       </trans-unit>
       <trans-unit id="warnUserAboutAbilityToSearchLocationInSearchSelector" datatype="html">
         <source>You can search location by name</source>
@@ -3264,7 +3263,7 @@
           <context context-type="linenumber">1</context>
         </context-group>
         <note priority="1" from="description">Notify user that he/she can search location by name instead of scrolling down a lot of time</note>
-        <target>Можете да търсите местоположение по име</target>
+        <target>Може да търсиш местоположение по име</target>
       </trans-unit>
       <trans-unit id="c2ebb69204b9def3889dea10839730db7fc5c786" datatype="html">
         <source>You can only upload JPG or PNG file!</source>
@@ -3272,7 +3271,7 @@
           <context context-type="sourcefile">src/app/modules/shared/images-selector/images-selector.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Може да качвате само JPG или PNG файл!</target>
+        <target>Може да качваш само JPG или PNG файл!</target>
       </trans-unit>
       <trans-unit id="27cbca838216e9ca5742662f4fd0f7b352b8f010" datatype="html">
         <source>Image must smaller than 5MB!</source>
@@ -3288,7 +3287,7 @@
           <context context-type="sourcefile">src/app/modules/shared/pay-form/pay-form.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Неправилно плащане. Свържете се с администратора.</target>
+        <target>Неправилно плащане. Свържи се с администратора.</target>
       </trans-unit>
       <trans-unit id="5b3a111c93e7ad4e402ef5b55c0ee25cb7e8ed03" datatype="html">
         <source>Payment error:</source>
@@ -3376,7 +3375,7 @@
           <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Не можете да промените аватара на този потребител!</target>
+        <target>Не можеш да променяш аватара на този потребител!</target>
       </trans-unit>
       <trans-unit id="uploadImageErrorBecauseFileType" datatype="html">
         <source>You can only upload JPG / PNG file!</source>
@@ -3384,7 +3383,7 @@
           <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Можете да качвате само JPG / PNG файл!</target>
+        <target>Можеш да качваш само JPG / PNG файл!</target>
       </trans-unit>
       <trans-unit id="uploadImageErrorBecauseSize" datatype="html">
         <source>Image must smaller than 3MB!</source>
@@ -3400,7 +3399,7 @@
           <context context-type="sourcefile">src/app/modules/shared/profile-avatar-uploader/profile-avatar-uploader.component.ts</context>
           <context context-type="linenumber">1</context>
         </context-group>
-        <target>Аватарът е успешно актуализиран</target>
+        <target>Аватарът е успешно редактиран</target>
       </trans-unit>
       <trans-unit id="errorUpdatingAvatar" datatype="html">
         <source>Error uploading new avatar</source>
