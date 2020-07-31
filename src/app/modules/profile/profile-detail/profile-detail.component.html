@@ -3,8 +3,8 @@
     <div nz-row nzType="flex" nzJustify="space-between">
       <div nz-col nzXs="24" nzSm="16" class="left-column">
         <labeled-text [editable]="this.user.id === this.userService?.currentUser?.id" #bioLabeledText maxLength="500"
-          minLength="3" (onChange)="onUserChange(bioLabeledText, {bio: $event})" i18n-label="@@userbioLabel" label="User bio"
-          [text]="user.bio || 'Empty'" [richText]="true">
+          minLength="3" (onChange)="onUserChange(bioLabeledText, {bio: $event})" i18n-label="@@userbioLabel"
+          label="User bio" [text]="user.bio || 'Empty'" [richText]="true">
         </labeled-text>
         <labeled-text *ngIf="this.user.id === this.userService?.currentUser?.id" [editable]="true" #emailLabeledText
           (onChange)="onUserChange(emailLabeledText, {email: $event})" i18n-label="@@emailLabel" label="Email"
@@ -33,8 +33,8 @@
   <nz-page-header-footer style="padding-top: 0">
     <nz-tabset [nzSelectedIndex]="selectedTabsIndex">
       <nz-tab (nzClick)="changeTab('feed')" i18n-nzTitle="@@feedTab" nzTitle="Feed"></nz-tab>
-      <nz-tab (nzClick)="changeTab('services')" i18n-nzTitle="@@servicesTab" nzTitle="Services"></nz-tab>
-      <nz-tab (nzClick)="changeTab('seeks')" i18n-nzTitle="@@seeksTab" nzTitle="Seeks"></nz-tab>
+      <nz-tab (nzClick)="changeTab('services')" i18n-nzTitle="@@servicesTab" nzTitle="My Services"></nz-tab>
+      <nz-tab (nzClick)="changeTab('seeks')" i18n-nzTitle="@@seeksTab" nzTitle="My Seeks"></nz-tab>
       <!-- <nz-tab (nzClick)="changeTab('offers')" i18n-nzTitle="@@offersTab" nzTitle="Offers"></nz-tab>
       <nz-tab (nzClick)="changeTab('reviews')" i18n-nzTitle="@@reviewsTab" nzTitle="Reviews"></nz-tab> -->
     </nz-tabset>

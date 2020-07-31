@@ -11,10 +11,15 @@
   <nz-input-group *ngIf="edit" [nzSuffix]="suffixIconSearch">
     <input *ngIf="!richText" type="text" nz-input [ngModel]="text" [disabled]="loading" (keyup.enter)="changeText()"
       [minlength]="minLength" [maxlength]="maxLength" (ngModelChange)="setNewText($event)" #textInput />
-    <quill-editor class="quill-editor" *ngIf="richText" [sanitize]="true" [ngModel]="text" [disabled]="loading" (ngModelChange)="setNewText($event)"></quill-editor>
-    </nz-input-group>
+    <quill-editor class="quill-editor" *ngIf="richText" [sanitize]="true" [ngModel]="text" [disabled]="loading"
+      (ngModelChange)="setNewText($event)"></quill-editor>
+  </nz-input-group>
   <ng-template #suffixIconSearch let-textInput>
-    <i *ngIf="!loading" nz-icon nzType="check" class="save-btn" (click)="changeText()"></i>
+    <button nz-button nzType="primary" nzSize="small" *ngIf="!loading" class="save-btn" (click)="changeText()"><i
+        nz-icon nzType="check"></i>
+      <span i18n="@@saveBtnText">Save</span>
+    </button>
+
     <i *ngIf="loading" nz-icon nzType="loading"></i>
   </ng-template>
 </div>

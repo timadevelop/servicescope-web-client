@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LabeledTextComponent } from './labeled-text.component';
-import { NzInputModule, NzIconModule } from 'ng-zorro-antd';
+import { NzInputModule, NzIconModule, NzButtonModule } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { RichTextEditorModule } from '../rich-text-editor/rich-text-editor.module';
 
@@ -11,7 +11,8 @@ import { RichTextEditorModule } from '../rich-text-editor/rich-text-editor.modul
     FormsModule,
     NzInputModule,
     NzIconModule,
-    RichTextEditorModule
+    RichTextEditorModule,
+    NzButtonModule,
   ],
   declarations: [LabeledTextComponent],
   exports: [LabeledTextComponent]

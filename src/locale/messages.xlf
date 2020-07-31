@@ -406,6 +406,13 @@
           <context context-type="linenumber">88</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="saveBtnText" datatype="html">
+        <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/modules/shared/labeled-text/labeled-text.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="3aa572549b8f3df5b7c1b0558d9c15075f861f86" datatype="html">
         <source>Verify email status</source>
         <context-group purpose="location">
@@ -606,7 +613,7 @@
         <source>User bio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="emailLabel" datatype="html">
@@ -631,14 +638,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="servicesTab" datatype="html">
-        <source>Services</source>
+        <source>My Services</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="seeksTab" datatype="html">
-        <source>Seeks</source>
+        <source>My Seeks</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/profile/profile-detail/profile-detail.component.html</context>
           <context context-type="linenumber">37</context>
@@ -1085,11 +1092,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">69</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">75</context>
+          <context context-type="linenumber">74</context>
         </context-group>
         <note priority="1" from="description">Text is shown to user if location is not pointed at item or form</note>
         <note priority="1" from="meaning">Whole country text</note>
@@ -1102,11 +1109,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">62</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">67</context>
         </context-group>
         <note priority="1" from="description">Tooltip text when user hovers item location element</note>
       </trans-unit>
@@ -1126,11 +1133,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">75</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">80</context>
         </context-group>
         <note priority="1" from="description">Tooltip text on created_at date hover</note>
       </trans-unit>
@@ -1142,11 +1149,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
-          <context context-type="linenumber">82</context>
+          <context context-type="linenumber">81</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">86</context>
         </context-group>
         <note priority="1" from="description"> For example for service list item user hovers id number and gets tooltip that this number is id</note>
         <note priority="1" from="meaning">Tooltip text on item id element hover</note>
@@ -1261,7 +1268,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/services-list-item/services-list-item.component.html</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">94</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
@@ -1269,7 +1276,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">99</context>
         </context-group>
         <note priority="1" from="description">Tooltip text on item price hover</note>
       </trans-unit>
@@ -1975,7 +1982,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/seeks-list-item/seeks-list-item.component.html</context>
-          <context context-type="linenumber">104</context>
+          <context context-type="linenumber">103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="promotedSeekIconTooltipText" datatype="html">

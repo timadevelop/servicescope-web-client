@@ -36,8 +36,10 @@ export class LabeledTextComponent implements OnInit {
     this.newText = t;
   }
   changeText() {
-    if (this.text != this.newText) {
+    if (this.newText && this.text != this.newText) {
       this.onChange.emit(this.newText);
+    } else {
+      this.edit = false;
     }
   }
 }
