@@ -13,7 +13,8 @@
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --aot --prod && ng run saasWebClient:server:production",
     "build:ssr-bg": "npm run build:client-and-server-bundles-bg && npm run compile:server",
-    "build:client-and-server-bundles-bg": "ng build --configuration=production-bg && ng run saasWebClient:server:production-bg"
+    "build:client-and-server-bundles-bg": "ng build --configuration=production-bg && ng run saasWebClient:server:production-bg",
+    "extract-i18n": "ng xi18n saasWebClient --i18n-format xlf --output-path locale --i18n-locale en && ng run saasWebClient:xliffmerge"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,7 @@
     "@nguniversal/common": "^9.0.2",
     "@nguniversal/express-engine": "^8.1.1",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
+    "@ngx-i18nsupport/tooling": "^8.0.3",
     "@ngx-translate/i18n-polyfill": "^1.0.0",
     "@types/gapi": "0.0.39",
     "@types/gapi.auth2": "0.0.50",
@@ -58,6 +60,7 @@
     "@angular/cli": "~8.3.8",
     "@angular/compiler-cli": "~8.2.9",
     "@angular/language-service": "~8.2.9",
+    "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6",
     "@types/jasmine": "~3.4.2",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~12.7.11",

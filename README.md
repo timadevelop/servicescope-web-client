@@ -21,6 +21,9 @@ Locale-specific build: `npm run build:ssr-bg` to build the application using Bul
 
 This project doesn't support dynamic language change, each locale should be served by a different server.
 
+
+`./node_modules/.bin/ngx-extractor -i src/**/*.ts -f xlf -o src/locale/messages.bg.xlf` to generate sources from ts files.
+
 ### Development and production server
 
 Use Docker, docker-compose and .env file for serving: both for development and production mode.
