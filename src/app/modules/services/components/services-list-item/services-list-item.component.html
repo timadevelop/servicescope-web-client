@@ -1,5 +1,5 @@
-<nz-list-item class="services-list-item stretch-list-item" [class.promoted]="promoted || item.is_promoted" [nzContent]="null"
-  [nzActions]="">
+<nz-list-item class="services-list-item stretch-list-item" [class.promoted]="promoted || item.is_promoted"
+  [nzContent]="null" [nzActions]="">
   <!-- Actions -->
   <ng-template #priceAction>
 
@@ -11,22 +11,22 @@
     <ng-template #avatar>
       <a [routerLink]="[modelName ? '/' + modelName : './', item.id]" style="cursor: pointer;">
         <nz-avatar [nzSize]="128" nzShape="square" [nzSrc]="item?.images[0] ? item.images[0].image : null">
-z        </nz-avatar>
+        </nz-avatar>
       </a>
     </ng-template>
 
     <ng-template #itemTitle>
       <div nz-row class="col-below-mobile" nzType="flex" nzJustify="space-between" nzAlign="start">
-        <i *ngIf="promoted || item.is_promoted" class="promoted-sign" nz-icon [nzType]="'dollar'"
-          [nzTheme]="'twotone'" [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedServiceIconTooltipText"
+        <i *ngIf="promoted || item.is_promoted" class="promoted-sign" nz-icon [nzType]="'dollar'" [nzTheme]="'twotone'"
+          [nzTwotoneColor]="'#f9ca24'" nz-tooltip i18n-nzTitle="@@promotedServiceIconTooltipText"
           nzTitle="Promoted service"></i>
         <h2 nz-col class="title">
           <a class="title"
             [routerLink]="[modelName ? '/' + modelName : './', item.id]">{{ item.title | slice:0:55 }}{{ item.title.length > 55 ? '...' : ''}}</a>
         </h2>
         <div nz-col class="price " *ngIf="!tds.isMobile" nz-tooltip
-          i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price"><i nz-icon
-            nzType="euro" style="margin-right: 8px;"></i>{{item.price + ' ' + item.price_currency}}</div>
+          i18n-nzTitle="Tooltip text on item price hover@@priceTooltipText" nzTitle="Price"><i nz-icon nzType="euro"
+            style="margin-right: 8px;"></i>{{item.price + ' ' + item.price_currency}}</div>
       </div>
     </ng-template>
 
@@ -51,9 +51,8 @@ z        </nz-avatar>
       <div nz-row nzType="flex" nzJustify="space-between" nzAlign="bottom">
         <div nz-col class="description" nzType="flex" nzAlign="space-between" nzJustify="space-between">
           <div class="description-text">
-            <p><a [routerLink]="['', 'services']" [queryParams]="{category: item.category}">{{item.category}}</a><i nz-icon
-                style="font-size: 10px; margin: 0 5px;" nzType="double-right"
-                nzTheme="outline"></i>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}
+            <p>
+              <a [routerLink]="['', 'services']" [queryParams]="{category: item.category}">{{item.category}}</a>
             </p>
           </div>
           <ng-container *ngTemplateOutlet="tags"></ng-container>

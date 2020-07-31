@@ -56,9 +56,8 @@
       <div nz-row nzType="flex" nzJustify="space-between" nzAlign="bottom">
         <div nz-col class="description" nzType="flex" nzAlign="space-between" nzJustify="space-between">
           <div class="description-text">
-            <p><a [routerLink]="['', 'services']" [queryParams]="{category: item.category}">{{item.category}}</a><i nz-icon
-                style="font-size: 10px; margin: 0 5px;" nzType="double-right"
-                nzTheme="outline"></i>{{item.description | slice:0:80 }}{{item.description.length > 80 ? '...' : ''}}
+            <p>
+              <a [routerLink]="['', 'services']" [queryParams]="{category: item.category}">{{item.category}}</a>
             </p>
           </div>
           <ng-container *ngTemplateOutlet="tags"></ng-container>
