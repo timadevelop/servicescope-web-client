@@ -692,7 +692,7 @@
           <context context-type="sourcefile">app/modules/messages/messages-detail/new-message-form/new-message-form.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
-        <target>Въведи ново съобщение</target>
+        <target>Въведете ново съобщение</target>
       </trans-unit>
       <trans-unit id="b1a23253e0fc0295ea6a2dd1398aa21fff478f3a" datatype="html">
         <source>Hey, would you tell author about this?</source>
@@ -955,7 +955,7 @@
         </context-group>
         <note priority="1" from="description">Asking user to select tags</note>
         <note priority="1" from="meaning">Select tags text</note>
-        <target>Избери маркери</target>
+        <target>Изберете маркери</target>
       </trans-unit>
       <trans-unit id="f462c96fbe17cc89fc9893ab5293be90d4c8b081" datatype="html">
         <source>Send email</source>
@@ -1035,7 +1035,7 @@
         </context-group>
         <note priority="1" from="description">tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Избери още маркери</target>
+        <target>Изберете още маркери</target>
       </trans-unit>
       <trans-unit id="formErrorTagsArrayIsTooLong" datatype="html">
         <source>Too much tags selected, reduce tags count</source>
@@ -1055,7 +1055,7 @@
         </context-group>
         <note priority="1" from="description">tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Избери поне 3 маркера</target>
+        <target>Изберете поне 3 маркера</target>
       </trans-unit>
       <trans-unit id="submitFeedPostOnCtrlEnterKeyDown" datatype="html">
         <source>Post on Ctrl + Enter</source>
@@ -1089,7 +1089,7 @@
         </context-group>
         <note priority="1" from="description">Asking user to select category</note>
         <note priority="1" from="meaning">Select category text</note>
-        <target>Избери категория</target>
+        <target>Изберете категория</target>
       </trans-unit>
       <trans-unit id="minPriceText" datatype="html">
         <source>Min price</source>
@@ -1805,7 +1805,7 @@
 
         <note priority="1" from="description">Service title is not provided, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведи валидно заглавие</target>
+        <target>Моля, въведете валидно заглавие</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">21</context>
@@ -1849,7 +1849,7 @@
 
         <note priority="1" from="description">Service price is not provided, Ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведи валидно заглавие</target>
+        <target>Моля, въведете валидно заглавие</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">44</context>
@@ -1952,7 +1952,7 @@
 
         <note priority="1" from="description">Service tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Избери още маркери</target>
+        <target>Изберете още маркери</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">118</context>
@@ -1974,7 +1974,7 @@
 
         <note priority="1" from="description">Service tags array is empty or invalid, ask user to select tags</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Избери маркери за нова услуга</target>
+        <target>Изберете маркери за нова услуга</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/services/components/new-service-form/new-service-form.component.html</context>
           <context context-type="linenumber">124</context>
@@ -2382,7 +2382,7 @@
 
         <note priority="1" from="description">Seek title is not provided, ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведи валидно заглавие</target>
+        <target>Моля, въведете валидно заглавие</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">21</context>
@@ -2426,7 +2426,7 @@
 
         <note priority="1" from="description">Seek max_price is not provided, Ask user to provide valid one</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Моля, въведи валидно заглавие</target>
+        <target>Моля, въведете валидно заглавие</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">45</context>
@@ -2528,7 +2528,7 @@
 
         <note priority="1" from="description">Seek tags array is too short</note>
         <note priority="1" from="meaning">Error message</note>
-        <target>Избери още маркери</target>
+        <target>Изберете още маркери</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/modules/seeks/components/new-seek-form/new-seek-form.component.html</context>
           <context context-type="linenumber">119</context>
