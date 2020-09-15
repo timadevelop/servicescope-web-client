@@ -17,7 +17,7 @@
 
 - 🇹 Typescript
 - 🍉 Angular
-- 🌎 Universal SSR
+- 🌎 Universal SSR without flickering 🙃
 - 🌍 i18n, ngx-translate
 - 🐋 Docker
 
