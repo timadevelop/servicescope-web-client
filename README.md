@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://ng.ant.design">
+  <a href="">
     <img width="230" src="./src/assets/images/logo.jpg">
   </a>
 </p>
